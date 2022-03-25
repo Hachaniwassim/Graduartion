@@ -3,11 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { LeftSlideBarComponent } from './left-slide-bar/left-slide-bar.component';
+import { MainTemplateComponent } from './main-template/main-template.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
+    LeftSlideBarComponent,
+    MainTemplateComponent
   ],
   imports: [
     BrowserModule
