@@ -7,6 +7,7 @@ import { LeftSlideBarComponent } from './left-slide-bar/left-slide-bar.component
 import { MainTemplateComponent } from './main-template/main-template.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
+import { NotfoundComponent } from './notfound/notfound.component';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { HomeComponent } from './home/home.component';
     AppComponent,
     NavbarComponent,
     LeftSlideBarComponent,
+    NotfoundComponent,
 
   ],
   imports: [
