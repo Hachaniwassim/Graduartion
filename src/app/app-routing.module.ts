@@ -1,10 +1,11 @@
-import { NgModule } from '@angular/core';
+import { NgModule} from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from "@angular/forms";
 import { CommonModule } from '@angular/common';
 import { MainTemplateComponent } from "./main-template/main-template.component";
 import { HomeComponent } from "./home/home.component";
 import { NotfoundComponent } from "./notfound/notfound.component";
+import { MaterialModule } from './material/material.module';
 
 
 
@@ -29,7 +30,12 @@ const routes: Routes = [
 @NgModule({
   declarations: [
   ],
-  imports: [RouterModule.forRoot(routes),FormsModule,CommonModule],
+  imports: [
+    MaterialModule,
+    RouterModule.forRoot(routes),
+    FormsModule,
+    CommonModule
+  ],
   exports: [RouterModule],
 
 
