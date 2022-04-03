@@ -12,6 +12,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
 import { MaterialModule } from './material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PossupportComponent } from './possupport/possupport.component';
+import { PoscontactsComponent } from './poscontacts/poscontacts.component';
+import { PoshomeComponent } from './poshome/poshome.component';
+import { PosactualityComponent } from './posactuality/posactuality.component';
+import { PosnewsComponent } from './posnews/posnews.component';
+import { PosproductsComponent } from './posproducts/posproducts.component';
+import { PosproductlistComponent } from './posproductlist/posproductlist.component';
+import { PosmanagementComponent } from './posmanagement/posmanagement.component';
+import { PosdealersComponent } from './posdealers/posdealers.component';
+import { PoswhorareweComponent } from './poswhorarewe/poswhorarewe.component';
+import { PosusefulllinksComponent } from './posusefulllinks/posusefulllinks.component';
+import { PosdatabaseComponent } from './posdatabase/posdatabase.component';
+import { PoscookiesComponent } from './poscookies/poscookies.component';
+import { PrivacypolicyComponent } from './privacypolicy/privacypolicy.component';
 
 
 @NgModule({
@@ -20,6 +34,20 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NavbarComponent,
     LeftSlideBarComponent,
     NotfoundComponent,
+    PossupportComponent,
+    PoscontactsComponent,
+    PoshomeComponent,
+    PosactualityComponent,
+    PosnewsComponent,
+    PosproductsComponent,
+    PosproductlistComponent,
+    PosmanagementComponent,
+    PosdealersComponent,
+    PoswhorareweComponent,
+    PosusefulllinksComponent,
+    PosdatabaseComponent,
+    PoscookiesComponent,
+    PrivacypolicyComponent,
 
 
   ],

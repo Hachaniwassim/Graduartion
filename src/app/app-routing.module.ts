@@ -6,6 +6,21 @@ import { MainTemplateComponent } from "./main-template/main-template.component";
 import { HomeComponent } from "./home/home.component";
 import { NotfoundComponent } from "./notfound/notfound.component";
 import { MaterialModule } from './material/material.module';
+import { PosactualityComponent } from './posactuality/posactuality.component';
+import { PoscontactsComponent } from './poscontacts/poscontacts.component';
+import { PoscookiesComponent } from './poscookies/poscookies.component';
+import { PosdatabaseComponent } from './posdatabase/posdatabase.component';
+import { PosdealersComponent } from './posdealers/posdealers.component';
+import { PosmanagementComponent } from './posmanagement/posmanagement.component';
+import { PosnewsComponent } from './posnews/posnews.component';
+import { PosproductlistComponent } from './posproductlist/posproductlist.component';
+import { PosproductsComponent } from './posproducts/posproducts.component';
+import { PossupportComponent } from './possupport/possupport.component';
+import { PosusefulllinksComponent } from './posusefulllinks/posusefulllinks.component';
+import { PoswhorareweComponent } from './poswhorarewe/poswhorarewe.component';
+
+
+
 
 
 
@@ -21,6 +36,21 @@ const routes: Routes = [
 { path: 'base-de-donnes', loadChildren: () => import('./base-de-donnes/base-de-donnes.module').then(m => m.BaseDeDonnesModule) },
 { path: 'biscuits', loadChildren: () => import('./biscuits/biscuits.module').then(m => m.BiscuitsModule) },
 { path: 'confidentialite', loadChildren: () => import('./confidentialite/confidentialite.module').then(m => m.ConfidentialiteModule) },
+{ path : "posactuality" ,component :PosactualityComponent},
+{ path : "Poscontacts" ,component :PoscontactsComponent},
+{ path : "poscookies" ,component :PoscookiesComponent},
+{ path : "posdatabase" ,component :PosdatabaseComponent},
+{ path : "posdealers" ,component :PosdealersComponent},
+{ path : "posmanagement" ,component :PosmanagementComponent},
+{ path : "posnews" ,component :PosnewsComponent},
+{ path : "posproductlist" ,component :PosproductlistComponent},
+{ path : "posproducts" ,component :PosproductsComponent},
+{ path : "possupport" ,component :PossupportComponent},
+{ path : "posusefulllinks" ,component :PosusefulllinksComponent},
+{ path : "poswhoarewe" ,component :PoswhorareweComponent},
+
+
+
 { path: '**', component: NotfoundComponent },
 
 
