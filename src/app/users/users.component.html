@@ -5,77 +5,35 @@
     <div class="content">
         <div class="container-fluid">
             <!-- START ROW -->
-<div class="row">
-    <div class="col-xl-12">
-        <div class="card m-b-30">
+<div class="row" >
+    <div class="col-xl-8">
+        <div class="card m-b-40" >
             <div class="card-body">
-            <div class="row">
+            <div class="row"> 
                 <h4 class="col mt-0 header-title mb-4">Liste des utilisateurs</h4>
                 <a  class="col btn btn-outline-success" style="width: 10px;" href=""><span class='material-icons'>add</span>Ajouter un utilisateur</a>
             </div>
-                <div class="table-responsive">
-                    <table class="table table-hover">
+                <div class="table-responsive"  >
+                    <table class="table table-hover" >
+                        <div >
                         <thead>
                             <tr>
-                                <th scope="col">Name</th>
-                                <th scope="col">Status</th>
-                                <th scope="col">Nom</th>
-                                <th scope="col">Prénom</th>
+                                <th scope="col">First Name</th>
+                                <th scope="col">Last name</th>
                                 <th scope="col">Email</th>
-                                <th scope="col" colspan="2">Téléphone</th>
+                                <th scope="col">Phone Number</th>
+                                <th scope="col" colspan="2">Actions</th>
+
 
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody *ngFor="let users of usersList">
                             <tr>
-                                <td>Jassa</td>
-                                <td><span class="badge badge-success">Delivered</span></td>
-                                <td>$9,420,000</td>
-                                <td>
-                                    <div>
-                                        <img src="assets/images/user-2.jpg" alt="" class="thumb-md rounded-circle mr-2"> Jassa
-                                    </div>
-                                </td>
-                                <td>Ludhiana</td>
-                                <td>15/1/2021</td>
+                                <td>{{ users.first_name }}</td>
 
-                                <td>
-                                    <div>
-                                        <a href="#" class="btn btn-primary btn-sm">Edit</a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Jassa</td>
-                                <td><span class="badge badge-warning">Pending</span></td>
-                                <td>$3,120,000</td>
-                                <td>
-                                    <div>
-                                        <img src="assets/images/user-3.jpg" alt="" class="thumb-md rounded-circle mr-2"> Jassa
-                                    </div>
-                                </td>
-                                <td>Ludhiana</td>
-                                <td>16/1/2021</td>
-
-                                <td>
-                                    <div>
-                                        <a href="#" class="btn btn-primary btn-sm">Edit</a>
-                                        <a><mat-icon>edit</mat-icon></a>
-
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Jassa</td>
-                                <td><span class="badge badge-success">Delivered</span></td>
-                                <td>$6,360,000</td>
-                                <td>
-                                    <div>
-                                        <img src="assets/images/user-4.jpg" alt="" class="thumb-md rounded-circle mr-2"> Jassa
-                                    </div>
-                                </td>
-                                <td>Ludhiana</td>
-                                <td>17/1/2021</td>
+                                <td><span >{{ users.last_name }}</span></td>
+                                <td>{{ users.email }}</td>
+                                <td>{{ users.phone }}</td>
 
                                 <td>
                                     <div>
@@ -85,43 +43,9 @@
                                 </td>
                                 
                             </tr>
-                            <tr>
-                                <td>Jassa</td>
-                                <td><span class="badge badge-danger">Cancel</span></td>
-                                <td>$5,200,000</td>
-                                <td>
-                                    <div>
-                                        <img src="assets/images/user-5.jpg" alt="" class="thumb-md rounded-circle mr-2"> Jassa
-                                    </div>
-                                </td>
-                                <td>Ludhiana</td>
-                                <td>18/1/2021</td>
-
-                                <td>
-                                    <div>
-                                        <a href="#" class="btn btn-primary btn-sm">Edit</a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Jassa</td>
-                                <td><span class="badge badge-success">Delivered</span></td>
-                                <td>$7,250,000</td>
-                                <td>
-                                    <div>
-                                        <img src="assets/images/user-6.jpg" alt="" class="thumb-md rounded-circle mr-2"> Jassa
-                                    </div>
-                                </td>
-                                <td>Ludhiana</td>
-                                <td>19/1/2021</td>
-
-                                <td>
-                                    <div>
-                                        <a href="#" class="btn btn-primary btn-sm">Edit</a>
-                                    </div>
-                                </td>
-                            </tr>
+                           
                         </tbody>
+                    </div>
                     </table>
                 </div>
 
@@ -139,4 +63,3 @@
 
 
 
-</div>
