@@ -18,6 +18,9 @@ import { PosproductsComponent } from './posproducts/posproducts.component';
 import { PossupportComponent } from './possupport/possupport.component';
 import { PosusefulllinksComponent } from './posusefulllinks/posusefulllinks.component';
 import { PoswhorareweComponent } from './poswhorarewe/poswhorarewe.component';
+import { PoshomeComponent } from './poshome/poshome.component';
+import { PosprivacyComponent } from './posprivacy/posprivacy.component';
+
 
 
 
@@ -48,6 +51,9 @@ const routes: Routes = [
 { path : "possupport" ,component :PossupportComponent},
 { path : "posusefulllinks" ,component :PosusefulllinksComponent},
 { path : "poswhoarewe" ,component :PoswhorareweComponent},
+{ path : "poshome" ,component :PoshomeComponent},
+{ path : "posprivacy" ,component :PosprivacyComponent},
+
 
 
 

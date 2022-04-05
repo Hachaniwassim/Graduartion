@@ -26,6 +26,7 @@ import { PosusefulllinksComponent } from './posusefulllinks/posusefulllinks.comp
 import { PosdatabaseComponent } from './posdatabase/posdatabase.component';
 import { PoscookiesComponent } from './poscookies/poscookies.component';
 import { PrivacypolicyComponent } from './privacypolicy/privacypolicy.component';
+import { PosprivacyComponent } from './posprivacy/posprivacy.component';
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import { PrivacypolicyComponent } from './privacypolicy/privacypolicy.component'
     PosdatabaseComponent,
     PoscookiesComponent,
     PrivacypolicyComponent,
+    PosprivacyComponent,
 
 
   ],
