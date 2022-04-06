@@ -1,1 +1,67 @@
-<p>configurations works!</p>
+<div class="content-page">
+    <!-- Start content -->
+    <div class="content">
+        <div class="container ">
+            <div class="col-xl-12">
+            <div class="card m-b-30">
+            <div class="card-body">
+        <form action="" *ngFor="let configurations of cofigrationsList">
+            <h2 for="">General configurations</h2> <br>
+            <table class="example-full-width" cellspacing="0"><tr>
+                <td>
+                    <label for="">Phone *</label> <br>
+                    <mat-form-field style="width: 230px;" appearance="fill">
+                  <mat-label></mat-label>
+                  <input matInput value="{{ configurations.phone }}">
+                </mat-form-field></td> &nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <td>
+                    <label for="">Email *</label> <br>
+                    <mat-form-field style="width: 230px;" appearance="fill">
+                  <input matInput value="{{ configurations.email }}">
+                </mat-form-field></td>
+              </tr></table>
+            <div>
+                <label for="">Facebook</label> <br>
+                <mat-form-field appearance="fill" style="width: 500px;">
+                <input matInput #input maxlength="10" value="{{ configurations.facebook }}"  >
+              </mat-form-field>
+            </div>
+            <div>
+                <label for="">Twitter</label> <br>
+                <mat-form-field  appearance="fill" style="width: 500px;">
+                <input matInput #input maxlength="10" value="{{ configurations.twitter }}">
+              </mat-form-field>
+            </div>
+            <div>
+                <label for="">Youtube</label> <br>
+                <mat-form-field  appearance="fill" style="width: 500px;">
+                <input matInput #input maxlength="10" value="{{ configurations.youtube }}">
+              </mat-form-field>
+            </div>
+            <form >
+                <label for="">Footer Copyright *</label> <br>
+                <mat-form-field  appearance="fill" style="width: 500px;">
+                  <textarea matInput style="height: 70px;">{{ configurations.footer_Copyright }}</textarea>
+                </mat-form-field>
+              </form>
+              <form >
+                <label for="">Footer Corporate Information *</label> <br>
+                <mat-form-field  appearance="fill" style="width: 500px;">
+                  <textarea matInput style="height: 70px;">{{ configurations.footer_Corporate_Information }}</textarea>
+                </mat-form-field>
+              </form>
+            <button mat-raised-button color="primary" style="width: 100px;">Save</button>
+            &nbsp;&nbsp;
+            <button mat-raised-button color="warn" style="width: 100px;">Canncel</button>
+
+  
+        </form>
+    </div>
+  </div>
+    </div>
+  </div>
+  </div>
+  
+  
+  </div>
