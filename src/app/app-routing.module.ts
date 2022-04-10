@@ -6,6 +6,10 @@ import { MainTemplateComponent } from "./main-template/main-template.component";
 import { HomeComponent } from "./home/home.component";
 import { NotfoundComponent } from "./notfound/notfound.component";
 import { MaterialModule } from './material/material.module';
+import { DatabaseComponent } from './database/database.component';
+import { WhoareweComponent } from './whoarewe/whoarewe.component';
+
+//Positioning Web
 import { PosactualityComponent } from './posactuality/posactuality.component';
 import { PoscontactsComponent } from './poscontacts/poscontacts.component';
 import { PoscookiesComponent } from './poscookies/poscookies.component';
@@ -20,6 +24,12 @@ import { PosusefulllinksComponent } from './posusefulllinks/posusefulllinks.comp
 import { PoswhorareweComponent } from './poswhorarewe/poswhorarewe.component';
 import { PoshomeComponent } from './poshome/poshome.component';
 import { PosprivacyComponent } from './posprivacy/posprivacy.component';
+//Home
+import { HomewelcometextComponent } from './homewelcometext/homewelcometext.component';
+import { HomenewslistComponent } from './homenewslist/homenewslist.component';
+import { HomelistComponent } from './homelist/homelist.component';
+import { HomescustomerlogosComponent } from './homescustomerlogos/homescustomerlogos.component';
+import { HomeprimaryslideComponent } from './homeprimaryslide/homeprimaryslide.component';
 
 
 
@@ -33,12 +43,11 @@ const routes: Routes = [
 { path: '', redirectTo: '/home', pathMatch: 'full' },
 { path: 'configurations', loadChildren: () => import('./configurations/configurations.module').then(m => m.ConfigurationsModule) },
 { path: 'gestion', loadChildren: () => import('./gestion/gestion.module').then(m => m.GestionModule) },
-{ path: 'qui-sommes-nous', loadChildren: () => import('./qui-sommes-nous/qui-sommes-nous.module').then(m => m.QuiSommesNousModule) },
 { path: 'support', loadChildren: () => import('./support/support.module').then(m => m.SupportModule) },
 { path: 'liens-utiles', loadChildren: () => import('./liens-utiles/liens-utiles.module').then(m => m.LiensUtilesModule) },
-{ path: 'base-de-donnes', loadChildren: () => import('./base-de-donnes/base-de-donnes.module').then(m => m.BaseDeDonnesModule) },
 { path: 'biscuits', loadChildren: () => import('./biscuits/biscuits.module').then(m => m.BiscuitsModule) },
 { path: 'confidentialite', loadChildren: () => import('./confidentialite/confidentialite.module').then(m => m.ConfidentialiteModule) },
+//Positioning Web
 { path : "posactuality" ,component :PosactualityComponent},
 { path : "Poscontacts" ,component :PoscontactsComponent},
 { path : "poscookies" ,component :PoscookiesComponent},
@@ -53,7 +62,15 @@ const routes: Routes = [
 { path : "poswhoarewe" ,component :PoswhorareweComponent},
 { path : "poshome" ,component :PoshomeComponent},
 { path : "posprivacy" ,component :PosprivacyComponent},
-
+//Home
+{ path : "homewelcometext" ,component :HomewelcometextComponent},
+{ path : "homenewslist" ,component :HomenewslistComponent},
+{ path : "homecustomerlogos" ,component :HomescustomerlogosComponent},
+{ path : "homelist" ,component :HomelistComponent},
+{ path : "homeprimaryslide" ,component :HomeprimaryslideComponent},
+//
+{ path : "database" ,component :DatabaseComponent},
+{ path : "whoarewe" ,component :WhoareweComponent},
 
 
 

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BaseDeDonnesComponent } from './base-de-donnes.component';
+import { HomelistComponent } from './homelist.component';
 
-describe('BaseDeDonnesComponent', () => {
-  let component: BaseDeDonnesComponent;
-  let fixture: ComponentFixture<BaseDeDonnesComponent>;
+describe('HomelistComponent', () => {
+  let component: HomelistComponent;
+  let fixture: ComponentFixture<HomelistComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BaseDeDonnesComponent ]
+      declarations: [ HomelistComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BaseDeDonnesComponent);
+    fixture = TestBed.createComponent(HomelistComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -27,6 +27,14 @@ import { PosdatabaseComponent } from './posdatabase/posdatabase.component';
 import { PoscookiesComponent } from './poscookies/poscookies.component';
 import { PrivacypolicyComponent } from './privacypolicy/privacypolicy.component';
 import { PosprivacyComponent } from './posprivacy/posprivacy.component';
+import { HomewelcometextComponent } from './homewelcometext/homewelcometext.component';
+import { HomenewslistComponent } from './homenewslist/homenewslist.component';
+import { HomescustomerlogosComponent } from './homescustomerlogos/homescustomerlogos.component';
+import { HomelistComponent } from './homelist/homelist.component';
+import { HomeprimaryslideComponent } from './homeprimaryslide/homeprimaryslide.component';
+import { WhoareweComponent } from './whoarewe/whoarewe.component';
+import { DatabaseComponent } from './database/database.component';
+
 
 
 @NgModule({
@@ -50,7 +58,13 @@ import { PosprivacyComponent } from './posprivacy/posprivacy.component';
     PoscookiesComponent,
     PrivacypolicyComponent,
     PosprivacyComponent,
-
+    HomewelcometextComponent,
+    HomenewslistComponent,
+    HomescustomerlogosComponent,
+    HomelistComponent,
+    HomeprimaryslideComponent,
+    WhoareweComponent,
+    DatabaseComponent
 
   ],
   imports: [
