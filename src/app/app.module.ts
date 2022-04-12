@@ -34,6 +34,7 @@ import { HomelistComponent } from './homelist/homelist.component';
 import { HomeprimaryslideComponent } from './homeprimaryslide/homeprimaryslide.component';
 import { WhoareweComponent } from './whoarewe/whoarewe.component';
 import { DatabaseComponent } from './database/database.component';
+import { CookiesComponent } from './cookies/cookies.component';
 
 
 
@@ -64,7 +65,8 @@ import { DatabaseComponent } from './database/database.component';
     HomelistComponent,
     HomeprimaryslideComponent,
     WhoareweComponent,
-    DatabaseComponent
+    DatabaseComponent,
+    CookiesComponent
 
   ],
   imports: [

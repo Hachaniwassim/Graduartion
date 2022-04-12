@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./database.component.css']
 })
 export class DatabaseComponent implements OnInit {
+  hide = true;
 
   constructor() { }
 

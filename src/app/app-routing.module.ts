@@ -8,6 +8,8 @@ import { NotfoundComponent } from "./notfound/notfound.component";
 import { MaterialModule } from './material/material.module';
 import { DatabaseComponent } from './database/database.component';
 import { WhoareweComponent } from './whoarewe/whoarewe.component';
+import { CookiesComponent } from './cookies/cookies.component';
+import { PrivacypolicyComponent } from './privacypolicy/privacypolicy.component';
 
 //Positioning Web
 import { PosactualityComponent } from './posactuality/posactuality.component';
@@ -71,6 +73,8 @@ const routes: Routes = [
 //
 { path : "database" ,component :DatabaseComponent},
 { path : "whoarewe" ,component :WhoareweComponent},
+{ path : "privacypolicy" ,component :PrivacypolicyComponent},
+{ path : "cookies" ,component :CookiesComponent},
 
 
 
