@@ -10,6 +10,8 @@ import { DatabaseComponent } from './database/database.component';
 import { WhoareweComponent } from './whoarewe/whoarewe.component';
 import { CookiesComponent } from './cookies/cookies.component';
 import { PrivacypolicyComponent } from './privacypolicy/privacypolicy.component';
+import { ManagementComponent } from './management/management.component';
+import { UsefulllinksComponent } from './usefulllinks/usefulllinks.component';
 
 //Positioning Web
 import { PosactualityComponent } from './posactuality/posactuality.component';
@@ -44,7 +46,6 @@ const routes: Routes = [
 { path: 'users', loadChildren: () => import('./users/users.module').then(m => m.UsersModule) },
 { path: '', redirectTo: '/home', pathMatch: 'full' },
 { path: 'configurations', loadChildren: () => import('./configurations/configurations.module').then(m => m.ConfigurationsModule) },
-{ path: 'gestion', loadChildren: () => import('./gestion/gestion.module').then(m => m.GestionModule) },
 { path: 'support', loadChildren: () => import('./support/support.module').then(m => m.SupportModule) },
 { path: 'liens-utiles', loadChildren: () => import('./liens-utiles/liens-utiles.module').then(m => m.LiensUtilesModule) },
 { path: 'biscuits', loadChildren: () => import('./biscuits/biscuits.module').then(m => m.BiscuitsModule) },
@@ -75,6 +76,8 @@ const routes: Routes = [
 { path : "whoarewe" ,component :WhoareweComponent},
 { path : "privacypolicy" ,component :PrivacypolicyComponent},
 { path : "cookies" ,component :CookiesComponent},
+{ path : "management" ,component :ManagementComponent},
+{ path : "usefullinks" ,component :UsefulllinksComponent},
 
 
 

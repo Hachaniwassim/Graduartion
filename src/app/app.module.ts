@@ -35,6 +35,8 @@ import { HomeprimaryslideComponent } from './homeprimaryslide/homeprimaryslide.c
 import { WhoareweComponent } from './whoarewe/whoarewe.component';
 import { DatabaseComponent } from './database/database.component';
 import { CookiesComponent } from './cookies/cookies.component';
+import { ManagementComponent } from './management/management.component';
+import { UsefulllinksComponent } from './usefulllinks/usefulllinks.component';
 
 
 
@@ -66,7 +68,9 @@ import { CookiesComponent } from './cookies/cookies.component';
     HomeprimaryslideComponent,
     WhoareweComponent,
     DatabaseComponent,
-    CookiesComponent
+    CookiesComponent,
+    ManagementComponent,
+    UsefulllinksComponent,
 
   ],
   imports: [
