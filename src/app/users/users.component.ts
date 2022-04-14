@@ -7,6 +7,9 @@ import {HttpDataService} from './user.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogService } from '../mat-confirm-dialog/dialog.service';
+import { NotificationService } from '../mat-confirm-dialog/notification.service';
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
@@ -27,7 +30,8 @@ export class UsersComponent implements OnInit {
   searchKey!: string ;
 
   
-  constructor( private httpDataService : HttpDataService) { 
+  constructor( private httpDataService : HttpDataService , private dialog: MatDialog, private dialogService: DialogService,
+    private notificationService: NotificationService) { 
     this.carsData = {} as user;
  }
 
@@ -37,9 +41,8 @@ export class UsersComponent implements OnInit {
  }
  ngOnInit(): void {
 
-   this. datasource.paginator = this.paginator;
-
- this.getAllCars();
+  this. datasource.paginator = this.paginator;
+  this.getAllCars();
 }
 
 
@@ -57,5 +60,19 @@ export class UsersComponent implements OnInit {
    applyFilter() {
      this.datasource.filter = this.searchKey.trim().toLowerCase();
    }
+
+   onDelete(first_name: string){
+    this.dialogService.openConfirmDialog('Are you sure to delete this record ?')
+    .afterClosed().subscribe((res: any) =>{
+      if(res){
+        this.httpDataService.delete(first_name)
+        this.datasource.data=this.datasource.data.filter((o:any)=>{
+          return o.matricule !== first_name ? o : false ;
+        })
+          this.datasource.data;
+         this.notificationService.warn('! Deleted successfully');
+      }
+    });
+  }
 
 }

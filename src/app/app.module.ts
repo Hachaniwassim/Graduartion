@@ -38,6 +38,7 @@ import { DatabaseComponent } from './database/database.component';
 import { CookiesComponent } from './cookies/cookies.component';
 import { ManagementComponent } from './management/management.component';
 import { UsefulllinksComponent } from './usefulllinks/usefulllinks.component';
+import { MatConfirmDialogComponent } from './mat-confirm-dialog/mat-confirm-dialog.component';
 
 
 
@@ -72,6 +73,7 @@ import { UsefulllinksComponent } from './usefulllinks/usefulllinks.component';
     CookiesComponent,
     ManagementComponent,
     UsefulllinksComponent,
+    MatConfirmDialogComponent,
 
   ],
   imports: [
