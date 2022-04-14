@@ -10,7 +10,7 @@ import { retry, catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class HttpDataService {
-  base_url ="http://localhost:3000/voiture";
+  base_url ="http://localhost:3000/users";
 
   constructor(private http :HttpClient) { }
 
