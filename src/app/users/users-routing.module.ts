@@ -6,6 +6,8 @@ import {MatButtonModule} from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
+
 
 const routes: Routes = [{ path: '', component: UsersComponent }];
 
@@ -16,6 +18,7 @@ const routes: Routes = [{ path: '', component: UsersComponent }];
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
+    CommonModule
   ],
   exports: [
     RouterModule,

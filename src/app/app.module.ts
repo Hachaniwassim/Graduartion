@@ -39,6 +39,9 @@ import { CookiesComponent } from './cookies/cookies.component';
 import { ManagementComponent } from './management/management.component';
 import { UsefulllinksComponent } from './usefulllinks/usefulllinks.component';
 import { MatConfirmDialogComponent } from './mat-confirm-dialog/mat-confirm-dialog.component';
+import { MatDialogRef } from '@angular/material/dialog';
+import { DatePipe } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -83,9 +86,15 @@ import { MatConfirmDialogComponent } from './mat-confirm-dialog/mat-confirm-dial
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule,
+    AppRoutingModule,
+
+
   ],
-  providers: [],
+  providers: [
+    {provide: MatDialogRef, useValue: {close: (_dialogResult: any) => { }} }, DatePipe
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

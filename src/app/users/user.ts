@@ -10,7 +10,7 @@ export const users: user[] = [
         "phone": 94408409
     },
     {
-    "id": "2",
+        "id": "2",
         "first_name": "Mohamed Wassim",
         "last_name":"Hachani",
           "email":"wassimhach16@gmail.com",
