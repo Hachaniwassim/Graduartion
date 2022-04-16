@@ -42,6 +42,8 @@ import { MatConfirmDialogComponent } from './mat-confirm-dialog/mat-confirm-dial
 import { MatDialogRef } from '@angular/material/dialog';
 import { DatePipe } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 
 
@@ -77,6 +79,8 @@ import { RouterModule } from '@angular/router';
     ManagementComponent,
     UsefulllinksComponent,
     MatConfirmDialogComponent,
+    LoginComponent,
+    RegisterComponent,
 
   ],
   imports: [
