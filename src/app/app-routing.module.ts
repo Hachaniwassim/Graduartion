@@ -111,7 +111,7 @@ const routes: Routes = [
     FormsModule,
     CommonModule
   ],
-  exports: [RouterModule],
+  exports: [RouterModule,MaterialModule],
 
 
 })
