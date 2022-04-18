@@ -34,6 +34,12 @@ import { HomenewslistComponent } from './homenewslist/homenewslist.component';
 import { HomelistComponent } from './homelist/homelist.component';
 import { HomescustomerlogosComponent } from './homescustomerlogos/homescustomerlogos.component';
 import { HomeprimaryslideComponent } from './homeprimaryslide/homeprimaryslide.component';
+import { BoardUserComponent } from './board-user/board-user.component';
+import { BoardModeratorComponent } from './board-moderator/board-moderator.component';
+import { BoardAdminComponent } from './board-admin/board-admin.component';
+import { ProfileComponent } from './profile/profile.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 
 
@@ -42,9 +48,14 @@ import { HomeprimaryslideComponent } from './homeprimaryslide/homeprimaryslide.c
 
 
 const routes: Routes = [
+  
+{ path: 'login', component:LoginComponent},
+{ path : 'register', component: RegisterComponent},
+{ path: '', redirectTo: '/login', pathMatch: 'full' },
+
 { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
 { path: 'users', loadChildren: () => import('./users/users.module').then(m => m.UsersModule) },
-{ path: '', redirectTo: '/home', pathMatch: 'full' },
+
 { path: 'configurations', loadChildren: () => import('./configurations/configurations.module').then(m => m.ConfigurationsModule) },
 { path: 'support', loadChildren: () => import('./support/support.module').then(m => m.SupportModule) },
 { path: 'liens-utiles', loadChildren: () => import('./liens-utiles/liens-utiles.module').then(m => m.LiensUtilesModule) },
@@ -80,6 +91,10 @@ const routes: Routes = [
 { path : "usefullinks" ,component :UsefulllinksComponent},
 
 
+{ path: 'user', component: BoardUserComponent },
+{ path: 'mod', component: BoardModeratorComponent },
+{ path: 'admin', component: BoardAdminComponent },
+{ path: 'profile', component: ProfileComponent },
 
 { path: '**', component: NotfoundComponent },
 

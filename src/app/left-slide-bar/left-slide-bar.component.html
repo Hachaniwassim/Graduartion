@@ -2,7 +2,7 @@
     <div id="wrapper">
 
  <!-- ========== Left Sidebar Start ========== -->
- <div class="left side-menu">
+ <div class="left side-menu"*ngIf="showAdminBoard">
     <div class="slimscroll-menu" id="remove-scroll">
 
         <!--- Sidemenu -->
@@ -46,7 +46,7 @@
 
                 <li>
                     <a style="text-decoration: none;" routerLink="/configurations" class="waves-effect"><mat-icon>build</mat-icon>
-                        <span> Configurations générales </span></a>
+                        &nbsp;&nbsp;<span> Configurations générales </span></a>
                 </li>
 
                 <li>

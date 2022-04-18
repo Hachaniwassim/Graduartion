@@ -44,6 +44,11 @@ import { DatePipe } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { BoardUserComponent } from './board-user/board-user.component';
+import { BoardAdminComponent } from './board-admin/board-admin.component';
+import { BoardModeratorComponent } from './board-moderator/board-moderator.component';
+import { ProfileComponent } from './profile/profile.component';
+import { authInterceptorProviders } from './_helpers/auth.interceptor';
 
 
 
@@ -81,6 +86,11 @@ import { RegisterComponent } from './register/register.component';
     MatConfirmDialogComponent,
     LoginComponent,
     RegisterComponent,
+    BoardUserComponent,
+    BoardAdminComponent,
+    BoardModeratorComponent,
+    ProfileComponent
+    
 
   ],
   imports: [
@@ -97,7 +107,7 @@ import { RegisterComponent } from './register/register.component';
 
   ],
   providers: [
-    {provide: MatDialogRef, useValue: {close: (_dialogResult: any) => { }} }, DatePipe
+    {provide: MatDialogRef, useValue: {close: (_dialogResult: any) => { }} }, DatePipe, authInterceptorProviders
   ],
   bootstrap: [AppComponent]
 })
