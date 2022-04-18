@@ -106,6 +106,8 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
 
 
   ],
+
+  exports: [MaterialModule],
   providers: [
     {provide: MatDialogRef, useValue: {close: (_dialogResult: any) => { }} }, DatePipe, authInterceptorProviders
   ],

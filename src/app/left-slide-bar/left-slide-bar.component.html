@@ -1,124 +1,151 @@
- <div id="wrapper">
+<div id="wrapper">
     <div id="wrapper">
+        <!-- ========== Left Sidebar Start ========== -->
+        <div class="left side-menu" *ngIf="showAdminBoard">
+            <div class="slimscroll-menu" id="remove-scroll">
+                <!--- Sidemenu -->
+                <div id="sidebar-menu">
+                    <!-- Left Menu Start -->
+                    <ul class="metismenu" id="side-menu">
+                        <li class="menu-title">Menu</li>
+                        <li>
+                            <a class="waves-effect">
+                                <i style="text-decoration: none;" class="icon-accelerator"></i><span
+                                    class="badge badge-success badge-pill float-right"></span> <span> Tableau de bord</span>
+                                </a>
+                        </li>
+                        <li>
+                            <a class="waves-effect" style="text-decoration: none;" routerLink="/users">
+                                <mat-icon>account_circle</mat-icon>
+                                <span> utilisateurs </span>
+                            </a>
+                        </li>
 
- <!-- ========== Left Sidebar Start ========== -->
- <div class="left side-menu"*ngIf="showAdminBoard">
-    <div class="slimscroll-menu" id="remove-scroll">
+                        <li>
+                            <a class="waves-effect">
+                                <mat-icon>settings</mat-icon>
+                                <span>Positionnement Web<span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span>
+                            </a>
+                            <ul class="submenu">
+                                <li><a style="text-decoration: none;" routerLink="/possupport">Supports</a></li>
+                                <li><a style="text-decoration: none;" routerLink="/Poscontacts">Contacts</a></li>
+                                <li><a style="text-decoration: none;" routerLink="/poshome">Maison</a></li>
+                                <li><a style="text-decoration: none;" routerLink="/posactuality">Actualité</a></li>
+                                <li><a style="text-decoration: none;" routerLink="/posnews">Liste des nouvelles</a></li>
+                                <li><a style="text-decoration: none;" routerLink="/posproducts">Produits</a></li>
+                                <li><a style="text-decoration: none;" routerLink="/posproductlist">Liste des Produits</a></li>
+                                <li><a style="text-decoration: none;" routerLink="/posmanagement">La gestion</a></li>
+                                <li><a style="text-decoration: none;" routerLink="/posdealers">Concessionnaires</a></li>
+                                <li><a style="text-decoration: none;" routerLink="/poswhoarewe">Qui sommes nous</a></li>
+                                <li><a style="text-decoration: none;" routerLink="/posusefulllinks">Liens utiles</a>
+                                </li>
+                                <li><a style="text-decoration: none;" routerLink="/posdatabase">Base de données</a></li>
+                                <li><a style="text-decoration: none;" routerLink="/poscookies">cookies</a></li>
+                                <li><a style="text-decoration: none;" routerLink="/posprivacy">Politique de
+                                        confidentialité</a></li>
 
-        <!--- Sidemenu -->
-        <div id="sidebar-menu">
-            <!-- Left Menu Start -->
-            <ul class="metismenu" id="side-menu">
-                <li class="menu-title">Menu</li>
-                <li>
-                    <a class="waves-effect" >
-                        <i style="text-decoration: none;" class="icon-accelerator"></i><span class="badge badge-success badge-pill float-right"></span> <span> Tableau de bord </span>
-                    </a>
-                </li>
-                <li>
-                    <a  class="waves-effect" style="text-decoration: none;" routerLink="/users">
-                        <mat-icon>account_circle</mat-icon>
-                         <span> utilisateurs </span>
-                    </a>
-                </li>
+                            </ul>
+                        </li>
 
-                <li>
-                    <a  class="waves-effect"><mat-icon>settings</mat-icon>
-                        <span> Positionnement Web <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
-                    <ul class="submenu">
-                        <li><a style="text-decoration: none;" routerLink="/possupport" >Supports</a></li>
-                        <li><a style="text-decoration: none;" routerLink="/Poscontacts">Contacts</a></li>
-                        <li><a style="text-decoration: none;" routerLink="/poshome">Maison</a></li>
-                        <li><a style="text-decoration: none;" routerLink="/posactuality">Actualité</a></li>
-                        <li><a style="text-decoration: none;" routerLink="/posnews">Liste des nouvelles</a></li>
-                        <li><a style="text-decoration: none;" routerLink="/posproducts">Produits</a></li>
-                        <li><a style="text-decoration: none;" routerLink="/posproductlist">Liste des Produits</a></li>
-                        <li><a style="text-decoration: none;" routerLink="/posmanagement">La gestion</a></li>
-                        <li><a style="text-decoration: none;" routerLink="/posdealers">Concessionnaires</a></li>
-                        <li><a style="text-decoration: none;" routerLink="/poswhoarewe">Qui sommes nous</a></li>
-                        <li><a style="text-decoration: none;" routerLink="/posusefulllinks">Liens utiles</a></li>
-                        <li><a style="text-decoration: none;" routerLink="/posdatabase">Base de données</a></li>
-                        <li><a style="text-decoration: none;" routerLink="/poscookies">cookies</a></li>
-                        <li><a style="text-decoration: none;" routerLink="/posprivacy">Politique de confidentialité</a></li>
+                        <li>
+                            <a style="text-decoration: none;" routerLink="/configurations" class="waves-effect">
+                                <mat-icon>build</mat-icon><span>Configuration générale</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a style="text-decoration: none;" href="javascript:void(0);" class="waves-effect">
+                                <mat-icon>home</mat-icon>
+                                <span> Acceuil <span class="float-right menu-arrow"><i
+                                            class="mdi mdi-chevron-right"></i></span> </span>
+                            </a>
+                            <ul class="submenu">
+                                <li><a style="text-decoration: none;" routerLink="/homeprimaryslide">Diapositive
+                                        Principale</a></li>
+                                <li><a style="text-decoration: none;" routerLink="/homewelcometext">Texte de
+                                        Bienvenue</a></li>
+                                <li><a style="text-decoration: none;" routerLink="/homenewslist">Liste des nouvelles</a>
+                                </li>
+                                <li><a style="text-decoration: none;" routerLink="/homecustomerlogos">Liste des logos
+                                        clients</a></li>
+                                <li><a style="text-decoration: none;" routerLink="/homelist">Lister</a></li>
+
+
+                            </ul>
+                        </li>
+                        <li>
+                            <a style="text-decoration: none;" routerLink="/whoarewe" class="waves-effect">
+                                <mat-icon>help</mat-icon>
+                                <span> Qui sommes nous </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a style="text-decoration: none;" routerLink="/management" class="waves-effect"><i
+                                    class="icon-calendar"></i><span> Management </span></a>
+                        </li>
+                        <li>
+                            <a style="text-decoration: none;" href="javascript:void(0);" class="waves-effect">
+                                <mat-icon>view_list</mat-icon>
+                                <span> Lister <span class="float-right menu-arrow"><i
+                                            class="mdi mdi-chevron-right"></i></span> </span>
+                            </a>
+                            <ul class="submenu">
+                                <li><a style="text-decoration: none;" href="#">Diapositive Principale</a></li>
+                                <li><a style="text-decoration: none;" href="#">Texte de Bienvenue</a></li>
+                                <li><a style="text-decoration: none;" href="#">Liste des nouvelles</a></li>
+                                <li><a style="text-decoration: none;" href="#">Liste des logos clients</a></li>
+                                <li><a style="text-decoration: none;" href="#">Lister</a></li>
+
+
+                            </ul>
+                        </li>
+                        <li>
+                            <a style="text-decoration: none;" routerLink="/support" class="waves-effect"><i
+                                    class="icon-calendar"></i><span> Support </span></a>
+                        </li>
+                        <li>
+                            <a style="text-decoration: none;" routerLink="/usefullinks" class="waves-effect"><i
+                                    class="icon-calendar"></i><span> Usefull Links </span></a>
+                        </li>
+                        <li>
+                            <a style="text-decoration: none;" routerLink="/database" class="waves-effect"><i
+                                    class="icon-calendar"></i><span> Database </span></a>
+                        </li>
+                        <li>
+                            <a style="text-decoration: none;" href="javascript:void(0);" class="waves-effect"><i
+                                    class="icon-paper-sheet"></i><span> Espace Client <span
+                                        class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span>
+                                </span></a>
+                            <ul class="submenu">
+                                <li><a style="text-decoration: none;" href="#">Mises à jour</a></li>
+                                <li><a style="text-decoration: none;" href="#">FAQ</a></li>
+
+
+
+                            </ul>
+                        </li>
+                        <li>
+                            <a style="text-decoration: none;" routerLink="/cookies" class="waves-effect">
+                                <mat-icon>filter_frames</mat-icon>
+                                <span> Cookies </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a style="text-decoration: none;" routerLink="/privacypolicy" class="waves-effect">
+                                <mat-icon>filter_frames</mat-icon>
+                                <span> Privacy Policy </span>
+                            </a>
+                        </li>
+
 
                     </ul>
-                </li>
 
-                <li>
-                    <a style="text-decoration: none;" routerLink="/configurations" class="waves-effect"><mat-icon>build</mat-icon>
-                        &nbsp;&nbsp;<span> Configurations générales </span></a>
-                </li>
+                </div>
+                <!-- Sidebar -->
+                <div class="clearfix"></div>
 
-                <li>
-                    <a style="text-decoration: none;" href="javascript:void(0);" class="waves-effect"><mat-icon>home</mat-icon>
-                        <span> Acceuil  <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
-                    <ul class="submenu">
-                        <li><a style="text-decoration: none;" routerLink="/homeprimaryslide">Diapositive Principale</a></li>
-                        <li><a style="text-decoration: none;" routerLink="/homewelcometext">Texte de Bienvenue</a></li>
-                        <li><a style="text-decoration: none;" routerLink="/homenewslist">Liste des nouvelles</a></li>
-                        <li><a style="text-decoration: none;" routerLink="/homecustomerlogos">Liste des logos clients</a></li>
-                        <li><a style="text-decoration: none;" routerLink="/homelist">Lister</a></li>
-
-
-                    </ul>
-                </li>
-                <li>
-                    <a style="text-decoration: none;" routerLink="/whoarewe" class="waves-effect"><mat-icon>help</mat-icon>
-                        <span> Qui sommes nous </span></a>
-                </li>
-                <li>
-                    <a style="text-decoration: none;" routerLink="/management" class="waves-effect"><i class="icon-calendar"></i><span> Management </span></a>
-                </li>
-                <li>
-                    <a style="text-decoration: none;" href="javascript:void(0);" class="waves-effect"><mat-icon>view_list</mat-icon>
-                        <span> Lister  <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
-                    <ul class="submenu">
-                        <li><a style="text-decoration: none;" href="#">Diapositive Principale</a></li>
-                        <li><a style="text-decoration: none;" href="#">Texte de Bienvenue</a></li>
-                        <li><a style="text-decoration: none;" href="#">Liste des nouvelles</a></li>
-                        <li><a style="text-decoration: none;" href="#">Liste des logos clients</a></li>
-                        <li><a style="text-decoration: none;" href="#">Lister</a></li>
-
-
-                    </ul>
-                </li>
-                <li>
-                    <a style="text-decoration: none;" routerLink="/support" class="waves-effect"><i class="icon-calendar"></i><span> Support </span></a>
-                </li>
-                <li>
-                    <a style="text-decoration: none;" routerLink="/usefullinks" class="waves-effect"><i class="icon-calendar"></i><span> Usefull Links </span></a>
-                </li>
-                <li>
-                    <a style="text-decoration: none;" routerLink="/database" class="waves-effect"><i class="icon-calendar"></i><span> Database </span></a>
-                </li>
-                <li>
-                    <a style="text-decoration: none;" href="javascript:void(0);" class="waves-effect"><i class="icon-paper-sheet"></i><span> Espace Client  <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
-                    <ul class="submenu">
-                        <li><a style="text-decoration: none;" href="#">Mises à jour</a></li>
-                        <li><a style="text-decoration: none;" href="#">FAQ</a></li>
-                        
-
-
-                    </ul>
-                </li>
-                <li>
-                    <a style="text-decoration: none;" routerLink="/cookies" class="waves-effect"><mat-icon>filter_frames</mat-icon>
-                        <span> Cookies </span></a>
-                </li>
-                <li>
-                    <a style="text-decoration: none;" routerLink="/privacypolicy" class="waves-effect"><mat-icon>filter_frames</mat-icon>
-                        <span> Privacy Policy </span></a>
-                </li>
-
-
-            </ul>
+            </div>
+            <!-- Sidebar -left -->
 
         </div>
-        <!-- Sidebar -->
-        <div class="clearfix"></div>
-
-    </div>
-    <!-- Sidebar -left -->
-
-</div>
-<!-- Left Sidebar End -->
+        <!-- Left Sidebar End -->

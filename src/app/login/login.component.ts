@@ -10,13 +10,14 @@ import { TokenStorageService } from '../_services/token-storage.service';
 })
 export class LoginComponent implements OnInit {
   form: any = {
-    username: null,
-    password: null
+    username: "",
+    password: ""
   };
   isLoggedIn = false;
   isLoginFailed = false;
   errorMessage = '';
   roles: string[] = [];
+  username? : string;
 
   constructor(private authService: AuthService, private tokenStorage: TokenStorageService) { }
 
@@ -24,6 +25,7 @@ export class LoginComponent implements OnInit {
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
       this.roles = this.tokenStorage.getUser().roles;
+      this.username=this.tokenStorage.getUser().username;
     }
   }
 
@@ -38,6 +40,7 @@ export class LoginComponent implements OnInit {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
+        this.username=this.tokenStorage.getUser().username;
         this.reloadPage();
       },
       err => {

@@ -1,26 +1,99 @@
-<div class="container" *ngIf="currentUser; else loggedOut">
-  <header class="jumbotron">
-    <h3>
-      <strong>{{ currentUser.username }}</strong> Profile
-    </h3>
-  </header>
-  <p>
-    <strong>Token:</strong>
-    {{ currentUser.accessToken.substring(0, 20) }} ...
-    {{ currentUser.accessToken.substr(currentUser.accessToken.length - 20) }}
-  </p>
-  <p>
-    <strong>Email:</strong>
-    {{ currentUser.email }}
-  </p>
-  <strong>Roles:</strong>
-  <ul>
-    <li *ngFor="let role of currentUser.roles">
-      {{ role }}
-    </li>
-  </ul>
-</div>
 
+
+<div id="wrapper" *ngIf="currentUser; else loggedOut">
+
+  <div class="content-page">
+      <!-- Start content -->
+      <div class="content">
+        <div class="col-xl-12">
+          <div class="card m-b-30">
+              <div class="card-body">
+                <br>
+        <fieldset class="container" >
+          <h1 style="border-bottom: solid;"> Change the information of the current Admin </h1> <br>
+          <div class="container">
+            <form class="example-form">
+              <label for="">Username *</label> <br>
+              <mat-form-field class="example-full-width" style="width: 500px;" appearance="fill">
+                
+                <input matInput  #input maxlength="10" value="{{ currentUser.username }}" >
+              </mat-form-field>
+            <br>
+            <label for="">Email *</label> <br>
+            <mat-form-field class="example-full-width" style="width: 500px;" appearance="fill">
+              <input matInput  #input maxlength="10" value="{{ currentUser.email }}" >
+            </mat-form-field>
+          <br>
+         
+      <label for="">Role</label> <br>
+      <mat-form-field class="example-full-width" style="width: 500px;" appearance="fill"  *ngFor="let role of currentUser.roles">
+       
+        <input matInput  #input maxlength="10" value="{{ role }}" >
+      </mat-form-field>
+    <br>  
+  <br>
+         </form>
+            <button mat-raised-button color="primary" style="width: 100px;">Save</button>
+            &nbsp;&nbsp;
+            <button mat-raised-button color="warn" style="width: 100px;">Canncel</button>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+  </div>
+        <div class="col-xl-12">
+          <div class="card m-b-30">
+              <div class="card-body">
+        <fieldset class="container">
+          <h1>Change the password of the Data Bank</h1> <br>
+          <div class="container">
+          <form class="example-form">
+            <label for=""> Old password*</label> <br>
+            <mat-form-field appearance="fill" style="width: 500px;">
+              <mat-label>Enter your old password</mat-label>
+              <input matInput  [type]="hide ? 'password' : 'text'">
+              <button mat-icon-button  matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+            </mat-form-field>
+          <br>
+          <label for=""> New password *</label> <br>
+          <mat-form-field appearance="fill" style="width: 500px;">
+            <mat-label>Enter your new password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+          <br>
+          <label for=""> Confirmation of the new password *</label> <br>
+          <mat-form-field appearance="fill" style="width: 500px;">
+            <mat-label>Confirm your new password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+          </form>
+          <button mat-raised-button color="primary" style="width: 100px;">Save</button>
+          &nbsp;&nbsp;
+          <button mat-raised-button color="warn" style="width: 100px;">Canncel</button>
+  
+        </div>
+        </fieldset>
+      </div>
+    </div>
+  </div>
+  
+  
+      </div>
+      <!-- content -->
+  
+  
+  
+  </div>
+  </div>
+  
 <ng-template #loggedOut>
   Please login.
 </ng-template>
