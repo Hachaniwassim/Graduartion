@@ -1,0 +1,57 @@
+<div id="wrapper">
+
+<!-- END ROW -->
+<div class="content-page">
+    <!-- Start content -->
+    <div class="content">
+        <div class="container-fluid">
+            <!-- START ROW -->
+<div class="row" >
+    <div class="col-xl-8">
+        <div class="card m-b-40" >
+            <div class="card-body">
+            <div class="row"> 
+                <h4  style="border-bottom: solid;" class="col mt-0 header-title mb-4">Liste des Produits</h4>
+            </div>
+                <div class="table-responsive"  >
+                    <table class="table table-hover" >
+                        <div >
+                        <thead>
+                            <tr>
+                                <th scope="col">Title</th>
+                                <th scope="col" colspan="2">Actions</th>
+
+
+                            </tr>
+                        </thead>
+                        <tbody *ngFor="let products of productsList">
+                            <tr>
+                                <td>{{ products.title }}</td>
+                                <td>
+                                    <div>
+                                        <a href=""><span class='material-icons'>edit</span></a>
+                                    </div>
+                                </td>
+                                
+                            </tr>
+                           
+                        </tbody>
+                    </div>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    
+</div>
+            
+        </div>
+        <!-- container-fluid -->
+
+    </div>
+    <!-- content -->
+
+
+
+</div>

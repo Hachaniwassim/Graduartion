@@ -1,0 +1,47 @@
+<div class="col-md-12">
+  <div class="card card-container">
+    <img id="profile-img" src="https://www.igesa.it/assets/common/images/logo/1529316041.png" />
+    <form *ngIf="!isLoggedIn" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+      <div class="form-group">
+        <input type="text" class="form-control" name="username" [(ngModel)]="form.username" required placeholder="username" #username="ngModel" />
+        <div class="alert alert-danger" role="alert" *ngIf="username.errors && f.submitted">
+          Username is required!
+        </div>
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control" name="password" [(ngModel)]="form.password" required minlength="6" placeholder="password" #password="ngModel" />
+        <div class="alert alert-danger" role="alert" *ngIf="password.errors && f.submitted">
+          <div *ngIf="password.errors.required">Password is required</div>
+          <div *ngIf="password.errors.minlength">
+            Password must be at least 6 characters
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+				<button class="btn btn-primary btn-block">Login</button>
+			</div>
+			<div class="form-group">
+				<div class="alert alert-danger" role="alert" *ngIf="isLoginFailed">Login failed: {{ errorMessage }}</div>
+			</div>
+			<div class="flexbox mb-5">
+				<div></div>
+				<small class="form-text text-right"><a routerLink="/register" class="text-muted"> Don't have an account? Signup</a></small>
+			  </div>
+			<div class="d-flex justify-content-between align-items-center  mt-3">&nbsp;
+				<div class="version">
+				  V 0.0.1
+				</div>&nbsp;&nbsp;&nbsp;&nbsp;
+				<div class="languages" >
+				  <a href="javascript:;">English</a>
+				  <a href="javascript:;" >Français</a>
+				  <a href="javascript:;" >italien</a>
+				</div>
+			</div>
+  
+    </form>
+
+    <div class="alert alert-success" *ngIf="isLoggedIn">
+      Logged in as {{ roles }}.
+    </div>
+  </div>
+</div>

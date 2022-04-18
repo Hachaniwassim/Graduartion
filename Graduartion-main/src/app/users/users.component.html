@@ -1,0 +1,108 @@
+<div id="wrapper">
+
+<!-- END ROW -->
+<div class="content-page">
+    <!-- Start content -->
+    <div class="content">
+        <div class="container-fluid">
+            <!-- START ROW -->
+          <div class="container">
+            <div class="container" align="center">
+              <br><br><br><br><br><br>
+              <h1></h1>
+              <div class="search-div">
+                <mat-form-field class="search-form-field" floatLabel="never">
+                  <input matInput [(ngModel)]="searchKey" placeholder="Search" autocomplete="off" (keyup)="applyFilter()">
+                  <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey" (click)="onSearchClear()">
+                    <mat-icon>close</mat-icon>
+                  </button>
+                </mat-form-field>
+              </div>
+              
+              <!--******************************************* ladd  users *****************************************************--->
+              <form [formGroup]="httpDataService.form" class="normal-form" (submit)="onSubmit()" >
+                <input type="hidden" formControlName="_id">
+              
+                <mat-form-field>
+                  <input formControlName="first_name" matInput placeholder="First Name">
+                  <mat-error *ngIf="httpDataService.form.controls['first_name'].errors?.required">this field is required.
+                  </mat-error>
+                </mat-form-field>
+                <mat-form-field style="margin-left: 40px;">
+                  <input formControlName="last_name" matInput placeholder="Last Name">
+                  <mat-error *ngIf="httpDataService.form.controls['last_name'].errors?.required">this field is required.</mat-error>
+                </mat-form-field>
+                <mat-form-field style="margin-left: 30px;">
+                  <input formControlName="email" matInput placeholder="Email">
+                  <mat-error *ngIf="httpDataService.form.controls['email'].errors?.required">This field is required.</mat-error>
+                </mat-form-field>
+                <mat-form-field style="margin-left: 30px;">
+                  <input formControlName="phone" matInput placeholder="Phone">
+                  <mat-error *ngIf="httpDataService.form.controls['phone'].errors?.required">This field is required.</mat-error>
+                  <mat-error *ngIf="httpDataService.form.controls['phone'].errors?.maxLength">This field should be maximum 9</mat-error>
+
+                </mat-form-field>
+                
+                  <button *ngIf="!isEditeMode" mat-raised-button color="primary"  type="submit" style="margin-left: 30px;" [disabled]="httpDataService.form.invalid">
+                    add</button>&nbsp;
+                    <button *ngIf="isEditeMode" mat-raised-button color="primary" (click)="updatee()" type="submit" style="margin-left: 30px;">
+                      Edit</button>&nbsp;
+                  <button mat-raised-button color="warn" (click)="onClear()">Clear</button>&nbsp;
+              
+              </form>
+              <!--******************************************* list users *****************************************************--->
+              <div class="mat-elevation-z8">
+                <mat-table [dataSource]="datasource" matSort >
+                <!--<ng-container matColumnDef="_id"  >
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> #id </mat-header-cell>
+                    <mat-cell *matCellDef="let element" style="border-spacing: 25px;"> {{element._id}} </mat-cell>
+                  </ng-container>-->
+                  <ng-container matColumnDef="first_name"  >
+                    <mat-header-cell *matHeaderCellDef mat-sort-header style="margin-left: 10px;"> First Name </mat-header-cell>
+                    <mat-cell *matCellDef="let element" style="border-spacing: 25px;"> {{element.first_name}} </mat-cell>
+                  </ng-container>
+                  <ng-container matColumnDef="last_name">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header style="margin-left: 70px;" >Last Name </mat-header-cell>
+                    <mat-cell *matCellDef="let element"style="margin-left: 30px;"> {{element.last_name}} </mat-cell>
+                  </ng-container>
+                  <ng-container matColumnDef="email">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header style="margin-left: 50px;"> Email </mat-header-cell>
+                    <mat-cell *matCellDef="let element"style="margin-left: 30px;"> {{element.email}} </mat-cell>
+                  </ng-container>
+                  <ng-container matColumnDef="phone">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header style="margin-left: 30px;"> Phone </mat-header-cell>
+                    <mat-cell *matCellDef="let element" style="margin-left: 100px;">{{element.phone}}</mat-cell>
+                  </ng-container>
+                  <ng-container matColumnDef="actions">
+                    <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                    <mat-cell *matCellDef="let row">
+                      <button mat-icon-button (click)="onEdit(row)">
+                        <mat-icon>edit_outline</mat-icon>
+                      </button>
+                      <button mat-icon-button color="warn" (click)="onDelete(row._id)">
+                        <mat-icon>delete_outline</mat-icon>
+                      </button>
+                    </mat-cell>
+                  </ng-container>
+                  <ng-container matColumnDef="loading">
+                    <mat-footer-cell *matFooterCellDef colspan="6">
+                      Loading data...
+                    </mat-footer-cell>
+                  </ng-container>
+                  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                  <mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hide':datasource!=null}"></mat-footer-row>
+                </mat-table>
+                <mat-paginator [pageSizeOptions]="[ 5, 10, 25, 100]" [pageSize]="5" showFirstLastButtons></mat-paginator>
+              </div>
+            </div>
+            <br>
+          </div>
+        <!-- container-fluid -->
+
+    </div>
+    <!-- content -->
+
+</div>
+</div>
+</div>

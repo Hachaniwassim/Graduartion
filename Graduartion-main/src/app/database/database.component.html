@@ -1,0 +1,87 @@
+<div id="wrapper">
+
+<div class="content-page">
+    <!-- Start content -->
+    <div class="content">
+      <div class="col-xl-12">
+        <div class="card m-b-30">
+            <div class="card-body">
+      <fieldset class="container" >
+        <h1>Change the username of the Data Base</h1> <br>
+        <div class="container">
+          <form class="example-form">
+            <label for="">Username *</label> <br>
+            <mat-form-field class="example-full-width" style="width: 500px;" appearance="fill">
+              <mat-label>Enter your Username</mat-label>
+              <input matInput >
+            </mat-form-field>
+          <br>
+          <label for=""> Password *</label> <br>
+          <mat-form-field appearance="fill" style="width: 500px;">
+            <mat-label>Enter your password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+          </form>
+          <button mat-raised-button color="primary" style="width: 100px;">Save</button>
+          &nbsp;&nbsp;
+          <button mat-raised-button color="warn" style="width: 100px;">Canncel</button>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+</div>
+      <div class="col-xl-12">
+        <div class="card m-b-30">
+            <div class="card-body">
+      <fieldset class="container">
+        <h1>Change the password of the Data Bank</h1> <br>
+        <div class="container">
+        <form class="example-form">
+          <label for=""> Old password*</label> <br>
+          <mat-form-field appearance="fill" style="width: 500px;">
+            <mat-label>Enter your old password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+        <br>
+        <label for=""> New password *</label> <br>
+        <mat-form-field appearance="fill" style="width: 500px;">
+          <mat-label>Enter your new password</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+        <br>
+        <label for=""> Confirmation of the new password *</label> <br>
+        <mat-form-field appearance="fill" style="width: 500px;">
+          <mat-label>Confirm your new password</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+        </form>
+        <button mat-raised-button color="primary" style="width: 100px;">Save</button>
+        &nbsp;&nbsp;
+        <button mat-raised-button color="warn" style="width: 100px;">Canncel</button>
+
+      </div>
+      </fieldset>
+    </div>
+  </div>
+</div>
+
+
+    </div>
+    <!-- content -->
+
+
+
+</div>
+</div>

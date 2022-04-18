@@ -1,0 +1,60 @@
+<div id="wrapper">
+
+<div class="content-page">
+  <!-- Start content -->
+  <div class="content">
+      <div class="container ">
+          <div class="col-xl-12">
+          <div class="card m-b-30">
+          <div class="card-body">
+      <form action="" *ngFor="let poscontactes of poswhoarewelist">
+          <h2 style="border-bottom: solid;">Web positioning - Who Are We</h2> <br>
+          <div>
+              <label for="">Title</label> <br>
+              <mat-form-field appearance="fill" style="width: 500px;">
+              <input matInput #input maxlength="10" value="{{ poscontactes.title }}" >
+            </mat-form-field>
+          </div>
+          <div>
+              <label for="">Description</label> <br>
+              <mat-form-field appearance="fill" style="width: 500px;">
+              <input matInput #input maxlength="10" value="{{ poscontactes.description }}"  >
+            </mat-form-field>
+          </div>
+          <div>
+              <label for="">Keywords</label> <br>
+              <mat-form-field  appearance="fill" style="width: 500px;">
+              <input matInput #input maxlength="10" value="{{ poscontactes.keywords }}">
+            </mat-form-field>
+          </div>
+          <div>
+              <label for="">Robots</label> <br>
+              <mat-form-field appearance="fill" style="width: 500px;">
+                {{ poscontactes.robots }}
+                  <mat-select aria-selected="3">
+                    <mat-option value="option">index</mat-option>
+                    <mat-option value="option">noindex</mat-option>
+                    <mat-option value="option">it is not</mat-option>
+                    <mat-option value="option">follow</mat-option>
+                    <mat-option value="option">nofollow</mat-option>
+                    <mat-option value="option">noarchive</mat-option>
+                    <mat-option value="option">nosnippet</mat-option>
+                    <mat-option value="option">noodp</mat-option>
+                    <mat-option value="option">noydir</mat-option>
+                    <mat-option value="option">noimageindex</mat-option>
+
+
+                  </mat-select>
+                </mat-form-field>
+          </div>
+          <button mat-raised-button color="primary">Sauvegarder</button>
+
+      </form>
+  </div>
+</div>
+  </div>
+</div>
+</div>
+
+</div>
+</div>

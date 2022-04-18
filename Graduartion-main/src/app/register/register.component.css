@@ -1,0 +1,112 @@
+label {
+  display: block;
+  margin-top: 10px;
+}
+
+.card-container.card {
+  max-width: 400px !important;
+  padding: 40px 40px;
+}
+
+.card {
+  background-color:white;
+  padding: 20px 25px 30px;
+  margin: 0 auto 25px;
+  margin-top: 50px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.profile-img-card {
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 10px;
+  display: block;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.form-group .btn{
+  color: #fff;
+  background-color: #446DCA;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: left;
+  width: 180px;
+  padding: 10px 30px;
+  margin: 0 25px 0 0;
+  border-radius: 30px;
+  border: none;
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s ease 0s;
+}
+.form-group .btn:hover,
+.form-group .btn:focus{
+  color: #fff;
+  background-color: #222;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  outline: none;
+}
+.form-group .btn:after{
+  content: '';
+  height: 70%;
+  width: 110%;
+  border-top: 5px solid #fff;
+  border-bottom: 5px solid #fff;
+  transform: rotate(-50deg);
+  position: absolute;
+  right: -105px;
+  top: -65px;
+  transition: all 0.5s ease 0s;
+}
+.form-group .btn:hover:after{
+  right: -70px;
+  top: -30px;
+}
+.form-group .form-control:focus{
+  box-shadow: none;
+  border-color: #446DCA;
+}
+.version {
+font-size: 1rem;
+font-weight: 600;
+letter-spacing: 2px;
+}
+.footer {
+bottom: 10px;
+width: 100%;
+}
+.languages 
+a {
+  margin-right: 10px;
+}
+
+.form-group.form-control:focus{
+  box-shadow: none;
+  border-color: #446DCA;
+}
+.form-group.form-control::placeholder{
+  color: #222;
+  font-size: 15px;
+}
+.form-group .input-icon{
+  color: #7b7b7b;
+  font-size: 23px;
+  position: absolute;
+  left: 310px;
+  top: 210px;
+}
+.form-control.ng-touched.ng-invalid{
+  border: 1px solid red;
+}
+.form-control.ng-touched.ng-valid{
+  border: 1px solid blue;
+}
