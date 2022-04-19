@@ -1,17 +1,16 @@
 import { Component, OnInit , ViewChild  } from '@angular/core';
 import { users } from './user';
 import { user } from './user.model';
-import { MaterialModule } from '../material/material.module';
 import {UserService} from './user.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogService } from '../mat-confirm-dialog/dialog.service';
-import { NotificationService } from '../mat-confirm-dialog/notification.service';
 import * as _ from 'lodash'
 import { FormGroup, NgForm } from '@angular/forms';
 import { first } from 'rxjs/operators';
+import { NotificationService } from '../shared/notification.service';
+import { DialogService } from '../shared/dialog.service';
 
 @Component({
   selector: 'app-users',

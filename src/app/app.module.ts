@@ -49,6 +49,7 @@ import { BoardAdminComponent } from './board-admin/board-admin.component';
 import { BoardModeratorComponent } from './board-moderator/board-moderator.component';
 import { ProfileComponent } from './profile/profile.component';
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
+import { AuthGuard } from './guard/auth.guard';
 
 
 
@@ -57,7 +58,6 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
     AppComponent,
     NavbarComponent,
     LeftSlideBarComponent,
-    NotfoundComponent,
     PossupportComponent,
     PoscontactsComponent,
     PoshomeComponent,
