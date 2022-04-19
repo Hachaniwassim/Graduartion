@@ -79,9 +79,9 @@ label {
 	color: red;
 }
 .form-group .btn{
-    color: #fff;
+    color: white;
     background-color: #446DCA;
-    font-size: 18px;
+    font-size: 19px;
     font-weight: 600;
     text-align: left;
     width: 180px;
@@ -97,7 +97,7 @@ label {
 }
 .form-group .btn:hover,
 .form-group .btn:focus{
-    color: #fff;
+    color: white;
     background-color: #222;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
     outline: none;

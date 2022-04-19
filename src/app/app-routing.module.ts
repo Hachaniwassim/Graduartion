@@ -40,6 +40,7 @@ import { BoardAdminComponent } from './board-admin/board-admin.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { AuthGuard } from './guard/auth.guard';
 
 
 
@@ -53,48 +54,48 @@ const routes: Routes = [
 { path : 'register', component: RegisterComponent},
 { path: '', redirectTo: '/login', pathMatch: 'full' },
 
-{ path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
-{ path: 'users', loadChildren: () => import('./users/users.module').then(m => m.UsersModule) },
+{ path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) ,canActivate: [AuthGuard]},
+{ path: 'users', loadChildren: () => import('./users/users.module').then(m => m.UsersModule),canActivate: [AuthGuard] },
 
-{ path: 'configurations', loadChildren: () => import('./configurations/configurations.module').then(m => m.ConfigurationsModule) },
+{ path: 'configurations', loadChildren: () => import('./configurations/configurations.module').then(m => m.ConfigurationsModule),canActivate: [AuthGuard] },
 { path: 'support', loadChildren: () => import('./support/support.module').then(m => m.SupportModule) },
-{ path: 'liens-utiles', loadChildren: () => import('./liens-utiles/liens-utiles.module').then(m => m.LiensUtilesModule) },
+{ path: 'liens-utiles', loadChildren: () => import('./liens-utiles/liens-utiles.module').then(m => m.LiensUtilesModule),canActivate: [AuthGuard] },
 { path: 'biscuits', loadChildren: () => import('./biscuits/biscuits.module').then(m => m.BiscuitsModule) },
-{ path: 'confidentialite', loadChildren: () => import('./confidentialite/confidentialite.module').then(m => m.ConfidentialiteModule) },
+{ path: 'confidentialite', loadChildren: () => import('./confidentialite/confidentialite.module').then(m => m.ConfidentialiteModule),canActivate: [AuthGuard] },
 //Positioning Web
-{ path : "posactuality" ,component :PosactualityComponent},
-{ path : "Poscontacts" ,component :PoscontactsComponent},
-{ path : "poscookies" ,component :PoscookiesComponent},
-{ path : "posdatabase" ,component :PosdatabaseComponent},
-{ path : "posdealers" ,component :PosdealersComponent},
-{ path : "posmanagement" ,component :PosmanagementComponent},
-{ path : "posnews" ,component :PosnewsComponent},
-{ path : "posproductlist" ,component :PosproductlistComponent},
-{ path : "posproducts" ,component :PosproductsComponent},
-{ path : "possupport" ,component :PossupportComponent},
-{ path : "posusefulllinks" ,component :PosusefulllinksComponent},
-{ path : "poswhoarewe" ,component :PoswhorareweComponent},
-{ path : "poshome" ,component :PoshomeComponent},
-{ path : "posprivacy" ,component :PosprivacyComponent},
+{ path : "posactuality" ,component :PosactualityComponent,canActivate: [AuthGuard]},
+{ path : "Poscontacts" ,component :PoscontactsComponent,canActivate: [AuthGuard]},
+{ path : "poscookies" ,component :PoscookiesComponent,canActivate: [AuthGuard]},
+{ path : "posdatabase" ,component :PosdatabaseComponent,canActivate: [AuthGuard]},
+{ path : "posdealers" ,component :PosdealersComponent,canActivate: [AuthGuard]},
+{ path : "posmanagement" ,component :PosmanagementComponent,canActivate: [AuthGuard]},
+{ path : "posnews" ,component :PosnewsComponent,canActivate: [AuthGuard]},
+{ path : "posproductlist" ,component :PosproductlistComponent,canActivate: [AuthGuard]},
+{ path : "posproducts" ,component :PosproductsComponent,canActivate: [AuthGuard]},
+{ path : "possupport" ,component :PossupportComponent,canActivate: [AuthGuard]},
+{ path : "posusefulllinks" ,component :PosusefulllinksComponent,canActivate: [AuthGuard]},
+{ path : "poswhoarewe" ,component :PoswhorareweComponent,canActivate: [AuthGuard]},
+{ path : "poshome" ,component :PoshomeComponent,canActivate: [AuthGuard]},
+{ path : "posprivacy" ,component :PosprivacyComponent,canActivate: [AuthGuard]},
 //Home
-{ path : "homewelcometext" ,component :HomewelcometextComponent},
-{ path : "homenewslist" ,component :HomenewslistComponent},
-{ path : "homecustomerlogos" ,component :HomescustomerlogosComponent},
-{ path : "homelist" ,component :HomelistComponent},
-{ path : "homeprimaryslide" ,component :HomeprimaryslideComponent},
+{ path : "homewelcometext" ,component :HomewelcometextComponent,canActivate: [AuthGuard]},
+{ path : "homenewslist" ,component :HomenewslistComponent,canActivate: [AuthGuard]},
+{ path : "homecustomerlogos" ,component :HomescustomerlogosComponent,canActivate: [AuthGuard]},
+{ path : "homelist" ,component :HomelistComponent,canActivate: [AuthGuard]},
+{ path : "homeprimaryslide" ,component :HomeprimaryslideComponent,canActivate: [AuthGuard]},
 //
-{ path : "database" ,component :DatabaseComponent},
-{ path : "whoarewe" ,component :WhoareweComponent},
-{ path : "privacypolicy" ,component :PrivacypolicyComponent},
-{ path : "cookies" ,component :CookiesComponent},
-{ path : "management" ,component :ManagementComponent},
-{ path : "usefullinks" ,component :UsefulllinksComponent},
+{ path : "database" ,component :DatabaseComponent,canActivate: [AuthGuard]},
+{ path : "whoarewe" ,component :WhoareweComponent,canActivate: [AuthGuard]},
+{ path : "privacypolicy" ,component :PrivacypolicyComponent,canActivate: [AuthGuard]},
+{ path : "cookies" ,component :CookiesComponent,canActivate: [AuthGuard]},
+{ path : "management" ,component :ManagementComponent,canActivate: [AuthGuard]},
+{ path : "usefullinks" ,component :UsefulllinksComponent,canActivate: [AuthGuard]},
 
 
-{ path: 'user', component: BoardUserComponent },
-{ path: 'mod', component: BoardModeratorComponent },
-{ path: 'admin', component: BoardAdminComponent },
-{ path: 'profile', component: ProfileComponent },
+{ path: 'user', component: BoardUserComponent,canActivate: [AuthGuard] },
+{ path: 'mod', component: BoardModeratorComponent ,canActivate: [AuthGuard]},
+{ path: 'admin', component: BoardAdminComponent,canActivate: [AuthGuard] },
+{ path: 'profile', component: ProfileComponent,canActivate: [AuthGuard] },
 
 { path: '**', component: NotfoundComponent },
 
@@ -104,6 +105,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
+    NotfoundComponent
   ],
   imports: [
     MaterialModule,
