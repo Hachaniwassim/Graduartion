@@ -36,8 +36,8 @@ export class NavbarComponent implements OnInit {
     this.tokenStorageService.signOut();
     this.tokenStorageService.set('TOKEN_KEY', null);
     this.tokenStorageService.set('USER_KEY', null);
-    this.router.navigate(['/']);
     window.location.reload();
+    this.router.navigate(['/']);
   }
 
  
