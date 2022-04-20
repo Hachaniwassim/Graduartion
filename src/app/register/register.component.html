@@ -1,8 +1,4 @@
-<div id="wrapper">
 
-  <div class="content-page">
-    <!-- Start content -->
-    <div class="content">
       <div class="container ">
         <div class="col-md-12">
           <div class="card card-container">
@@ -10,7 +6,7 @@
             <form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
               <div class="form-group">
                 <input type="text" class="form-control" name="username" [(ngModel)]="form.username" required placeholder="enter your username" minlength="3" maxlength="20" #username="ngModel" />
-                <div class="alert-danger"
+                <div class="msg"
                   *ngIf="  (!f.submitted) && username.errors && username.invalid  && username.touched ">
                   <div *ngIf="username.errors.required">Username is required</div>
                   <div *ngIf="username.errors.minlength">
@@ -23,7 +19,7 @@
               </div>
               <div class="form-group">
                 <input type="email" class="form-control" name="email" [(ngModel)]="form.email" required email placeholder="enter your email" #email="ngModel" />
-                <div class="alert-danger" *ngIf="email.errors && (!f.submitted)  && email.invalid  && email.touched">
+                <div class="msg" *ngIf="email.errors && (!f.submitted)  && email.invalid  && email.touched">
                   <div *ngIf="email.errors.required">Email is required</div>
                   <div *ngIf="email.errors.email">
                     Email must be a valid email address
@@ -33,7 +29,7 @@
               <div class="form-group">
                 <input type="fiscaleCode" class="form-control" name="fiscaleCode" [(ngModel)]="form.fiscaleCode" placeholder="enter your fiscale code"
                   required fiscaleCode #fiscaleCode="ngModel" />
-                <div class="alert-danger"
+                <div class="msg"
                   *ngIf="fiscaleCode.errors && (!f.submitted)  && fiscaleCode.invalid  && fiscaleCode.touched">
                   <div *ngIf="fiscaleCode.errors.required">FiscaleCode is required</div>
                 </div>
@@ -41,7 +37,7 @@
               <div class="form-group">
                 <input type="password" class="form-control" name="password" [(ngModel)]="form.password" required placeholder="enter your password"
                   minlength="6" #password="ngModel" />
-                <div class="alert-danger"
+                <div class="msg"
                   *ngIf="password.errors && (!f.submitted) && password.invalid  && password.touched">
                   <div *ngIf="password.errors.required">Password is required</div>
                   <div *ngIf="password.errors.minlength">
@@ -52,7 +48,7 @@
               <div class="form-group">
                 <input type="password" class="form-control" placeholder="confirm password" name="matchingPassword" placeholder="enter confirm password"
                   [(ngModel)]="form.matchingPassword" required #matchingPassword="ngModel" />
-                <div class="alert-danger"
+                <div class="msg"
                   *ngIf="(!f.submitted) &&  matchingPassword.errors && matchingPassword.invalid  &&  matchingPassword.touched">
                   <div *ngIf="matchingPassword.errors.required">Confirm Password is required</div>
 
@@ -65,29 +61,27 @@
                 <div></div>
                 <small class="form-text text-right"><a routerLink="/login" class="text-muted"> alreday have an account? Signin</a></small>
                 </div>
-              <div class="d-flex justify-content-between align-items-center  mt-3">&nbsp;
+              <div class="d-flex justify-content-between align-items-center  mt-3">
                 <div class="version">
                   V 0.0.1
-                </div>&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
                 <div class="languages" >
-                  <a href="javascript:;">English</a>
-                  <a href="javascript:;" >Français</a>
-                  <a href="javascript:;" >italien</a>
+                  <a style="text-decoration: none;" href="javascript:;">English</a>
+                  <a style="text-decoration: none;" href="javascript:;" >Français</a>
+                  <a style="text-decoration: none;" href="javascript:;" >italien</a>
                 </div>
               </div>
 
-              <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
-                Signup failed!<br />{{ errorMessage }}
+              <div class="msg" *ngIf="f.submitted && isSignUpFailed">
+                Signup failed !<br />{{ errorMessage }}
               </div>
             </form>
 
-            <div class="alert alert-success" *ngIf="isSuccessful">
+          <!---<div class="alert alert-success" *ngIf="isSuccessful">
               Your registration is successful!
-            </div>
+            </div>--->  
           </div>
         </div>
 
       </div>
-    </div>
-  </div>
-</div>
+ 
