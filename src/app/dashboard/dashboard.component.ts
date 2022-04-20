@@ -3,11 +3,11 @@ import Swal from 'sweetalert2';
 import { TokenStorageService } from '../_services/token-storage.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.css']
 })
-export class HomeComponent implements OnInit {
+export class DashboardComponent implements OnInit {
 
   constructor(private tokenStorage: TokenStorageService) { }
   isLoggedIn = false;
@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
     this.isLoggedIn= true;
     this.roles = this.tokenStorage.getUser().roles;
     this.username=this.tokenStorage.getUser().username;
-   // this.successNotification();
+    this.successNotification();
   }
   tinyAlert() {
     Swal.fire('Hey there!');
@@ -45,5 +45,5 @@ export class HomeComponent implements OnInit {
       }
     });
   }
-}
 
+}

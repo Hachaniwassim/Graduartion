@@ -96,6 +96,8 @@ const routes: Routes = [
 { path: 'mod', component: BoardModeratorComponent ,canActivate: [AuthGuard]},
 { path: 'admin', component: BoardAdminComponent,canActivate: [AuthGuard] },
 { path: 'profile', component: ProfileComponent,canActivate: [AuthGuard] },
+  
+{ path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule),canActivate: [AuthGuard]},
 
 { path: '**', component: NotfoundComponent },
 
