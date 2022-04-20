@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
       this.roles = this.tokenStorage.getUser().roles;
       this.username=this.tokenStorage.getUser().username;
      // this.notificationService.success(' : : Your logged successfully');
-      this.router.navigate(['/home']);
+      this.router.navigate(['/dashboard']);
     
     }
     
