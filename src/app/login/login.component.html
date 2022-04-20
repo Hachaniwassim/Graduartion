@@ -7,22 +7,22 @@
       <div class="form-group">
         <input type="text" class="form-control" name="username" [(ngModel)]="form.username" required placeholder="username" #username="ngModel" />
         <div class="msg" role="alert" *ngIf="!(f.submitted )&& username.errors && username.touched && username.invalid">
-          Username is required !
+          Username is required ❌
         </div>
         <div class="msg" role="alert" *ngIf="(f.submitted )&& username.errors && username.invalid">
-          Username is required !
+          Username is required ❌
         </div>
       </div>
       <div class="form-group">
         <input type="password" class="form-control" name="password" [(ngModel)]="form.password" required minlength="6" placeholder="password" #password="ngModel" />
         <div class=" msg" role="alert" *ngIf=" !(f.submitted) && password.errors && password.touched && password.invalid">
-          <div *ngIf="password.errors.required">Password is required</div></div>
+          <div *ngIf="password.errors.required">Password is required ❌ </div></div>
           <div class=" msg" role="alert" *ngIf=" (f.submitted) && password.errors && password.invalid">
-            <div *ngIf="password.errors.required">Password is required ! </div>
+            <div *ngIf="password.errors.required ">Password is required ❌  </div>
         </div>
         <div class=" msg" role="alert" *ngIf=" !(f.submitted) && password.errors && password.invalid && password.touched">
         <div *ngIf="password.errors.minlength">
-          Password must be at least 6 characters !
+          Password must be at least 6 characters ❌ 
         </div>
       </div>
       </div>
@@ -30,7 +30,7 @@
 				<button class="btn btn-primary btn-block">Login</button>
 			</div>
 			<div class="form-group">
-				<div class=" msg" role="alert" *ngIf="isLoginFailed"> Login failed : iINVALID_CREDENTIALS !! {{ errorMessage }}</div>
+				<div class=" msg" role="alert" *ngIf="isLoginFailed"> Login failed : INVALID_CREDENTIALS  ❌ {{ errorMessage }}</div>
 			</div>
       <br>
 		<!----<div class="flexbox mb-5">

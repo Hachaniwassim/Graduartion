@@ -21,6 +21,7 @@ import {MatCardModule} from '@angular/material/card';
 import { MatExpansionModule } from '@angular/material/expansion';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 
 
@@ -30,6 +31,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
   declarations: [],
   imports: [
     CommonModule,
+    MatProgressBarModule,
     MatToolbarModule,
     MatGridListModule,
     MatInputModule,
@@ -72,6 +74,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatDialogModule,
     MatListModule,
     MatSidenavModule,
+    MatProgressBarModule,
     MatCardModule,
      MatProgressSpinnerModule
   ]

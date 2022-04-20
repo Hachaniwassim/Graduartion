@@ -21,7 +21,8 @@ export class HomeComponent implements OnInit {
     this.isLoggedIn= true;
     this.roles = this.tokenStorage.getUser().roles;
     this.username=this.tokenStorage.getUser().username;
-   // this.successNotification();
+    this.successNotification();
+   
   }
   tinyAlert() {
     Swal.fire('Hey there!');

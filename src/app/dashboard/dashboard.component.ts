@@ -17,11 +17,11 @@ export class DashboardComponent implements OnInit {
   username? : string;
 
   ngOnInit() {
-    console.log('Life Cyle Hook with spontaneous response.');
     this.isLoggedIn= true;
     this.roles = this.tokenStorage.getUser().roles;
     this.username=this.tokenStorage.getUser().username;
-    this.successNotification();
+    //this.successNotification();
+    
   }
   tinyAlert() {
     Swal.fire('Hey there!');
@@ -46,4 +46,9 @@ export class DashboardComponent implements OnInit {
     });
   }
 
+  reloadPage() {
+    setTimeout(()=>{
+      window.location.reload();
+    }, 1000);
+}
 }

@@ -9,7 +9,7 @@ import { TokenStorageService } from '../_services/token-storage.service';
 export class ProfileComponent implements OnInit {
   currentUser: any;
   hide= true;
-
+  panelOpenState =true;
 
   constructor(private token: TokenStorageService) { 
   

@@ -80,7 +80,7 @@ label {
 }
 
 .form-group .has-error {
-  color: red;
+  color: rgb(183, 5, 5);
 }
 
 .form-group .btn {
@@ -169,8 +169,8 @@ label {
 
 /* validate form  */
 .form-control.ng-touched.ng-invalid {
-  border: 1px solid red;
-  border-left: 5px solid red;
+  border: 1px solid rgb(183, 5, 5);
+  border-left: 5px solid rgb(183, 5, 5);
 }
 
 /* validate form  */
@@ -188,12 +188,12 @@ label {
 
 div.msg {
   margin-top: 15px;
-  color: red;
+  color: rgb(183, 5, 5);
 }
 
 
 /* validate form  */
 input.ng-invalid {
-  border-left: 5px solid red;
+  border-left: 5px solid rgb(183, 5, 5);
 }
 /*from  :: https://www.formget.com/angularjs-form-validation/ */
