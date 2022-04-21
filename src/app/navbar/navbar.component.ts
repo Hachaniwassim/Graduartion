@@ -33,11 +33,10 @@ export class NavbarComponent implements OnInit {
   
 
   logout(): void {
-    this.tokenStorageService.signOut();
-    this.tokenStorageService.set('TOKEN_KEY', null);
-    this.tokenStorageService.set('USER_KEY', null);
+   this.tokenStorageService.signOut();
     window.location.reload();
     this.router.navigate(['/']);
+     window.location.reload();
   }
 
  

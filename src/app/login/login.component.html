@@ -5,6 +5,7 @@
     <br><br>
     <form  name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
       <div class="form-group">
+      <div class="form-group">
         <input type="text" class="form-control" name="username" [(ngModel)]="form.username" required placeholder="username" #username="ngModel" />
         <div class="msg" role="alert" *ngIf="!(f.submitted )&& username.errors && username.touched && username.invalid">
           Username is required ❌
@@ -22,10 +23,14 @@
         </div>
         <div class=" msg" role="alert" *ngIf=" !(f.submitted) && password.errors && password.invalid && password.touched">
         <div *ngIf="password.errors.minlength">
-          Password must be at least 6 characters ❌ 
+          Password must be at least 6 characters ❌
         </div>
       </div>
+      </div> 
+        <div class="g-recaptcha" data-sitekey="6Lff7WIUAAAAAG2UuSYktpVi2Mz7tB6cgXnO1Tez"></div>
+          <div *ngIf="captchaError" class="error">Recaptcha not verified.</div>
       </div>
+    
       <div class="form-group">
 				<button class="btn btn-primary btn-block">Login</button>
 			</div>
