@@ -50,7 +50,7 @@ import { BoardModeratorComponent } from './board-moderator/board-moderator.compo
 import { ProfileComponent } from './profile/profile.component';
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { AuthGuard } from './guard/auth.guard';
-
+import { NgxCaptchaModule } from 'ngx-captcha';
 
 
 @NgModule({
@@ -103,6 +103,8 @@ import { AuthGuard } from './guard/auth.guard';
     HttpClientModule,
     RouterModule,
     AppRoutingModule,
+    NgxCaptchaModule
+    
 
 
   ],
