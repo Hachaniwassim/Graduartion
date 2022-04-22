@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
   captchaError: boolean = false;
   password?: string;
   recaptchaResponse = "";
-  siteKey !: string;
+  siteSecret : string="6Lc5l5AfAAAAAHOzhA9CEDiwe3n-W6GKdbQadMeq";
 
 
   constructor(private authService: AuthService, public router: Router, private tokenStorage: TokenStorageService, private notificationService: NotificationService) { }
