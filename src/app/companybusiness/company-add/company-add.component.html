@@ -1,0 +1,35 @@
+<mat-toolbar>
+  <span>{{companyService.form.controls['id'].value?"Modify Company":"New Company"}}</span>
+  <span class="fill-remaining-space"></span>
+  <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
+</mat-toolbar>
+<form [formGroup]="companyService.form" class="normal-form" (submit)="onSubmit()" class="normal-form">
+  <mat-grid-list cols="1" rowHeight="100px">
+    <mat-grid-tile>
+      <div class="container">
+        <input type="hidden" formControlName="id">
+        <mat-form-field style="margin-left: 40px;">
+          <input formControlName="description" matInput placeholder="description">
+          <mat-error *ngIf="companyService.form.controls['description'].errors?.required">this field is mandatory.
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field style="margin-left: 40px;">
+          <input formControlName="domainename" matInput placeholder="domainename">
+          <mat-error *ngIf="companyService.form.controls['domainename'].errors?.required">this field is mandatory.
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="controles-container">
+        <div class="button-row">
+          <div class="button-row">
+            <button mat-raised-button color="primary" type="submit"
+              [disabled]="companyService.form.invalid">Save</button>&nbsp;&nbsp;
+            <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
+          </div>
+        </div>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</form>

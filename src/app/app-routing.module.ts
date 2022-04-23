@@ -41,6 +41,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './guard/auth.guard';
+import { CompanybusinessComponent } from './companybusiness/companybusiness.component';
 
 
 
@@ -91,6 +92,8 @@ const routes: Routes = [
 { path : "management" ,component :ManagementComponent,canActivate: [AuthGuard]},
 { path : "usefullinks" ,component :UsefulllinksComponent,canActivate: [AuthGuard]},
 
+{ path : "company" ,component :CompanybusinessComponent,canActivate: [AuthGuard]},
+
 
 { path: 'user', component: BoardUserComponent,canActivate: [AuthGuard] },
 { path: 'mod', component: BoardModeratorComponent ,canActivate: [AuthGuard]},
@@ -98,6 +101,7 @@ const routes: Routes = [
 { path: 'profile', component: ProfileComponent,canActivate: [AuthGuard] },
   
 { path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule),canActivate: [AuthGuard]},
+  
 
 { path: '**', component: NotfoundComponent },
 
