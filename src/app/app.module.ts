@@ -49,8 +49,10 @@ import { BoardAdminComponent } from './board-admin/board-admin.component';
 import { BoardModeratorComponent } from './board-moderator/board-moderator.component';
 import { ProfileComponent } from './profile/profile.component';
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
-import { AuthGuard } from './guard/auth.guard';
 import { NgxCaptchaModule } from 'ngx-captcha';
+import { CompanybusinessComponent } from './companybusiness/companybusiness.component';
+import { CompanyListComponent } from './companybusiness/company-list/company-list.component';
+import { CompanyAddComponent } from './companybusiness/company-add/company-add.component';
 
 
 @NgModule({
@@ -89,7 +91,10 @@ import { NgxCaptchaModule } from 'ngx-captcha';
     BoardUserComponent,
     BoardAdminComponent,
     BoardModeratorComponent,
-    ProfileComponent
+    ProfileComponent,
+    CompanybusinessComponent,
+    CompanyListComponent,
+    CompanyAddComponent,
     
 
   ],
@@ -103,7 +108,9 @@ import { NgxCaptchaModule } from 'ngx-captcha';
     HttpClientModule,
     RouterModule,
     AppRoutingModule,
-    NgxCaptchaModule
+    NgxCaptchaModule,
+    FormsModule,
+    
     
 
 

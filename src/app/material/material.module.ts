@@ -22,6 +22,22 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatTreeModule } from '@angular/material/tree';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatRippleModule } from '@angular/material/core';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+
+import { MatTooltipModule } from '@angular/material/tooltip';
+
 
 
 
@@ -31,17 +47,31 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
   declarations: [],
   imports: [
     CommonModule,
+    MatTooltipModule,
+    MatBadgeModule,
+    MatDividerModule,
     MatProgressBarModule,
+    MatSliderModule ,
+    MatFormFieldModule,
+    MatChipsModule,
+    MatAutocompleteModule ,
+    MatRippleModule,
+    MatSlideToggleModule,
+    MatTabsModule ,
+    MatBottomSheetModule,
     MatToolbarModule,
     MatGridListModule,
     MatInputModule,
     MatRadioModule,
     MatSelectModule,
+    MatStepperModule,
     MatMenuModule,
+    MatButtonToggleModule ,
     MatExpansionModule,
     MatDatepickerModule,
     MatCheckboxModule,
     MatNativeDateModule,
+    MatTreeModule,
     MatButtonModule,
     MatSnackBarModule,
     MatTableModule,
@@ -52,19 +82,36 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     MatListModule,
     MatSidenavModule,
     MatCardModule,
-   MatProgressSpinnerModule
+   MatProgressSpinnerModule,
+   
   ],
   exports:[
+    CommonModule,
+    MatTooltipModule,
+    MatBadgeModule,
+    MatDividerModule,
+    MatProgressBarModule,
+    MatSliderModule ,
+    MatFormFieldModule,
+    MatChipsModule,
+    MatAutocompleteModule ,
+    MatRippleModule,
+    MatSlideToggleModule,
+    MatTabsModule ,
+    MatBottomSheetModule,
     MatToolbarModule,
     MatGridListModule,
     MatInputModule,
     MatRadioModule,
     MatSelectModule,
+    MatStepperModule,
     MatMenuModule,
+    MatButtonToggleModule ,
     MatExpansionModule,
     MatDatepickerModule,
     MatCheckboxModule,
     MatNativeDateModule,
+    MatTreeModule,
     MatButtonModule,
     MatSnackBarModule,
     MatTableModule,
@@ -74,9 +121,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     MatDialogModule,
     MatListModule,
     MatSidenavModule,
-    MatProgressBarModule,
     MatCardModule,
-     MatProgressSpinnerModule
+    MatProgressSpinnerModule,
   ]
 })
 export class MaterialModule { }
