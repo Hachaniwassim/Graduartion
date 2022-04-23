@@ -18,6 +18,7 @@ export class CompanyAddComponent implements OnInit {
   constructor( public companyService : CompanybusinessService  ,private notificationagencyService : NotificationService,public dialogRef: MatDialogRef<CompanyAddComponent>) { }
 
   ngOnInit(): void {
+    this.getAll();
   }
 
   getAll() {
@@ -36,20 +37,22 @@ export class CompanyAddComponent implements OnInit {
     if (this.companyService.form.valid) {
       if ( ! this.companyService.form.get('id')?.value)
         this.companyService.create(this.companyService.form.value).subscribe(() => {
-          this.getAll();
           this.notificationagencyService.success(':: Submitted successfully');
+          this.ngOnInit();
         })
       else
       this.companyService.update(this.companyService.form.value).subscribe(() => {
-        this.getAll(); 
+        this.ngOnInit();
         this.notificationagencyService.success(':: Submitted successfully');
+        
       })
       this.companyService.form.reset();
       this.companyService.initializeFormGroup();
       this.onClose();
+      this.ngOnInit();
     }
-    this.reloadPage();
-    this.getAll();
+    
+    
   }
 
   

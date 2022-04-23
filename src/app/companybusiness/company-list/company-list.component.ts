@@ -76,7 +76,7 @@ export class CompanyListComponent implements OnInit {
             })
             console.log(this.datasource.data);
           })
-          this.getAll();
+          this.ngOnInit();
         }
       });
   }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TokenStorageService } from '../_services/token-storage.service';
 
 @Component({
@@ -10,14 +11,16 @@ export class LeftSlideBarComponent implements OnInit {
 
   private roles: string[] = [];
   isLoggedIn = false;
+
   showAdminBoard = false;
   showModeratorBoard = false;
   username?: string;
 
-  constructor(private tokenStorageService: TokenStorageService) { }
+  constructor(private tokenStorageService: TokenStorageService,public router : Router) { }
 
   ngOnInit(): void {
     this.isLoggedIn = !!this.tokenStorageService.getToken();
+    
 
     if (this.isLoggedIn) {
       const user = this.tokenStorageService.getUser();
@@ -28,6 +31,10 @@ export class LeftSlideBarComponent implements OnInit {
 
       this.username = user.username;
     }
+  if ( !this.isLoggedIn){
+    this.router.navigate(['/']);
+  }
+
   }
 
 }

@@ -29,14 +29,15 @@ export class NavbarComponent implements OnInit {
 
       this.username = user.username;
     }
+    
   }
   
 
   logout(): void {
    this.tokenStorageService.signOut();
-    window.location.reload();
     this.router.navigate(['/']);
-     window.location.reload();
+    this.ngOnInit();
+    window.location.reload();
   }
 
  
