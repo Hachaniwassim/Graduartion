@@ -6,16 +6,13 @@
   <title>multiwebsites</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <base href="/">
-  <!--//street map//-->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="crossorigin="" />
-    <!--// morris templete //-->
-<!--Morris Chart CSS -->
-<link rel="stylesheet" href="assets/css/morris.css">
-<link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-<link href="assets/css/metismenu.min.css" rel="stylesheet" type="text/css">
-<link href="assets/css/icons.css" rel="stylesheet" type="text/css">
-<link href="assets/css/style.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+  <!--Morris Chart CSS -->
+  <link rel="stylesheet" href="assets/css/morris.css">
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="assets/css/metismenu.min.css" rel="stylesheet" type="text/css">
+  <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
+  <link href="assets/css/style.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -27,64 +24,63 @@
 
 <body data-spy="scroll">
 
-    
-    <app-root></app-root>
-    <!-------------------------Street Map------------------------------->
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-      crossorigin=""></script>
-    <script src="https://use.fontawesome.com/b714a8f3f6.js"></script>
-      <!-- jQuery  -->
-      <script src="assets/js/jquery.min.js"></script>
-      <script src="assets/js/bootstrap.bundle.min.js"></script>
-      <script src="assets/js/metismenu.min.js"></script>
-      <script src="assets/js/jquery.slimscroll.js"></script>
-      <script src="assets/js/waves.min.js"></script>
-      <!--Morris Chart-->
-      <script src="assets/js/morris.min.js"></script>
-      <script src="assets/js/raphael.min.js"></script>
-      <script src="assets/js/dashboard.init.js"></script>
-      <!-- App js -->
-      <script src="assets/js/app.js"></script>
-    <script src="https://www.google.com/recaptcha/api.js?hl=en"></script>
-    <script>
+  <app-root></app-root>
+  <!--Street Map------>
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+  <script src="https://use.fontawesome.com/b714a8f3f6.js"></script>
+  <!-- jQuery  -->
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/metismenu.min.js"></script>
+  <script src="assets/js/jquery.slimscroll.js"></script>
+  <script src="assets/js/waves.min.js"></script>
+  <!--Morris Chart-->
+  <script src="assets/js/morris.min.js"></script>
+  <script src="assets/js/raphael.min.js"></script>
+  <script src="assets/js/dashboard.init.js"></script>
+  <!-- App js -->
+  <script src="assets/js/app.js"></script>
+  <script src="https://www.google.com/recaptcha/api.js?hl=en"></script>
+  <script>
 
-      $(window).resize(function () {
+    $(window).resize(function () {
 
-        var widthInput = $('input').width()
-
-
-
-        const defaulCaptchaWidth = 294.5651;
-        var total = widthInput * 100 / defaulCaptchaWidth / 100
-        total = widthInput <= 664 ? total + 0.035 : total
-
-
-        $('.gc-recaptcha').css('transform', 'scale(' + total + ')');
-
-      });
-
-      $(document).ready(function () {
-        var widthInput = $('input').width()
+      var widthInput = $('input').width()
 
 
 
-        const defaulCaptchaWidth = 294.5651;
-        var total = widthInput * 100 / defaulCaptchaWidth / 100
-        total = widthInput <= 664 ? total + 0.035 : total
+      const defaulCaptchaWidth = 294.5651;
+      var total = widthInput * 100 / defaulCaptchaWidth / 100
+      total = widthInput <= 664 ? total + 0.035 : total
+
+
+      $('.gc-recaptcha').css('transform', 'scale(' + total + ')');
+
+    });
+
+    $(document).ready(function () {
+      var widthInput = $('input').width()
+
+
+
+      const defaulCaptchaWidth = 294.5651;
+      var total = widthInput * 100 / defaulCaptchaWidth / 100
+      total = widthInput <= 664 ? total + 0.035 : total
 
 
 
 
-        $('.gc-recaptcha').css('transform', 'scale(' + total + ')');
-      })
+      $('.gc-recaptcha').css('transform', 'scale(' + total + ')');
+    })
 
     //   transform:scale(1.26) !important;
 
-    </script>
-<script src="//code.tidio.co/rtagubqgtrmyxhtngs6peog9wuowjvvq.js" async></script>
+  </script>
+  <script src="//code.tidio.co/rtagubqgtrmyxhtngs6peog9wuowjvvq.js" async></script>
 
-    
+
 
 </body>
 
