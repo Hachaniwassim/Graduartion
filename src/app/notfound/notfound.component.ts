@@ -12,4 +12,8 @@ export class NotfoundComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onrelod(){
+    window.location.reload();
+  }
+
 }

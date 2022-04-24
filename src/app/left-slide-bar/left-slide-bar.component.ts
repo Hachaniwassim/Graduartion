@@ -11,7 +11,6 @@ export class LeftSlideBarComponent implements OnInit {
 
   private roles: string[] = [];
   isLoggedIn = false;
-
   showAdminBoard = false;
   showModeratorBoard = false;
   username?: string;
@@ -31,7 +30,8 @@ export class LeftSlideBarComponent implements OnInit {
 
       this.username = user.username;
     }
-  if ( !this.isLoggedIn){
+  if ( !(this.isLoggedIn)){
+    this.tokenStorageService.signOut();
     this.router.navigate(['/']);
   }
 

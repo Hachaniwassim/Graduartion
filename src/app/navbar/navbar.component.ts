@@ -29,7 +29,9 @@ export class NavbarComponent implements OnInit {
 
       this.username = user.username;
     }
-    
+    if(!this.isLoggedIn){
+      this.tokenStorageService.signOut();
+    }
   }
   
 
