@@ -43,19 +43,18 @@ export class CompanyListComponent implements OnInit {
     this.datasource.sort = this.sort;
   }
   ngOnInit(): void {
-
-    this.datasource.sort = this.sort;
-    this.datasource.paginator = this.paginator;
-    this.getAll();
-  }
-
-
-  getAll() {
+    
     this.companyService.all().subscribe((response: any) => {
-      this.datasource.data = response;
-    });
-
+    this.datasource.data = response;
+    this.datasource.paginator = this.paginator;
+    this.datasource.sort = this.sort;
+  });
+   
   }
+
+
+  
+   
   onSearchClear() {
     this.searchKey = "";
     this.applyFilter();
@@ -87,6 +86,7 @@ export class CompanyListComponent implements OnInit {
     dialogConfig.autoFocus = true;
     dialogConfig.width = "60%";
     this.dialog.open(CompanyAddComponent,dialogConfig);
+   
   }
 
   onEdit(row: any){
@@ -96,6 +96,7 @@ export class CompanyListComponent implements OnInit {
     dialogConfig.autoFocus = true;
     dialogConfig.width = "60%";
     this.dialog.open(CompanyAddComponent,dialogConfig);
+   
    
   }
 
