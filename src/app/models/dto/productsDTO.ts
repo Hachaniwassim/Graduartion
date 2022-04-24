@@ -1,4 +1,4 @@
-export interface products{
+export interface productsDTO{
     id?:number ;
 	title? : string;
     detailimage? : string;

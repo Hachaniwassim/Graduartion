@@ -1,4 +1,4 @@
-export interface post{
+export interface postDTO{
     id?:number ;
 	image? : string;
     tagline? : string;

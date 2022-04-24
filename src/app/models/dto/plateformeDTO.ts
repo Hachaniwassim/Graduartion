@@ -1,4 +1,4 @@
-export interface plateforome{
+export interface plateforomeDTO{
     id?:number ;
 	image? : string;
     email? : string;

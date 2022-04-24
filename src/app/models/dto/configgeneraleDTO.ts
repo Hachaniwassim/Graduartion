@@ -1,4 +1,4 @@
-export interface configgenerale{
+export interface configgeneraleDTO{
     id?:number ;
 	facebook? : string;
     twitter? : string;

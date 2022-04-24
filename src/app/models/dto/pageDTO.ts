@@ -1,4 +1,4 @@
-export interface pages{
+export interface pagesDTO{
     id?:number ;
 	published? : boolean;
     pagetype? : string;
