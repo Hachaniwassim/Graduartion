@@ -40,6 +40,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './guard/auth.guard';
 import { CompanybusinessComponent } from './companybusiness/companybusiness.component';
+import { AccountComponent } from './account/account.component';
 
 
 
@@ -91,6 +92,7 @@ const routes: Routes = [
 { path : "usefullinks" ,component :UsefulllinksComponent,canActivate: [AuthGuard]},
 
 { path : "company" ,component :CompanybusinessComponent,canActivate: [AuthGuard]},
+{ path : "account" ,component :AccountComponent,canActivate: [AuthGuard]},
 
 
 { path: 'user', component: BoardUserComponent,canActivate: [AuthGuard] },

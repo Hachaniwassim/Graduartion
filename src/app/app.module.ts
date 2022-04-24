@@ -53,6 +53,9 @@ import { NgxCaptchaModule } from 'ngx-captcha';
 import { CompanybusinessComponent } from './companybusiness/companybusiness.component';
 import { CompanyListComponent } from './companybusiness/company-list/company-list.component';
 import { CompanyAddComponent } from './companybusiness/company-add/company-add.component';
+import { AccountComponent } from './account/account.component';
+import { AccountEditComponent } from './account/account-edit/account-edit.component';
+import { AccountListComponent } from './account/account-list/account-list.component';
 
 
 @NgModule({
@@ -95,6 +98,9 @@ import { CompanyAddComponent } from './companybusiness/company-add/company-add.c
     CompanybusinessComponent,
     CompanyListComponent,
     CompanyAddComponent,
+    AccountComponent,
+    AccountEditComponent,
+    AccountListComponent,
     
 
   ],
