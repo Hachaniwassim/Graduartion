@@ -10,10 +10,10 @@ import { CompanyBusinessDTO } from '../models/dto/companyBusinessDTO';
 @Injectable({
   providedIn: 'root'
 })
-export class Accountservice {
+export class Contactservice {
 
   //api backend
-  private base_url="http://localhost:8089/user";
+  private base_url="http://localhost:8089/";
   
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 

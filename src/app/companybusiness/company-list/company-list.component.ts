@@ -1,9 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Location } from '@angular/common';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 import { CompanyBusinessDTO } from 'src/app/models/dto/companyBusinessDTO';
 import { DialogService } from 'src/app/shared/dialog.service';
 import { NotificationService } from 'src/app/shared/notification.service';
@@ -22,38 +24,39 @@ export class CompanyListComponent implements OnInit {
   @ViewChild('companyForm', { static: false })
   companyForm!: FormGroup;
   companyData !: CompanyBusinessDTO;
-  company!:CompanyBusinessDTO[];
+  company!: CompanyBusinessDTO[];
   searchKey!: string;
-  showspinner=false;
-
-
+  showspinner = false;
   datasource = new MatTableDataSource(this.company)
-  displayedColumns: string[] = ['description', 'domainename','actions'];
+  displayedColumns: string[] = ['description', 'domainename', 'actions'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild(MatSort,{}) sort!: MatSort;
+  @ViewChild(MatSort, {}) sort!: MatSort;
 
-  constructor( private dialog: MatDialog, private dialogService: DialogService, private companyService:CompanybusinessService,
-    private notificationService: NotificationService) {
+
+  constructor(private dialog: MatDialog, private dialogService: DialogService, private companyService: CompanybusinessService,
+    private notificationService: NotificationService, public router: Router, public _location: Location) {
     this.companyData = {} as CompanyBusinessDTO;
   }
 
+
+  //data sorting 
   ngAfterViewInit() {
     this.datasource.paginator = this.paginator;
     this.datasource.sort = this.sort;
   }
+
+
   ngOnInit(): void {
-    
+    //data sorting and pagination from angular materila 
     this.companyService.all().subscribe((response: any) => {
-    this.datasource.data = response;
-    this.datasource.paginator = this.paginator;
-    this.datasource.sort = this.sort;
-  });
-   
+      this.datasource.data = response;
+      this.datasource.paginator = this.paginator;
+      this.datasource.sort = this.sort;
+    });
+
   }
+  //search for data 
 
-
-  
-   
   onSearchClear() {
     this.searchKey = "";
     this.applyFilter();
@@ -63,8 +66,10 @@ export class CompanyListComponent implements OnInit {
     this.datasource.filter = this.searchKey.trim().toLowerCase();
   }
 
+
+  // delete data 
   onDelete(id: number) {
-    
+
     this.dialogService.openConfirmDialog('Are you sure to delete this record ?')
       .afterClosed().subscribe((res: any) => {
         if (res) {
@@ -74,49 +79,58 @@ export class CompanyListComponent implements OnInit {
             })
             console.log(this.datasource.data);
           })
-          this.ngOnInit();
+          this.refresh();
         }
       });
   }
+
+
+
+  // create dialog config
   onCreate() {
     //this.companyService.initializeFormGroup();
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.width = "60%";
-    this.dialog.open(CompanyAddComponent,dialogConfig);
-   
+    this.dialog.open(CompanyAddComponent, dialogConfig);
+
   }
 
-  onEdit(row: any){
+  // edite dialogConfig
+  onEdit(row: any) {
     this.companyService.populateForm(row);
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.width = "60%";
-    this.dialog.open(CompanyAddComponent,dialogConfig);
-   
-   
+    this.dialog.open(CompanyAddComponent, dialogConfig);
+
+
   }
 
-
+  // clear data 
   onClear() {
-    
     this.companyService.form.reset();
     this.companyService.initializeFormGroup();
   }
 
-
-  reloadPage() {
-    setTimeout(()=>{
-        window.location.reload();
-      }, 1000);  
+  //refrech 
+  refresh(): void {
+    this.router.navigateByUrl("/refresh", { skipLocationChange: true }).then(() => {
+      console.log(decodeURI(this._location.path()));
+      this.router.navigate([decodeURI(this._location.path())]);
+    });
   }
 
-  spinner(){ 
-    this.showspinner=true;
-    setTimeout(() => {this.showspinner=false;},2000)
+
+  // spinner from angular material
+  spinner() {
+    this.showspinner = true;
+    setTimeout(() => { this.showspinner = false; }, 2000)
   }
+
+  //alerte de confirmation 
   alertConfirmation() {
     Swal.fire({
       title: 'Are you sure?',

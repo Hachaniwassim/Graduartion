@@ -1,9 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Location } from '@angular/common';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 import { CompanyBusinessDTO } from 'src/app/models/dto/companyBusinessDTO';
 import { DialogService } from 'src/app/shared/dialog.service';
 import { NotificationService } from 'src/app/shared/notification.service';
@@ -28,63 +30,68 @@ export class CompanyAddComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort, {}) sort!: MatSort;
 
+
+
   constructor(private dialog: MatDialog, private dialogService: DialogService, public companyService: CompanybusinessService, public dialogRef: MatDialogRef<CompanyAddComponent>,
-    private notificationService: NotificationService) {
+    private notificationService: NotificationService, private router: Router, public _location: Location) {
     this.companyData = {} as CompanyBusinessDTO;
   }
 
-
+  // sorting + pagination data 
   ngAfterViewInit() {
     this.datasource.paginator = this.paginator;
     this.datasource.sort = this.sort;
   }
 
   ngOnInit(): void {
+    // sorting sorting and pagination data 
     this.datasource.sort = this.sort;
     this.datasource.paginator = this.paginator;
     this.companyService.all().subscribe((response: any) => {
       this.datasource.data = response;
-  })
-}
+    })
+  }
 
-  
+  //clear data
 
   onClear() {
     this.companyService.form.reset();
     this.companyService.initializeFormGroup();
   }
 
+  // submit data with context EDITE : DELETE
   onSubmit() {
     if (this.companyService.form.valid) {
       if (!this.companyService.form.get('id')?.value)
         this.companyService.create(this.companyService.form.value).subscribe(() => {
-          this.ngOnInit();
         })
 
       else
         this.companyService.update(this.companyService.form.value).subscribe(() => {
         })
-        this.ngOnInit();
-        /*this.companyService.form.reset();
-        this.companyService.initializeFormGroup();*/
-       this.onClose();
+      /*this.companyService.form.reset();
+      this.companyService.initializeFormGroup();*/
+      this.onClose();
 
     }
-    this.ngOnInit();
+    this.refresh();
 
   }
 
+  //refrech 
 
-  reloadPage() {
-    setTimeout(() => {
-      window.location.reload();
-    }, 1000);
+  refresh(): void {
+    this.router.navigateByUrl("/refresh", { skipLocationChange: true }).then(() => {
+      console.log(decodeURI(this._location.path()));
+      this.router.navigate([decodeURI(this._location.path())]);
+    });
   }
 
+  // dialogue close 
   onClose() {
     this.companyService.form.reset();
     this.companyService.initializeFormGroup();
     this.dialogRef.close();
   }
- 
+
 }

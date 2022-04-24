@@ -5,24 +5,26 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import * as _ from 'lodash';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
-import { CompanyBusinessDTO } from '../models/dto/companyBusinessDTO';
+import { productsDTO } from '../models/dto/productsDTO';
 
 @Injectable({
   providedIn: 'root'
 })
-export class Accountservice {
+export class Productsservice {
 
   //api backend
-  private base_url="http://localhost:8089/user";
+  private base_url="http://localhost:8089/";
   
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
  CompanyBusinessDTO ={
-    username:'', 
-    email: '',
-    password: '',
-    matchingPassword: '',
-    fiscaleCode: '',
+  title:'', 
+  detailimage: '',
+  note: '',
+  name: '',
+  image: '',
+  consultationNumber: '',
+
 
   }
   constructor(private http :HttpClient, private datePipe: DatePipe) { }
@@ -53,41 +55,42 @@ export class Accountservice {
 
 
 // insert 
-create(item : CompanyBusinessDTO):Observable<CompanyBusinessDTO>{
-  return this.http.post<CompanyBusinessDTO>(this.base_url,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
+create(item : productsDTO):Observable<productsDTO>{
+  return this.http.post<productsDTO>(this.base_url,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
 }
 
 //get all account data 
-all():Observable<CompanyBusinessDTO>{
-   return this.http.get<CompanyBusinessDTO>(this.base_url).pipe(retry(2),catchError(this.handleError));
+all():Observable<productsDTO>{
+   return this.http.get<productsDTO>(this.base_url).pipe(retry(2),catchError(this.handleError));
  }
 
 
-  // get account by id
-  getByid(id:number):Observable<CompanyBusinessDTO>{
-    return this.http.get<CompanyBusinessDTO>(this.base_url + '/' +id).pipe(retry(2),catchError(this.handleError));
+  // get product by id
+  getByid(id:number):Observable<productsDTO>{
+    return this.http.get<productsDTO>(this.base_url + '/' +id).pipe(retry(2),catchError(this.handleError));
 
   }
 
-   // update account by Id the
-   update(item : CompanyBusinessDTO){
-    return this.http.put<CompanyBusinessDTO>(this.base_url,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
+   // update product by Id the
+   update(item : productsDTO){
+    return this.http.put<productsDTO>(this.base_url,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
    }
 
-    // delete accounts
+    // delete products
     delete(id:number){
-      return this.http.delete<CompanyBusinessDTO>(this.base_url + '/' +id,this.httpOptions).pipe(retry(2),catchError(this.handleError));
+      return this.http.delete<productsDTO>(this.base_url + '/' +id,this.httpOptions).pipe(retry(2),catchError(this.handleError));
 
 }
 
 //validation formulaire
   form : FormGroup= new FormGroup({
     id: new FormControl(null),
-    username: new FormControl('',Validators.required),
-    email : new FormControl('',[ Validators.required]),
-    password : new FormControl('',[ Validators.required]),
-    matchingPassword : new FormControl('',[ Validators.required]),
-    fiscaleCode : new FormControl('',[ Validators.required]),
+    title: new FormControl('',Validators.required),
+    detailimage : new FormControl('',[ Validators.required]),
+    note : new FormControl('',[ Validators.required]),
+    name : new FormControl('',[ Validators.required]),
+    image : new FormControl('',[ Validators.required]),
+    consultationNumber : new FormControl('',[ Validators.required]),
 
  
 });
@@ -96,11 +99,13 @@ all():Observable<CompanyBusinessDTO>{
 initializeFormGroup() {
   this.form.setValue({
     id :null,
-    username: null,
-    email: null,
-    password: null,
-    matchingPassword: null,
-    fiscaleCode: null,
+    title: null,
+    detailimage: null,
+    note: null,
+    name: null,
+    image: null,
+    consultationNumber: null,
+
   });
 }
 populateForm(company: any) {

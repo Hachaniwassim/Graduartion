@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TokenStorageService } from '../_services/token-storage.service';
-
+import {Location}from '@angular/common';
 @Component({
   selector: 'app-left-slide-bar',
   templateUrl: './left-slide-bar.component.html',
@@ -15,7 +15,7 @@ export class LeftSlideBarComponent implements OnInit {
   showModeratorBoard = false;
   username?: string;
 
-  constructor(private tokenStorageService: TokenStorageService,public router : Router) { }
+  constructor(private tokenStorageService: TokenStorageService,public router : Router, public _location: Location) { }
 
   ngOnInit(): void {
     this.isLoggedIn = !!this.tokenStorageService.getToken();
@@ -33,8 +33,16 @@ export class LeftSlideBarComponent implements OnInit {
   if ( !(this.isLoggedIn)){
     this.tokenStorageService.signOut();
     this.router.navigate(['/']);
+    this.refresh();
+    
   }
 
   }
+  refresh(): void {
+		this.router.navigateByUrl("/refresh", { skipLocationChange: true }).then(() => {
+		console.log(decodeURI(this._location.path()));
+		this.router.navigate([decodeURI(this._location.path())]);
+		});
+	}
 
 }
