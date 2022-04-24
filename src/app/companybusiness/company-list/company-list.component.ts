@@ -4,7 +4,6 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { CompanyBusiness } from 'src/app/models/conpanybusiness';
 import { CompanyBusinessDTO } from 'src/app/models/dto/companyBusinessDTO';
 import { DialogService } from 'src/app/shared/dialog.service';
 import { NotificationService } from 'src/app/shared/notification.service';
@@ -80,7 +79,7 @@ export class CompanyListComponent implements OnInit {
       });
   }
   onCreate() {
-    this.companyService.initializeFormGroup();
+    //this.companyService.initializeFormGroup();
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;

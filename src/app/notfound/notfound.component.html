@@ -1,25 +1,21 @@
-<div id="wrapper">
-
+<br><br><br><div id="wrapper" >
   <div class="content-page">
     <!-- Start content -->
     <div class="content ">
-      <section class="paddings">
+      <section class="paddings" align="center">
         <!-- Start Section-->
-        <div class="container">
+        <div class="container" align="center"><br><br><br><br>
           <!-- Start container-->
-          <div class="row page-error" align="center">
+          <div class="row page-error" >
             <h1>404 <i class="fa fa-unlink " aria-hidden="true" style="color:#446DCA;"></i></h1>
-
             <mat-progress-bar mode="determinate" value="40"></mat-progress-bar><br><br>
-            <hr class="tall">
             <p class="lead">Siamo spiacenti, ma la pagina che stavi cercando non esiste.</p>
-            <a routerLink="/login" class="btn btn-primary btn-block">Ritorno alla accedi</a>
+            <a routerLink="/login" (click)="onrelod()" class="btn btn-primary btn-block">Ritorno alla accedi</a>
           </div>
         </div>
         <!-- End Container-->
       </section>
       <!-- End Section-->
-
     </div>
   </div> <!-- End content -->
 </div>

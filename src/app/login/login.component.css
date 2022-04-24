@@ -153,7 +153,14 @@ label {
   box-shadow: none;
   border-color: #446DCA;
 }
-
+:host {
+  background-color: #eef1f7;
+  flex: 1 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 95px 95px 95px 95px;
+}
 .form-group.form-control::placeholder {
   color: #222;
   font-size: 15px;

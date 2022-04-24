@@ -2,6 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NotificationsService } from 'angular2-notifications';
 import Swal from 'sweetalert2';
 import { NotificationService } from '../shared/notification.service';
 import { AuthService } from '../_services/auth.service';
@@ -28,10 +29,11 @@ export class LoginComponent implements OnInit {
   captchaError: boolean = false;
   password?: string;
   recaptchaResponse = "";
+  fieldTextType!: boolean;
   siteSecret : string="6Lc5l5AfAAAAAHOzhA9CEDiwe3n-W6GKdbQadMeq";
 
 
-  constructor(private authService: AuthService, public router: Router, private tokenStorage: TokenStorageService, private notificationService: NotificationService) { }
+  constructor( private notfication : NotificationsService,private authService: AuthService, public router: Router, private tokenStorage: TokenStorageService, private notificationService: NotificationService) { }
 
   ngOnInit(): void {
 
@@ -43,10 +45,14 @@ export class LoginComponent implements OnInit {
       // this.notificationService.success(' : : Your logged successfully');
       this.router.navigate(['/dashboard']);
       this.successNotification();
+      
 
     }
 
 
+  }
+  toggleFieldTextType() {
+    this.fieldTextType = !this.fieldTextType;
   }
 
   onSubmit(): void {
@@ -75,6 +81,7 @@ export class LoginComponent implements OnInit {
         //recuperation response 
         this.recaptchaResponse = response;
         this.reloadPage();
+      
 
       },
       err => {
@@ -96,7 +103,23 @@ export class LoginComponent implements OnInit {
 
 
   }
+  onSucces(_message: undefined){
+    this.notfication.success('Succes',_message,{
+    position :['bottom','right'],
+    timeout:3000,
+    animations:'fade',
+    showProgressBare:true
 
+});
 
 }
+onError(){this.notfication.error('Error',onmessage,{
+  position :['bottom','right'],
+  timeout:4000,
+  animations:'fade',
+  showProgressBare:true
 
+});
+
+}
+}

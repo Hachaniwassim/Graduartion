@@ -56,6 +56,8 @@ import { CompanyAddComponent } from './companybusiness/company-add/company-add.c
 import { AccountComponent } from './account/account.component';
 import { AccountEditComponent } from './account/account-edit/account-edit.component';
 import { AccountListComponent } from './account/account-list/account-list.component';
+import { AgendaService, DayService, MonthAgendaService, MonthService, ScheduleModule, TimelineMonthService, TimelineViewsService, WeekService, WorkWeekService } from '@syncfusion/ej2-angular-schedule';
+import { SimpleNotificationsModule } from 'angular2-notifications';
 
 
 @NgModule({
@@ -115,16 +117,18 @@ import { AccountListComponent } from './account/account-list/account-list.compon
     RouterModule,
     AppRoutingModule,
     NgxCaptchaModule,
-    FormsModule,
+    FormsModule, 
+    ScheduleModule, 
+    SimpleNotificationsModule.forRoot()
     
     
 
 
   ],
 
-  exports: [MaterialModule],
+  exports: [MaterialModule, ScheduleModule],
   providers: [
-    {provide: MatDialogRef, useValue: {close: (_dialogResult: any) => { }} }, DatePipe, authInterceptorProviders
+    {provide: MatDialogRef, useValue: {close: (_dialogResult: any) => { }} }, DatePipe, authInterceptorProviders,DayService, WeekService, WorkWeekService, MonthService, AgendaService, MonthAgendaService, TimelineViewsService, TimelineMonthService
   ],
   bootstrap: [AppComponent]
 })

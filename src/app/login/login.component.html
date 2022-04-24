@@ -2,7 +2,7 @@
 <div class="col-md-12">
   <div class="card card-container">
     <img id="profile-img" src="https://www.igesa.it/assets/common/images/logo/1529316041.png" align="center" />
-    <br><br>
+    <br><br><br>
     <form  name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
       <div class="form-group">
       <div class="form-group">
@@ -14,8 +14,22 @@
           Username is required ❌
         </div>
       </div>
-      <div class="form-group">
-        <input type="password" class="form-control" name="password" [(ngModel)]="form.password" required minlength="6" placeholder="password" #password="ngModel" />
+      <div class="form-group"> 
+      <div class="input-group">
+        <input type="password" class="form-control" [type]="fieldTextType ? 'text' : 'password'" name="password" [(ngModel)]="form.password" required minlength="6" placeholder="password" #password="ngModel" />
+        <div class="input-group-append">
+        <span class="input-group-text">
+          <i
+            class="fa"
+            [ngClass]="{
+              'fa-eye-slash': !fieldTextType,
+              'fa-eye': fieldTextType
+            }"
+            (click)="toggleFieldTextType()"
+          ></i>
+        </span>
+        </div>
+      </div>
         <div class=" msg" role="alert" *ngIf=" !(f.submitted) && password.errors && password.touched && password.invalid">
           <div *ngIf="password.errors.required">Password is required ❌ </div></div>
           <div class=" msg" role="alert" *ngIf=" (f.submitted) && password.errors && password.invalid">
@@ -26,16 +40,18 @@
           Password must be at least 6 characters ❌
         </div>
       </div>
+      <small class="form-text text-right" ><a style="text-decoration: none;" routerLink="/forget-password" class="text-muted">forgot password? </a></small>
       </div> 
+      <div class="form-group">
         <div class="g-recaptcha" data-sitekey="6Ley04sfAAAAAEISEbw0tEt73BI_3S16cBUn4gwt"></div>
           <div *ngIf="captchaError" class="error">Recaptcha not verified.</div>
       </div>
-    
+    </div>
       <div class="form-group">
 				<button class="btn btn-primary btn-block">Login</button>
 			</div>
 			<div class="form-group">
-				<div class=" msg" role="alert" *ngIf="isLoginFailed"> Login failed : INVALID_CREDENTIALS  ❌ {{ errorMessage }}</div>
+				<div class=" msg" role="alert" *ngIf="isLoginFailed " > Login failed : INVALID_CREDENTIALS  ❌ {{ errorMessage }}</div>
 			</div>
       <br>
 		<!----<div class="flexbox mb-5">

@@ -1,6 +1,6 @@
-<div id="wrapper" >
+<div id="wrapper"  [hidden]="!isLoggedIn">
         <!-- ========== Left Sidebar Start ========== -->
-        <div class="left side-menu" *ngIf="showAdminBoard && isLoggedIn">
+        <div class="left side-menu"   *ngIf="showAdminBoard && isLoggedIn">
             <div class="slimscroll-menu" id="remove-scroll">
                 <!--- Sidemenu -->
                 <div id="sidebar-menu">
