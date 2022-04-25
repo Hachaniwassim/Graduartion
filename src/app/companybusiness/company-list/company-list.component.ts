@@ -5,7 +5,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CompanyBusinessDTO } from 'src/app/models/dto/companyBusinessDTO';
 import { DialogService } from 'src/app/shared/dialog.service';
 import { NotificationService } from 'src/app/shared/notification.service';
@@ -24,21 +24,25 @@ export class CompanyListComponent implements OnInit {
   @ViewChild('companyForm', { static: false })
   companyForm!: FormGroup;
   companyData !: CompanyBusinessDTO;
-  company!: CompanyBusinessDTO[];
+  companybusiness!: CompanyBusinessDTO[];
   searchKey!: string;
   showspinner = false;
-  datasource = new MatTableDataSource(this.company)
+  data : any ;
+  
+  company={
+    domainename :"",
+   description: "",
+  }
+
+  datasource = new MatTableDataSource(this.companybusiness)
   displayedColumns: string[] = ['description', 'domainename', 'actions'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort, {}) sort!: MatSort;
-
-
+ id=this.route.snapshot.params['id'];
   constructor(private dialog: MatDialog, private dialogService: DialogService, private companyService: CompanybusinessService,
-    private notificationService: NotificationService, public router: Router, public _location: Location) {
+    private notificationService: NotificationService,private route: ActivatedRoute, public router: Router, public _location: Location) {
     this.companyData = {} as CompanyBusinessDTO;
   }
-
-
   //data sorting 
   ngAfterViewInit() {
     this.datasource.paginator = this.paginator;
@@ -84,6 +88,13 @@ export class CompanyListComponent implements OnInit {
       });
   }
 
+        getone(){
+        this.companyService.getByid(this.id).subscribe((response)=>
+        { this.data=response;
+         this.company=this.data;
+         console.log(this.company);
+       })
+      }
 
 
   // create dialog config
