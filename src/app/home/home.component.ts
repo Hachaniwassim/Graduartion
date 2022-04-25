@@ -1,50 +1,58 @@
-import { Component, OnInit } from '@angular/core';
-import Swal from 'sweetalert2';
-import { TokenStorageService } from '../_services/token-storage.service';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { DayService, EventSettingsModel, MonthService, ScheduleComponent, View, WeekService, WorkWeekService } from '@syncfusion/ej2-angular-schedule';
+import { ButtonComponent } from '@syncfusion/ej2-angular-buttons';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
+  providers: [DayService, WeekService, WorkWeekService, MonthService],
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private tokenStorage: TokenStorageService) { }
-  isLoggedIn = false;
-  isLoginFailed = false;
-  errorMessage = '';
-  roles: string[] = [];
-  username? : string;
+  constructor() { }
+ 
 
   ngOnInit() {
-    console.log('Life Cyle Hook with spontaneous response.');
-    this.isLoggedIn= true;
-    this.roles = this.tokenStorage.getUser().roles;
-    this.username=this.tokenStorage.getUser().username;
-    this.successNotification();
-   
   }
-  tinyAlert() {
-    Swal.fire('Hey there!');
-  }
-  successNotification() {
-    Swal.fire('welcome', ' you have been logged successfully', 'success');
-  }
-  alertConfirmation() {
-    Swal.fire({
-      title: 'Are you sure?',
-      text: 'This process is irreversible.',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonText: 'Yes, go ahead.',
-      cancelButtonText: 'No, let me think',
-    }).then((result) => {
-      if (result.value) {
-        Swal.fire('Removed!', 'Product removed successfully.', 'success');
-      } else if (result.dismiss === Swal.DismissReason.cancel) {
-        Swal.fire('Cancelled', 'Product still in our database.)', 'error');
-      }
-    });
-  }
+  @ViewChild("scheduleObj")
+  public scheduleObj!: ScheduleComponent;
+@ViewChild("addButton")
+public addButton!: ButtonComponent;
+public selectedDate: Date = new Date(2018, 1, 15);
+public scheduleViews: View[] = ['Day', 'Week', 'WorkWeek', 'Month'];
+public eventSettings: EventSettingsModel = {
+    dataSource: [{
+        Id: 1,
+        Subject: 'Scrum Meeting',
+        StartTime: new Date(2022, 1, 11, 9, 0),
+        EndTime: new Date(2022, 1, 11, 10, 0),
+        IsAllDay: false
+    }, {
+        Id: 2,
+        Subject: 'Vacation',
+        StartTime: new Date(2022, 1, 13, 9, 0),
+        EndTime: new Date(2022, 1, 13, 10, 0),
+        IsAllDay: false
+    }]
 }
+public onButtonClick(): void {
+    let data: Object[] = [{
+        Id: 3,
+        Subject: 'Conference',
+        StartTime: new Date(2022, 1, 12, 9, 0),
+        EndTime: new Date(2022, 1, 12, 10, 0),
+        IsAllDay: true
+    }, {
+        Id: 4,
+        Subject: 'Meeting',
+        StartTime: new Date(2022, 1, 15, 10, 0),
+        EndTime: new Date(2022, 1, 15, 11, 30),
+        IsAllDay: false
+    }];
+    this.scheduleObj.addEvent(data);
+    this.addButton.element.setAttribute('disabled','true');
+}
+}
+
 

@@ -66,10 +66,10 @@ export class CompanyAddComponent implements OnInit {
         this.companyService.create(this.companyService.form.value).subscribe(() => {
         })
 
-      else
+      if(
         this.companyService.update(this.companyService.form.value).subscribe(() => {
-        })
-      /*this.companyService.form.reset();
+        }))
+         /*this.companyService.form.reset();
       this.companyService.initializeFormGroup();*/
       this.onClose();
 
