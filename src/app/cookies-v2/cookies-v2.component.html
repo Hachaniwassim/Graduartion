@@ -1,0 +1,32 @@
+<body>
+    <div class="cookie-consent-modal">
+        <div class="content">
+            <h1>Allow Cookies</h1>
+            <p>Notice. IGESA uses cookies to provide necessary website functionality, improve your experience and analyze our traffic. By using our website, you agree to our Privacy Policy and our Cookies Policy.</p>
+            <div class="btns">
+                <button class="btn cancel">cancel</button>
+                <button class="btn accept">accept</button>
+            </div>
+        </div>
+    </div>
+    <script>
+    let cookieModal = document.querySelector(".cookie-consent-modal")
+    let cancelCookieBtn = document.querySelector(".btn.cancel")
+    let acceptCookieBtn = document.querySelector(".btn.accept")
+
+    cancelCookieBtn.addEventListener("click", function (){
+    cookieModal.classList.remove("active")
+    })
+    acceptCookieBtn.addEventListener("click", function (){
+    cookieModal.classList.remove("active")
+    localStorage.setItem("cookieAccepted", "yes")
+    })
+
+    setTimeout(function (){
+    let cookieAccepted = localStorage.getItem("cookieAccepted")
+    if (cookieAccepted != "yes"){
+        cookieModal.classList.add("active")
+    }
+    }, 2000)
+    </script>
+</body>

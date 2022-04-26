@@ -5,7 +5,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import * as _ from 'lodash';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
-import { CompanyBusinessDTO } from '../models/dto/companyBusinessDTO';
+import { AccountDTO } from '../models/dto/accountDTO';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,7 @@ export class Accountservice {
   
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
- CompanyBusinessDTO ={
+  AccountDTO ={
     username:'', 
     email: '',
     password: '',
@@ -53,30 +53,30 @@ export class Accountservice {
 
 
 // insert 
-create(item : CompanyBusinessDTO):Observable<CompanyBusinessDTO>{
-  return this.http.post<CompanyBusinessDTO>(this.base_url,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
+create(item : AccountDTO):Observable<AccountDTO>{
+  return this.http.post<AccountDTO>(this.base_url,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
 }
 
 //get all account data 
-all():Observable<CompanyBusinessDTO>{
-   return this.http.get<CompanyBusinessDTO>(this.base_url).pipe(retry(2),catchError(this.handleError));
+all():Observable<AccountDTO>{
+   return this.http.get<AccountDTO>(this.base_url).pipe(retry(2),catchError(this.handleError));
  }
 
 
   // get account by id
-  getByid(id:number):Observable<CompanyBusinessDTO>{
-    return this.http.get<CompanyBusinessDTO>(this.base_url + '/' +id).pipe(retry(2),catchError(this.handleError));
+  getByid(id:number):Observable<AccountDTO>{
+    return this.http.get<AccountDTO>(this.base_url + '/' +id).pipe(retry(2),catchError(this.handleError));
 
   }
 
    // update account by Id the
-   update(item : CompanyBusinessDTO){
-    return this.http.put<CompanyBusinessDTO>(this.base_url,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
+   update(item : AccountDTO){
+    return this.http.put<AccountDTO>(this.base_url,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
    }
 
     // delete accounts
     delete(id:number){
-      return this.http.delete<CompanyBusinessDTO>(this.base_url + '/' +id,this.httpOptions).pipe(retry(2),catchError(this.handleError));
+      return this.http.delete<AccountDTO>(this.base_url + '/' +id,this.httpOptions).pipe(retry(2),catchError(this.handleError));
 
 }
 
@@ -87,9 +87,7 @@ all():Observable<CompanyBusinessDTO>{
     email : new FormControl('',[ Validators.required]),
     password : new FormControl('',[ Validators.required]),
     matchingPassword : new FormControl('',[ Validators.required]),
-    fiscaleCode : new FormControl('',[ Validators.required]),
-
- 
+    fiscaleCode : new FormControl('',[ Validators.required])
 });
 
 // inialisation formulaire 
@@ -100,7 +98,7 @@ initializeFormGroup() {
     email: null,
     password: null,
     matchingPassword: null,
-    fiscaleCode: null,
+    fiscaleCode: null
   });
 }
 populateForm(company: any) {

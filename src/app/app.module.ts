@@ -59,6 +59,7 @@ import { AccountListComponent } from './account/account-list/account-list.compon
 import { AgendaService, DayService, MonthAgendaService, MonthService, ScheduleModule, TimelineMonthService, TimelineViewsService, WeekService, WorkWeekService } from '@syncfusion/ej2-angular-schedule';
 import { SimpleNotificationsModule } from 'angular2-notifications';
 import { CompanyViewComponent } from './companybusiness/company-view/company-view.component';
+import { CookiesV2Component } from './cookies-v2/cookies-v2.component';
 
 
 @NgModule({
@@ -104,7 +105,8 @@ import { CompanyViewComponent } from './companybusiness/company-view/company-vie
     AccountComponent,
     AccountEditComponent,
     AccountListComponent,
-    CompanyViewComponent
+    CompanyViewComponent,
+    CookiesV2Component
     
 
   ],

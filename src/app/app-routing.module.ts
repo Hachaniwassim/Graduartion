@@ -41,6 +41,7 @@ import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './guard/auth.guard';
 import { CompanybusinessComponent } from './companybusiness/companybusiness.component';
 import { AccountComponent } from './account/account.component';
+import { CookiesV2Component } from './cookies-v2/cookies-v2.component';
 
 
 
@@ -93,6 +94,9 @@ const routes: Routes = [
 
 { path : "company" ,component :CompanybusinessComponent,canActivate: [AuthGuard]},
 { path : "account" ,component :AccountComponent,canActivate: [AuthGuard]},
+//cookies
+{ path : "cookiess" ,component :CookiesV2Component,canActivate: [AuthGuard]},
+
 
 
 { path: 'user', component: BoardUserComponent,canActivate: [AuthGuard] },
