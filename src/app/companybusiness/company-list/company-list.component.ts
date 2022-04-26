@@ -12,6 +12,8 @@ import { NotificationService } from 'src/app/shared/notification.service';
 import { CompanybusinessService } from 'src/app/_services/companybusiness.service';
 import Swal from 'sweetalert2';
 import { CompanyAddComponent } from '../company-add/company-add.component';
+import { CompanyViewComponent } from '../company-view/company-view.component';
+
 
 @Component({
   selector: 'app-company-list',
@@ -96,6 +98,21 @@ export class CompanyListComponent implements OnInit {
        })
       }
 
+
+   View(row : any) { 
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "100%"; 
+     this.dialog.open(CompanyViewComponent, {
+          data: {
+            domainename : row.domainename,
+            description:row.description
+          },
+        }
+        ),dialogConfig
+
+      }
 
   // create dialog config
   onCreate() {

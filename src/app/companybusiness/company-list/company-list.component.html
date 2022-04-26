@@ -1,4 +1,5 @@
 <br><br><br>
+
 <div class="container">
 <div class="search-div">
  <button mat-fab color="gray" (click)="onCreate()">
@@ -13,7 +14,7 @@
 </div>
   <div class="mat-elevation-z8 ">
     <mat-table [dataSource]="datasource" matSort >
-      <ng-container matColumnDef="description"  >
+      <ng-container matColumnDef="description">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Description </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.description}} </mat-cell>
       </ng-container>
@@ -23,14 +24,16 @@
       </ng-container>
       <ng-container matColumnDef="actions">
         <mat-header-cell *matHeaderCellDef></mat-header-cell>
-        <mat-cell *matCellDef="let row">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <mat-cell *matCellDef="let row">&nbsp;&nbsp;&nbsp;
           <button mat-icon-button (click)="onEdit(row)">
             <mat-icon>edit_outline</mat-icon>
           </button>
           <button mat-icon-button color="warn" (click)="onDelete(row.id)">
             <mat-icon>delete_outline</mat-icon>
           </button>
-        </mat-cell>
+          <button mat-icon-button 
+            (click)="View(row)"><mat-icon>view_stream</mat-icon></button>
+            </mat-cell>
       </ng-container>
       <ng-container matColumnDef="loading">
         <mat-footer-cell *matFooterCellDef colspan="6">
