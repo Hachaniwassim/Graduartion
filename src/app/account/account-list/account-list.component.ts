@@ -25,10 +25,12 @@ export class AccountListComponent implements OnInit {
   account!:AccountDTO[];
   searchKey!: string;
   showspinner=false;
-
+  private roles: string[] = [];
+  showAdminBoard = false;
+  showModeratorBoard = false;
 
   datasource = new MatTableDataSource(this.account)
-  displayedColumns: string[] = ['username', 'email','password','matchingPassword','fiscaleCode','actions'];
+  displayedColumns: string[] = ['username', 'email','fiscaleCode','role','actions'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort,{}) sort!: MatSort;
 
@@ -42,7 +44,6 @@ export class AccountListComponent implements OnInit {
     this.datasource.sort = this.sort;
   }
   ngOnInit(): void {
-
     this.datasource.sort = this.sort;
     this.datasource.paginator = this.paginator;
     this.getAll();
@@ -70,22 +71,11 @@ export class AccountListComponent implements OnInit {
       .afterClosed().subscribe((res: any) => {
         if (res) {
           this.Accountservice.delete(id).subscribe(() => {
-            this.datasource.data = this.datasource.data.filter((o: any) => {
-              return o.id !== id ? o : false;
-            })
-            console.log(this.datasource.data);
+  
           })
           this.getAll();
         }
       });
-  }
-  onCreate() {
-    this.Accountservice.initializeFormGroup();
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.disableClose = true;
-    dialogConfig.autoFocus = true;
-    dialogConfig.width = "60%";
-    this.dialog.open(AccountEditComponent,dialogConfig);
   }
 
   onEdit(row: any){
@@ -106,30 +96,5 @@ export class AccountListComponent implements OnInit {
   }
 
 
-  reloadPage() {
-    setTimeout(()=>{
-        window.location.reload();
-      }, 1000);  
-  }
-
-  spinner(){ 
-    this.showspinner=true;
-    setTimeout(() => {this.showspinner=false;},2000)
-  }
-  alertConfirmation() {
-    Swal.fire({
-      title: 'Are you sure?',
-      text: 'This process is irreversible.',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonText: 'Yes, go ahead.',
-      cancelButtonText: 'No, let me think',
-    }).then((result) => {
-      if (result.value) {
-        Swal.fire('Updated!', 'Company updated successfully.', 'success');
-      } else if (result.dismiss === Swal.DismissReason.cancel) {
-        Swal.fire('Cancelled');
-      }
-    });
-  }
+  
 }

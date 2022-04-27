@@ -2,11 +2,11 @@
   <span>{{companyService.form.controls['id'].value?"Modify Company":"New Company"}}</span>
   <span class="fill-remaining-space"></span>
   <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
-</mat-toolbar>
+</mat-toolbar><br><br>
 <form [formGroup]="companyService.form" class="normal-form" (submit)="onSubmit()" class="normal-form">
-  <mat-grid-list cols="1" rowHeight="100px">
+  <mat-grid-list cols="1" rowHeight="130px">
     <mat-grid-tile>
-      <div class="container">
+      <div class="controles-container">
         <input type="hidden" formControlName="id">
         <mat-form-field style="margin-left: 40px;">
           <input formControlName="description" matInput placeholder="description">
@@ -20,16 +20,14 @@
         </mat-form-field>
       </div>
     </mat-grid-tile>
+   
     <mat-grid-tile>
-      <div class="controles-container">
-        <div class="button-row">
-          <div class="button-row">
-            <button mat-raised-button color="primary" type="submit"
-              [disabled]="companyService.form.invalid" >Save</button>&nbsp;&nbsp;
-            <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
-          </div>
-        </div>
+      <div class="button-row">
+          <button mat-raised-button color="primary" type="submit"
+            [disabled]="companyService.form.invalid" (click)="refresh()">Save</button>
+            <button mat-raised-button  mat-dialog-close>Cancel</button>
+          <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
       </div>
-    </mat-grid-tile>
+  </mat-grid-tile>
   </mat-grid-list>
 </form>

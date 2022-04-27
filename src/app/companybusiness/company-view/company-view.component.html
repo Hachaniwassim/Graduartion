@@ -1,15 +1,23 @@
-<div class="container">
+<div class="container" style="width: 500px;">
   <mat-toolbar>
     <span>Company Details</span>
     <span class="fill-remaining-space"></span>
+  </mat-toolbar><br>
+
+  <div > <b> DomaineName : </b>  </div>
+  <mat-progress-bar mode="determinate" value="25"></mat-progress-bar><br>
+  <div></div>
+  <mat-toolbar>
+    <span>{{company.domainename}} </span>
+    <span class="fill-remaining-space"></span>
   </mat-toolbar>
-  <mat-progress-bar mode="determinate" value="40"></mat-progress-bar><br>
-
-  <div> domaine : {{company.domainename}} </div>
-  <hr>
-  <div> description : {{company.description}} </div>
-  <hr>
-
+  <br>
+  <div> <b> Description : </b>   </div>
+  <mat-progress-bar mode="determinate" value="25"></mat-progress-bar><br>
+  <mat-toolbar>
+  <span>{{company.description}}</span>
+  <span class="fill-remaining-space"></span>
+</mat-toolbar>
   <mat-dialog-actions align="center">
     <button mat-button mat-dialog-close>CANCEL</button>
   </mat-dialog-actions>

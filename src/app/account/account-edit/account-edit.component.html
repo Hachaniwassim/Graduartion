@@ -4,31 +4,21 @@
     <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
   </mat-toolbar>
   <form [formGroup]="Accountservice.form" class="normal-form" (submit)="onSubmit()" class="normal-form">
-    <mat-grid-list cols="1" rowHeight="100px">
+    <mat-grid-list cols="2" rowHeight="220px">
       <mat-grid-tile>
-        <div class="container">
+          <div class="controles-container">
           <input type="hidden" formControlName="id">
-          <mat-form-field style="margin-left: 40px;">
+          <mat-form-field >
             <input formControlName="username" matInput placeholder="username">
             <mat-error *ngIf="Accountservice.form.controls['username'].errors?.required">this field is mandatory.
             </mat-error>
           </mat-form-field>
-          <mat-form-field style="margin-left: 40px;">
+          <mat-form-field >
             <input formControlName="email" matInput placeholder="email">
             <mat-error *ngIf="Accountservice.form.controls['email'].errors?.required">this field is mandatory.
             </mat-error>
           </mat-form-field>
-          <mat-form-field style="margin-left: 40px;">
-            <input formControlName="password" matInput placeholder="password">
-            <mat-error *ngIf="Accountservice.form.controls['password'].errors?.required">this field is mandatory.
-            </mat-error>
-          </mat-form-field>
-          <mat-form-field style="margin-left: 40px;">
-            <input formControlName="matchingPassword" matInput placeholder="matchingPassword">
-            <mat-error *ngIf="Accountservice.form.controls['matchingPassword'].errors?.required">this field is mandatory.
-            </mat-error>
-          </mat-form-field>
-          <mat-form-field style="margin-left: 40px;">
+          <mat-form-field>
             <input formControlName="fiscaleCode" matInput placeholder="fiscaleCode">
             <mat-error *ngIf="Accountservice.form.controls['fiscaleCode'].errors?.required">this field is mandatory.
             </mat-error>

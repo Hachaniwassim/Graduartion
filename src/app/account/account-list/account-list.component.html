@@ -11,28 +11,24 @@
   <div class="mat-elevation-z8 ">
     <mat-table [dataSource]="datasource" matSort >
       <ng-container matColumnDef="username"  >
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Username </mat-header-cell>
-        <mat-cell *matCellDef="let element" style="border-spacing: 25px;"> {{element.username}} </mat-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header style="margin-Left:10px;"> Username </mat-header-cell>
+        <mat-cell *matCellDef="let element" style="margin-Left:10px;"> {{element.username}} </mat-cell>
       </ng-container>
       <ng-container matColumnDef="email">
-        <mat-header-cell *matHeaderCellDef mat-sort-header style="margin-Left:20px;"> Email </mat-header-cell>
-        <mat-cell *matCellDef="let element" style="margin-Left:10px;">{{element.email}} </mat-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header style="margin-Left:10px;"> Email </mat-header-cell>
+        <mat-cell *matCellDef="let element"style="margin-Left:10px;">{{element.email}} </mat-cell>
       </ng-container>
-      <ng-container matColumnDef="password">
-        <mat-header-cell *matHeaderCellDef mat-sort-header style="margin-Left:20px;"> Password </mat-header-cell>
-        <mat-cell *matCellDef="let element" style="margin-Left:10px;">{{element.password}} </mat-cell>
-      </ng-container>
-      <ng-container matColumnDef="matchingPassword">
-        <mat-header-cell *matHeaderCellDef mat-sort-header style="margin-Left:20px;"> Matching Password </mat-header-cell>
-        <mat-cell *matCellDef="let element" style="margin-Left:10px;">{{element.matchingPassword}} </mat-cell>
+      <ng-container matColumnDef="role">
+        <mat-header-cell *matHeaderCellDef mat-sort-header style="margin-left:10px;"> Role </mat-header-cell>
+        <mat-cell  *matCellDef="let element" style="margin-left:10px;">{{element.roles}} </mat-cell>
       </ng-container>
       <ng-container matColumnDef="fiscaleCode">
-        <mat-header-cell *matHeaderCellDef mat-sort-header style="margin-Left:20px;"> Fiscale Code </mat-header-cell>
-        <mat-cell *matCellDef="let element" style="margin-Left:10px;">{{element.fiscaleCode}} </mat-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-headerstyle="margin-Left:10px;" >Fiscale Code</mat-header-cell>
+        <mat-cell *matCellDef="let element" style="margin-Left:10px;">{{element.fiscaleCode}}</mat-cell>
       </ng-container>
       <ng-container matColumnDef="actions">
         <mat-header-cell *matHeaderCellDef></mat-header-cell>
-        <mat-cell *matCellDef="let row"  style="margin-Left:50px;">
+        <mat-cell *matCellDef="let row">
           <button mat-icon-button (click)="onEdit(row)">
             <mat-icon>edit_outline</mat-icon>
           </button>&nbsp;&nbsp;
@@ -43,13 +39,20 @@
       </ng-container>
       <ng-container matColumnDef="loading">
         <mat-footer-cell *matFooterCellDef colspan="6">
-          Loading data...
+          Loading data....
+        </mat-footer-cell>
+      </ng-container>
+      <ng-container matColumnDef="nodata">
+        <mat-footer-cell *matFooterCellDef colspan="6">
+          NO data....
         </mat-footer-cell>
       </ng-container>
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
       <mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hide':datasource!=null}"></mat-footer-row>
-      </mat-table>
+      <mat-footer-row *matFooterRowDef="['nodata']"
+        [ngClass]="{'hide': !(datasource!=null && datasource.data.length==0)}"></mat-footer-row>
+    </mat-table>
     <mat-paginator [pageSizeOptions]="[ 5, 10, 25, 100]" [pageSize]="5" showFirstLastButtons></mat-paginator>
   </div>
 </div>

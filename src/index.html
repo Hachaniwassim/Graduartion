@@ -26,62 +26,27 @@
 
 <body>
 
-    <app-root></app-root>
-    <!--Street Map------>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-      crossorigin=""></script>
-    <script src="https://use.fontawesome.com/b714a8f3f6.js"></script>
-    <!-- jQuery  -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/metismenu.min.js"></script>
-    <script src="assets/js/jquery.slimscroll.js"></script>
-    <script src="assets/js/waves.min.js"></script>
-    <!--Morris Chart-->
-    <script src="assets/js/morris.min.js"></script>
-    <script src="assets/js/raphael.min.js"></script>
-    <script src="assets/js/dashboard.init.js"></script>
-    <!-- App js -->
-    <script src="assets/js/app.js"></script>
-    <script src="https://www.google.com/recaptcha/api.js?hl=en"></script>
-    <script>
+  <app-root></app-root>
+  <!--Street Map------>
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+  <script src="https://use.fontawesome.com/b714a8f3f6.js"></script>
+  <!-- jQuery  -->
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/metismenu.min.js"></script>
+  <script src="assets/js/jquery.slimscroll.js"></script>
+  <script src="assets/js/waves.min.js"></script>
+  <!--Morris Chart-->
+  <script src="assets/js/morris.min.js"></script>
+  <script src="assets/js/raphael.min.js"></script>
+  <script src="assets/js/dashboard.init.js"></script>
+  <!-- App js -->
+  <script src="assets/js/app.js"></script>
+  <script src="https://www.google.com/recaptcha/api.js?hl=en"></script>
 
-      $(window).resize(function () {
-
-        var widthInput = $('input').width()
-
-
-
-        const defaulCaptchaWidth = 294.5651;
-        var total = widthInput * 100 / defaulCaptchaWidth / 100
-        total = widthInput <= 664 ? total + 0.035 : total
-
-
-        $('.gc-recaptcha').css('transform', 'scale(' + total + ')');
-
-      });
-
-      $(document).ready(function () {
-        var widthInput = $('input').width()
-
-
-
-        const defaulCaptchaWidth = 294.5651;
-        var total = widthInput * 100 / defaulCaptchaWidth / 100
-        total = widthInput <= 664 ? total + 0.035 : total
-
-
-
-
-        $('.gc-recaptcha').css('transform', 'scale(' + total + ')');
-      })
-
-    //   transform:scale(1.26) !important;
-
-    </script>
-    <script src="//code.tidio.co/rtagubqgtrmyxhtngs6peog9wuowjvvq.js" async></script>
-
+  <script src="//code.tidio.co/rtagubqgtrmyxhtngs6peog9wuowjvvq.js" async></script>
 
 
 </body>
