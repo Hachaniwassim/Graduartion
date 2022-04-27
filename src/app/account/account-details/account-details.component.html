@@ -1,0 +1,24 @@
+<div class="container">
+    <mat-toolbar>
+      <span>Account Details</span>
+      <span class="fill-remaining-space"></span>
+    </mat-toolbar>
+    <mat-progress-bar mode="determinate" value="40"></mat-progress-bar><br>
+  
+    <div> Username : {{account.username}} </div>
+    <hr>
+    <div> Email : {{account.email}} </div>
+    <hr>
+    <div> Password : {{account.password}} </div>
+    <hr>
+    <div> Matching Password : {{account.matchingPassword}} </div>
+    <hr>
+    <div> Fiscale Code : {{account.fiscaleCode}} </div>
+
+
+  
+    <mat-dialog-actions align="center">
+      <button mat-button mat-dialog-close>CANCEL</button>
+    </mat-dialog-actions>
+    <br> <br>
+  </div>

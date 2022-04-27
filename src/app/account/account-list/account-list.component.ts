@@ -4,12 +4,17 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { AccountDTO } from 'src/app/models/dto/accountDTO';
+import { Account } from 'src/app/models/account';
 import { DialogService } from 'src/app/shared/dialog.service';
 import { NotificationService } from 'src/app/shared/notification.service';
-import { Accountservice } from 'src/app/_services/account.service';
+import { accountservice } from 'src/app/_services/account.service';
 import Swal from 'sweetalert2';
 import { AccountEditComponent } from '../account-edit/account-edit.component';
+import { AccountDetailsComponent } from '../account-details/account-details.component';
+
+import { Location } from '@angular/common';
+import { ActivatedRoute, Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-account-list',
@@ -21,40 +26,49 @@ export class AccountListComponent implements OnInit {
 
   @ViewChild('companyForm', { static: false })
   accountForm!: FormGroup;
-  accountData !: AccountDTO;
-  account!:AccountDTO[];
+  accountData !: Account;
+  account!:Account[];
   searchKey!: string;
   showspinner=false;
+  data : any ;
 
+  accountt={
+    username :"",
+    email: "",
+    password: "",
+    matchingPassword: "",
+    fiscaleCode: "",
+  }
 
   datasource = new MatTableDataSource(this.account)
   displayedColumns: string[] = ['username', 'email','password','matchingPassword','fiscaleCode','actions'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort,{}) sort!: MatSort;
+  id=this.route.snapshot.params['id'];
 
-  constructor( private dialog: MatDialog, private dialogService: DialogService, private Accountservice:Accountservice,
-    private notificationService: NotificationService) {
-    this.accountData = {} as AccountDTO;
+  constructor( private dialog: MatDialog, private dialogService: DialogService, private Accountservice:accountservice,
+    private notificationService: NotificationService,private route: ActivatedRoute, public router: Router, public _location: Location) {
+    this.accountData = {} as Account;
   }
 
+  //data sorting 
   ngAfterViewInit() {
     this.datasource.paginator = this.paginator;
     this.datasource.sort = this.sort;
   }
+
+
   ngOnInit(): void {
-
-    this.datasource.sort = this.sort;
-    this.datasource.paginator = this.paginator;
-    this.getAll();
-  }
-
-
-  getAll() {
+    //data sorting and pagination from angular materila 
     this.Accountservice.all().subscribe((response: any) => {
       this.datasource.data = response;
+      this.datasource.paginator = this.paginator;
+      this.datasource.sort = this.sort;
     });
 
   }
+  //search for data 
+
   onSearchClear() {
     this.searchKey = "";
     this.applyFilter();
@@ -64,6 +78,8 @@ export class AccountListComponent implements OnInit {
     this.datasource.filter = this.searchKey.trim().toLowerCase();
   }
 
+
+  // delete data 
   onDelete(id: number) {
 
     this.dialogService.openConfirmDialog('Are you sure to delete this record ?')
@@ -75,47 +91,80 @@ export class AccountListComponent implements OnInit {
             })
             console.log(this.datasource.data);
           })
-          this.getAll();
+          this.refresh();
         }
       });
   }
+
+        getone(){
+        this.Accountservice.getByid(this.id).subscribe((response)=>
+        { this.data=response;
+         this.accountt=this.data;
+         console.log(this.accountt);
+       })
+      }
+
+
+   View(row : any) { 
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "100%"; 
+     this.dialog.open(AccountDetailsComponent, {
+          data: {
+            domainename : row.domainename,
+            description:row.description
+          },
+        }
+        ),dialogConfig
+
+      }
+
+  // create dialog config
   onCreate() {
-    this.Accountservice.initializeFormGroup();
+    //this.companyService.initializeFormGroup();
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.width = "60%";
-    this.dialog.open(AccountEditComponent,dialogConfig);
+    this.dialog.open(AccountEditComponent, dialogConfig);
+
   }
 
-  onEdit(row: any){
+  // edite dialogConfig
+  onEdit(row: any) {
     this.Accountservice.populateForm(row);
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.width = "60%";
-    this.dialog.open(AccountEditComponent,dialogConfig);
+    this.dialog.open(AccountEditComponent, dialogConfig);
+
 
   }
 
-
+  // clear data 
   onClear() {
-
     this.Accountservice.form.reset();
     this.Accountservice.initializeFormGroup();
   }
 
-
-  reloadPage() {
-    setTimeout(()=>{
-        window.location.reload();
-      }, 1000);  
+  //refrech 
+  refresh(): void {
+    this.router.navigateByUrl("/refresh", { skipLocationChange: true }).then(() => {
+      console.log(decodeURI(this._location.path()));
+      this.router.navigate([decodeURI(this._location.path())]);
+    });
   }
 
-  spinner(){ 
-    this.showspinner=true;
-    setTimeout(() => {this.showspinner=false;},2000)
+
+  // spinner from angular material
+  spinner() {
+    this.showspinner = true;
+    setTimeout(() => { this.showspinner = false; }, 2000)
   }
+
+  //alerte de confirmation 
   alertConfirmation() {
     Swal.fire({
       title: 'Are you sure?',
