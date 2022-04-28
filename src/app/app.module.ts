@@ -60,7 +60,6 @@ import { AgendaService, DayService, MonthAgendaService, MonthService, ScheduleMo
 import { SimpleNotificationsModule } from 'angular2-notifications';
 import { CompanyViewComponent } from './companybusiness/company-view/company-view.component';
 import { CookiesV2Component } from './cookies-v2/cookies-v2.component';
-import { AccountDetailsComponent } from './account/account-details/account-details.component';
 
 
 @NgModule({
@@ -107,8 +106,7 @@ import { AccountDetailsComponent } from './account/account-details/account-detai
     AccountEditComponent,
     AccountListComponent,
     CompanyViewComponent,
-    CookiesV2Component,
-    AccountDetailsComponent
+    CookiesV2Component
     
 
   ],

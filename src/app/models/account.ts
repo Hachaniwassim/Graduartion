@@ -1,4 +1,4 @@
-export interface Account{
+export interface account{
     id?:number ;
 	username? : string;
     email? : string;

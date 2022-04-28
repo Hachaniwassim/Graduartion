@@ -5,19 +5,26 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import * as _ from 'lodash';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
-import { Account } from '../models/account';
+import { AccountDTO } from '../models/dto/accountDTO';
 
 @Injectable({
   providedIn: 'root'
 })
-export class accountservice {
+export class Accountservice {
 
   //api backend
   private base_url="http://localhost:8089/user";
   
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
+  AccountDTO ={
+    username:'', 
+    email: '',
+    password: '',
+    matchingPassword: '',
+    fiscaleCode: '',
 
+  }
   constructor(private http :HttpClient, private datePipe: DatePipe) { }
 
   //http opttion
@@ -46,30 +53,30 @@ export class accountservice {
 
 
 // insert 
-create(item : Account):Observable<Account>{
-  return this.http.post<Account>(this.base_url,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
+create(item : AccountDTO):Observable<AccountDTO>{
+  return this.http.post<AccountDTO>(this.base_url,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
 }
 
 //get all account data 
-all():Observable<Account>{
-   return this.http.get<Account>(this.base_url).pipe(retry(2),catchError(this.handleError));
+all():Observable<AccountDTO>{
+   return this.http.get<AccountDTO>(this.base_url).pipe(retry(2),catchError(this.handleError));
  }
 
 
   // get account by id
-  getByid(id:number):Observable<Account>{
-    return this.http.get<Account>(this.base_url + '/' +id).pipe(retry(2),catchError(this.handleError));
+  getByid(id:number):Observable<AccountDTO>{
+    return this.http.get<AccountDTO>(this.base_url + '/' +id).pipe(retry(2),catchError(this.handleError));
 
   }
 
    // update account by Id the
-   update(item : Account){
-    return this.http.put<Account>(this.base_url,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
+   update(item : AccountDTO){
+    return this.http.put<AccountDTO>(this.base_url,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
    }
 
     // delete accounts
     delete(id:number){
-      return this.http.delete<Account>(this.base_url + '/' +id,this.httpOptions).pipe(retry(2),catchError(this.handleError));
+      return this.http.delete<AccountDTO>(this.base_url + '/' +id,this.httpOptions).pipe(retry(2),catchError(this.handleError));
 
 }
 
@@ -94,7 +101,7 @@ initializeFormGroup() {
     fiscaleCode: null
   });
 }
-populateForm(account: any) {
-  this.form.patchValue(_.omit(account));
+populateForm(company: any) {
+  this.form.patchValue(_.omit(company));
 }
 }
