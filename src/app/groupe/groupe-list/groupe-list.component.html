@@ -1,5 +1,118 @@
 
-   <div class="table-responsive">
+<br><br><br>
+<div class="card" style="width:100%;"><br>
+<div class="container">
+<div class="search-div">
+  <button mat-fab color="gray" (click)="onCreate()">
+    <mat-icon>add</mat-icon>
+  </button>
+ <mat-form-field class="search-form-field" floatLabel="never">
+  <input matInput [(ngModel)]="searchKey" placeholder="Search" autocomplete="off" (keyup)="applyFilter()">
+  <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey"  (click)="onSearchClear()">
+     <mat-icon>close</mat-icon>
+   </button>
+ </mat-form-field>
+</div>
+  <div class="table-responsive">
+    <table mat-table #table [dataSource]="datasource" matSort>
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header > Name</mat-header-cell>
+        <mat-cell *matCellDef="let element" >{{element.name}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="description">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Description</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.description}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="active">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Active</mat-header-cell> <mat-cell  *matCellDef="let element"> 
+           <button mat-icon-button 
+          *ngIf="element.active"
+          (click)="updatePublished(false)">
+          <span class="badge badge-success" style="font-size: 12px;"> {{element.active ? "Active" : "Pending"}} </span>
+          </button> </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="confirmed">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Confirmed</mat-header-cell>
+        <mat-cell  *matCellDef="let element">  <button mat-icon-button>
+          <span  class="badge  badge-warning" style="font-size: 12px;"> {{element.confirmed ? "Confirmed":"Pending" }} </span>
+          </button> </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="deleted">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Deleted</mat-header-cell>
+        <mat-cell  *matCellDef="let element">  <button mat-icon-button>
+          <span class="badge  badge-warning" style="font-size: 12px;"> {{element.deleted ?"Deleted":"Pending"}} </span>
+          </button> </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          <button mat-icon-button>
+            <mat-icon>delete_outline</mat-icon>
+          </button>
+          <button mat-icon-button (click)="onEdit(row)">
+            <mat-icon>edit_outline</mat-icon> </button>
+          <button mat-icon-button>
+            <mat-icon>list</mat-icon></button></mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="loading">
+        <mat-footer-cell *matFooterCellDef colspan="6">
+          Loading data....
+        </mat-footer-cell>
+      </ng-container>
+      <ng-container matColumnDef="nodata">
+        <mat-footer-cell *matFooterCellDef colspan="6">
+          NO data....
+        </mat-footer-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      <mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hide':datasource!=null}"></mat-footer-row>
+      <mat-footer-row *matFooterRowDef="['nodata']"
+        [ngClass]="{'hide': !(datasource!=null && datasource.data.length==0)}"></mat-footer-row>
+    </table>
+    <br>
+      <mat-paginator [pageSizeOptions]="[ 5, 10, 25, 100]" [pageSize]="5" showFirstLastButtons></mat-paginator></div>
+</div>
+</div>
+<br> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   <!--<div class="table-responsive">
         <table class="table table-hover">
           <thead >
               <tr>
@@ -33,5 +146,5 @@
           </tr>
         </tbody>
         </table>
-    </div>
+    </div>-->
       

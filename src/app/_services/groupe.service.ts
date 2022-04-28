@@ -27,6 +27,7 @@ export class GroupeService {
     deleted: false,
     companyBusiness:[]
    }
+   
    constructor(private http :HttpClient, private datePipe: DatePipe) { }
  
    //http opttion
@@ -125,12 +126,16 @@ export class GroupeService {
      updateAt: '',
      confirmed: true,
      deleted: false,
-     companyBusiness:[]
+     companyBusiness:['']
  
    });
  }
  populateForm(groupe: any) {
    this.form.patchValue(_.omit(groupe));
  }
+
+ updatestatus(id:number, data : any) {
+  return this.http.put(`${this.base_url}/${id}`, data);
+}
  }
  
