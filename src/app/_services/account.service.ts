@@ -17,12 +17,13 @@ export class Accountservice {
   
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
-  AccountDTO ={
+  Account={
     username:'', 
     email: '',
     password: '',
     matchingPassword: '',
     fiscaleCode: '',
+    role :''
 
   }
   constructor(private http :HttpClient, private datePipe: DatePipe) { }

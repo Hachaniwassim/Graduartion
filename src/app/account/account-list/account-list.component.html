@@ -1,4 +1,5 @@
 <br><br><br>
+<div class="card" style="width:100%;"><br>
 <div class="container">
 <div class="search-div">
  <mat-form-field class="search-form-field" floatLabel="never">
@@ -8,23 +9,23 @@
    </button>
  </mat-form-field>
 </div>
-  <div class="mat-elevation-z8 ">
-    <mat-table [dataSource]="datasource" matSort >
-      <ng-container matColumnDef="username"  >
-        <mat-header-cell *matHeaderCellDef mat-sort-header style="margin-Left:10px;"> Username </mat-header-cell>
-        <mat-cell *matCellDef="let element" style="margin-Left:10px;"> {{element.username}} </mat-cell>
+  <div class="table-responsive">
+    <table mat-table #table [dataSource]="datasource" matSort>
+      <ng-container matColumnDef="username">
+        <mat-header-cell *matHeaderCellDef mat-sort-header >Username </mat-header-cell>
+        <mat-cell *matCellDef="let element" >{{element.username}} </mat-cell>
       </ng-container>
       <ng-container matColumnDef="email">
-        <mat-header-cell *matHeaderCellDef mat-sort-header style="margin-Left:10px;"> Email </mat-header-cell>
-        <mat-cell *matCellDef="let element"style="margin-Left:10px;">{{element.email}} </mat-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Email </mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.email}} </mat-cell>
       </ng-container>
       <ng-container matColumnDef="role">
-        <mat-header-cell *matHeaderCellDef mat-sort-header style="margin-left:10px;"> Role </mat-header-cell>
-        <mat-cell  *matCellDef="let element" style="margin-left:10px;">{{element.roles}} </mat-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Role </mat-header-cell>
+        <mat-cell  *matCellDef="let element">{{element.roles}} </mat-cell>
       </ng-container>
       <ng-container matColumnDef="fiscaleCode">
-        <mat-header-cell *matHeaderCellDef mat-sort-headerstyle="margin-Left:10px;" >Fiscale Code</mat-header-cell>
-        <mat-cell *matCellDef="let element" style="margin-Left:10px;">{{element.fiscaleCode}}</mat-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header >Fiscale Code</mat-header-cell>
+        <mat-cell *matCellDef="let element" >{{element.fiscaleCode}}</mat-cell>
       </ng-container>
       <ng-container matColumnDef="actions">
         <mat-header-cell *matHeaderCellDef></mat-header-cell>
@@ -32,8 +33,11 @@
           <button mat-icon-button (click)="onEdit(row)">
             <mat-icon>edit_outline</mat-icon>
           </button>&nbsp;&nbsp;
-          <button mat-icon-button color="warn" (click)="onDelete(row.id)">
-            <mat-icon>delete_outline</mat-icon>
+          <button mat-icon-button>
+        <span class="badge badge-success" style="width:70px;font-size: 12px;"> ACTIVE </span>
+        </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button mat-icon-button (click)="onDelete(row.id)">&nbsp;&nbsp;&nbsp;&nbsp;
+          <span class="badge badge-danger" style="width:70px; font-size: 12px;"> BLOCKED </span>
           </button>
         </mat-cell>
       </ng-container>
@@ -52,8 +56,9 @@
       <mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hide':datasource!=null}"></mat-footer-row>
       <mat-footer-row *matFooterRowDef="['nodata']"
         [ngClass]="{'hide': !(datasource!=null && datasource.data.length==0)}"></mat-footer-row>
-    </mat-table>
-    <mat-paginator [pageSizeOptions]="[ 5, 10, 25, 100]" [pageSize]="5" showFirstLastButtons></mat-paginator>
-  </div>
+    </table>
+    <br>
+      <mat-paginator [pageSizeOptions]="[ 5, 10, 25, 100]" [pageSize]="5" showFirstLastButtons></mat-paginator></div>
+</div>
 </div>
 <br> 

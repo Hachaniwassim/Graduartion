@@ -1,9 +1,10 @@
 
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {  FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NotificationsService } from 'angular2-notifications';
 import Swal from 'sweetalert2';
+import { Location } from '@angular/common';
 import { NotificationService } from '../shared/notification.service';
 import { AuthService } from '../_services/auth.service';
 import { TokenStorageService } from '../_services/token-storage.service';
@@ -30,10 +31,10 @@ export class LoginComponent implements OnInit {
   password?: string;
   recaptchaResponse = "";
   fieldTextType!: boolean;
-  siteSecret : string="6Lc5l5AfAAAAAHOzhA9CEDiwe3n-W6GKdbQadMeq";
+  siteSecret: string = "6Lc5l5AfAAAAAHOzhA9CEDiwe3n-W6GKdbQadMeq";
 
 
-  constructor( private notfication : NotificationsService,private authService: AuthService, public router: Router, private tokenStorage: TokenStorageService, private notificationService: NotificationService) { }
+  constructor(private notfication: NotificationsService, private authService: AuthService, public router: Router, public _location: Location, private tokenStorage: TokenStorageService, private notificationService: NotificationService) { }
 
   ngOnInit(): void {
 
@@ -42,28 +43,30 @@ export class LoginComponent implements OnInit {
       this.isLoggedIn = true;
       this.roles = this.tokenStorage.getUser().roles;
       this.username = this.tokenStorage.getUser().username;
-      // this.notificationService.success(' : : Your logged successfully');
       this.router.navigate(['/dashboard']);
       this.successNotification();
-      
-
+     
     }
 
 
   }
+
+  // show password 
   toggleFieldTextType() {
     this.fieldTextType = !this.fieldTextType;
   }
 
+
+  //post login 
   onSubmit(): void {
+
     const { username, password } = this.form;
-   // this.siteKey = "6Lff7WIUAAAAAG2UuSYktpVi2Mz7tB6cgXnO1Tez";
 
     //constant response forn test robots
     const response = grecaptcha.getResponse();
     debugger;
 
-    //test validation
+    //test validation recaptcha 
     if (response.length === 0) {
       this.captchaError = true;
       return;
@@ -81,7 +84,7 @@ export class LoginComponent implements OnInit {
         //recuperation response 
         this.recaptchaResponse = response;
         this.reloadPage();
-      
+
 
       },
       err => {
@@ -91,35 +94,50 @@ export class LoginComponent implements OnInit {
 
     );
     grecaptcha.reset();
-
   }
 
+
+  //reload pages 
   reloadPage() {
     window.location.reload();
   }
 
+
+  //succes notification
   successNotification() {
     Swal.fire('welcome', ' you have been logged successfully ', 'success');
 
 
   }
-  onSucces(_message: undefined){
-    this.notfication.success('Succes',_message,{
-    position :['bottom','right'],
-    timeout:3000,
-    animations:'fade',
-    showProgressBare:true
 
-});
+  // succes delete notification 
+  onSucces(_message: undefined) {
+    this.notfication.success('Succes', _message, {
+      position: ['bottom', 'right'],
+      timeout: 3000,
+      animations: 'fade',
+      showProgressBare: true
 
-}
-onError(){this.notfication.error('Error',onmessage,{
-  position :['bottom','right'],
-  timeout:4000,
-  animations:'fade',
-  showProgressBare:true
+    });
 
-});
+  }
+  onError() {
+    this.notfication.error('Error', onmessage, {
+      position: ['bottom', 'right'],
+      timeout: 4000,
+      animations: 'fade',
+      showProgressBare: true
 
-}
+    });
+
+  }
+
+  //refrech 
+  refresh(): void {
+    this.router.navigateByUrl("/refresh", { skipLocationChange: true }).then(() => {
+      console.log(decodeURI(this._location.path()));
+      this.router.navigate([decodeURI(this._location.path())]);
+    });
+  }
+
 }

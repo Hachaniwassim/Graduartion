@@ -36,6 +36,7 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatRippleModule } from '@angular/material/core';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 
@@ -82,6 +83,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatSidenavModule,
     MatCardModule,
    MatProgressSpinnerModule,
+   FlexLayoutModule
    
   ],
   exports:[
@@ -89,6 +91,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatTooltipModule,
     MatBadgeModule,
     MatDividerModule,
+    FlexLayoutModule,
     MatProgressBarModule,
     MatSliderModule ,
     MatFormFieldModule,

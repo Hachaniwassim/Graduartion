@@ -119,6 +119,8 @@ const routes: Routes = [
   //dashboard
   { path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule), canActivate: [AuthGuard] },
 
+  { path: 'groupe', loadChildren: () => import('./groupe/groupe.module').then(m => m.GroupeModule) },
+
   // 404 not found 
   { path: '**', component: NotfoundComponent },
 

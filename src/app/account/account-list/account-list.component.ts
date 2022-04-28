@@ -4,11 +4,12 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AccountDTO } from 'src/app/models/dto/accountDTO';
 import { DialogService } from 'src/app/shared/dialog.service';
 import { NotificationService } from 'src/app/shared/notification.service';
 import { Accountservice } from 'src/app/_services/account.service';
-import Swal from 'sweetalert2';
+import {Location}from '@angular/common';
 import { AccountEditComponent } from '../account-edit/account-edit.component';
 
 @Component({
@@ -33,9 +34,10 @@ export class AccountListComponent implements OnInit {
   displayedColumns: string[] = ['username', 'email','fiscaleCode','role','actions'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort,{}) sort!: MatSort;
+  mybreakpoint!: number;
 
   constructor( private dialog: MatDialog, private dialogService: DialogService, private Accountservice:Accountservice,
-    private notificationService: NotificationService) {
+    private notificationService: NotificationService,private route: ActivatedRoute, public router: Router, public _location: Location) {
     this.accountData = {} as AccountDTO;
   }
 
@@ -43,12 +45,16 @@ export class AccountListComponent implements OnInit {
     this.datasource.paginator = this.paginator;
     this.datasource.sort = this.sort;
   }
+  
   ngOnInit(): void {
+    
+   this.mybreakpoint = (window.innerWidth <= 600) ? 1 : 6;
     this.datasource.sort = this.sort;
     this.datasource.paginator = this.paginator;
     this.getAll();
   }
 
+ 
 
   getAll() {
     this.Accountservice.all().subscribe((response: any) => {
@@ -74,10 +80,20 @@ export class AccountListComponent implements OnInit {
   
           })
           this.getAll();
+          this.refresh();
         }
       });
   }
 
+    //refrech 
+    refresh(): void {
+      this.router.navigateByUrl("/refresh", { skipLocationChange: true }).then(() => {
+        console.log(decodeURI(this._location.path()));
+        this.router.navigate([decodeURI(this._location.path())]);
+      });
+    }
+  
+  
   onEdit(row: any){
     this.Accountservice.populateForm(row);
     const dialogConfig = new MatDialogConfig();
@@ -90,7 +106,6 @@ export class AccountListComponent implements OnInit {
 
 
   onClear() {
-
     this.Accountservice.form.reset();
     this.Accountservice.initializeFormGroup();
   }
