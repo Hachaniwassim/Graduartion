@@ -88,8 +88,8 @@ all():Observable<CompanyBusinessDTO>{
 initializeFormGroup() {
   this.form.setValue({
     id :null,
-    description: null,
-    domainename: null,
+    description: '',
+    domainename: '',
 
   });
 }

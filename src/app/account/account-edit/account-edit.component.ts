@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import{Location}from '@angular/common';
 import { MatDialogRef } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AccountDTO } from 'src/app/models/dto/accountDTO';
 import { NotificationService } from 'src/app/shared/notification.service';
 import { Accountservice } from 'src/app/_services/account.service';
@@ -15,9 +17,10 @@ export class AccountEditComponent implements OnInit {
 
   account !: AccountDTO[];
   datasource = new MatTableDataSource(this.account);
-  constructor( public Accountservice : Accountservice  ,private notificationagencyService : NotificationService,public dialogRef: MatDialogRef<AccountEditComponent>) { }
+  constructor( public Accountservice : Accountservice  ,private notificationagencyService : NotificationService,private route: ActivatedRoute, public router: Router, public _location: Location,public dialogRef: MatDialogRef<AccountEditComponent>) { }
 
   ngOnInit(): void {
+    this.getAll();
   }
 
   getAll() {
@@ -36,34 +39,32 @@ export class AccountEditComponent implements OnInit {
     if (this.Accountservice.form.valid) {
       if ( ! this.Accountservice.form.get('id')?.value)
         this.Accountservice.create(this.Accountservice.form.value).subscribe(() => {
-          this.getAll();
+  
           this.notificationagencyService.success(':: Submitted successfully');
         })
       else
       this.Accountservice.update(this.Accountservice.form.value).subscribe(() => {
-        this.getAll(); 
-        this.notificationagencyService.success(':: Submitted successfully');
+      this.notificationagencyService.success(':: Submitted successfully');
       })
-      this.Accountservice.form.reset();
-      this.Accountservice.initializeFormGroup();
+
       this.onClose();
     }
-    this.reloadPage();
-    this.getAll();
+   
+    this.refresh();
+
   }
 
 
-  reloadPage() {
-    setTimeout(()=>{
-        window.location.reload();
-      }, 1000);  
-  }
+
+  //close matdialog
 
   onClose() {
     this.Accountservice.form.reset();
     this.Accountservice.initializeFormGroup();
     this.dialogRef.close();
   }
+
+  //alerte de confirmation
   alertConfirmation() {
     Swal.fire({
       title: 'Are you sure?',
@@ -80,4 +81,12 @@ export class AccountEditComponent implements OnInit {
       }
     });
   }
+
+    //refrech 
+    refresh(): void {
+      this.router.navigateByUrl("/refresh", { skipLocationChange: true }).then(() => {
+        console.log(decodeURI(this._location.path()));
+        this.router.navigate([decodeURI(this._location.path())]);
+      });
+    }
 }

@@ -80,11 +80,14 @@ export class CompanyListComponent implements OnInit {
       .afterClosed().subscribe((res: any) => {
         if (res) {
           this.companyService.delete(id).subscribe(() => {
-            this.datasource.data = this.datasource.data.filter((o: any) => {
+            //filter sur l objet  optionnel
+
+           /*this.datasource.data = this.datasource.data.filter((o: any) => {
               return o.id !== id ? o : false;
             })
-            console.log(this.datasource.data);
+            console.log(this.datasource.data);*/
           })
+          this.notificationService.success(' :: Deleted Successfully')
           this.refresh();
         }
       });
