@@ -1,1 +1,55 @@
-<p>groupe-view works!</p>
+<div class="container" style="width: 500px;">
+    <mat-toolbar>
+        <span>Groupe Details</span>
+    </mat-toolbar><br>
+    <div> <b> Name : </b> </div>
+    <mat-progress-bar mode="determinate" value="15"></mat-progress-bar><br>
+    <mat-toolbar>
+        <span>{{groupe.name}} </span>
+    </mat-toolbar>
+    <br>
+    <div> <b> Description : </b> </div>
+    <mat-progress-bar mode="determinate" value="25"></mat-progress-bar><br>
+    <mat-toolbar>
+        <span>{{groupe.description}}</span>
+    </mat-toolbar>
+    <div> <b> Active : </b> </div>
+    <mat-progress-bar mode="determinate" value="10"></mat-progress-bar><br>
+    <mat-toolbar>
+        <button mat-icon-button class="badge badge-success mr-2" *ngIf="groupe.active">
+            <span class="badge badge-success" style="font-size: 12px;"> {{ groupe.active ? "Actived" : "Pending"}}
+            </span>
+        </button>
+        <button mat-icon-button class="badge badge-warning mr-2" *ngIf="!groupe.active">
+            <span class="badge badge-warning" style="font-size:12px;"> {{ groupe.active ? "Actived" : "Pending"}}
+            </span>
+        </button>
+    </mat-toolbar>
+    <div> <b> Confirmed: </b></div>
+    <mat-progress-bar mode="determinate" value="15"></mat-progress-bar><br>
+    <mat-toolbar>
+        <button mat-icon-button class="badge badge-success mr-2" *ngIf="groupe.confirmed">
+            <span class="badge badge-success" style="font-size: 12px;"> {{ groupe.confirmed ? "Confirmed" : "Pending"}}
+            </span>
+        </button>
+        <button mat-icon-button class="badge badge-warning mr-2" *ngIf="!groupe.confirmed">
+            <span class="badge badge-warning" style="font-size: 12px;"> {{groupe.confirmed ? "Confirmed" : "Pending"}}
+            </span>
+        </button>
+    </mat-toolbar>
+    <div> <b> Deleted : </b></div>
+    <mat-progress-bar mode="determinate" value="12"></mat-progress-bar><br>
+    <mat-toolbar>
+        <button mat-icon-button class="badge badge-success mr-2" *ngIf="groupe.deleted">
+            <span class="badge badge-success" style="font-size: 12px;"> {{ groupe.deleted ? "Deleted" : "Pending"}}
+            </span>
+        </button>
+        <button mat-icon-button class="badge badge-warning mr-2" *ngIf="!groupe.deleted">
+            <span class="badge badge-warning" style="font-size: 12px;"> {{groupe.deleted ? "Deleted": "Pending"}}
+            </span>
+        </button>
+    </mat-toolbar>
+    <mat-dialog-actions align="center">
+        <button mat-button mat-dialog-close>CANCEL</button>
+    </mat-dialog-actions><br>
+</div>

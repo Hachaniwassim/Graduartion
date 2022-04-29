@@ -10,7 +10,7 @@ import { configgeneraleDTO } from '../models/dto/configgeneraleDTO';
 @Injectable({
   providedIn: 'root'
 })
-export class Configgeneraleservice {
+export class ConfigGeneraleService {
 
   //api backend
   private base_url="http://localhost:8089/";

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, Inject, OnInit } from '@angular/core';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { GroupeDTO } from 'src/app/models/dto/groupeDTO';
 
 @Component({
   selector: 'app-groupe-view',
@@ -7,7 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GroupeViewComponent implements OnInit {
 
-  constructor() { }
+  constructor(@Inject(MAT_DIALOG_DATA) public groupe:GroupeDTO,public dialog: MatDialog,private ref: ChangeDetectorRef
+  ) { }
 
   ngOnInit(): void {
   }

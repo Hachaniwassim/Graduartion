@@ -32,9 +32,8 @@ groupeDTO !: GroupeDTO ;
   groupe!:GroupeDTO[];
   searchKey!: string;
   showspinner = false;
-  data : any ;
-   element !: any;
-
+  currentGroupe :any;
+  groupes : any ;
 
    company: List<CompanyBusinessDTO>=[];
   datasource = new MatTableDataSource(this.groupe)
@@ -48,6 +47,8 @@ groupeDTO !: GroupeDTO ;
     private notificationService: NotificationService,private route: ActivatedRoute, public router: Router, public _location: Location) {
     this.groupeData = {} as GroupeDTO;
   }
+
+  
   //data sorting 
   ngAfterViewInit() {
     this.datasource.paginator = this.paginator;
@@ -56,34 +57,36 @@ groupeDTO !: GroupeDTO ;
 
 
   ngOnInit(): void {
-    this.groupeService.all().subscribe((response: any) => {
+
+
+    this.groupeService.getallGroupe().subscribe((response: any) => {
       this.datasource.data = response;
       
     });
 
-    this.companyService.all().subscribe((response: any)=>{
+    this.companyService.getAllCompanyBussiness().subscribe((response: any)=>{
     this.company=response ;
     })
     
-  this.getBy(this.route.snapshot.paramMap.get('id'));
+  //this.getBy(this.route.snapshot.paramMap.get('id'));
 
   }    
 
   
 
 
-getBy(id:any) {
-  this.groupeService.getByid(id)
-    .subscribe(
-      data => {
-        this.element= data;
-        console.log(data);
-      },
-      error => {
-        console.log(error);
-      });
-}
-
+  getByGroupe(id:any) {
+    this.groupeService.getByidGroupe(id)
+      .subscribe(
+        data => {
+          this.currentGroupe= data;
+          console.log(data);
+        },
+        error => {
+          console.log(error);
+        });
+  }
+  
   //search for data 
 
   onSearchClear() {
@@ -91,18 +94,20 @@ getBy(id:any) {
     this.applyFilter();
   }
 
+  // fiter data 
   applyFilter() {
     this.datasource.filter = this.searchKey.trim().toLowerCase();
+   
   }
 
 
   // delete data 
-  onDelete(id: number) {
+  onDeleteGroupe(id: number) {
 
     this.dialogService.openConfirmDialog('Are you sure to delete this record ?')
       .afterClosed().subscribe((res: any) => {
         if (res) {
-          this.groupeService.delete(id).subscribe(() => {
+          this.groupeService.deleteGroupe(id).subscribe(() => {
           })
           this.notificationService.success(' :: Deleted Successfully')
           this.refresh();
@@ -110,16 +115,10 @@ getBy(id:any) {
       });
   }
 
-        getone(){
-        this.groupeService.getByid(this.id).subscribe((response)=>
-        { this.data=response;
-         this.groupe=this.data;
-         console.log(this.groupe);
-       })
-      }
 
 
-   View(row : any) { 
+  //view details groupe
+   ViewGroupe(row : any) { 
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
@@ -139,7 +138,7 @@ getBy(id:any) {
       }
 
   // create dialog config
-  onCreate() {
+  onCreateGroupe() {
     //this.companyService.initializeFormGroup();
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
@@ -150,16 +149,13 @@ getBy(id:any) {
   }
 
   // edite dialogConfig
-  onEdit(row: any) {
-    this.companyService.populateForm(row);
+  onEditGroupe(row: any) {
+    this.groupeService.populateForm(row);
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.width = "60%";
-    this.dialog.open(GroupeAddComponent, dialogConfig);
-
-
-  }
+    this.dialog.open(GroupeAddComponent, dialogConfig);}
 
   // clear data 
   onClear() {
@@ -182,48 +178,121 @@ getBy(id:any) {
     setTimeout(() => { this.showspinner = false; }, 2000)
   }
 
-  //alerte de confirmation 
-  alertConfirmation() {
-    Swal.fire({
-      title: 'Are you sure?',
-      text: 'This process is irreversible.',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonText: 'Yes, go ahead.',
-      cancelButtonText: 'No, let me think',
-    }).then((result) => {
-      if (result.value) {
-        Swal.fire('Updated!', 'Company updated successfully.', 'success');
-      } else if (result.dismiss === Swal.DismissReason.cancel) {
-        Swal.fire('Cancelled');
-      }
-    });
-  }
 
   
-  
-  updatePublished(status: any) {
+  //update status groupe
+  updateactiveGroupe(status: any) {
     const data = {
-      name: this.element.name,
-      description: this.element.description,
-      confirmed:this.element.confirmed,
-      deleted: this.element.deleted,
+      name: this.currentGroupe.name,
+      description: this.currentGroupe.description,
+      confirmed:this.currentGroupe.confirmed,
+      deleted: this.currentGroupe.deleted,
       active: status
     };
 
-    this.groupeService.updatestatus(this.element.id, data)
+    this.groupeService.updateGroupe(this.currentGroupe.id)
       .subscribe(
         response => {
-          this.element.active= status;
+          this.currentGroupe.active= status;
           console.log(response);
         },
         error => {
           console.log(error);
         });
+
+
+      }
+ 
+  //update confirmed  groupe
+  updateconfirmedGroupe(status: any) {
+    const data = {
+      name: this.currentGroupe.name,
+      description: this.currentGroupe.description,
+      active:this.currentGroupe.active,
+      deleted: this.currentGroupe.deleted,
+      confirmed: status
+    };
+
+    this.groupeService.updateGroupe(this.currentGroupe.id)
+      .subscribe(
+        response => {
+          this.currentGroupe.confirmed= status;
+          console.log(response);
+        },
+        error => {
+          console.log(error);
+        });
+
+
+      }
+
+
+     
+  //update status dleted  groupe
+  updatedeletedGroupe(status: any) {
+    const data = {
+      name: this.currentGroupe.name,
+      description: this.currentGroupe.description,
+      confirmed:this.currentGroupe.confirmed,
+      active: this.currentGroupe.active,
+      deleted: status
+    };
+
+    this.groupeService.updateGroupe(this.currentGroupe.id)
+      .subscribe(
+        response => {
+          this.currentGroupe.deleted= status;
+          console.log(response);
+        },
+        error => {
+          console.log(error);
+        });
+
+
+      }
+
+
+// delete all groupe
+removeAllGroupe() {
+  Swal.fire({
+    title: 'Are you sure to delete all Groupes  !?',
+    text: 'This process is irreversible.',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Yes, go ahead.',
+    cancelButtonText: 'No, let me think',
+  }).then((result) => {
+    if (result.value) {
+      this.groupeService.deleteAllGroupe()
+      .subscribe(
+        response => {
+          console.log(response);
+          this.refresh();
+        },
+        error => {
+          console.log(error);
+        });
+      Swal.fire('Deleted!', ' All Groupe  was Deleted successfully.', 'success');
+    } else if (result.dismiss === Swal.DismissReason.cancel) {
+      Swal.fire('TRY LATER...');
+    }
+  });
+    
+    }
+    //filtring by active groupe 
+    active="";
+    searchByActiveGroupe() {
+      this.groupeService.findByActiveGroupe(this.active)
+        .subscribe(
+          data => {
+            
+      this.datasource.filter=this.active.trim().toLowerCase();
+      this.active.trim().toLowerCase() == data ;
+          },
+          error => {
+            console.log(error);
+          });
+    }
+
   }
-
-}
-
-
-
 

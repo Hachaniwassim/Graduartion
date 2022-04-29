@@ -1,4 +1,4 @@
-<br><br><br>
+<!---<br><br><br>
 <div class="card" style="width:100%;"><br>
   <div class="container">
     <div class="search-div">
@@ -8,7 +8,7 @@
           <mat-icon>close</mat-icon>
         </button>
       </mat-form-field>&nbsp;&nbsp;&nbsp;
-      <button mat-fab color="gray" (click)="onCreateGroupe()">
+      <button mat-fab color="gray" (click)="onCreate()">
         <mat-icon>add</mat-icon>
       </button>&nbsp;&nbsp;
       <button mat-fab color="gray" (click)="removeAllGroupe()">
@@ -17,7 +17,7 @@
     </div>
 
   </div>
-  <!--<div class="list row">
+ <div class="list row">
     <div class="col-md-8">
       <div class="input-group mb-3">
         <input
@@ -36,7 +36,7 @@
           </button>
         </div>
       </div>
-    </div>-->
+    </div>
   <div class="table-responsive">
     <table mat-table #table [dataSource]="datasource" matSort>
       <ng-container matColumnDef="name">
@@ -50,11 +50,11 @@
       <ng-container matColumnDef="active">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Active</mat-header-cell>
         <mat-cell *matCellDef="let element">
-          <button mat-icon-button class="badge badge-warning mr-2" *ngIf="element.active" (click)="updateactiveGroupe(false)">
+          <button mat-icon-button class="badge badge-warning mr-2" *ngIf="element.active" (click)="updateactive(false)">
             <span class="badge badge-success" style="font-size: 12px;"> {{element.active ? "Actived" : "Pending"}}
             </span>
           </button>
-          <button mat-icon-button class="badge badge-warning mr-2" *ngIf="!element.active" (click)="updateactiveGroupe(true)">
+          <button mat-icon-button class="badge badge-warning mr-2" *ngIf="!element.active" (click)="updateactive(true)">
             <span class="badge badge-warning" style="font-size: 12px;"> {{element.active ?
               "Actived": "Pending"}}
             </span>
@@ -65,12 +65,12 @@
         <mat-header-cell *matHeaderCellDef mat-sort-header> Confirmed</mat-header-cell>
         <mat-cell *matCellDef="let element">
           <button mat-icon-button class="badge badge-warning mr-2" *ngIf="element.confirmed"
-            (click)="updateconfirmedGroupe(false)">
+            (click)="updateconfirmed(false)">
             <span class="badge badge-success" style="font-size: 12px;"> {{element.confirmed ? "Confirmed" : "Pending"}}
             </span>
           </button>
           <button mat-icon-button class="badge badge-warning mr-2" *ngIf="!element.confirmed"
-            (click)="updateconfirmedGroupe(true)">
+            (click)="updateconfirmed(true)">
             <span class="badge badge-warning" style="font-size: 12px;"> {{element.confirmed ?
               "Confirmed": "Pending"}}
             </span>
@@ -81,12 +81,12 @@
         <mat-header-cell *matHeaderCellDef mat-sort-header>Deleted</mat-header-cell>
         <mat-cell *matCellDef="let element">
           <button mat-icon-button class="badge badge-danger mr-2" *ngIf="element.deleted"
-            (click)="updatedeletedGroupe(false)">
+            (click)="updatedeleted(false)">
             <span class="badge badge-danger" style="font-size: 12px;"> {{element.deleted ? "Deleted" : "Pending"}}
             </span>
           </button>
           <button mat-icon-button class="badge badge-warning mr-2" *ngIf="!element.deleted"
-            (click)="updatedeletedGroupe(true)">
+            (click)="updatedeleted(true)">
             <span class="badge badge-warning" style="font-size: 12px;"> {{element.deleted ?
               "Deleted": "Pending"}}
             </span>
@@ -98,14 +98,14 @@
         <mat-cell *matCellDef="let row">
           <div></div>
           <div></div>
-          <button mat-icon-button (click)="onEditGroupe(row)">
+          <button mat-icon-button (click)="onEdit(row)">
             <mat-icon>edit_outline</mat-icon>
           </button>
-          <button mat-icon-button (click)="ViewGroupe(row)">
+          <button mat-icon-button (click)="View(row)">
             <mat-icon>list</mat-icon>
           </button>
           <button mat-icon-button>
-            <mat-icon  (click)="onDeleteGroupe(row.id)">delete_forever</mat-icon>
+            <mat-icon  (click)="onDelete(row.id)">delete_forever</mat-icon>
           </button>
         </mat-cell>
       </ng-container>
@@ -133,6 +133,7 @@
 <br>
 
 
+-->
 
 
 
@@ -159,47 +160,3 @@
 
 
 
-
-
-
-
-
-
-
-
-
-<!--<div class="table-responsive">
-        <table class="table table-hover">
-          <thead >
-              <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Contact Number</th>
-            <th>Email</th>
-        </tr>
-          </thead>
-          <tbody>
-          <tr>
-            <td>test</td>
-            <td>test</td>
-            <td>test</td>
-            <td>test</td>
-            <td><mat-icon >edit</mat-icon><mat-icon >delete</mat-icon></td>
-         </tr>
-          <tr>
-            <td>test</td>
-            <td>test</td>
-            <td>test</td>
-            <td>test</td>
-        
-          </tr>
-          <tr>
-            <td>test</td>
-            <td>test</td>
-            <td>test</td>
-            <td>test</td>
-        
-          </tr>
-        </tbody>
-        </table>
-    </div>-->

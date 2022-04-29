@@ -1,1 +1,48 @@
-<p>groupe-add works!</p>
+<mat-toolbar>
+  <span>{{groupeService.form.controls['id'].value?"Modify Groupe ":"New Groupe"}}</span>
+  <span class="fill-remaining-space"></span>
+  <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
+</mat-toolbar><br><br>
+  <form [formGroup]="groupeService.form" class="normal-form" (submit)="onSubmit()" class="normal-form">
+    <mat-grid-list cols="2" rowHeight="300px">
+      <mat-grid-tile>
+        <div class="controles-container">
+          <input type="hidden" formControlName="id">
+          <mat-form-field style="margin-left: 40px;">
+            <input formControlName="name" matInput placeholder="name">
+            <mat-error *ngIf="groupeService.form.controls['name'].errors?.required">this field is mandatory.
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field style="margin-left: 40px;">
+            <input formControlName="description" matInput placeholder="description">
+            <mat-error *ngIf="groupeService.form.controls['description'].errors?.required">this field is mandatory.
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field style="margin-left: 40px;">
+            <input formControlName="active" matInput placeholder="active">
+            <mat-error *ngIf="groupeService.form.controls['active'].errors?.required">this field is mandatory.
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field style="margin-left: 40px;">
+            <input formControlName="confirmed" matInput placeholder="confirmed">
+            <mat-error *ngIf="groupeService.form.controls['confirmed'].errors?.required">this field is mandatory.
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field style="margin-left: 40px;">
+            <input formControlName="deleted" matInput placeholder="deleted">
+            <mat-error *ngIf="groupeService.form.controls['deleted'].errors?.required">this field is mandatory.
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </mat-grid-tile>
+     
+      <mat-grid-tile>
+        <div class="button-row">
+            <button mat-raised-button color="primary" type="submit"
+              [disabled]="groupeService.form.invalid" (click)="refresh()">Save</button>
+              <button mat-raised-button  mat-dialog-close>Cancel</button>
+            <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
+        </div>
+    </mat-grid-tile>
+    </mat-grid-list>
+  </form>

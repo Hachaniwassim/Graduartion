@@ -47,7 +47,7 @@ export class CompanyAddComponent implements OnInit {
     // sorting sorting and pagination data 
     this.datasource.sort = this.sort;
     this.datasource.paginator = this.paginator;
-    this.companyService.all().subscribe((response: any) => {
+    this.companyService.getAllCompanyBussiness().subscribe((response: any) => {
       this.datasource.data = response;
     })
   }
@@ -59,18 +59,18 @@ export class CompanyAddComponent implements OnInit {
     this.companyService.initializeFormGroup();
   }
 
-  // submit data with context EDITE : DELETE
+  // submit data with context EDITE : CREATE
   onSubmit() {
     if (this.companyService.form.valid) {
       if (!this.companyService.form.get('id')?.value)
-        this.companyService.create(this.companyService.form.value).subscribe(() => {
+        this.companyService.createCompayBusiness(this.companyService.form.value).subscribe(() => {
         })
 
       else(
-        this.companyService.update(this.companyService.form.value).subscribe(() => {
+        this.companyService.updateCompanyBusiness(this.companyService.form.value).subscribe(() => {
         }))
-         /*this.companyService.form.reset();
-      this.companyService.initializeFormGroup();*/
+      this.companyService.form.reset();
+      this.companyService.initializeFormGroup();
       this.onClose();
 
     }

@@ -54,7 +54,7 @@ export class CompanyListComponent implements OnInit {
 
   ngOnInit(): void {
     //data sorting and pagination from angular materila 
-    this.companyService.all().subscribe((response: any) => {
+    this.companyService.getAllCompanyBussiness().subscribe((response: any) => {
       this.datasource.data = response;
       this.datasource.paginator = this.paginator;
       this.datasource.sort = this.sort;
@@ -74,12 +74,12 @@ export class CompanyListComponent implements OnInit {
 
 
   // delete data 
-  onDelete(id: number) {
+  onDeleteCompany(id: number) {
 
     this.dialogService.openConfirmDialog('Are you sure to delete this record ?')
       .afterClosed().subscribe((res: any) => {
         if (res) {
-          this.companyService.delete(id).subscribe(() => {
+          this.companyService.deleteCompanyBusiness(id).subscribe(() => {
             //filter sur l objet  optionnel
 
            /*this.datasource.data = this.datasource.data.filter((o: any) => {
@@ -94,7 +94,7 @@ export class CompanyListComponent implements OnInit {
   }
 
         getone(){
-        this.companyService.getByid(this.id).subscribe((response)=>
+        this.companyService.getByidCompany(this.id).subscribe((response)=>
         { this.data=response;
          this.company=this.data;
          console.log(this.company);
@@ -102,7 +102,7 @@ export class CompanyListComponent implements OnInit {
       }
 
 
-   View(row : any) { 
+   ViewCompany(row : any) { 
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
@@ -118,7 +118,7 @@ export class CompanyListComponent implements OnInit {
       }
 
   // create dialog config
-  onCreate() {
+  onCreateCompany() {
     //this.companyService.initializeFormGroup();
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
@@ -129,7 +129,7 @@ export class CompanyListComponent implements OnInit {
   }
 
   // edite dialogConfig
-  onEdit(row: any) {
+  onEditCompany(row: any) {
     this.companyService.populateForm(row);
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;

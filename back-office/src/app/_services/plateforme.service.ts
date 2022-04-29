@@ -10,14 +10,13 @@ import { plateforomeDTO } from '../models/dto/plateformeDTO';
 @Injectable({
   providedIn: 'root'
 })
-export class Plateformeservice {
+export class PlateformeService {
 
   //api backend
-  private base_url="http://localhost:8089/";
+  private base_url="http://localhost:8089/plateforme";
   
-  headers = new HttpHeaders().set('Content-Type', 'application/json');
 
- CompanyBusinessDTO ={
+ PlateformeDTO ={
   image:'', 
   email: '',
   phone: '',
@@ -53,29 +52,29 @@ export class Plateformeservice {
 
 
 // insert 
-create(item : plateforomeDTO):Observable<plateforomeDTO>{
+createPlateforme(item : plateforomeDTO):Observable<plateforomeDTO>{
   return this.http.post<plateforomeDTO>(this.base_url,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
 }
 
 //get all plateforme data 
-all():Observable<plateforomeDTO>{
+getallPlateforme():Observable<plateforomeDTO>{
    return this.http.get<plateforomeDTO>(this.base_url).pipe(retry(2),catchError(this.handleError));
  }
 
 
   // get plateforme by id
-  getByid(id:number):Observable<plateforomeDTO>{
+  getByidplateforme(id:number):Observable<plateforomeDTO>{
     return this.http.get<plateforomeDTO>(this.base_url + '/' +id).pipe(retry(2),catchError(this.handleError));
 
   }
 
    // update plateforme by Id the
-   update(item : plateforomeDTO){
+   updatePlatforme(item : plateforomeDTO){
     return this.http.put<plateforomeDTO>(this.base_url,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
    }
 
     // delete plateformes
-    delete(id:number){
+    deletePlateforme(id:number){
       return this.http.delete<plateforomeDTO>(this.base_url + '/' +id,this.httpOptions).pipe(retry(2),catchError(this.handleError));
 
 }
@@ -83,7 +82,7 @@ all():Observable<plateforomeDTO>{
 //validation formulaire
   form : FormGroup= new FormGroup({
     id: new FormControl(null),
-    image: new FormControl('',Validators.required),
+    image: new FormControl(''),
     email : new FormControl('',[ Validators.required]),
     phone : new FormControl('',[ Validators.required]),
     adresse : new FormControl('',[ Validators.required]),
@@ -103,7 +102,7 @@ initializeFormGroup() {
     published: null,
   });
 }
-populateForm(company: any) {
-  this.form.patchValue(_.omit(company));
+populateForm(plateforme: any) {
+  this.form.patchValue(_.omit(plateforme));
 }
 }

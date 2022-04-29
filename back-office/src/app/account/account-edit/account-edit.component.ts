@@ -17,7 +17,7 @@ export class AccountEditComponent implements OnInit {
 
   account !: AccountDTO[];
   datasource = new MatTableDataSource(this.account);
-  constructor( public Accountservice : Accountservice  ,private notificationagencyService : NotificationService,private route: ActivatedRoute, public router: Router, public _location: Location,public dialogRef: MatDialogRef<AccountEditComponent>) { }
+  constructor( public Accountservice : Accountservice  ,private notificationService : NotificationService,private route: ActivatedRoute, public router: Router, public _location: Location,public dialogRef: MatDialogRef<AccountEditComponent>) { }
 
   ngOnInit(): void {
     this.getAll();
@@ -40,11 +40,12 @@ export class AccountEditComponent implements OnInit {
       if ( ! this.Accountservice.form.get('id')?.value)
         this.Accountservice.create(this.Accountservice.form.value).subscribe(() => {
   
-          this.notificationagencyService.success(':: Submitted successfully');
+          this.notificationService.success(':: Submitted successfully');
         })
       else
       this.Accountservice.update(this.Accountservice.form.value).subscribe(() => {
-      this.notificationagencyService.success(':: Submitted successfully');
+        
+      this.notificationService.success(':: Submitted successfully');
       })
 
       this.onClose();

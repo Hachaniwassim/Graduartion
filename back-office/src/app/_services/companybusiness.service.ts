@@ -49,29 +49,29 @@ export class CompanybusinessService {
 
 
 // insert 
-create(item : CompanyBusinessDTO):Observable<CompanyBusinessDTO>{
+createCompayBusiness(item : CompanyBusinessDTO):Observable<CompanyBusinessDTO>{
   return this.http.post<CompanyBusinessDTO>(this.base_url,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
 }
 
 //get all team data 
-all():Observable<CompanyBusinessDTO>{
+getAllCompanyBussiness():Observable<CompanyBusinessDTO>{
    return this.http.get<CompanyBusinessDTO>(this.base_url).pipe(retry(2),catchError(this.handleError));
  }
 
 
   // get team by id
-  getByid(id:number):Observable<CompanyBusinessDTO>{
+  getByidCompany(id:number):Observable<CompanyBusinessDTO>{
     return this.http.get<CompanyBusinessDTO>(this.base_url + '/' +id).pipe(retry(2),catchError(this.handleError));
 
   }
 
    // update team by Id the
-   update(item : CompanyBusinessDTO){
+   updateCompanyBusiness(item : CompanyBusinessDTO){
     return this.http.put<CompanyBusinessDTO>(this.base_url,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
    }
 
     // delete cars
-    delete(id:number){
+    deleteCompanyBusiness(id:number){
       return this.http.delete<CompanyBusinessDTO>(this.base_url + '/' +id,this.httpOptions).pipe(retry(2),catchError(this.handleError));
 
 }

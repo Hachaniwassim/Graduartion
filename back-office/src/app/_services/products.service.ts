@@ -10,14 +10,14 @@ import { productsDTO } from '../models/dto/productsDTO';
 @Injectable({
   providedIn: 'root'
 })
-export class Productsservice {
+export class ProductService {
 
   //api backend
-  private base_url="http://localhost:8089/";
+  private base_url="http://localhost:8089/product";
   
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
- CompanyBusinessDTO ={
+ ProductDTO ={
   title:'', 
   detailimage: '',
   note: '',
@@ -55,29 +55,29 @@ export class Productsservice {
 
 
 // insert 
-create(item : productsDTO):Observable<productsDTO>{
+createProduct(item : productsDTO):Observable<productsDTO>{
   return this.http.post<productsDTO>(this.base_url,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
 }
 
 //get all account data 
-all():Observable<productsDTO>{
+getAllProduct():Observable<productsDTO>{
    return this.http.get<productsDTO>(this.base_url).pipe(retry(2),catchError(this.handleError));
  }
 
 
   // get product by id
-  getByid(id:number):Observable<productsDTO>{
+  getByidProduct(id:number):Observable<productsDTO>{
     return this.http.get<productsDTO>(this.base_url + '/' +id).pipe(retry(2),catchError(this.handleError));
 
   }
 
    // update product by Id the
-   update(item : productsDTO){
+   updateProduct(item : productsDTO){
     return this.http.put<productsDTO>(this.base_url,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
    }
 
     // delete products
-    delete(id:number){
+    deleteProduct(id:number){
       return this.http.delete<productsDTO>(this.base_url + '/' +id,this.httpOptions).pipe(retry(2),catchError(this.handleError));
 
 }
@@ -89,8 +89,8 @@ all():Observable<productsDTO>{
     detailimage : new FormControl('',[ Validators.required]),
     note : new FormControl('',[ Validators.required]),
     name : new FormControl('',[ Validators.required]),
-    image : new FormControl('',[ Validators.required]),
-    consultationNumber : new FormControl('',[ Validators.required]),
+    image : new FormControl(''),
+    consultationNumber : new FormControl(''),
 
  
 });
@@ -108,7 +108,7 @@ initializeFormGroup() {
 
   });
 }
-populateForm(company: any) {
-  this.form.patchValue(_.omit(company));
+populateForm(product: any) {
+  this.form.patchValue(_.omit(product));
 }
 }

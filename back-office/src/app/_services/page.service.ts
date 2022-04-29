@@ -10,14 +10,13 @@ import { pagesDTO } from '../models/dto/pageDTO';
 @Injectable({
   providedIn: 'root'
 })
-export class Pageservice {
+export class PageService {
 
   //api backend
-  private base_url="http://localhost:8089/";
+  private base_url="http://localhost:8089/pages";
   
-  headers = new HttpHeaders().set('Content-Type', 'application/json');
 
- CompanyBusinessDTO ={
+ PagesDTO ={
   published:'', 
   pagetype: '',
   title: '',
@@ -52,35 +51,35 @@ export class Pageservice {
 
 
 // insert 
-create(item : pagesDTO):Observable<pagesDTO>{
+createPages(item : pagesDTO):Observable<pagesDTO>{
   return this.http.post<pagesDTO>(this.base_url,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
 }
 
 //get all page data 
-all():Observable<pagesDTO>{
+getAllPages():Observable<pagesDTO>{
    return this.http.get<pagesDTO>(this.base_url).pipe(retry(2),catchError(this.handleError));
  }
 
 
   // get page by id
-  getByid(id:number):Observable<pagesDTO>{
+  getByidPages(id:number):Observable<pagesDTO>{
     return this.http.get<pagesDTO>(this.base_url + '/' +id).pipe(retry(2),catchError(this.handleError));
 
   }
 
    // update page by Id the
-   update(item : pagesDTO){
+   updatePages(item : pagesDTO){
     return this.http.put<pagesDTO>(this.base_url,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
    }
 
     // delete pages
-    delete(id:number){
+    deletePages(id:number){
       return this.http.delete<pagesDTO>(this.base_url + '/' +id,this.httpOptions).pipe(retry(2),catchError(this.handleError));
 
 }
 
 //validation formulaire
-  form : FormGroup= new FormGroup({
+   form : FormGroup= new FormGroup({
     id: new FormControl(null),
     published: new FormControl('',Validators.required),
     pagetype : new FormControl('',[ Validators.required]),
@@ -100,7 +99,7 @@ initializeFormGroup() {
     description: null,
   });
 }
-populateForm(company: any) {
-  this.form.patchValue(_.omit(company));
+populateForm(pages: any) {
+  this.form.patchValue(_.omit(pages));
 }
 }

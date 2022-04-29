@@ -121,6 +121,8 @@ const routes: Routes = [
 
   { path: 'groupe', loadChildren: () => import('./groupe/groupe.module').then(m => m.GroupeModule) },
 
+  { path: 'entreprise', loadChildren: () => import('./entreprise/entreprise.module').then(m => m.EntrepriseModule) },
+
   // 404 not found 
   { path: '**', component: NotfoundComponent },
 

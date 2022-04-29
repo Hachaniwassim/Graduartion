@@ -1,6 +1,6 @@
 import { GroupeDTO } from "./groupeDTO";
 
-export interface EntreprisDTO{
+export interface EntrepriseDTO{
         id?: number;
         companyname?: string;
         fiscalCode?: string;
@@ -10,6 +10,8 @@ export interface EntreprisDTO{
         email: string;
         contact : string;
         note: string;
+        createdAt: string,
+        updateAt: string,
         groupe ?: GroupeDTO[];
        
       

@@ -10,14 +10,14 @@ import { postDTO } from '../models/dto/postDTO';
 @Injectable({
   providedIn: 'root'
 })
-export class Postservice {
+export class PostService {
 
   //api backend
   private base_url="http://localhost:8089/";
   
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
- CompanyBusinessDTO ={
+ PostDTO ={
   image:'', 
   tagline: '',
   postTranslations: '',
@@ -114,7 +114,7 @@ initializeFormGroup() {
 
   });
 }
-populateForm(company: any) {
-  this.form.patchValue(_.omit(company));
+populateForm(post: any) {
+  this.form.patchValue(_.omit(post));
 }
 }

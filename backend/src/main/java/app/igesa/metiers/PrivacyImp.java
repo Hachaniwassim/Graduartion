@@ -1,10 +1,7 @@
 package app.igesa.metiers;
 
-import app.igesa.dto.CompanyBusinessDTO;
 import app.igesa.dto.PrivacyDTO;
-import app.igesa.entity.CompanyBusiness;
 import app.igesa.entity.Privacy;
-
 import app.igesa.exceptions.ResourceNotFoundException;
 import app.igesa.repository.PrivacyRepository;
 import lombok.AllArgsConstructor;
@@ -47,12 +44,12 @@ public class PrivacyImp  implements  Iprivacy{
     public PrivacyDTO findById(Long id) {
         log.debug("HTTP GET BY ID {} ..", id);
         if (id == null) {
-            log.error(" Privacy busniss Id is NULL .. !!");
+            log.error(" Id is NULL .. !!");
             return null;
         }
 
         return privacyRepository.findById(id).map(PrivacyDTO::fromEntity).orElseThrow(() ->
-                new ResourceNotFoundException(" No privacy   with  Id = :: " + id + " was founded {} ..!"));
+                new ResourceNotFoundException(" No cookies  with  Id = :: " + id + " was founded {} ..!"));
 
     }
 
@@ -60,7 +57,7 @@ public class PrivacyImp  implements  Iprivacy{
     public void delete(Long id) {
         log.debug("HTTP DELETE BY ID {} ..", id);
         if (id == null) {
-            log.error(" ENTREPRISE ID IS NULL ");
+            log.error("ID IS NULL ");
             return;
         }
         privacyRepository.deleteById(id);
