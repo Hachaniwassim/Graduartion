@@ -73,34 +73,37 @@ export class GroupeService {
      
    }
  
-    // update team by Id the
-    update(item : GroupeDTO){
-     return this.http.put<GroupeDTO>(this.base_url,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
+    // update groupe 
+    update(id : number,data: GroupeDTO, ){
+     return this.http.put<GroupeDTO>(`${this.base_url}/${id}`,JSON.stringify(data),this.httpOptions).pipe(retry(2),catchError(this.handleError));
     }
+
+  
  
-     // delete cars
+     // delete groupe
      delete(id:number){
        return this.http.delete<GroupeDTO>(this.base_url + '/' +id,this.httpOptions).pipe(retry(2),catchError(this.handleError));
  
  }
-    // get team by id
+    // get all groupe 
     deleteAll(){
-      return this.http.delete<GroupeDTO>(this.base_url).pipe(retry(2),catchError(this.handleError));
+      return this.http.delete(this.base_url).pipe(retry(2),catchError(this.handleError));
   
     }
  
+   
 //find by active
-    findByActive(active: string) {
+    findByActive(active:any) {
       return this.http.get(`${this.base_url}?active${active}`);
     }
 
 
 
   //find by confirmed
-    findByConfirmed(confirme: string) {
+    findByConfirmed(confirme: any) {
       return this.http.get(`${this.base_url}?confirme${confirme}`);
     }
-
+   
 
  //validation formulaire
    form : FormGroup= new FormGroup({
@@ -134,8 +137,11 @@ export class GroupeService {
    this.form.patchValue(_.omit(groupe));
  }
 
- updatestatus(id:number, data : any) {
-  return this.http.put(`${this.base_url}/${id}`, data);
-}
+ // update groupe  by status
+ updateG(item : GroupeDTO,id : any){
+  return this.http.put<GroupeDTO>(this.base_url + '/' +id,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
+ }
+
+ 
  }
  

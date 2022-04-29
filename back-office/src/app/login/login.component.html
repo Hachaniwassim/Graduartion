@@ -28,8 +28,7 @@
         <input type="password" class="form-control" [type]="fieldTextType ? 'text' : 'password'" name="password" [(ngModel)]="form.password" required minlength="6" placeholder="password" #password="ngModel" />
         <div class="input-group-append">
         <span class="input-group-text">
-          <i
-            class="fa"
+          <i class="fa"
             [ngClass]="{
               'fa-eye-slash': !fieldTextType,
               'fa-eye': fieldTextType }"

@@ -32,9 +32,8 @@ groupeDTO !: GroupeDTO ;
   groupe!:GroupeDTO[];
   searchKey!: string;
   showspinner = false;
-  data : any ;
-   element !: any;
-
+  currentGroupe :any;
+  groupes : any ;
 
    company: List<CompanyBusinessDTO>=[];
   datasource = new MatTableDataSource(this.groupe)
@@ -65,25 +64,25 @@ groupeDTO !: GroupeDTO ;
     this.company=response ;
     })
     
-  this.getBy(this.route.snapshot.paramMap.get('id'));
+  //this.getBy(this.route.snapshot.paramMap.get('id'));
 
   }    
 
   
 
 
-getBy(id:any) {
-  this.groupeService.getByid(id)
-    .subscribe(
-      data => {
-        this.element= data;
-        console.log(data);
-      },
-      error => {
-        console.log(error);
-      });
-}
-
+  getBy(id:any) {
+    this.groupeService.getByid(id)
+      .subscribe(
+        data => {
+          this.currentGroupe= data;
+          console.log(data);
+        },
+        error => {
+          console.log(error);
+        });
+  }
+  
   //search for data 
 
   onSearchClear() {
@@ -91,8 +90,10 @@ getBy(id:any) {
     this.applyFilter();
   }
 
+  // fiter data 
   applyFilter() {
     this.datasource.filter = this.searchKey.trim().toLowerCase();
+   
   }
 
 
@@ -110,15 +111,9 @@ getBy(id:any) {
       });
   }
 
-        getone(){
-        this.groupeService.getByid(this.id).subscribe((response)=>
-        { this.data=response;
-         this.groupe=this.data;
-         console.log(this.groupe);
-       })
-      }
 
 
+  //view details groupe
    View(row : any) { 
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
@@ -182,48 +177,122 @@ getBy(id:any) {
     setTimeout(() => { this.showspinner = false; }, 2000)
   }
 
-  //alerte de confirmation 
-  alertConfirmation() {
-    Swal.fire({
-      title: 'Are you sure?',
-      text: 'This process is irreversible.',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonText: 'Yes, go ahead.',
-      cancelButtonText: 'No, let me think',
-    }).then((result) => {
-      if (result.value) {
-        Swal.fire('Updated!', 'Company updated successfully.', 'success');
-      } else if (result.dismiss === Swal.DismissReason.cancel) {
-        Swal.fire('Cancelled');
-      }
-    });
-  }
 
   
-  
-  updatePublished(status: any) {
+  //update status groupe
+  updateactive(status: any) {
     const data = {
-      name: this.element.name,
-      description: this.element.description,
-      confirmed:this.element.confirmed,
-      deleted: this.element.deleted,
+      name: this.currentGroupe.name,
+      description: this.currentGroupe.description,
+      confirmed:this.currentGroupe.confirmed,
+      deleted: this.currentGroupe.deleted,
       active: status
     };
 
-    this.groupeService.updatestatus(this.element.id, data)
+    this.groupeService.update(this.currentGroupe.id, data)
       .subscribe(
         response => {
-          this.element.active= status;
+          this.currentGroupe.active= status;
           console.log(response);
         },
         error => {
           console.log(error);
         });
+
+
+      }
+ 
+  //update confirmed  groupe
+  updateconfirmed(status: any) {
+    const data = {
+      name: this.currentGroupe.name,
+      description: this.currentGroupe.description,
+      active:this.currentGroupe.active,
+      deleted: this.currentGroupe.deleted,
+      confirmed: status
+    };
+
+    this.groupeService.update(this.currentGroupe.id, data)
+      .subscribe(
+        response => {
+          this.currentGroupe.confirmed= status;
+          console.log(response);
+        },
+        error => {
+          console.log(error);
+        });
+
+
+      }
+
+
+     
+  //update status dleted  groupe
+  updatedeleted(status: any) {
+    const data = {
+      name: this.currentGroupe.name,
+      description: this.currentGroupe.description,
+      confirmed:this.currentGroupe.confirmed,
+      active: this.currentGroupe.active,
+      deleted: status
+    };
+
+    this.groupeService.update(this.currentGroupe.id, data)
+      .subscribe(
+        response => {
+          this.currentGroupe.deleted= status;
+          console.log(response);
+        },
+        error => {
+          console.log(error);
+        });
+
+
+      }
+
+
+// delete all groupe
+removeAllGroupe() {
+  Swal.fire({
+    title: 'Are you sure to delete all Groupes  !?',
+    text: 'This process is irreversible.',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Yes, go ahead.',
+    cancelButtonText: 'No, let me think',
+  }).then((result) => {
+    if (result.value) {
+      this.groupeService.deleteAll()
+      .subscribe(
+        response => {
+          console.log(response);
+          this.refresh();
+        },
+        error => {
+          console.log(error);
+        });
+      Swal.fire('Deleted!', ' All Groupe  was Deleted successfully.', 'success');
+    } else if (result.dismiss === Swal.DismissReason.cancel) {
+      Swal.fire('TRY LATER...');
+    }
+  });
+    
+    }
+    //filtring by active groupe 
+    active="";
+    searchActive() {
+      
+      this.groupeService.findByActive(this.active)
+        .subscribe(
+          data => {
+            
+      this.datasource.filter=this.active.trim().toLowerCase();
+      this.active.trim().toLowerCase() == data ;
+          },
+          error => {
+            console.log(error);
+          });
+    }
+
   }
-
-}
-
-
-
 

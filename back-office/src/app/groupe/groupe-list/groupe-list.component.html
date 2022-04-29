@@ -1,58 +1,120 @@
-
 <br><br><br>
 <div class="card" style="width:100%;"><br>
-<div class="container">
-<div class="search-div">
-  <button mat-fab color="gray" (click)="onCreate()">
-    <mat-icon>add</mat-icon>
-  </button>
- <mat-form-field class="search-form-field" floatLabel="never">
-  <input matInput [(ngModel)]="searchKey" placeholder="Search" autocomplete="off" (keyup)="applyFilter()">
-  <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey"  (click)="onSearchClear()">
-     <mat-icon>close</mat-icon>
-   </button>
- </mat-form-field>
-</div>
+  <div class="container">
+    <div class="search-div">
+      <mat-form-field class="search-form-field" floatLabel="never">
+        <input matInput [(ngModel)]="searchKey" placeholder="Search" autocomplete="off" (keyup)="applyFilter()">
+        <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey" (click)="onSearchClear()">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>&nbsp;&nbsp;&nbsp;
+      <button mat-fab color="gray" (click)="onCreate()">
+        <mat-icon>add</mat-icon>
+      </button>&nbsp;&nbsp;
+      <button mat-fab color="gray" (click)="removeAllGroupe()">
+        <mat-icon style="font-size: 20px;"> delete_forever </mat-icon>
+      </button>
+    </div>
+
+  </div>
+  <!--<div class="list row">
+    <div class="col-md-8">
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Search by active"
+          [(ngModel)]="active"
+        />
+        <div class="input-group-append">
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            (click)="searchActive()"
+          >
+            Search
+          </button>
+        </div>
+      </div>
+    </div>-->
   <div class="table-responsive">
     <table mat-table #table [dataSource]="datasource" matSort>
       <ng-container matColumnDef="name">
-        <mat-header-cell *matHeaderCellDef mat-sort-header > Name</mat-header-cell>
-        <mat-cell *matCellDef="let element" >{{element.name}} </mat-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Name</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.name}} </mat-cell>
       </ng-container>
       <ng-container matColumnDef="description">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Description</mat-header-cell>
         <mat-cell *matCellDef="let element">{{element.description}} </mat-cell>
       </ng-container>
       <ng-container matColumnDef="active">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Active</mat-header-cell> <mat-cell  *matCellDef="let element"> 
-           <button mat-icon-button 
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Active</mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <button mat-icon-button  class="badge badge-warning mr-2"
           *ngIf="element.active"
-          (click)="updatePublished(false)">
-          <span class="badge badge-success" style="font-size: 12px;"> {{element.active ? "Active" : "Pending"}} </span>
-          </button> </mat-cell>
+          (click)="updateactive(false)" >
+            <span class="badge badge-success" style="font-size: 12px;"> {{element.active ? "Active" : "Pending"}}
+            </span>
+          </button>
+          <button mat-icon-button  class="badge badge-warning mr-2"
+          *ngIf="!element.active"
+          (click)="updateactive(true)">
+            <span class="badge badge-warning" style="font-size: 12px;"> {{element.active ?
+              "Active": "Pending"}}
+            </span>
+          </button>
+        </mat-cell>
       </ng-container>
       <ng-container matColumnDef="confirmed">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Confirmed</mat-header-cell>
-        <mat-cell  *matCellDef="let element">  <button mat-icon-button>
-          <span  class="badge  badge-warning" style="font-size: 12px;"> {{element.confirmed ? "Confirmed":"Pending" }} </span>
-          </button> </mat-cell>
+        <mat-cell *matCellDef="let element"> 
+          <button mat-icon-button  class="badge badge-warning mr-2"
+          *ngIf="element.confirmed"
+          (click)="updateconfirmed(false)" >
+            <span class="badge badge-success" style="font-size: 12px;"> {{element.confirmed ? "Confirmed" : "Pending"}}
+            </span>
+          </button>
+          <button mat-icon-button  class="badge badge-warning mr-2"
+          *ngIf="!element.confirmed"
+          (click)="updateconfirmed(true)">
+            <span class="badge badge-warning" style="font-size: 12px;"> {{element.confirmed ?
+              "Confirmed": "Pending"}}
+            </span>
+          </button>
+        </mat-cell>
       </ng-container>
       <ng-container matColumnDef="deleted">
         <mat-header-cell *matHeaderCellDef mat-sort-header>Deleted</mat-header-cell>
-        <mat-cell  *matCellDef="let element">  <button mat-icon-button>
-          <span class="badge  badge-warning" style="font-size: 12px;"> {{element.deleted ?"Deleted":"Pending"}} </span>
-          </button> </mat-cell>
+        <mat-cell *matCellDef="let element"> 
+          <button mat-icon-button  class="badge badge-danger mr-2"
+          *ngIf="element.deleted"
+          (click)="updatedeleted(false)" >
+            <span class="badge badge-danger" style="font-size: 12px;"> {{element.deleted ? "Deleted : "Pending"}}
+            </span>
+          </button>
+          <button mat-icon-button  class="badge badge-warning mr-2"
+          *ngIf="!element.deleted"
+          (click)="updatedeleted(true)">
+            <span class="badge badge-warning" style="font-size: 12px;"> {{element.deleted ?
+              "Deleted": "Pending"}}
+            </span>
+          </button>
+          </mat-cell>
       </ng-container>
       <ng-container matColumnDef="actions">
         <mat-header-cell *matHeaderCellDef></mat-header-cell>
         <mat-cell *matCellDef="let row">
-          <button mat-icon-button>
-            <mat-icon>delete_outline</mat-icon>
-          </button>
+          <div></div><div></div>
           <button mat-icon-button (click)="onEdit(row)">
-            <mat-icon>edit_outline</mat-icon> </button>
+            <mat-icon>update</mat-icon>
+          </button>
           <button mat-icon-button>
-            <mat-icon>list</mat-icon></button></mat-cell>
+            <mat-icon>list</mat-icon>
+          </button>
+          <button mat-icon-button>
+            <mat-icon color="warn" (click)="onDelete(row.id)">delete_forever</mat-icon>
+          </button>
+        </mat-cell>
       </ng-container>
       <ng-container matColumnDef="loading">
         <mat-footer-cell *matFooterCellDef colspan="6">
@@ -71,10 +133,11 @@
         [ngClass]="{'hide': !(datasource!=null && datasource.data.length==0)}"></mat-footer-row>
     </table>
     <br>
-      <mat-paginator [pageSizeOptions]="[ 5, 10, 25, 100]" [pageSize]="5" showFirstLastButtons></mat-paginator></div>
+    <mat-paginator [pageSizeOptions]="[ 5, 10, 25, 100]" [pageSize]="5" showFirstLastButtons></mat-paginator>
+  </div>
 </div>
-</div>
-<br> 
+
+<br>
 
 
 
@@ -112,7 +175,7 @@
 
 
 
-   <!--<div class="table-responsive">
+<!--<div class="table-responsive">
         <table class="table table-hover">
           <thead >
               <tr>
@@ -147,4 +210,3 @@
         </tbody>
         </table>
     </div>-->
-      
