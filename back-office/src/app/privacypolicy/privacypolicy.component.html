@@ -11,10 +11,9 @@
               <mat-progress-bar mode="determinate" value="40"></mat-progress-bar><br><br>
               <div class="container">
                 <form class="example-form">
-                  <label for=""> Titre de la page latérale du front office</label> <br>
-                  <mat-form-field class="example-full-width" style="width: 500px;" appearance="fill">
-                    <textarea matInput></textarea>
-                  </mat-form-field> <br>
+                  <div class="mb-3">
+                    <input type="email" class="form-control" id="exampleFormControlInput1" >
+                  </div>
                   <button mat-raised-button color="primary" style="width: 100px;">Save</button><br>
                 </form>
 
@@ -31,13 +30,12 @@
               <h1>Privacy Policy text</h1> <br>
               <mat-progress-bar mode="determinate" value="40"></mat-progress-bar><br><br>
               <div class="container">
-                <label for="">Privacy Policy text</label> <br>
                 <form>
-                  <mat-form-field appearance="fill" style="width: 500px;">
-                    <mat-label>Leave a comment</mat-label>
-                    <textarea matInput style="height: 300px;"></textarea>
-                  </mat-form-field>
-                </form>
+                  <angular-editor [(ngModel)]="htmlContent" [config]="config"></angular-editor>
+                  <div class="html">
+                    {{ htmlContent }}
+                  </div>
+                </form> <br> <br>
                 <button mat-raised-button color="primary" style="width: 100px;">Save</button>
                 &nbsp;&nbsp;
                 <button mat-raised-button color="warn" style="width: 100px;">Canncel</button><br>
