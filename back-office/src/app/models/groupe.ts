@@ -9,5 +9,6 @@ active: boolean;
 createdAt?: Date;
 updateAt?: Date;
 confirmed?: boolean;
+deleted?:boolean;
 companyBusiness?:CompanyBusiness[];
 }
