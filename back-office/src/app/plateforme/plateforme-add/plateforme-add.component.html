@@ -1,0 +1,39 @@
+<mat-toolbar>
+    <span>{{plateformeservice.form.controls['id'].value?"Modify Plateforme":"New Plateforme"}}</span>
+    <span class="fill-remaining-space"></span>
+    <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
+  </mat-toolbar><br><br>
+  <form [formGroup]="plateformeservice.form" class="normal-form" (submit)="onSubmit()" class="normal-form">
+    <mat-grid-list cols="1" rowHeight="130px">
+      <mat-grid-tile>
+        <mat-form-field style="margin-left: 30px;">
+          <input formControlName="image" matInput placeholder="name">
+          <mat-error *ngIf="plateformeservice.form.controls['image'].errors?.required">this field is mandatory.
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field style="margin-left: 30px;">
+          <input formControlName="email" matInput placeholder="email">
+          <mat-error *ngIf="plateformeservice.form.controls['email'].errors?.required">this field is mandatory.
+          </mat-error>
+        </mat-form-field> 
+        <mat-form-field style="margin-left: 30px;">
+          <input formControlName="phone" matInput placeholder="phone">
+          <mat-error *ngIf="plateformeservice.form.controls['phone'].errors?.required">this field is mandatory.
+          </mat-error>
+        </mat-form-field> 
+        <mat-form-field style="margin-left: 30px;">
+          <input formControlName="adresse" matInput placeholder="adresse">
+          <mat-error *ngIf="plateformeservice.form.controls['adresse'].errors?.required">this field is mandatory.
+          </mat-error>
+        </mat-form-field> 
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <div class="button-row">
+            <button mat-raised-button color="primary" type="submit"
+              [disabled]="plateformeservice.form.invalid" (click)="refresh()">Save</button>
+              <button mat-raised-button  mat-dialog-close> <mat-icon>close</mat-icon>Cancel</button>
+            <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
+        </div>
+    </mat-grid-tile>
+    </mat-grid-list>
+  </form>

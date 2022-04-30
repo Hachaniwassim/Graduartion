@@ -52,29 +52,29 @@ export class PlateformeService {
 
 
 // insert 
-createPlateforme(item : plateforomeDTO):Observable<plateforomeDTO>{
+createplateforme(item : plateforomeDTO):Observable<plateforomeDTO>{
   return this.http.post<plateforomeDTO>(this.base_url,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
 }
 
-//get all plateforme data 
-getallPlateforme():Observable<plateforomeDTO>{
+//get all team data 
+getAllplateformes():Observable<plateforomeDTO>{
    return this.http.get<plateforomeDTO>(this.base_url).pipe(retry(2),catchError(this.handleError));
  }
 
 
-  // get plateforme by id
+  // get team by id
   getByidplateforme(id:number):Observable<plateforomeDTO>{
     return this.http.get<plateforomeDTO>(this.base_url + '/' +id).pipe(retry(2),catchError(this.handleError));
 
   }
 
-   // update plateforme by Id the
-   updatePlatforme(item : plateforomeDTO){
+   // update team by Id the
+   updateplateforme(item : plateforomeDTO){
     return this.http.put<plateforomeDTO>(this.base_url,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
    }
 
-    // delete plateformes
-    deletePlateforme(id:number){
+    // delete cars
+    deleteplateforme(id:number){
       return this.http.delete<plateforomeDTO>(this.base_url + '/' +id,this.httpOptions).pipe(retry(2),catchError(this.handleError));
 
 }

@@ -42,6 +42,7 @@ import { AuthGuard } from './guard/auth.guard';
 import { CompanybusinessComponent } from './companybusiness/companybusiness.component';
 import { AccountComponent } from './account/account.component';
 import { CookiesV2Component } from './cookies-v2/cookies-v2.component';
+import { PlateformeComponent } from './plateforme/plateforme.component';
 
 
 
@@ -106,6 +107,8 @@ const routes: Routes = [
 
   //cookies
   { path: "cookiess", component: CookiesV2Component, canActivate: [AuthGuard] },
+  //Plateforme
+  { path: "plateforme", component: PlateformeComponent, canActivate: [AuthGuard] },
 
 
   //board users admin moderateur for test authentification

@@ -60,6 +60,10 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
 import { PosproductlistViewComponent } from './posproductlist/posproductlist-view/posproductlist-view.component';
 import {  PosproductlistAddComponent} from './posproductlist/posproductlist-add/posproductlist-add.component';
 import { PosListComponent } from './posproductlist/pos-list/pos-list.component';
+import { PlateformeComponent } from './plateforme/plateforme.component';
+import { PlateformeListComponent } from './plateforme/plateforme-list/plateforme-list.component';
+import { PlateformeViewComponent } from './plateforme/plateforme-view/plateforme-view.component';
+import { PlateformeAddComponent } from './plateforme/plateforme-add/plateforme-add.component';
 
 
 @NgModule({
@@ -110,7 +114,11 @@ import { PosListComponent } from './posproductlist/pos-list/pos-list.component';
     CookiesV2Component,
     PosproductlistViewComponent,
     PosproductlistAddComponent,
-    PosListComponent
+    PosListComponent,
+    PlateformeComponent,
+    PlateformeListComponent,
+    PlateformeViewComponent,
+    PlateformeAddComponent
   ],
   imports: [
     BrowserModule,
