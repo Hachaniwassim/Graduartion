@@ -51,11 +51,15 @@ import { CompanyAddComponent } from './companybusiness/company-add/company-add.c
 import { AccountComponent } from './account/account.component';
 import { AccountEditComponent } from './account/account-edit/account-edit.component';
 import { AccountListComponent } from './account/account-list/account-list.component';
+import { AccountViewComponent } from './account/account-view/account-view.component';
 import { AgendaService, DayService, MonthAgendaService, MonthService, ScheduleModule, TimelineMonthService, TimelineViewsService, WeekService, WorkWeekService } from '@syncfusion/ej2-angular-schedule';
 import { SimpleNotificationsModule } from 'angular2-notifications';
 import { CompanyViewComponent } from './companybusiness/company-view/company-view.component';
 import { CookiesV2Component } from './cookies-v2/cookies-v2.component';
 import { AngularEditorModule } from '@kolkov/angular-editor';
+import { PosproductlistViewComponent } from './posproductlist/posproductlist-view/posproductlist-view.component';
+import {  PosproductlistAddComponent} from './posproductlist/posproductlist-add/posproductlist-add.component';
+import { PosListComponent } from './posproductlist/pos-list/pos-list.component';
 
 
 @NgModule({
@@ -101,10 +105,12 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
     AccountComponent,
     AccountEditComponent,
     AccountListComponent,
+    AccountViewComponent,
     CompanyViewComponent,
-    CookiesV2Component
-    
-
+    CookiesV2Component,
+    PosproductlistViewComponent,
+    PosproductlistAddComponent,
+    PosListComponent
   ],
   imports: [
     BrowserModule,

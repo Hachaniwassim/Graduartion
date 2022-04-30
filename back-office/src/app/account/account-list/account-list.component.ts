@@ -11,6 +11,7 @@ import { NotificationService } from 'src/app/shared/notification.service';
 import { Accountservice } from 'src/app/_services/account.service';
 import {Location}from '@angular/common';
 import { AccountEditComponent } from '../account-edit/account-edit.component';
+import { AccountViewComponent } from '../account-view/account-view.component';
 
 @Component({
   selector: 'app-account-list',
@@ -29,11 +30,21 @@ export class AccountListComponent implements OnInit {
   private roles: string[] = [];
   showAdminBoard = false;
   showModeratorBoard = false;
+  data : any ;
+
+
+  accountt={
+    username :"",
+   email: "",
+   fiscaleCode: "",
+  }
+
 
   datasource = new MatTableDataSource(this.account)
   displayedColumns: string[] = ['username', 'email','fiscaleCode','role','actions'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort,{}) sort!: MatSort;
+  id=this.route.snapshot.params['id'];
   mybreakpoint!: number;
 
   constructor( private dialog: MatDialog, private dialogService: DialogService, private Accountservice:Accountservice,
@@ -70,6 +81,29 @@ export class AccountListComponent implements OnInit {
   applyFilter() {
     this.datasource.filter = this.searchKey.trim().toLowerCase();
   }
+  ViewCompany(row : any) { 
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "100%"; 
+     this.dialog.open(AccountViewComponent, {
+          data: {
+            username : row.username,
+            email:row.email,
+            fiscaleCode:row.fiscaleCode
+          },
+        }
+        ),dialogConfig
+
+      }
+      getone(){
+        this.Accountservice.getByid(this.id).subscribe((response)=>
+        { this.data=response;
+         this.accountt=this.data;
+         console.log(this.accountt);
+       })
+      }
+
 
   onDelete(id: number) {
 

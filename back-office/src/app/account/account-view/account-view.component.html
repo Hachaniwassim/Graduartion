@@ -1,0 +1,32 @@
+<div class="container" style="width: 500px;">
+    <mat-toolbar>
+      <span>Company Details</span>
+      <span class="fill-remaining-space"></span>
+    </mat-toolbar><br>
+  
+    <div > <b> Username : </b>  </div>
+    <mat-progress-bar mode="determinate" value="25"></mat-progress-bar><br>
+    <div></div>
+    <mat-toolbar>
+      <span>{{account.username}} </span>
+      <span class="fill-remaining-space"></span>
+    </mat-toolbar>
+  <br>
+  <div> <b> Email : </b>   </div>
+  <mat-progress-bar mode="determinate" value="25"></mat-progress-bar><br>
+  <mat-toolbar>
+  <span>{{account.email}}</span>
+  <span class="fill-remaining-space"></span>
+</mat-toolbar>
+<br>
+<div> <b> Fiscale Code : </b>   </div>
+<mat-progress-bar mode="determinate" value="25"></mat-progress-bar><br>
+<mat-toolbar>
+<span>{{account.fiscaleCode}}</span>
+<span class="fill-remaining-space"></span>
+</mat-toolbar>
+    <mat-dialog-actions align="center">
+      <button mat-button mat-dialog-close>CANCEL</button>
+    </mat-dialog-actions>
+    <br> <br>
+  </div>
