@@ -1,6 +1,5 @@
 package app.igesa.payload.response;
 
-import app.igesa.entity.Groupe;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

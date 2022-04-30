@@ -1,9 +1,7 @@
 package app.igesa.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -11,7 +9,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Data
-@Builder
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity@Table(	name = "accounts",
@@ -19,7 +18,7 @@ import java.util.Set;
                 @UniqueConstraint(columnNames = "username"),
                 @UniqueConstraint(columnNames = "email")
         })
-public class Account extends Auditable {
+public class Account  {
 
     private static final long serialVersionUID = 65981149772133526L;
 
