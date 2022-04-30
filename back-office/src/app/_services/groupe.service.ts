@@ -131,10 +131,10 @@ export class GroupeService {
     this.form.patchValue(_.omit(groupe));
   }
 
-  // update groupe  by status
-  //updateG(item : GroupeDTO,id : any){
-  // return this.http.put<GroupeDTO>(this.base_url + '/' +id,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
-  //}
+   //update groupe  by status
+   updateGroupeByStatus(item : any,id : any){
+ return this.http.put<GroupeDTO>(this.base_url + '/' +id,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
+  }
 
 
 }

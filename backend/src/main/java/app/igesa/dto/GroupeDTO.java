@@ -30,7 +30,7 @@ public class GroupeDTO {
     private boolean deleted ;
     protected Date createdDate;
     protected Date lastModifiedDate;
-    protected String createdBy;
+   // protected String createdBy;
     private CompanyBusinessDTO companyBusiness;
     
     @JsonIgnore

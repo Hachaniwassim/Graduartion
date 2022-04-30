@@ -190,7 +190,7 @@ groupeDTO !: GroupeDTO ;
       active: status
     };
 
-    this.groupeService.updateGroupe(this.currentGroupe.id)
+    this.groupeService.updateGroupeByStatus(this.currentGroupe.id,data)
       .subscribe(
         response => {
           this.currentGroupe.active= status;
@@ -213,7 +213,7 @@ groupeDTO !: GroupeDTO ;
       confirmed: status
     };
 
-    this.groupeService.updateGroupe(this.currentGroupe.id)
+    this.groupeService.updateGroupeByStatus(this.currentGroupe.id,data)
       .subscribe(
         response => {
           this.currentGroupe.confirmed= status;
@@ -238,7 +238,7 @@ groupeDTO !: GroupeDTO ;
       deleted: status
     };
 
-    this.groupeService.updateGroupe(this.currentGroupe.id)
+    this.groupeService.updateGroupeByStatus(this.currentGroupe.id,data)
       .subscribe(
         response => {
           this.currentGroupe.deleted= status;

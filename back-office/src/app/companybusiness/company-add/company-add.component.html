@@ -25,7 +25,7 @@
       <div class="button-row">
           <button mat-raised-button color="primary" type="submit"
             [disabled]="companyService.form.invalid" (click)="refresh()">Save</button>
-            <button mat-raised-button  mat-dialog-close>Cancel</button>
+            <button mat-raised-button  mat-dialog-close> <mat-icon>close</mat-icon>Cancel</button>
           <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
       </div>
   </mat-grid-tile>
