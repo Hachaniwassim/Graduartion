@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @Data
 @Entity
 @Table(name="Meta")
-public class Meta  extends Auditable<String>{
+public class Meta  extends Auditable{
 	
 	@Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)

@@ -13,7 +13,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @Entity
 @Table(name="groupe")
 @EntityListeners(AuditingEntityListener.class)
-public class Groupe  extends Auditable<String> {
+public class Groupe  extends Auditable{
 
 
     @Id

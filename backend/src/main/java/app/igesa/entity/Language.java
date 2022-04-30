@@ -21,7 +21,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name="language")
 @EntityListeners(value = AuditListener.class)
-public class Language extends Auditable <String>{
+public class Language extends Auditable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

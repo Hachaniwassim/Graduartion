@@ -35,6 +35,8 @@ public class MetaDTO {
 				.urlkey(meta.getUrlkey())
 				.pagesTypes(meta.getPagesTypes())
 				.robotsTags(meta.getRobotsTags())
+				.createdDate(meta.getCreatedDate())
+				.lastModifiedDate(meta.getLastModifiedDate())
 				.product(ProductDTO.fromEntity(meta.getProduct()))
 				.build();
 	}
@@ -51,6 +53,8 @@ public class MetaDTO {
 			meta.setUrlkey(dto.getUrlkey());
 			meta.setRobotsTags(dto.getRobotsTags());
 			meta.setPagesTypes(dto.getPagesTypes());
+			meta.setLastModifiedDate(dto.getLastModifiedDate());
+			meta.setCreatedDate(dto.getCreatedDate());
 			return meta;
 	}
 }

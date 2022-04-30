@@ -15,7 +15,7 @@ import javax.persistence.*;
 @Table(name="Cookies")
 @EqualsAndHashCode(callSuper= true)
 @EntityListeners(AuditingEntityListener.class)
-public class Cookies extends Auditable<String> {
+public class Cookies extends Auditable {
 
         @Id
         @GeneratedValue(strategy= GenerationType.IDENTITY)

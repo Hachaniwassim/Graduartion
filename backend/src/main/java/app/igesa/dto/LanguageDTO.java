@@ -1,14 +1,12 @@
 package app.igesa.dto;
 
-import app.igesa.entity.Entreprise;
 import app.igesa.entity.Language;
 import app.igesa.enumerations.LangEnum;
 import lombok.Builder;
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import java.util.Date;
+
 @Data
 @Builder
 public class LanguageDTO {
@@ -17,6 +15,8 @@ public class LanguageDTO {
     private String name;
     private String image;
     private boolean active;
+    protected Date createdDate;
+    protected Date lastModifiedDate;
 
 
     public static LanguageDTO fromEntity(Language language) {
@@ -29,6 +29,8 @@ public class LanguageDTO {
                 .lang(language.getLang())
                 .name(language.getName())
                 .image(language.getImage())
+                .createdDate(language.getCreatedDate())
+                .lastModifiedDate(language.getLastModifiedDate())
                 .build();
     }
 
@@ -44,6 +46,8 @@ public class LanguageDTO {
         language.setActive(dto.isActive());
         language.setImage(dto.getImage());
         language.setName(dto.getName());
+        language.setCreatedDate(dto.getCreatedDate());
+        language.setLastModifiedDate(dto.getLastModifiedDate());
         return language;
     }
 

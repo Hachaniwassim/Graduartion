@@ -21,7 +21,7 @@ import java.util.List;
 @Table(name =" Configuration")
 @EqualsAndHashCode(callSuper= true)
 @EntityListeners(AuditingEntityListener.class)
-public class ConfigGenerale extends Auditable<String> {
+public class ConfigGenerale extends Auditable{
 
 	@Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)

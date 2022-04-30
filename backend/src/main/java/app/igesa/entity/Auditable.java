@@ -1,28 +1,26 @@
 package app.igesa.entity;
 
 import static javax.persistence.TemporalType.TIMESTAMP;
-
+import java.io.Serializable;
 import java.util.Date;
-
+import javax.persistence.Column;
 import javax.persistence.EntityListeners;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Temporal;
 
-import org.springframework.data.annotation.CreatedBy;
+import lombok.Data;
 import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
+@Data
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
-public abstract class Auditable<U> {
+public abstract class Auditable implements Serializable {
 
-    @CreatedBy
-    protected U createdBy;
 
     @CreatedDate
     @Temporal(TIMESTAMP)
+    @Column(name = "CreationDate",nullable = false,updatable = false)
     protected Date createdDate;
 
 
@@ -30,13 +28,6 @@ public abstract class Auditable<U> {
     @Temporal(TIMESTAMP)
     protected Date lastModifiedDate;
 
-    public U getCreatedBy() {
-        return createdBy;
-    }
-
-    public void setCreatedBy(U createdBy) {
-        this.createdBy = createdBy;
-    }
 
     public Date getCreatedDate() {
         return createdDate;

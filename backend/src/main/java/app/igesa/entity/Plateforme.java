@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name="plateform")
 @EntityListeners(AuditingEntityListener.class)
-public class Plateforme extends Auditable<String>{
+public class Plateforme extends Auditable{
 
 	
 	@Id
