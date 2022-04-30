@@ -23,6 +23,8 @@ export class GroupeService {
    // updateAt: '',
     confirmed: true,
     deleted: false,
+    createdDate :'',
+    lastModifiedDate:'',
     //companyBusiness:[]
   }
 

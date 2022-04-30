@@ -10,8 +10,8 @@ export interface Entrepris{
     email: string;
     contact : string;
     note: string;
-    createdAt: string,
-    updateAt: string,
+    createdDate :Date,
+    lastModifiedDate:Date,   
     groupe ?: Groupe[];
    
   

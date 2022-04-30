@@ -9,6 +9,8 @@ export interface configgeneraleDTO{
     phone ? : string;
     fax ? : string;
     title ? : string;
+    createdDate :   Date;
+    lastModifiedDate: Date; 
     newslettertitle ? : string;
     newslettersubtitle ? : string;
     tagline ? : string;

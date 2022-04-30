@@ -10,8 +10,8 @@ export interface EntrepriseDTO{
         email: string;
         contact : string;
         note: string;
-        createdAt: string,
-        updateAt: string,
+        createdDate : Date;
+        lastModifiedDate: Date; 
         groupe ?: GroupeDTO[];
        
       

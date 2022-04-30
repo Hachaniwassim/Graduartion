@@ -11,7 +11,7 @@
     </button>
   </mat-form-field>
 </div>
-<div class="mat-elevation-z8 ">
+<div class="table-responsive">
   <mat-table [dataSource]="datasource" matSort>
     <ng-container matColumnDef="description">
       <mat-header-cell *matHeaderCellDef mat-sort-header style="margin-Left:10px;"> Description </mat-header-cell>
@@ -20,6 +20,14 @@
     <ng-container matColumnDef="domainename">
       <mat-header-cell *matHeaderCellDef mat-sort-header style="margin-Left:10px;">Domaine Name </mat-header-cell>
       <mat-cell *matCellDef="let element" style="margin-Left:10px;">{{element.domainename}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="createdDate">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Created At</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element.createdDate  | date:'short'}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="lastModifiedDate">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Last Modified At</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element.lastModifiedDate  | date:'short'}} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="actions">
       <mat-header-cell *matHeaderCellDef></mat-header-cell>

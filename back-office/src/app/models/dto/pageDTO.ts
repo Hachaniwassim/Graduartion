@@ -3,5 +3,7 @@ export interface pagesDTO{
 	published? : boolean;
     pagetype? : string;
     title? : string;
+    createdDate :   Date;
+    lastModifiedDate: Date; 
     description? : string;
 }
