@@ -1,10 +1,10 @@
 package app.igesa.dto;
-
 import app.igesa.entity.Auditable;
 import app.igesa.entity.Category;
 import lombok.Builder;
 import lombok.Data;
 
+import java.util.Date;
 
 
 @Data
@@ -16,6 +16,8 @@ public class CategoryDTO {
 	private String description ;
 	private String menuimage ;
 	private String bannerimage ;
+	protected Date createdDate;
+	protected Date lastModifiedDate;
 	private boolean status ;
 
 
@@ -28,6 +30,8 @@ public class CategoryDTO {
 				.menuimage(category.getMenuimage())
 				.title(category.getTitle())
 				.image(category.getImage())
+				.lastModifiedDate(category.getLastModifiedDate())
+				.createdDate(category.getCreatedDate())
 				.status(category.isStatus())
 				.build();
 	}
@@ -46,6 +50,8 @@ public class CategoryDTO {
 		category.setBannerimage(dto.getBannerimage());
 		category.setMenuimage(dto.getMenuimage());
 		category.setTitle(dto.getTitle());
+		category.setCreatedDate(dto.getCreatedDate());
+		category.setLastModifiedDate(dto.getLastModifiedDate());
 		category.setImage(dto.getImage());
 		return category;
 	}

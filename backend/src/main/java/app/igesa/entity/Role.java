@@ -12,7 +12,7 @@ import lombok.*;
 @Builder
 @Entity
 @Table(name="role")
-public class Role extends Auditable<String> {
+public class Role extends Auditable {
 
 		@Id
 		@GeneratedValue(strategy = GenerationType.IDENTITY)

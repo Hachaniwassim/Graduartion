@@ -1,10 +1,11 @@
 package app.igesa.dto;
 
 import app.igesa.entity.ConfigGenerale;
-import app.igesa.entity.Entreprise;
 import app.igesa.enumerations.RobotsTags;
 import lombok.Builder;
 import lombok.Data;
+
+import java.util.Date;
 
 @Data
 @Builder
@@ -27,6 +28,8 @@ public class ConfigGeneralDTO {
 	private String newslettertitle;
 	private String newslettersubtitle ;
 	private RobotsTags robotsTags;
+	protected Date createdDate;
+	protected Date lastModifiedDate;
 
 	public static ConfigGeneralDTO fromEntity(ConfigGenerale config) {
 		if ( config == null) {
@@ -48,6 +51,8 @@ public class ConfigGeneralDTO {
 				.newslettertitle(config.getNewslettertitle())
 				.newslettersubtitle(config.getNewslettersubtitle())
 				.robotsTags(config.getRobotsTags())
+				.createdDate(config.getCreatedDate())
+				.lastModifiedDate(config.getLastModifiedDate())
 				.entreprise(EntrepriseDTO.fromEntity(config.getEntreprise()))
 				.build();
 	}
@@ -74,6 +79,8 @@ public class ConfigGeneralDTO {
 				config.setNewslettersubtitle(dto.getNewslettersubtitle());
 				config.setNewslettertitle(dto.getNewslettertitle());
 				config.setRobotsTags(dto.getRobotsTags());
+				config.setLastModifiedDate(dto.getLastModifiedDate());
+				config.setCreatedDate(config.getCreatedDate());
 				config.setEntreprise(EntrepriseDTO.toEntity(dto.getEntreprise()));
 				return config;
 

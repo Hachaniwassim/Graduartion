@@ -30,6 +30,8 @@ public class TagsDTO {
 				.id(tag.getId())
 				.name((tag.getName()))
 				.description(tag.getDescription())
+				.lastModifiedDate(tag.getLastModifiedDate())
+				.createdDate(tag.getCreatedDate())
 				//.companyBusiness(CompanyBusinessDTO.fromEntity(entreprise.getCompanyBusiness()))
 				.build();
 	}
@@ -44,6 +46,9 @@ public class TagsDTO {
 		tag.setId(dto.getId());
 		tag.setDescription(dto.getDescription());
 		tag.setName(dto.getName());
+		tag.setLastModifiedDate(dto.getLastModifiedDate());
+		tag.setCreatedDate(dto.getCreatedDate());
+		tag.setCreatedDate(dto.getCreatedDate());
 		//entreprise.setCompanyBusiness(CompanyBusinessDTO.toEntity(dto.getCompanyBusiness()));
 		return tag;
 	}

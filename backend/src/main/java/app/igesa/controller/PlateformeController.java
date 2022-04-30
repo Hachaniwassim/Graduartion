@@ -28,7 +28,7 @@ public class PlateformeController {
 	@Autowired
 	IplateformeRepository platformeRepository;
 
-	@ApiOperation(value="GET PUBLISHED PLATEFORME", response = PlateformeDTO.class)
+	/*@ApiOperation(value="GET PUBLISHED PLATEFORME", response = PlateformeDTO.class)
 	@ApiResponses(value= {
 			@ApiResponse(code=200,message="Plateforme was FOUND Successfully"),
 			@ApiResponse(code=400,message="Plateforme not FOUND")
@@ -45,7 +45,7 @@ public class PlateformeController {
 	    } catch (Exception e) {
 	      return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 	    }
-	  }
+	  }*/
 
 
 

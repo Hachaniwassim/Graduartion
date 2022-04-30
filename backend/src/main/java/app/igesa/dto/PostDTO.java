@@ -60,7 +60,6 @@ public class PostDTO {
 		post.setType(dto.getTypes());
 		post.setSlug(dto.getSlug());
 		post.setCreatedDate(post.getCreatedDate());
-		post.setCreatedBy(post.getCreatedBy());
 		post.setLastModifiedDate(post.getLastModifiedDate());
 		post.setTags(TagsDTO.toEntity(dto.getTags()));
 		post.setPage(PageDTO.toEntity(dto.getPage()));

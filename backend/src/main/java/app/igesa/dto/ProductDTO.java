@@ -1,17 +1,13 @@
 package app.igesa.dto;
 
-
-
-import app.igesa.entity.Entreprise;
-import app.igesa.entity.Meta;
 import app.igesa.entity.Product;
-import app.igesa.entity.Tags;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
 import lombok.Data;
-
 import java.util.Date;
 import java.util.List;
+
+
 
 @Builder
 @Data
@@ -46,6 +42,8 @@ public class ProductDTO {
 				.consultationNumber(product.getConsultationNumber())
 				.tags(TagsDTO.fromEntity(product.getTags()))
 				.category(CategoryDTO.fromEntity(product.getCategory()))
+				.lastModifiedDate(product.getLastModifiedDate())
+				.createdDate(product.getCreatedDate())
 				.entreprise(EntrepriseDTO.fromEntity(product.getEntreprise()))
 				.build();
 	}
@@ -67,6 +65,8 @@ public class ProductDTO {
 		 product.setCategory(CategoryDTO.toEntity(dto.getCategory()));
 		 product.setEntreprise(EntrepriseDTO.toEntity(dto.getEntreprise()));
 		 product.setDetailimage(dto.getDetailimage());
+		 product.setCreatedDate(dto.getCreatedDate());
+		 product.setLastModifiedDate(dto.getLastModifiedDate());
 		 return product;
 	}
 

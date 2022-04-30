@@ -19,7 +19,7 @@ import java.util.Set;
                 @UniqueConstraint(columnNames = "username"),
                 @UniqueConstraint(columnNames = "email")
         })
-public class Account {
+public class Account extends Auditable {
 
     private static final long serialVersionUID = 65981149772133526L;
 

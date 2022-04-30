@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Table(name="entreprise")
-public class Entreprise  extends Auditable<String>{
+public class Entreprise  extends Auditable{
 	/**
 	 * 
 	 */

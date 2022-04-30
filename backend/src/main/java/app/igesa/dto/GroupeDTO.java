@@ -51,8 +51,7 @@ public class GroupeDTO {
 				.deleted(groupe.isDeleted())
 				.description(groupe.getDescription())
                 .lastModifiedDate(groupe.getLastModifiedDate())
-                .createdDate(groupe.getLastModifiedDate())
-                .createdBy(groupe.getCreatedBy())
+                .createdDate(groupe.getCreatedDate())
                 .companyBusiness(CompanyBusinessDTO.fromEntity(groupe.getCompanyBusiness()))
                 .build();
 				//boucle infini
@@ -74,7 +73,6 @@ public class GroupeDTO {
            groupe.setDeleted(dto.isDeleted());
            groupe.setDescription(dto.getDescription());
            groupe.setLastModifiedDate(dto.getLastModifiedDate());
-           groupe.setCreatedDate(dto.getCreatedDate());
            groupe.setCreatedDate(dto.getCreatedDate());
            groupe.setCompanyBusiness(CompanyBusinessDTO.toEntity(dto.getCompanyBusiness()));
           /* groupe.setEntreprise(dto.getEntreprise()!= null? dto.getEntreprise().stream().map(EntrepriseDTO::toEntity).collect(Collectors.toList()):null);

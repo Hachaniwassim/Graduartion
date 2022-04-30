@@ -20,7 +20,7 @@ import java.util.List;
 @Table(name="Post")
 @EqualsAndHashCode(callSuper= true)
 @EntityListeners(AuditingEntityListener.class)
-public class Post extends Auditable<String>{
+public class Post extends Auditable{
 
 	@Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)

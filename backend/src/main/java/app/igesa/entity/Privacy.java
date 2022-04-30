@@ -15,7 +15,7 @@ import javax.persistence.*;
 @Table(name="Privacy")
 @EqualsAndHashCode(callSuper= true)
 @EntityListeners(AuditingEntityListener.class)
-public class Privacy extends  Auditable<String> {
+public class Privacy extends  Auditable {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)

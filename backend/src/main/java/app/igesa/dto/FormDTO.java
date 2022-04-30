@@ -26,6 +26,7 @@ public class FormDTO {
 	private boolean status ;
 
 
+
 	public static FormDTO fromEntity(FormEntity contact) {
 		if ( contact == null) {
 			return null;
@@ -40,6 +41,8 @@ public class FormDTO {
 				.nationality(contact.getNationality())
 				.status(contact.isStatus())
 				.name(contact.getName())
+				.createdDate(contact.getCreatedDate())
+				.lastModifiedDate(contact.getLastModifiedDate())
 				.mobile(contact.getMobile())
 				//.groupe(GroupeDTO.fromEntity(entreprise.getGroupe()))
 				.build();
@@ -61,6 +64,8 @@ public class FormDTO {
 		contact.setReferent(dto.getReferent());
 		contact.setAdresse(dto.getAdresse());
 		contact.setStatus(dto.isStatus());
+		contact.setLastModifiedDate(dto.getLastModifiedDate());
+		contact.setCreatedDate(dto.getCreatedDate());
 		contact.setName(dto.getName());
 		//entreprise.setGroupe(GroupeDTO.toEntity(dto.getGroupe()));
 		return contact;
