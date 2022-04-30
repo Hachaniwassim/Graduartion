@@ -1,8 +1,6 @@
 package app.igesa.payload.request;
-import app.igesa.entity.Groupe;
 import app.igesa.validators.PasswordMatches;
 import lombok.*;
-
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 import java.util.Set;
@@ -11,7 +9,6 @@ import java.util.Set;
 @AllArgsConstructor
 @Getter
 @Setter
-
 @PasswordMatches
 public class SignupRequest {
     @NotEmpty

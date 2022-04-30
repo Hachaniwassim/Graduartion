@@ -11,6 +11,8 @@ import lombok.*;
 @Data
 @Builder
 @Entity
+@Getter
+@Setter
 @Table(name="role")
 public class Role extends Auditable {
 
