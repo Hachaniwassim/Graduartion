@@ -7,5 +7,7 @@ export interface postDTO{
     description ? : string;
     content ? : string;
     slug ? : string;
+    createdDate :   Date;
+    lastModifiedDate: Date; 
     subtitle ? : string;
 }

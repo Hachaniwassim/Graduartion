@@ -19,7 +19,9 @@ export class CompanybusinessService {
 
  CompanyBusinessDTO ={
     description:'', 
-    domainename: ''
+    domainename: '',
+    createdDate :'',
+    lastModifiedDate:'',
   }
   constructor(private http :HttpClient, private datePipe: DatePipe) { }
 

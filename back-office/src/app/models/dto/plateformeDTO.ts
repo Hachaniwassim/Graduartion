@@ -4,5 +4,7 @@ export interface plateforomeDTO{
     email? : string;
     phone? : string;
     adresse? : string;
+    createdDate :   Date;
+    lastModifiedDate: Date; 
     published ? : string;
 }
