@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { Location} from '@angular/common';
+import { Location } from '@angular/common';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -16,6 +16,8 @@ import { GroupeAddComponent } from '../groupe-add/groupe-add.component';
 import { GroupeViewComponent } from '../groupe-view/groupe-view.component';
 import { CompanyBusinessDTO } from 'src/app/models/dto/companyBusinessDTO';
 import { List } from 'lodash';
+import { NgxSpinnerService } from "ngx-spinner";
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-groupe-list',
@@ -23,32 +25,31 @@ import { List } from 'lodash';
   styleUrls: ['./groupe-list.component.css']
 })
 export class GroupeListComponent implements OnInit {
-@Output()
-groupeDTO !: GroupeDTO ;
- 
+  @Output()
+  groupeDTO !: GroupeDTO;
+
   @ViewChild('groupeForm', { static: false })
-  groupeForm!: FormGroup;
+
   groupeData !: GroupeDTO;
-  groupe!:GroupeDTO[];
+  groupe!: GroupeDTO[];
   searchKey!: string;
   showspinner = false;
-  currentGroupe :any;
-  groupes : any ;
+  currentGroupe: any;
+  groupes: any;
 
-   company: List<CompanyBusinessDTO>=[];
+  company: List<CompanyBusinessDTO> = [];
   datasource = new MatTableDataSource(this.groupe)
-  
-  displayedColumns: string[] = ['description', 'name', 'active','confirmed','deleted','createdDate','lastModifiedDate','actions'];
+  displayedColumns: string[] = ['description', 'name', 'active', 'confirmed', 'deleted', 'createdDate', 'lastModifiedDate', 'actions'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort, {}) sort!: MatSort;
- id=this.route.snapshot.params['id'];
+  id = this.route.snapshot.params['id'];
   message!: string;
-  constructor(private dialog: MatDialog, private groupeService :GroupeService,private dialogService: DialogService, private companyService: CompanybusinessService,
-    private notificationService: NotificationService,private route: ActivatedRoute, public router: Router, public _location: Location) {
+  constructor(private _snackBar: MatSnackBar, private dialog: MatDialog, private groupeService: GroupeService, private dialogService: DialogService, private companyService: CompanybusinessService,
+    private notificationService: NotificationService, private route: ActivatedRoute, public router: Router, public _location: Location) {
     this.groupeData = {} as GroupeDTO;
   }
 
-  
+
   //data sorting 
   ngAfterViewInit() {
     this.datasource.paginator = this.paginator;
@@ -58,35 +59,28 @@ groupeDTO !: GroupeDTO ;
 
   ngOnInit(): void {
 
-
-    this.groupeService.getallGroupe().subscribe((response: any) => {
-      this.datasource.data = response;
-      
-    });
-
-    this.companyService.getAllCompanyBussiness().subscribe((response: any)=>{
-    this.company=response ;
+      this.groupeService.getallGroupe().subscribe((response: any) => {
+      this.datasource.data = response;});
+      // and get companybussiness
+      this.companyService.getAllCompanyBussiness().subscribe((response: any) => {
+      this.company = response;
     })
-    
-  //this.getBy(this.route.snapshot.paramMap.get('id'));
+    //this.getBy(this.route.snapshot.paramMap.get('id'));
 
-  }    
+  }
 
-  
-
-
-  getByGroupe(id:any) {
+  getByGroupe(id: any) {
     this.groupeService.getByidGroupe(id)
       .subscribe(
         data => {
-          this.currentGroupe= data;
+          this.currentGroupe = data;
           console.log(data);
         },
         error => {
           console.log(error);
         });
   }
-  
+
   //search for data 
 
   onSearchClear() {
@@ -97,7 +91,7 @@ groupeDTO !: GroupeDTO ;
   // fiter data 
   applyFilter() {
     this.datasource.filter = this.searchKey.trim().toLowerCase();
-   
+
   }
 
 
@@ -109,33 +103,49 @@ groupeDTO !: GroupeDTO ;
         if (res) {
           this.groupeService.deleteGroupe(id).subscribe(() => {
           })
-          this.notificationService.success(' :: Deleted Successfully')
+          
+          this.ngOnInit();
           this.refresh();
-        }
-      });
+          this._snackBar.open(" :: Groupe have been deleted Successfully ", "", {
+            duration: 3000,
+            horizontalPosition: "right",
+            verticalPosition: "top",
+            panelClass: ["mat-toolbar", "mat-succes"],
+          });
+
+        }},
+        error => {
+          this._snackBar.open("Erroor occurend !!" + error?.message, "", {
+            duration: 3000,
+            horizontalPosition: "right",
+            verticalPosition: "top",
+            panelClass: ["mat-toolbar", "mat-warn"],
+          });
+        });
+
   }
 
 
 
   //view details groupe
-   ViewGroupe(row : any) { 
+  ViewGroupe(row: any) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-    dialogConfig.width = "100%"; 
-     this.dialog.open(GroupeViewComponent, {
-          data: {
-           name : row.name,
-            description:row.description,
-            active :row.active,
-            confirmed:row.confirmed,
-            deleted :row.deleted,
-            companyBusiness:row.companyBusiness,
-          },
-        }
-        ),dialogConfig
+    dialogConfig.width = "100%";
+    this.dialog.open(GroupeViewComponent, {
+      data: {
+        name: row.name,
+        description: row.description,
+        active: row.active,
+        confirmed: row.confirmed,
+        deleted: row.deleted,
+        companyBusiness: row.companyBusiness,
+      },
+    }
+    ), dialogConfig
 
-      }
+  }
 
   // create dialog config
   onCreateGroupe() {
@@ -155,7 +165,8 @@ groupeDTO !: GroupeDTO ;
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.width = "60%";
-    this.dialog.open(GroupeAddComponent, dialogConfig);}
+    this.dialog.open(GroupeAddComponent, dialogConfig);
+  }
 
   // clear data 
   onClear() {
@@ -171,52 +182,52 @@ groupeDTO !: GroupeDTO ;
     });
   }
 
-
-  // spinner from angular material
-  spinner() {
-    this.showspinner = true;
-    setTimeout(() => { this.showspinner = false; }, 2000)
-  }
-
-
-  
   //update status groupe
-  updateactiveGroupe(status: any) {
-    const data = {
-      name: this.currentGroupe.name,
-      description: this.currentGroupe.description,
-      confirmed:this.currentGroupe.confirmed,
-      deleted: this.currentGroupe.deleted,
-      active: status
+  updateactiveGroupe(groupe: any) {
+    var obj = {
+      "status": true
     };
 
-    this.groupeService.updateGroupeByStatus(this.currentGroupe.id,data)
-      .subscribe(
-        response => {
-          this.currentGroupe.active= status;
-          console.log(response);
+    this.groupeService.updateGroupeByStatus(groupe.id, obj).subscribe
+      ({
+        next: (res) => {
+          console.log(res);
+           // snackBar success 
+          this._snackBar.open(" :: Updated Status Succe", "", {
+            duration: 3000,
+            horizontalPosition: "right",
+            verticalPosition: "top",
+            panelClass: ["mat-toolbar", "mat-primary"],
+          });
+          this.ngOnInit();
         },
-        error => {
-          console.log(error);
-        });
+      // snackBar error 
+        error: (err) => {
+          this._snackBar.open(" :: Somthing warn happend " + err.error?.message, "", {
+            duration: 3000,
+            horizontalPosition: "right",
+            verticalPosition: "top",
+            panelClass: ["mat-toolbar", "mat-warn"],
+          });
+        },
+      });
 
+  }
 
-      }
- 
   //update confirmed  groupe
   updateconfirmedGroupe(status: any) {
     const data = {
       name: this.currentGroupe.name,
       description: this.currentGroupe.description,
-      active:this.currentGroupe.active,
+      active: this.currentGroupe.active,
       deleted: this.currentGroupe.deleted,
       confirmed: status
     };
 
-    this.groupeService.updateGroupeByStatus(this.currentGroupe.id,data)
+    this.groupeService.updateGroupeByStatus(this.currentGroupe.id, data)
       .subscribe(
         response => {
-          this.currentGroupe.confirmed= status;
+          this.currentGroupe.confirmed = status;
           console.log(response);
         },
         error => {
@@ -224,75 +235,91 @@ groupeDTO !: GroupeDTO ;
         });
 
 
-      }
+  }
 
 
-     
+
   //update status dleted  groupe
   updatedeletedGroupe(status: any) {
     const data = {
       name: this.currentGroupe.name,
       description: this.currentGroupe.description,
-      confirmed:this.currentGroupe.confirmed,
+      confirmed: this.currentGroupe.confirmed,
       active: this.currentGroupe.active,
       deleted: status
     };
 
-    this.groupeService.updateGroupeByStatus(this.currentGroupe.id,data)
+    this.groupeService.updateGroupeByStatus(this.currentGroupe.id, data)
       .subscribe(
         response => {
-          this.currentGroupe.deleted= status;
+          this.currentGroupe.deleted = status;
           console.log(response);
         },
         error => {
           console.log(error);
         });
 
-
-      }
-
-
-// delete all groupe
-removeAllGroupe() {
-  Swal.fire({
-    title: 'Are you sure to delete all Groupes  !?',
-    text: 'This process is irreversible.',
-    icon: 'warning',
-    showCancelButton: true,
-    confirmButtonText: 'Yes, go ahead.',
-    cancelButtonText: 'No, let me think',
-  }).then((result) => {
-    if (result.value) {
-      this.groupeService.deleteAllGroupe()
-      .subscribe(
-        response => {
-          console.log(response);
-          this.refresh();
-        },
-        error => {
-          console.log(error);
-        });
-      Swal.fire('Deleted!', ' All Groupe  was Deleted successfully.', 'success');
-    } else if (result.dismiss === Swal.DismissReason.cancel) {
-      Swal.fire('TRY LATER...');
-    }
-  });
-    
-    }
-    //filtring by active groupe 
-    active="";
-    searchByActiveGroupe() {
-      this.groupeService.findByActiveGroupe(this.active)
-        .subscribe(
-          data => {
-            
-      this.datasource.filter=this.active.trim().toLowerCase();
-      this.active.trim().toLowerCase() == data ;
-          },
-          error => {
-            console.log(error);
-          });
-    }
 
   }
+
+
+  // delete all groupe
+  removeAllGroupe() {
+    Swal.fire({
+      title: 'Are you sure to delete all Groupes  !?',
+      text: 'This process is irreversible.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, go ahead.',
+      cancelButtonText: 'No, let me think',
+    }).then((result) => {
+      if (result.value) {
+        this.groupeService.deleteAllGroupe()
+          .subscribe(
+            response => {
+              console.log(response);
+               // snackBar success 
+              this._snackBar.open("Groupes Deleted Successfully !!", "", {
+                duration: 5000,
+                horizontalPosition: "right",
+                verticalPosition: "top",
+                panelClass: ["mat-toolbar", "mat-succes"],
+              });
+
+              this.ngOnInit();
+              this.refresh();
+            },
+
+            error => {
+               // snackBar error
+              this._snackBar.open("Erroor occurend !!" + error?.message, "", {
+                duration: 3000,
+                horizontalPosition: "right",
+                verticalPosition: "top",
+                panelClass: ["mat-toolbar", "mat-warn"],
+              });
+            });
+        Swal.fire('Deleted!', ' All Groupe  was Deleted successfully.', 'success');
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        Swal.fire('TRY LATER...');
+      }
+    });
+
+  }
+  //filtring by active groupe 
+  active = "";
+  searchByActiveGroupe() {
+    this.groupeService.findByActiveGroupe(this.active)
+      .subscribe(
+        data => {
+
+          this.datasource.filter = this.active.trim().toLowerCase();
+          this.active.trim().toLowerCase() == data;
+        },
+        error => {
+          console.log(error);
+        });
+  }
+
+}
 

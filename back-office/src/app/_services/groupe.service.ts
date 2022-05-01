@@ -135,7 +135,7 @@ export class GroupeService {
 
    //update groupe  by status
    updateGroupeByStatus(item : any,id : any){
- return this.http.put<GroupeDTO>(this.base_url + '/' +id,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
+ return this.http.put(this.base_url + '/' +id,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
   }
 
 
