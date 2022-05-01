@@ -1,4 +1,4 @@
-<!---<br><br><br>
+<br><br><br>
 <div class="card" style="width:100%;"><br>
   <div class="container">
     <div class="search-div">
@@ -8,104 +8,65 @@
           <mat-icon>close</mat-icon>
         </button>
       </mat-form-field>&nbsp;&nbsp;&nbsp;
-      <button mat-fab color="gray" (click)="onCreate()">
+      <button mat-fab color="gray" (click)="onCreateEntreprise()">
         <mat-icon>add</mat-icon>
       </button>&nbsp;&nbsp;
-      <button mat-fab color="gray" (click)="removeAllGroupe()">
-        <mat-icon style="font-size: 20px;"> delete_forever </mat-icon>
+      <button mat-fab color="gray">
+        <mat-icon style="font-size: 20px;"> close </mat-icon>
       </button>
     </div>
-
-  </div>
- <div class="list row">
-    <div class="col-md-8">
-      <div class="input-group mb-3">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Search by active"
-          [(ngModel)]="active"
-        />
-        <div class="input-group-append">
-          <button
-            class="btn btn-outline-secondary"
-            type="button"
-            (click)="searchActive()"
-          >
-            Search
-          </button>
-        </div>
-      </div>
-    </div>
+  </div><br>   
   <div class="table-responsive">
     <table mat-table #table [dataSource]="datasource" matSort>
-      <ng-container matColumnDef="name">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Name</mat-header-cell>
-        <mat-cell *matCellDef="let element">{{element.name}} </mat-cell>
+      <ng-container matColumnDef="companyname">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Company Name</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.companyname}} </mat-cell>
       </ng-container>
-      <ng-container matColumnDef="description">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Description</mat-header-cell>
-        <mat-cell *matCellDef="let element">{{element.description}} </mat-cell>
+      <ng-container matColumnDef="codefiscale">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Fiscal Code</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.codefiscale}} </mat-cell>
       </ng-container>
-      <ng-container matColumnDef="active">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Active</mat-header-cell>
-        <mat-cell *matCellDef="let element">
-          <button mat-icon-button class="badge badge-warning mr-2" *ngIf="element.active" (click)="updateactive(false)">
-            <span class="badge badge-success" style="font-size: 12px;"> {{element.active ? "Actived" : "Pending"}}
-            </span>
-          </button>
-          <button mat-icon-button class="badge badge-warning mr-2" *ngIf="!element.active" (click)="updateactive(true)">
-            <span class="badge badge-warning" style="font-size: 12px;"> {{element.active ?
-              "Actived": "Pending"}}
-            </span>
-          </button>
-        </mat-cell>
+      <ng-container matColumnDef="adresse">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Adresse</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.adresse}} </mat-cell>
       </ng-container>
-      <ng-container matColumnDef="confirmed">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Confirmed</mat-header-cell>
-        <mat-cell *matCellDef="let element">
-          <button mat-icon-button class="badge badge-warning mr-2" *ngIf="element.confirmed"
-            (click)="updateconfirmed(false)">
-            <span class="badge badge-success" style="font-size: 12px;"> {{element.confirmed ? "Confirmed" : "Pending"}}
-            </span>
-          </button>
-          <button mat-icon-button class="badge badge-warning mr-2" *ngIf="!element.confirmed"
-            (click)="updateconfirmed(true)">
-            <span class="badge badge-warning" style="font-size: 12px;"> {{element.confirmed ?
-              "Confirmed": "Pending"}}
-            </span>
-          </button>
-        </mat-cell>
+      <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Email</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.email}} </mat-cell>
       </ng-container>
-      <ng-container matColumnDef="deleted">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>Deleted</mat-header-cell>
-        <mat-cell *matCellDef="let element">
-          <button mat-icon-button class="badge badge-danger mr-2" *ngIf="element.deleted"
-            (click)="updatedeleted(false)">
-            <span class="badge badge-danger" style="font-size: 12px;"> {{element.deleted ? "Deleted" : "Pending"}}
-            </span>
-          </button>
-          <button mat-icon-button class="badge badge-warning mr-2" *ngIf="!element.deleted"
-            (click)="updatedeleted(true)">
-            <span class="badge badge-warning" style="font-size: 12px;"> {{element.deleted ?
-              "Deleted": "Pending"}}
-            </span>
-          </button>
-        </mat-cell>
+      <ng-container matColumnDef="phone">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Phone</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.phone}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="note">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Note</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.note}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="fax">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Fax</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.fax}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="createdDate">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Created At</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.createdDate  | date:'short'}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="lastModifiedDate">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Last Modified At</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.lastModifiedDate  | date:'short'}} </mat-cell>
       </ng-container>
       <ng-container matColumnDef="actions">
         <mat-header-cell *matHeaderCellDef></mat-header-cell>
         <mat-cell *matCellDef="let row">
           <div></div>
           <div></div>
-          <button mat-icon-button (click)="onEdit(row)">
+          <button mat-icon-button (click)="onEditEntreprise(row)">
             <mat-icon>edit_outline</mat-icon>
           </button>
-          <button mat-icon-button (click)="View(row)">
+          <button mat-icon-button (click)="ViewEntreprise(row)">
             <mat-icon>list</mat-icon>
           </button>
           <button mat-icon-button>
-            <mat-icon  (click)="onDelete(row.id)">delete_forever</mat-icon>
+            <mat-icon  (click)="onDeleteEntreprise(row.id)">delete_forever</mat-icon>
           </button>
         </mat-cell>
       </ng-container>
@@ -129,34 +90,4 @@
     <mat-paginator [pageSizeOptions]="[ 5, 10, 25, 100]" [pageSize]="5" showFirstLastButtons></mat-paginator>
   </div>
 </div>
-
 <br>
-
-
--->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
