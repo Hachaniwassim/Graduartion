@@ -9,9 +9,8 @@ export class AppComponent {
  
  
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-    
-}
+  ngOnInit() {
+  }
 }

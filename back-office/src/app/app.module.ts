@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
@@ -64,6 +64,7 @@ import { PlateformeComponent } from './plateforme/plateforme.component';
 import { PlateformeListComponent } from './plateforme/plateforme-list/plateforme-list.component';
 import { PlateformeViewComponent } from './plateforme/plateforme-view/plateforme-view.component';
 import { PlateformeAddComponent } from './plateforme/plateforme-add/plateforme-add.component';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 
 @NgModule({
@@ -134,14 +135,15 @@ import { PlateformeAddComponent } from './plateforme/plateforme-add/plateforme-a
     FormsModule, 
     ScheduleModule, 
     SimpleNotificationsModule.forRoot(),
-    AngularEditorModule
+    AngularEditorModule,
+    NgxSpinnerModule
     
     
 
 
   ],
-
-  exports: [MaterialModule, ScheduleModule],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  exports: [MaterialModule, ScheduleModule,NgxSpinnerModule],
   providers: [
     {provide: MatDialogRef, useValue: {close: (_dialogResult: any) => { }} }, DatePipe, authInterceptorProviders,DayService, WeekService, WorkWeekService, MonthService, AgendaService, MonthAgendaService, TimelineViewsService, TimelineMonthService
   ],
