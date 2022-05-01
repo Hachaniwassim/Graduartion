@@ -2,9 +2,8 @@ import { Groupe } from "./groupe";
 
 export interface Entreprise{
     id?: number;
-    companyname?: string;
-    codefiscale?: string;
-    adresse?: string;
+    companyname: string;
+    codefiscale: string;
     phone: string;
     fax: string;
     email: string;

@@ -99,18 +99,20 @@ export class EntrepriseListComponent implements OnInit {
   
     //view details entreprise
      ViewEntreprise(row : any) { 
-      const dialogConfig = new MatDialogConfig();
-      dialogConfig.disableClose = true;
-      dialogConfig.autoFocus = true;
+      const dialogConfig = new MatDialogConfig();  
+      dialogConfig.disableClose = true;  
+      dialogConfig.autoFocus = true; 
       dialogConfig.width = "100%"; 
+      dialogConfig.position = {  
+          'top': '100px',    
+      }; 
        this.dialog.open(EntrepriseViewComponent, {
             data: {
              companyname : row.companyname,
-              adresse:row.adresse,
               phone :row.phone,
               fax:row.fax,
               note :row.note,
-              contact:row.contact,
+              codefiscale:row.codefiscale,
               email :row.email,
               goupe:row.groupe,
             },
