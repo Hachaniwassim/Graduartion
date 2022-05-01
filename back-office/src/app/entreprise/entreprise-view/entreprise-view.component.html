@@ -1,1 +1,39 @@
-<p>entreprise-view works!</p>
+<mat-dialog-content style="width: 600px;">
+    <mat-toolbar>Details Entreprise</mat-toolbar>
+    <mat-progress-bar mode="determinate" value="15"></mat-progress-bar><br>
+    <br>
+    <div class="table-responsive">
+    <table class="table">
+        <br>
+        <tr>
+            <th> Company Name </th>
+            <td> {{entreprise.companyname}} </td>
+        </tr>
+        <tr>
+            <th> note</th>
+            <td> {{entreprise.note}} </td>
+        </tr>
+        
+        <tr>
+            <th> Phone </th>
+            <td> {{entreprise.phone}} </td>
+        </tr>
+        <tr>
+            <th> Code Fiscale </th>
+            <td> {{entreprise.codefiscale}} </td>
+        </tr>
+        <tr>
+            <th> fax </th>
+            <td> {{entreprise.fax}} </td>
+        </tr>
+        <tr>
+            <th> Email </th>
+            <td> {{entreprise.email}} </td>
+        </tr>
+        <tr></tr>
+    </table>
+    </div>
+</mat-dialog-content><br>
+<mat-dialog-actions align="center">
+    <button mat-button mat-dialog-close> <mat-icon>close</mat-icon>CANCEL</button>
+</mat-dialog-actions><br>

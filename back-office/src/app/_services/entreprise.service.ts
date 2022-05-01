@@ -6,7 +6,6 @@ import * as _ from 'lodash';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { EntrepriseDTO } from '../models/dto/entreprisDTO';
-
 @Injectable({
   providedIn: 'root'
 })
