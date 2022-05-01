@@ -4,7 +4,14 @@
       <!-- Start content -->
       <div class="content">
           <div class="container ">
-              
+            <div *ngIf="noInternetConnection" style="text-align: center;">    
+              <h1>THERE IS NO INTERNET CONNECTION</h1>    
+              <img width="111px" src="assets/images/no.wifi.png" alt="Wifi Connecred" />    
+          </div>    
+          <div *ngIf="!noInternetConnection" style="text-align: center;">     
+              <h1>INTERNET CONNECTION IS THERE</h1>    
+              <img width="111px" src="assets/images/wifi.png" alt="Wifi Disconnected" />    
+          </div>    
           </div>
       </div>
     </div>
