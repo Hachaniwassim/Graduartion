@@ -19,12 +19,10 @@ export class EntrepriseService {
  EntrepriseDTO ={
   //id: '',
   companyname :'',
-  fiscalCode : '',
-  adresse : '',
+  codefiscale : '',
   phone: '',
   fax: '',
   email: '',
-  contact : '',
   note: '',
   groupe : []
    }
@@ -98,16 +96,12 @@ export class EntrepriseService {
  //validation formulaire
    form : FormGroup = new FormGroup({
    id: new FormControl(null),
-   contact: new FormControl('',Validators.required),
    companyname : new FormControl('',[ Validators.required]),
-   adress: new FormControl('',[ Validators.required]),
    phone :new  FormControl('',[Validators.required]),
    email: new FormControl('',[ Validators.email,Validators.required]),
-   fiscalCode: new FormControl(''),
+   codefiscale: new FormControl('',[Validators.required]),
    note : new FormControl(''),  
    fax : new FormControl('',[ Validators.required]),
-   createdAt: new FormControl(''),
-   updateAt: new FormControl('')
    
   
  });
@@ -117,13 +111,9 @@ export class EntrepriseService {
    this.form.setValue({
      id :null,
      companyname: '',
-     adresse: '',
      phone: '',
-     contact: '',
      fax: true,
-     createdAt: '',
-     updateAt: '',
-     fiscalCode:'',
+     codefiscale:'',
       note : '',
      //groupe:['']
  

@@ -39,7 +39,7 @@ export class GroupeListComponent implements OnInit {
 
   company: List<CompanyBusinessDTO> = [];
   datasource = new MatTableDataSource(this.groupe)
-  displayedColumns: string[] = ['description', 'name', 'active', 'confirmed', 'deleted', 'createdDate', 'lastModifiedDate', 'actions'];
+  displayedColumns: string[] = [ 'name', 'active', 'confirmed', 'deleted', 'createdDate', 'lastModifiedDate', 'actions'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort, {}) sort!: MatSort;
   id = this.route.snapshot.params['id'];

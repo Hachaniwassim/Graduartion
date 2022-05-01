@@ -7,28 +7,30 @@
         <div class="card m-b-30">
           <div class="card-body">
             <fieldset class="container">
-              <h1>Section title front office side</h1>
-              <mat-progress-bar mode="determinate" value="40"></mat-progress-bar><br><br>
+              <h3>Section title front office side</h3>
+              <mat-progress-bar mode="determinate" value="40"></mat-progress-bar><br><br><br>
               <div class="container">
                 <form class="example-form">
                   <div class="mb-3">
-                    <input type="email" class="form-control" id="exampleFormControlInput1" >
+                    <input type="text" class="form-control" id="exampleFormControlInput1" >
                   </div>
+                  <br>
                   <button mat-raised-button color="primary" style="width: 100px;">Save</button><br>
                 </form>
-
               </div>
+              <br><br><br>
             </fieldset>
           </div>
         </div>
       </div>
       <br>
+      <br>
       <div class="col-xl-12">
         <div class="card m-b-30">
           <div class="card-body">
             <fieldset class="container">
-              <h1>Privacy Policy text</h1> <br>
-              <mat-progress-bar mode="determinate" value="40"></mat-progress-bar><br><br>
+              <h3>Privacy Policy text</h3> <br>
+              <mat-progress-bar mode="determinate" value="40"></mat-progress-bar><br><br><br>
               <div class="container">
                 <form>
                   <angular-editor [(ngModel)]="htmlContent" [config]="config"></angular-editor>
@@ -40,6 +42,7 @@
                 &nbsp;&nbsp;
                 <button mat-raised-button color="warn" style="width: 100px;">Canncel</button><br>
               </div>
+              <br><br><br>
             </fieldset>
           </div>
         </div>
