@@ -25,8 +25,8 @@ export class EntrepriseListComponent implements OnInit {
   entrepriseDTO!: EntrepriseDTO;
    
     @ViewChild('entrepriseForm', { static: false })
-    entrepriseForm!: FormGroup;
-     entrepriseData !:EntrepriseDTO;
+    entrepriseForm !:FormGroup;
+    entrepriseData !:EntrepriseDTO;
     entreprise!:EntrepriseDTO[];
     searchKey!: string;
     showspinner = false;
@@ -34,8 +34,9 @@ export class EntrepriseListComponent implements OnInit {
     datasource = new MatTableDataSource(this.entreprise)
     id=this.route.snapshot.params['id'];
     message!: string;
+    displayedColumns: string[] = ['companyname', 'note', 'codefiscale','email','fax','phone'
+    ,'adresse','createdDate','lastModifiedDate','actions'];
 
-    displayedColumns: string[] = ['companyname', 'note', 'fiscaCode','email','fix','phone','contact','actions'];
     @ViewChild(MatPaginator) paginator!: MatPaginator;
     @ViewChild(MatSort, {}) sort!: MatSort;
     constructor(private dialog: MatDialog,private entrepriseService :EntrepriseService ,private groupeService :GroupeService,private dialogService: DialogService,
@@ -52,23 +53,20 @@ export class EntrepriseListComponent implements OnInit {
   
   
     ngOnInit(): void {
-  
-  
-      this.entrepriseService.getAllEntreprise().subscribe((response: any) => {
+      this.datasource.paginator = this.paginator;
+      this.datasource.sort = this.sort;
+      this.getAllEntreprise();
+    
+    }    
+
+
+    getAllEntreprise(){
+
+        this.entrepriseService.getAllEntreprise().subscribe((response: any) => {
         this.datasource.data = response;
         
       });
-  
-      this.groupeService.getallGroupe().subscribe((response: any) => {
-        this.datasource.data = response;
-      })
-      
-    //this.getBy(this.route.snapshot.paramMap.get('id'));
-  
-    }    
-  
-    
-  
+    }
   
     //search for data 
   
@@ -134,7 +132,7 @@ export class EntrepriseListComponent implements OnInit {
     }
   
     // edite dialogConfig
-    onEditGroupe(row: any) {
+    onEditEntreprise(row: any) {
       this.entrepriseService.populateForm(row);
       const dialogConfig = new MatDialogConfig();
       dialogConfig.disableClose = true;
