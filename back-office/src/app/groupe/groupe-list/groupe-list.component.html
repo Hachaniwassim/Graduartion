@@ -5,14 +5,14 @@
       <mat-form-field class="search-form-field" floatLabel="never">
         <input matInput [(ngModel)]="searchKey" placeholder="Search" autocomplete="off" (keyup)="applyFilter()">
         <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey" (click)="onSearchClear()">
-          <mat-icon>close</mat-icon>
+          <mat-icon >close</mat-icon>
         </button>
       </mat-form-field>&nbsp;&nbsp;&nbsp;
       <button mat-fab color="gray" (click)="onCreateGroupe()">
         <mat-icon>add</mat-icon>
       </button>&nbsp;&nbsp;
       <button mat-fab color="gray" (click)="removeAllGroupe()">
-        <mat-icon style="font-size: 20px;"> close </mat-icon>
+        <mat-icon color="warn" style="font-size: 20px;"> close </mat-icon>
       </button>
     </div>
   </div><br>  
@@ -22,10 +22,10 @@
         <mat-header-cell *matHeaderCellDef mat-sort-header> Name</mat-header-cell>
         <mat-cell *matCellDef="let element">{{element.name}} </mat-cell>
       </ng-container>
-      <ng-container matColumnDef="description">
+      <!--<ng-container matColumnDef="description">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Description</mat-header-cell>
         <mat-cell *matCellDef="let element">{{element.description}} </mat-cell>
-      </ng-container>
+      </ng-container>-->
       <ng-container matColumnDef="active">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Active</mat-header-cell>
         <mat-cell *matCellDef="let element">
@@ -89,11 +89,11 @@
           <button mat-icon-button (click)="onEditGroupe(row)">
             <mat-icon>edit_outline</mat-icon>
           </button>
-          <button mat-icon-button (click)="ViewGroupe(row)">
-            <mat-icon>list</mat-icon>
-          </button>
           <button mat-icon-button>
             <mat-icon  (click)="onDeleteGroupe(row.id)">delete_forever</mat-icon>
+          </button>
+          <button mat-icon-button (click)="ViewGroupe(row)">
+            <mat-icon>list</mat-icon>
           </button>
         </mat-cell>
       </ng-container>

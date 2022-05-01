@@ -1,6 +1,6 @@
 import { Groupe } from "./groupe";
 
-export interface Entrepris{
+export interface Entreprise{
     id?: number;
     companyname?: string;
     codefiscale?: string;

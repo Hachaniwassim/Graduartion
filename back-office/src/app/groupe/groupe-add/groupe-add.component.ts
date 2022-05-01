@@ -62,7 +62,7 @@ export class GroupeAddComponent implements OnInit {
     this.groupeService.initializeFormGroup();
   }
 
-   // submit data with context EDITE : DELETE
+   // submit data with context EDITE : CREATE
    onSubmit() {
     if (this.groupeService.form.valid) {
       if (!this.groupeService.form.get('id')?.value)

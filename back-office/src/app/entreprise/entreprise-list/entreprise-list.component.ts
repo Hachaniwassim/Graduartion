@@ -34,8 +34,7 @@ export class EntrepriseListComponent implements OnInit {
     datasource = new MatTableDataSource(this.entreprise)
     id=this.route.snapshot.params['id'];
     message!: string;
-    displayedColumns: string[] = ['companyname', 'note', 'codefiscale','email','fax','phone'
-    ,'adresse','createdDate','lastModifiedDate','actions'];
+    displayedColumns: string[] = ['companyname','codefiscale','email','createdDate','lastModifiedDate','actions'];
 
     @ViewChild(MatPaginator) paginator!: MatPaginator;
     @ViewChild(MatSort, {}) sort!: MatSort;

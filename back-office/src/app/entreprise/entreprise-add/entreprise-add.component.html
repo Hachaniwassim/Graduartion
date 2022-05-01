@@ -1,1 +1,43 @@
-<p>entreprise-add works!</p>
+<mat-toolbar>
+    <span>{{entrepriseService.form.controls['id'].value? "Modify Entreprise":"New Entreprise"}}</span>
+    <span class="fill-remaining-space"></span>
+    <button class="btn-dialog-close" mat-stroked-button  mat-dialog-close (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
+  </mat-toolbar><br><br>
+    <form [formGroup]="entrepriseService.form" class="normal-form" (submit)="onSubmit()" class="normal-form">
+      <mat-grid-list cols="1" rowHeight="320px">
+        <mat-grid-tile>
+          <div class="controles-container">
+            <input type="hidden" formControlName="id">
+            <mat-form-field style="margin-left: 30px;">
+              <input formControlName="companyname" matInput placeholder="company name">
+              <mat-error *ngIf="entrepriseService.form.controls['companyname'].errors?.required">this field is mandatory.
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field style="margin-left: 30px;">
+              <input formControlName="note" matInput placeholder="note">
+         </mat-form-field>
+         <mat-form-field style="margin-left: 30px;">
+            <input formControlName="codefiscale" matInput placeholder="codefiscale">
+            <mat-error *ngIf="entrepriseService.form.controls['codefiscale'].errors?.required">this field is mandatory.
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field style="margin-left: 30px;">
+            <input formControlName="phone" matInput placeholder="phone">
+            <mat-error *ngIf="entrepriseService.form.controls['phone'].errors?.required">this field is mandatory.
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field style="margin-left: 30px;">
+            <input formControlName="fax" matInput placeholder="fax">
+            <mat-error *ngIf="entrepriseService.form.controls['fax'].errors?.required">this field is mandatory.
+            </mat-error>
+            </mat-form-field>
+            </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+      <div class="button-row" align="center">
+        <button mat-raised-button color="primary" type="submit"
+          [disabled]="entrepriseService.form.invalid" (click)="refresh()">Save</button>
+          <button mat-raised-button  mat-dialog-close> <mat-icon>close</mat-icon>Cancel</button>
+        <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
+    </div>
+    </form>
