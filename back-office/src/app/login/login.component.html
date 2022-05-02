@@ -26,7 +26,6 @@
       <div class="form-group"> 
       <div class="input-group">
         <input type="password" class="form-control" [type]="fieldTextType ? 'text' : 'password'" name="password" [(ngModel)]="form.password" required minlength="6" placeholder="password" #password="ngModel" />
-        <div class="input-group-append">
         <span class="input-group-text">
           <i
             class="fa"
@@ -35,7 +34,7 @@
               'fa-eye': fieldTextType }"
             (click)="toggleFieldTextType()"></i>
         </span>
-        </div>
+        
       </div>
         <div class=" msg" role="alert" *ngIf=" !(f.submitted) && password.errors && password.touched && password.invalid">
           <div *ngIf="password.errors.required">Password is required ❌ </div></div>
