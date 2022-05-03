@@ -15,7 +15,7 @@ public class CookiesDTO {
     private String title ;
 
     @Column(name="description")
-    private String description ;
+    private String htmlContent;
 
     protected Date createdDate;
     protected Date lastModifiedDate;
@@ -24,7 +24,7 @@ public class CookiesDTO {
 
         return CookiesDTO.builder()
                 .id(cookie.getId())
-                .description(cookie.getDescription())
+                .htmlContent(cookie.getHtmlContent())
                 .title(cookie.getTitle())
                 //.createdBy(company.getCreatedBy())
                 .lastModifiedDate(cookie.getLastModifiedDate())
@@ -40,7 +40,7 @@ public class CookiesDTO {
 
        Cookies cookie = new Cookies();
         cookie.setId(dto.getId());
-        cookie.setDescription(dto.getDescription());
+        cookie.setHtmlContent(dto.getHtmlContent());
         cookie.setTitle(dto.getTitle());
         cookie.setCreatedDate(dto.getCreatedDate());
         cookie.setLastModifiedDate(dto.getLastModifiedDate());

@@ -30,12 +30,12 @@
         <mat-header-cell *matHeaderCellDef mat-sort-header> Active</mat-header-cell>
         <mat-cell *matCellDef="let element">
           <button mat-icon-button [ngStyle]="{'font-size.px':13}" class="badge badge-warning mr-2" *ngIf="element.active" (click)="updateactiveGroupe(false)">
-            <span class="badge badge-success" st> {{element.active ? "Actived" : "Pending"}}
+            <span class="badge badge-success" > {{element.active ? "Actived" : "Pending"}}
             </span>
           </button>
           <button mat-icon-button [ngStyle]="{'font-size.px':13}" class="badge badge-warning mr-2" *ngIf="!element.active" (click)="updateactiveGroupe(true)">
             <span class="badge badge-warning" > {{element.active ?
-              "Actived": "Pending"}}
+              "<mat-icon>close</mat-icon>": "Pending"}}
             </span>
           </button>
         </mat-cell>
@@ -45,13 +45,13 @@
         <mat-cell *matCellDef="let element">
           <button mat-icon-button [ngStyle] ="{'color':'GREEN'}" *ngIf="element.confirmed"
             (click)="updateconfirmedGroupe(false)">
-            <span> {{element.confirmed ? "Confirmed" : "Pending"}}
+            <span class="badge badge-success mr-2"> {{element.confirmed ? "Confirmed" : "Pending"}}
             </span>
           </button>
           <button mat-icon-button  *ngIf="!element.confirmed"
           [ngStyle] ="{'color':'RED'}"
             (click)="updateconfirmedGroupe(true)">
-            <span > {{element.confirmed ?
+            <span class="badge badge-danger mr-2"> {{element.confirmed ?
               "Confirmed": "Pending"}}
             </span>
           </button>
@@ -60,14 +60,14 @@
       <ng-container matColumnDef="deleted">
         <mat-header-cell *matHeaderCellDef mat-sort-header>Deleted</mat-header-cell>
         <mat-cell *matCellDef="let element">
-          <button mat-icon-button  [ngStyle] ="{'color':'RED'}" *ngIf="element.deleted"
+          <button mat-icon-button  [ngStyle] ="{'color':'GREEN'}" *ngIf="element.deleted"
             (click)="updatedeletedGroupe(false)">
-            <span>{{element.deleted ? "Deleted" : "Pending"}}
+            <span class="badge badge-danger mr-2" >{{element.deleted ? "Deleted" : "Pending"}}
             </span>
           </button>
-          <button mat-icon-button [ngStyle] ="{'color':'GREEN'}" *ngIf="!element.deleted"
+          <button mat-icon-button [ngStyle] ="{'color':'RED'}" *ngIf="!element.deleted"
             (click)="updatedeletedGroupe(true)">
-            <span > {{element.deleted ?
+            <span class="badge badge-warning mr-2"> {{element.deleted ?
               "Deleted": "Pending"}}
             </span>
           </button>

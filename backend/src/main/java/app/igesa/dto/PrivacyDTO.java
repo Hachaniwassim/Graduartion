@@ -15,7 +15,7 @@ public class PrivacyDTO  {
     @Column(name="title")
     private String title ;
     @Column(name="description")
-    private String description ;
+    private String htmlContent ;
     protected Date createdDate;
     protected Date lastModifiedDate;
 
@@ -23,9 +23,8 @@ public class PrivacyDTO  {
 
         return PrivacyDTO.builder()
                 .id(privacy.getId())
-                .description(privacy.getDescription())
+                .htmlContent(privacy.getHtmlContent())
                 .title(privacy.getTitle())
-                //.createdBy(company.getCreatedBy())
                 .lastModifiedDate(privacy.getLastModifiedDate())
                 .createdDate(privacy.getCreatedDate())
                 .build();
@@ -39,7 +38,7 @@ public class PrivacyDTO  {
 
         Privacy privacy = new Privacy();
         privacy.setId(dto.getId());
-        privacy.setDescription(dto.getDescription());
+        privacy.setHtmlContent(dto.getHtmlContent());
         privacy.setTitle(dto.getTitle());
         privacy.setCreatedDate(dto.getCreatedDate());
         privacy.setLastModifiedDate(dto.getLastModifiedDate());

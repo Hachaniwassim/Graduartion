@@ -16,36 +16,36 @@
     <div> <b> Active : </b> </div>
     <mat-progress-bar mode="determinate" value="10"></mat-progress-bar><br>
     <mat-toolbar>
-        <button mat-icon-button class="badge badge-success mr-2" *ngIf="groupe.active">
-            <span class="badge badge-success" style="font-size: 12px;"> {{ groupe.active ? "Actived" : "Pending"}}
+        <button mat-icon-button [ngStyle] ="{'color':'GREEN'}"  *ngIf="groupe.active">
+            <span [ngStyle] ="{'color':'GREEN'}"  style="font-size: 12px;"> {{ groupe.active ? "Actived" : "Pending"}}
             </span>
         </button>
-        <button mat-icon-button class="badge badge-warning mr-2" *ngIf="!groupe.active">
-            <span class="badge badge-warning" style="font-size:12px;"> {{ groupe.active ? "Actived" : "Pending"}}
+        <button mat-icon-button [ngStyle] ="{'color':'RED'}"  *ngIf="!groupe.active">
+            <span [ngStyle] ="{'color':'RED'}"  style="font-size:12px;"> {{ groupe.active ? "Actived" : "Pending"}}
             </span>
         </button>
     </mat-toolbar>
     <div> <b> Confirmed: </b></div>
     <mat-progress-bar mode="determinate" value="15"></mat-progress-bar><br>
     <mat-toolbar>
-        <button mat-icon-button class="badge badge-success mr-2" *ngIf="groupe.confirmed">
-            <span class="badge badge-success" style="font-size: 12px;"> {{ groupe.confirmed ? "Confirmed" : "Pending"}}
+        <button mat-icon-button  *ngIf="groupe.confirmed">
+            <span [ngStyle] ="{'color':'GREEN'}"  style="font-size: 12px;"> {{ groupe.confirmed ? "Confirmed" : "Pending"}}
             </span>
         </button>
-        <button mat-icon-button class="badge badge-warning mr-2" *ngIf="!groupe.confirmed">
-            <span class="badge badge-warning" style="font-size: 12px;"> {{groupe.confirmed ? "Confirmed" : "Pending"}}
+        <button mat-icon-button  *ngIf="!groupe.confirmed">
+            <span [ngStyle] ="{'color':'RED'}" style="font-size: 12px;"> {{groupe.confirmed ? "Confirmed" : "Pending"}}
             </span>
         </button>
     </mat-toolbar>
     <div> <b> Deleted : </b></div>
     <mat-progress-bar mode="determinate" value="12"></mat-progress-bar><br>
     <mat-toolbar>
-        <button mat-icon-button class="badge badge-success mr-2" *ngIf="groupe.deleted">
-            <span class="badge badge-success" style="font-size: 12px;"> {{ groupe.deleted ? "Deleted" : "Pending"}}
+        <button mat-icon-button *ngIf="groupe.deleted">
+            <span [ngStyle] ="{'color':'RED'}"  style="font-size: 12px;"> {{ groupe.deleted ? "Deleted" : "Pending"}}
             </span>
         </button>
         <button mat-icon-button class="badge badge-warning mr-2" *ngIf="!groupe.deleted">
-            <span class="badge badge-warning" style="font-size: 12px;"> {{groupe.deleted ? "Deleted": "Pending"}}
+            <span [ngStyle] ="{'color':'GREEN'}"  style="font-size: 12px;"> {{groupe.deleted ? "Deleted": "Pending"}}
             </span>
         </button>
     </mat-toolbar>

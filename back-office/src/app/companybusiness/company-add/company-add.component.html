@@ -8,8 +8,13 @@
     <mat-grid-tile>
       <div class="controles-container">
         <input type="hidden" formControlName="id">
-        <mat-form-field style="margin-left: 40px;">
-          <input formControlName="description" matInput placeholder="description">
+        <mat-form-field style="margin-left: 40px;"> 
+          <textarea matInput 
+          placeholder="Description" 
+          required
+          maxlength="100"
+          formControlName="description" >
+      </textarea>
           <mat-error *ngIf="companyService.form.controls['description'].errors?.required">this field is mandatory.
           </mat-error>
         </mat-form-field>

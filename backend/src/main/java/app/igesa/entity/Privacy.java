@@ -25,7 +25,7 @@ public class Privacy extends  Auditable {
     private String title ;
 
     @Column(name="description")
-    private String description ;
+    private String htmlContent ;
 
 
 

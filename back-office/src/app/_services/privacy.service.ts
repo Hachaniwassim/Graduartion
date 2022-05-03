@@ -13,85 +13,73 @@ import { privacyDTO } from '../models/dto/privacyDTO';
 export class Privacyservice {
 
   //api backend
-  private base_url="http://localhost:8089/privacy";
-  
+  private base_url = "http://localhost:8089/privacy";
+
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
-  Privacy={
-    title:'', 
+  PrivacyDTO = {
+    title: '',
     description: '',
+    description2: '',
+    description3: '',
   }
-  constructor(private http :HttpClient, private datePipe: DatePipe) { }
+  constructor(private http: HttpClient, private datePipe: DatePipe) { }
 
   //http opttion
-  httpOptions={ 
-    headers:new HttpHeaders({
-      'content-type':'application/json'
+  httpOptions = {
+    headers: new HttpHeaders({
+      'content-type': 'application/json'
 
     })
   }
   //handel api  errors 
-  handleError(error: HttpErrorResponse){
-    if( error.error instanceof ErrorEvent){
-    //a client-side or a neetwork error occurend .Handel it accordingly
-    console.error('An Error occurend' , error.error.message)
+  handleError(error: HttpErrorResponse) {
+    if (error.error instanceof ErrorEvent) {
+      //a client-side or a neetwork error occurend .Handel it accordingly
+      console.error('An Error occurend', error.error.message)
 
+    }
+    else {
+      // the backend may returned an successfully response code 
+      // the response body may contain clues as to what went wrong 
+      console.error(`backend returned code ${error.status}, ` +
+        `body was : ${error.error}`
+      );
+    }
+    // return an observabel with a user-facing error message 
+    return throwError('something bad happined , please try again later .');
+  };
+
+
+  // insert 
+  createPrivacy(item: privacyDTO): Observable<privacyDTO> {
+    return this.http.post<privacyDTO>(this.base_url, JSON.stringify(item), this.httpOptions).pipe(retry(2), catchError(this.handleError));
   }
-  else{
-    // the backend may returned an successfully response code 
-    // the response body may contain clues as to what went wrong 
-    console.error(`backend returned code ${error.status}, ` +
-    `body was : ${ error.error}`
-    );}
-   // return an observabel with a user-facing error message 
-  return throwError( 'something bad happined , please try again later .');
-};
 
-
-// insert 
-create(item : privacyDTO):Observable<privacyDTO>{
-  return this.http.post<privacyDTO>(this.base_url,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
-}
-
-//get all account data 
-all():Observable<privacyDTO>{
-   return this.http.get<privacyDTO>(this.base_url).pipe(retry(2),catchError(this.handleError));
- }
+  //get all account data 
+  getallPrivacy(): Observable<privacyDTO> {
+    return this.http.get<privacyDTO>(this.base_url).pipe(retry(2), catchError(this.handleError));
+  }
 
 
   // get account by id
-  getByid(id:number):Observable<privacyDTO>{
-    return this.http.get<privacyDTO>(this.base_url + '/' +id).pipe(retry(2),catchError(this.handleError));
+  getPrivacyByid(id: number): Observable<privacyDTO> {
+    return this.http.get<privacyDTO>(this.base_url + '/' + id).pipe(retry(2), catchError(this.handleError));
 
   }
 
-   // update account by Id the
-   update(item : privacyDTO){
-    return this.http.put<privacyDTO>(this.base_url,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
-   }
+  // update account by Id the
+  updatePrivacy(item: privacyDTO) {
+    return this.http.put<privacyDTO>(this.base_url, JSON.stringify(item), this.httpOptions).pipe(retry(2), catchError(this.handleError));
+  }
 
-    // delete accounts
-    delete(id:number){
-      return this.http.delete<privacyDTO>(this.base_url + '/' +id,this.httpOptions).pipe(retry(2),catchError(this.handleError));
+  // delete accounts
+  deletePrivacy(id: number) {
+    return this.http.delete<privacyDTO>(this.base_url + '/' + id, this.httpOptions).pipe(retry(2), catchError(this.handleError));
 
-}
+  }
 
-//validation formulaire
-  form : FormGroup= new FormGroup({
-    id: new FormControl(null),
-    title: new FormControl('',Validators.required),
-    description : new FormControl('',[ Validators.required]),
-});
 
-// inialisation formulaire 
-initializeFormGroup() {
-  this.form.setValue({
-    id :null,
-    title: null,
-    description: null,
-  });
-}
-populateForm(privacy: any) {
-  this.form.patchValue(_.omit(privacy));
-}
+
+   
 }

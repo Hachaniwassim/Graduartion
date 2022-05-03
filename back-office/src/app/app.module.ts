@@ -65,6 +65,7 @@ import { PlateformeListComponent } from './plateforme/plateforme-list/plateforme
 import { PlateformeViewComponent } from './plateforme/plateforme-view/plateforme-view.component';
 import { PlateformeAddComponent } from './plateforme/plateforme-add/plateforme-add.component';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { CKEditorModule } from 'ckeditor4-angular';
 
 
 @NgModule({
@@ -119,7 +120,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
     PlateformeComponent,
     PlateformeListComponent,
     PlateformeViewComponent,
-    PlateformeAddComponent
+    PlateformeAddComponent,
   ],
   imports: [
     BrowserModule,
@@ -136,7 +137,12 @@ import { NgxSpinnerModule } from "ngx-spinner";
     ScheduleModule, 
     SimpleNotificationsModule.forRoot(),
     AngularEditorModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    HttpClientModule,
+    AngularEditorModule,
+    ReactiveFormsModule,
+   // NgSelectModule,
+    CKEditorModule,
     
     
 

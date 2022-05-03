@@ -76,6 +76,9 @@ export class GroupeAddComponent implements OnInit {
         })) 
         this.onClose();
       }
+      
+    this.groupeService.form.reset();
+    this.groupeService.initializeFormGroup();
     this.refresh();
   }
 
@@ -98,6 +101,6 @@ export class GroupeAddComponent implements OnInit {
   reloadPage() {
     window.location.reload();
   }
-
+ 
 }
 
