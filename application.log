@@ -454,3 +454,8 @@
 2022-05-03 11:53:11,570 INFO  FrameworkServlet:525 - [] Initializing Servlet 'dispatcherServlet'
 2022-05-03 11:53:11,575 INFO  FrameworkServlet:547 - [] Completed initialization in 4 ms
 2022-05-03 11:53:11,765 ERROR JwtUtils:44 - [] Invalid JWT signature: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
+2022-05-03 14:13:27,010 WARN  HikariPool$HouseKeeper:787 - [] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h28s359ms177µs100ns).
+2022-05-03 14:21:07,617 ERROR JwtUtils:44 - [] Invalid JWT signature: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
+2022-05-03 15:33:55,494 ERROR JwtUtils:44 - [] Invalid JWT signature: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
+2022-05-03 15:34:04,130 ERROR JwtUtils:44 - [] Invalid JWT signature: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
+2022-05-03 16:06:15,362 ERROR JwtUtils:44 - [] Invalid JWT signature: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
