@@ -36,6 +36,7 @@
     "ng-captcha": "^1.0.4",
     "ngx-captcha": "^11.0.0",
     "ngx-spinner": "^13.1.1",
+    "ngx-translate-core": "^11.0.3",
     "popper.js": "^1.16.1",
     "rxjs": "~6.6.0",
     "sweetalert2": "^11.4.8",

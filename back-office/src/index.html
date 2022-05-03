@@ -36,25 +36,7 @@
     integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
     crossorigin=""></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
-<script>
-const stepButtons = document.querySelectorAll('.step-button');
-const progress = document.querySelector('#progress');
 
-Array.from(stepButtons).forEach((button,index) => {
-    button.addEventListener('click', () => {
-        progress.setAttribute('value', index * 100 /(stepButtons.length - 1) );//there are 3 buttons. 2 spaces.
-
-        stepButtons.forEach((item, secindex)=>{
-            if(index > secindex){
-                item.classList.add('done');
-            }
-            if(index < secindex){
-                item.classList.remove('done');
-            }
-        })
-    })
-})
-</script>
 
   <script src="https://use.fontawesome.com/b714a8f3f6.js"></script>
   <!-- jQuery  -->
@@ -71,7 +53,7 @@ Array.from(stepButtons).forEach((button,index) => {
   <script src="assets/js/app.js"></script>
   <script src="https://www.google.com/recaptcha/api.js?hl=en"></script>
 
-  <script src="//code.tidio.co/rtagubqgtrmyxhtngs6peog9wuowjvvq.js" async></script>
+ <!--- <script src="//code.tidio.co/rtagubqgtrmyxhtngs6peog9wuowjvvq.js" async></script>-->
 
 
 </body>

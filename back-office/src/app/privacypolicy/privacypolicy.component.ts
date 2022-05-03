@@ -8,6 +8,7 @@ import { Privacyservice } from '../_services/privacy.service';
 import { privacyDTO } from '../models/dto/privacyDTO';
 import { Observable } from 'rxjs';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { htmlKeyConfig } from '@syncfusion/ej2-angular-richtexteditor';
 
 @Component({
   selector: 'app-privacypolicy',
@@ -15,7 +16,7 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./privacypolicy.component.css']
 })
 export class PrivacypolicyComponent implements OnInit {
-  
+
   data !:  privacyDTO;
   privacy !: FormGroup;
   config = {
@@ -25,31 +26,27 @@ export class PrivacypolicyComponent implements OnInit {
   constructor(private fb: FormBuilder,private privacyService : Privacyservice,private dialogService: DialogService,
     private notificationService: NotificationService,private route: ActivatedRoute, public router: Router, public _location: Location) {
 
+  
+  }
+
+  ngOnInit() {
+
+   
     this.privacy= this.fb.group({
       id: new FormControl(),
       title: new FormControl(),
       htmlContent: new FormControl()
    });
-  }
-
-  ngOnInit() {
-
-   this.getprivacys();
-  }
-
-   getprivacys(){
       this.privacyService.getallPrivacy().subscribe(r=>{
       this.data=r;
-      console.log(this.data);
-      this.privacy.get('name')?.value;
-      this.privacy.get('htmlContent')?.value;
-      
-      this.privacy.patchValue(r);
-
+      this.privacy.patchValue(r)
    });
+   
+
   }
 
   save(){
+    
     this.privacyService.updatePrivacy(this.privacy.getRawValue()).subscribe(r=>{
       console.log("updated");
     });
