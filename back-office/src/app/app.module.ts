@@ -65,7 +65,6 @@ import { PlateformeListComponent } from './plateforme/plateforme-list/plateforme
 import { PlateformeViewComponent } from './plateforme/plateforme-view/plateforme-view.component';
 import { PlateformeAddComponent } from './plateforme/plateforme-add/plateforme-add.component';
 import { NgxSpinnerModule } from "ngx-spinner";
-import { CKEditorModule } from 'ckeditor4-angular';
 
 
 @NgModule({
@@ -138,7 +137,6 @@ import { CKEditorModule } from 'ckeditor4-angular';
     SimpleNotificationsModule.forRoot(),
     AngularEditorModule,
     NgxSpinnerModule,
-    CKEditorModule,
     
     
 
