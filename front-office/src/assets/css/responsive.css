@@ -1,0 +1,144 @@
+@media (max-width:1199px) {
+	#video{
+		width: 100%;
+	}
+}
+
+@media (max-width:991px) {
+	body{
+		font-size: 13px;
+	}
+	.slider_content h2 {
+		font-size: 50px;
+		letter-spacing: 4px;
+	}	
+	#slider_area, 
+	.single_slide, .single-slide-item-table {
+		height: 610px;
+	}	
+	.slider_content{
+		padding-top: 8%;
+	}
+	.slider_content .sl_heading {
+		font-size: 12px;
+		padding: 0px ;
+	}
+	.about_text h2 {
+		font-size: 20px;
+		line-height: 26px;
+		margin-top: 35px;
+	}
+	.counter-items.no_border{
+		border-right: 1px solid #ddd;
+	}
+	.counter-items{
+		margin: 15px 0;
+	}
+}
+
+
+
+@media (max-width:767px) {
+  
+
+	.logo_area img{
+		margin-left: 0;
+	}
+	#main_menu{
+		margin-top: 0;
+		background: #fff;
+	}
+	.nav > li > a{
+		color: #888;
+	}
+
+	.navbar-collapse{
+		border-top: 1px solid #ddd;
+		margin-top: 11px;
+	}
+	
+	.main_bg_btn {
+		padding: 11px 31px;
+	}
+	
+	#slider_area, 
+	.single_slide, .single-slide-item-table {
+		height: 500px;
+	}	
+	.slider_content{
+		padding-top: 5%;
+	}	
+	.slider_content h2 {
+		font-size: 35px;
+		letter-spacing: 4px;
+		margin-bottom: 7px;
+	}
+	.slider_content p {
+		margin-bottom: 25px;
+		font-size: 14px;
+
+	}	
+	#team_area{
+		padding-bottom: 0;
+	}
+	.skill_content{
+		margin-bottom: 25px;
+	}
+	.pricingtable {
+		margin-top: 80px;
+	
+	}
+	#video img{
+		width: 100%;
+	}
+
+	.counter-items,
+	.counter-items.no_border{
+		border: inherit;
+	}
+	#footer_area .col-sm-6,
+	#footer_area .col-sm-6.text-left{
+		text-align: center;
+	}
+	.footer_social_icons {
+		float: inherit;
+		margin: 15px 0 0;
+	}
+	.owl-theme .owl-controls{ margin-top: 20px; }
+	
+	.copyright p{
+		margin-bottom: 15px;
+	}
+}
+
+@media (max-width:740px) {
+	.slider_active .owl-nav .owl-next, .slider_active .owl-nav .owl-prev {
+		display: none;
+	}
+}
+
+@media (max-width:408px) {
+	.slider_content {
+		padding-top: 9%;
+	}
+	
+	.slider_content .sl_heading {
+		font-size: 9px;
+		margin-bottom: 0px;
+		padding: 0px 15px;
+	}
+}
+
+
+@media only screen and (max-width: 480px){
+    .testimonial{
+        margin: 0 10px 60px;
+        text-align: center;
+        padding: 20px 30px 20px 40px;
+    }
+}
+@media only screen and (max-width: 479px){
+    .testimonial{
+        padding: 20px 25px 20px 25px;
+    }
+}
