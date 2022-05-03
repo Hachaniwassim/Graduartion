@@ -1,53 +1,50 @@
 <mat-toolbar>
-    <span>{{productservice.form.controls['id'].value?"Modify Product":"New Product"}}</span>
-    <span class="fill-remaining-space"></span>
-    <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
-  </mat-toolbar><br><br>
+  <span>{{productservice.form.controls['id'].value?"Modify Plateforme ":"New Product"}}</span>
+  <span class="fill-remaining-space"></span>
+  <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
+</mat-toolbar>
   <form [formGroup]="productservice.form" class="normal-form" (submit)="onSubmit()" class="normal-form">
-    <mat-grid-list cols="1" rowHeight="130px">
+    <mat-grid-list cols="1" rowHeight="390px">
       <mat-grid-tile>
         <div class="controles-container">
           <input type="hidden" formControlName="id">
           <mat-form-field style="margin-left: 40px;">
-            <input formControlName="title" matInput placeholder="description">
+            <input formControlName="title" matInput placeholder="Title">
             <mat-error *ngIf="productservice.form.controls['title'].errors?.required">this field is mandatory.
             </mat-error>
           </mat-form-field>
           <mat-form-field style="margin-left: 40px;">
-            <input formControlName="detailimage" matInput placeholder="domainename">
+            <input formControlName="detailimage" matInput placeholder="Details Image">
             <mat-error *ngIf="productservice.form.controls['detailimage'].errors?.required">this field is mandatory.
             </mat-error>
           </mat-form-field>
           <mat-form-field style="margin-left: 40px;">
-            <input formControlName="note" matInput placeholder="domainename">
+            <input formControlName="note" matInput placeholder="Note">
             <mat-error *ngIf="productservice.form.controls['note'].errors?.required">this field is mandatory.
             </mat-error>
           </mat-form-field>
           <mat-form-field style="margin-left: 40px;">
-            <input formControlName="name" matInput placeholder="domainename">
+            <input formControlName="name" matInput placeholder="Name">
             <mat-error *ngIf="productservice.form.controls['name'].errors?.required">this field is mandatory.
             </mat-error>
           </mat-form-field>
           <mat-form-field style="margin-left: 40px;">
-            <input formControlName="image" matInput placeholder="domainename">
+            <input formControlName="image" matInput placeholder="Image">
             <mat-error *ngIf="productservice.form.controls['image'].errors?.required">this field is mandatory.
             </mat-error>
           </mat-form-field>
-          <mat-form-field style="margin-left: 40px;">
-            <input formControlName="consultationNumber" matInput placeholder="domainename">
+          <mat-form-field  style="margin-left: 40px;">
+            <input formControlName="consultationNumber" matInput placeholder="Consultation Number">
             <mat-error *ngIf="productservice.form.controls['consultationNumber'].errors?.required">this field is mandatory.
             </mat-error>
           </mat-form-field>
         </div>
       </mat-grid-tile>
-     
-      <mat-grid-tile>
-        <div class="button-row">
-            <button mat-raised-button color="primary" type="submit"
-              [disabled]="productservice.form.invalid" (click)="refresh()">Save</button>
-              <button mat-raised-button  mat-dialog-close>Cancel</button>
-            <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
-        </div>
-    </mat-grid-tile>
     </mat-grid-list>
+    <div class="button-row" align="center">
+      <button mat-raised-button color="primary" type="submit"
+        [disabled]="productservice.form.invalid" (click)="refresh()">Save</button>
+        <button mat-raised-button  mat-dialog-close> <mat-icon>close</mat-icon>Cancel</button>
+      <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
+  </div>
   </form>

@@ -64,8 +64,7 @@ import { PlateformeComponent } from './plateforme/plateforme.component';
 import { PlateformeListComponent } from './plateforme/plateforme-list/plateforme-list.component';
 import { PlateformeViewComponent } from './plateforme/plateforme-view/plateforme-view.component';
 import { PlateformeAddComponent } from './plateforme/plateforme-add/plateforme-add.component';
-import { NgxSpinnerModule } from "ngx-spinner";
-
+import { NgxSpinnerModule } from "ngx-spinner"; 
 
 @NgModule({
   declarations: [
