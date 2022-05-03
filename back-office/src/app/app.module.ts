@@ -138,10 +138,6 @@ import { CKEditorModule } from 'ckeditor4-angular';
     SimpleNotificationsModule.forRoot(),
     AngularEditorModule,
     NgxSpinnerModule,
-    HttpClientModule,
-    AngularEditorModule,
-    ReactiveFormsModule,
-   // NgSelectModule,
     CKEditorModule,
     
     
