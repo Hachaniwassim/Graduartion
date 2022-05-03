@@ -14,9 +14,14 @@
             </mat-error>
           </mat-form-field>
           <mat-form-field style="margin-left: 30px;">
-            <input formControlName="description" matInput placeholder="description">
-            <mat-error *ngIf="groupeService.form.controls['description'].errors?.required">this field is mandatory.
-            </mat-error>
+            <textarea matInput 
+            placeholder="Description" 
+            required
+            maxlength="100"
+            formControlName="description" >
+        </textarea>
+        <mat-error *ngIf="groupeService.form.controls['description'].errors?.required">this field is mandatory.
+        </mat-error>
           </mat-form-field> 
             <mat-checkbox style="margin-left: 30px;" color="primary" formControlName="active">Active</mat-checkbox>
             <mat-error *ngIf="groupeService.form.controls['active'].errors?.required">this field is mandatory.

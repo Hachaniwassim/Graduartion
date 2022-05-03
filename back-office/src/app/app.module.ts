@@ -64,9 +64,7 @@ import { PlateformeComponent } from './plateforme/plateforme.component';
 import { PlateformeListComponent } from './plateforme/plateforme-list/plateforme-list.component';
 import { PlateformeViewComponent } from './plateforme/plateforme-view/plateforme-view.component';
 import { PlateformeAddComponent } from './plateforme/plateforme-add/plateforme-add.component';
-import { NgxSpinnerModule } from "ngx-spinner";
-//connectivity Service
-import {ConnectionServiceModule} from 'ng-connection-service';  
+import { NgxSpinnerModule } from "ngx-spinner"; 
 
 @NgModule({
   declarations: [
@@ -120,7 +118,7 @@ import {ConnectionServiceModule} from 'ng-connection-service';
     PlateformeComponent,
     PlateformeListComponent,
     PlateformeViewComponent,
-    PlateformeAddComponent
+    PlateformeAddComponent,
   ],
   imports: [
     BrowserModule,
@@ -138,7 +136,6 @@ import {ConnectionServiceModule} from 'ng-connection-service';
     SimpleNotificationsModule.forRoot(),
     AngularEditorModule,
     NgxSpinnerModule,
-    ConnectionServiceModule
     
     
 

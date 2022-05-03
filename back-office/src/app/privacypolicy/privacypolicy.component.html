@@ -1,53 +1,36 @@
 <br><br><br>
+
 <div id="wrapper">
   <div class="content-page">
     <!-- Start content -->
     <div class="content">
-      <div class="col-xl-12">
-        <div class="card m-b-30">
+      <form class="form p-3" [formGroup]="privacy" id="privacy">
+      <h3>Privacy Policy</h3>
+      <mat-progress-bar mode="determinate" value="30"></mat-progress-bar><br><br>
+        <div class="card card-fullheight">
           <div class="card-body">
-            <fieldset class="container">
-              <h3>Section title front office side</h3>
-              <mat-progress-bar mode="determinate" value="40"></mat-progress-bar><br><br><br>
-              <div class="container">
-                <form class="example-form">
-                  <div class="mb-3">
-                    <input type="text" class="form-control" id="exampleFormControlInput1" >
-                  </div>
-                  <br>
-                  <button mat-raised-button color="primary" style="width: 100px;">Save</button><br>
-                </form>
+            <div class="row">
+              <div class="col-md-6 col-sm-6">
+                <label>Title Front Office *</label>
+                <input type="text" formControlName="title" value="{{data?.title}}" placeholder="title"class="form-control form-control-sm">
               </div>
-              <br><br><br>
-            </fieldset>
+            </div>
+            <br><br><br>
+            <div class="row mt-5">
+              <div class="col-md-12 col-sm-12 mt-5">
+                <ckeditor class="w-100 col-12" formControlName="htmlContent" [config]="config"></ckeditor>
+              </div>
+              
+            </div>
+            <div class="row mt-5">
+              <div class="col-md-12 col-sm-12 ">
+                <button mat-flat-button class="float-right" color="primary" (click)="save()">save
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <br>
-      <br>
-      <div class="col-xl-12">
-        <div class="card m-b-30">
-          <div class="card-body">
-            <fieldset class="container">
-              <h3>Privacy Policy text</h3> <br>
-              <mat-progress-bar mode="determinate" value="40"></mat-progress-bar><br><br><br>
-              <div class="container">
-                <form>
-                  <angular-editor [(ngModel)]="htmlContent" [config]="config"></angular-editor>
-                  <div class="html">
-                    {{ htmlContent }}
-                  </div>
-                </form> <br> <br>
-                <button mat-raised-button color="primary" style="width: 100px;">Save</button>
-                &nbsp;&nbsp;
-                <button mat-raised-button color="warn" style="width: 100px;">Canncel</button><br>
-              </div>
-              <br><br><br>
-            </fieldset>
-          </div>
-        </div>
-      </div>
+      </form>
     </div>
-    <!-- content -->
   </div>
 </div>

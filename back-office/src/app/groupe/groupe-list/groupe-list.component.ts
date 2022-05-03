@@ -149,7 +149,7 @@ export class GroupeListComponent implements OnInit {
 
   // create dialog config
   onCreateGroupe() {
-    //this.companyService.initializeFormGroup();
+    this.groupeService.form.reset();
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;

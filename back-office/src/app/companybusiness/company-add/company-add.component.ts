@@ -74,6 +74,9 @@ export class CompanyAddComponent implements OnInit {
       this.onClose();
 
     }
+    
+    this.companyService.form.reset();
+    this.companyService.initializeFormGroup();
     this.refresh();
 
   }

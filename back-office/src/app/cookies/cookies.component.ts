@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { CookieDTO } from '../models/dto/cookieDTO';
+import { CookiesService } from '../_services/cookies.service';
 
 @Component({
   selector: 'app-cookies',
@@ -7,9 +10,45 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CookiesComponent implements OnInit {
 
-  constructor() { }
+  data !: CookieDTO;
+  cookie !: FormGroup;
+  config = {
+    language: 'en'
+  };
 
-  ngOnInit(): void {
+  constructor(private fb: FormBuilder,
+              private cookiesService: CookiesService,
+  ) {
+    this.cookie = this.fb.group({
+      id: new FormControl(),
+      title: new FormControl(),
+      htmlContent: new FormControl()
+   });
+  }
+
+  ngOnInit() {
+
+   this.getCookies();
+  }
+
+   getCookies(){
+
+    this.cookiesService.get().subscribe(r=>{
+      this.data=r;
+      console.log(this.data);
+      this.cookie.get('name')?.value;
+      this.cookie.get('htmlContent')?.value;
+      
+      this.cookie.patchValue(r);
+
+   });
+  }
+
+  save(){
+    this.cookiesService.update(this.cookie.getRawValue()).subscribe(r=>{
+      console.log("updated");
+    });
   }
 
 }
+
