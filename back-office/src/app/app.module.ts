@@ -58,13 +58,14 @@ import { CompanyViewComponent } from './companybusiness/company-view/company-vie
 import { CookiesV2Component } from './cookies-v2/cookies-v2.component';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { PosproductlistViewComponent } from './posproductlist/posproductlist-view/posproductlist-view.component';
-import {  PosproductlistAddComponent} from './posproductlist/posproductlist-add/posproductlist-add.component';
+import { PosproductlistAddComponent} from './posproductlist/posproductlist-add/posproductlist-add.component';
 import { PosListComponent } from './posproductlist/pos-list/pos-list.component';
 import { PlateformeComponent } from './plateforme/plateforme.component';
 import { PlateformeListComponent } from './plateforme/plateforme-list/plateforme-list.component';
 import { PlateformeViewComponent } from './plateforme/plateforme-view/plateforme-view.component';
 import { PlateformeAddComponent } from './plateforme/plateforme-add/plateforme-add.component';
 import { NgxSpinnerModule } from "ngx-spinner"; 
+import { CKEditorModule } from 'ckeditor4-angular';
 
 @NgModule({
   declarations: [
@@ -119,6 +120,8 @@ import { NgxSpinnerModule } from "ngx-spinner";
     PlateformeListComponent,
     PlateformeViewComponent,
     PlateformeAddComponent,
+  
+    
   ],
   imports: [
     BrowserModule,
@@ -136,7 +139,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
     SimpleNotificationsModule.forRoot(),
     AngularEditorModule,
     NgxSpinnerModule,
-    
+    CKEditorModule,
     
 
 
