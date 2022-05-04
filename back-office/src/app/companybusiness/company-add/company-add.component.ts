@@ -63,7 +63,8 @@ export class CompanyAddComponent implements OnInit {
   onSubmit() {
     if (this.companyService.form.valid) {
       if (!this.companyService.form.get('id')?.value)
-        this.companyService.createCompayBusiness(this.companyService.form.value).subscribe(() => {
+        this.companyService.createCompayBusiness(this.companyService.form.value).subscribe((response) => {
+          this.company.push(response);
         })
 
       else(

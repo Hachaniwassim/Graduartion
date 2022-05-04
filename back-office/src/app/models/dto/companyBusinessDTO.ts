@@ -1,9 +1,9 @@
 import { GroupeDTO } from "./groupeDTO";
 
-export interface CompanyBusinessDTO{
+export class CompanyBusinessDTO{
     id?:number ;
 	description? : string;
     domainename? : string;
-    createdDate :   Date;
-    lastModifiedDate: Date; 
+    createdDate! :   Date;
+    lastModifiedDate!: Date; 
 }

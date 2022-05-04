@@ -10,6 +10,8 @@ import { GroupeDTO } from 'src/app/models/dto/groupeDTO';
 import { DialogService } from 'src/app/shared/dialog.service';
 import { NotificationService } from 'src/app/shared/notification.service';
 import { GroupeService } from 'src/app/_services/groupe.service';
+import { CompanybusinessService } from 'src/app/_services/companybusiness.service';
+import { CompanyBusinessDTO } from 'src/app/models/dto/companyBusinessDTO';
 
 @Component({
   selector: 'app-groupe-add',
@@ -27,11 +29,13 @@ export class GroupeAddComponent implements OnInit {
   datasource = new MatTableDataSource(this.groupe)
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort, {}) sort!: MatSort;
+  companyServices: CompanyBusinessDTO[] = [];
 
 
 
   constructor(private dialog: MatDialog, private dialogService: DialogService, public groupeService: GroupeService, public dialogRef: MatDialogRef<GroupeAddComponent>,
-    private notificationService: NotificationService, private router: Router, public _location: Location) {
+    private notificationService: NotificationService,
+    private companyService: CompanybusinessService, private router: Router, public _location: Location) {
     this.groupeData = {} as GroupeDTO;
   }
 
@@ -46,6 +50,12 @@ export class GroupeAddComponent implements OnInit {
     this.datasource.sort = this.sort;
     this.datasource.paginator = this.paginator;
     this.getAllGroupe();
+    this.companyService.getAllCompanyBussiness().subscribe(res=>{
+      console.log(res)
+
+
+      this.companyServices = res;
+    })
    
   }
 
@@ -65,11 +75,16 @@ export class GroupeAddComponent implements OnInit {
    // submit data with context EDITE : CREATE
    onSubmit() {
     if (this.groupeService.form.valid) {
+
       if (!this.groupeService.form.get('id')?.value)
-        this.groupeService.createGroupe(this.groupeService.form.value).subscribe(() => {
-          
+       { console.log(this.groupeService.form.value);
+        this.groupeService.createGroupe(this.groupeService.form.value).subscribe((res) => {
+          console.log(res);
+      
           this.notificationService.success(':: Submitted successfully');
-        })
+          this.onClose();
+        });
+      }
 
       else(
         this.groupeService.updateGroupe(this.groupeService.form.value).subscribe(() => {
@@ -79,7 +94,7 @@ export class GroupeAddComponent implements OnInit {
       
     this.groupeService.form.reset();
     this.groupeService.initializeFormGroup();
-    this.refresh();
+   // this.refresh();
   }
 
 

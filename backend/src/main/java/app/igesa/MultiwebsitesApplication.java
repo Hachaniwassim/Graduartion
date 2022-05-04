@@ -20,7 +20,7 @@ import javax.annotation.Resource;
 
 @EnableJpaAuditing(auditorAwareRef = "auditorAware")
 @SpringBootApplication
-public class MultiwebsitesApplication implements CommandLineRunner {
+public class MultiwebsitesApplication  {
 
 	@Resource
 	FilesStorageService storageService;
@@ -29,22 +29,22 @@ public class MultiwebsitesApplication implements CommandLineRunner {
 	Irole iroleRepository;
 
 	@Autowired
-    AccountRepository userRepository;
+	AccountRepository userRepository;
 	@Autowired
 	IcomapnybusRepository icomapnybusRepository;
 
 
-		@Bean
-	    public AuditorAware<String> auditorAware() {
-	        return new AuditorAwareImpl();
-	    }
+	@Bean
+	public AuditorAware<String> auditorAware() {
+		return new AuditorAwareImpl();
+	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(MultiwebsitesApplication.class, args);
 
 	}
-
-	@Override
+}
+/*	@Override
 	public void run(String... arg) throws Exception {
 		storageService.deleteAll();
 		storageService.init();
@@ -64,5 +64,4 @@ public class MultiwebsitesApplication implements CommandLineRunner {
 		user.setFiscaleCode("11397488");
 		userRepository.save(user);
 	}
-
-}
+} */

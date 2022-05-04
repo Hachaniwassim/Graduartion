@@ -4,6 +4,8 @@ import java.util.Date;
 import java.util.List;
 
 import app.igesa.entity.Auditable;
+import app.igesa.entity.CompanyBusiness;
+import app.igesa.enumerations.GroupStatus;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import app.igesa.entity.Groupe;
 import lombok.AllArgsConstructor;
@@ -25,11 +27,10 @@ public class GroupeDTO {
     private Long id ; 
     private String name ;
     private String description ; 
-    private boolean active ;
-    private boolean confirmed;
-    private boolean deleted ;
+    private GroupStatus groupStatus;
     protected Date createdDate;
     protected Date lastModifiedDate;
+    private Long companyId;
    // protected String createdBy;
     private CompanyBusinessDTO companyBusiness;
     
@@ -46,9 +47,7 @@ public class GroupeDTO {
 		return GroupeDTO.builder()
 				.id(groupe.getId())
 				.name(groupe.getName())
-				.active(groupe.isActive())
-				.confirmed(groupe.isConfirmed())
-				.deleted(groupe.isDeleted())
+                .groupStatus(groupe.getGroupStatus())
 				.description(groupe.getDescription())
                 .lastModifiedDate(groupe.getLastModifiedDate())
                 .createdDate(groupe.getCreatedDate())
@@ -68,13 +67,15 @@ public class GroupeDTO {
            Groupe groupe = new Groupe();
            groupe.setId(dto.getId());
            groupe.setName(dto.getName());
-           groupe.setActive(dto.isActive());
-           groupe.setConfirmed(dto.isConfirmed());
-           groupe.setDeleted(dto.isDeleted());
+           groupe.setGroupStatus(dto.getGroupStatus());
            groupe.setDescription(dto.getDescription());
            groupe.setLastModifiedDate(dto.getLastModifiedDate());
            groupe.setCreatedDate(dto.getCreatedDate());
-           groupe.setCompanyBusiness(CompanyBusinessDTO.toEntity(dto.getCompanyBusiness()));
+
+           CompanyBusiness companyBusiness = new CompanyBusiness();
+           companyBusiness.setId(dto.getCompanyId());
+           groupe.setCompanyBusiness(companyBusiness);
+           //groupe.setCompanyBusiness(CompanyBusinessDTO.toEntity(dto.getCompanyBusiness()));
           /* groupe.setEntreprise(dto.getEntreprise()!= null? dto.getEntreprise().stream().map(EntrepriseDTO::toEntity).collect(Collectors.toList()):null);
 		   */
         return groupe;

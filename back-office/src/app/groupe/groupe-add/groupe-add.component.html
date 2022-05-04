@@ -4,7 +4,7 @@
   <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
 </mat-toolbar><br><br>
   <form [formGroup]="groupeService.form" class="normal-form" (submit)="onSubmit()" class="normal-form">
-    <mat-grid-list cols="1" rowHeight="230px">
+    <mat-grid-list cols="1" rowHeight="240px">
       <mat-grid-tile>
         <div class="controles-container">
           <input type="hidden" formControlName="id">
@@ -23,16 +23,15 @@
         <mat-error *ngIf="groupeService.form.controls['description'].errors?.required">this field is mandatory.
         </mat-error>
           </mat-form-field> 
-            <mat-checkbox style="margin-left: 30px;" color="primary" formControlName="active">Active</mat-checkbox>
-            <mat-error *ngIf="groupeService.form.controls['active'].errors?.required">this field is mandatory.
-            </mat-error>
-            <mat-checkbox style="margin-left: 30px;" color="primary" formControlName="confirmed">Confirmed</mat-checkbox>
-            <mat-error *ngIf="groupeService.form.controls['confirmed'].errors?.required">this field is mandatory.
-            </mat-error>
-            <mat-checkbox style="margin-left: 30px;"color="primary" formControlName="deleted">Deleted</mat-checkbox>
-            <mat-error *ngIf="groupeService.form.controls['deleted'].errors?.required">this field is mandatory.
-            </mat-error>
         </div>
+        <mat-form-field>
+          <mat-select placeholder="Favorite food" formControlName="companyId">
+            <mat-option *ngFor="let company of companyServices" [value]="company.id">
+              {{company.description}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
       </mat-grid-tile>
     </mat-grid-list>
     <div class="button-row" align="center">

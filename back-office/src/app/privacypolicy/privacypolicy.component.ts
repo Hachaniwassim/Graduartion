@@ -1,14 +1,12 @@
-import { Component, OnInit , ViewChild } from '@angular/core';
-import { MatDialog, MatDialogConfig, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit} from '@angular/core';
+import {Router } from '@angular/router';
 import { Location } from '@angular/common';
-import { DialogService } from '../shared/dialog.service';
-import { NotificationService } from '../shared/notification.service';
 import { Privacyservice } from '../_services/privacy.service';
 import { privacyDTO } from '../models/dto/privacyDTO';
-import { Observable } from 'rxjs';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { htmlKeyConfig } from '@syncfusion/ej2-angular-richtexteditor';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import * as _ from 'lodash';
+import { CustomSnackBarComponent } from '../shared/custom-snack-bar/custom-snack-bar.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-privacypolicy',
@@ -20,38 +18,51 @@ export class PrivacypolicyComponent implements OnInit {
   data !:  privacyDTO;
   privacy !: FormGroup;
   config = {
-    language: 'en'
+    language: 'en',
+    placeholder:'Enter your texte here ..'
   };
 
-  constructor(private fb: FormBuilder,private privacyService : Privacyservice,private dialogService: DialogService,
-    private notificationService: NotificationService,private route: ActivatedRoute, public router: Router, public _location: Location) {
 
-  
-  }
+  constructor(private fb: FormBuilder,private privacyService : Privacyservice,
+   public router: Router, public _location: Location, public snackBar: MatSnackBar,) {
+
+ }
 
   ngOnInit() {
 
-   
-    this.privacy= this.fb.group({
+      this.privacy= this.fb.group({
       id: new FormControl(),
-      title: new FormControl(),
-      htmlContent: new FormControl()
+      title: new FormControl('',[ Validators.required]),
+      htmlContent: new FormControl('',[ Validators.required])
    });
-      this.privacyService.getallPrivacy().subscribe(r=>{
-      this.data=r;
-      this.privacy.patchValue(r)
-   });
-   
+      this.privacyService.getallPrivacy().subscribe ( (res: privacyDTO[]) => {
+      this.data=res[0];
+      this.privacy.patchValue(this.data);
 
+   });
   }
 
   save(){
-    
-    this.privacyService.updatePrivacy(this.privacy.getRawValue()).subscribe(r=>{
-      console.log("updated");
+     this.privacyService.updatePrivacy(this.privacy.value).subscribe(r=>{
+      console.log(r);
+     this.snackBar.open(" :: updated Successfully ", "", {
+      duration: 3000,
+      horizontalPosition: "right",
+      verticalPosition: "top",
+      panelClass: ["mat-toolbar", "mat-primary"],
+     });
+    },
+  error => {
+    this.snackBar.open("Erroor occurend !!" + error?.message, "", {
+      duration: 3000,
+      horizontalPosition: "right",
+      verticalPosition: "top",
+      panelClass: ["mat-toolbar", "mat-warn"],
     });
+  });
+  
+     this.refresh()
   }
-
 
 
 //refrech 
@@ -67,5 +78,4 @@ refresh(): void {
 
 
 }
-
 

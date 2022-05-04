@@ -126,6 +126,10 @@ const routes: Routes = [
 
   { path: 'entreprise', loadChildren: () => import('./entreprise/entreprise.module').then(m => m.EntrepriseModule) },
 
+  { path: 'tags', loadChildren: () => import('./tags/tags.module').then(m => m.TagsModule) },
+
+  { path: 'language', loadChildren: () => import('./language/language.module').then(m => m.LanguageModule) },
+
   // 404 not found 
   { path: '**', component: NotfoundComponent },
 

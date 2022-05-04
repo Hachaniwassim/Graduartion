@@ -35,25 +35,11 @@ export class EntrepriseAddComponent implements OnInit {
     this.entrepriseData = {} as EntrepriseDTO;
   }
 
-  // sorting + pagination data 
-  ngAfterViewInit() {
-    this.datasource.paginator = this.paginator;
-    this.datasource.sort = this.sort;
-  }
+  
 
   ngOnInit(): void {
-    // sorting sorting and pagination data 
-    this.datasource.sort = this.sort; 
-    this.datasource.paginator = this.paginator;
-    this.getAllEntreprise();
    
   }
-
-   getAllEntreprise() {
-    this.entrepriseService.getAllEntreprise().subscribe((response: any) => {
-      this.datasource.data = response;
-    })
-   }
 
 
   //clear data

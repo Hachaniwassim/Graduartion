@@ -1,4 +1,5 @@
 package app.igesa.metiers;
+import app.igesa.enumerations.GroupStatus;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.util.Collection;
@@ -33,18 +34,19 @@ public class GroupeImpl implements Igroupe {
 			log.error("Groupe not valid !", g);
 			throw new InvalideEntityException("Groupe not valid !", ErrorCode.GROUPE_NOT_VALID, errors);
 		}*/
-		Optional<CompanyBusiness> company = icompanyBusinessRepository.findById(g.getCompanyBusiness().getId());
+		//Optional<CompanyBusiness> company = icompanyBusinessRepository.findById(g.get);
 
-		if( company == null) {
+		/*if( company == null) {
 
 			log.warn("Groupe with id =  was not found  in the database", g.getCompanyBusiness().getId());
 			throw new  ResourceNotFoundException("Company not Found with Id  = " + g.getCompanyBusiness().getId()+ " In the data base" ,ErrorCode.COMPANYBUSSINESS_NOT_FOUND);
-		}
+		}*/
 
-		if(company.isPresent()) {
+		/*if(company.isPresent()) {
 			g.setCompanyBusiness(CompanyBusinessDTO.fromEntity(company.get()));
-		}
+		}*/
 
+		g.setGroupStatus(GroupStatus.PENDING);
 		Groupe saved =groupeRepository.save(GroupeDTO.toEntity(g));
 		return GroupeDTO.fromEntity(saved);
 

@@ -1,31 +1,30 @@
 <br><br><br>
-
 <div id="wrapper">
   <div class="content-page">
     <!-- Start content -->
     <div class="content">
       <form class="form p-3" [formGroup]="privacy" id="privacy">
-      <h3>Privacy Policy</h3>
-      <mat-progress-bar mode="determinate" value="30"></mat-progress-bar><br><br>
+        <h3>Privacy Policy</h3>
+        <mat-progress-bar mode="determinate" value="30"></mat-progress-bar><br><br>
         <div class="card card-fullheight">
           <div class="card-body">
             <div class="row">
               <div class="col-md-6 col-sm-6">
-                <label>Title Front Office *</label>
-                <input type="text" formControlName="title" value="{{data?.title}}" placeholder="title"class="form-control form-control-sm">
+                <label> Title Front Office * </label>
+                <input type="text" formControlName="title" placeholder="title" class="form-control form-control-sm"> 
               </div>
             </div>
             <br><br><br>
             <div class="row mt-5">
               <div class="col-md-12 col-sm-12 mt-5">
-                <ckeditor class="w-100 col-12" formControlName="htmlContent" [config]="config"></ckeditor>
+                <label> Description * </label>
+                <ckeditor class="w-100 col-12" formControlName="htmlContent" data="htmlContent" [config]="config" placeholder="enter your text .."></ckeditor>
+                
               </div>
-              
             </div>
             <div class="row mt-5">
               <div class="col-md-12 col-sm-12 ">
-                <button mat-flat-button class="float-right" color="primary" (click)="save()">save
-                </button>
+                <button mat-flat-button class="float-right" color="primary" (click)="save()" >save</button>
               </div>
             </div>
           </div>
