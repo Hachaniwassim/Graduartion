@@ -57,7 +57,7 @@ export class PosListComponent implements OnInit {
 
   ngOnInit(): void {
     //data sorting and pagination from angular materila 
-    this.productservice.getAllCompanyBussiness().subscribe((response: any) => {
+    this.productservice.getAllproducts().subscribe((response: any) => {
       this.datasource.data = response;
       this.datasource.paginator = this.paginator;
       this.datasource.sort = this.sort;
@@ -77,12 +77,12 @@ export class PosListComponent implements OnInit {
 
 
   // delete data 
-  onDeleteCompany(id: number) {
+  onDeleteproduct(id: number) {
 
     this.dialogService.openConfirmDialog('Are you sure to delete this record ?')
       .afterClosed().subscribe((res: any) => {
         if (res) {
-          this.productservice.deleteCompanyBusiness(id).subscribe(() => {
+          this.productservice.deleteproduct(id).subscribe(() => {
             //filter sur l objet  optionnel
 
            /*this.datasource.data = this.datasource.data.filter((o: any) => {
@@ -97,7 +97,7 @@ export class PosListComponent implements OnInit {
   }
 
         getone(){
-        this.productservice.getByidCompany(this.id).subscribe((response)=>
+        this.productservice.getByidproduct(this.id).subscribe((response)=>
         { this.data=response;
          this.company=this.data;
          console.log(this.company);
@@ -105,7 +105,7 @@ export class PosListComponent implements OnInit {
       }
 
 
-   ViewCompany(row : any) { 
+   Viewproduct(row : any) { 
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
@@ -125,7 +125,7 @@ export class PosListComponent implements OnInit {
       }
 
   // create dialog config
-  onCreateCompany() {
+  onCreateproduct() {
     //this.companyService.initializeFormGroup();
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
@@ -136,7 +136,7 @@ export class PosListComponent implements OnInit {
   }
 
   // edite dialogConfig
-  onEditCompany(row: any) {
+  onEditproduct(row: any) {
     this.productservice.populateForm(row);
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;

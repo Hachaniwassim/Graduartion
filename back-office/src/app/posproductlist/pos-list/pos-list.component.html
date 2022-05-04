@@ -8,7 +8,7 @@
           <mat-icon>close</mat-icon>
         </button>
       </mat-form-field>&nbsp;&nbsp;&nbsp;
-      <button mat-fab color="gray" (click)="onCreateCompany()">
+      <button mat-fab color="gray" (click)="onCreateproduct()">
         <mat-icon>add</mat-icon>
       </button>&nbsp;&nbsp;
     </div>
@@ -65,14 +65,14 @@
         <mat-cell *matCellDef="let row">
           <div></div>
           <div></div>
-          <button mat-icon-button (click)="onEditCompany(row)">
+          <button mat-icon-button (click)="onEditproduct(row)">
             <mat-icon>edit_outline</mat-icon>
           </button>
-          <button mat-icon-button (click)="ViewCompany(row)">
+          <button mat-icon-button (click)="Viewproduct(row)">
             <mat-icon>list</mat-icon>
           </button>
           <button mat-icon-button>
-            <mat-icon  (click)="onDeleteCompany(row.id)">delete_forever</mat-icon>
+            <mat-icon  (click)="onDeleteproduct(row.id)">delete_forever</mat-icon>
           </button>
         </mat-cell>
       </ng-container>

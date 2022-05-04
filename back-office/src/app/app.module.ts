@@ -66,6 +66,8 @@ import { PlateformeViewComponent } from './plateforme/plateforme-view/plateforme
 import { PlateformeAddComponent } from './plateforme/plateforme-add/plateforme-add.component';
 import { NgxSpinnerModule } from "ngx-spinner"; 
 import { CKEditorModule } from 'ckeditor4-angular';
+import { ProductAddComponent } from './posproducts/product-add/product-add.component';
+import { ProductListComponent } from './posproducts/product-list/product-list.component';
 
 @NgModule({
   declarations: [
@@ -120,6 +122,8 @@ import { CKEditorModule } from 'ckeditor4-angular';
     PlateformeListComponent,
     PlateformeViewComponent,
     PlateformeAddComponent,
+    ProductAddComponent,
+    ProductListComponent,
   
     
   ],

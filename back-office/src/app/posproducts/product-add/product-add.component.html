@@ -1,0 +1,50 @@
+<mat-toolbar>
+    <span >{{productService.form.controls['id'].value?"Modify Plateforme ":"New Plateforme"}}</span>
+    <span class="fill-remaining-space"></span>
+    <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
+  </mat-toolbar><br>
+    <form [formGroup]="productService.form" class="normal-form" (submit)="onSubmit()" class="normal-form">
+      <mat-grid-list cols="1" rowHeight="280px">
+        <mat-grid-tile>
+          <div class="controles-container">
+            <input type="hidden" formControlName="id">
+            <mat-form-field style="margin-left: 30px;">
+              <input formControlName="title" matInput placeholder="title">
+              <mat-error *ngIf="productService.form.controls['title'].errors?.required">this field is mandatory.
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field style="margin-left: 30px;">
+              <input formControlName="detailimage" matInput placeholder="detailimage">
+              <mat-error *ngIf="productService.form.controls['detailimage'].errors?.required">this field is mandatory.
+              </mat-error>
+            </mat-form-field> 
+            <mat-form-field style="margin-left: 30px;">
+              <input formControlName="note" matInput placeholder="Phone">
+              <mat-error *ngIf="productService.form.controls['note'].errors?.required">this field is mandatory.
+              </mat-error>
+            </mat-form-field> 
+            <mat-form-field style="margin-left: 30px;">
+              <input formControlName="name" matInput placeholder="Adress">
+              <mat-error *ngIf="productService.form.controls['name'].errors?.required">this field is mandatory.
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field style="margin-left: 30px;">
+                <input formControlName="image" matInput placeholder="Adress">
+                <mat-error *ngIf="productService.form.controls['image'].errors?.required">this field is mandatory.
+                </mat-error>
+              </mat-form-field>
+              <mat-form-field style="margin-left: 30px;">
+                <input formControlName="consultationNumber" matInput placeholder="Adress">
+                <mat-error *ngIf="productService.form.controls['consultationNumber'].errors?.required">this field is mandatory.
+                </mat-error>
+              </mat-form-field>
+          </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+      <div class="button-row" align="center">
+        <button mat-raised-button color="primary" type="submit"
+          [disabled]="productService.form.invalid" (click)="refresh()">Save</button>
+          <button mat-raised-button  mat-dialog-close> <mat-icon>close</mat-icon>Cancel</button>
+        <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
+    </div>
+    </form>

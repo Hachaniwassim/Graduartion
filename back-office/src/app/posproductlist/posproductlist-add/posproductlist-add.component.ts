@@ -45,7 +45,7 @@ export class PosproductlistAddComponent implements OnInit {
     // sorting sorting and pagination data 
     this.datasource.sort = this.sort;
     this.datasource.paginator = this.paginator;
-    this.productservice.getAllCompanyBussiness().subscribe((response: any) => {
+    this.productservice.getAllproducts().subscribe((response: any) => {
       this.datasource.data = response;
     })
   }
@@ -61,11 +61,11 @@ export class PosproductlistAddComponent implements OnInit {
   onSubmit() {
     if (this.productservice.form.valid) {
       if (!this.productservice.form.get('id')?.value)
-        this.productservice.createCompayBusiness(this.productservice.form.value).subscribe(() => {
+        this.productservice.createproduct(this.productservice.form.value).subscribe(() => {
         })
 
       else(
-        this.productservice.updateCompanyBusiness(this.productservice.form.value).subscribe(() => {
+        this.productservice.updateproduct(this.productservice.form.value).subscribe(() => {
         }))
       this.productservice.form.reset();
       this.productservice.initializeFormGroup();

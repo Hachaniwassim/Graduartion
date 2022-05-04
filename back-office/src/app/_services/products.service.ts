@@ -55,29 +55,29 @@ return throwError( 'something bad happined , please try again later .');
 
 
 // insert 
-createCompayBusiness(item : productsDTO):Observable<productsDTO>{
+createproduct(item : productsDTO):Observable<productsDTO>{
 return this.http.post<productsDTO>(this.base_url,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
 }
 
 //get all team data 
-getAllCompanyBussiness():Observable<productsDTO>{
+getAllproducts():Observable<productsDTO>{
  return this.http.get<productsDTO>(this.base_url).pipe(retry(2),catchError(this.handleError));
 }
 
 
 // get team by id
-getByidCompany(id:number):Observable<productsDTO>{
+getByidproduct(id:number):Observable<productsDTO>{
   return this.http.get<productsDTO>(this.base_url + '/' +id).pipe(retry(2),catchError(this.handleError));
 
 }
 
  // update team by Id the
- updateCompanyBusiness(item : productsDTO){
+ updateproduct(item : productsDTO){
   return this.http.put<productsDTO>(this.base_url,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
  }
 
   // delete cars
-  deleteCompanyBusiness(id:number){
+  deleteproduct(id:number){
     return this.http.delete<productsDTO>(this.base_url + '/' +id,this.httpOptions).pipe(retry(2),catchError(this.handleError));
 
 }

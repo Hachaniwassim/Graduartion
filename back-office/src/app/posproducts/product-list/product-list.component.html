@@ -1,0 +1,55 @@
+
+<br><br><br>
+<div id="wrapper">
+  <div class="content-page">
+    <!-- Start content -->
+    <div class="content">
+      <section class="breadcrumb_section text-center clearfix">
+        <div class="overlay"></div>
+        <div class="page_title_area has_overlay d-flex align-items-center clearfix">
+          <div class="container"data-aos="fade-up" data-aos-delay="100">
+        <div class="site-section light-bg">
+            <div class="row justify-content-center text-center mb-5 section-2-title">
+              <div class="col-md-6">
+                <span class="text-primary">Our Products</span>
+                <h2 class="mb-4">Discover Our Products</h2> </div>
+                <div class="album py-2 ">
+                  <button mat-fab color="gray" (click)="onCreateproduct()">
+                    <mat-icon>add</mat-icon>
+                  </button>&nbsp;&nbsp;
+                  <br><br>
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                  <div class="col-lg-3 col-md-6 mb-4 mb-lg-0" *ngFor="let product of productlist">
+                    <!-- Card-->
+                    <div class="card shadow-sm border-0 rounded">
+                      <div class="card-body p-0"><img [src]="product.image" alt="" class="w-100 card-img-top">
+                        <div class="p-4">
+                          <h5 class="mb-0">{{product.title}}</h5>
+                          <p class="small text-muted">{{product.detailimage}}</p>
+                          <p class="small text-muted">{{product.note}}</p>
+                          <p class="small text-muted">{{product.name}}</p>
+                          <p class="small text-muted">{{product.image}}</p>
+                          <p class="small text-muted">{{product.consultationNumber}}</p>
+                          <ul class="social mb-0 list-inline mt-3">
+                            <button mat-icon-button (click)="onEditproduct(product)">
+                              <mat-icon>edit_outline</mat-icon>
+                            </button>
+                            <button mat-icon-button>
+                              <mat-icon  (click)="onDeleteproduct(product.id)">delete_forever</mat-icon>
+                            </button>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+  </div>
+</div>
