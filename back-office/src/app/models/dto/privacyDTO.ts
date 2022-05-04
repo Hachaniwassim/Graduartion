@@ -1,6 +1,6 @@
-export interface privacyDTO{
-    id :number ;
-	title : string;
-    htmlContent:string;
+export class privacyDTO{
+    id!:number ;
+	title! : string;
+    htmlContent!:string;
 
 }

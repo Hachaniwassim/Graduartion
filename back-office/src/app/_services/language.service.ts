@@ -83,7 +83,7 @@ alllanguages():Observable<languageDTO>{
     id: new FormControl(null),
     lang: new FormControl('',Validators.required),
     name : new FormControl('',[ Validators.required]),
-    image : new FormControl('',[ Validators.required]),
+    //image : new FormControl('',[ Validators.required]),
     active: new FormControl('', [Validators.required]),
 });
 
@@ -93,7 +93,7 @@ initializeFormGroup() {
     id :null,
     lang: null,
     name: null,
-    image: null,
+   // image: null,
     active: true,
   });
 }

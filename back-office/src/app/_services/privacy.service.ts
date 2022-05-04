@@ -57,8 +57,8 @@ export class Privacyservice {
   }
 
   //get all account data 
-  getallPrivacy(): Observable<privacyDTO> {
-    return this.http.get<privacyDTO>(this.base_url).pipe(retry(2), catchError(this.handleError));
+  getallPrivacy(): Observable<privacyDTO[]> {
+    return this.http.get<privacyDTO[]>(this.base_url).pipe(retry(2), catchError(this.handleError));
   }
 
 

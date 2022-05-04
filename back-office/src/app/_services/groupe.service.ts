@@ -5,6 +5,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import * as _ from 'lodash';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
+import { CompanyBusinessDTO } from '../models/dto/companyBusinessDTO';
 import { GroupeDTO } from '../models/dto/groupeDTO';
 
 @Injectable({
@@ -57,13 +58,14 @@ export class GroupeService {
 
 
   // insert 
-  createGroupe(item: GroupeDTO): Observable<GroupeDTO> {
+  createGroupe(item: any): Observable<GroupeDTO> {
+  
     return this.http.post<GroupeDTO>(this.base_url, JSON.stringify(item), this.httpOptions).pipe(retry(2), catchError(this.handleError));
   }
 
   //get all team data 
-  getallGroupe(): Observable<GroupeDTO> {
-    return this.http.get<GroupeDTO>(this.base_url).pipe(retry(2), catchError(this.handleError));
+  getallGroupe(): Observable<GroupeDTO[]> {
+    return this.http.get<GroupeDTO[]>(this.base_url).pipe(retry(2), catchError(this.handleError));
   }
 
 
@@ -73,6 +75,11 @@ export class GroupeService {
 
 
   }
+  //get all team data 
+getAllCompanyBussiness():Observable<CompanyBusinessDTO[]>{
+  return this.http.get<CompanyBusinessDTO[]>(this.base_url).pipe(retry(2),catchError(this.handleError));
+}
+
   // update team by Id the
   updateGroupe(item: GroupeDTO) {
     return this.http.put<GroupeDTO>(this.base_url, JSON.stringify(item), this.httpOptions).pipe(retry(2), catchError(this.handleError));
@@ -108,9 +115,8 @@ export class GroupeService {
     id: new FormControl(null),
     description: new FormControl('', Validators.required),
     name: new FormControl('', [Validators.required]),
-    confirmed: new FormControl(''),
-    active: new FormControl('', [Validators.required]),
-    deleted: new FormControl(''),
+    groupStatus: new FormControl(null),
+    companyId:new FormControl(null)
     //companyBusiness: new FormControl('')
 
 
@@ -122,11 +128,9 @@ export class GroupeService {
       id: null,
       name: '',
       description: '',
-      active: true,
-      confirmed: true,
-      deleted: false,
+      groupStatus: '',
+      companyId: null
       //companyBusiness:['']
-
     });
   }
   populateForm(groupe: any) {
@@ -134,8 +138,8 @@ export class GroupeService {
   }
 
    //update groupe  by status
-   updateGroupeByStatus(item : any,id : any){
- return this.http.put(this.base_url + '/' +id,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
+   updateGroupeByStatus(id : number,item : string){
+ return this.http.put<any>(this.base_url + '/toggle-status/' + id,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
   }
 
 

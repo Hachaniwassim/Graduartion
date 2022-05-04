@@ -5,10 +5,9 @@ export  interface GroupeDTO{
 id: number;
 name: string;
 description: string;
-active: boolean;
 createdDate : Date;
 lastModifiedDate: Date; 
-confirmed?: boolean;
-deleted?: boolean;
+companyId: number;
+groupStatus: string;
 //companyBusiness?:CompanyBusinessDTO[];
 }

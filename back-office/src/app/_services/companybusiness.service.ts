@@ -56,8 +56,8 @@ createCompayBusiness(item : CompanyBusinessDTO):Observable<CompanyBusinessDTO>{
 }
 
 //get all team data 
-getAllCompanyBussiness():Observable<CompanyBusinessDTO>{
-   return this.http.get<CompanyBusinessDTO>(this.base_url).pipe(retry(2),catchError(this.handleError));
+getAllCompanyBussiness():Observable<CompanyBusinessDTO[]>{
+   return this.http.get<CompanyBusinessDTO[]>(this.base_url).pipe(retry(2),catchError(this.handleError));
  }
 
 

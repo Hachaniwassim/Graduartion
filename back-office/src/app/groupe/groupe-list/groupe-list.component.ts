@@ -39,7 +39,7 @@ export class GroupeListComponent implements OnInit {
 
   company: List<CompanyBusinessDTO> = [];
   datasource = new MatTableDataSource(this.groupe)
-  displayedColumns: string[] = [ 'name', 'active', 'confirmed', 'deleted', 'createdDate', 'lastModifiedDate', 'actions'];
+  displayedColumns: string[] = [ 'name', 'groupStatus', 'createdDate', 'lastModifiedDate', 'actions'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort, {}) sort!: MatSort;
   id = this.route.snapshot.params['id'];
@@ -155,6 +155,7 @@ export class GroupeListComponent implements OnInit {
     dialogConfig.autoFocus = true;
     dialogConfig.width = "60%";
     this.dialog.open(GroupeAddComponent, dialogConfig);
+//            this.datasource.data.push(result)
 
   }
 
@@ -183,82 +184,19 @@ export class GroupeListComponent implements OnInit {
   }
 
   //update status groupe
-  updateactiveGroupe(groupe: any) {
-    var obj = {
-      "status": true
-    };
+  updateactiveGroupe(element: GroupeDTO) {
 
-    this.groupeService.updateGroupeByStatus(groupe.id, obj).subscribe
-      ({
-        next: (res) => {
-          console.log(res);
-           // snackBar success 
-          this._snackBar.open(" :: Updated Status Succe", "", {
-            duration: 3000,
-            horizontalPosition: "right",
-            verticalPosition: "top",
-            panelClass: ["mat-toolbar", "mat-primary"],
-          });
-          this.ngOnInit();
+    this.groupeService.updateGroupeByStatus(element.id, element.groupStatus).subscribe( res => {
+        
+         console.log(res);
+          
+          const index = this.datasource.data.indexOf(element);
+          if(index > -1) {
+            this.datasource.data[index].groupStatus = res.groupStatus;
+          }
         },
       // snackBar error 
-        error: (err) => {
-          this._snackBar.open(" :: Somthing warn happend " + err.error?.message, "", {
-            duration: 3000,
-            horizontalPosition: "right",
-            verticalPosition: "top",
-            panelClass: ["mat-toolbar", "mat-warn"],
-          });
-        },
-      });
-
-  }
-
-  //update confirmed  groupe
-  updateconfirmedGroupe(status: any) {
-    const data = {
-      name: this.currentGroupe.name,
-      description: this.currentGroupe.description,
-      active: this.currentGroupe.active,
-      deleted: this.currentGroupe.deleted,
-      confirmed: status
-    };
-
-    this.groupeService.updateGroupeByStatus(this.currentGroupe.id, data)
-      .subscribe(
-        response => {
-          this.currentGroupe.confirmed = status;
-          console.log(response);
-        },
-        error => {
-          console.log(error);
-        });
-
-
-  }
-
-
-
-  //update status dleted  groupe
-  updatedeletedGroupe(status: any) {
-    const data = {
-      name: this.currentGroupe.name,
-      description: this.currentGroupe.description,
-      confirmed: this.currentGroupe.confirmed,
-      active: this.currentGroupe.active,
-      deleted: status
-    };
-
-    this.groupeService.updateGroupeByStatus(this.currentGroupe.id, data)
-      .subscribe(
-        response => {
-          this.currentGroupe.deleted = status;
-          console.log(response);
-        },
-        error => {
-          console.log(error);
-        });
-
+      );
 
   }
 

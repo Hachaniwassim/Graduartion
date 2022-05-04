@@ -1,4 +1,12 @@
 <br><br><br>
+<div class="container">
+  <div class="search-div">
+<button  class="float-right" mat-fab color="primary"  (click)="onCreateGroupe()">
+  <mat-icon>add</mat-icon>
+</button>&nbsp;&nbsp;
+</div>
+</div>
+<br><br>
 <div class="card" style="width:100%;"><br>
   <div class="container">
     <div class="search-div">
@@ -8,9 +16,6 @@
           <mat-icon >close</mat-icon>
         </button>
       </mat-form-field>&nbsp;&nbsp;&nbsp;
-      <button mat-fab color="gray" (click)="onCreateGroupe()">
-        <mat-icon>add</mat-icon>
-      </button>&nbsp;&nbsp;
       <button mat-fab color="gray" (click)="removeAllGroupe()">
         <mat-icon color="warn" style="font-size: 20px;"> close </mat-icon>
       </button>
@@ -26,53 +31,16 @@
         <mat-header-cell *matHeaderCellDef mat-sort-header> Description</mat-header-cell>
         <mat-cell *matCellDef="let element">{{element.description}} </mat-cell>
       </ng-container>-->
-      <ng-container matColumnDef="active">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Active</mat-header-cell>
+      <ng-container matColumnDef="groupStatus">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Status</mat-header-cell>
         <mat-cell *matCellDef="let element">
-          <button mat-icon-button [ngStyle]="{'font-size.px':13}" class="badge badge-warning mr-2" *ngIf="element.active" (click)="updateactiveGroupe(false)">
-            <span class="badge badge-success" > {{element.active ? "Actived" : "Pending"}}
-            </span>
-          </button>
-          <button mat-icon-button [ngStyle]="{'font-size.px':13}" class="badge badge-warning mr-2" *ngIf="!element.active" (click)="updateactiveGroupe(true)">
-            <span class="badge badge-warning" > {{element.active ?
-              "<mat-icon>close</mat-icon>": "Pending"}}
+          <button mat-icon-button [ngStyle]="{'font-size.px':13}" class="badge badge-warning mr-2" (click)="updateactiveGroupe(element)">
+            <span class="badge" [ngClass]="{'badge-success' : element.groupStatus === 'ACTIVE' , 'badge-warning' : element.groupStatus === 'PENDING' , 'badge-danger' : element.groupStatus === 'BLOCKED'}" > {{element.groupStatus}}
             </span>
           </button>
         </mat-cell>
       </ng-container>
-      <ng-container matColumnDef="confirmed">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Confirmed</mat-header-cell>
-        <mat-cell *matCellDef="let element">
-          <button mat-icon-button [ngStyle] ="{'color':'GREEN'}" *ngIf="element.confirmed"
-            (click)="updateconfirmedGroupe(false)">
-            <span class="badge badge-success mr-2"> {{element.confirmed ? "Confirmed" : "Pending"}}
-            </span>
-          </button>
-          <button mat-icon-button  *ngIf="!element.confirmed"
-          [ngStyle] ="{'color':'RED'}"
-            (click)="updateconfirmedGroupe(true)">
-            <span class="badge badge-danger mr-2"> {{element.confirmed ?
-              "Confirmed": "Pending"}}
-            </span>
-          </button>
-        </mat-cell>
-      </ng-container>
-      <ng-container matColumnDef="deleted">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>Deleted</mat-header-cell>
-        <mat-cell *matCellDef="let element">
-          <button mat-icon-button  [ngStyle] ="{'color':'GREEN'}" *ngIf="element.deleted"
-            (click)="updatedeletedGroupe(false)">
-            <span class="badge badge-danger mr-2" >{{element.deleted ? "Deleted" : "Pending"}}
-            </span>
-          </button>
-          <button mat-icon-button [ngStyle] ="{'color':'RED'}" *ngIf="!element.deleted"
-            (click)="updatedeletedGroupe(true)">
-            <span class="badge badge-warning mr-2"> {{element.deleted ?
-              "Deleted": "Pending"}}
-            </span>
-          </button>
-        </mat-cell>
-      </ng-container>
+    
       <ng-container matColumnDef="createdDate">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Created At</mat-header-cell>
         <mat-cell *matCellDef="let element">{{element.createdDate  | date:'short'}} </mat-cell>
