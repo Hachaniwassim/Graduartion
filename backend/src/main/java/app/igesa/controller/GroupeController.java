@@ -1,5 +1,6 @@
 package app.igesa.controller;
 import app.igesa.entity.Groupe;
+import app.igesa.enumerations.GroupStatus;
 import app.igesa.repository.IgroupeRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -111,7 +112,7 @@ public class GroupeController {
 	})
 	public ResponseEntity<List<GroupeDTO>> findByActiveGroupe() {
 		try {
-			List<GroupeDTO> groupes = igroupeRepository.findByActive(true).stream().map(GroupeDTO::fromEntity).collect(Collectors.toList());
+			List<GroupeDTO> groupes = igroupeRepository.findByGroupStatus(GroupStatus.ACTIVE).stream().map(GroupeDTO::fromEntity).collect(Collectors.toList());
 			if (groupes.isEmpty()) {
 				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 			}
@@ -130,7 +131,7 @@ public class GroupeController {
 	})
 	public ResponseEntity<List<GroupeDTO>> findByConfirmedGroupe() {
 		try {
-			List<GroupeDTO> groupes = igroupeRepository.findByConfirmed(true).stream().map(GroupeDTO::fromEntity).collect(Collectors.toList());
+			List<GroupeDTO> groupes = igroupeRepository.findByGroupStatus(GroupStatus.ACTIVE).stream().map(GroupeDTO::fromEntity).collect(Collectors.toList());
 			if (groupes.isEmpty()) {
 				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 			}
@@ -150,7 +151,7 @@ public class GroupeController {
 	})
 	public ResponseEntity<List<GroupeDTO>> findByDeletedGroupe() {
 		try {
-			List<GroupeDTO> groupes = igroupeRepository.findByDeleted(true).stream().map(GroupeDTO::fromEntity).collect(Collectors.toList());
+			List<GroupeDTO> groupes = igroupeRepository.findByGroupStatus(GroupStatus.BLOCKED).stream().map(GroupeDTO::fromEntity).collect(Collectors.toList());
 			if (groupes.isEmpty()) {
 				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 			}
@@ -178,25 +179,30 @@ public class GroupeController {
 
 	}
 
-	@RequestMapping(value = "/groupe/{id}", method = RequestMethod.PUT)
+	@RequestMapping(value = "/groupe/toggle-status/{id}", method = RequestMethod.PUT)
 	@ApiOperation(value = "UPDATE GROUPE BY ID ", response = GroupeDTO.class)
 	@ApiResponses(value = {
 			@ApiResponse(code = 200, message = "Groupe was updated successfully"),
 			@ApiResponse(code = 401, message = "Unauthorized , without authority or permission"),
 			@ApiResponse(code = 403, message = "not permitted or allowed"),
 	})
-	public ResponseEntity<GroupeDTO> updateStatus(@PathVariable("id") long id, @RequestBody GroupeDTO g) {
+	public ResponseEntity<GroupeDTO> updateStatus(@PathVariable("id") long id, @RequestBody GroupStatus status) {
 		Optional<Groupe> Data = igroupeRepository.findById(id);
-
 		Groupe saved = null;
 		if (Data.isPresent()) {
 			Groupe groupe = Data.get();
-			groupe.setDeleted(g.isDeleted());
-			groupe.setDescription(g.getDescription());
-			groupe.setActive(g.isActive());
-			groupe.setConfirmed(g.isConfirmed());
-			groupe.setName(g.getName());
-			saved = igroupeRepository.save(GroupeDTO.toEntity(GroupeDTO.fromEntity(groupe)));
+
+			if (GroupStatus.ACTIVE == status) {
+				groupe.setGroupStatus(GroupStatus.PENDING);
+			}
+			if (GroupStatus.PENDING == status) {
+				groupe.setGroupStatus(GroupStatus.BLOCKED);
+			}
+			if (GroupStatus.BLOCKED == status) {
+				groupe.setGroupStatus(GroupStatus.ACTIVE);
+			}
+
+			saved = igroupeRepository.save(groupe);
 
 		}
 		return new ResponseEntity<>(GroupeDTO.fromEntity(saved), HttpStatus.CREATED);

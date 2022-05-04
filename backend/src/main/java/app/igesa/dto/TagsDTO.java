@@ -3,7 +3,6 @@ import app.igesa.entity.Tags;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
 import lombok.Data;
-
 import java.util.Date;
 import java.util.List;
 
@@ -11,11 +10,9 @@ import java.util.List;
 @Data
 public class TagsDTO {
 	private Long id ;
-	private String name ;
 	private String description ;
 	protected Date createdDate;
 	protected Date lastModifiedDate;
-	protected String createdBy;
 	@JsonIgnore
 	private List<PostDTO> pots;
 	@JsonIgnore
@@ -28,7 +25,6 @@ public class TagsDTO {
 		}
 		return TagsDTO.builder()
 				.id(tag.getId())
-				.name((tag.getName()))
 				.description(tag.getDescription())
 				.lastModifiedDate(tag.getLastModifiedDate())
 				.createdDate(tag.getCreatedDate())
@@ -45,7 +41,6 @@ public class TagsDTO {
 		Tags tag = new Tags();
 		tag.setId(dto.getId());
 		tag.setDescription(dto.getDescription());
-		tag.setName(dto.getName());
 		tag.setLastModifiedDate(dto.getLastModifiedDate());
 		tag.setCreatedDate(dto.getCreatedDate());
 		tag.setCreatedDate(dto.getCreatedDate());

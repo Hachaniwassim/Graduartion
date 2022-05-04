@@ -3,6 +3,7 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import app.igesa.enumerations.GroupStatus;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -26,14 +27,8 @@ public class Groupe  extends Auditable{
     @Column(name = "Description")
     private String description;
 
-    @Column(name = "Active")
-    private boolean active;
+    private GroupStatus groupStatus;
 
-    @Column(name = "Confirmed")
-    private boolean confirmed;
-
-    @Column(name = "Deleted")
-    private boolean deleted;
 
     /*--------------------------------------Relations----------------------------------*/
 
@@ -57,14 +52,9 @@ public class Groupe  extends Auditable{
 
         this.name = name;
         this.description = description;
-        this.active = active;
-        this.confirmed = confirmed;
-        this.deleted = deleted;
+
     }
 
-    public Groupe(boolean active){
-        this.active=active;
-    }
 public Groupe(){
     super();
 }
