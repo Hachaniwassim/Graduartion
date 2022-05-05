@@ -1,8 +1,6 @@
 package app.igesa.entity;
 import java.util.List;
-
 import javax.persistence.*;
-
 import app.igesa.enumerations.GroupStatus;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
@@ -27,10 +25,8 @@ public class Groupe  extends Auditable{
     @Column(name = "Description")
     private String description;
 
+    @Column(name = "GroupStatus")
     private GroupStatus groupStatus;
-
-
-    /*--------------------------------------Relations----------------------------------*/
 
     //Enterprise
     @JsonIgnore

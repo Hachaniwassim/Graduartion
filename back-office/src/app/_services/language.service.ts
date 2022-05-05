@@ -13,16 +13,8 @@ import { languageDTO } from '../models/dto/languageDTO';
 export class Accountservice {
 
   //api backend
-  private base_url="http://localhost:8089/";
-  
-  headers = new HttpHeaders().set('Content-Type', 'application/json');
-
-  Language={
-    lang:'', 
-    name: '',
-    image: '',
-    active: true,
-  }
+  private base_url="http://localhost:8089";
+ 
   constructor(private http :HttpClient, private datePipe: DatePipe) { }
 
   //http opttion
@@ -56,8 +48,8 @@ createlanguage(item : languageDTO):Observable<languageDTO>{
 }
 
 //get all account data 
-alllanguages():Observable<languageDTO>{
-   return this.http.get<languageDTO>(this.base_url).pipe(retry(2),catchError(this.handleError));
+alllanguages():Observable<languageDTO[]>{
+   return this.http.get<languageDTO[]>(this.base_url).pipe(retry(2),catchError(this.handleError));
  }
 
 

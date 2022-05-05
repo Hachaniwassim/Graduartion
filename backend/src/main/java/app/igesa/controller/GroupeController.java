@@ -187,26 +187,6 @@ public class GroupeController {
 			@ApiResponse(code = 403, message = "not permitted or allowed"),
 	})
 	public ResponseEntity<GroupeDTO> updateStatus(@PathVariable("id") long id, @RequestBody GroupStatus status) {
-		Optional<Groupe> Data = igroupeRepository.findById(id);
-		Groupe saved = null;
-		if (Data.isPresent()) {
-			Groupe groupe = Data.get();
-
-			if (GroupStatus.ACTIVE == status) {
-				groupe.setGroupStatus(GroupStatus.PENDING);
-			}
-			if (GroupStatus.PENDING == status) {
-				groupe.setGroupStatus(GroupStatus.BLOCKED);
-			}
-			if (GroupStatus.BLOCKED == status) {
-				groupe.setGroupStatus(GroupStatus.ACTIVE);
-			}
-
-			saved = igroupeRepository.save(groupe);
-
-		}
-		return new ResponseEntity<>(GroupeDTO.fromEntity(saved), HttpStatus.CREATED);
-
-
+		return new ResponseEntity<>(groupeservice.updateSatus(id, status), HttpStatus.CREATED);
 	}
 }

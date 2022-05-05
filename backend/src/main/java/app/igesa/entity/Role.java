@@ -1,9 +1,5 @@
 package app.igesa.entity;
-import java.io.Serializable;
-import java.util.List;
-import java.util.Set;
 import javax.persistence.*;
-
 import lombok.*;
 
 
@@ -14,7 +10,7 @@ import lombok.*;
 @Getter
 @Setter
 @Table(name="role")
-public class Role extends Auditable {
+public class Role  {
 
 		@Id
 		@GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -5,8 +5,8 @@
     <!-- Start content -->
     <div class="content">
       <form class="form p-3" [formGroup]="cookie" id="cookie">
-      <h3>Cookie</h3>
-      <mat-progress-bar mode="determinate" value="30"></mat-progress-bar><br><br>
+      <h3>Cookies</h3>
+      <mat-progress-bar mode="determinate" value="13"></mat-progress-bar><br><br>
         <div class="card card-fullheight">
           <div class="card-body">
             <div class="row">
@@ -15,11 +15,22 @@
                 <input type="text" formControlName="title" placeholder="title" class="form-control form-control-sm">
               </div>
             </div>
+            <div class="row mt-5">
+              <div class="col-md-12 col-sm-12 ">
+                <button mat-flat-button  class="float-right" color="primary" (click)="save()">save
+                </button>
+                </div>
+                </div>
+                </div>
+              </div>
             <br><br><br>
+            
+            <div class="card card-fullheight">
+            <div class="card-body">
             <div class="row mt-5">
               <div class="col-md-12 col-sm-12 mt-5">
                 <label>Descriprtion *</label>
-                <ckeditor class="w-100 col-12" formControlName="htmlContent" [config]="config"></ckeditor>
+                <ckeditor class="w-100 col-10" formControlName="htmlContent" [config]="config"></ckeditor>
               </div>
             </div>
             <div class="row mt-5">
@@ -34,7 +45,6 @@
     </div>
   </div>
 </div>
-
 
 <script type="text/javascript">(function (w, d) {
     var loader = function () {

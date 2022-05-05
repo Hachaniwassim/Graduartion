@@ -1,4 +1,5 @@
 package app.igesa.payload.request;
+import app.igesa.enumerations.AccountStatus;
 import app.igesa.validators.PasswordMatches;
 import lombok.*;
 import javax.validation.constraints.NotEmpty;
@@ -19,7 +20,7 @@ public class SignupRequest {
     
     private Set<String> role;
 
-    //private Groupe groupe ;
+    private AccountStatus accountStatus;
 
 
     @NotEmpty

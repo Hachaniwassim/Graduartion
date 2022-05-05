@@ -16,14 +16,6 @@ export class PlateformeService {
   private base_url="http://localhost:8089/plateforme";
   
 
- PlateformeDTO ={
-  image:'', 
-  email: '',
-  phone: '',
-  adresse: '',
-  published: '',
-
-  }
   constructor(private http :HttpClient, private datePipe: DatePipe) { }
 
   //http opttion
@@ -56,24 +48,24 @@ createplateforme(item : plateforomeDTO):Observable<plateforomeDTO>{
   return this.http.post<plateforomeDTO>(this.base_url,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
 }
 
-//get all team data 
-getAllplateformes():Observable<plateforomeDTO>{
-   return this.http.get<plateforomeDTO>(this.base_url).pipe(retry(2),catchError(this.handleError));
+//get all data 
+getAllplateformes():Observable<plateforomeDTO[]>{
+   return this.http.get<plateforomeDTO[]>(this.base_url).pipe(retry(2),catchError(this.handleError));
  }
 
 
-  // get team by id
+  // get by id
   getByidplateforme(id:number):Observable<plateforomeDTO>{
     return this.http.get<plateforomeDTO>(this.base_url + '/' +id).pipe(retry(2),catchError(this.handleError));
 
   }
 
-   // update team by Id the
+   // update by Id the
    updateplateforme(item : plateforomeDTO){
     return this.http.put<plateforomeDTO>(this.base_url,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
    }
 
-    // delete cars
+    // delete
     deleteplateforme(id:number){
       return this.http.delete<plateforomeDTO>(this.base_url + '/' +id,this.httpOptions).pipe(retry(2),catchError(this.handleError));
 

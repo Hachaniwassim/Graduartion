@@ -10,5 +10,4 @@ createdDate :Date,
 lastModifiedDate:Date,
 confirmed?: boolean;
 deleted?:boolean;
-companyBusiness?:CompanyBusiness[];
 }

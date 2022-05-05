@@ -12,22 +12,11 @@ import { GroupeDTO } from '../models/dto/groupeDTO';
   providedIn: 'root'
 })
 export class GroupeService {
+
   //api backend
   private base_url = "http://localhost:8089/groupe";
 
 
-  GroupeDTO = {
-    name: '',
-    description: '',
-    active: true,
-   // createdAt: '',
-   // updateAt: '',
-    confirmed: true,
-    deleted: false,
-    createdDate :'',
-    lastModifiedDate:'',
-    //companyBusiness:[]
-  }
 
   constructor(private http: HttpClient, private datePipe: DatePipe) { }
 
@@ -63,24 +52,24 @@ export class GroupeService {
     return this.http.post<GroupeDTO>(this.base_url, JSON.stringify(item), this.httpOptions).pipe(retry(2), catchError(this.handleError));
   }
 
-  //get all team data 
+  //get all data 
   getallGroupe(): Observable<GroupeDTO[]> {
     return this.http.get<GroupeDTO[]>(this.base_url).pipe(retry(2), catchError(this.handleError));
   }
 
 
-  // get team by id
+  // get by id
   getByidGroupe(id: number): Observable<GroupeDTO> {
     return this.http.get<GroupeDTO>(this.base_url + '/' + id).pipe(retry(2), catchError(this.handleError));
 
 
   }
-  //get all team data 
+  //get all  data 
 getAllCompanyBussiness():Observable<CompanyBusinessDTO[]>{
   return this.http.get<CompanyBusinessDTO[]>(this.base_url).pipe(retry(2),catchError(this.handleError));
 }
 
-  // update team by Id the
+  // update by Id 
   updateGroupe(item: GroupeDTO) {
     return this.http.put<GroupeDTO>(this.base_url, JSON.stringify(item), this.httpOptions).pipe(retry(2), catchError(this.handleError));
   }
@@ -90,7 +79,7 @@ getAllCompanyBussiness():Observable<CompanyBusinessDTO[]>{
     return this.http.delete<GroupeDTO>(this.base_url + '/' + id, this.httpOptions).pipe(retry(2), catchError(this.handleError));
 
   }
-  // get all groupe 
+  // delete all groupe 
   deleteAllGroupe() {
     return this.http.delete(this.base_url).pipe(retry(2), catchError(this.handleError));
 
@@ -117,7 +106,6 @@ getAllCompanyBussiness():Observable<CompanyBusinessDTO[]>{
     name: new FormControl('', [Validators.required]),
     groupStatus: new FormControl(null),
     companyId:new FormControl(null)
-    //companyBusiness: new FormControl('')
 
 
   });
@@ -130,7 +118,6 @@ getAllCompanyBussiness():Observable<CompanyBusinessDTO[]>{
       description: '',
       groupStatus: '',
       companyId: null
-      //companyBusiness:['']
     });
   }
   populateForm(groupe: any) {

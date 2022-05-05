@@ -6,6 +6,7 @@ import * as _ from 'lodash';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { EntrepriseDTO } from '../models/dto/entreprisDTO';
+import { GroupeDTO } from '../models/dto/groupeDTO';
 @Injectable({
   providedIn: 'root'
 })
@@ -15,16 +16,7 @@ export class EntrepriseService {
    private base_url="http://localhost:8089/entreprise";
 
  
- EntrepriseDTO ={
-  //id: '',
-  companyname :'',
-  codefiscale : '',
-  phone: '',
-  fax: '',
-  email: '',
-  note: '',
-  groupe : []
-   }
+
    
    constructor(private http :HttpClient, private datePipe: DatePipe) { }
  
@@ -63,8 +55,14 @@ export class EntrepriseService {
 
 
  //get all team data 
- getAllEntreprise():Observable<EntrepriseDTO>{
-    return this.http.get<EntrepriseDTO>(this.base_url).pipe(retry(2),catchError(this.handleError));
+ getAllEntreprise():Observable<EntrepriseDTO[]>{
+    return this.http.get<EntrepriseDTO[]>(this.base_url).pipe(retry(2),catchError(this.handleError));
+  }
+
+  
+   //get all grope
+   getallGroupe(): Observable<GroupeDTO[]> {
+    return this.http.get<GroupeDTO[]>(this.base_url).pipe(retry(2), catchError(this.handleError));
   }
  
  
@@ -101,6 +99,7 @@ export class EntrepriseService {
    codefiscale: new FormControl('',[Validators.required]),
    note : new FormControl(''),  
    fax : new FormControl('',[ Validators.required]),
+   groupeId : new FormControl('')
    
   
  });
@@ -114,7 +113,7 @@ export class EntrepriseService {
      fax: true,
      codefiscale:'',
       note : '',
-     //groupe:['']
+    groupeId :''
  
    });
  }

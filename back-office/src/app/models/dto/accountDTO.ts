@@ -1,8 +1,10 @@
-export interface AccountDTO{
-    id?:number ;
-	username? : string;
-    email? : string;
-    password? : string;
-    matchingPassword? : string;
-    fiscaleCode ? : string;
+export class AccountDTO{
+    id!:number ;
+	username! : string;
+    email!: string;
+    password!: string;
+    groupeId!: number;
+    accountStatus!: string;
+    matchingPassword!: string;
+    fiscaleCode !: string;
 }

@@ -12,6 +12,7 @@ import { Accountservice } from 'src/app/_services/account.service';
 import {Location}from '@angular/common';
 import { AccountEditComponent } from '../account-edit/account-edit.component';
 import { AccountViewComponent } from '../account-view/account-view.component';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-account-list',
@@ -32,16 +33,8 @@ export class AccountListComponent implements OnInit {
   showModeratorBoard = false;
   data : any ;
 
-
-  accountt={
-    username :"",
-   email: "",
-   fiscaleCode: "",
-  }
-
-
   datasource = new MatTableDataSource(this.account)
-  displayedColumns: string[] = ['username', 'email','fiscaleCode','role','actions'];
+  displayedColumns: string[] = ['username', 'email','fiscaleCode','role','accountStatus','actions'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort,{}) sort!: MatSort;
   id=this.route.snapshot.params['id'];
@@ -99,8 +92,8 @@ export class AccountListComponent implements OnInit {
       getone(){
         this.Accountservice.getByid(this.id).subscribe((response)=>
         { this.data=response;
-         this.accountt=this.data;
-         console.log(this.accountt);
+         this.account=this.data;
+         console.log(this.account);
        })
       }
 
@@ -143,6 +136,37 @@ export class AccountListComponent implements OnInit {
     this.Accountservice.form.reset();
     this.Accountservice.initializeFormGroup();
   }
+  //update status groupe
+  updateaStatusAccount(element: AccountDTO) {
+
+  Swal.fire({
+    title: 'Are you sure to Update status  !?',
+    text: 'This process is irreversible.',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Yes, go ahead.',
+    cancelButtonText: 'No, let me think',
+  }).then((result) => {
+    if (result.value) {
+      this.Accountservice.updateAccountByStatus(element.id, element.accountStatus).subscribe( res => {
+        
+        console.log(res);
+         
+         const index = this.datasource.data.indexOf(element);
+         if(index > -1) {
+           this.datasource.data[index].accountStatus = res.accountStatus
+         }
+  
+      
+        })
+      Swal.fire('updated!', ' status updated successfully.', 'success');
+    } else if (result.dismiss === Swal.DismissReason.cancel) {
+      Swal.fire('TRY LATER...');
+    }
+  });
+
+}
+
 
 
   

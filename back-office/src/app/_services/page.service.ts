@@ -16,13 +16,7 @@ export class PageService {
   private base_url="http://localhost:8089/pages";
   
 
- PagesDTO ={
-  published:'', 
-  pagetype: '',
-  title: '',
-  description: '',
 
-  }
   constructor(private http :HttpClient, private datePipe: DatePipe) { }
 
   //http opttion
@@ -56,8 +50,8 @@ createPages(item : pagesDTO):Observable<pagesDTO>{
 }
 
 //get all page data 
-getAllPages():Observable<pagesDTO>{
-   return this.http.get<pagesDTO>(this.base_url).pipe(retry(2),catchError(this.handleError));
+getAllPages():Observable<pagesDTO[]>{
+   return this.http.get<pagesDTO[]>(this.base_url).pipe(retry(2),catchError(this.handleError));
  }
 
 

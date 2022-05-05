@@ -1,6 +1,8 @@
 package app.igesa.controller;
 
+import app.igesa.dto.GroupeDTO;
 import app.igesa.entity.Account;
+import app.igesa.enumerations.AccountStatus;
 import app.igesa.metiers.AccountImp;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -21,9 +23,6 @@ public class AccountController {
 
     @Autowired
     AccountImp accountImpService ;
-
-
-
     private static final Logger log = LoggerFactory.getLogger(AccountController.class);
 
 
@@ -100,4 +99,14 @@ public class AccountController {
         return ResponseEntity.noContent().build();
     }
 
+    @RequestMapping(value = "/user/toggle-status/{id}", method = RequestMethod.PUT)
+    @ApiOperation(value = "UPDATE USER BY Status", response = GroupeDTO.class)
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "USER Status was updated successfully"),
+            @ApiResponse(code = 401, message = "Unauthorized , without authority or permission"),
+            @ApiResponse(code = 403, message = "not permitted or allowed"),
+    })
+    public Account updateSatus(@PathVariable("id")  Long id, @RequestBody AccountStatus status) {
+        return accountImpService.updateSatus(id, status);
+    }
 }

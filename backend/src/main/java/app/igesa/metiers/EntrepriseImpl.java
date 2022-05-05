@@ -39,7 +39,7 @@ private static final Logger log = LoggerFactory.getLogger(EntrepriseImpl.class);
 
 	@Override
       public EntrepriseDTO save(EntrepriseDTO e) {
-	   List<String> errors = EntrepriseValidator.validateEntreprise(e);
+	  /* List<String> errors = EntrepriseValidator.validateEntreprise(e);
 	   if (e.getId()!= null) {
 		   
 	   }
@@ -57,7 +57,7 @@ private static final Logger log = LoggerFactory.getLogger(EntrepriseImpl.class);
 
 	    if(groupe.isPresent()) {
 	    	e.setGroupe(GroupeDTO.fromEntity(groupe.get()));
-	    }
+	    }*/
 	    
          Entreprise saved =entrepriseRepository.save(EntrepriseDTO.toEntity(e));
 	     return EntrepriseDTO.fromEntity(saved);

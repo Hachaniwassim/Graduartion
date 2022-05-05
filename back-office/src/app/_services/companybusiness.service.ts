@@ -81,8 +81,8 @@ getAllCompanyBussiness():Observable<CompanyBusinessDTO[]>{
 //validation formulaire
   form : FormGroup= new FormGroup({
     id: new FormControl(null),
-  description: new FormControl('',Validators.required),
-   domainename : new FormControl('',[ Validators.required]),
+    description: new FormControl('',Validators.required),
+    domainename : new FormControl('',[ Validators.required]),
  
 });
 

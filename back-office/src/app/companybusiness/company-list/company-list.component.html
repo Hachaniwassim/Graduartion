@@ -1,7 +1,6 @@
 <br><br><br>
-
 <div class="search-div">
-  <button mat-fab color="gray"  class="float-right" (click)="onCreateCompany()">
+  <button mat-fab color="gray" class="float-right" (click)="onCreateCompany()">
     <mat-icon color="primary">add</mat-icon>
   </button>
   <mat-form-field class="search-form-field" floatLabel="never">
@@ -10,7 +9,7 @@
       <mat-icon>close</mat-icon>
     </button>
   </mat-form-field>
-</div>
+</div><br>
 <div class="table-responsive table-hover">
   <mat-table [dataSource]="datasource" matSort>
     <ng-container matColumnDef="description">
@@ -23,11 +22,11 @@
     </ng-container>
     <ng-container matColumnDef="createdDate">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Created At</mat-header-cell>
-      <mat-cell *matCellDef="let element">{{element.createdDate  | date:'medium'}} </mat-cell>
+      <mat-cell *matCellDef="let element">{{element.createdDate | date:'medium'}} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="lastModifiedDate">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Last Modified At</mat-header-cell>
-      <mat-cell *matCellDef="let element">{{element.lastModifiedDate  | date:'medium'}} </mat-cell>
+      <mat-cell *matCellDef="let element">{{element.lastModifiedDate | date:'medium'}} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="actions">
       <mat-header-cell *matHeaderCellDef></mat-header-cell>

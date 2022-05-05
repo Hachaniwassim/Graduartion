@@ -3,7 +3,6 @@ package app.igesa.controller;
 import java.util.Collection;
 import java.util.List;
 import app.igesa.dto.CompanyBusinessDTO;
-import app.igesa.entity.CompanyBusiness;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;

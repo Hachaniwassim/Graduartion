@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import {Location}from '@angular/common';
+import { Location } from '@angular/common';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -46,24 +46,19 @@ export class GroupeAddComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // sorting sorting and pagination data 
-    this.datasource.sort = this.sort;
-    this.datasource.paginator = this.paginator;
     this.getAllGroupe();
-    this.companyService.getAllCompanyBussiness().subscribe(res=>{
+    this.companyService.getAllCompanyBussiness().subscribe(res => {
       console.log(res)
-
-
       this.companyServices = res;
     })
-   
+
   }
 
-   getAllGroupe() {
+  getAllGroupe() {
     this.groupeService.getallGroupe().subscribe((response: any) => {
       this.datasource.data = response;
     })
-   }
+  }
 
 
   //clear data
@@ -72,29 +67,27 @@ export class GroupeAddComponent implements OnInit {
     this.groupeService.initializeFormGroup();
   }
 
-   // submit data with context EDITE : CREATE
-   onSubmit() {
+  // submit data with context EDITE : CREATE
+  onSubmit() {
     if (this.groupeService.form.valid) {
 
-      if (!this.groupeService.form.get('id')?.value)
-       { console.log(this.groupeService.form.value);
+      if (!this.groupeService.form.get('id')?.value) {
+        console.log(this.groupeService.form.value);
         this.groupeService.createGroupe(this.groupeService.form.value).subscribe((res) => {
           console.log(res);
-      
           this.notificationService.success(':: Submitted successfully');
-          this.onClose();
+          this.datasource.data.push(res);
+
         });
       }
 
-      else(
-        this.groupeService.updateGroupe(this.groupeService.form.value).subscribe(() => {
-        })) 
-        this.onClose();
-      }
-      
-    this.groupeService.form.reset();
-    this.groupeService.initializeFormGroup();
-   // this.refresh();
+      else (
+        this.groupeService.updateGroupe(this.groupeService.form.value).subscribe((res) => {
+          this.datasource.data.push(res);
+
+        }));
+    }
+    this.onClose();
   }
 
 
@@ -113,9 +106,7 @@ export class GroupeAddComponent implements OnInit {
     this.groupeService.initializeFormGroup();
     this.dialogRef.close();
   }
-  reloadPage() {
-    window.location.reload();
-  }
- 
+
+
 }
 

@@ -15,20 +15,7 @@ export class PostService {
   //api backend
   private base_url="http://localhost:8089/";
   
-  headers = new HttpHeaders().set('Content-Type', 'application/json');
 
- PostDTO ={
-  image:'', 
-  tagline: '',
-  postTranslations: '',
-  title: '',
-  description: '',
-  content: '',
-  slug: '',
-  subtitle: '',
-
-
-  }
   constructor(private http :HttpClient, private datePipe: DatePipe) { }
 
   //http opttion
@@ -62,8 +49,8 @@ create(item : postDTO):Observable<postDTO>{
 }
 
 //get all post data 
-all():Observable<postDTO>{
-   return this.http.get<postDTO>(this.base_url).pipe(retry(2),catchError(this.handleError));
+all():Observable<postDTO[]>{
+   return this.http.get<postDTO[]>(this.base_url).pipe(retry(2),catchError(this.handleError));
  }
 
 
