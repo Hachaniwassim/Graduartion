@@ -17,15 +17,6 @@ export class Accountservice {
   
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
-  Account={
-    username:'', 
-    email: '',
-    password: '',
-    matchingPassword: '',
-    fiscaleCode: '',
-    role :''
-
-  }
   constructor(private http :HttpClient, private datePipe: DatePipe) { }
 
   //http opttion
@@ -54,8 +45,8 @@ export class Accountservice {
 
 
 // insert 
-create(item : AccountDTO):Observable<AccountDTO>{
-  return this.http.post<AccountDTO>(this.base_url,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
+create(item : AccountDTO):Observable<AccountDTO[]>{
+  return this.http.post<AccountDTO[]>(this.base_url,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
 }
 
 //get all account data 
@@ -82,27 +73,36 @@ all():Observable<AccountDTO>{
 }
 
 //validation formulaire
-  form : FormGroup= new FormGroup({
+    form : FormGroup= new FormGroup({
     id: new FormControl(null),
     username: new FormControl('',Validators.required),
     email : new FormControl('',[ Validators.required]),
     password : new FormControl('',[ Validators.required]),
     matchingPassword : new FormControl('',[ Validators.required]),
-    fiscaleCode : new FormControl('',[ Validators.required])
+    fiscaleCode : new FormControl('',[ Validators.required]),
+    accountStatus: new FormControl(''),
 });
 
 // inialisation formulaire 
 initializeFormGroup() {
-  this.form.setValue({
+    this.form.setValue({
     id :null,
     username: null,
     email: null,
     password: null,
     matchingPassword: null,
-    fiscaleCode: null
+    fiscaleCode: null,
+    accountStatus:null
   });
 }
-populateForm(company: any) {
-  this.form.patchValue(_.omit(company));
+populateForm(account: any) {
+  this.form.patchValue(_.omit(account));
 }
+
+
+   //update account by status
+   updateAccountByStatus(id : number,item : string){
+    return this.http.put<any>(this.base_url + '/toggle-status/' + id,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
+     }
+   
 }

@@ -19,7 +19,7 @@ export class CookiesService {
   }
 
   get() {
-    return this.http.get<CookieDTO>(this.base_url);
+    return this.http.get<CookieDTO[]>(this.base_url);
   }
 
 }

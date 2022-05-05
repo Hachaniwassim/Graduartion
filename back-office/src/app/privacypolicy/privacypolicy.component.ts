@@ -19,7 +19,6 @@ export class PrivacypolicyComponent implements OnInit {
   privacy !: FormGroup;
   config = {
     language: 'en',
-    placeholder:'Enter your texte here ..'
   };
 
 
@@ -45,25 +44,9 @@ export class PrivacypolicyComponent implements OnInit {
   save(){
      this.privacyService.updatePrivacy(this.privacy.value).subscribe(r=>{
       console.log(r);
-     this.snackBar.open(" :: updated Successfully ", "", {
-      duration: 3000,
-      horizontalPosition: "right",
-      verticalPosition: "top",
-      panelClass: ["mat-toolbar", "mat-primary"],
-     });
-    },
-  error => {
-    this.snackBar.open("Erroor occurend !!" + error?.message, "", {
-      duration: 3000,
-      horizontalPosition: "right",
-      verticalPosition: "top",
-      panelClass: ["mat-toolbar", "mat-warn"],
-    });
-  });
   
-     this.refresh()
+  })
   }
-
 
 //refrech 
 refresh(): void {

@@ -9,28 +9,32 @@ import { AuthService } from '../_services/auth.service';
 })
 export class RegisterComponent implements OnInit {
 
+  //form initialiaze
   form: any = {
-    username :"",
+    username: "",
     email: "",
     password: "",
-    matchingPassword:"",
+    matchingPassword: "",
     fiscaleCode: "",
 
   };
-  MatchPassword(AC: AbstractControl) {
-    const password = AC.get('password')?.value; // to get value in input tag
-    const matchingPassword= AC.get('matchingPassword')?.value; // to get value in input tag
-    if (password !== matchingPassword ){
-      return {MatchPassword: true};
-    } else {
-        return null
-    }
-  }
-  
 
+  fieldTextType!: boolean;
   isSuccessful = false;
   isSignUpFailed = false;
   errorMessage = '';
+
+  //test confirm password 
+  MatchPassword(AC: AbstractControl) {
+    const password = AC.get('password')?.value; // to get value in input tag
+    const matchingPassword = AC.get('matchingPassword')?.value; // to get value in input tag
+    if (password !== matchingPassword) {
+      return { MatchPassword: true };
+    } else {
+      return null
+    }
+  }
+
 
   constructor(private authService: AuthService) { }
 
@@ -38,9 +42,10 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(): void {
-    const { username, email, password ,
-      matchingPassword ,
-      fiscaleCode} = this.form;
+    const {
+      username, email, password,
+      matchingPassword,
+      fiscaleCode } = this.form;
 
     this.authService.register(username, email, password, matchingPassword, fiscaleCode).subscribe(
       data => {
@@ -54,5 +59,12 @@ export class RegisterComponent implements OnInit {
       }
     );
   }
+
+  // show password 
+  toggleFieldTextType() {
+    this.fieldTextType = !this.fieldTextType;
+  }
+
+
 
 }

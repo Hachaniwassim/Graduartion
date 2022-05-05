@@ -34,13 +34,11 @@ export class CookiesComponent implements OnInit {
    getCookies(){
 
     this.cookiesService.get().subscribe(r=>{
-      this.data=r;
-      console.log(this.data);
-      this.cookie.get('name')?.value;
-      this.cookie.get('htmlContent')?.value;
-      
-      this.cookie.patchValue(r);
-
+      this.cookiesService.get().subscribe ( (res: CookieDTO[]) => {
+        this.data=res[0];
+        this.cookie.patchValue(this.data);
+  
+     });
    });
   }
 

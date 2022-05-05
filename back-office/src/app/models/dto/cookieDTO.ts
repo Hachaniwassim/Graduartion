@@ -1,6 +1,6 @@
 export class CookieDTO{
-    id?: number;
-    title?: string;
-    htmlContent?: string;
+    id!: number;
+    title!: string;
+    htmlContent!: string;
   }
   

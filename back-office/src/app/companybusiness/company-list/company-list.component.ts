@@ -29,20 +29,20 @@ export class CompanyListComponent implements OnInit {
   companybusiness!: CompanyBusinessDTO[];
   searchKey!: string;
   showspinner = false;
-  data : any ;
-  
-  company={
-    domainename :"",
-   description: "",
+  data: any;
+
+  company = {
+    domainename: "",
+    description: "",
   }
 
   datasource = new MatTableDataSource(this.companybusiness)
-  displayedColumns: string[] = ['description', 'domainename','createdDate','lastModifiedDate', 'actions'];
+  displayedColumns: string[] = ['description', 'domainename', 'createdDate', 'lastModifiedDate', 'actions'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort, {}) sort!: MatSort;
- id=this.route.snapshot.params['id'];
+  id = this.route.snapshot.params['id'];
   constructor(private dialog: MatDialog, private dialogService: DialogService, private companyService: CompanybusinessService,
-    private notificationService: NotificationService,private route: ActivatedRoute, public router: Router, public _location: Location) {
+    private notificationService: NotificationService, private route: ActivatedRoute, public router: Router, public _location: Location) {
     this.companyData = {} as CompanyBusinessDTO;
   }
   //data sorting 
@@ -80,42 +80,39 @@ export class CompanyListComponent implements OnInit {
       .afterClosed().subscribe((res: any) => {
         if (res) {
           this.companyService.deleteCompanyBusiness(id).subscribe(() => {
-            //filter sur l objet  optionnel
-
-           /*this.datasource.data = this.datasource.data.filter((o: any) => {
-              return o.id !== id ? o : false;
-            })
-            console.log(this.datasource.data);*/
+            this.datasource.data = this.datasource.data.filter((o: any) => {
+               return o.id !== id ? o : false;
+             })
+             console.log(this.datasource.data);
           })
           this.notificationService.success(' :: Deleted Successfully')
-          this.refresh();
         }
       });
   }
 
-        getone(){
-        this.companyService.getByidCompany(this.id).subscribe((response)=>
-        { this.data=response;
-         this.company=this.data;
-         console.log(this.company);
-       })
-      }
+  getone() {
+    this.companyService.getByidCompany(this.id).subscribe((response) => {
+      this.data = response;
+      this.company = this.data;
+      console.log(this.company);
+    })
+  }
 
 
-   ViewCompany(row : any) { 
+  ViewCompany(row: any) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-    dialogConfig.width = "100%"; 
-     this.dialog.open(CompanyViewComponent, {
-          data: {
-            domainename : row.domainename,
-            description:row.description
-          },
-        }
-        ),dialogConfig
+    dialogConfig.width = "100%";
+    this.dialog.open(CompanyViewComponent, {
+      data: {
+        domainename: row.domainename,
+        description: row.description
+      },
+    }
+    ), dialogConfig
 
-      }
+  }
 
   // create dialog config
   onCreateCompany() {

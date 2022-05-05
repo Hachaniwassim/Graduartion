@@ -69,8 +69,8 @@ export class Privacyservice {
   }
 
   // update account by Id the
-  updatePrivacy(item: privacyDTO) {
-    return this.http.put<privacyDTO>(this.base_url, JSON.stringify(item), this.httpOptions).pipe(retry(2), catchError(this.handleError));
+  updatePrivacy(item: any) {
+    return this.http.put(this.base_url, JSON.stringify(item), this.httpOptions).pipe(retry(2), catchError(this.handleError));
   }
 
   // delete accounts

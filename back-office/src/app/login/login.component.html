@@ -43,7 +43,7 @@
         </div>
         <div class=" msg" role="alert" *ngIf=" !(f.submitted) && password.errors && password.invalid && password.touched">
         <div *ngIf="password.errors.minlength">
-          Password must be at least 6 characters ❌
+          Password must be at least 6 characters
         </div>
       </div>
       
@@ -55,10 +55,12 @@
       <div class="form-group">
 				<button class="btn btn-primary btn-block">Login</button>
 			</div>
+      <div class="flexbox mb-5">
+        <small class="form-text text-right" ><a  style="text-decoration: none;" routerLink="/register" class="text-muted"> Don't have  an account? Signup</a></small>
+        </div>
 			<div class="form-group">
 				<div class=" msg" role="alert" *ngIf="isLoginFailed " > Login failed : INVALID_CREDENTIALS  ❌ {{ errorMessage }}</div>
 			</div>
-      <br>
 		<!----<div class="flexbox mb-5">
 				<div></div>
 				<small class="form-text text-right"><a routerLink="/register" class="text-muted"> Don't have an account? Signup</a></small>

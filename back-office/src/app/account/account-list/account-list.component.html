@@ -30,6 +30,14 @@
       <ng-container matColumnDef="fiscaleCode">
         <mat-header-cell *matHeaderCellDef mat-sort-header >Fiscale Code</mat-header-cell>
         <mat-cell *matCellDef="let element" >{{element.fiscaleCode}}</mat-cell>
+      </ng-container>      <ng-container matColumnDef="accountStatus">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Status</mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <button mat-icon-button [ngStyle]="{'font-size.px':13}" class="badge badge-warning mr-2" (click)="updateaStatusAccount(element)">
+            <span class="badge" [ngClass]="{'badge-success' : element.accountStatus === 'ACTIVE' , 'badge-warning' : element.accountStatus === 'PENDING' , 'badge-danger' : element.accountStatus === 'BLOCKED'}" > {{element.accountStatus}}
+            </span>
+          </button>
+          </mat-cell>
       </ng-container>
       <ng-container matColumnDef="actions">
         <mat-header-cell *matHeaderCellDef>
@@ -38,16 +46,10 @@
           <button mat-icon-button (click)="onEdit(row)">
             <mat-icon>edit_outline</mat-icon>
           </button>&nbsp;&nbsp;
-          <button mat-icon-button (click)="ViewCompany(row)">
-            <mat-icon>list</mat-icon>
-          </button>
-          <button mat-icon-button>
-        <span class="badge badge-success" style="width:70px;font-size: 12px;"> ACTIVE </span>
-        </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <button mat-icon-button (click)="onDelete(row.id)">&nbsp;&nbsp;&nbsp;&nbsp;
-          <span class="badge badge-danger" style="width:70px; font-size: 12px;"> BLOCKED </span>
-          </button>
-        </mat-cell>
+       
+        <button mat-icon-button color="warn" (click)="onDelete(row.id)">
+          <mat-icon>delete_outline</mat-icon>
+        </button> </mat-cell>
       </ng-container>
       <ng-container matColumnDef="loading">
         <mat-footer-cell *matFooterCellDef colspan="6">

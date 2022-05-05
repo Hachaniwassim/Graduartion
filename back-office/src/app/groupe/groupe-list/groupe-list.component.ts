@@ -36,7 +36,7 @@ export class GroupeListComponent implements OnInit {
   showspinner = false;
   currentGroupe: any;
   groupes: any;
-
+  result: any;
   company: List<CompanyBusinessDTO> = [];
   datasource = new MatTableDataSource(this.groupe)
   displayedColumns: string[] = [ 'name', 'groupStatus', 'createdDate', 'lastModifiedDate', 'actions'];
@@ -65,7 +65,6 @@ export class GroupeListComponent implements OnInit {
       this.companyService.getAllCompanyBussiness().subscribe((response: any) => {
       this.company = response;
     })
-    //this.getBy(this.route.snapshot.paramMap.get('id'));
 
   }
 
@@ -103,8 +102,6 @@ export class GroupeListComponent implements OnInit {
         if (res) {
           this.groupeService.deleteGroupe(id).subscribe(() => {
           })
-          
-          this.ngOnInit();
           this.refresh();
           this._snackBar.open(" :: Groupe have been deleted Successfully ", "", {
             duration: 3000,
@@ -155,7 +152,7 @@ export class GroupeListComponent implements OnInit {
     dialogConfig.autoFocus = true;
     dialogConfig.width = "60%";
     this.dialog.open(GroupeAddComponent, dialogConfig);
-//            this.datasource.data.push(result)
+   // this.datasource.data.push(result)
 
   }
 
@@ -167,6 +164,7 @@ export class GroupeListComponent implements OnInit {
     dialogConfig.autoFocus = true;
     dialogConfig.width = "60%";
     this.dialog.open(GroupeAddComponent, dialogConfig);
+    this.datasource.data.push(row)
   }
 
   // clear data 
@@ -185,20 +183,34 @@ export class GroupeListComponent implements OnInit {
 
   //update status groupe
   updateactiveGroupe(element: GroupeDTO) {
-
-    this.groupeService.updateGroupeByStatus(element.id, element.groupStatus).subscribe( res => {
+    Swal.fire({
+      title: 'Are you sure to Update status  !?',
+      text: 'This process is irreversible.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, go ahead.',
+      cancelButtonText: 'No, let me think',
+    }).then((result) => {
+      if (result.value) {
+        this.groupeService.updateGroupeByStatus(element.id, element.groupStatus).subscribe( res => {
         
-         console.log(res);
-          
-          const index = this.datasource.data.indexOf(element);
-          if(index > -1) {
-            this.datasource.data[index].groupStatus = res.groupStatus;
-          }
-        },
-      // snackBar error 
-      );
+          console.log(res);
+           
+           const index = this.datasource.data.indexOf(element);
+           if(index > -1) {
+             this.datasource.data[index].groupStatus = res.groupStatus;
+           }
+        
+          })
+        Swal.fire('updated!', ' status updated successfully.', 'success');
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        Swal.fire('TRY LATER...');
+      }
+    });
 
   }
+  
+
 
 
   // delete all groupe
@@ -223,8 +235,6 @@ export class GroupeListComponent implements OnInit {
                 verticalPosition: "top",
                 panelClass: ["mat-toolbar", "mat-succes"],
               });
-
-              this.ngOnInit();
               this.refresh();
             },
 

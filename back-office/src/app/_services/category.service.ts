@@ -13,18 +13,10 @@ import { categoryDTO } from '../models/dto/categoryDTO';
 export class Gategoryservice {
 
   //api backend
-  private base_url="http://localhost:8089/";
+  private base_url="http://localhost:8089";
   
-  headers = new HttpHeaders().set('Content-Type', 'application/json');
 
- CompanyBusinessDTO ={
-    image:'', 
-    title: '',
-    description: '',
-    menuimage: '',
-    bannerimage: '',
-    status: '',
-  }
+
   constructor(private http :HttpClient, private datePipe: DatePipe) { }
 
   //http opttion
@@ -58,18 +50,18 @@ create(item : categoryDTO):Observable<categoryDTO>{
 }
 
 //get all account data 
-all():Observable<categoryDTO>{
-   return this.http.get<categoryDTO>(this.base_url).pipe(retry(2),catchError(this.handleError));
+getallCategorie():Observable<categoryDTO[]>{
+   return this.http.get<categoryDTO[]>(this.base_url).pipe(retry(2),catchError(this.handleError));
  }
 
 
-  // get account by id
+  // get  by id
   getByid(id:number):Observable<categoryDTO>{
     return this.http.get<categoryDTO>(this.base_url + '/' +id).pipe(retry(2),catchError(this.handleError));
 
   }
 
-   // update account by Id the
+   // update by Id the
    update(item : categoryDTO){
     return this.http.put<categoryDTO>(this.base_url,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
    }
@@ -81,14 +73,14 @@ all():Observable<categoryDTO>{
 }
 
 //validation formulaire
-  form : FormGroup= new FormGroup({
+    form : FormGroup= new FormGroup({
     id: new FormControl(null),
     image: new FormControl('',Validators.required),
     title : new FormControl('',[ Validators.required]),
     description : new FormControl('',[ Validators.required]),
     menuimage : new FormControl('',[ Validators.required]),
     bannerimage : new FormControl('',[ Validators.required]),
-    status : new FormControl('',[ Validators.required]),
+    status : new FormControl(''),
 });
 
 // inialisation formulaire 
