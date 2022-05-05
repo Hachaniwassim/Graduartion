@@ -5,13 +5,15 @@ import { LanguageRoutingModule } from './language-routing.module';
 import { LanguageComponent } from './language.component';
 import { LanguageListComponent } from './language-list/language-list.component';
 import { AddLanguageComponent } from './add-language/add-language.component';
+import { LanguageViewComponent } from './language-view/language-view.component';
 
 
 @NgModule({
   declarations: [
     LanguageComponent,
     LanguageListComponent,
-    AddLanguageComponent
+    AddLanguageComponent,
+    LanguageViewComponent
   ],
   imports: [
     CommonModule,

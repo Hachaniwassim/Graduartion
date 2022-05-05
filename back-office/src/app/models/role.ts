@@ -1,4 +1,4 @@
-import { ERole} from "./enum/ERole";
+import { ERole} from "./enum/erole";
 
 export class Role{
 

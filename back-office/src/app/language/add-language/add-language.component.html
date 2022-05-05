@@ -1,1 +1,44 @@
-<p>add-language works!</p>
+<mat-toolbar>
+    <span>{{languageservice.form.controls['id'].value?"Modify Groupe ":"New Groupe"}}</span>
+    <span class="fill-remaining-space"></span>
+    <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
+  </mat-toolbar><br><br>
+    <form [formGroup]="languageservice.form" class="normal-form" (submit)="onSubmit()" class="normal-form">
+      <mat-grid-list cols="1" rowHeight="240px">
+        <mat-grid-tile>
+          <div class="controles-container">
+            <input type="hidden" formControlName="id">
+            <mat-form-field style="margin-left: 30px;">
+              <input formControlName="lang" matInput placeholder="lang">
+              <mat-error *ngIf="languageservice.form.controls['lang'].errors?.required">this field is mandatory.
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field style="margin-left: 30px;">
+              <textarea matInput placeholder="name" required maxlength="100" formControlName="name" >
+          </textarea>
+          <mat-error *ngIf="languageservice.form.controls['name'].errors?.required">this field is mandatory.
+          </mat-error>
+            </mat-form-field> 
+            <mat-form-field style="margin-left: 30px;">
+                <textarea matInput placeholder="image" required maxlength="100" formControlName="image" >
+            </textarea>
+            <mat-error *ngIf="languageservice.form.controls['image'].errors?.required">this field is mandatory.
+            </mat-error>
+              </mat-form-field> 
+              <mat-form-field style="margin-left: 30px;">
+                <textarea matInput placeholder="active" required maxlength="100" formControlName="active" >
+            </textarea>
+            <mat-error *ngIf="languageservice.form.controls['active'].errors?.required">this field is mandatory.
+            </mat-error>
+              </mat-form-field> 
+          </div>
+  
+        </mat-grid-tile>
+      </mat-grid-list>
+      <div class="button-row" align="center">
+        <button mat-raised-button color="primary" type="submit"
+          [disabled]="languageservice.form.invalid" (click)="refresh()">Save</button>
+          <button mat-raised-button  mat-dialog-close> <mat-icon>close</mat-icon>Cancel</button>
+        <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
+    </div>
+    </form>

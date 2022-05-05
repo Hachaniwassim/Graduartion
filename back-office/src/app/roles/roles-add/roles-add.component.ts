@@ -8,30 +8,31 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { DialogService } from 'src/app/shared/dialog.service';
 import { NotificationService } from 'src/app/shared/notification.service';
-import { Languageservice } from 'src/app/_services/language.service';
-import { languageDTO } from 'src/app/models/dto/languageDTO';
+import { RoleService } from 'src/app/_services/role.service';
+import { RoleDTO } from 'src/app/models/dto/roleDTO';
+
 @Component({
-  selector: 'app-add-language',
-  templateUrl: './add-language.component.html',
-  styleUrls: ['./add-language.component.css']
+  selector: 'app-roles-add',
+  templateUrl: './roles-add.component.html',
+  styleUrls: ['./roles-add.component.css']
 })
-export class AddLanguageComponent implements OnInit {
+export class RolesAddComponent implements OnInit {
 
   @ViewChild('groupeForm', { static: false })
-  languageForm !: FormGroup;
-  languageData !: languageDTO;
-  language!: languageDTO[];
+  roleForm !: FormGroup;
+  roleData !: RoleDTO;
+  role!: RoleDTO[];
   searchKey!: string;
   showspinner = false;
-  datasource = new MatTableDataSource(this.language)
+  datasource = new MatTableDataSource(this.role)
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort, {}) sort!: MatSort;
 
 
 
-  constructor(private dialog: MatDialog, private dialogService: DialogService, public languageservice: Languageservice, public dialogRef: MatDialogRef<AddLanguageComponent>,
+  constructor(private dialog: MatDialog, private dialogService: DialogService, public roleService: RoleService, public dialogRef: MatDialogRef<RolesAddComponent>,
     private notificationService: NotificationService, private router: Router, public _location: Location) {
-    this.languageData = {} as languageDTO;
+    this.roleData = {} as RoleDTO;
   }
 
   // sorting + pagination data 
@@ -44,12 +45,11 @@ export class AddLanguageComponent implements OnInit {
     // sorting sorting and pagination data 
     this.datasource.sort = this.sort;
     this.datasource.paginator = this.paginator;
-    this.getAllGroupe();
-   
+    this.getAllGroupe();  
   }
 
    getAllGroupe() {
-    this.languageservice.getalllanguage().subscribe((response: any) => {
+    this.roleService.getallrole().subscribe((response: any) => {
       this.datasource.data = response;
     })
    }
@@ -57,17 +57,17 @@ export class AddLanguageComponent implements OnInit {
 
   //clear data
   onClear() {
-    this.languageservice.form.reset();
-    this.languageservice.initializeFormGroup();
+    this.roleService.form.reset();
+    this.roleService.initializeFormGroup();
   }
 
    // submit data with context EDITE : CREATE
    onSubmit() {
-    if (this.languageservice.form.valid) {
+    if (this.roleService.form.valid) {
 
-      if (!this.languageservice.form.get('id')?.value)
-       { console.log(this.languageservice.form.value);
-        this.languageservice.createlanguage(this.languageservice.form.value).subscribe((res) => {
+      if (!this.roleService.form.get('id')?.value)
+       { console.log(this.roleService.form.value);
+        this.roleService.createrole(this.roleService.form.value).subscribe((res) => {
           console.log(res);
       
           this.notificationService.success(':: Submitted successfully');
@@ -76,13 +76,13 @@ export class AddLanguageComponent implements OnInit {
       }
 
       else(
-        this.languageservice.updatelanguage(this.languageservice.form.value).subscribe(() => {
+        this.roleService.updaterole(this.roleService.form.value).subscribe(() => {
         })) 
         this.onClose();
       }
       
-    this.languageservice.form.reset();
-    this.languageservice.initializeFormGroup();
+    this.roleService.form.reset();
+    this.roleService.initializeFormGroup();
    // this.refresh();
   }
 
@@ -98,8 +98,8 @@ export class AddLanguageComponent implements OnInit {
 
   // dialogue close 
   onClose() {
-    this.languageservice.form.reset();
-    this.languageservice.initializeFormGroup();
+    this.roleService.form.reset();
+    this.roleService.initializeFormGroup();
     this.dialogRef.close();
   }
   reloadPage() {

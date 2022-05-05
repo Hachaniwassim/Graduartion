@@ -6,45 +6,46 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
+import { RoleDTO } from 'src/app/models/dto/roleDTO';
 import { DialogService } from 'src/app/shared/dialog.service';
 import { NotificationService } from 'src/app/shared/notification.service';
-import { Languageservice } from 'src/app/_services/language.service';
+import { CompanybusinessService } from 'src/app/_services/companybusiness.service';
+import { RoleService } from 'src/app/_services/role.service';
 import Swal from 'sweetalert2';
-import { AddLanguageComponent } from '../add-language/add-language.component';
-import { LanguageViewComponent } from '../language-view/language-view.component';
-
-import { languageDTO } from 'src/app/models/dto/languageDTO';
+import { RolesAddComponent } from '../roles-add/roles-add.component';
+import { RolesViewComponent } from '../roles-view/roles-view.component';
 import { List } from 'lodash';
 import { NgxSpinnerService } from "ngx-spinner";
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
-  selector: 'app-language-list',
-  templateUrl: './language-list.component.html',
-  styleUrls: ['./language-list.component.css']
+  selector: 'app-roles-list',
+  templateUrl: './roles-list.component.html',
+  styleUrls: ['./roles-list.component.css']
 })
-export class LanguageListComponent implements OnInit {
+export class RolesListComponent implements OnInit {
 
   @Output()
-  groupeDTO !: languageDTO;
+  groupeDTO !: RoleDTO;
 
   @ViewChild('groupeForm', { static: false })
 
-  languageData !: languageDTO;
-  language!: languageDTO[];
+  roleData !: RoleDTO;
+  role!: RoleDTO[];
   searchKey!: string;
   showspinner = false;
   currentGroupe: any;
-  languages: any;
+  roles: any;
 
-  datasource = new MatTableDataSource(this.language)
+  datasource = new MatTableDataSource(this.role)
   displayedColumns: string[] = [ 'name', 'groupStatus', 'createdDate', 'lastModifiedDate', 'actions'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort, {}) sort!: MatSort;
   id = this.route.snapshot.params['id'];
   message!: string;
-  constructor(private _snackBar: MatSnackBar, private dialog: MatDialog, private languageservice: Languageservice, private dialogService: DialogService,private notificationService: NotificationService, private route: ActivatedRoute, public router: Router, public _location: Location) {
-    this.languageData = {} as languageDTO;
+  constructor(private _snackBar: MatSnackBar, private dialog: MatDialog, private roleService: RoleService, private dialogService: DialogService, private companyService: CompanybusinessService,
+    private notificationService: NotificationService, private route: ActivatedRoute, public router: Router, public _location: Location) {
+    this.roleData = {} as RoleDTO;
   }
 
 
@@ -57,15 +58,17 @@ export class LanguageListComponent implements OnInit {
 
   ngOnInit(): void {
 
-      this.languageservice.getalllanguage().subscribe((response: any) => {
+      this.roleService.getallrole().subscribe((response: any) => {
       this.datasource.data = response;});
-
+      // and get companybussiness
+      this.companyService.getAllCompanyBussiness().subscribe((response: any) => {
+    })
     //this.getBy(this.route.snapshot.paramMap.get('id'));
 
   }
 
-  getBylanguage(id: any) {
-    this.languageservice.getByidlanguage(id)
+  getByrole(id: any) {
+    this.roleService.getByidrole(id)
       .subscribe(
         data => {
           this.currentGroupe = data;
@@ -91,12 +94,12 @@ export class LanguageListComponent implements OnInit {
 
 
   // delete data 
-  onDeletelanguage(id: number) {
+  onDeleterole(id: number) {
 
     this.dialogService.openConfirmDialog('Are you sure to delete this record ?')
       .afterClosed().subscribe((res: any) => {
         if (res) {
-          this.languageservice.deletelanguage(id).subscribe(() => {
+          this.roleService.deleterole(id).subscribe(() => {
           })
           
           this.ngOnInit();
@@ -123,17 +126,14 @@ export class LanguageListComponent implements OnInit {
 
 
   //view details groupe
-  Viewlanguage(row: any) {
+  Viewrole(row: any) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.width = "100%";
-    this.dialog.open(LanguageViewComponent, {
+    this.dialog.open(RolesViewComponent, {
       data: {
-        lang: row.lang,
         name: row.name,
-        image: row.image,
-        active: row.active,
       },
     }
     ), dialogConfig
@@ -141,31 +141,31 @@ export class LanguageListComponent implements OnInit {
   }
 
   // create dialog config
-  onCreatelanguage() {
-    this.languageservice.form.reset();
+  onCreaterole() {
+    this.roleService.form.reset();
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.width = "60%";
-    this.dialog.open(AddLanguageComponent, dialogConfig);
+    this.dialog.open(RolesAddComponent, dialogConfig);
 //            this.datasource.data.push(result)
 
   }
 
   // edite dialogConfig
-  onEditlanguage(row: any) {
-    this.languageservice.populateForm(row);
+  onEditrole(row: any) {
+    this.roleService.populateForm(row);
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.width = "60%";
-    this.dialog.open(AddLanguageComponent, dialogConfig);
+    this.dialog.open(RolesAddComponent, dialogConfig);
   }
 
   // clear data 
   onClear() {
-    this.languageservice.form.reset();
-    this.languageservice.initializeFormGroup();
+    this.roleService.form.reset();
+    this.roleService.initializeFormGroup();
   }
 
   //refrech 
@@ -176,26 +176,26 @@ export class LanguageListComponent implements OnInit {
     });
   }
 
-  //update status groupe
-  /*updateactiveGroupe(element: languageDTO) {
+  /*/update status groupe
+  updateactiveGroupe(element: RoleDTO) {
 
-    this.languageservice.updatelanguageByStatus(element.id, element.groupStatus).subscribe( res => {
+    this.roleService.updateroleByStatus(element.id, element.name).subscribe( res => {
         
          console.log(res);
           
           const index = this.datasource.data.indexOf(element);
           if(index > -1) {
-            this.datasource.data[index].groupStatus = res.groupStatus;
+            this.datasource.data[index].name = res.name;
           }
         },
       // snackBar error 
       );
 
-  }*/
+  } */
 
 
   // delete all groupe
-  removeAlllanguage() {
+  removeAllrole() {
     Swal.fire({
       title: 'Are you sure to delete all Groupes  !?',
       text: 'This process is irreversible.',
@@ -205,7 +205,7 @@ export class LanguageListComponent implements OnInit {
       cancelButtonText: 'No, let me think',
     }).then((result) => {
       if (result.value) {
-        this.languageservice.deleteAlllanguage()
+        this.roleService.deleteAllrole()
           .subscribe(
             response => {
               console.log(response);
@@ -239,8 +239,8 @@ export class LanguageListComponent implements OnInit {
   }
   //filtring by active groupe 
   active = "";
-  searchByActivelanguage() {
-    this.languageservice.findByActivelanguage(this.active)
+  searchByActiverole() {
+    this.roleService.findByActiverole(this.active)
       .subscribe(
         data => {
 
@@ -251,5 +251,6 @@ export class LanguageListComponent implements OnInit {
           console.log(error);
         });
   }
+
 
 }

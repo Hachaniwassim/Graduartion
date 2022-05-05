@@ -68,6 +68,10 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import { CKEditorModule } from 'ckeditor4-angular';
 import { ProductAddComponent } from './posproducts/product-add/product-add.component';
 import { ProductListComponent } from './posproducts/product-list/product-list.component';
+import { RolesComponent } from './roles/roles.component';
+import { RolesAddComponent } from './roles/roles-add/roles-add.component';
+import { RolesListComponent } from './roles/roles-list/roles-list.component';
+import { RolesViewComponent } from './roles/roles-view/roles-view.component';
 
 @NgModule({
   declarations: [
@@ -124,6 +128,10 @@ import { ProductListComponent } from './posproducts/product-list/product-list.co
     PlateformeAddComponent,
     ProductAddComponent,
     ProductListComponent,
+    RolesComponent,
+    RolesAddComponent,
+    RolesListComponent,
+    RolesViewComponent,
   
     
   ],

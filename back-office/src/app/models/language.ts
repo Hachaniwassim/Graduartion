@@ -4,6 +4,6 @@ export interface language{
     id?: number;
     lang: Language;
     name: string;
-    image :Date,
+    image :string,
     active: boolean;
     }
