@@ -4,6 +4,7 @@ import app.igesa.config.CaptchaService;
 import app.igesa.entity.Account;
 import app.igesa.entity.ERole;
 import app.igesa.entity.Role;
+import app.igesa.enumerations.AccountStatus;
 import app.igesa.metiers.UserDetailsImpl;
 import app.igesa.payload.request.LoginRequest;
 import app.igesa.payload.request.SignupRequest;
@@ -75,14 +76,6 @@ public class AuthController {
 		List<String> roles = userDetails.getAuthorities().stream()
 				.map(item -> item.getAuthority())
 				.collect(Collectors.toList());
-		/*boolean captchaVerified = captchaService.verify(loginRequest.getRecaptchaResponse());
-		if (!captchaVerified) {
-			throw new RuntimeException(" erreur captcha not valid");
-		} else if (captchaVerified) {
-
-
-			return ResponseEntity.ok(" valid captcha");
-		}*/
 
 		return ResponseEntity.ok(new JwtResponse(jwt,
 				userDetails.getId(),
@@ -102,6 +95,7 @@ public class AuthController {
 
 	})
 	public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest signUpRequest) {
+
 		if (userRepository.existsByUsername(signUpRequest.getUsername())) {
 			return ResponseEntity
 					.badRequest()
@@ -116,17 +110,11 @@ public class AuthController {
 
 
 		// Create new user's account
+		signUpRequest.setAccountStatus(AccountStatus.PENDING);
 		Account user = new Account(signUpRequest.getUsername(),
 				signUpRequest.getEmail(),
-				encoder.encode(signUpRequest.getPassword()), encoder.encode(signUpRequest.getMatchingPassword()), signUpRequest.getFiscaleCode());
-
-		/*Optional<Groupe> groupe = igroupeRepository.findById(user.getGroupe().getId());
-		if (groupe.isPresent()) {
-
-			user.setGroupe(groupe.get());
-		}*/
-
-
+				encoder.encode(signUpRequest.getPassword()), encoder.encode(signUpRequest.getMatchingPassword()), signUpRequest.getFiscaleCode(),signUpRequest.getAccountStatus()
+		);
 		Set<String> strRoles = signUpRequest.getRole();
 		Set<Role> roles = new HashSet<>();
 		if (strRoles == null) {

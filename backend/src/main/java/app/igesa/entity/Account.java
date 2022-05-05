@@ -1,7 +1,7 @@
 package app.igesa.entity;
 
+import app.igesa.enumerations.AccountStatus;
 import lombok.*;
-
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -40,6 +40,10 @@ public class Account  {
     @NotBlank
     private String fiscaleCode ;
 
+    private AccountStatus accountStatus;
+
+    private Long groupId;
+
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(	name = "account_roles",
             joinColumns = @JoinColumn(name = "account_id"),
@@ -47,13 +51,14 @@ public class Account  {
     private Set<Role> roles = new HashSet<>();
 
 
- public Account( String username, String email, String password, String matchingPassword, String fiscaleCode){
+ public Account( String username, String email, String password, String matchingPassword, String fiscaleCode, AccountStatus accountStatus){
      super();
      this.username=username;
      this.email=email;
      this.password=password;
      this.matchingPassword=matchingPassword;
      this.fiscaleCode=fiscaleCode;
+     this.accountStatus=accountStatus;
  }
 
 

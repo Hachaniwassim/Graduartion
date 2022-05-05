@@ -1,5 +1,6 @@
 package app.igesa.dto;
 import app.igesa.entity.Entreprise;
+import app.igesa.entity.Groupe;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
 import lombok.Data;
@@ -21,15 +22,13 @@ public class EntrepriseDTO {
 	private GroupeDTO groupe;
 	protected Date createdDate;
 	protected Date lastModifiedDate;
-	//protected String createdBy;
+	private Long groupeId;
 	@JsonIgnore
 	private List<ConfigGeneralDTO> config ;
 	
 
     public static EntrepriseDTO fromEntity(Entreprise entreprise) {
-    	/*if ( entreprise == null) {
-    		return null;
-    	}*/
+
 		return EntrepriseDTO.builder()
 				.id(entreprise.getId())
 				.codefiscale(entreprise.getCodefiscale())
@@ -45,12 +44,8 @@ public class EntrepriseDTO {
     }
     
     public static Entreprise toEntity(EntrepriseDTO dto) {
-    	
-    	/*if (dto == null) {
-    		return null;
-    	}*/
-    	
-    	Entreprise entreprise = new Entreprise();
+
+    	        Entreprise entreprise = new Entreprise();
 	            entreprise.setId(dto.getId());
 				entreprise.setCodefiscale(dto.getCodefiscale());
 				entreprise.setCompanyname(dto.getCompanyname());
@@ -61,6 +56,9 @@ public class EntrepriseDTO {
 				entreprise.setCreatedDate(dto.getCreatedDate());
 				entreprise.setLastModifiedDate(dto.getLastModifiedDate());
 				entreprise.setGroupe(GroupeDTO.toEntity(dto.getGroupe()));
+		        Groupe groupe = new Groupe();
+		        groupe.setId(dto.getGroupeId());
+		        entreprise.setGroupe(groupe);
 				return entreprise;
     }
 

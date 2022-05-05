@@ -1,6 +1,7 @@
 package app.igesa.controller;
 
 import app.igesa.entity.Role;
+import app.igesa.metiers.Irole;
 import app.igesa.metiers.RoleImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -23,7 +24,7 @@ public class RoleController {
     private static final Logger log = LoggerFactory.getLogger(RoleController.class);
 
     @Autowired
-    private RoleImpl iroleService;
+    private Irole iroleService;
 
 
     @RequestMapping(value = "/role", method = RequestMethod.POST)

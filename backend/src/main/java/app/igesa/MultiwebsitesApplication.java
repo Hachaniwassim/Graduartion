@@ -2,6 +2,7 @@ package app.igesa;
 
 import app.igesa.entity.Account;
 import app.igesa.entity.Role;
+import app.igesa.enumerations.AccountStatus;
 import app.igesa.metiers.Irole;
 import app.igesa.repository.IcomapnybusRepository;
 import app.igesa.repository.AccountRepository;
@@ -43,8 +44,8 @@ public class MultiwebsitesApplication  {
 		SpringApplication.run(MultiwebsitesApplication.class, args);
 
 	}
-}
-/*	@Override
+
+	/*@Override
 	public void run(String... arg) throws Exception {
 		storageService.deleteAll();
 		storageService.init();
@@ -62,6 +63,7 @@ public class MultiwebsitesApplication  {
 		user.setEmail("lucifero@mss.tn");
 		user.setMatchingPassword(encoder.encode("mss123#"));
 		user.setFiscaleCode("11397488");
+		user.setAccountStatus(AccountStatus.ACTIVE);
 		userRepository.save(user);
-	}
-} */
+	}*/
+}
