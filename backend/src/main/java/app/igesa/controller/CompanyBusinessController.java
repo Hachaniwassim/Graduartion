@@ -12,12 +12,16 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import app.igesa.metiers.IcompanyBusiness;
 
+/**
+ * @author Tarchoun Abir#
+ */
 
 
-@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @Api(tags = "COMPANYBUSINESS")
 public class CompanyBusinessController {
@@ -55,6 +59,7 @@ public class CompanyBusinessController {
             @ApiResponse( code=403, message="not permitted or allowed"),
 
     })
+
     public ResponseEntity<Collection<CompanyBusinessDTO>> view() {
         log.debug(" HTTP GET ALL COMPANYBUSINESS  {}");
         return new ResponseEntity<>( icompanyBusinessService.view(),HttpStatus.OK);
@@ -70,6 +75,7 @@ public class CompanyBusinessController {
             @ApiResponse( code=403, message="not permitted or allowed"),
 
     })
+
     public ResponseEntity<CompanyBusinessDTO>findById(@PathVariable Long id) {
         log.debug(" HTTP GET COMPANY BUSINESS BY ID {}",id);
         return new ResponseEntity<>(icompanyBusinessService.findById(id),HttpStatus.OK);
@@ -84,6 +90,7 @@ public class CompanyBusinessController {
             @ApiResponse( code=403, message="not permitted or allowed"),
 
     })
+
     public ResponseEntity<CompanyBusinessDTO> update(@RequestBody CompanyBusinessDTO c) {
         return new ResponseEntity<>(icompanyBusinessService.save(c),HttpStatus.CREATED);
     }

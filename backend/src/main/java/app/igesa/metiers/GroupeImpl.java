@@ -30,6 +30,7 @@ public class GroupeImpl implements Igroupe {
 
 	}
 
+
 	@Override
 	public Collection<GroupeDTO> view() {
 		return groupeRepository.findAll().stream()
@@ -73,10 +74,10 @@ public class GroupeImpl implements Igroupe {
 				groupe.setGroupStatus(GroupStatus.PENDING);
 			}
 			if (GroupStatus.PENDING == status) {
-				groupe.setGroupStatus(GroupStatus.BLOCKED);
+				groupe.setGroupStatus(GroupStatus.ACTIVE);
 			}
 			if (GroupStatus.BLOCKED == status) {
-				groupe.setGroupStatus(GroupStatus.ACTIVE);
+				groupe.setGroupStatus(GroupStatus.BLOCKED);
 			}
 
 			saved = groupeRepository.save(groupe);

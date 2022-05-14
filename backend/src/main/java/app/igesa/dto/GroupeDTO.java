@@ -10,6 +10,11 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
+/**
+ * @author Tarchoun Abir
+ */
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
@@ -23,11 +28,9 @@ public class GroupeDTO {
     protected Date lastModifiedDate;
     private Long companyId;
     private CompanyBusinessDTO companyBusiness;
-    
     @JsonIgnore
     private List<EntrepriseDTO>entreprise ;
-    @JsonIgnore
-   // private List<RoleDTO>role;
+
 
 
 

@@ -1,11 +1,14 @@
 package app.igesa.dto;
-
-
+import app.igesa.entity.Entreprise;
 import app.igesa.entity.FormEntity;
 import lombok.Builder;
 import lombok.Data;
 
 import java.util.Date;
+
+/**
+ * @author Tarchoun Abir
+ */
 
 @Data
 @Builder
@@ -22,6 +25,8 @@ public class FormDTO {
 	protected Date createdDate;
 	protected Date lastModifiedDate;
 	protected String createdBy;
+	private Long entrepriseId;
+	private EntrepriseDTO entreprise;
 	//private Product softwareused ;
 	private boolean status ;
 
@@ -39,12 +44,12 @@ public class FormDTO {
 				.adresse(contact.getAdresse())
 				.companyname(contact.getCompanyname())
 				.nationality(contact.getNationality())
-				.status(contact.isStatus())
+				.status(contact.isStatusForm())
 				.name(contact.getName())
 				.createdDate(contact.getCreatedDate())
 				.lastModifiedDate(contact.getLastModifiedDate())
 				.mobile(contact.getMobile())
-				//.groupe(GroupeDTO.fromEntity(entreprise.getGroupe()))
+				.entreprise(EntrepriseDTO.fromEntity(contact.getEntreprise()))
 				.build();
 	}
 
@@ -63,11 +68,13 @@ public class FormDTO {
 		contact.setNationality(dto.getNationality());
 		contact.setReferent(dto.getReferent());
 		contact.setAdresse(dto.getAdresse());
-		contact.setStatus(dto.isStatus());
+		contact.setStatusForm(dto.isStatus());
 		contact.setLastModifiedDate(dto.getLastModifiedDate());
 		contact.setCreatedDate(dto.getCreatedDate());
 		contact.setName(dto.getName());
-		//entreprise.setGroupe(GroupeDTO.toEntity(dto.getGroupe()));
+		Entreprise entreprise = new Entreprise();
+		entreprise.setId(dto.getEntrepriseId());
+		contact.setEntreprise(entreprise);
 		return contact;
 	}
 

@@ -7,7 +7,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.util.List;
 
-
+/**
+ * @author Tarchoun Abir
+ */
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
@@ -19,7 +21,6 @@ public class Tags extends Auditable {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
 	private Long id ;
 	private String description ;
-
 	@OneToMany(mappedBy="tags",cascade = CascadeType.ALL)
 	private List<Post>posts ;
 

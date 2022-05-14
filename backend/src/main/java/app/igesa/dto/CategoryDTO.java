@@ -1,11 +1,13 @@
 package app.igesa.dto;
-import app.igesa.entity.Auditable;
 import app.igesa.entity.Category;
 import lombok.Builder;
 import lombok.Data;
 
 import java.util.Date;
 
+/**
+ * @author Tarchoun Abir
+ */
 
 @Data
 @Builder

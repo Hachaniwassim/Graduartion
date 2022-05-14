@@ -6,12 +6,19 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * @author Tarchoun Abir
+ **/
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 @Builder
-@Table(name="CompanyBusiness")
+@Table(name="CompanyBusiness",
+		uniqueConstraints = {
+		@UniqueConstraint(columnNames = "domainename")}
+)
 public class CompanyBusiness extends Auditable {
 
 

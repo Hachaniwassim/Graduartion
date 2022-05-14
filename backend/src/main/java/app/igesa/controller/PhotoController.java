@@ -11,6 +11,10 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 
+/**
+ * @author Tarchoun Abir#
+ */
+
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @Api(tags = "PHOTOS")

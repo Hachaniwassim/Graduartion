@@ -1,6 +1,5 @@
 package app.igesa.entity;
 
-
 import javax.persistence.*;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -10,7 +9,9 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 
-
+/**
+ * @author Tarchoun Abir
+ **/
 @NoArgsConstructor
 @AllArgsConstructor
 @Data

@@ -1,11 +1,15 @@
 package app.igesa.dto;
 
 import app.igesa.entity.ConfigGenerale;
-import app.igesa.enumerations.RobotsTags;
+import app.igesa.entity.Entreprise;
 import lombok.Builder;
 import lombok.Data;
 
 import java.util.Date;
+
+/**
+ * @author Tarchoun Abir
+ */
 
 @Data
 @Builder
@@ -27,9 +31,9 @@ public class ConfigGeneralDTO {
 	private String copyright ;
 	private String newslettertitle;
 	private String newslettersubtitle ;
-	private RobotsTags robotsTags;
 	protected Date createdDate;
 	protected Date lastModifiedDate;
+	private Long entrepriseId ;
 
 	public static ConfigGeneralDTO fromEntity(ConfigGenerale config) {
 		if ( config == null) {
@@ -50,7 +54,7 @@ public class ConfigGeneralDTO {
 				.twitter(config.getTwitter())
 				.newslettertitle(config.getNewslettertitle())
 				.newslettersubtitle(config.getNewslettersubtitle())
-				.robotsTags(config.getRobotsTags())
+				//.robotsTags(config.getRobotsTags())
 				.createdDate(config.getCreatedDate())
 				.lastModifiedDate(config.getLastModifiedDate())
 				.entreprise(EntrepriseDTO.fromEntity(config.getEntreprise()))
@@ -78,10 +82,12 @@ public class ConfigGeneralDTO {
 				config.setTwitter(dto.getTwitter());
 				config.setNewslettersubtitle(dto.getNewslettersubtitle());
 				config.setNewslettertitle(dto.getNewslettertitle());
-				config.setRobotsTags(dto.getRobotsTags());
+				//config.setRobotsTags(dto.getRobotsTags());
 				config.setLastModifiedDate(dto.getLastModifiedDate());
 				config.setCreatedDate(config.getCreatedDate());
-				config.setEntreprise(EntrepriseDTO.toEntity(dto.getEntreprise()));
+		        Entreprise entreprise = new Entreprise();
+		        entreprise.setId(dto.getEntrepriseId());
+		        config.setEntreprise(entreprise);
 				return config;
 
 	}

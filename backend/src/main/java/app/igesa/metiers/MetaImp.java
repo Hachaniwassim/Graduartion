@@ -1,7 +1,6 @@
-package app.igesa.metiers;
-import app.igesa.dto.MetaDTO;
+/*package app.igesa.metiers;
 import app.igesa.dto.ProductDTO;
-import app.igesa.entity.Meta;
+import app.igesa.entity.seo.Meta;
 import app.igesa.entity.Product;
 import app.igesa.enumerations.ErrorCode;
 import app.igesa.exceptions.InvalideEntityException;
@@ -95,3 +94,4 @@ public class MetaImp implements Imeta {
         return null;
     }
 }
+*/

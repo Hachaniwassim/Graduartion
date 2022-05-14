@@ -1,6 +1,7 @@
 package app.igesa.controller;
 
 import app.igesa.entity.FileInfo;
+import app.igesa.enumerations.PagesTypes;
 import app.igesa.upload.FilesStorageService;
 import app.igesa.upload.message.ResponseMessage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,10 @@ import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBui
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * @author Tarchoun Abir#
+ */
+
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
 public class FilesController {
@@ -24,10 +29,10 @@ public class FilesController {
 
 
   @PostMapping("/upload")
-  public ResponseEntity<ResponseMessage> uploadFile(@RequestParam("file") MultipartFile file) {
+  public ResponseEntity<ResponseMessage> uploadFile(@RequestParam("file") MultipartFile file, @RequestBody  PagesTypes fileType, @PathVariable Integer id) {
     String message = "";
     try {
-      storageService.save(file);
+      storageService.save(file,fileType,id);
 
       message = "Uploaded the file successfully: " + file.getOriginalFilename();
       return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage(message));
@@ -55,8 +60,8 @@ public class FilesController {
   }
 
   @GetMapping("/files/{filename:.+}")
-  public ResponseEntity<Resource> getFile(@PathVariable String filename) {
-    Resource file = storageService.load(filename);
+  public ResponseEntity<Resource> getFile(@PathVariable String filename, @PathVariable Integer id) {
+    Resource file = storageService.load(PagesTypes.valueOf(filename), id);
     return ResponseEntity.ok()
         .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + file.getFilename() + "\"").body(file);
   }

@@ -1,10 +1,17 @@
 package app.igesa.dto;
+
 import app.igesa.entity.Tags;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
 import lombok.Data;
 import java.util.Date;
 import java.util.List;
+
+
+/**
+ *
+ * @author Tarchoun Abir
+ */
 
 @Builder
 @Data
@@ -44,7 +51,7 @@ public class TagsDTO {
 		tag.setLastModifiedDate(dto.getLastModifiedDate());
 		tag.setCreatedDate(dto.getCreatedDate());
 		tag.setCreatedDate(dto.getCreatedDate());
-		//entreprise.setCompanyBusiness(CompanyBusinessDTO.toEntity(dto.getCompanyBusiness()));
+
 		return tag;
 	}
 

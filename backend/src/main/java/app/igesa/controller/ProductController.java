@@ -1,8 +1,5 @@
 package app.igesa.controller;
-
-import app.igesa.dto.EntrepriseDTO;
 import app.igesa.dto.ProductDTO;
-import app.igesa.metiers.Ientreprise;
 import app.igesa.metiers.Iproduct;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -13,10 +10,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.Collection;
-import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * @author Tarchoun Abir#
+ */
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @Api(tags = "PRODUCT")

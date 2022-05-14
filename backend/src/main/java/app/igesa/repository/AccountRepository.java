@@ -1,6 +1,7 @@
 package app.igesa.repository;
 
 import app.igesa.entity.Account;
+import app.igesa.metiers.UserDetailsImpl;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -16,7 +17,8 @@ public interface AccountRepository extends JpaRepository<Account, Long> {
 
 	Boolean existsByEmail(String email);
 
-	//public Account findByEmail(String email);
+
+    //public Account findByEmail(String email);
 
 	//public void resetPassword(String email);
 }

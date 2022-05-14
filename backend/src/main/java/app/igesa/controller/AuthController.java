@@ -1,6 +1,4 @@
 package app.igesa.controller;
-
-import app.igesa.config.CaptchaService;
 import app.igesa.entity.Account;
 import app.igesa.entity.ERole;
 import app.igesa.entity.Role;
@@ -32,6 +30,10 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+/**
+ * @author Tarchoun Abir#
+ */
+
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @Api(tags = "Authentification" )
@@ -46,14 +48,10 @@ public class AuthController {
 	RoleRepository roleRepository;
 	@Autowired
 	IgroupeRepository igroupeRepository;
-
 	@Autowired
 	PasswordEncoder encoder;
-
 	@Autowired
 	JwtUtils jwtUtils;
-	@Autowired
-	private CaptchaService captchaService;
 
 	@PostMapping("/signin")
 	@ApiOperation(value = "Signin", notes = "login  ", response = LoginRequest.class)
@@ -67,7 +65,8 @@ public class AuthController {
 	public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
 
 		Authentication authentication = authenticationManager.authenticate(
-				new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
+
+	   new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
 
 		SecurityContextHolder.getContext().setAuthentication(authentication);
 		String jwt = jwtUtils.generateJwtToken(authentication);
@@ -77,16 +76,32 @@ public class AuthController {
 				.map(item -> item.getAuthority())
 				.collect(Collectors.toList());
 
-		return ResponseEntity.ok(new JwtResponse(jwt,
-				userDetails.getId(),
-				userDetails.getUsername(),
-				userDetails.getEmail(),
-				roles, userDetails.getFiscaleCode()));
+
+		 if (userDetails.getAccountStatus() == AccountStatus.ACTIVE){
+
+			System.out.println(userDetails);
+			return ResponseEntity.ok(new JwtResponse(jwt,
+					userDetails.getId(),
+					userDetails.getUsername(),
+					userDetails.getEmail(),
+					roles, userDetails.getFiscaleCode(),
+					userDetails.getAccountStatus(), userDetails.getGroupeId()));
+
+		}
+		 if (userDetails.getAccountStatus() == AccountStatus.PENDING) {
+			return (ResponseEntity<?>) ResponseEntity.ok("ERREUR YOUR ACCOUNT STILL NOT ACTIVE");
+
+		}
+		else if (userDetails.getAccountStatus() == AccountStatus.BLOCKED) {
+			return (ResponseEntity<?>) ResponseEntity.ok("ERREUR YOUR ACCOUNT IS BLOCKED");}
+		return null;
 	}
 
 
+
+
 	@PostMapping("/signup")
-	@ApiOperation(value = "Signin", notes = "login  ", response = SignupRequest.class)
+	@ApiOperation(value = "Signin", notes = "signin", response = SignupRequest.class)
 	@ApiResponses(value = {
 			@ApiResponse(code = 200, message = "registred sucessfully"),
 			@ApiResponse(code = 400, message = "bad resquest"),
@@ -111,10 +126,15 @@ public class AuthController {
 
 		// Create new user's account
 		signUpRequest.setAccountStatus(AccountStatus.PENDING);
-		Account user = new Account(signUpRequest.getUsername(),
+		Account user =(new Account(
+				signUpRequest.getUsername(),
 				signUpRequest.getEmail(),
-				encoder.encode(signUpRequest.getPassword()), encoder.encode(signUpRequest.getMatchingPassword()), signUpRequest.getFiscaleCode(),signUpRequest.getAccountStatus()
-		);
+				encoder.encode(signUpRequest.getPassword()),
+				encoder.encode(signUpRequest.getMatchingPassword()),
+				signUpRequest.getFiscaleCode(),
+				signUpRequest.getAccountStatus()
+		));
+
 		Set<String> strRoles = signUpRequest.getRole();
 		Set<Role> roles = new HashSet<>();
 		if (strRoles == null) {
@@ -146,9 +166,10 @@ public class AuthController {
 
 		user.setRoles(roles);
 		userRepository.save(user);
-
-		return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
+		return ResponseEntity.ok(new MessageResponse(" your registered successfully!"));
 	}
+
+
 
 
 }

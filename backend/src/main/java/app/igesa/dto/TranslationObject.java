@@ -12,6 +12,12 @@ import app.igesa.enumerations.LangEnum;
 import lombok.Getter;
 import lombok.Setter;
 
+
+/**
+ *
+ * @author Tarchoun Abir
+ */
+
 @Getter
 @Setter
 @MappedSuperclass

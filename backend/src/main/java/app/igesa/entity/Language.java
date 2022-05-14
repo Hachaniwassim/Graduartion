@@ -15,6 +15,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+/**
+ * @author Tarchoun Abir
+ **/
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -25,14 +28,12 @@ public class Language extends Auditable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    //@Column(unique = true, nullable = false)
-   // private String uuid;
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private LangEnum lang;
     @Column(columnDefinition="TEXT")
     private String name;
-    private String image;
+    private String flag;
     private boolean active;
     
 }

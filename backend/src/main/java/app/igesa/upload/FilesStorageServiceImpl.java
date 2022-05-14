@@ -1,12 +1,12 @@
 package app.igesa.upload;
-
+import app.igesa.enumerations.PagesTypes;
+import app.igesa.metiers.Ientreprise;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
 import org.springframework.util.FileSystemUtils;
 import org.springframework.web.multipart.MultipartFile;
-
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.nio.file.Files;
@@ -21,7 +21,8 @@ public class FilesStorageServiceImpl implements FilesStorageService {
 
   @Autowired
   FilesStorageService filesStorageService;
-  @Override
+  @Autowired
+  Ientreprise enterpriseService;
   public void init() {
     try {
       Files.createDirectory(root);
@@ -31,18 +32,21 @@ public class FilesStorageServiceImpl implements FilesStorageService {
   }
 
   @Override
-  public void save(MultipartFile file) {
+  public void save(MultipartFile file, PagesTypes fileType, Integer id) {
     try {
-      Files.copy(file.getInputStream(), this.root.resolve(file.getOriginalFilename()));
+      String filePath = "Enterprise-" + enterpriseService.getCurrentEnterprise().getId() + "/" + fileType + "-" + id + ".jpg";
+      Files.copy(file.getInputStream(), this.root.resolve(filePath));
     } catch (Exception e) {
       throw new RuntimeException("Could not store the file. Error: " + e.getMessage());
     }
   }
 
   @Override
-  public Resource load(String filename) {
+  public Resource load(PagesTypes fileType, Integer id) {
     try {
-      Path file = root.resolve(filename);
+
+      String filePath = "Enterprise-" + enterpriseService.getCurrentEnterprise().getId() + "/" + fileType + "-" + id + ".jpg";
+      Path file = root.resolve(filePath);
       Resource resource = new UrlResource(file.toUri());
 
       if (resource.exists() || resource.isReadable()) {

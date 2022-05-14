@@ -1,12 +1,14 @@
-package app.igesa.dto;
+/*package app.igesa.dto;=**==*
 
-import app.igesa.entity.Meta;
+
+/*import app.igesa.entity.seo.Meta;
 import app.igesa.enumerations.PagesTypes;
 import app.igesa.enumerations.RobotsTags;
 import lombok.Builder;
 import lombok.Data;
 
 import java.util.Date;
+
 
 @Data
 @Builder
@@ -57,4 +59,5 @@ public class MetaDTO {
 			meta.setCreatedDate(dto.getCreatedDate());
 			return meta;
 	}
-}
+	*/
+

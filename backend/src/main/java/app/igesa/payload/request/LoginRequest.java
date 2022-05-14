@@ -1,15 +1,15 @@
 package app.igesa.payload.request;
 
 import lombok.Data;
+import lombok.Setter;
 
 @Data
+@Setter
 public class LoginRequest {
 
 	private String username;
-
-
 	private String password;
-	//private String recaptchaResponse;
+
 	public String getUsername() {
 		return username;
 	}

@@ -1,7 +1,8 @@
-package app.igesa.controller;
 
-import app.igesa.dto.GroupeDTO;
+package app.igesa.controller;
+import app.igesa.dto.AccountDTO;
 import app.igesa.entity.Account;
+import app.igesa.entity.ChangePasswordRequest;
 import app.igesa.enumerations.AccountStatus;
 import app.igesa.metiers.AccountImp;
 import io.swagger.annotations.ApiOperation;
@@ -10,15 +11,18 @@ import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 import java.util.Collection;
-import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * @author Tarchoun Abir#
+ */
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
+@CrossOrigin(origins = "*", maxAge = 3600)
 public class AccountController {
 
     @Autowired
@@ -36,7 +40,7 @@ public class AccountController {
             @ApiResponse(code = 403, message = "not permitted or allowed"),
 
     })
-    ResponseEntity<Account> save(@RequestBody Account account) {
+    ResponseEntity<AccountDTO> save(@RequestBody AccountDTO account) {
         log.debug(" HTTP POST {}", account);
         return new ResponseEntity<>(accountImpService.save(account), HttpStatus.CREATED);
     }
@@ -51,7 +55,7 @@ public class AccountController {
             @ApiResponse(code = 403, message = "not permitted or allowed"),
 
     })
-    public ResponseEntity<Collection<Account>>view() {
+    public ResponseEntity<Collection<AccountDTO>>view() {
         log.debug(" HTTP GET ALL {}");
         return new ResponseEntity<>(accountImpService.findAll(), HttpStatus.OK);
     }
@@ -66,7 +70,7 @@ public class AccountController {
             @ApiResponse(code = 403, message = "not permitted or allowed"),
 
     })
-    public ResponseEntity<Optional<Account>> findById(@PathVariable Long id) {
+    public ResponseEntity <AccountDTO> findById(@PathVariable Long id) {
         log.debug(" HTTP GET  BY ID {}", id);
         return new ResponseEntity<>(accountImpService.findById(id), HttpStatus.OK);
     }
@@ -80,7 +84,7 @@ public class AccountController {
             @ApiResponse(code = 403, message = "not permitted or allowed"),
 
     })
-    public ResponseEntity<Account> update(@RequestBody Account user ) {
+    public ResponseEntity<AccountDTO> update(@RequestBody AccountDTO user ) {
         return new ResponseEntity<>(accountImpService.save(user),HttpStatus.CREATED);
     }
 
@@ -100,7 +104,7 @@ public class AccountController {
     }
 
     @RequestMapping(value = "/user/toggle-status/{id}", method = RequestMethod.PUT)
-    @ApiOperation(value = "UPDATE USER BY Status", response = GroupeDTO.class)
+    @ApiOperation(value = "UPDATE USER BY Status", response = AccountDTO.class)
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "USER Status was updated successfully"),
             @ApiResponse(code = 401, message = "Unauthorized , without authority or permission"),
@@ -109,4 +113,15 @@ public class AccountController {
     public Account updateSatus(@PathVariable("id")  Long id, @RequestBody AccountStatus status) {
         return accountImpService.updateSatus(id, status);
     }
+    @PostMapping("/user/change-password")
+    public boolean changePassword(@RequestBody ChangePasswordRequest request) {
+        return accountImpService.changePassword(request);
+    }
+    @GetMapping("api/auth/me")
+    public UserDetails getIdentity() {
+        return accountImpService.getIdentity();
+    }
+
 }
+
+

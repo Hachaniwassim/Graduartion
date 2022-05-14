@@ -1,6 +1,8 @@
 package app.igesa.controller;
 
-
+/**
+ * @author Tarchoun Abir#
+ */
 import app.igesa.dto.CompanyBusinessDTO;
 import app.igesa.dto.PrivacyDTO;
 import app.igesa.metiers.Iprivacy;
