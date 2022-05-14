@@ -14,11 +14,19 @@ import java.util.Date;
 public class JwtUtils {
 	private static final Logger logger = LoggerFactory.getLogger(JwtUtils.class);
 
-	@Value("${bezkoder.app.jwtSecret}")
+
+	@Value("${igesa.jwt.secret}")
 	private String jwtSecret;
 
-	@Value("${bezkoder.app.jwtExpirationMs}")
-	private int jwtExpirationMs;
+	@Value("${igesa.jwt.expiration}")
+	private int  jwtExpirationMs;
+
+
+
+	public Claims getAllClaimsFromToken(String token) {
+		return Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(token).getBody();
+	}
+
 
 	public String generateJwtToken(Authentication authentication) {
 

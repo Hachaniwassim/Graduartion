@@ -1,11 +1,18 @@
 package app.igesa.dto;
 
-import app.igesa.entity.Product;
+/**
+ * @author Tarchoun Abir
+ */
+
+import app.igesa.entity.*;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
 import lombok.Data;
 import java.util.Date;
 import java.util.List;
+/**
+ * @author Tarchoun Abir
+ */
 
 
 
@@ -24,9 +31,10 @@ public class ProductDTO {
 	protected String createdBy;
 	private  int consultationNumber ;
 	private CategoryDTO category;
+	private Long entrepriseId;
+	private Long categorieId;
+	private Long tagsId;
 	private EntrepriseDTO entreprise ;
-	@JsonIgnore
-	private List<MetaDTO> metas;
 
 	public static ProductDTO fromEntity(Product product) {
 		if ( product == null) {
@@ -54,19 +62,28 @@ public class ProductDTO {
 			return null;
 		}
 
-		Product product = new Product();
+		 Product product = new Product();
 		 product.setId(dto.getId());
 		 product.setImage(dto.getImage()) ;
 	     product.setTitle(dto.getTitle());
 		 product.setNote(dto.getNote());
 		 product.setName(dto.getName());
 		 product.setConsultationNumber(dto.getConsultationNumber());
-		 product.setTags(TagsDTO.toEntity(dto.getTags()));
-		 product.setCategory(CategoryDTO.toEntity(dto.getCategory()));
-		 product.setEntreprise(EntrepriseDTO.toEntity(dto.getEntreprise()));
 		 product.setDetailimage(dto.getDetailimage());
 		 product.setCreatedDate(dto.getCreatedDate());
 		 product.setLastModifiedDate(dto.getLastModifiedDate());
+		 //tags
+		 Tags tag = new Tags();
+		 tag.setId(dto.getTagsId());
+		 product.setTags(tag);
+		 // entreprise
+		 Entreprise entreprise= new Entreprise();
+		 entreprise.setId(dto.getEntrepriseId());
+		 product.setEntreprise(entreprise);
+		 //category
+		 Category  category = new Category();
+		 category.setId(dto.getCategorieId());
+		 product.setCategory(category);
 		 return product;
 	}
 

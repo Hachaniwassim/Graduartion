@@ -1,4 +1,4 @@
-package app.igesa.validators;
+/*package app.igesa.validators;
 import app.igesa.dto.MetaDTO;
 import org.springframework.util.StringUtils;
 import java.util.ArrayList;
@@ -38,3 +38,4 @@ public class MetaValidator {
         return errors;
     }
 }
+*/

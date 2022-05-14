@@ -1,9 +1,7 @@
 package app.igesa.validators;
 
 import app.igesa.dto.LanguageDTO;
-import app.igesa.dto.MetaDTO;
 import org.springframework.util.StringUtils;
-
 import java.util.ArrayList;
 import java.util.List;
 

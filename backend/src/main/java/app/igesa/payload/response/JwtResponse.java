@@ -1,11 +1,12 @@
 package app.igesa.payload.response;
 
+import app.igesa.enumerations.AccountStatus;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import java.util.List;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -13,42 +14,35 @@ import java.util.List;
 
 public class JwtResponse {
 	private String token;
-	private String type = "Bearer";
 	private Long id;
 	private String username;
 	private String email;
-	private String codefiscale;
-	//private String password;
+	private String fiscaleCode;
+	private AccountStatus accountStatus;
 	private List<String> roles;
-	//private Groupe groupe ;
+	private Long groupeId ;
 
-	public JwtResponse(String accessToken, Long id, String username, String email, List<String> roles,String codefiscale) {
-		this.token = accessToken;
+	public JwtResponse(String token, Long id, String username, String email, List<String> roles, String fiscaleCode, AccountStatus accountStatus,Long groupeId) {
+		this.token = token;
 		this.id = id;
 		this.username = username;
 		this.email = email;
 		this.roles = roles;
-		this.codefiscale =codefiscale;
-		//this.groupe=groupe;
+		this.fiscaleCode = fiscaleCode;
+		this.groupeId=groupeId;
+		this.accountStatus = accountStatus;
 
 	}
 
 
-	public String getAccessToken() {
+	public String getToken() {
 		return token;
 	}
 
-	public void setAccessToken(String accessToken) {
-		this.token = accessToken;
+	public void setToken(String token) {
+		this.token = token;
 	}
 
-	public String getTokenType() {
-		return type;
-	}
-
-	public void setTokenType(String tokenType) {
-		this.type = tokenType;
-	}
 
 	public Long getId() {
 		return id;
@@ -78,11 +72,19 @@ public class JwtResponse {
 		return roles;
 	}
 
-	public String getCodefiscale() {
-		return codefiscale;
+	public String getFiscaleCode() {
+		return fiscaleCode;
 	}
 
-	public void setCodefiscale(String codefiscale) {
-		this.codefiscale = codefiscale;
+	public void setFiscaleCode(String fiscaleCode) {
+		this.fiscaleCode = fiscaleCode;
+	}
+
+	public Long getGroupeId() {
+		return groupeId;
+	}
+
+	public void setGroupeId(Long groupeId) {
+		this.groupeId = groupeId;
 	}
 }

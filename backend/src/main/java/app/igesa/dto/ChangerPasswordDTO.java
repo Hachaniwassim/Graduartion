@@ -5,6 +5,10 @@ import lombok.Data;
 
 import java.util.Date;
 
+/**
+ * @author Tarchoun Abir
+ */
+
 @Builder
 @Data
 public class ChangerPasswordDTO {

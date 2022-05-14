@@ -1,4 +1,4 @@
-package app.igesa.controller;
+/*package app.igesa.controller;
 import app.igesa.dto.MetaDTO;
 import app.igesa.metiers.Imeta;
 import io.swagger.annotations.Api;
@@ -13,16 +13,11 @@ import java.util.Collection;
 import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 @CrossOrigin(origins = "*", maxAge = 3600)
-@RestController
-@Api( tags = "META")
+
 public class MetaController {
 
-    private static final Logger log = LoggerFactory.getLogger(MetaController.class);
 
-    @Autowired
-    private Imeta imetaService;
 
 
     @RequestMapping(value="/meta",method = RequestMethod.POST)
@@ -99,4 +94,4 @@ public class MetaController {
     }
 
 
-}
+}*/

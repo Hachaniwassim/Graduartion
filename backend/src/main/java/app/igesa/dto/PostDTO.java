@@ -7,6 +7,10 @@ import lombok.Data;
 
 import java.util.Date;
 
+/**
+ * @author Tarchoun Abir
+ */
+
 @Data
 @Builder
 public class PostDTO {

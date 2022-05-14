@@ -2,11 +2,14 @@ package app.igesa.controller;
 import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
+
+import app.igesa.entity.Entreprise;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import app.igesa.dto.EntrepriseDTO;
 import app.igesa.metiers.Ientreprise;
@@ -15,7 +18,9 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
-
+/**
+ * @author Tarchoun Abir#
+ */
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @Api(tags = "ENTREPRISE")
@@ -25,7 +30,7 @@ public class EntrepriseController {
 	 
 	 @Autowired
 	 private Ientreprise entrepriseservice ;
-	 
+
 
 	@RequestMapping(value="/entreprise",method =RequestMethod.POST)
 	@ApiOperation(value="ADD ENTREPRISE",notes="SAUVGARDER ENTREPRISE", response = EntrepriseDTO.class)
@@ -40,7 +45,6 @@ public class EntrepriseController {
 		log.debug(" HTTP POST {}",e);
 		return new ResponseEntity<> (entrepriseservice.save(e),HttpStatus.CREATED);
 	}
-
 
 	@RequestMapping(value="/entreprise",method =RequestMethod.GET)
 	@ApiOperation(value="GET A LIST OF ENTREPRISE ", responseContainer  = "Collection<EntrepriseDTO>")
@@ -57,18 +61,18 @@ public class EntrepriseController {
 	}
 
 
-	@RequestMapping(value="/entreprise/{id}",method =RequestMethod.GET)
+	@RequestMapping(value="/entreprise/{entrepriseId}",method =RequestMethod.GET)
 	@ApiOperation(value=" GET ENTREPRISE BY ID ",notes="GET AND SEARCH FOR ENTREPRISE BY ID ", response = EntrepriseDTO.class)
 	@ApiResponses(value= {
 			@ApiResponse(code=200,message="Enterprise was found successfully with the provided id"),
 			@ApiResponse(code=404,message="No Entreprise is found with the provided id "),
 			@ApiResponse(code=401,message="Unauthorized , without authority or permission"),
 			@ApiResponse( code=403, message="not permitted or allowed"),
-			
+
 	})
-	public ResponseEntity<Optional<EntrepriseDTO> >findById(@PathVariable Long id) {
-		log.debug(" HTTP GET ENTREPRISE BY ID {}",id);
-	 return new ResponseEntity<>( entrepriseservice.findById(id),HttpStatus.OK);
+	public ResponseEntity<Optional<EntrepriseDTO> >findById(@PathVariable Long entrepriseId) {
+		log.debug(" HTTP GET ENTREPRISE BY ID {}",entrepriseId);
+	 return new ResponseEntity ( entrepriseservice.findById(entrepriseId),HttpStatus.OK);
 	}
 
 
@@ -131,5 +135,19 @@ public class EntrepriseController {
 
 		return entrepriseservice.FindEntrepriseByCompanyname(companyname);
 	}
-	
+
+	@RequestMapping(value="/entreprise/curent-entreprise",method =RequestMethod.GET)
+	@ResponseBody
+	@ApiOperation(value=" GET Entreprise ",notes="GET AND SEARCH FOR Entreprise  ", response = EntrepriseDTO.class)
+	@ApiResponses(value= {
+			@ApiResponse(code=200,message="Entreprise was found successfully"),
+			@ApiResponse(code=404,message="No entreprise  "),
+			@ApiResponse(code=401,message="Unauthorized , without authority or permission"),
+			@ApiResponse( code=403, message="not permitted or allowed"),
+
+	})
+
+	public Entreprise getCurrentEnterprise(@RequestParam("enterpriseId") Long enterpriseId) {
+		return entrepriseservice.getCurrentEnterprise();
+	}
 }

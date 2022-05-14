@@ -1,5 +1,4 @@
 package app.igesa.entity;
-
 import javax.persistence.*;
 
 import app.igesa.enumerations.Types;
@@ -13,6 +12,10 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+
+/**
+ * @author Tarchoun Abir
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -25,7 +28,6 @@ public class Post extends Auditable{
 	@Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
 	private Long id ;
-	
 	@Column(name="Image")
 	private String image ;
 	

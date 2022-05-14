@@ -14,9 +14,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import java.util.Collection;
 import java.util.Optional;
+
+/**
+ * @author Tarchoun Abir#
+ */
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
@@ -26,7 +31,6 @@ public class CategoryController {
 
     @Autowired
     private Icategory categoryService ;
-
 
 
 
@@ -85,6 +89,7 @@ public class CategoryController {
             @ApiResponse(code=200,message="Category was Deleted successfully")
 
     })
+
     public void delete(@PathVariable Long id) {
 
         log.debug(" HTTP DELETE CATEGORY BY ID {}",id);

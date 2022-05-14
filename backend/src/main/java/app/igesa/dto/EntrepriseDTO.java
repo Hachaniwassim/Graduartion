@@ -1,12 +1,24 @@
 package app.igesa.dto;
+
+/*
+ *
+ *
+ * @author Tarchoun Abir
+ *
+ *
+ */
 import app.igesa.entity.Entreprise;
 import app.igesa.entity.Groupe;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
 import lombok.Data;
+import javax.persistence.Column;
 import java.util.Date;
 import java.util.List;
 
+/**
+ *  @author Tarchoun Abir
+ */
 
 @Data
 @Builder
@@ -15,14 +27,15 @@ public class EntrepriseDTO {
 	private Long id ;
 	private String email ;
 	private String phone ;
-	private String codefiscale ;
+	private String codefiscale  ;
 	private String fax ;
 	private String note ;
+	@Column(unique = true, nullable = false)
 	private String companyname ;
-	private GroupeDTO groupe;
 	protected Date createdDate;
 	protected Date lastModifiedDate;
 	private Long groupeId;
+	private GroupeDTO groupe ;
 	@JsonIgnore
 	private List<ConfigGeneralDTO> config ;
 	
@@ -38,8 +51,8 @@ public class EntrepriseDTO {
 				.note(entreprise.getNote())
 				.phone(entreprise.getPhone())
 				.createdDate(entreprise.getCreatedDate())
+				//.groupe(GroupeDTO.fromEntity(entreprise.getGroupe().getId()))
 				.lastModifiedDate(entreprise.getLastModifiedDate())
-				.groupe(GroupeDTO.fromEntity(entreprise.getGroupe()))
 				.build();
     }
     
@@ -55,7 +68,6 @@ public class EntrepriseDTO {
 				entreprise.setPhone(dto.getPhone());
 				entreprise.setCreatedDate(dto.getCreatedDate());
 				entreprise.setLastModifiedDate(dto.getLastModifiedDate());
-				entreprise.setGroupe(GroupeDTO.toEntity(dto.getGroupe()));
 		        Groupe groupe = new Groupe();
 		        groupe.setId(dto.getGroupeId());
 		        entreprise.setGroupe(groupe);

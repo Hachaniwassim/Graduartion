@@ -1,5 +1,8 @@
 package app.igesa.entity;
 
+/**
+ * @author Tarchoun Abir
+ **/
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;

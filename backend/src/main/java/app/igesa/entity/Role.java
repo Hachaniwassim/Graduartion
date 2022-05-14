@@ -2,9 +2,11 @@ package app.igesa.entity;
 import javax.persistence.*;
 import lombok.*;
 
-
-@AllArgsConstructor
+/**
+ * @author Tarchoun Abir
+ */
 @Data
+@AllArgsConstructor
 @Builder
 @Entity
 @Getter

@@ -8,6 +8,10 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 
+
+/**
+ * @author Tarchoun Abir
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,13 +24,13 @@ public class Privacy extends  Auditable {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id ;
-
     @Column(name="title")
     private String title ;
-
     @Column(name="description")
     private String htmlContent ;
-
+    //@ManyToOne(fetch= FetchType.LAZY)
+    //@JoinColumn(name="entreprise_id")
+   // private Entreprise entreprise;
 
 
 }

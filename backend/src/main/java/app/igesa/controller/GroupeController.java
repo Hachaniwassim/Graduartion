@@ -19,8 +19,12 @@ import org.springframework.web.bind.annotation.*;
 import app.igesa.dto.GroupeDTO;
 import app.igesa.metiers.Igroupe;
 
-@RestController
 
+/**
+ * @author Tarchoun Abir#
+ */
+
+@RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
 @Api(tags = "GROUPE")
 public class GroupeController {

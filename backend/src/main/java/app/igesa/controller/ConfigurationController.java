@@ -11,13 +11,16 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import java.util.Collection;
 import java.util.Locale;
 import java.util.Optional;
 
-
-@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
+/**
+ * @author Tarchoun Abir#
+ */
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @Api(tags = "CONFIGURATION")
 public class ConfigurationController {
@@ -58,6 +61,7 @@ public class ConfigurationController {
     }
 
 
+
     @RequestMapping(value="/config/{id}",method =RequestMethod.GET)
     @ApiOperation(value=" GET CONFIG BY ID ",notes="GET AND SEARCH FOR CONFIG BY ID ", response = ConfigGeneralDTO.class)
     @ApiResponses(value= {
@@ -67,12 +71,14 @@ public class ConfigurationController {
             @ApiResponse( code=403, message="not permitted or allowed"),
 
     })
+
     public ResponseEntity<ConfigGeneralDTO>findById(@PathVariable Long id) {
         log.debug(" HTTP GET CONFIG BY ID {}",id);
         return new ResponseEntity<>( iconfigurationService.findById(id),HttpStatus.OK);
     }
 
 
+    @PreAuthorize("hasRole('MODERATOR') or hasRole('ADMIN')")
     @RequestMapping(value="/config",method =RequestMethod.PUT)
     @ApiOperation(value="UPDATE CONFIG  ",response = ConfigGeneralDTO.class)
     @ApiResponses(value= {
@@ -81,6 +87,7 @@ public class ConfigurationController {
             @ApiResponse( code=403, message="not permitted or allowed"),
 
     })
+
     public ResponseEntity<ConfigGeneralDTO> update(@RequestBody ConfigGeneralDTO c) {
         return new ResponseEntity<>(iconfigurationService.save(c),HttpStatus.CREATED);
     }
@@ -94,6 +101,7 @@ public class ConfigurationController {
             @ApiResponse( code=403, message="not permitted or allowed")
 
     })
+
     public void delete(@PathVariable Long id) {
 
         log.debug(" HTTP DELETE CONFIG BY ID {}",id);

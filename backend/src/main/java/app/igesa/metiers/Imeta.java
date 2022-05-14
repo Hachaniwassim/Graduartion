@@ -1,4 +1,4 @@
-package app.igesa.metiers;
+/*package app.igesa.metiers;
 import app.igesa.dto.MetaDTO;
 import app.igesa.dto.ProductDTO;
 
@@ -12,3 +12,4 @@ public interface Imeta {
     public void delete(Long id);
     public MetaDTO  update(MetaDTO m, Long id);
 }
+*/

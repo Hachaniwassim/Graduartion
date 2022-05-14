@@ -35,9 +35,7 @@ public class EntrepriseValidator {
 	     if(!StringUtils.hasLength(entrepriseDTO.getCompanyname())) {
 			  errors.add("Veuillez renseigner le Nom de l'entreprise !");
 		}
-	     if(entrepriseDTO.getGroupe() == null) {
-			  errors.add("Veuillez renseigner le Groupe de l'entreprise !");
-		}
+
   return errors;
 }
 }

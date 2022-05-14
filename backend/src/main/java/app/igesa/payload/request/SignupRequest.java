@@ -5,43 +5,26 @@ import lombok.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 import java.util.Set;
-
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 @PasswordMatches
 public class SignupRequest {
-    @NotEmpty
+
     private String username;
- 
-    @NotEmpty
     private String email;
-    
-    private Set<String> role;
-
-    private AccountStatus accountStatus;
-
-
-    @NotEmpty
     @Size(min = 6, message = "{Size.userDto.password}")
     private String password;
-    @NotEmpty
     private String matchingPassword;
-    @NotEmpty
     private String fiscaleCode ;
+    private Set<String> role;
+    private AccountStatus accountStatus;
 
 
     public Set<String> getRole() {
       return this.role;
-    }
-
-    public String getFiscaleCode() {
-        return fiscaleCode;
-    }
-
-    public void setFiscaleCode(String fiscaleCode) {
-        this.fiscaleCode = fiscaleCode;
     }
 
     public void setRole(Set<String> role) {

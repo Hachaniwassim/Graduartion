@@ -1,6 +1,10 @@
 package app.igesa.metiers;
 
+/**
+ * @author Tarchoun Abir
+ */
 import app.igesa.dto.CookiesDTO;
+import app.igesa.dto.EntrepriseDTO;
 import app.igesa.entity.Cookies;
 import app.igesa.exceptions.ResourceNotFoundException;
 import app.igesa.repository.CookiesRepository;
@@ -10,7 +14,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.Collection;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
@@ -20,25 +26,34 @@ public class CookiesIImp implements  Icookies{
 
     private static final Logger log = LoggerFactory.getLogger(CookiesIImp.class);
 
-
+    @Autowired
+    EntrepriseImpl entrepriseService ;
     @Autowired
     CookiesRepository cookiesRepository;
-
     @Override
-    public CookiesDTO saveCookies(CookiesDTO c) {
-       Cookies saved = cookiesRepository.save(CookiesDTO.toEntity(c));
+    public CookiesDTO updateCookies(CookiesDTO cookiesDto) {
+        Cookies cookies= new Cookies();
+        if (cookiesDto.getId()!=null){
+            cookies = cookiesRepository.findById(cookiesDto.getId()).orElseThrow(IllegalAccessError::new);
+        }
+         cookies.setEntreprise(entrepriseService.getCurrentEnterprise());
+         cookies.setTitle(cookiesDto.getTitle());
+         cookies.setHtmlContent(cookiesDto.getHtmlContent());
+         Cookies saved = cookiesRepository.save(CookiesDTO.toEntity(cookiesDto));
         return CookiesDTO.fromEntity(saved);
-
 
     }
 
+
     @Override
-    public Collection<CookiesDTO> viewCookies() {
+    public Collection<CookiesDTO> getCookies() {
         log.debug("HTTP GET ALL {} ..");
-        return cookiesRepository.findAll().stream()
+        return cookiesRepository.findFirstByEntreprise(entrepriseService.getCurrentEnterprise().getId()).stream()
                 .map(CookiesDTO::fromEntity)
                 .collect(Collectors.toList());
     }
+ 
+
 
     @Override
     public CookiesDTO findById(Long id) {
@@ -53,15 +68,7 @@ public class CookiesIImp implements  Icookies{
 
     }
 
-    @Override
-    public void deleteCookies(Long id) {
-        log.debug("HTTP DELETE BY ID {} ..", id);
-        if (id == null) {
-            log.error(" ENTREPRISE ID IS NULL ");
-            return;
-        }
-        cookiesRepository.deleteById(id);
-}
+
 
 }
 

@@ -1,6 +1,4 @@
 package app.igesa.validators;
-
-import app.igesa.dto.MetaDTO;
 import app.igesa.dto.PageDTO;
 import org.springframework.util.StringUtils;
 
