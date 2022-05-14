@@ -17,10 +17,10 @@
       <div class="form-group">
         <input type="text" class="form-control" name="username" [(ngModel)]="form.username" required placeholder="username" #username="ngModel" />
         <div class="msg" role="alert" *ngIf="!(f.submitted )&& username.errors && username.touched && username.invalid">
-          Username is required ❌
+          Username is required 
         </div>
         <div class="msg" role="alert" *ngIf="(f.submitted )&& username.errors && username.invalid">
-          Username is required ❌
+          Username is required 
         </div>
       </div>
       <div class="form-group"> 
@@ -37,9 +37,9 @@
         
       </div>
         <div class=" msg" role="alert" *ngIf=" !(f.submitted) && password.errors && password.touched && password.invalid">
-          <div *ngIf="password.errors.required">Password is required ❌ </div></div>
+          <div *ngIf="password.errors.required">Password is required  </div></div>
           <div class=" msg" role="alert" *ngIf=" (f.submitted) && password.errors && password.invalid">
-            <div *ngIf="password.errors.required ">Password is required ❌  </div>
+            <div *ngIf="password.errors.required ">Password is required   </div>
         </div>
         <div class=" msg" role="alert" *ngIf=" !(f.submitted) && password.errors && password.invalid && password.touched">
         <div *ngIf="password.errors.minlength">
@@ -58,9 +58,8 @@
       <div class="flexbox mb-5">
         <small class="form-text text-right" ><a  style="text-decoration: none;" routerLink="/register" class="text-muted"> Don't have  an account? Signup</a></small>
         </div>
-			<div class="form-group">
-				<div class=" msg" role="alert" *ngIf="isLoginFailed " > Login failed : INVALID_CREDENTIALS  ❌ {{ errorMessage }}</div>
-			</div>
+		
+      
 		<!----<div class="flexbox mb-5">
 				<div></div>
 				<small class="form-text text-right"><a routerLink="/register" class="text-muted"> Don't have an account? Signup</a></small>
@@ -79,4 +78,32 @@
     </form>
 
   </div>
+</div>
+<div class="card-body py-5" *ngIf="schooseGroup">
+  <div class="text-center mb-5">
+    <h3 class="mb-3 text-primary"><img src="https://www.igesa.it/assets/common/images/logo/1529316041.png" alt="logo" width="200" class="my-3"></h3>
+    <div class="font-18 text-center">LOGIN WELCOMEBACK
+      <span class="text-blue">{{username}}</span></div>
+  </div>
+ 
+  <form name="form" (ngSubmit)="onSubmit()" #f="ngForm">
+
+    <div class="mb-4">
+      <div class="md-form mb-0">
+        <mat-select placeholder="Groupes" formControlName="groupeId">
+          <mat-option *ngFor="let groupe of groupeServices" [value]="groupe.id">
+            {{groupe.name}}
+          </mat-option>
+        </mat-select>
+      </div>
+    </div>
+
+    <div class="flexbox mb-5">
+      <div class="form-group">
+				<button class="btn btn-primary btn-block">Login</button>
+			</div>
+
+    </div>
+  </form>
+
 </div>

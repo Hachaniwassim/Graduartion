@@ -129,6 +129,7 @@ export class EntrepriseListComponent implements OnInit {
       dialogConfig.autoFocus = true;
       dialogConfig.width = "60%";
       this.dialog.open(EntrepriseAddComponent, dialogConfig);
+
   
     }
   
@@ -169,3 +170,7 @@ export class EntrepriseListComponent implements OnInit {
     
   
 }
+function res(res: any) {
+  throw new Error('Function not implemented.');
+}
+

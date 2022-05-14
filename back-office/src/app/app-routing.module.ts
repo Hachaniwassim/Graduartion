@@ -53,6 +53,7 @@ import { PlateformeComponent } from './plateforme/plateforme.component';
 const routes: Routes = [
 
   { path: 'login', component: LoginComponent },
+
   { path: 'register', component: RegisterComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   //home
@@ -106,7 +107,7 @@ const routes: Routes = [
   { path: "account", component: AccountComponent, canActivate: [AuthGuard] },
 
   //cookies
-  { path: "cookiess", component: CookiesV2Component, canActivate: [AuthGuard] },
+  { path: "cookies-v2", component: CookiesV2Component, canActivate: [AuthGuard] },
   //Plateforme
   { path: "plateforme", component: PlateformeComponent, canActivate: [AuthGuard] },
 
@@ -122,13 +123,23 @@ const routes: Routes = [
   //dashboard
   { path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule), canActivate: [AuthGuard] },
 
-  { path: 'groupe', loadChildren: () => import('./groupe/groupe.module').then(m => m.GroupeModule) },
+  { path: 'groupe', loadChildren: () => import('./groupe/groupe.module').then(m => m.GroupeModule) , canActivate: [AuthGuard] },
 
-  { path: 'entreprise', loadChildren: () => import('./entreprise/entreprise.module').then(m => m.EntrepriseModule) },
 
-  { path: 'tags', loadChildren: () => import('./tags/tags.module').then(m => m.TagsModule) },
+  { path: 'entreprise', loadChildren: () => import('./entreprise/entreprise.module').then(m => m.EntrepriseModule), canActivate: [AuthGuard] },
 
-  { path: 'language', loadChildren: () => import('./language/language.module').then(m => m.LanguageModule) },
+
+  { path: 'tags', loadChildren: () => import('./tags/tags.module').then(m => m.TagsModule) , canActivate: [AuthGuard] },
+
+
+  { path: 'language', loadChildren: () => import('./language/language.module').then(m => m.LanguageModule) , canActivate: [AuthGuard] },
+
+  { path: 'tap-to-top', loadChildren: () => import('./tap-to-top/tap-to-top.module').then(m => m.TapToTopModule) },
+
+  { path: 'cookies-notifier', loadChildren: () => import('./cookies-notifier/cookies-notifier.module').then(m => m.CookiesNotifierModule) },
+
+  { path: 'page', loadChildren: () => import('./web-positioning/web-positioning.module').then(m => m.WebPositioningModule) },
+
 
   // 404 not found 
   { path: '**', component: NotfoundComponent },

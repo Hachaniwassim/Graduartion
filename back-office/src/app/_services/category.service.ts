@@ -5,6 +5,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import * as _ from 'lodash';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 import { categoryDTO } from '../models/dto/categoryDTO';
 
 @Injectable({
@@ -13,7 +14,7 @@ import { categoryDTO } from '../models/dto/categoryDTO';
 export class Gategoryservice {
 
   //api backend
-  private base_url="http://localhost:8089";
+  private base_url= environment.api+ '/category';
   
 
 

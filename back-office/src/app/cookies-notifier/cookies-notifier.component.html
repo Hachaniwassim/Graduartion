@@ -1,0 +1,37 @@
+<br><br>
+<div class="content-page">
+  <!-- Start content -->
+  <div class="content">
+<div class="cookie-notifier-container" *ngIf="showCookiesNotifier">
+    <div class="cookie-notifier-content">
+        <div class="form-row cookie-notifier-header">
+            <div class="col-lg-10 col-md-10 col-10">
+                <span>Informativa</span>
+            </div>
+            <div class="col-lg-2 col-md-2 col-2 btn-close">
+                <i class="ti-close" (click)="declineCookies()"></i>
+            </div>
+        </div>
+        <div class="form-row cookie-notifier-body">
+            <div class="col">
+                Noi e alcuni partner selezionati utilizziamo cookie o tecnologie simili come specificato nella
+                <a href="javascript:void(0)" [routerLink]="['/pages/cookies'] ">cookie policy</a>.
+                Puoi acconsentire all’utilizzo di tali tecnologie chiudendo questa informativa.
+            </div>
+        </div>
+        <div class="form-row cookie-notifier-footer">
+            <div class="col-lg-6 col-md-6 col-12 btn-view">
+                <button class="btn btn-light" type="button" [routerLink]="['/pages/cookies']">
+                    Scopri di più e personaliza
+                </button>
+            </div>
+            <div class="col-lg-6 col-md-6 col-12 btn-accept">
+                <button class="btn btn-light" type="button" (click)="acceptCookies()">
+                    Accetta
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>

@@ -4,5 +4,5 @@ export interface account{
     email? : string;
     password? : string;
     matchingPassword? : string;
-    fiscaleCode ? : string;
+    fiscaleCode? : string;
 }

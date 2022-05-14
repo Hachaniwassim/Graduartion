@@ -5,6 +5,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import * as _ from 'lodash';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 import { EntrepriseDTO } from '../models/dto/entreprisDTO';
 import { GroupeDTO } from '../models/dto/groupeDTO';
 @Injectable({
@@ -13,7 +14,7 @@ import { GroupeDTO } from '../models/dto/groupeDTO';
 export class EntrepriseService {
 
    //api backend
-   private base_url="http://localhost:8089/entreprise";
+   private base_url= environment.api +'/entreprise';
 
  
 
@@ -95,7 +96,7 @@ export class EntrepriseService {
    id: new FormControl(null),
    companyname : new FormControl('',[ Validators.required]),
    phone :new  FormControl('',[Validators.required]),
-   email: new FormControl('',[ Validators.email,Validators.required]),
+   email: new FormControl('',/*[ Validators.email,Validators.required]*/),
    codefiscale: new FormControl('',[Validators.required]),
    note : new FormControl(''),  
    fax : new FormControl('',[ Validators.required]),
@@ -113,7 +114,8 @@ export class EntrepriseService {
      fax: true,
      codefiscale:'',
       note : '',
-    groupeId :''
+      email:'',
+      groupeId :''
  
    });
  }

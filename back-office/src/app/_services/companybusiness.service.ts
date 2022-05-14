@@ -5,6 +5,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import * as _ from 'lodash';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 import { CompanyBusinessDTO } from '../models/dto/companyBusinessDTO';
 
 @Injectable({
@@ -13,16 +14,8 @@ import { CompanyBusinessDTO } from '../models/dto/companyBusinessDTO';
 export class CompanybusinessService {
 
   //api backend
-  private base_url="http://localhost:8089/company";
-  
-  headers = new HttpHeaders().set('Content-Type', 'application/json');
+  private base_url=environment.api + '/company';
 
- CompanyBusinessDTO ={
-    description:'', 
-    domainename: '',
-    createdDate :'',
-    lastModifiedDate:'',
-  }
   constructor(private http :HttpClient, private datePipe: DatePipe) { }
 
   //http opttion

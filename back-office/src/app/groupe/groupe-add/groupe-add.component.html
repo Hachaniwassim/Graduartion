@@ -21,17 +21,16 @@
             formControlName="description" >
         </textarea>
         <mat-error *ngIf="groupeService.form.controls['description'].errors?.required">this field is mandatory.
-        </mat-error>
-          </mat-form-field> 
-        </div>
-        <mat-form-field>
+        </mat-error>   
+        </mat-form-field>   
+        <mat-form-field style="margin-left: 30px;">
           <mat-select placeholder="Company Acrivity" formControlName="companyId">
             <mat-option *ngFor="let company of companyServices" [value]="company.id">
               {{company.description}}
             </mat-option>
           </mat-select>
         </mat-form-field>
-
+        </div>
       </mat-grid-tile>
     </mat-grid-list>
     <div class="button-row" align="center">

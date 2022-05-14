@@ -23,7 +23,7 @@ export class GroupeAddComponent implements OnInit {
   @ViewChild('groupeForm', { static: false })
   groupeForm !: FormGroup;
   groupeData !: GroupeDTO;
-  groupe!: GroupeDTO[];
+  groupe: GroupeDTO[]=[];
   searchKey!: string;
   showspinner = false;
   datasource = new MatTableDataSource(this.groupe)
@@ -76,18 +76,19 @@ export class GroupeAddComponent implements OnInit {
         this.groupeService.createGroupe(this.groupeService.form.value).subscribe((res) => {
           console.log(res);
           this.notificationService.success(':: Submitted successfully');
-          this.datasource.data.push(res);
+          this.groupe.push(res);
 
         });
       }
 
       else (
         this.groupeService.updateGroupe(this.groupeService.form.value).subscribe((res) => {
-          this.datasource.data.push(res);
+          this.groupe.push(res);
 
         }));
     }
     this.onClose();
+    this.refresh();
   }
 
 

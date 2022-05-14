@@ -5,6 +5,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import * as _ from 'lodash';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 import { CompanyBusinessDTO } from '../models/dto/companyBusinessDTO';
 import { GroupeDTO } from '../models/dto/groupeDTO';
 
@@ -14,7 +15,7 @@ import { GroupeDTO } from '../models/dto/groupeDTO';
 export class GroupeService {
 
   //api backend
-  private base_url = "http://localhost:8089/groupe";
+  private base_url = environment.api + '/groupe';
 
 
 

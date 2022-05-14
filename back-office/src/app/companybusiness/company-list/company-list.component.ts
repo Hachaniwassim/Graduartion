@@ -58,6 +58,7 @@ export class CompanyListComponent implements OnInit {
       this.datasource.data = response;
       this.datasource.paginator = this.paginator;
       this.datasource.sort = this.sort;
+      console.log(response)
     });
 
   }

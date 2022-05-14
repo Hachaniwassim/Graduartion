@@ -7,7 +7,7 @@ import { LeftSlideBarComponent } from './left-slide-bar/left-slide-bar.component
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, NgSelectOption, ReactiveFormsModule } from '@angular/forms';
 import { PossupportComponent } from './possupport/possupport.component';
 import { PoscontactsComponent } from './poscontacts/poscontacts.component';
 import { PoshomeComponent } from './poshome/poshome.component';
@@ -157,7 +157,7 @@ import { RolesViewComponent } from './roles/roles-view/roles-view.component';
 
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  exports: [MaterialModule, ScheduleModule,NgxSpinnerModule],
+  exports: [MaterialModule, ScheduleModule,NgxSpinnerModule,NgSelectModule],
   providers: [
     {provide: MatDialogRef, useValue: {close: (_dialogResult: any) => { }} }, DatePipe, authInterceptorProviders,DayService, WeekService, WorkWeekService, MonthService, AgendaService, MonthAgendaService, TimelineViewsService, TimelineMonthService
   ],

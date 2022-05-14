@@ -1,4 +1,4 @@
-export interface configgeneraleDTO{
+export class configgeneraleDTO{
     id?:number ;
 	facebook? : string;
     twitter? : string;
@@ -9,8 +9,8 @@ export interface configgeneraleDTO{
     phone ? : string;
     fax ? : string;
     title ? : string;
-    createdDate :   Date;
-    lastModifiedDate: Date; 
+    createdDate !:   Date;
+    lastModifiedDate!: Date; 
     newslettertitle ? : string;
     newslettersubtitle ? : string;
     tagline ? : string;

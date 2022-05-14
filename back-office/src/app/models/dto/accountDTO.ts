@@ -7,4 +7,7 @@ export class AccountDTO{
     accountStatus!: string;
     matchingPassword!: string;
     fiscaleCode !: string;
+    createdDate !:   Date;
+    lastModifiedDate!: Date; 
+    roles!: string[] ;
 }

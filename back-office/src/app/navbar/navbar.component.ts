@@ -13,6 +13,7 @@ export class NavbarComponent implements OnInit {
   isLoggedIn = false;
   showAdminBoard = false;
   showModeratorBoard = false;
+  showUserBoard = false ;
   username?: string;
 
   constructor(private tokenStorageService: TokenStorageService,public router : Router) { }
@@ -26,15 +27,13 @@ export class NavbarComponent implements OnInit {
 
       this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
       this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR');
-
+      this.showUserBoard = this.roles.includes('ROLE_USER')
       this.username = user.username;
     }
-    if(!this.isLoggedIn){
-      this.tokenStorageService.signOut();
-    }
+   
   }
-  
 
+ 
   logout(): void {
    this.tokenStorageService.signOut();
     this.router.navigate(['/']);

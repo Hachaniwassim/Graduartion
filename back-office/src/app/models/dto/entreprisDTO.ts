@@ -8,7 +8,7 @@ export class EntrepriseDTO{
         fax!: string;
         email!: string;
         note!: string;
-        groupId!: string;
+        groupeId!: string;
         createdDate !: Date;
         lastModifiedDate!: Date; 
         
