@@ -66,7 +66,6 @@ import { PlateformeViewComponent } from './plateforme/plateforme-view/plateforme
 import { PlateformeAddComponent } from './plateforme/plateforme-add/plateforme-add.component';
 import { NgxSpinnerModule } from "ngx-spinner"; 
 import { CKEditorModule } from 'ckeditor4-angular';
-import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -141,7 +140,6 @@ import { NgSelectModule } from '@ng-select/ng-select';
     AngularEditorModule,
     NgxSpinnerModule,
     CKEditorModule,
-    NgSelectModule
     
 
 

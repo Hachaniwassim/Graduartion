@@ -5,185 +5,138 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d19cc085-58b4-4895-9ad6-7e3ac712967c" name="Changes" comment="update">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/pages/Page1Controller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/pages/Page2Controller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/pages/Page3Controller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/dto/Page1DTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/dto/Page2DTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/dto/Page3DTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/entity/Page1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/entity/Page2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/entity/Page3.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/entity/seo/Meta.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/enumerations/RobotsMetaTag.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/metiers/Ipage1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/metiers/Ipage2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/metiers/Ipage3.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/metiers/pages/Page1Imp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/metiers/pages/Page2Imp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/metiers/pages/Page3Imp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/repository/Page1Repository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/repository/Page2Repository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/repository/Page3Repository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Graduartion.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Graduartion.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application.log" beforeDir="false" afterPath="$PROJECT_DIR$/application.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application.log.2022-05-02.0.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-office/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/back-office/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-office/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/back-office/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-office/src/app/_services/account.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back-office/src/app/_services/account.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-office/src/app/_services/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back-office/src/app/_services/auth.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-office/src/app/_services/category.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back-office/src/app/_services/category.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-office/src/app/_services/companybusiness.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back-office/src/app/_services/companybusiness.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-office/src/app/_services/configgenerale.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back-office/src/app/_services/configgenerale.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-office/src/app/_services/contact.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back-office/src/app/_services/contact.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-office/src/app/_services/cookies.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back-office/src/app/_services/cookies.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-office/src/app/_services/entreprise.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back-office/src/app/_services/entreprise.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-office/src/app/_services/groupe.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back-office/src/app/_services/groupe.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-office/src/app/_services/plateforme.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back-office/src/app/_services/plateforme.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-office/src/app/account/account-list/account-list.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/back-office/src/app/account/account-list/account-list.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-office/src/app/account/account-list/account-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/back-office/src/app/account/account-list/account-list.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-office/src/app/account/account-list/account-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back-office/src/app/account/account-list/account-list.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-office/src/app/account/account.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/back-office/src/app/account/account.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-office/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back-office/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-office/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/back-office/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-office/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back-office/src/app/app.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-office/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back-office/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-office/src/app/companybusiness/company-list/company-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back-office/src/app/companybusiness/company-list/company-list.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-office/src/app/cookies/cookies.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/back-office/src/app/cookies/cookies.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-office/src/app/cookies/cookies.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back-office/src/app/cookies/cookies.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-office/src/app/entreprise/entreprise-add/entreprise-add.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/back-office/src/app/entreprise/entreprise-add/entreprise-add.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-office/src/app/entreprise/entreprise-add/entreprise-add.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back-office/src/app/entreprise/entreprise-add/entreprise-add.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-office/src/app/entreprise/entreprise-list/entreprise-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/back-office/src/app/entreprise/entreprise-list/entreprise-list.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-office/src/app/entreprise/entreprise-list/entreprise-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back-office/src/app/entreprise/entreprise-list/entreprise-list.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-office/src/app/groupe/groupe-add/groupe-add.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/back-office/src/app/groupe/groupe-add/groupe-add.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-office/src/app/groupe/groupe-add/groupe-add.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back-office/src/app/groupe/groupe-add/groupe-add.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-office/src/app/groupe/groupe-list/groupe-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back-office/src/app/groupe/groupe-list/groupe-list.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-office/src/app/guard/auth.guard.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back-office/src/app/guard/auth.guard.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-office/src/app/left-slide-bar/left-slide-bar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/back-office/src/app/left-slide-bar/left-slide-bar.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-office/src/app/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/back-office/src/app/login/login.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-office/src/app/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back-office/src/app/login/login.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-office/src/app/mat-confirm-dialog/mat-confirm-dialog.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/back-office/src/app/mat-confirm-dialog/mat-confirm-dialog.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-office/src/app/models/account.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back-office/src/app/models/account.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-office/src/app/models/dto/accountDTO.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back-office/src/app/models/dto/accountDTO.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-office/src/app/models/dto/configgeneraleDTO.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back-office/src/app/models/dto/configgeneraleDTO.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-office/src/app/models/dto/entreprisDTO.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back-office/src/app/models/dto/entreprisDTO.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-office/src/app/navbar/navbar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/back-office/src/app/navbar/navbar.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-office/src/app/navbar/navbar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back-office/src/app/navbar/navbar.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-office/src/app/profile/profile.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/back-office/src/app/profile/profile.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-office/src/app/profile/profile.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/back-office/src/app/profile/profile.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-office/src/app/profile/profile.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back-office/src/app/profile/profile.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-office/src/app/register/register.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/back-office/src/app/register/register.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-office/src/app/register/register.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back-office/src/app/register/register.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-office/src/app/tags/add-tags/add-tags.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back-office/src/app/tags/add-tags/add-tags.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-office/src/environments/environment.prod.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back-office/src/environments/environment.prod.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-office/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back-office/src/environments/environment.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-office/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/back-office/src/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/application.log" beforeDir="false" afterPath="$PROJECT_DIR$/backend/application.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/application.log.2022-05-02.0.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/application.log.2022-05-03.0.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/application.log.2022-05-04.0.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/MultiwebsitesApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/MultiwebsitesApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/AccountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/CategoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/CompanyBusinessController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/CompanyBusinessController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/ConfigurationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/ConfigurationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/CookiesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/CookiesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/EntrepriseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/EntrepriseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/FilesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/FilesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/FormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/FormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/GroupeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/GroupeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/ImageController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/ImageUploadResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/LanguageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/LanguageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/MetaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/MetaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/PagesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/PagesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/PhotoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/PhotoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/PlateformeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/PlateformeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/PostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/PostController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/PrivacyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/PrivacyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/RoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/RoleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/TagsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/TagsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/TestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/dto/CategoryDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/dto/CategoryDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/dto/ChangerPasswordDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/dto/ChangerPasswordDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/dto/CompanyBusinessDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/dto/CompanyBusinessDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/dto/ConfigGeneralDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/dto/ConfigGeneralDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/dto/CookiesDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/dto/CookiesDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/dto/EntrepriseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/dto/EntrepriseDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/dto/FormDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/dto/FormDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/dto/GroupeDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/dto/GroupeDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/dto/LanguageDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/dto/LanguageDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/dto/MetaDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/dto/MetaDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/dto/PageDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/dto/PageDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/dto/PlateformeDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/dto/PlateformeDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/dto/PostDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/dto/PostDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/dto/PrivacyDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/dto/PrivacyDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/dto/ProductDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/dto/ProductDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/dto/TagsDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/dto/TagsDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/dto/TranslationObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/dto/TranslationObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/entity/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/entity/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/entity/Auditable.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/entity/Auditable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/entity/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/entity/Category.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/entity/CompanyBusiness.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/entity/CompanyBusiness.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/entity/ConfigGenerale.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/entity/ConfigGenerale.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/entity/Cookies.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/entity/Cookies.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/entity/ERole.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/entity/ERole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/entity/Entreprise.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/entity/Entreprise.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/entity/FileInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/entity/FileInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/entity/FormEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/entity/FormEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/entity/Groupe.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/entity/Groupe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/entity/Image.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/entity/ImageModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/entity/Language.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/entity/Language.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/entity/Meta.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/entity/Pages.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/entity/Pages.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/entity/Plateforme.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/entity/Plateforme.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/entity/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/entity/Post.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/entity/Privacy.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/entity/Privacy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/entity/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/entity/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/entity/Role.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/entity/Tags.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/entity/Tags.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/enumerations/ErrorCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/enumerations/ErrorCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/enumerations/PagesTypes.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/enumerations/PagesTypes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/enumerations/RobotsTags.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/metiers/AccountImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/metiers/AccountImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/metiers/CookiesIImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/metiers/CookiesIImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/metiers/EntrepriseImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/metiers/EntrepriseImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/metiers/GroupeImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/metiers/GroupeImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/metiers/Iaccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/metiers/Iaccount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/metiers/Icookies.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/metiers/Icookies.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/metiers/Ientreprise.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/metiers/Ientreprise.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/metiers/Imeta.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/metiers/Imeta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/metiers/MetaImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/metiers/MetaImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/metiers/UserDetailsImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/metiers/UserDetailsImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/metiers/UserDetailsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/metiers/UserDetailsServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/payload/request/LoginRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/payload/request/LoginRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/payload/request/SignupRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/payload/request/SignupRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/payload/response/JwtResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/payload/response/JwtResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/repository/AccountRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/repository/AccountRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/repository/CookiesRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/repository/CookiesRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/repository/IentrepriseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/repository/IentrepriseRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/repository/IgroupeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/repository/IgroupeRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/repository/ImageRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/repository/ImetaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/repository/ImetaRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/security/jwt/AuthTokenFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/security/jwt/AuthTokenFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/security/jwt/JwtUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/security/jwt/JwtUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/upload/FilesStorageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/upload/FilesStorageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/upload/FilesStorageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/upload/FilesStorageServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/util/ImageUtility.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/validators/EntrepriseValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/validators/EntrepriseValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/validators/LanguageValidators.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/validators/LanguageValidators.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/validators/MetaValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/validators/MetaValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/validators/pageValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/validators/pageValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-office/src/app/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front-office/src/app/home/home.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Graduartion.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jpa-buddy.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__antlr_antlr_2_7_7.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_2_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_core_1_2_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_classmate_1_5_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_11_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_11_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_11_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jdk8_2_11_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jsr310_2_11_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_module_jackson_module_parameter_names_2_11_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_flickr4java_flickr4java_3_0_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_scribejava_scribejava_apis_6_9_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_scribejava_scribejava_core_6_9_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_20_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_jayway_jsonpath_json_path_2_4_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_activation_jakarta_activation_1_2_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_istack_istack_commons_runtime_3_0_11.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_vaadin_external_google_android_json_0_0_20131108_vaadin1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_zaxxer_HikariCP_3_4_5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_jsonwebtoken_jjwt_0_9_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_micrometer_micrometer_core_1_6_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_core_2_9_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_schema_2_9_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_spi_2_9_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_spring_web_2_9_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_swagger2_2_9_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_swagger_common_2_9_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_swagger_ui_2_9_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_swagger_swagger_annotations_1_5_20.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_swagger_swagger_models_1_5_20.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_activation_jakarta_activation_api_1_2_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_annotation_jakarta_annotation_api_1_3_5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_persistence_jakarta_persistence_api_2_2_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_transaction_jakarta_transaction_api_1_3_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_validation_jakarta_validation_api_2_0_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_xml_bind_jakarta_xml_bind_api_2_3_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_1_10_18.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_agent_1_10_18.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_minidev_accessors_smart_1_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_minidev_json_smart_2_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_13_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_to_slf4j_2_13_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_core_9_0_39.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_websocket_9_0_39.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjrt_1_9_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjweaver_1_9_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_assertj_assertj_core_3_18_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_checkerframework_checker_qual_3_5_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_dom4j_dom4j_2_1_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_jakarta_el_3_0_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_jaxb_jaxb_runtime_2_3_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_jaxb_txw2_2_3_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_2_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hdrhistogram_HdrHistogram_2_1_12.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_common_hibernate_commons_annotations_5_1_2_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_core_5_4_23_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_validator_hibernate_validator_6_1_6_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_javassist_javassist_3_24_0_GA.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_jandex_2_1_3_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_4_1_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_5_7_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_7_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_7_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_params_5_7_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_7_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_7_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_latencyutils_LatencyUtils_2_0_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mapstruct_mapstruct_1_2_0_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_core_3_6_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_junit_jupiter_3_6_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_modelmapper_modelmapper_3_1_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_objenesis_objenesis_3_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_ow2_asm_asm_5_0_4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_postgresql_postgresql_42_3_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_18_22.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_skyscreamer_jsonassert_1_5_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_jul_to_slf4j_1_7_30.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_30.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_2_4_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_actuator_2_4_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_actuator_autoconfigure_2_4_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_2_4_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_configuration_processor_2_4_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_2_4_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_actuator_2_6_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_aop_2_4_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_data_jpa_2_6_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_jdbc_2_4_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_json_2_4_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_2_4_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_security_2_4_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_test_2_6_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_tomcat_2_4_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_validation_2_4_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_2_6_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_2_4_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_2_4_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_commons_2_4_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_jpa_2_4_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_plugin_spring_plugin_core_1_2_0_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_plugin_spring_plugin_metadata_1_2_0_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_config_5_4_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_core_5_4_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_test_5_4_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_web_5_4_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_5_3_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aspects_5_3_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_5_3_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_5_3_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_5_3_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_5_3_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jcl_5_3_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_5_3_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_orm_5_3_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_5_3_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_5_3_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_5_3_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_5_3_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_xmlunit_xmlunit_core_2_7_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_27.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -291,7 +244,7 @@
       <option name="presentableId" value="Default" />
       <updated>1652355743429</updated>
       <workItem from="1652355745351" duration="1663000" />
-      <workItem from="1652362024642" duration="57266000" />
+      <workItem from="1652362024642" duration="58325000" />
     </task>
     <servers />
   </component>
