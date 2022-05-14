@@ -7,7 +7,7 @@ import { LeftSlideBarComponent } from './left-slide-bar/left-slide-bar.component
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, NgSelectOption, ReactiveFormsModule } from '@angular/forms';
 import { PossupportComponent } from './possupport/possupport.component';
 import { PoscontactsComponent } from './poscontacts/poscontacts.component';
 import { PoshomeComponent } from './poshome/poshome.component';
@@ -66,6 +66,7 @@ import { PlateformeViewComponent } from './plateforme/plateforme-view/plateforme
 import { PlateformeAddComponent } from './plateforme/plateforme-add/plateforme-add.component';
 import { NgxSpinnerModule } from "ngx-spinner"; 
 import { CKEditorModule } from 'ckeditor4-angular';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -140,12 +141,13 @@ import { CKEditorModule } from 'ckeditor4-angular';
     AngularEditorModule,
     NgxSpinnerModule,
     CKEditorModule,
+    NgSelectModule
     
 
 
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  exports: [MaterialModule, ScheduleModule,NgxSpinnerModule],
+  exports: [MaterialModule, ScheduleModule,NgxSpinnerModule,NgSelectModule],
   providers: [
     {provide: MatDialogRef, useValue: {close: (_dialogResult: any) => { }} }, DatePipe, authInterceptorProviders,DayService, WeekService, WorkWeekService, MonthService, AgendaService, MonthAgendaService, TimelineViewsService, TimelineMonthService
   ],

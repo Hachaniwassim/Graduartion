@@ -1,0 +1,55 @@
+<br><br><br>
+<div id="wrapper">
+
+    <div class="content-page">
+      <!-- Start content -->
+      <div class="content">
+
+        <div class="container">
+            <div class="card">
+              <div class="card-header"> Positionnement Web </div>
+          
+              <div class="card-body">
+                <form [formGroup]="webPositioningForm">
+                  <mat-tab-group formArrayName="metaTagsTrans" [(selectedIndex)]="selectedTab">
+                    <mat-tab *ngFor="let ctrl of metaTagsTrans.controls; let i = index"
+                             [label]="langs[i]?.description"
+                             [formGroupName]="i">
+                      <div class="pt-4">
+                        <div class="form-group">
+                          <label for="title">Title</label>
+                          <input type="text" class="form-control form-control-sm" id="title"
+                                 formControlName="title">
+                          <small class="form-text text-right text-muted">{{ctrl.get('title')?.value?.length || 0}}</small>
+                        </div>
+                        <div class="form-group">
+                          <label for="desc">Description</label>
+                          <textarea class="form-control form-control-sm" id="desc"
+                                    rows="7" formControlName="description"></textarea>
+                          <small class="form-text text-right text-muted">{{ctrl.get('description')?.value?.length || 0}}</small>
+                        </div>
+                      </div>
+                    </mat-tab>
+                  </mat-tab-group>
+                  <mat-divider class="py-3"></mat-divider>
+                  <div class="form-group">
+                    <label for="robots">Robots</label>
+                    <ng-select id="robots"
+                               formControlName="robots"
+                               [multiple]="true"
+                               [closeOnSelect]="false"
+                               [items]="robots">
+                    </ng-select>
+                  </div>
+                </form>
+              </div>
+          
+              <div class="card-footer d-flex justify-content-end">
+                  <button mat-flat-button color="primary" (click)="save()" class="confirm-button">save</button>
+              </div>
+            </div>
+          </div>
+          
+          </div>
+          </div>
+          </div>

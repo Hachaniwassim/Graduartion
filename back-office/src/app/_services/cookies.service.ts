@@ -1,6 +1,7 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import { CookieDTO } from "../models/dto/cookieDTO";
+import { environment } from "src/environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ import { CookieDTO } from "../models/dto/cookieDTO";
 export class CookiesService {
 
 
-  private base_url="http://localhost:8089/cookies";
+  private base_url= environment.api +'/cookies';
 
   constructor(private http: HttpClient) {
   }
@@ -17,9 +18,8 @@ export class CookiesService {
   update(request: any) {
     return this.http.post<CookieDTO>(`${this.base_url}`, request);
   }
-
-  get() {
-    return this.http.get<CookieDTO[]>(this.base_url);
+  getCurrentEnterpriseCookies() {
+    return this.http.get<CookieDTO[]>(`${this.base_url}`);
   }
 
 }

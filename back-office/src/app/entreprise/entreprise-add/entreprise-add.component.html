@@ -4,7 +4,7 @@
     <button class="btn-dialog-close" mat-stroked-button  mat-dialog-close (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
   </mat-toolbar><br><br>
     <form [formGroup]="entrepriseService.form" class="normal-form" (submit)="onSubmit()" class="normal-form">
-      <mat-grid-list cols="1" rowHeight="350px">
+      <mat-grid-list cols="2" rowHeight="300px">
         <mat-grid-tile>
           <div class="controles-container">
             <input type="hidden" formControlName="id">
@@ -24,23 +24,40 @@
             <mat-error *ngIf="entrepriseService.form.controls['codefiscale'].errors?.required">this field is mandatory.
             </mat-error>
         </mat-form-field>
-        <mat-form-field style="margin-left: 30px;">
-            <input formControlName="phone"  type="number" matInput placeholder="phone">
-            <mat-error *ngIf="entrepriseService.form.controls['phone'].errors?.required">this field is mandatory.
-            </mat-error>
+        <mat-form-field style="margin-left: 30px;" >
+          <input formControlName="phone"  type="number" matInput placeholder="phone">
+          <mat-error *ngIf="entrepriseService.form.controls['phone'].errors?.required">this field is mandatory.
+          </mat-error>
         </mat-form-field>
-        <mat-form-field style="margin-left: 30px;">
+        </div>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <div class="controles-container">
+         <mat-form-field style="margin-left: 30px;">
             <input formControlName="fax"  type="number"  matInput placeholder="fax">
             <mat-error *ngIf="entrepriseService.form.controls['fax'].errors?.required">this field is mandatory.
             </mat-error>
             </mat-form-field>
-            </div>
-        </mat-grid-tile>
+            <mat-form-field style="margin-left: 30px;">
+              <input formControlName="email"  type="email"  matInput placeholder="email">
+              <mat-error *ngIf="entrepriseService.form.controls['email'].errors?.required">this field is mandatory.
+              </mat-error>
+              </mat-form-field>
+              <mat-form-field style="margin-left: 30px;">
+                <mat-select placeholder="Groupes" formControlName="groupeId">
+                  <mat-option *ngFor="let groupe of groupeServices" [value]="groupe.id">
+                    {{groupe.name}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <br><br>
+              <div class="button-row" align="center" style="margin-left: 30px;">
+                <button mat-raised-button color="primary" type="submit"
+                  [disabled]="entrepriseService.form.invalid" (click)="refresh()">Save</button>
+                  <button mat-raised-button  mat-dialog-close> <mat-icon>close</mat-icon>Cancel</button>
+                <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
+              </div>
+             </div>
+          </mat-grid-tile>
       </mat-grid-list>
-      <div class="button-row" align="center">
-        <button mat-raised-button color="primary" type="submit"
-          [disabled]="entrepriseService.form.invalid" (click)="refresh()">Save</button>
-          <button mat-raised-button  mat-dialog-close> <mat-icon>close</mat-icon>Cancel</button>
-        <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
-    </div>
     </form>

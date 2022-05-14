@@ -1,39 +1,65 @@
+<br><br><br>
+
 <div id="wrapper" *ngIf="currentUser; else loggedOut">
 
   <div class="content-page">
     <!-- Start content -->
     <div class="content">
-      <div class="col-xl-12">
+      <div class="x_panel">
+      <h5>update profile </h5>
+      <mat-progress-bar mode="determinate" value="10"></mat-progress-bar><br><br>
         <div class="card m-b-30">
           <div class="card-body">
             <br>
-            <fieldset class="container">
-              <h1>Details profile </h1>
-              <mat-progress-bar mode="determinate" value="40"></mat-progress-bar><br><br>
+            <fieldset>
               <div class="container">
-                <form class="example-form">
-                  <label for="">Username *</label> <br>
-                  <mat-form-field class="example-full-width" style="width: 500px;" appearance="fill">
-
-                    <input matInput #input maxlength="10" value="{{ currentUser.username }}">
-                  </mat-form-field>
+                <form class="example-form" [formGroup]="account"><br><br>
+                  <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                      <label [ngStyle]="{'color':'blue'}"  > Username *</label>
+                      <input type="text" formControlName="username" placeholder="title" class="form-control form-control-sm">
+                    </div>
+                  </div>
+               
+                <div class="row">
+                  <div class="col-md-6 col-sm-6">
+                    <br>
+                  <label [ngStyle]="{'color':'blue'}" >Email *</label>
                   <br>
-                  <label for="">Email *</label> <br>
-                  <mat-form-field class="example-full-width" style="width: 500px;" appearance="fill">
-                    <input matInput #input maxlength="10" value="{{ currentUser.email }}">
-                  </mat-form-field>
-                  <br>
-
-                  <label for="">Role</label> <br>
-                  <mat-form-field class="example-full-width" style="width: 500px;" appearance="fill"
-                    *ngFor="let role of currentUser.roles">
-
-                    <input matInput #input maxlength="10" value="{{ role }}">
-                  </mat-form-field>
-                  <br>
-                  <br>
+                  <input type="email" formControlName="email" placeholder="title" class="form-control form-control-sm">
+                  </div>
+                  </div>
+                  <div class="row">
+                  <div class="col-md-6 col-sm-6">
+                    <br>
+                    <label [ngStyle]="{'color':'blue'}" >FiscaleCode *</label>
+                    <input type="text" formControlName="fiscaleCode" placeholder="title" class="form-control form-control-sm">
+                    </div>
+                    </div>
+                    <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                      <br>
+                      <label [ngStyle]="{'color':'blue'}" >Status *</label>
+                      <input type="text" formControlName="accountStatus" placeholder="title" class="form-control form-control-sm">
+                      </div> 
+                      </div> 
+                      <div class="row">
+                      <div class="col-md-6 col-sm-6">
+                        <br>
+                        <label [ngStyle]="{'color':'blue'}" >Status *</label>
+                        <input type="text" formControlName="password" placeholder="title" class="form-control form-control-sm">
+                        </div> 
+                        </div> 
+                        <div class="row">
+                        <div class="col-md-6 col-sm-6">
+                          <br>
+                          <label [ngStyle]="{'color':'blue'}" >Status *</label>
+                          <input type="text" formControlName="matchingPassword" placeholder="title" class="form-control form-control-sm">
+                          </div> 
+                          </div> 
                 </form>
-                <button mat-raised-button color="primary" style="width: 100px;">Save</button>
+                <br>
+                <button mat-raised-button color="primary" style="width: 100px;" (click)="save()">Save</button>
                 &nbsp;&nbsp;
                 <button mat-raised-button color="warn" style="width: 100px;">Canncel</button>
                 <br><br>
@@ -44,14 +70,13 @@
       </div>
       <br>
       <div class="col-xl-12">
+      <h5>Change the password of the Data Bank</h5>
+      <mat-progress-bar mode="determinate" value="19"></mat-progress-bar><br><br>
         <div class="card m-b-30">
           <div class="card-body">
             <fieldset class="container">
-              <h1>Change the password of the Data Bank</h1>
-
-              <mat-progress-bar mode="determinate" value="40"></mat-progress-bar><br><br>
               <div class="container">
-                <form class="example-form">
+                <form class="example-form" [formGroup]="account"><br><br>
                   <label for=""> Old password*</label> <br>
                   <mat-form-field appearance="fill" style="width: 500px;">
                     <mat-label>Enter your old password</mat-label>

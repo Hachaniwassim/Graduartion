@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthService } from '../_services/auth.service';
 
 @Component({
@@ -13,32 +14,23 @@ export class RegisterComponent implements OnInit {
   form: any = {
     username: "",
     email: "",
-    password: "",
-    matchingPassword: "",
     fiscaleCode: "",
-
-  };
+    password:"",  
+    matchingPassword: ""}
 
   fieldTextType!: boolean;
+  fieldTextType2!: boolean;
   isSuccessful = false;
   isSignUpFailed = false;
   errorMessage = '';
+ 
 
-  //test confirm password 
-  MatchPassword(AC: AbstractControl) {
-    const password = AC.get('password')?.value; // to get value in input tag
-    const matchingPassword = AC.get('matchingPassword')?.value; // to get value in input tag
-    if (password !== matchingPassword) {
-      return { MatchPassword: true };
-    } else {
-      return null
-    }
-  }
-
-
-  constructor(private authService: AuthService) { }
-
+  constructor(private authService: AuthService, private _snackBar :MatSnackBar) { 
+    
+  
+   }
   ngOnInit(): void {
+   
   }
 
   onSubmit(): void {
@@ -53,11 +45,22 @@ export class RegisterComponent implements OnInit {
         this.isSuccessful = true;
         this.isSignUpFailed = false;
       },
+
       err => {
-        this.errorMessage = err.error.message;
-        this.isSignUpFailed = true;
-      }
-    );
+        //get error from backend : inactivate account || blocked account
+        if (err.error.text) {
+            console.log(err.error.text)
+            this._snackBar.open(err.error.text, '', {
+            duration: 4000,
+            horizontalPosition: "center",
+            verticalPosition: "top",
+            panelClass: ['mat-toolbar', 'mat-warn']
+
+          });
+          return
+        }
+      });
+
   }
 
   // show password 
@@ -65,6 +68,9 @@ export class RegisterComponent implements OnInit {
     this.fieldTextType = !this.fieldTextType;
   }
 
-
+  // show password 
+  toggleFieldTextType2() {
+    this.fieldTextType2 = !this.fieldTextType2;
+  }
 
 }

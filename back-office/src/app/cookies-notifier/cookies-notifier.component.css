@@ -1,0 +1,54 @@
+.cookie-notifier-container {
+  width: 100%;
+  background: var(--theme-deafult);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  padding: 30px 150px;
+}
+  .cookie-notifier-content {
+    width: 70%;
+    margin: 0 auto;}
+    .cookie-notifier-header {
+      font-weight: 700;
+      color: white;
+    }
+      .btn-close {
+        text-align: right;
+      }
+        i {
+          cursor: pointer;
+        }
+      
+    
+    .cookie-notifier-body {
+      font-weight: 400;
+      color: white;
+      margin: 16px 0;
+    }
+    .cookie-notifier-footer  .btn-view {
+        text-align: left;
+        margin-bottom: 10px;
+      }
+      .btn-accept {
+        text-align: right;
+  }
+
+
+@media (max-width: 577px) {
+  .cookie-notifier-container {
+    padding: 16px;
+  }
+    .cookie-notifier-content {
+      width: 100%;
+    }
+      .cookie-notifier-footer.btn-view  {
+        
+          text-align: center;
+        }
+        .btn-accept {
+          text-align: center;
+        }
+    
+}

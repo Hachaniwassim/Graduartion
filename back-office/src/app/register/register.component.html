@@ -63,20 +63,19 @@
             </div>
             <div class="form-group">
               <div class="input-group">
-                <input type="password" class="form-control" placeholder="confirm password" name="matchingPassword"
+                <input type="password"  [type]="fieldTextType2 ? 'text' : 'password'" class="form-control" placeholder="confirm password" name="matchingPassword"
                   placeholder=" confirm password" [(ngModel)]="form.matchingPassword" required
                   #matchingPassword="ngModel" />
                 <span class="input-group-text">
                   <i class="fa" [ngClass]="{
-                        'fa-eye-slash': !fieldTextType,
-                        'fa-eye': fieldTextType }" (click)="toggleFieldTextType()"></i>
+                        'fa-eye-slash': !fieldTextType2,
+                        'fa-eye': fieldTextType2 }" (click)="toggleFieldTextType2()"></i>
                 </span>
               </div>
                 <div class="msg"
                   *ngIf="(!f.submitted) &&  matchingPassword.errors && matchingPassword.invalid  &&  matchingPassword.touched">
-                  <div *ngIf="matchingPassword.errors.required">Confirm Password is required</div>
-                </div>
-                
+                  <div>Confirm Password is required</div> 
+                </div> 
               </div>
               <div class="form-group">
                 <button class="btn btn-primary btn-block" [disabled]="!f.form.valid">Sign Up</button>
@@ -101,9 +100,9 @@
               </div>
           </form>
 
-          <!---<div class="alert alert-success" *ngIf="isSuccessful">
+          <div class="alert alert-success" *ngIf="isSuccessful">
               Your registration is successful!
-            </div>--->
+            </div>
         </div>
       </div>
 

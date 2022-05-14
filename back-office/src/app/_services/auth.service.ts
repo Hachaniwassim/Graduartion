@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
-const AUTH_API = 'http://localhost:8089/api/auth/';
+const AUTH_API= environment.api +'/api/auth/';
 
 
 @Injectable({
@@ -40,23 +41,23 @@ export class AuthService {
 
 
   //login 
-  login(username: string, password: string): Observable<any> {
+  login(username: string, password: string) {
     return this.http.post(AUTH_API + 'signin', {
       username,
       password
-    }, this.httpOptions);
-    //this.router.navigate(['home']);
+    })
+    
   }
   //register
   register(username: string, email: string, password: string, matchingPassword: string,
-    fiscaleCode: string): Observable<any> {
+    fiscaleCode: string) {
     return this.http.post(AUTH_API + 'signup', {
       username,
       email,
       password,
       matchingPassword,
       fiscaleCode
-    }, this.httpOptions);
+    });
   }
  
 

@@ -5,6 +5,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import * as _ from 'lodash';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 import { configgeneraleDTO } from '../models/dto/configgeneraleDTO';
 
 @Injectable({
@@ -13,24 +14,9 @@ import { configgeneraleDTO } from '../models/dto/configgeneraleDTO';
 export class ConfigGeneraleService {
 
   //api backend
-  private base_url="http://localhost:8089/";
+  private base_url= environment.api +'/config';
   
-  headers = new HttpHeaders().set('Content-Type', 'application/json');
 
- CompanyBusinessDTO ={
-  facebook:'', 
-  twitter: '',
-  youtube: '',
-  image: '',
-  adresse: '',
-  email: '',
-  phone: '',
-  fax: '',
-  title: '',
-  newslettertitle: '',
-  newslettersubtitle: '',
-  tagline: '',
-  }
   constructor(private http :HttpClient, private datePipe: DatePipe) { }
 
   //http opttion
@@ -58,18 +44,18 @@ export class ConfigGeneraleService {
 };
 
 
-// insert 
+// insert  data 
 create(item : configgeneraleDTO):Observable<configgeneraleDTO>{
   return this.http.post<configgeneraleDTO>(this.base_url,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
 }
 
-//get all account data 
-all():Observable<configgeneraleDTO>{
-   return this.http.get<configgeneraleDTO>(this.base_url).pipe(retry(2),catchError(this.handleError));
+//get all  data 
+all():Observable<configgeneraleDTO[]>{
+   return this.http.get<configgeneraleDTO[]>(this.base_url).pipe(retry(2),catchError(this.handleError));
  }
 
 
-  // get account by id
+  // get  by id
   getByid(id:number):Observable<configgeneraleDTO>{
     return this.http.get<configgeneraleDTO>(this.base_url + '/' +id).pipe(retry(2),catchError(this.handleError));
 

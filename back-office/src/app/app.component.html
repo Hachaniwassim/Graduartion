@@ -1,2 +1,4 @@
+<ngx-loading-bar [includeSpinner]="false" [height]="'3px'"></ngx-loading-bar>
 <app-navbar ></app-navbar>
 <router-outlet ></router-outlet>
+<app-cookie-notifier *ngIf="showDefaultCookiesNotifier"></app-cookie-notifier>

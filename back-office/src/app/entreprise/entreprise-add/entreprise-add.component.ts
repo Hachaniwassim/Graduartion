@@ -10,6 +10,8 @@ import { NotificationService } from 'src/app/shared/notification.service';
 import { DialogService } from 'src/app/shared/dialog.service';
 import { Router } from '@angular/router';
 import { EntrepriseService } from 'src/app/_services/entreprise.service';
+import { GroupeService } from 'src/app/_services/groupe.service';
+import { GroupeDTO } from 'src/app/models/dto/groupeDTO';
 
 @Component({
   selector: 'app-entreprise-add',
@@ -21,23 +23,29 @@ export class EntrepriseAddComponent implements OnInit {
   @ViewChild('entrepriseForm', { static: false })
   entrepriseForm !: FormGroup;
   entrepriseData !: EntrepriseDTO;
-  entreprise!: EntrepriseDTO[];
+  entreprise: EntrepriseDTO[]=[];
   searchKey!: string;
   showspinner = false;
   datasource = new MatTableDataSource(this.entreprise)
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort, {}) sort!: MatSort;
+  groupeServices: GroupeDTO[] = [];
 
 
 
-    constructor(private dialog: MatDialog, private dialogService: DialogService, public entrepriseService: EntrepriseService, public dialogRef: MatDialogRef<EntrepriseAddComponent>,
-    private notificationService: NotificationService, private router: Router, public _location: Location) {
+    constructor(private dialog: MatDialog, public entrepriseService: EntrepriseService, public dialogRef: MatDialogRef<EntrepriseAddComponent>,
+    private notificationService: NotificationService, private groupeService : GroupeService ,private router: Router, public _location: Location) {
     this.entrepriseData = {} as EntrepriseDTO;
   }
 
   
 
   ngOnInit(): void {
+    this.getAllEntreprise();
+    this.groupeService.getallGroupe().subscribe(res => {
+      console.log(res)
+      this.groupeServices = res;
+    })
    
   }
 
@@ -52,17 +60,18 @@ export class EntrepriseAddComponent implements OnInit {
    onSubmit() {
     if (this.entrepriseService.form.valid) {
       if (!this.entrepriseService.form.get('id')?.value)
-        this.entrepriseService.createEntreprise(this.entrepriseService.form.value).subscribe(() => {
-          
+        this.entrepriseService.createEntreprise(this.entrepriseService.form.value).subscribe((res) => {
+          this.entreprise.push(res);
           this.notificationService.success(':: Submitted successfully');
         })
 
       else(
-        this.entrepriseService.updateEntreprise(this.entrepriseService.form.value).subscribe(() => {
+        this.entrepriseService.updateEntreprise(this.entrepriseService.form.value).subscribe((res) => {
+          this.entreprise.push(res);
         })) 
         this.onClose();
+        this.refresh();
       }
-    this.refresh();
   }
 
 
@@ -84,6 +93,13 @@ export class EntrepriseAddComponent implements OnInit {
   reloadPage() {
     window.location.reload();
   }
+  getAllEntreprise(){
+    this.entrepriseService.getAllEntreprise().subscribe((response: any) => {
+    this.datasource.data = response;
+    this.entreprise.push(response);
+    
+  });
+}
 
 }
 

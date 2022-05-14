@@ -5,6 +5,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import * as _ from 'lodash';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 import { CompanyBusinessDTO } from '../models/dto/companyBusinessDTO';
 
 @Injectable({
@@ -13,18 +14,8 @@ import { CompanyBusinessDTO } from '../models/dto/companyBusinessDTO';
 export class Contactservice {
 
   //api backend
-  private base_url="http://localhost:8089/";
+  private base_url=environment.api + '/contact';
   
-  headers = new HttpHeaders().set('Content-Type', 'application/json');
-
- CompanyBusinessDTO ={
-    username:'', 
-    email: '',
-    password: '',
-    matchingPassword: '',
-    fiscaleCode: '',
-
-  }
   constructor(private http :HttpClient, private datePipe: DatePipe) { }
 
   //http opttion

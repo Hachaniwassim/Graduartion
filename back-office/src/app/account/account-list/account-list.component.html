@@ -30,7 +30,8 @@
       <ng-container matColumnDef="fiscaleCode">
         <mat-header-cell *matHeaderCellDef mat-sort-header >Fiscale Code</mat-header-cell>
         <mat-cell *matCellDef="let element" >{{element.fiscaleCode}}</mat-cell>
-      </ng-container>      <ng-container matColumnDef="accountStatus">
+      </ng-container>     
+       <ng-container matColumnDef="accountStatus">
         <mat-header-cell *matHeaderCellDef mat-sort-header>Status</mat-header-cell>
         <mat-cell *matCellDef="let element">
           <button mat-icon-button [ngStyle]="{'font-size.px':13}" class="badge badge-warning mr-2" (click)="updateaStatusAccount(element)">
@@ -38,6 +39,14 @@
             </span>
           </button>
           </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="createdDate">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Created At</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.createdDate | date:'short':'UTC'}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="lastModifiedDate">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Last Modified At</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.lastModifiedDate | date:'short':'UTC'}} </mat-cell>
       </ng-container>
       <ng-container matColumnDef="actions">
         <mat-header-cell *matHeaderCellDef>

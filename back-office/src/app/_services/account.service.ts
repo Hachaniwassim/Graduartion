@@ -3,8 +3,9 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Injectable } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import * as _ from 'lodash';
-import { Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
+import { Observable, of, ReplaySubject, throwError } from 'rxjs';
+import { catchError, map, retry, tap } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 import { AccountDTO } from '../models/dto/accountDTO';
 
 @Injectable({
@@ -13,9 +14,11 @@ import { AccountDTO } from '../models/dto/accountDTO';
 export class Accountservice {
 
   //api backend
-  private base_url="http://localhost:8089/user";
+  private base_url= environment.api + '/user';
   
-  headers = new HttpHeaders().set('Content-Type', 'application/json');
+  private userIdentity: AccountDTO | null = null;
+  private authenticationState = new ReplaySubject<AccountDTO | null>();
+  private accountCache$?: Observable<AccountDTO | null>;
 
   constructor(private http :HttpClient, private datePipe: DatePipe) { }
 
@@ -44,14 +47,15 @@ export class Accountservice {
 };
 
 
+
 // insert 
-create(item : AccountDTO):Observable<AccountDTO[]>{
-  return this.http.post<AccountDTO[]>(this.base_url,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
+create(item : any){
+  return this.http.post<any>(this.base_url,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
 }
 
 //get all account data 
-all():Observable<AccountDTO>{
-   return this.http.get<AccountDTO>(this.base_url).pipe(retry(2),catchError(this.handleError));
+all():Observable<AccountDTO[]>{
+   return this.http.get<AccountDTO[]>(this.base_url).pipe(retry(2),catchError(this.handleError));
  }
 
 
@@ -62,10 +66,11 @@ all():Observable<AccountDTO>{
   }
 
    // update account by Id the
-   update(item : AccountDTO){
-    return this.http.put<AccountDTO>(this.base_url,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
+   update(item : any){
+    return this.http.put<any>(this.base_url,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
    }
 
+ 
     // delete accounts
     delete(id:number){
       return this.http.delete<AccountDTO>(this.base_url + '/' +id,this.httpOptions).pipe(retry(2),catchError(this.handleError));
@@ -75,11 +80,11 @@ all():Observable<AccountDTO>{
 //validation formulaire
     form : FormGroup= new FormGroup({
     id: new FormControl(null),
-    username: new FormControl('',Validators.required),
-    email : new FormControl('',[ Validators.required]),
-    password : new FormControl('',[ Validators.required]),
-    matchingPassword : new FormControl('',[ Validators.required]),
-    fiscaleCode : new FormControl('',[ Validators.required]),
+    username: new FormControl(''),
+    email : new FormControl(''),
+    password : new FormControl(''),
+    matchingPassword : new FormControl(''),
+    fiscaleCode : new FormControl(''),
     accountStatus: new FormControl(''),
 });
 

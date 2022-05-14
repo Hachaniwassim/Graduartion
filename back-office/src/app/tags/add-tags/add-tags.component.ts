@@ -5,6 +5,7 @@ import {Location}from '@angular/common';
 import { DialogService } from 'src/app/shared/dialog.service';
 import { NotificationService } from 'src/app/shared/notification.service';
 import { TagsSerice } from 'src/app/_services/tags.service';
+import { TagsDTO } from 'src/app/models/dto/TagsDTO';
 
 @Component({
   selector: 'app-add-tags',
@@ -19,7 +20,7 @@ export class AddTagsComponent implements OnInit {
     
   }
 
-  
+  tags:TagsDTO[]=[];
 
   ngOnInit(): void {
   }
@@ -34,13 +35,15 @@ export class AddTagsComponent implements OnInit {
    onSubmit() {
     if (this.tagsService.form.valid) {
       if (!this.tagsService.form.get('id')?.value)
-        this.tagsService.createtags(this.tagsService.form.value).subscribe(() => {
+        this.tagsService.createtags(this.tagsService.form.value).subscribe((res) => {
+          this.tags.push(res);
           
           this.notificationService.success(':: Submitted successfully');
         })
 
       else(
-        this.tagsService.updateTags(this.tagsService.form.value).subscribe(() => {
+        this.tagsService.updateTags(this.tagsService.form.value).subscribe((res) => {
+          this.tags.push(res);
         })) 
         this.onClose();
       }

@@ -1,5 +1,4 @@
 import { Component, OnInit, Output, ViewChild } from '@angular/core';
-import { FormGroup } from '@angular/forms';
 import { Location } from '@angular/common';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
@@ -8,7 +7,6 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GroupeDTO } from 'src/app/models/dto/groupeDTO';
 import { DialogService } from 'src/app/shared/dialog.service';
-import { NotificationService } from 'src/app/shared/notification.service';
 import { CompanybusinessService } from 'src/app/_services/companybusiness.service';
 import { GroupeService } from 'src/app/_services/groupe.service';
 import Swal from 'sweetalert2';
@@ -16,7 +14,6 @@ import { GroupeAddComponent } from '../groupe-add/groupe-add.component';
 import { GroupeViewComponent } from '../groupe-view/groupe-view.component';
 import { CompanyBusinessDTO } from 'src/app/models/dto/companyBusinessDTO';
 import { List } from 'lodash';
-import { NgxSpinnerService } from "ngx-spinner";
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
@@ -31,7 +28,7 @@ export class GroupeListComponent implements OnInit {
   @ViewChild('groupeForm', { static: false })
 
   groupeData !: GroupeDTO;
-  groupe!: GroupeDTO[];
+  groupe : GroupeDTO[]= [];
   searchKey!: string;
   showspinner = false;
   currentGroupe: any;
@@ -39,13 +36,13 @@ export class GroupeListComponent implements OnInit {
   result: any;
   company: List<CompanyBusinessDTO> = [];
   datasource = new MatTableDataSource(this.groupe)
-  displayedColumns: string[] = [ 'name', 'groupStatus', 'createdDate', 'lastModifiedDate', 'actions'];
+  displayedColumns: string[] = ['name', 'groupStatus', 'createdDate', 'lastModifiedDate', 'actions'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort, {}) sort!: MatSort;
   id = this.route.snapshot.params['id'];
   message!: string;
   constructor(private _snackBar: MatSnackBar, private dialog: MatDialog, private groupeService: GroupeService, private dialogService: DialogService, private companyService: CompanybusinessService,
-    private notificationService: NotificationService, private route: ActivatedRoute, public router: Router, public _location: Location) {
+   private route: ActivatedRoute, public router: Router, public _location: Location) {
     this.groupeData = {} as GroupeDTO;
   }
 
@@ -59,10 +56,11 @@ export class GroupeListComponent implements OnInit {
 
   ngOnInit(): void {
 
-      this.groupeService.getallGroupe().subscribe((response: any) => {
-      this.datasource.data = response;});
-      // and get companybussiness
-      this.companyService.getAllCompanyBussiness().subscribe((response: any) => {
+    this.groupeService.getallGroupe().subscribe((response: any) => {
+      this.datasource.data = response;
+    });
+    // and get companybussiness
+    this.companyService.getAllCompanyBussiness().subscribe((response: any) => {
       this.company = response;
     })
 
@@ -97,32 +95,42 @@ export class GroupeListComponent implements OnInit {
   // delete data 
   onDeleteGroupe(id: number) {
 
-    this.dialogService.openConfirmDialog('Are you sure to delete this record ?')
-      .afterClosed().subscribe((res: any) => {
-        if (res) {
-          this.groupeService.deleteGroupe(id).subscribe(() => {
-          })
-          this.refresh();
-          this._snackBar.open(" :: Groupe have been deleted Successfully ", "", {
-            duration: 3000,
-            horizontalPosition: "right",
-            verticalPosition: "top",
-            panelClass: ["mat-toolbar", "mat-succes"],
-          });
-
-        }},
-        error => {
-          this._snackBar.open("Erroor occurend !!" + error?.message, "", {
-            duration: 3000,
-            horizontalPosition: "right",
-            verticalPosition: "top",
-            panelClass: ["mat-toolbar", "mat-warn"],
-          });
-        });
+    Swal.fire({
+      title: 'Are you sure to delete this groupe !?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes',
+      cancelButtonText: 'No',
+    }).then((result) => {
+      if (result.value) {
+        this.groupeService.deleteGroupe(id)
+          .subscribe(
+            response => {
+              console.log(response);
+              Swal.fire('Deleted!','All Groupe  was Deleted successfully.','success');
+              if (result.dismiss === Swal.DismissReason.cancel) {
+              }
+              // snackBar success 
+              this._snackBar.open("Groupes Deleted Successfully","OK"+'⚡',{
+                duration: 5000,
+                horizontalPosition: "right",
+                verticalPosition: "top",
+                panelClass: ["mat-toolbar", "mat-success"],
+              });
+             },
+              error => {
+              // snackBar error
+              this._snackBar.open("Error occurend !!" +error?.message, "",{
+                duration: 3000,
+                horizontalPosition: "right",
+                verticalPosition: "top",
+                panelClass: ["mat-toolbar", "mat-warn"],
+              });
+            });
+          }
+    });
 
   }
-
-
 
   //view details groupe
   ViewGroupe(row: any) {
@@ -152,7 +160,7 @@ export class GroupeListComponent implements OnInit {
     dialogConfig.autoFocus = true;
     dialogConfig.width = "60%";
     this.dialog.open(GroupeAddComponent, dialogConfig);
-   // this.datasource.data.push(result)
+    // this.datasource.data.push(result)
 
   }
 
@@ -185,72 +193,76 @@ export class GroupeListComponent implements OnInit {
   updateactiveGroupe(element: GroupeDTO) {
     Swal.fire({
       title: 'Are you sure to Update status  !?',
-      text: 'This process is irreversible.',
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonText: 'Yes, go ahead.',
-      cancelButtonText: 'No, let me think',
+      confirmButtonText: 'Yes.',
+      cancelButtonText: 'No.',
     }).then((result) => {
       if (result.value) {
-        this.groupeService.updateGroupeByStatus(element.id, element.groupStatus).subscribe( res => {
-        
+        this.groupeService.updateGroupeByStatus(element.id, element.groupStatus).subscribe(res => {
+
           console.log(res);
-           
-           const index = this.datasource.data.indexOf(element);
-           if(index > -1) {
-             this.datasource.data[index].groupStatus = res.groupStatus;
-           }
-        
-          })
+
+          const index = this.datasource.data.indexOf(element);
+          if (index > -1) {
+            this.datasource.data[index].groupStatus = res.groupStatus;
+          }
+           // snackBar success 
+         this._snackBar.open("status updated Successfully", "OK"+'⚡', {
+          duration: 5000,
+          horizontalPosition: "right",
+          verticalPosition: "top",
+          panelClass: ["mat-toolbar", "mat-succes"],
+        });
+
+        })
         Swal.fire('updated!', ' status updated successfully.', 'success');
       } else if (result.dismiss === Swal.DismissReason.cancel) {
-        Swal.fire('TRY LATER...');
       }
+        
     });
 
   }
-  
-
 
 
   // delete all groupe
   removeAllGroupe() {
     Swal.fire({
       title: 'Are you sure to delete all Groupes  !?',
-      text: 'This process is irreversible.',
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonText: 'Yes, go ahead.',
-      cancelButtonText: 'No, let me think',
+      confirmButtonText: 'Yes',
+      cancelButtonText: 'No',
     }).then((result) => {
       if (result.value) {
         this.groupeService.deleteAllGroupe()
           .subscribe(
             response => {
               console.log(response);
-               // snackBar success 
-              this._snackBar.open("Groupes Deleted Successfully !!", "", {
+              // snackBar success 
+              this._snackBar.open("Groupes Deleted Successfully", "OK"+'⚡', {
                 duration: 5000,
                 horizontalPosition: "right",
                 verticalPosition: "top",
                 panelClass: ["mat-toolbar", "mat-succes"],
               });
+              Swal.fire('Deleted!', ' All Groupe  was Deleted successfully.', 'success');
+              if (result.dismiss === Swal.DismissReason.cancel) {
+              }
               this.refresh();
             },
 
             error => {
-               // snackBar error
-              this._snackBar.open("Erroor occurend !!" + error?.message, "", {
+              // snackBar error
+              this._snackBar.open("Error occurend !!" + error?.message, "", {
                 duration: 3000,
                 horizontalPosition: "right",
                 verticalPosition: "top",
                 panelClass: ["mat-toolbar", "mat-warn"],
               });
             });
-        Swal.fire('Deleted!', ' All Groupe  was Deleted successfully.', 'success');
-      } else if (result.dismiss === Swal.DismissReason.cancel) {
-        Swal.fire('TRY LATER...');
       }
+
     });
 
   }

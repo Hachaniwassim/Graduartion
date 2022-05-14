@@ -5,6 +5,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import * as _ from 'lodash';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 import { plateforomeDTO } from '../models/dto/plateformeDTO';
 
 @Injectable({
@@ -13,7 +14,7 @@ import { plateforomeDTO } from '../models/dto/plateformeDTO';
 export class PlateformeService {
 
   //api backend
-  private base_url="http://localhost:8089/plateforme";
+  private base_url=environment.api + '/platefome';
   
 
   constructor(private http :HttpClient, private datePipe: DatePipe) { }
@@ -94,7 +95,10 @@ initializeFormGroup() {
     published: null,
   });
 }
+
+// get value of formulaire mode update
 populateForm(plateforme: any) {
   this.form.patchValue(_.omit(plateforme));
 }
+
 }
