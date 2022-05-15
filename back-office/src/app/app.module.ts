@@ -8,19 +8,26 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { FormsModule, NgSelectOption, ReactiveFormsModule } from '@angular/forms';
-import { PossupportComponent } from './posWeb/possupport/possupport.component';
-import { PoscontactsComponent } from './posWeb/poscontacts/poscontacts.component';
-import { PoshomeComponent } from './posWeb/poshome/poshome.component';
-import { PosnewsComponent } from './posWeb/posnews/posnews.component';
+import { PossupportComponent } from './possupport/possupport.component';
+import { PoscontactsComponent } from './poscontacts/poscontacts.component';
+import { PoshomeComponent } from './poshome/poshome.component';
+import { PosactualityComponent } from './posactuality/posactuality.component';
+import { PosnewsComponent } from './posnews/posnews.component';
 import { PosproductsComponent } from './posproducts/posproducts.component';
 import { PosproductlistComponent } from './posproductlist/posproductlist.component';
-import { PosmanagementComponent } from './posWeb/posnews/posmanagement/posmanagement.component';
-import { PoswhorareweComponent } from './posWeb/poswhorarewe/poswhorarewe.component';
-import { PosusefulllinksComponent } from './posWeb/posusefulllinks/posusefulllinks.component';
-import { PosdatabaseComponent } from './posWeb/posdatabase/posdatabase.component';
-import { PoscookiesComponent } from './posWeb/poscookies/poscookies.component';
+import { PosmanagementComponent } from './posmanagement/posmanagement.component';
+import { PosdealersComponent } from './posdealers/posdealers.component';
+import { PoswhorareweComponent } from './poswhorarewe/poswhorarewe.component';
+import { PosusefulllinksComponent } from './posusefulllinks/posusefulllinks.component';
+import { PosdatabaseComponent } from './posdatabase/posdatabase.component';
+import { PoscookiesComponent } from './poscookies/poscookies.component';
 import { PrivacypolicyComponent } from './privacypolicy/privacypolicy.component';
-import { PosprivacyComponent } from './posWeb/posprivacy/posprivacy.component';
+import { PosprivacyComponent } from './posprivacy/posprivacy.component';
+import { HomewelcometextComponent } from './homewelcometext/homewelcometext.component';
+import { HomenewslistComponent } from './homenewslist/homenewslist.component';
+import { HomescustomerlogosComponent } from './homescustomerlogos/homescustomerlogos.component';
+import { HomelistComponent } from './homelist/homelist.component';
+import { HomeprimaryslideComponent } from './homeprimaryslide/homeprimaryslide.component';
 import { WhoareweComponent } from './whoarewe/whoarewe.component';
 import { DatabaseComponent } from './database/database.component';
 import { CookiesComponent } from './cookies/cookies.component';
@@ -65,14 +72,6 @@ import { RolesComponent } from './roles/roles.component';
 import { RolesAddComponent } from './roles/roles-add/roles-add.component';
 import { RolesListComponent } from './roles/roles-list/roles-list.component';
 import { RolesViewComponent } from './roles/roles-view/roles-view.component';
-import { NgSelectModule } from '@ng-select/ng-select';
-import { PosactualityComponent } from './posWeb/posactuality/posactuality.component';
-import { PosdealersComponent } from './posWeb/posdealers/posdealers.component';
-import { HomewelcometextComponent } from './pages/homewelcometext/homewelcometext.component';
-import { HomenewslistComponent } from './pages/homenewslist/homenewslist.component';
-import { HomescustomerlogosComponent } from './pages/homescustomerlogos/homescustomerlogos.component';
-import { HomelistComponent } from './pages/homelist/homelist.component';
-import { HomeprimaryslideComponent } from './pages/homeprimaryslide/homeprimaryslide.component';
 
 @NgModule({
   declarations: [
@@ -153,7 +152,6 @@ import { HomeprimaryslideComponent } from './pages/homeprimaryslide/homeprimarys
     AngularEditorModule,
     NgxSpinnerModule,
     CKEditorModule,
-    NgSelectModule
     
 
 

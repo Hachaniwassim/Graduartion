@@ -12,9 +12,26 @@ import { ManagementComponent } from './management/management.component';
 import { UsefulllinksComponent } from './usefulllinks/usefulllinks.component';
 
 //Positioning Web
+import { PosactualityComponent } from './posactuality/posactuality.component';
+import { PoscontactsComponent } from './poscontacts/poscontacts.component';
+import { PoscookiesComponent } from './poscookies/poscookies.component';
+import { PosdatabaseComponent } from './posdatabase/posdatabase.component';
+import { PosdealersComponent } from './posdealers/posdealers.component';
+import { PosmanagementComponent } from './posmanagement/posmanagement.component';
+import { PosnewsComponent } from './posnews/posnews.component';
 import { PosproductlistComponent } from './posproductlist/posproductlist.component';
 import { PosproductsComponent } from './posproducts/posproducts.component';
+import { PossupportComponent } from './possupport/possupport.component';
+import { PosusefulllinksComponent } from './posusefulllinks/posusefulllinks.component';
+import { PoswhorareweComponent } from './poswhorarewe/poswhorarewe.component';
+import { PoshomeComponent } from './poshome/poshome.component';
+import { PosprivacyComponent } from './posprivacy/posprivacy.component';
 //Home
+import { HomewelcometextComponent } from './homewelcometext/homewelcometext.component';
+import { HomenewslistComponent } from './homenewslist/homenewslist.component';
+import { HomelistComponent } from './homelist/homelist.component';
+import { HomescustomerlogosComponent } from './homescustomerlogos/homescustomerlogos.component';
+import { HomeprimaryslideComponent } from './homeprimaryslide/homeprimaryslide.component';
 import { BoardUserComponent } from './board-user/board-user.component';
 import { BoardModeratorComponent } from './board-moderator/board-moderator.component';
 import { BoardAdminComponent } from './board-admin/board-admin.component';
@@ -26,23 +43,6 @@ import { CompanybusinessComponent } from './companybusiness/companybusiness.comp
 import { AccountComponent } from './account/account.component';
 import { CookiesV2Component } from './cookies-v2/cookies-v2.component';
 import { PlateformeComponent } from './plateforme/plateforme.component';
-import { PosactualityComponent } from './posWeb/posactuality/posactuality.component';
-import { PoscontactsComponent } from './posWeb/poscontacts/poscontacts.component';
-import { PoscookiesComponent } from './posWeb/poscookies/poscookies.component';
-import { PosdatabaseComponent } from './posWeb/posdatabase/posdatabase.component';
-import { PosdealersComponent } from './posWeb/posdealers/posdealers.component';
-import { PosmanagementComponent } from './posWeb/posnews/posmanagement/posmanagement.component';
-import { PosnewsComponent } from './posWeb/posnews/posnews.component';
-import { PossupportComponent } from './posWeb/possupport/possupport.component';
-import { PosusefulllinksComponent } from './posWeb/posusefulllinks/posusefulllinks.component';
-import { PoswhorareweComponent } from './posWeb/poswhorarewe/poswhorarewe.component';
-import { PoshomeComponent } from './posWeb/poshome/poshome.component';
-import { PosprivacyComponent } from './posWeb/posprivacy/posprivacy.component';
-import { HomewelcometextComponent } from './pages/homewelcometext/homewelcometext.component';
-import { HomenewslistComponent } from './pages/homenewslist/homenewslist.component';
-import { HomescustomerlogosComponent } from './pages/homescustomerlogos/homescustomerlogos.component';
-import { HomelistComponent } from './pages/homelist/homelist.component';
-import { HomeprimaryslideComponent } from './pages/homeprimaryslide/homeprimaryslide.component';
 
 
 
@@ -57,7 +57,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   //home
-  { path: 'home', loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule), canActivate: [AuthGuard] },
+  { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule), canActivate: [AuthGuard] },
   //configurations
   { path: 'configurations', loadChildren: () => import('./configurations/configurations.module').then(m => m.ConfigurationsModule), canActivate: [AuthGuard] },
   //contact
