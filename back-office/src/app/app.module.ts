@@ -72,7 +72,6 @@ import { RolesComponent } from './roles/roles.component';
 import { RolesAddComponent } from './roles/roles-add/roles-add.component';
 import { RolesListComponent } from './roles/roles-list/roles-list.component';
 import { RolesViewComponent } from './roles/roles-view/roles-view.component';
-import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -153,7 +152,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
     AngularEditorModule,
     NgxSpinnerModule,
     CKEditorModule,
-    NgSelectModule
+    
 
 
   ],
