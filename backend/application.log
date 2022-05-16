@@ -3375,3 +3375,9 @@ java.lang.NullPointerException: Cannot invoke "org.springframework.security.cryp
 2022-05-16 10:35:55,334 INFO  DirectJDKLog:173 - [] Initializing Spring DispatcherServlet 'dispatcherServlet'
 2022-05-16 10:35:55,334 INFO  FrameworkServlet:525 - [] Initializing Servlet 'dispatcherServlet'
 2022-05-16 10:35:55,347 INFO  FrameworkServlet:547 - [] Completed initialization in 12 ms
+2022-05-16 12:59:00,393 WARN  HikariPool$HouseKeeper:787 - [] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h35m12s116ms41µs800ns).
+2022-05-16 12:59:27,644 ERROR JwtUtils:54 - [] Invalid JWT token: JWT strings must contain exactly 2 period characters. Found: 0
+2022-05-16 13:57:34,934 INFO  AbstractEntityManagerFactoryBean:648 - [] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-05-16 13:57:35,030 INFO  ExecutorConfigurationSupport:218 - [] Shutting down ExecutorService 'applicationTaskExecutor'
+2022-05-16 13:57:35,035 INFO  HikariDataSource:350 - [] HikariPool-1 - Shutdown initiated...
+2022-05-16 13:57:35,066 INFO  HikariDataSource:352 - [] HikariPool-1 - Shutdown completed.
