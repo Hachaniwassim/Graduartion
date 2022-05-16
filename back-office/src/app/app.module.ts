@@ -73,6 +73,7 @@ import { HomenewslistComponent } from './pages/homenewslist/homenewslist.compone
 import { HomescustomerlogosComponent } from './pages/homescustomerlogos/homescustomerlogos.component';
 import { HomelistComponent } from './pages/homelist/homelist.component';
 import { HomeprimaryslideComponent } from './pages/homeprimaryslide/homeprimaryslide.component';
+import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 
 @NgModule({
   declarations: [
@@ -133,6 +134,7 @@ import { HomeprimaryslideComponent } from './pages/homeprimaryslide/homeprimarys
     RolesAddComponent,
     RolesListComponent,
     RolesViewComponent,
+    ResetpasswordComponent,
   
     
   ],

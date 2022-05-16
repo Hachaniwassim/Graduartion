@@ -43,6 +43,7 @@ import { HomenewslistComponent } from './pages/homenewslist/homenewslist.compone
 import { HomescustomerlogosComponent } from './pages/homescustomerlogos/homescustomerlogos.component';
 import { HomelistComponent } from './pages/homelist/homelist.component';
 import { HomeprimaryslideComponent } from './pages/homeprimaryslide/homeprimaryslide.component';
+import {ResetpasswordComponent} from "./resetpassword/resetpassword.component";
 
 
 
@@ -53,7 +54,7 @@ import { HomeprimaryslideComponent } from './pages/homeprimaryslide/homeprimarys
 const routes: Routes = [
 
   { path: 'login', component: LoginComponent },
-
+  { path: 'resetpassword', component: ResetpasswordComponent },
   { path: 'register', component: RegisterComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   //home
@@ -68,7 +69,7 @@ const routes: Routes = [
   { path: 'biscuits', loadChildren: () => import('./biscuits/biscuits.module').then(m => m.BiscuitsModule) },
   //politique de confidentialité
   { path: 'confidentialite', loadChildren: () => import('./confidentialite/confidentialite.module').then(m => m.ConfidentialiteModule), canActivate: [AuthGuard] },
-  
+
   //Positioning Web
   { path: "posactuality", component: PosactualityComponent, canActivate: [AuthGuard] },
   { path: "Poscontacts", component: PoscontactsComponent, canActivate: [AuthGuard] },
@@ -84,7 +85,7 @@ const routes: Routes = [
   { path: "poswhoarewe", component: PoswhorareweComponent, canActivate: [AuthGuard] },
   { path: "poshome", component: PoshomeComponent, canActivate: [AuthGuard] },
   { path: "posprivacy", component: PosprivacyComponent, canActivate: [AuthGuard] },
-  
+
   //Home config
   { path: "homewelcometext", component: HomewelcometextComponent, canActivate: [AuthGuard] },
   { path: "homenewslist", component: HomenewslistComponent, canActivate: [AuthGuard] },
@@ -92,7 +93,7 @@ const routes: Routes = [
   { path: "homelist", component: HomelistComponent, canActivate: [AuthGuard] },
   { path: "homeprimaryslide", component: HomeprimaryslideComponent, canActivate: [AuthGuard] },
 
-  //database 
+  //database
   { path: "database", component: DatabaseComponent, canActivate: [AuthGuard] },
   { path: "whoarewe", component: WhoareweComponent, canActivate: [AuthGuard] },
   { path: "privacypolicy", component: PrivacypolicyComponent, canActivate: [AuthGuard] },
@@ -141,7 +142,7 @@ const routes: Routes = [
   { path: 'page', loadChildren: () => import('./web-positioning/web-positioning.module').then(m => m.WebPositioningModule) },
 
 
-  // 404 not found 
+  // 404 not found
   { path: '**', component: NotfoundComponent },
 
 
