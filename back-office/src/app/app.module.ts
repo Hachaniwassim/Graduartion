@@ -157,7 +157,7 @@ import { RolesViewComponent } from './roles/roles-view/roles-view.component';
 
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  exports: [MaterialModule, ScheduleModule,NgxSpinnerModule],
+  exports: [MaterialModule, ScheduleModule,NgxSpinnerModule,NgSelectModule],
   providers: [
     {provide: MatDialogRef, useValue: {close: (_dialogResult: any) => { }} }, DatePipe, authInterceptorProviders,DayService, WeekService, WorkWeekService, MonthService, AgendaService, MonthAgendaService, TimelineViewsService, TimelineMonthService
   ],
