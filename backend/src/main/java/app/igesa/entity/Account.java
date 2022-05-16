@@ -55,5 +55,8 @@ public class Account extends Auditable {
         this.fiscaleCode=fiscaleCode;
         this.accountStatus=accountStatus;
     }
+    
+    
+    
 
 }

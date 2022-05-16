@@ -26,7 +26,7 @@ import java.util.Date;
 
 @EnableJpaAuditing(auditorAwareRef = "auditorAware")
 @SpringBootApplication
-public class MultiwebsitesApplication {
+public class MultiwebsitesApplication{
 
 	@Resource
 	FilesStorageService storageService;
@@ -67,9 +67,9 @@ public class MultiwebsitesApplication {
 		icomapnybusRepository.save(companyBusiness);
 		Groupe groupe= new Groupe();
 		groupe.setCompanyBusiness(companyBusiness);
-		groupe.setDescription("testststs");
+		groupe.setDescription("mss");
 		groupe.setGroupStatus(GroupStatus.ACTIVE);
-		groupe.setName("teetettete");
+		groupe.setName("mss");
 		groupe.setId(groupe.getId());
 		igroupeRepository.save(groupe);
 		Account user = new Account();
