@@ -17,6 +17,8 @@ import java.util.Collection;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.mail.MessagingException;
+
 /**
  * @author Tarchoun Abir#
  */
@@ -110,7 +112,7 @@ public class AccountController {
             @ApiResponse(code = 401, message = "Unauthorized , without authority or permission"),
             @ApiResponse(code = 403, message = "not permitted or allowed"),
     })
-    public Account updateSatus(@PathVariable("id")  Long id, @RequestBody AccountStatus status) {
+    public Account updateSatus(@PathVariable("id")  Long id, @RequestBody AccountStatus status) throws MessagingException {
         return accountImpService.updateSatus(id, status);
     }
     @PostMapping("/user/change-password")

@@ -31,33 +31,29 @@ import javax.sql.DataSource;
 		// securedEnabled = true,
 		// jsr250Enabled = true,
 		prePostEnabled = true)
+/**
+ * @author Tarchoun Abir
+ */
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-
 	@Autowired
 	UserDetailsServiceImpl userDetailsService;
-
 	@Autowired
 	private AuthEntryPointJwt unauthorizedHandler;
 	@Autowired
 	DataSource dataSource;
-
-
 	@Bean
 	public AuthTokenFilter authenticationJwtTokenFilter() {
 		return new AuthTokenFilter();
 	}
-
 	@Override
 	public void configure(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
 		authenticationManagerBuilder.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
 	}
-
 	@Bean
 	@Override
 	public AuthenticationManager authenticationManagerBean() throws Exception {
 		return super.authenticationManagerBean();
 	}
-
 	@Bean
 	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
@@ -92,7 +88,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers("/api/auth/**").permitAll()
 				.antMatchers("/api/test/**").permitAll()
 				.antMatchers("/**").permitAll()
-
 				.antMatchers(AUTH_WHITELIST).permitAll()
 				.anyRequest().authenticated().and()
 				.exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
@@ -101,17 +96,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.key("rem-me-key")
 				.rememberMeParameter("remember-me-param")
 				.rememberMeCookieName("my-remember-me");
-
-		http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
+	         	http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
 	}
-@Bean
+    @Bean
 	public PersistentTokenRepository persistentTokenRepository(){
 	JdbcTokenRepositoryImpl db = new JdbcTokenRepositoryImpl();
 	db.setDataSource(dataSource);
 	return db;
-
-	}
-
-
-
+}
 }

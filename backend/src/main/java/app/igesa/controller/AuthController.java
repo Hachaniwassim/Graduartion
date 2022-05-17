@@ -16,34 +16,43 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import app.igesa.config.HttpResponse;
+import app.igesa.config.EmailService;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
+import javax.mail.MessagingException;
 import javax.validation.Valid;
+import static org.springframework.http.HttpStatus.OK;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
- * @author Tarchoun Abir#
- */
+ * @author Tarchoun Abir
+ *
+ **/
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @Api(tags = "Authentification" )
 @RequestMapping("/api/auth")
 public class AuthController {
+	 public static final String EMAIL_SENT = "An email with a new password was sent to: ";
 	@Autowired
 	AuthenticationManager authenticationManager;
 	@Autowired
 	AccountRepository userRepository;
-
 	@Autowired
 	RoleRepository roleRepository;
 	@Autowired
@@ -52,6 +61,11 @@ public class AuthController {
 	PasswordEncoder encoder;
 	@Autowired
 	JwtUtils jwtUtils;
+	@Autowired
+	private EmailService emailService;
+	@Autowired
+	private BCryptPasswordEncoder passwordEncoder;
+
 
 	@PostMapping("/signin")
 	@ApiOperation(value = "Signin", notes = "login  ", response = LoginRequest.class)
@@ -76,8 +90,7 @@ public class AuthController {
 				.map(item -> item.getAuthority())
 				.collect(Collectors.toList());
 
-
-		 if (userDetails.getAccountStatus() == AccountStatus.ACTIVE){
+		  if (userDetails.getAccountStatus() == AccountStatus.ACTIVE){
 
 			System.out.println(userDetails);
 			return ResponseEntity.ok(new JwtResponse(jwt,
@@ -169,7 +182,24 @@ public class AuthController {
 		return ResponseEntity.ok(new MessageResponse(" your registered successfully!"));
 	}
 
-
-
+	 @GetMapping("/resetpasswordtoken/{email}")
+	    public ResponseEntity<HttpResponse> resetPasswordToken(@PathVariable("email") String email)  throws MessagingException {
+		 Account user = userRepository.findByEmail(email);
+	        String password = generatePassword();
+	        user.setPassword(encodePassword(password));
+	        userRepository.save(user);
+	        emailService.sendNewPasswordEmail(user.getUsername(), password, user.getEmail());
+			return response(OK, EMAIL_SENT + email);
+	    }
+		private String generatePassword() {
+	        return RandomStringUtils.randomAlphanumeric(10);
+	    }
+		private String encodePassword(String password) {
+	        return passwordEncoder.encode(password);
+	    }
+	    private ResponseEntity<HttpResponse> response(HttpStatus httpStatus, String message) {
+		 return new ResponseEntity<>(new HttpResponse(httpStatus.value(), httpStatus, httpStatus.getReasonPhrase().toUpperCase(),
+	                message), httpStatus);
+	    }
 
 }

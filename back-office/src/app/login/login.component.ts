@@ -55,6 +55,7 @@ export class LoginComponent implements OnInit {
       })
       
     }
+    this.router.navigate(['/dashboard']);
   }
 
   // show password 
@@ -83,6 +84,8 @@ export class LoginComponent implements OnInit {
         this.tokenStorage.saveUser(data);
         this.isLoginFailed = false;
         this.isLoggedIn = true;
+        console.log(data)
+        
         //recuperation response 
         this.recaptchaResponse = response;
       

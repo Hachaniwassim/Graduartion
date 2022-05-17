@@ -1,4 +1,5 @@
 package app.igesa.metiers;
+import app.igesa.config.EmailService;
 import app.igesa.dto.AccountDTO;
 import app.igesa.entity.Account;
 import app.igesa.entity.ChangePasswordRequest;
@@ -11,9 +12,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import javax.mail.MessagingException;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -27,6 +28,8 @@ public class AccountImp implements Iaccount {
     IgroupeRepository igroupeRepository;
     @Autowired
     private PasswordEncoder passwordEncoder;
+    @Autowired
+    EmailService emailService;
     private static final Logger log = LoggerFactory.getLogger(AccountImp.class);
 
 
@@ -43,7 +46,6 @@ public class AccountImp implements Iaccount {
     }
 
     public void delete(Long id) {
-
         if (id == null) {
             log.error("  ID IS NULL ");
             return;
@@ -60,7 +62,7 @@ public class AccountImp implements Iaccount {
     }
 
     @Override
-    public Account updateSatus(Long id, AccountStatus status) {
+    public Account updateSatus(Long id, AccountStatus status) throws MessagingException {
         Optional<Account> Data = userRepository.findById(id);
         Account saved = null;
         if (Data.isPresent()) {
@@ -68,17 +70,21 @@ public class AccountImp implements Iaccount {
 
             if (AccountStatus.ACTIVE == status) {
                 account.setAccountStatus(AccountStatus.BLOCKED);
+                emailService.sendNotifBlockedAccount(account.getEmail(),account.getUsername());
             }
             if (AccountStatus.PENDING == status) {
                 account.setAccountStatus(AccountStatus.ACTIVE);
+                emailService.sendNotif( account.getEmail(),account.getUsername());
             }
             if (AccountStatus.BLOCKED == status) {
                 account.setAccountStatus(AccountStatus.PENDING);
+
             }
 
             saved = userRepository.save(account);
         }
         return saved;
+
     }
 
     @Override
