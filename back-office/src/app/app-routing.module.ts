@@ -119,7 +119,7 @@ const routes: Routes = [
   { path: 'admin', component: BoardAdminComponent, canActivate: [AuthGuard] },
 
   //profile
-  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+  { path: 'profile', component: ProfileComponent },
 
   //dashboard
   { path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule), canActivate: [AuthGuard] },

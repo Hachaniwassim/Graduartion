@@ -4,6 +4,6 @@ export interface language{
     id?: number;
     lang: Language;
     name: string;
-    image :string,
-    active: boolean;
+    flag :string,
+   // active: boolean;
     }

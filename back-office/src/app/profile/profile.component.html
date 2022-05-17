@@ -59,42 +59,26 @@
           <div class="card-body">
             <fieldset class="container">
               <div class="container">
-                <form class="example-form" [formGroup]="account"><br><br>
-                  <label for=""> Old password*</label> <br>
+                <form class="example-form" #emailForm="ngForm" (ngSubmit)="onResetPassword(emailForm)"><br><br>
+                  <label for=""> Email</label> <br>
                   <mat-form-field appearance="fill" style="width: 500px;">
-                    <mat-label>Enter your old password</mat-label>
-                    <input matInput [type]="hide ? 'password' : 'text'">
-                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-                      [attr.aria-pressed]="hide">
-                      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                    </button>
+                    <mat-label>Enter your Email</mat-label>
+                    <input type="email" class="form-control" name="reset-password-email" id="reset-password-email" ngModel required />
                   </mat-form-field>
-                  <br>
-                  <label for=""> New password *</label> <br>
-                  <mat-form-field appearance="fill" style="width: 500px;">
-                    <mat-label>Enter your new password</mat-label>
-                    <input matInput [type]="hide ? 'password' : 'text'">
-                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-                      [attr.aria-pressed]="hide">
-                      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                    </button>
-                  </mat-form-field>
-                  <br>
-                  <label for=""> Confirmation of the new password *</label> <br>
-                  <mat-form-field appearance="fill" style="width: 500px;">
-                    <mat-label>Confirm your new password</mat-label>
-                    <input matInput [type]="hide ? 'password' : 'text'">
-                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-                      [attr.aria-pressed]="hide">
-                      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                    </button>
-                  </mat-form-field>
-                </form>
+             
                 <br>
-                <button mat-raised-button color="primary" style="width: 100px;">Save</button>
+                <div class="form-group">
+                  
+                <button mat-raised-button color="primary" style="width: 100px;" [disabled]="emailForm.invalid" type="submit">
+                    <i *ngIf="refreshing" class="fas fa-spinner fa-spin"></i>&nbsp;&nbsp;
+                    <span *ngIf="refreshing">Loading...</span>
+                    <span *ngIf="!refreshing">Reset</span>
+                  </button>
+                </div>
                 &nbsp;&nbsp;
                 <button mat-raised-button color="warn" style="width: 100px;">Canncel</button>
                 <br><br>
+              </form>
               </div>
             </fieldset>
           </div>

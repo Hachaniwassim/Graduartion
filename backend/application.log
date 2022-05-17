@@ -1,0 +1,4 @@
+2022-05-17 00:01:46,429 INFO  AbstractEntityManagerFactoryBean:648 - [] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-05-17 00:01:46,538 INFO  ExecutorConfigurationSupport:218 - [] Shutting down ExecutorService 'applicationTaskExecutor'
+2022-05-17 00:01:46,557 INFO  HikariDataSource:350 - [] HikariPool-1 - Shutdown initiated...
+2022-05-17 00:01:46,610 INFO  HikariDataSource:352 - [] HikariPool-1 - Shutdown completed.

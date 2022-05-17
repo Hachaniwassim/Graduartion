@@ -1,6 +1,10 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, NgForm } from '@angular/forms';
+import { Subscription } from 'rxjs';
+import { CustomHttpRespone } from '../models/custom-http-response';
 import { Accountservice } from '../_services/account.service';
+import { AuthService } from '../_services/auth.service';
 import { TokenStorageService } from '../_services/token-storage.service';
 
 @Component({
@@ -13,8 +17,9 @@ export class ProfileComponent implements OnInit {
   hide= true;
   panelOpenState =true;
   account !: FormGroup;
-
-  constructor(private token: TokenStorageService, private accountService : Accountservice,private fb: FormBuilder) { 
+  public refreshing: boolean | undefined;
+  private subscriptions: Subscription[] = [];
+  constructor(private token: TokenStorageService, private authService : AuthService,private accountService : Accountservice,private fb: FormBuilder) { 
     this.account= this.fb.group({
        id: new FormControl(),
        username: new FormControl(),
@@ -30,6 +35,23 @@ export class ProfileComponent implements OnInit {
     this.currentUser = this.token.getUser();
     this.account.patchValue(this.currentUser);
     console.log(this.currentUser)
+  }
+  public onResetPassword(emailForm: NgForm): void {
+    this.refreshing = true;
+    const emailAddress = emailForm.value['reset-password-email'];
+    this.subscriptions.push(
+      this.authService.resetPassword(emailAddress).subscribe(
+        (response: CustomHttpRespone) => {
+          console.log(response);
+          this.refreshing = false;
+        },
+        (error: HttpErrorResponse) => {
+
+          this.refreshing = false;
+        },
+        () => emailForm.reset()
+      )
+    );
   }
 
   save(){

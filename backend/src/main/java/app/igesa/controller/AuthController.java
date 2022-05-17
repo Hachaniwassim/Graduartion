@@ -182,7 +182,7 @@ public class AuthController {
 		return ResponseEntity.ok(new MessageResponse(" your registered successfully!"));
 	}
 
-	 @GetMapping("/resetpassword/{email}")
+	 @GetMapping("/resetpasswordtoken/{email}")
 	    public ResponseEntity<HttpResponse> resetPasswordToken(@PathVariable("email") String email)  throws MessagingException {
 		 Account user = userRepository.findByEmail(email);
 	        String password = generatePassword();

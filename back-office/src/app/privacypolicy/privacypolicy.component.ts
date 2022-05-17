@@ -14,6 +14,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./privacypolicy.component.css']
 })
 export class PrivacypolicyComponent implements OnInit {
+  
 
   data !:  privacyDTO;
   privacy !: FormGroup;
