@@ -12,6 +12,9 @@ import { ResetpasswordComponent } from './resetpassword/resetpassword.component'
 import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { ContactComponent } from './contact/contact.component';
+import { WhoareweComponent } from './whoarewe/whoarewe.component';
+import { UsefullLinksComponent } from './usefull-links/usefull-links.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +24,9 @@ import { NotfoundComponent } from './notfound/notfound.component';
     RegisterComponent,
     ResetpasswordComponent,
     LoginComponent,
+    ContactComponent,
+    WhoareweComponent,
+    UsefullLinksComponent,
   ],
   imports: [
     BrowserModule,
