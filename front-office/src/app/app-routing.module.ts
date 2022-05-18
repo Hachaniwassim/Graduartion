@@ -3,8 +3,20 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { NotfoundComponent } from "./notfound/notfound.component";
+import { MaterialModule } from './material/material.module';
+import { FormsModule } from "@angular/forms";
+import { LoginComponent } from "./login/login.component";
+import { ResetpasswordComponent } from "./resetpassword/resetpassword.component";
+import { RegisterComponent } from "./register/register.component";
+
 
 const routes : Routes =[
+
+  { path: 'login', component: LoginComponent },
+  { path: 'resetpassword', component: ResetpasswordComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  //home
 
   { path : "home", component : HomeComponent},
 
@@ -20,10 +32,13 @@ const routes : Routes =[
 
 @NgModule({
   declarations: [
+    NotfoundComponent
   ],
   imports: [
-    CommonModule,
-    RouterModule.forRoot(routes)
+    MaterialModule,
+    RouterModule.forRoot(routes),
+    FormsModule,
+    CommonModule
   ],
   exports :[RouterModule]
 })
