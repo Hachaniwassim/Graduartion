@@ -8,6 +8,7 @@ import { FormsModule } from "@angular/forms";
 import { LoginComponent } from "./login/login.component";
 import { ResetpasswordComponent } from "./resetpassword/resetpassword.component";
 import { RegisterComponent } from "./register/register.component";
+import { AboutComponent } from "./about/about.component";
 
 
 const routes : Routes =[
@@ -23,6 +24,10 @@ const routes : Routes =[
   { path: 'products', loadChildren: () => import('./products/products.module').then(m => m.ProductsModule) },
 
   { path: 'sellers', loadChildren: () => import('./sellers/sellers.module').then(m => m.SellersModule) },
+
+  //About
+  { path: 'about', component: AboutComponent },
+
 
   // 404 not found
   { path: '**', component: NotfoundComponent },
