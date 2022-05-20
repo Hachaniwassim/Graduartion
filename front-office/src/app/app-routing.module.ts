@@ -9,6 +9,7 @@ import { LoginComponent } from "./login/login.component";
 import { ResetpasswordComponent } from "./resetpassword/resetpassword.component";
 import { RegisterComponent } from "./register/register.component";
 import { AboutComponent } from "./about/about.component";
+import { UsefullLinksComponent } from "./usefull-links/usefull-links.component";
 
 
 const routes : Routes =[
@@ -28,6 +29,7 @@ const routes : Routes =[
   //About
   { path: 'about', component: AboutComponent },
 
+  { path: 'usefulllinks', component: UsefullLinksComponent },
 
   // 404 not found
   { path: '**', component: NotfoundComponent },
