@@ -1,8 +1,11 @@
 package app.igesa.dto;
 
+import app.igesa.entity.Entreprise;
 import app.igesa.entity.pages.Pages;
 import lombok.Builder;
 import lombok.Data;
+
+import javax.persistence.Column;
 import java.util.Date;
 
 /**
@@ -13,14 +16,13 @@ import java.util.Date;
 @Builder
 public class PageDTO {
 	private Long id ;
+	@Column(columnDefinition="text")
 	private String title ;
+	@Column(columnDefinition="text")
 	private String description ;
-	private boolean published ;
-	//private EntrepriseDTO entreprise;
 	protected Date createdDate;
 	protected Date lastModifiedDate;
-
-	//private PageTranslate transInfo ;
+	private Long entrepriseId ;
 
 
 
@@ -34,10 +36,9 @@ public class PageDTO {
 				.id(page.getId())
 				.title(page.getTitle())
 				.description(page.getDescription())
-				.published(page.isPublished())
 				.lastModifiedDate(page.getLastModifiedDate())
+				.entrepriseId(page.getEntreprise().getId())
 				.createdDate(page.getCreatedDate())
-				//.entreprise(EntrepriseDTO.fromEntity(page.getEntreprise()))
 				.build();
 	}
 
@@ -50,10 +51,12 @@ public class PageDTO {
 		page.setId(dto.getId());
 		page.setTitle(dto.getTitle());
 		page.setDescription(dto.getDescription());
-		page.setPublished(page.isPublished());
 		page.setLastModifiedDate(dto.getLastModifiedDate());
 		page.setCreatedDate(dto.getCreatedDate());
-		//page.setEntreprise(EntrepriseDTO.toEntity(dto.getEntreprise()));
+		//===========================> Entreprise ===========================>
+		Entreprise entreprise = new Entreprise();
+		entreprise.setId(dto.getEntrepriseId());
+		page.setEntreprise(entreprise);
 		return page;
 	}
 

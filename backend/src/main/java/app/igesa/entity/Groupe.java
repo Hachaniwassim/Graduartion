@@ -26,21 +26,23 @@ public class Groupe  extends Auditable{
     private Long id;
     @Column(name="Name", unique = true)
     private String name;
-
-    @Column(name = "Description")
+    @Column(columnDefinition="text")
     private String description;
     /**
      * Status active :: blocked :: pending
      */
-    @Column(name = "GroupStatus")
     private GroupStatus groupStatus;
 
-    //Enterprise
+    /**
+     * Entreprise
+     */
     @JsonIgnore
     @OneToMany(mappedBy = "groupe", cascade = CascadeType.ALL)
     private List<Entreprise> entreprise;
 
-    //Account
+    /**
+     * Account
+     */
     @JsonIgnore
     @OneToMany(mappedBy = "groupe")
     private List<Account> accounts;

@@ -1,6 +1,6 @@
 package app.igesa.metiers.pages;
 import app.igesa.dto.Page2DTO;
-import app.igesa.entity.pages.Page2;
+import app.igesa.entity.Page2;
 import app.igesa.exceptions.ResourceNotFoundException;
 import app.igesa.metiers.Ientreprise;
 import app.igesa.metiers.Ipage2;

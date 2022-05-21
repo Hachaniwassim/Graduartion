@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.*;
 
+import app.igesa.entity.pages.Pages;
 import app.igesa.entity.siteinfo.Plateforme;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
@@ -67,6 +68,23 @@ public class Entreprise  extends Auditable{
 	@JsonIgnore
 	@OneToMany(mappedBy="entreprise",cascade = CascadeType.ALL)
 	private List<Category> category = new ArrayList<>();
+	@JsonIgnore
+	@OneToMany(mappedBy="entreprise",cascade = CascadeType.ALL)
+	private List<Post> post= new ArrayList<>();
+	@JsonIgnore
+	@OneToMany(mappedBy="entreprise",cascade = CascadeType.ALL)
+	private List<Page1> page1s= new ArrayList<>();
+	@JsonIgnore
+	@OneToMany(mappedBy="entreprise",cascade = CascadeType.ALL)
+	private List<Page2> page2s= new ArrayList<>();
+	@JsonIgnore
+	@OneToMany(mappedBy="entreprise",cascade = CascadeType.ALL)
+	private List<Page3> page3s= new ArrayList<>();
+	@JsonIgnore
+	@OneToMany(mappedBy="entreprise",cascade = CascadeType.ALL)
+	private List<Pages> pages= new ArrayList<>();
+
+
 
 
 }

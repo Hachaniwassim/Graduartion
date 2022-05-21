@@ -1,10 +1,11 @@
 package app.igesa.dto;
 
 import app.igesa.entity.Entreprise;
-import app.igesa.entity.pages.Page2;
+import app.igesa.entity.Page2;
 import lombok.Builder;
 import lombok.Data;
 
+import javax.persistence.Column;
 import java.util.Date;
 
 /**
@@ -16,7 +17,9 @@ import java.util.Date;
 public class Page2DTO {
 
     private Long id ;
+    @Column(columnDefinition="text")
     private String title ;
+    @Column(columnDefinition="text")
     private String htmlContent;
     private Long entrepriseId;
     protected Date createdDate;
