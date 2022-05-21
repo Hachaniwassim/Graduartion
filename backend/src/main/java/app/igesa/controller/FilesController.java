@@ -1,6 +1,7 @@
 package app.igesa.controller;
 
 import app.igesa.entity.FileInfo;
+import app.igesa.enumerations.ImageTypes;
 import app.igesa.enumerations.PagesTypes;
 import app.igesa.upload.FilesStorageService;
 import app.igesa.upload.message.ResponseMessage;
@@ -17,19 +18,31 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * @author Tarchoun Abir#
+ *
+ * @author Tarchoun Abir
+ *
  */
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
 public class FilesController {
 
+
+  /**
+   *
+   * @Api  PUBLIC_API : for all  ||  PRIVATE_API : with token
+   *
+   */
+
+  private final String PUBLIC_API = "api/upload";
+  private final String PRIVATE_API = "api/private/upload";
+
   @Autowired
   FilesStorageService storageService;
 
 
-  @PostMapping("/upload")
-  public ResponseEntity<ResponseMessage> uploadFile(@RequestParam("file") MultipartFile file, @RequestBody  PagesTypes fileType, @PathVariable Integer id) {
+  @PostMapping(PRIVATE_API)
+  public ResponseEntity<ResponseMessage> uploadFile(@RequestParam("file") MultipartFile file, @RequestBody  ImageTypes fileType, @PathVariable Integer id) {
     String message = "";
     try {
       storageService.save(file,fileType,id);
@@ -42,7 +55,7 @@ public class FilesController {
     }
   }
 
-  @GetMapping("/files")
+  @GetMapping(PRIVATE_API + "/files")
   public ResponseEntity<List<FileInfo>> getListFiles() {
     List<FileInfo> fileInfos = storageService.loadAll().map(path -> {
       String filename = path.getFileName().toString();
@@ -59,13 +72,13 @@ public class FilesController {
 
   }
 
-  @GetMapping("/files/{filename:.+}")
+  @GetMapping(PRIVATE_API + "/files/{filename:.+}")
   public ResponseEntity<Resource> getFile(@PathVariable String filename, @PathVariable Integer id) {
-    Resource file = storageService.load(PagesTypes.valueOf(filename), id);
+    Resource file = storageService.load(ImageTypes.valueOf(filename), id);
     return ResponseEntity.ok()
         .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + file.getFilename() + "\"").body(file);
   }
-@DeleteMapping("/files/all")
+@DeleteMapping(PRIVATE_API + "/files/all")
   public void deleteAll() {
     storageService.deleteAll();
   }

@@ -1,6 +1,4 @@
 package app.igesa.controller;
-
-
 import app.igesa.dto.CookiesDTO;
 import app.igesa.metiers.Icookies;
 import io.swagger.annotations.ApiOperation;
@@ -13,23 +11,34 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.Collection;
 
 /**
- * @author Tarchoun Abir#
+ *
+ * @author Tarchoun Abir
+ *
  */
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 public class CookiesController {
+    /**
+     *
+     * Api  PUBLIC_API : for all  // PRIVATE_API : with token
+     *
+     **/
+    private final String PUBLIC_API = "/api/cookies";
+    private final String PRIVATE_API = "/api/private/cookies";
+
+    /** logger for debug : warning : success **/
+    private static final Logger log = LoggerFactory.getLogger(CookiesController.class);
+
     @Autowired
     Icookies icookies;
 
-    private static final Logger log = LoggerFactory.getLogger(CookiesController.class);
 
-
-    @RequestMapping(value="/cookies",method = RequestMethod.GET)
+    @RequestMapping(value=PRIVATE_API,method = RequestMethod.GET)
+    @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
     @ApiOperation(value="GET Cookies",notes="GET COOKIEES", responseContainer  = "Collection<CookiesDTO>")
     @ApiResponses(value= {
             @ApiResponse(code=200,message="cookies was founded Successfully"),
@@ -43,7 +52,8 @@ public class CookiesController {
         return new ResponseEntity<>( icookies.getCookies(),HttpStatus.OK);
     }
 
-    @RequestMapping(value="/cookies/{id}",method = RequestMethod.GET)
+    @RequestMapping(value=PRIVATE_API + "/{id}",method = RequestMethod.GET)
+    @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
     @ApiOperation(value="GET COOKIES",notes="GET Cookies", response = CookiesDTO.class)
     @ApiResponses(value= {
             @ApiResponse(code=200,message="cookies by id was founded Successfully"),
@@ -59,7 +69,8 @@ public class CookiesController {
     }
 
 
-    @RequestMapping(value="/cookies",method =RequestMethod.PUT)
+    @RequestMapping(value=PRIVATE_API ,method =RequestMethod.PUT)
+    @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
     @ApiOperation(value="UPDATE cookies   ",response = CookiesDTO.class)
     @ApiResponses(value= {
             @ApiResponse(code=200,message="cookies was updated successfully"),

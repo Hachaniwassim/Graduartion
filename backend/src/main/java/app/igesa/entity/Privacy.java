@@ -10,7 +10,9 @@ import javax.persistence.*;
 
 
 /**
+ *
  * @author Tarchoun Abir
+ *
  */
 @Data
 @AllArgsConstructor
@@ -28,9 +30,11 @@ public class Privacy extends  Auditable {
     private String title ;
     @Column(name="description")
     private String htmlContent ;
-    //@ManyToOne(fetch= FetchType.LAZY)
-    //@JoinColumn(name="entreprise_id")
-   // private Entreprise entreprise;
+    /**
+     * ENTERPRISE
+     */
+    @ManyToOne
+    private Entreprise entreprise;
 
 
 }

@@ -9,28 +9,36 @@ import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import java.util.Collection;
 import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-
 /**
- * @author Tarchoun Abir#
+ *
+ * @author Wassim Hachani
+ *
  */
-
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @Api(tags = "PAGES")
 public class PagesController {
+    /**
+     *
+     * @Api  PUBLIC_API : for all  ||  PRIVATE_API : with token
+     *
+     */
 
-
+    private final String PUBLIC_API = "api/pages";
+    private final String PRIVATE_API = "api/private/pages";
     private static final Logger log = LoggerFactory.getLogger(PagesController.class);
     @Autowired
     private Ipages ipagesService;
 
-    @RequestMapping(value="/pages",method = RequestMethod.POST)
+    @RequestMapping(value=PRIVATE_API ,method = RequestMethod.POST)
+    @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
     @ApiOperation(value="ADD PAGE",notes="SAUVGARDER PAGE", response = PageDTO.class)
     @ApiResponses(value= {
             @ApiResponse(code=200,message="Page was saved Successfully"),
@@ -45,7 +53,8 @@ public class PagesController {
     }
 
 
-    @RequestMapping(value="/pages",method =RequestMethod.GET)
+    @RequestMapping(value=PRIVATE_API ,method =RequestMethod.GET)
+    @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
     @ApiOperation(value="GET A LIST OF PAGE ", responseContainer  = "Collection<PageDTO>")
     @ApiResponses(value= {
             @ApiResponse(code=200,message="Page was found successfully"),
@@ -60,7 +69,8 @@ public class PagesController {
     }
 
 
-    @RequestMapping(value="/pages/{id}",method =RequestMethod.GET)
+    @RequestMapping(value=PRIVATE_API + "/{id}",method =RequestMethod.GET)
+    @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
     @ApiOperation(value=" GET PAGEBY ID ",notes="GET AND SEARCH FOR PAGE BY ID ", response = PageDTO.class)
     @ApiResponses(value= {
             @ApiResponse(code=200,message="Page was found successfully with the provided id"),
@@ -75,7 +85,8 @@ public class PagesController {
     }
 
 
-    @RequestMapping(value="/pages}",method =RequestMethod.PUT)
+    @RequestMapping(value=PRIVATE_API ,method =RequestMethod.PUT)
+    @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
     @ApiOperation(value="UPDATE PAGE  ",response = PageDTO.class)
     @ApiResponses(value= {
             @ApiResponse(code=200,message="Page was updated successfully"),
@@ -87,7 +98,8 @@ public class PagesController {
         return new ResponseEntity<>(ipagesService.save(p),HttpStatus.CREATED);
     }
 
-    @RequestMapping(value="/pages/{id}",method =RequestMethod.DELETE)
+    @RequestMapping(value= PRIVATE_API  + "/{id}",method =RequestMethod.DELETE)
+    @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
     @ResponseBody
     @ApiOperation(value="DELETE PAGE BY ID ",response = PageDTO.class)
     @ApiResponses(value= {

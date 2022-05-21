@@ -54,8 +54,10 @@ public class ConfigGenerale extends Auditable{
 	private String tagline ;
 	//private RobotsTags robotsTags;
 
-	@ManyToOne(fetch = FetchType.LAZY )
-	@JoinColumn(name="entreprise_id")
+	/**
+	 * Entreprise
+	 */
+	@ManyToOne
 	private Entreprise entreprise;
 
 

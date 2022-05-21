@@ -1,8 +1,5 @@
 package app.igesa.controller;
-
-import app.igesa.dto.EntrepriseDTO;
 import app.igesa.dto.TagsDTO;
-import app.igesa.metiers.Ientreprise;
 import app.igesa.metiers.Itags;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -13,11 +10,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import java.util.Collection;
 import java.util.Optional;
 /**
- * @author Tarchoun Abir#
+ * @author Tarchoun Abir
+ *
  */
 
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -25,13 +24,23 @@ import java.util.Optional;
 @Api(tags = "TAGS")
 public class TagsController {
 
+
+    /**
+     *
+     * @Api  PUBLIC_API : for all  ||  PRIVATE_API : with token
+     *
+     */
+    private final String PUBLIC_API = "api/tags";
+    private final String PRIVATE_API = "api/private/tags";
+
     private static final Logger log = LoggerFactory.getLogger(TagsController.class);
 
     @Autowired
     private Itags itagsService ;
 
 
-    @RequestMapping(value="/tags",method = RequestMethod.POST)
+    @RequestMapping(value=PRIVATE_API,method = RequestMethod.POST)
+    @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
     @ApiOperation(value="ADD TAGS",notes="SAUVGARDER TAGS", response = TagsDTO.class)
     @ApiResponses(value= {
             @ApiResponse(code=200,message="Tags was saved Successfully"),
@@ -46,7 +55,8 @@ public class TagsController {
     }
 
 
-    @RequestMapping(value="/tags",method =RequestMethod.GET)
+    @RequestMapping(value=PRIVATE_API,method =RequestMethod.GET)
+    @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
     @ApiOperation(value="GET A LIST OF TAGS", responseContainer  = "Collection<TagsDTO>")
     @ApiResponses(value= {
             @ApiResponse(code=200,message="Tags was found successfully"),
@@ -61,7 +71,8 @@ public class TagsController {
     }
 
 
-    @RequestMapping(value="/tags/{id}",method =RequestMethod.GET)
+    @RequestMapping(value=PRIVATE_API + "/{id}",method =RequestMethod.GET)
+    @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
     @ApiOperation(value=" GET TAGS BY ID ",notes="GET AND SEARCH FOR TAGS BY ID ", response = TagsDTO.class)
     @ApiResponses(value= {
             @ApiResponse(code=200,message="Tags was found successfully with the provided id"),
@@ -76,7 +87,8 @@ public class TagsController {
     }
 
 
-    @RequestMapping(value="/tags",method =RequestMethod.PUT)
+    @RequestMapping(value=PRIVATE_API,method =RequestMethod.PUT)
+    @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
     @ApiOperation(value="UPDATE TAGS BY ID ",response = TagsDTO.class)
     @ApiResponses(value= {
             @ApiResponse(code=200,message="Tags was updated successfully"),
@@ -88,7 +100,8 @@ public class TagsController {
         return new ResponseEntity<>(itagsService.save(t),HttpStatus.CREATED);
     }
 
-    @RequestMapping(value="/tags/{id}",method =RequestMethod.DELETE)
+    @RequestMapping(value=PRIVATE_API + "/{id}",method =RequestMethod.DELETE)
+    @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
     @ResponseBody
     @ApiOperation(value="DELETE TAGS BY ID ",response = TagsDTO.class)
     @ApiResponses(value= {

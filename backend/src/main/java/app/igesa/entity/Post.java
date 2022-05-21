@@ -1,6 +1,7 @@
 package app.igesa.entity;
 import javax.persistence.*;
 
+import app.igesa.entity.pages.Pages;
 import app.igesa.enumerations.Types;
 import app.igesa.translation.PostTranslation;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -14,7 +15,9 @@ import java.util.List;
 
 
 /**
+ *
  * @author Tarchoun Abir
+ *
  */
 @Data
 @AllArgsConstructor
@@ -49,15 +52,23 @@ public class Post extends Auditable{
 	@Column(name="slug")
 	private String slug ;
 
-	private String subtitle ;
-	@ManyToOne(fetch= FetchType.LAZY)
-    @JoinColumn(name = "tags_id")
+
+	/**
+	 * Tags
+	 */
+
+	@ManyToOne
     private Tags tags;
 
-	@ManyToOne(fetch= FetchType.LAZY)
-	@JoinColumn(name = "page_id")
+	/**
+	 * Pages
+	 */
+	@ManyToOne
 	private Pages page ;
 
+	/**
+	 * Types
+	 */
 	@Column(name = "Types")
 	private Enum <Types> type;
 

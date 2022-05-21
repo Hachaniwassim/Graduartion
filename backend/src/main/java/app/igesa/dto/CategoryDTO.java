@@ -34,7 +34,6 @@ public class CategoryDTO {
 				.image(category.getImage())
 				.lastModifiedDate(category.getLastModifiedDate())
 				.createdDate(category.getCreatedDate())
-				.status(category.isStatus())
 				.build();
 	}
 
@@ -48,7 +47,6 @@ public class CategoryDTO {
 		Category category = new Category();
 		category.setId(dto.getId());
 		category.setDescription(dto.getDescription());
-		category.setStatus(dto.isStatus());
 		category.setBannerimage(dto.getBannerimage());
 		category.setMenuimage(dto.getMenuimage());
 		category.setTitle(dto.getTitle());

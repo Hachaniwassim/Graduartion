@@ -1,6 +1,7 @@
 package app.igesa.dto;
 import app.igesa.entity.Entreprise;
 import app.igesa.entity.FormEntity;
+import app.igesa.enumerations.ContactStatus;
 import lombok.Builder;
 import lombok.Data;
 
@@ -27,6 +28,7 @@ public class FormDTO {
 	protected String createdBy;
 	private Long entrepriseId;
 	private EntrepriseDTO entreprise;
+	private ContactStatus contactStatus;
 	//private Product softwareused ;
 	private boolean status ;
 
@@ -44,8 +46,8 @@ public class FormDTO {
 				.adresse(contact.getAdresse())
 				.companyname(contact.getCompanyname())
 				.nationality(contact.getNationality())
-				.status(contact.isStatusForm())
 				.name(contact.getName())
+				.contactStatus(contact.getContactstatus())
 				.createdDate(contact.getCreatedDate())
 				.lastModifiedDate(contact.getLastModifiedDate())
 				.mobile(contact.getMobile())
@@ -68,9 +70,9 @@ public class FormDTO {
 		contact.setNationality(dto.getNationality());
 		contact.setReferent(dto.getReferent());
 		contact.setAdresse(dto.getAdresse());
-		contact.setStatusForm(dto.isStatus());
 		contact.setLastModifiedDate(dto.getLastModifiedDate());
 		contact.setCreatedDate(dto.getCreatedDate());
+		contact.setContactstatus(dto.getContactStatus());
 		contact.setName(dto.getName());
 		Entreprise entreprise = new Entreprise();
 		entreprise.setId(dto.getEntrepriseId());

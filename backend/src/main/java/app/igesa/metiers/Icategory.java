@@ -11,4 +11,5 @@ public interface Icategory {
     public CategoryDTO findById(Long id);
     public void delete(Long id);
     public CategoryDTO  update(CategoryDTO c, Long id);
+    public void deleteImage(Long categoryId, String type);
 }

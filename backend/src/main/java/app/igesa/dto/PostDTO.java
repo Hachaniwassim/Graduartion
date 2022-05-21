@@ -8,7 +8,9 @@ import lombok.Data;
 import java.util.Date;
 
 /**
+ *
  * @author Tarchoun Abir
+ *
  */
 
 @Data
@@ -39,7 +41,6 @@ public class PostDTO {
 				.title(post.getTitle())
 				.description(post.getDescription())
 				.slug(post.getSlug())
-				.subtitle(post.getSubtitle())
 				.image(post.getImage())
 				.content(post.getContent())
 				.page(PageDTO.fromEntity(post.getPage()))
@@ -58,7 +59,6 @@ public class PostDTO {
 		post.setId(dto.getId());
 		post.setContent(dto.getContent());
 		post.setDescription(dto.getDescription());
-		post.setSubtitle(dto.getSubtitle());
 		post.setTagline(dto.getTagline());
 		post.setImage(dto.getImage());
 		post.setType(dto.getTypes());

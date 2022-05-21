@@ -1,4 +1,5 @@
 package app.igesa.upload;
+import app.igesa.enumerations.ImageTypes;
 import app.igesa.enumerations.PagesTypes;
 import app.igesa.metiers.Ientreprise;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +33,7 @@ public class FilesStorageServiceImpl implements FilesStorageService {
   }
 
   @Override
-  public void save(MultipartFile file, PagesTypes fileType, Integer id) {
+  public void save(MultipartFile file, ImageTypes fileType, Integer id) {
     try {
       String filePath = "Enterprise-" + enterpriseService.getCurrentEnterprise().getId() + "/" + fileType + "-" + id + ".jpg";
       Files.copy(file.getInputStream(), this.root.resolve(filePath));
@@ -42,7 +43,7 @@ public class FilesStorageServiceImpl implements FilesStorageService {
   }
 
   @Override
-  public Resource load(PagesTypes fileType, Integer id) {
+  public Resource load(ImageTypes fileType, Integer id) {
     try {
 
       String filePath = "Enterprise-" + enterpriseService.getCurrentEnterprise().getId() + "/" + fileType + "-" + id + ".jpg";

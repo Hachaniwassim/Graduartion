@@ -12,8 +12,8 @@ import javax.persistence.*;
  **/
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name="Cookies")
 @EqualsAndHashCode(callSuper= true)
@@ -27,7 +27,9 @@ public class Cookies extends Auditable {
         private String title ;
         @Column(name="description")
         private String htmlContent ;
-        //private Boolean active ;
+        /**
+         * Entreprise
+         */
         @ManyToOne
         private Entreprise entreprise;
 

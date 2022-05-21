@@ -1,6 +1,7 @@
 package app.igesa.dto;
 
-import app.igesa.entity.Page3;
+import app.igesa.entity.Entreprise;
+import app.igesa.entity.pages.Page3;
 import lombok.Builder;
 import lombok.Data;
 
@@ -41,9 +42,10 @@ public class Page3DTO {
         page.setTitle(dto.getTitle());
         page.setCreatedDate(dto.getCreatedDate());
         page.setLastModifiedDate(dto.getLastModifiedDate());
-        //Entreprise entreprise = new Entreprise();
-        //entreprise.setId(dto.getEntrepriseId());
-        //page.setEntreprise(entreprise);
+        //===========================> Entreprise ===========================>
+        Entreprise entreprise = new Entreprise();
+        entreprise.setId(dto.getEntrepriseId());
+        page.setEntreprise(entreprise);
         return page;
     }
 

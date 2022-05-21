@@ -14,4 +14,5 @@ public interface Ientreprise {
 	public List<EntrepriseDTO> FindEntrepriseByCompanyname(String companyname );
 	public Entreprise getCurrentEnterprise();
 
+
 }

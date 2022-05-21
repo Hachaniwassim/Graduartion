@@ -1,6 +1,6 @@
 package app.igesa.dto;
 
-import app.igesa.entity.Pages;
+import app.igesa.entity.pages.Pages;
 import lombok.Builder;
 import lombok.Data;
 import java.util.Date;
@@ -16,7 +16,7 @@ public class PageDTO {
 	private String title ;
 	private String description ;
 	private boolean published ;
-	private EntrepriseDTO entreprise;
+	//private EntrepriseDTO entreprise;
 	protected Date createdDate;
 	protected Date lastModifiedDate;
 
@@ -37,7 +37,7 @@ public class PageDTO {
 				.published(page.isPublished())
 				.lastModifiedDate(page.getLastModifiedDate())
 				.createdDate(page.getCreatedDate())
-				.entreprise(EntrepriseDTO.fromEntity(page.getEntreprise()))
+				//.entreprise(EntrepriseDTO.fromEntity(page.getEntreprise()))
 				.build();
 	}
 
@@ -53,7 +53,7 @@ public class PageDTO {
 		page.setPublished(page.isPublished());
 		page.setLastModifiedDate(dto.getLastModifiedDate());
 		page.setCreatedDate(dto.getCreatedDate());
-		page.setEntreprise(EntrepriseDTO.toEntity(dto.getEntreprise()));
+		//page.setEntreprise(EntrepriseDTO.toEntity(dto.getEntreprise()));
 		return page;
 	}
 

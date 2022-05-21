@@ -6,7 +6,9 @@ import lombok.Data;
 import java.util.Date;
 
 /**
+ *
  * @author Tarchoun Abir
+ *
  */
 
 @Builder

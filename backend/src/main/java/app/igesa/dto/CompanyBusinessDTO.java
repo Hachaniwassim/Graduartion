@@ -20,11 +20,13 @@ public class CompanyBusinessDTO {
 	private String domainename ;
 	protected Date createdDate;
 	protected Date lastModifiedDate;
-	@JsonIgnore
-	private List<GroupeDTO>groupe ;
 
 
 	public static CompanyBusinessDTO fromEntity(CompanyBusiness company) {
+
+		if (company == null) {
+			return null;
+		}
 
 		return CompanyBusinessDTO.builder()
 				.id(company.getId())
@@ -38,9 +40,9 @@ public class CompanyBusinessDTO {
 
 	public static CompanyBusiness toEntity(CompanyBusinessDTO dto) {
 
-		/*if (dto == null) {
+		if (dto == null) {
 			return null;
-		}*/
+		}
 
 		CompanyBusiness company = new CompanyBusiness();
 		company.setId(dto.getId());

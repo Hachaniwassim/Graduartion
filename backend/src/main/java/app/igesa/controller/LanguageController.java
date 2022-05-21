@@ -8,19 +8,31 @@ import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import java.util.Collection;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * @author Tarchoun Abir#
+ *
+ * @author Wassim Hachani
+ *
  */
-
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @Api(tags = "LANGUAGE")
 public class LanguageController {
+
+    /**
+     *
+     * @Api  PUBLIC_API : for all  ||  PRIVATE_API : with token
+     *
+     */
+    private final String PUBLIC_API = "api/language";
+    private final String PRIVATE_API = "api/private/language";
+
+
     @Autowired
     Ilanguage ilanguageService ;
 
@@ -29,7 +41,8 @@ public class LanguageController {
 
 
 
-    @RequestMapping(value="/lang",method = RequestMethod.POST)
+    @RequestMapping(value=PRIVATE_API,method = RequestMethod.POST)
+    @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
     @ApiOperation(value="ADD LANGUAGE",notes="SAUVGARDER LANGUAGE", response = LanguageDTO.class)
     @ApiResponses(value= {
             @ApiResponse(code=200,message="Language was saved Successfully"),
@@ -44,7 +57,8 @@ public class LanguageController {
     }
 
 
-    @RequestMapping(value="/lang",method =RequestMethod.GET)
+    @RequestMapping(value=PRIVATE_API,method =RequestMethod.GET)
+    @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
     @ApiOperation(value="GET A LIST OF LANGUAGE", responseContainer  = "Collection<LanguageDTO>")
     @ApiResponses(value= {
             @ApiResponse(code=200,message="Language was found successfully"),
@@ -59,7 +73,8 @@ public class LanguageController {
     }
 
 
-    @RequestMapping(value="/lang/{id}",method =RequestMethod.GET)
+    @RequestMapping(value=PRIVATE_API + "/{id}",method =RequestMethod.GET)
+    @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
     @ApiOperation(value=" GET LANGUAGE BY ID ",notes="GET AND SEARCH FOR LANGUAGE BY ID ", response = LanguageDTO.class)
     @ApiResponses(value= {
             @ApiResponse(code=200,message="Language was found successfully with the provided id"),
@@ -74,7 +89,8 @@ public class LanguageController {
     }
 
 
-    @RequestMapping(value="/lang",method =RequestMethod.PUT)
+    @RequestMapping(value=PRIVATE_API,method =RequestMethod.PUT)
+    @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
     @ApiOperation(value="UPDATE LANGUAGE ",response = LanguageDTO.class)
     @ApiResponses(value= {
             @ApiResponse(code=200,message="Language was updated successfully"),
@@ -86,7 +102,8 @@ public class LanguageController {
         return new ResponseEntity<>(ilanguageService.save(L),HttpStatus.CREATED);
     }
 
-    @RequestMapping(value="/lang/{id}",method =RequestMethod.DELETE)
+    @RequestMapping(value=PRIVATE_API + "/{id}",method =RequestMethod.DELETE)
+    @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
     @ResponseBody
     @ApiOperation(value="DELETE LANGUAGE BY ID ",response = LanguageDTO.class)
     @ApiResponses(value= {

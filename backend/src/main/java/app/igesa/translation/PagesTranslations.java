@@ -1,7 +1,7 @@
 package app.igesa.translation;
 
 import app.igesa.dto.TranslationObject;
-import app.igesa.entity.Pages;
+import app.igesa.entity.pages.Pages;
 import lombok.Getter;
 import lombok.Setter;
 

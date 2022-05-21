@@ -14,7 +14,9 @@ import static javax.mail.Message.RecipientType.CC;
 import static javax.mail.Message.RecipientType.TO;
 
 /**
+ *
  * @author Tarchoun Abir
+ *
  */
 
 @Service

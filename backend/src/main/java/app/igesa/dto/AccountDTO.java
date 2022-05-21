@@ -32,7 +32,6 @@ public class AccountDTO {
     protected Date createdDate;
     private Long groupId;
     private Set<Role> roles = new HashSet<>();
-   //private GroupeDTO groupe ;
 
     public static AccountDTO fromEntity(Account account) {
 
@@ -60,10 +59,11 @@ public class AccountDTO {
         account.setEmail(dto.getEmail());
         account.setPassword(dto.getPassword());
         account.setFiscaleCode(dto.getFiscaleCode());
-         account.setMatchingPassword(dto.getMatchingPassword());
+        account.setMatchingPassword(dto.getMatchingPassword());
         account.setCreatedDate(dto.getCreatedDate());
         account.setLastModifiedDate(dto.getLastModifiedDate());
         account.setRoles(dto.getRoles());
+        //===================> Groupe
         Groupe groupe = new Groupe();
         groupe.setId(dto.getGroupId());
         account.setGroupe(groupe);

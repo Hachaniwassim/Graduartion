@@ -1,9 +1,4 @@
 package app.igesa.controller;
-
-/**
- * @author Tarchoun Abir#
- */
-import app.igesa.dto.CompanyBusinessDTO;
 import app.igesa.dto.PrivacyDTO;
 import app.igesa.metiers.Iprivacy;
 import io.swagger.annotations.ApiOperation;
@@ -14,19 +9,35 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import java.util.Collection;
 
-@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
+
+/**
+ *
+ * @author Tarchoun Abir
+ *
+ */
+
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 public class PrivacyController {
+
+    /**
+     *
+     * @Api  PUBLIC_API : for all  ||  PRIVATE_API : with token
+     *
+     */
+    private final String PUBLIC_API = "api/privacy";
+    private final String PRIVATE_API = "api/private/privacy";
+    private static final Logger log = LoggerFactory.getLogger(PrivacyController.class);
     @Autowired
     Iprivacy iprivacy;
 
-    private static final Logger log = LoggerFactory.getLogger(PrivacyController.class);
 
-
-    @RequestMapping(value="/privacy",method = RequestMethod.POST)
+    @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
+    @RequestMapping(value= PRIVATE_API ,method = RequestMethod.POST)
     @ApiOperation(value="ADD PRIVACY",notes="SAUVGARDER PRIVACY", response = PrivacyDTO.class)
     @ApiResponses(value= {
             @ApiResponse(code=200,message="privacy was saved Successfully"),
@@ -41,8 +52,9 @@ public class PrivacyController {
     }
 
 
-    @RequestMapping(value="/privacy",method = RequestMethod.GET)
-    @ApiOperation(value="GET PRIVACY",notes="GETPRIVACY", responseContainer  = "Collection<PrivacyDTO>")
+    @RequestMapping(value=PRIVATE_API,method = RequestMethod.GET)
+    @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
+    @ApiOperation(value="GET PRIVACY",notes="GET PRIVACY", responseContainer  = "Collection<PrivacyDTO>")
     @ApiResponses(value= {
             @ApiResponse(code=200,message="privacy was founded Successfully"),
             @ApiResponse(code=400,message="privacy not found"),
@@ -55,7 +67,8 @@ public class PrivacyController {
         return new ResponseEntity<>( iprivacy.view(),HttpStatus.OK);
     }
 
-    @RequestMapping(value="/privacy/{id}",method = RequestMethod.GET)
+    @RequestMapping(value=PRIVATE_API + "/{id}",method = RequestMethod.GET)
+    @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
     @ApiOperation(value="GET PRIVACY",notes="GET PRIVACY", response = PrivacyDTO.class)
     @ApiResponses(value= {
             @ApiResponse(code=200,message="privacy by id was founded Successfully"),
@@ -70,7 +83,8 @@ public class PrivacyController {
     }
 
 
-    @RequestMapping(value="/privacy",method =RequestMethod.PUT)
+    @RequestMapping(value=PRIVATE_API  ,method =RequestMethod.PUT)
+    @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
     @ApiOperation(value="UPDATE privacy  ",response = PrivacyDTO.class)
     @ApiResponses(value= {
             @ApiResponse(code=200,message="privacy was updated successfully"),
@@ -82,7 +96,8 @@ public class PrivacyController {
         return new ResponseEntity<>(iprivacy.save(c),HttpStatus.CREATED);
     }
 
-    @RequestMapping(value="/privacy/{id}",method =RequestMethod.DELETE)
+    @RequestMapping(value=PRIVATE_API + "/{id}",method =RequestMethod.DELETE)
+    @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
     @ResponseBody
     @ApiOperation(value="DELETE PRIVACY BY ID ",response = PrivacyDTO.class)
     @ApiResponses(value= {
