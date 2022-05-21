@@ -1,4 +1,3 @@
-
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -18,13 +17,24 @@ declare var grecaptcha: any;
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
+
+
+
+/**
+ * 
+ * @author Tarchoun Abir
+ *
+ **/
+
+
+
 export class LoginComponent implements OnInit {
-  protected f !: FormGroup;
+  protected f!: FormGroup;
   form: any = {
-    username: "",
-    password: ""
+    username: '',
+    password: '',
   };
   isLoggedIn = false;
   isLoginFailed = false;
@@ -33,124 +43,129 @@ export class LoginComponent implements OnInit {
   username?: string;
   captchaError: boolean = false;
   password?: string;
-  recaptchaResponse = "";
+  recaptchaResponse = '';
   fieldTextType!: boolean;
-  accountStatus !: string;
-  siteSecret: string = "6Lc5l5AfAAAAAHOzhA9CEDiwe3n-W6GKdbQadMeq";
+  accountStatus!: string;
+  siteSecret: string = '6Lc5l5AfAAAAAHOzhA9CEDiwe3n-W6GKdbQadMeq';
   showUserBoard = true;
   groupeServices: GroupeDTO[] = [];
   schooseGroup = false;
   groupeFormControl = new FormControl(null, Validators.required);
   data: any;
 
-  constructor(private notfication: NotificationsService, private groupeService:GroupeService,private tokenStorageService: TokenStorageService, private _snackBar: MatSnackBar, private authService: AuthService, private accountService: Accountservice, private matSnackBar: MatSnackBar, public router: Router, public _location: Location, private tokenStorage: TokenStorageService, private notificationService: NotificationService) { }
+  constructor(
+    private notfication: NotificationsService,
+    private groupeService: GroupeService,
+    private tokenStorageService: TokenStorageService,
+    private _snackBar: MatSnackBar,
+    private authService: AuthService,
+    private accountService: Accountservice,
+    private matSnackBar: MatSnackBar,
+    public router: Router,
+    public _location: Location,
+    private tokenStorage: TokenStorageService,
+    private notificationService: NotificationService
+  ) { }
 
   ngOnInit(): void {
-
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
-      this.groupeService.getallGroupe().subscribe(res => {
-        console.log(res)
+      this.groupeService.getallGroupe().subscribe((res) => {
+        console.log(res);
         this.groupeServices = res;
-      })
-      
+      });
     }
     this.router.navigate(['/dashboard']);
   }
 
-  // show password 
-  toggleFieldTextType() {
+     // show password
+    toggleFieldTextType() {
     this.fieldTextType = !this.fieldTextType;
-  }
+     }
 
-  //post login 
-  onSubmit(): void {
+    //post login
+    onSubmit(): void {
     const { username, password } = this.form;
 
     //constant response for test robots
     const response = grecaptcha.getResponse();
     //debugger;
 
-    //test validation recaptcha 
+    //test validation recaptcha
     if (response.length === 0) {
       this.captchaError = true;
       return;
     }
 
-
-    this.authService.login(username, password).
-      subscribe((data: any) => {
-        this.tokenStorage.saveToken(data.accessToken);
+    this.authService.login(username, password).subscribe(
+      (data: any) => {
+        //get token : data.token
+        this.tokenStorage.saveToken(data.token);
         this.tokenStorage.saveUser(data);
         this.isLoginFailed = false;
         this.isLoggedIn = true;
-        console.log(data)
-        
-        //recuperation response 
+
+        //recuperation response
         this.recaptchaResponse = response;
-      
+
         //this.schooseGroup= true;
         if (data.roles === 'ROLE_ADMIN' || data.roles === 'ROLE_MODERATEUR') {
-
           this.router.navigate(['/dashboard']);
           return;
-     }
-        else if (data.roles === 'ROLE_USER') {
+        } else if (data.roles === 'ROLE_USER') {
           this.router.navigate(['/']);
           return;
         }
         this.reloadPage();
       },
 
-        err => {
-          //get error from backend : inactivate account || blocked account
-          if (err.error.text) {
-            console.log(err.error.text)
-            this._snackBar.open(err.error.text, '', {
-              duration: 4000,
-              horizontalPosition: "center",
-              verticalPosition: "top",
-              panelClass: ['mat-toolbar', 'mat-warn']
-
-            });
-            return
-          }
-          //  login failed if username or password not valid 
-          else if (this.isLoginFailed = true) {
-            this._snackBar.open('INVALID CREDENTIALS', '', {
-              duration: 4000,
-              horizontalPosition: "center",
-              verticalPosition: "top",
-              panelClass: ['mat-toolbar', 'mat-warn']
-            })
-          }
+      (err) => {
+        //get error from backend : inactivate account || blocked account
+        if (err.error.text) {
+          console.log(err.error.text);
+          this._snackBar.open(err.error.text, '', {
+            duration: 4000,
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
+            panelClass: ['mat-toolbar', 'mat-warn'],
+          });
+          return;
         }
-      )
+        //  login failed if username or password not valid
+        else if ((this.isLoginFailed = true)) {
+          this._snackBar.open('INVALID CREDENTIALS', '', {
+            duration: 4000,
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
+            panelClass: ['mat-toolbar', 'mat-warn'],
+          });
+        }
+      }
+    );
   }
-
 
   logout(): void {
     this.tokenStorage.signOut();
     this.router.navigate(['/']);
   }
 
-  //reload pages 
+  //reload pages
   reloadPage() {
     window.location.reload();
   }
-
 
   //succes notification
   successNotification() {
     Swal.fire('welcome', ' you have been logged successfully ', 'success');
   }
 
-  //refrech 
+  //refrech
   refresh(): void {
-    this.router.navigateByUrl("/refresh", { skipLocationChange: true }).then(() => {
-      console.log(decodeURI(this._location.path()));
-      this.router.navigate([decodeURI(this._location.path())]);
-    });
+    this.router
+      .navigateByUrl('/refresh', { skipLocationChange: true })
+      .then(() => {
+        console.log(decodeURI(this._location.path()));
+        this.router.navigate([decodeURI(this._location.path())]);
+      });
   }
-
 }

@@ -7,7 +7,6 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AccountDTO } from 'src/app/models/dto/accountDTO';
 import { DialogService } from 'src/app/shared/dialog.service';
-import { NotificationService } from 'src/app/shared/notification.service';
 import { Accountservice } from 'src/app/_services/account.service';
 import { Location } from '@angular/common';
 import { AccountEditComponent } from '../account-edit/account-edit.component';

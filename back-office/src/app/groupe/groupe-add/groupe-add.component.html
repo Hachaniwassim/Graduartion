@@ -35,7 +35,7 @@
     </mat-grid-list>
     <div class="button-row" align="center">
       <button mat-raised-button color="primary" type="submit"
-        [disabled]="groupeService.form.invalid">Save</button>
+        [disabled]="groupeService.form.invalid" (click)="refresh()">Save</button>
         <button mat-raised-button  mat-dialog-close> <mat-icon>close</mat-icon>Cancel</button>
       <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
   </div>

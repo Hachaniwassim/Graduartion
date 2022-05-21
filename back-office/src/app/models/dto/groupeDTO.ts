@@ -1,5 +1,9 @@
 
 
+/**
+ * @author Tarchoun Abir
+ * 
+ */
 
 export  class GroupeDTO{
 id!: number;

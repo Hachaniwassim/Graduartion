@@ -47,9 +47,9 @@ public class CookiesController {
             @ApiResponse( code=403, message="not permitted or allowed"),
 
     })
-    public ResponseEntity<Collection<CookiesDTO>> viewCookies() {
+    public ResponseEntity<Collection<CookiesDTO>> GetCookiesByEntreprise() {
         log.debug(" HTTP GET ALL cookies {}");
-        return new ResponseEntity<>( icookies.getCookies(),HttpStatus.OK);
+        return new ResponseEntity<>( icookies.getCookiesByEntreprise(),HttpStatus.OK);
     }
 
     @RequestMapping(value=PRIVATE_API + "/{id}",method = RequestMethod.GET)
@@ -67,6 +67,18 @@ public class CookiesController {
         log.debug(" HTTP GET COOKIES BY ID {}",id);
         return new ResponseEntity<>(icookies.findById(id),HttpStatus.OK);
     }
+    @RequestMapping(value=PRIVATE_API ,method =RequestMethod.POST)
+    @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
+    @ApiOperation(value="UPDATE cookies   ",response = CookiesDTO.class)
+    @ApiResponses(value= {
+            @ApiResponse(code=200,message="cookies was updated successfully"),
+            @ApiResponse(code=401,message="Unauthorized , without authority or permission"),
+            @ApiResponse( code=403, message="not permitted or allowed"),
+
+    })
+    public ResponseEntity<CookiesDTO>updateByEntreprise(@RequestBody CookiesDTO c) {
+        return new ResponseEntity<>(icookies.updateCookies(c),HttpStatus.CREATED);
+    }
 
 
     @RequestMapping(value=PRIVATE_API ,method =RequestMethod.PUT)
@@ -78,7 +90,7 @@ public class CookiesController {
             @ApiResponse( code=403, message="not permitted or allowed"),
 
     })
-    public ResponseEntity<CookiesDTO>updateCookies(@RequestBody CookiesDTO c) {
+    public ResponseEntity<CookiesDTO>updateCookiesByEntreprise(@RequestBody CookiesDTO c) {
         return new ResponseEntity<>(icookies.updateCookies(c),HttpStatus.CREATED);
     }
 

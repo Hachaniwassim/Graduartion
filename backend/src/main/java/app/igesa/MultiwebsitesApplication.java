@@ -28,7 +28,7 @@ import java.util.Date;
 
 @EnableJpaAuditing(auditorAwareRef = "auditorAware")
 @SpringBootApplication
-public class MultiwebsitesApplication implements CommandLineRunner {
+public class MultiwebsitesApplication {
 
 	@Resource
 	FilesStorageService storageService;
@@ -53,7 +53,7 @@ public class MultiwebsitesApplication implements CommandLineRunner {
 
 	}
 
-	@Override
+	/*@Override
 	public void run(String... arg) throws Exception {
 		storageService.deleteAll();
 		storageService.init();
@@ -88,5 +88,5 @@ public class MultiwebsitesApplication implements CommandLineRunner {
 		user.setAccountStatus(AccountStatus.ACTIVE);
 		user.setGroupe(groupe);
 		userRepository.save(user);
-	}
+	}*/
 }

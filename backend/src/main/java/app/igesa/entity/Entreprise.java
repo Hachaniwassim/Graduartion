@@ -1,8 +1,10 @@
 package app.igesa.entity;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.*;
 
 import app.igesa.entity.siteinfo.Plateforme;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -42,25 +44,29 @@ public class Entreprise  extends Auditable{
 	private Groupe groupe;
 	/**
 	 * Lists
+	 *
 	 */
-
+    @JsonIgnore
 	@OneToMany(mappedBy="entreprise",cascade = CascadeType.ALL)
-    private List<Plateforme>plateforme;
-
+    private List<Plateforme>plateformes;
+	@JsonIgnore
 	@OneToMany(mappedBy="entreprise",cascade = CascadeType.ALL )
-	private List<ConfigGenerale>config;
-
+	private List<ConfigGenerale>configs;
+	@JsonIgnore
 	@OneToMany(mappedBy="entreprise",cascade = CascadeType.ALL)
-	private List<Product>product;
-
-	//@OneToMany(mappedBy="entreprise",cascade = CascadeType.ALL)
-	//private List<Privacy>privacies;
-
+	private List<Product>products;
+	@JsonIgnore
+	@OneToMany(mappedBy="entreprise",cascade = CascadeType.ALL)
+	 private List<Privacy> privacys;
+	@JsonIgnore
 	@OneToMany(mappedBy="entreprise",cascade = CascadeType.ALL)
 	private List<Cookies> cookies;
-
+	@JsonIgnore
 	@OneToMany(mappedBy="entreprise",cascade = CascadeType.ALL)
-	private List<FormEntity> formEntities;
+	private List<FormEntity> formEntity;
+	@JsonIgnore
+	@OneToMany(mappedBy="entreprise",cascade = CascadeType.ALL)
+	private List<Category> category = new ArrayList<>();
 
 
 }

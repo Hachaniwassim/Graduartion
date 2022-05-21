@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component, Inject, OnInit } from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { languageDTO } from 'src/app/models/dto/languageDTO';
+import { languageDTO } from 'src/app/models/entity/languageDTO';
 @Component({
   selector: 'app-language-view',
   templateUrl: './language-view.component.html',

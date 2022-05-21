@@ -3,84 +3,76 @@
   <div class="content-page">
     <!-- Start content -->
     <div class="content">
-        <h5>update profile </h5>
-        <mat-progress-bar mode="determinate" value="10"></mat-progress-bar><br><br>
-        <div class="card m-b-30">
-          <div class="card-body">
-              <div class="container">
-                <form class="example-form" [formGroup]="account"><br><br>
-                  <div class="row">
-                    <div class="col-md-6 col-sm-6">
-                      <label [ngStyle]="{'color':'blue'}"> Username *</label>
-                      <input type="text" formControlName="username" placeholder="title"
-                        class="form-control form-control-sm">
-                    </div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-md-6 col-sm-6">
-                      <br>
-                      <label [ngStyle]="{'color':'blue'}">Email *</label>
-                      <br>
-                      <input type="email" formControlName="email" placeholder="title"
-                        class="form-control form-control-sm">
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-6 col-sm-6">
-                      <br>
-                      <label [ngStyle]="{'color':'blue'}">FiscaleCode *</label>
-                      <input type="text" formControlName="fiscaleCode" placeholder="title"
-                        class="form-control form-control-sm">
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-6 col-sm-6">
-                      <br>
-                      <label [ngStyle]="{'color':'blue'}">Status *</label>
-                      <input type="text" formControlName="accountStatus" placeholder="title"
-                        class="form-control form-control-sm">
-                    </div>
-                  </div>
-                </form>
-                <br>
-                <button mat-raised-button color="primary" style="width: 100px;" (click)="save()">Save</button>
-                &nbsp;&nbsp;
-                <button mat-raised-button color="warn" style="width: 100px;">Canncel</button>
-                <br><br>
+      <br>
+      <h5> update profile </h5>
+      <mat-progress-bar mode="determinate" value="10"></mat-progress-bar><br><br><br>
+      <div class="card m-b-30">
+        <div class="card-body">
+          <div class="container">
+            <form class="example-form" [formGroup]="account"><br><br>
+              <div class="row">
+                <div class="col-md-6 col-sm-6">
+                  <label [ngStyle]="{'color':'blue'}"> Username * </label>
+                  <input type="text" formControlName="username" placeholder="title"
+                    class="form-control">
+                </div>
+              </div>    
+              <div class="row">
+                <div class="col-md-6 col-sm-6">
+                  <br>
+                  <label [ngStyle]="{'color':'blue'}">Email *</label>
+                  <br>
+                  <input type="email" formControlName="email" placeholder="title" class="form-control ">
+                </div>
               </div>
+              <div class="row">
+                <div class="col-md-6 col-sm-6">
+                  <br>
+                  <label [ngStyle]="{'color':'blue'}">FiscaleCode *</label>
+                  <input type="text" formControlName="fiscaleCode" placeholder="title"
+                    class="form-control">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 col-sm-6">
+                  <br>
+                  <label [ngStyle]="{'color':'blue'}">Status *</label>
+                  <input type="text" formControlName="accountStatus" placeholder="title"
+                    class="form-control">
+                </div>
+              </div>
+            </form>
+            <br>
+            <button mat-raised-button color="primary" style="width: 100px;" (click)="save()">Save</button>
+            &nbsp;&nbsp;
+            <button mat-raised-button color="warn" style="width: 100px;">Canncel</button>
+            <br><br>
+          </div>
         </div>
       </div>
       <br>
-      <div class="col-xl-12">
-        <h5>Change the password</h5>
-        <mat-progress-bar mode="determinate" value="19"></mat-progress-bar><br><br>
+      <div>
+        <br><br><br>
+        <h5>Change Password</h5>
+        <mat-progress-bar mode="determinate" value="12"></mat-progress-bar><br><br><br>
         <div class="card m-b-30">
           <div class="card-body">
-            <fieldset class="container">
               <div class="container">
                 <form class="example-form" #emailForm="ngForm" (ngSubmit)="onResetPassword(emailForm)"><br><br>
-                  <label for=""> Email</label> <br>
-                  <mat-form-field appearance="fill" style="width: 500px;">
-                    <mat-label>Enter your Email</mat-label>
-                    <input type="email" class="form-control" name="reset-password-email" id="reset-password-email" ngModel required />
-                  </mat-form-field>
-             
-                <br>
-                <div class="form-group">
-                  
-                <button mat-raised-button color="primary" style="width: 100px;" [disabled]="emailForm.invalid" type="submit">
-                    <i *ngIf="refreshing" class="fas fa-spinner fa-spin"></i>&nbsp;&nbsp;
-                    <span *ngIf="refreshing">Loading...</span>
-                    <span *ngIf="!refreshing">Reset</span>
-                  </button>
-                </div>
-                &nbsp;&nbsp;
-                <button mat-raised-button color="warn" style="width: 100px;">Canncel</button>
-                <br><br>
-              </form>
+                  <input type="email" class="form-control" name="reset-password-email" id="reset-password-email" ngModel
+                    required placeholder="Enter your Email" />
+                  <br>
+                    <button mat-raised-button color="primary" style="width: 110px;" [disabled]="emailForm.invalid"
+                      type="submit">
+                      <i *ngIf="refreshing" class="fas fa-spinner fa-spin"></i>&nbsp;&nbsp;
+                      <span *ngIf="refreshing">Loading...</span>
+                      <span *ngIf="!refreshing">Reset</span>
+                    </button>&nbsp;&nbsp;
+                    <button mat-raised-button color="warn" style="width: 110px;">Canncel</button>
+                  <br><br>
+                </form>
+                <br><br><br>
               </div>
-            </fieldset>
           </div>
         </div>
       </div>

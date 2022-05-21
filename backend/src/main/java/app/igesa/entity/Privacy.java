@@ -26,9 +26,9 @@ public class Privacy extends  Auditable {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id ;
-    @Column(name="title")
+    @Column(columnDefinition="text")
     private String title ;
-    @Column(name="description")
+    @Column(columnDefinition="text")
     private String htmlContent ;
     /**
      * ENTERPRISE

@@ -18,7 +18,9 @@ import java.util.Date;
 public class CookiesDTO {
 
     private Long id ;
+    @Column(columnDefinition="text")
     private String title ;
+    @Column(columnDefinition="text")
     private String htmlContent;
     private Long entrepriseId;
     protected Date createdDate;

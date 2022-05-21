@@ -14,7 +14,7 @@ import { plateforomeDTO } from '../models/dto/plateformeDTO';
 export class PlateformeService {
 
   //api backend
-  private base_url=environment.api + '/platefome';
+  private base_url=environment.privateApi + '/platefome';
   
 
   constructor(private http :HttpClient, private datePipe: DatePipe) { }

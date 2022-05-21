@@ -44,6 +44,7 @@ public class EntrepriseController {
 
 
 	@RequestMapping(value=PRIVATE_API,method =RequestMethod.POST)
+	@PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
 	@ApiOperation(value="ADD ENTREPRISE",notes="SAUVGARDER ENTREPRISE", response = EntrepriseDTO.class)
 	@ApiResponses(value= {
 			@ApiResponse(code=200,message="Entreprise was saved Successfully"),
@@ -58,7 +59,7 @@ public class EntrepriseController {
 	}
 
 	@RequestMapping(value=PRIVATE_API,method =RequestMethod.GET)
-
+	@PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
 	@ApiOperation(value="GET A LIST OF ENTREPRISE ", responseContainer  = "Collection<EntrepriseDTO>")
 	@ApiResponses(value= {
 			@ApiResponse(code=200,message="Enterprise was found successfully"),
@@ -74,6 +75,7 @@ public class EntrepriseController {
 
 
 	@RequestMapping(value=PRIVATE_API + "/{id}",method =RequestMethod.GET)
+	@PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
 	@ApiOperation(value=" GET ENTREPRISE BY ID ",notes="GET AND SEARCH FOR ENTREPRISE BY ID ", response = EntrepriseDTO.class)
 	@ApiResponses(value= {
 			@ApiResponse(code=200,message="Enterprise was found successfully with the provided id"),

@@ -39,18 +39,23 @@ public class AccountImp implements IauthService {
     private static final Logger log = LoggerFactory.getLogger(AccountImp.class);
 
 
+    //====================== Add Account ===============================//
     public AccountDTO save(AccountDTO account) {
         //account.setAccountStatus(AccountStatus.PENDING);
         Account saved = userRepository.save(AccountDTO.toEntity(account));
         return AccountDTO.fromEntity(saved);
     }
 
+
+    //====================== find All===============================//
     public List<AccountDTO> findAll() {
         return userRepository.findAll().stream()
                 .map(AccountDTO::fromEntity)
                 .collect(Collectors.toList());
     }
 
+
+    //========================= Delete ===============================//
     public void delete(Long id) {
         if (id == null) {
             log.error("  ID IS NULL ");
@@ -59,6 +64,9 @@ public class AccountImp implements IauthService {
         userRepository.deleteById(id);
     }
 
+
+
+    //========================== find by id ===============================//
     @Override
     public AccountDTO findById(Long id) {
         Optional<Account> account = userRepository.findById(id);
@@ -67,6 +75,9 @@ public class AccountImp implements IauthService {
                 new ResourceNotFoundException(" Aucune account avec id =" + id + " n'ete  trouver ", ErrorCode.ACCOUNT_NOT_VALID));
     }
 
+
+
+    //================================ update Status ===============================//
     @Override
     public Account updateSatus(Long id, AccountStatus status) throws MessagingException {
         Optional<Account> Data = userRepository.findById(id);
@@ -93,6 +104,9 @@ public class AccountImp implements IauthService {
 
     }
 
+
+    //===============================  Changes Password ==============================//
+
     @Override
     public boolean changePassword(ChangePasswordRequest request) {
         UserDetailsImpl userDetails = getIdentity();
@@ -112,14 +126,13 @@ public class AccountImp implements IauthService {
         return false;
     }
 
-    /**
-     *
-     * @return current entreprise ==============> identity of user
-     */
-    public UserDetailsImpl getIdentity() {
-        if (SecurityContextHolder.getContext().getAuthentication().getPrincipal() instanceof UserDetailsImpl)
+     /**
+      * @return current entreprise :: <==================> :: identity of user
+      */
+        public UserDetailsImpl getIdentity() {
+         if (SecurityContextHolder.getContext().getAuthentication().getPrincipal() instanceof UserDetailsImpl)
             return (UserDetailsImpl) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        return null;
+         return null;
 
     }
 

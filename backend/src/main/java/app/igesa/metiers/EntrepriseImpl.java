@@ -1,6 +1,7 @@
 package app.igesa.metiers;
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -47,9 +48,12 @@ public class EntrepriseImpl implements Ientreprise {
 		if (null == entrepriseId) {
 			throw new IllegalArgumentException();
 		}
+
 		return entrepriseRepository.findById(entrepriseId).orElseThrow(IllegalArgumentException::new);
 
 	}
+
+
       @Override
       public Collection<EntrepriseDTO> view() {
 		  log.debug( "<========================= Get All Entreprise ================================>");

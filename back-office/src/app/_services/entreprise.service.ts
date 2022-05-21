@@ -14,7 +14,7 @@ import { GroupeDTO } from '../models/dto/groupeDTO';
 export class EntrepriseService {
 
    //api backend
-   private base_url= environment.api +'/entreprise';
+   private base_url= environment.privateApi +'/entreprise';
 
  
 
@@ -100,7 +100,7 @@ export class EntrepriseService {
    codefiscale: new FormControl('',[Validators.required]),
    note : new FormControl(''),  
    fax : new FormControl('',[ Validators.required]),
-   groupeId : new FormControl('')
+   groupeId : new FormControl(null)
    
   
  });
@@ -115,7 +115,7 @@ export class EntrepriseService {
      codefiscale:'',
       note : '',
       email:'',
-      groupeId :''
+      groupeId :null
  
    });
  }

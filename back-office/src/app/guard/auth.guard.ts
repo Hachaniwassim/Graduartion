@@ -3,11 +3,16 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from
 import { Observable } from 'rxjs';
 import { AuthService } from '../_services/auth.service';
 import { TokenStorageService } from '../_services/token-storage.service';
-
-
 @Injectable({
   providedIn: 'root'
 })
+
+/**
+ * 
+ * @author Tarchoun Abir
+ *
+ **/
+
 export class AuthGuard implements CanActivate {
 
 
@@ -19,7 +24,7 @@ export class AuthGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    if(this.isLoggedIn !== true ) {
+    if(this.isLoggedIn == !true ) {
       this.router.navigate(['/']);
     }
       return true;

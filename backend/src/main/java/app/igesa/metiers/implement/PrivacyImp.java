@@ -1,8 +1,8 @@
 package app.igesa.metiers.implement;
-
 import app.igesa.dto.PrivacyDTO;
 import app.igesa.entity.Privacy;
 import app.igesa.exceptions.ResourceNotFoundException;
+import app.igesa.metiers.Ientreprise;
 import app.igesa.metiers.Iprivacy;
 import app.igesa.repository.PrivacyRepository;
 import lombok.AllArgsConstructor;
@@ -22,25 +22,31 @@ import java.util.stream.Collectors;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PrivacyImp  implements Iprivacy {
-
     private static final Logger log = LoggerFactory.getLogger(PrivacyImp.class);
-
-
+    @Autowired
+    Ientreprise ientrepriseService;
     @Autowired
     PrivacyRepository privacyRepository;
 
     @Override
-    public PrivacyDTO save(PrivacyDTO p) {
-       Privacy saved = privacyRepository.save(PrivacyDTO.toEntity(p));
+    public PrivacyDTO updateByEntreprise(PrivacyDTO p) {
+        Privacy privacy = new Privacy();
+        if (p.getId()!=null){
+           privacy = privacyRepository.findById(p.getId()).orElseThrow(IllegalAccessError::new);
+        }
+        privacy.setEntreprise(ientrepriseService.getCurrentEnterprise());
+        privacy.setTitle(p.getTitle());
+        privacy.setHtmlContent(p.getHtmlContent());
+        Privacy saved = privacyRepository.save(PrivacyDTO.toEntity(p));
         return PrivacyDTO.fromEntity(saved);
-
 
     }
 
+
     @Override
-    public Collection<PrivacyDTO> view() {
+    public Collection<PrivacyDTO> getByEntreprise (){
         log.debug("HTTP GET ALL {} ..");
-        return privacyRepository.findAll().stream()
+        return privacyRepository.findFirstByEntrepriseId(ientrepriseService.getCurrentEnterprise().getId()).stream()
                 .map(PrivacyDTO::fromEntity)
                 .collect(Collectors.toList());
     }
