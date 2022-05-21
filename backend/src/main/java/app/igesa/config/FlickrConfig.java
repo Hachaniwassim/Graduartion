@@ -5,7 +5,11 @@ import com.flickr4java.flickr.RequestContext;
 import com.flickr4java.flickr.auth.Auth;
 import com.flickr4java.flickr.auth.Permission;
 import org.springframework.context.annotation.Bean;
-
+/**
+ *
+ * @author Tarchoun Abir
+ *
+ */
 //@Configuration
 public class FlickrConfig {
 

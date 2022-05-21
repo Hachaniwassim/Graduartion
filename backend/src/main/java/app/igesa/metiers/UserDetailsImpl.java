@@ -35,7 +35,7 @@ public class UserDetailsImpl implements UserDetails {
 
 	private String fiscaleCode ;
 
-	private Long entrepriseId = 1L;
+	private Long entrepriseId ;
 
 	private Long groupeId;
 

@@ -1,9 +1,4 @@
 package app.igesa.dto;
-
-/**
- * @author Tarchoun Abir
- */
-
 import app.igesa.entity.*;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
@@ -11,11 +6,10 @@ import lombok.Data;
 import java.util.Date;
 import java.util.List;
 /**
+ *
  * @author Tarchoun Abir
+ *
  */
-
-
-
 @Builder
 @Data
 public class ProductDTO {
@@ -34,7 +28,6 @@ public class ProductDTO {
 	private Long entrepriseId;
 	private Long categorieId;
 	private Long tagsId;
-	private EntrepriseDTO entreprise ;
 
 	public static ProductDTO fromEntity(Product product) {
 		if ( product == null) {
@@ -44,15 +37,15 @@ public class ProductDTO {
 				.id(product.getId())
 				.image(product.getImage())
 				.title(product.getTitle())
-				.detailimage(product.getDetailimage())
+				.detailimage(product.getDetailsimage())
 				.note(product.getNote())
 				.name(product.getName())
-				.consultationNumber(product.getConsultationNumber())
 				.tags(TagsDTO.fromEntity(product.getTags()))
-				.category(CategoryDTO.fromEntity(product.getCategory()))
 				.lastModifiedDate(product.getLastModifiedDate())
 				.createdDate(product.getCreatedDate())
-				.entreprise(EntrepriseDTO.fromEntity(product.getEntreprise()))
+				.entrepriseId(product.getEntreprise().getId())
+				.tagsId(product.getTags().getId())
+				.categorieId(product.getCategory().getId())
 				.build();
 	}
 
@@ -68,19 +61,18 @@ public class ProductDTO {
 	     product.setTitle(dto.getTitle());
 		 product.setNote(dto.getNote());
 		 product.setName(dto.getName());
-		 product.setConsultationNumber(dto.getConsultationNumber());
-		 product.setDetailimage(dto.getDetailimage());
+		 product.setDetailsimage(dto.getDetailimage());
 		 product.setCreatedDate(dto.getCreatedDate());
 		 product.setLastModifiedDate(dto.getLastModifiedDate());
-		 //tags
+		 //=================> tags
 		 Tags tag = new Tags();
 		 tag.setId(dto.getTagsId());
 		 product.setTags(tag);
-		 // entreprise
+		 //=================> entreprise
 		 Entreprise entreprise= new Entreprise();
 		 entreprise.setId(dto.getEntrepriseId());
 		 product.setEntreprise(entreprise);
-		 //category
+		 //==================> category
 		 Category  category = new Category();
 		 category.setId(dto.getCategorieId());
 		 product.setCategory(category);

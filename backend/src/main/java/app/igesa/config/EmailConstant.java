@@ -1,6 +1,8 @@
 package app.igesa.config;
 /**
+ *
  * @author Tarchoun Abir
+ *
  */
 public class EmailConstant {
     public static final String SIMPLE_MAIL_TRANSFER_PROTOCOL = "smtps";

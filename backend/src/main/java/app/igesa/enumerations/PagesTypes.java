@@ -1,7 +1,9 @@
 package app.igesa.enumerations;
 
 /**
+ *
  * @author Tarchoun Abir
+ *
  */
 
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -13,7 +15,7 @@ public enum PagesTypes {
     HOME,
     CATEGORY,
     COOKIES,
-    NWES,
+    NEWS,
     REVENDEURS,
     ASSISTANCE,
     LINKS,

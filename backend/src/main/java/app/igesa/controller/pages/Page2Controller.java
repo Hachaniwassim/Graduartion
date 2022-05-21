@@ -1,7 +1,9 @@
 package app.igesa.controller.pages;
 
 /**
- * @author Tarchoun Abir#
+ *
+ * @author wassim Hachanni
+ *
  */
 
 import app.igesa.dto.Page2DTO;
@@ -20,13 +22,20 @@ import java.util.Collection;
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 public class Page2Controller {
+
+    /**
+     *
+     * Api  PUBLIC_API : for all  // PRIVATE_API : with token
+     *
+     **/
+
+    private final String PUBLIC_API = "/api/pages2";
+    private final String PRIVATE_API = "/api/private/pages2";
     @Autowired
     Ipage2 ipage2;
 
     private static final Logger log = LoggerFactory.getLogger(Page2Controller.class);
-
-
-    @RequestMapping(value="/page2",method = RequestMethod.POST)
+    @RequestMapping(value=PRIVATE_API ,method = RequestMethod.POST)
     @ApiOperation(value="ADD Page",notes="SAUVGARDER PAGE", response = Page2DTO.class)
     @ApiResponses(value= {
             @ApiResponse(code=200,message="pagewas saved Successfully"),
@@ -36,12 +45,12 @@ public class Page2Controller {
 
     })
     ResponseEntity<Page2DTO> save(@RequestBody Page2DTO p) {
-        log.debug(" HTTP POST {}",p);
+        log.debug(" <======================= HTTP POST {}====================>",p);
         return new ResponseEntity<> (ipage2.save(p), HttpStatus.CREATED);
     }
 
 
-    @RequestMapping(value="/page2",method = RequestMethod.GET)
+    @RequestMapping(value=PRIVATE_API,method = RequestMethod.GET)
     @ApiOperation(value="GET PAGE",notes="PAGES", responseContainer  = "Collection<Page2DTO>")
     @ApiResponses(value= {
             @ApiResponse(code=200,message="page was founded Successfully"),
@@ -51,11 +60,11 @@ public class Page2Controller {
 
     })
     public ResponseEntity<Collection<Page2DTO>> view() {
-        log.debug(" HTTP GET ALL privacy  {}");
+        log.debug("<================= HTTP GET ALL privacy  {}=======================>");
         return new ResponseEntity<>( ipage2.view(),HttpStatus.OK);
     }
 
-    @RequestMapping(value="/page2/{id}",method = RequestMethod.GET)
+    @RequestMapping(value=PRIVATE_API + "/{id}",method = RequestMethod.GET)
     @ApiOperation(value="GET PAGE",notes="GET PAGE", response = Page2DTO.class)
     @ApiResponses(value= {
             @ApiResponse(code=200,message="page by id was founded Successfully"),
@@ -65,12 +74,12 @@ public class Page2Controller {
 
     })
     public ResponseEntity<Page2DTO>findById(@PathVariable Long id) {
-        log.debug(" HTTP GET PAGE  BY ID {}",id);
+        log.debug("<=======================HTTP GET PAGE  BY ID {}===================>",id);
         return new ResponseEntity<>(ipage2.findById(id),HttpStatus.OK);
     }
 
 
-    @RequestMapping(value="/page2",method =RequestMethod.PUT)
+    @RequestMapping(value=PRIVATE_API ,method =RequestMethod.PUT)
     @ApiOperation(value="UPDATE pages  ",response = Page2DTO.class)
     @ApiResponses(value= {
             @ApiResponse(code=200,message="page was updated successfully"),
@@ -82,7 +91,7 @@ public class Page2Controller {
         return new ResponseEntity<>(ipage2.save(c),HttpStatus.CREATED);
     }
 
-    @RequestMapping(value="/page2/{id}",method =RequestMethod.DELETE)
+    @RequestMapping(value=PRIVATE_API + "/{id}",method =RequestMethod.DELETE)
     @ResponseBody
     @ApiOperation(value="DELETE BY ID ",response = Page2DTO.class)
     @ApiResponses(value= {
@@ -92,9 +101,7 @@ public class Page2Controller {
 
     })
     public void delete(@PathVariable Long id) {
-
-        log.debug(" HTTP DELETE BY ID {}",id);
-
+        log.debug("<=================HTTP DELETE BY ID {}==================>",id);
         ipage2.delete(id);
     }
 

@@ -2,7 +2,6 @@ package app.igesa.controller;
 
 import app.igesa.entity.Role;
 import app.igesa.metiers.Irole;
-import app.igesa.metiers.RoleImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -17,13 +16,21 @@ import java.util.Collection;
 import java.util.Optional;
 
 /**
- * @author Tarchoun Abir#
+ *
+ * @author Wassim Hachani
+ *
  */
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @Api(tags = "ROLE")
 public class RoleController {
+
+    /**
+     *
+     * @Api  PUBLIC_API : for all  ||  PRIVATE_API : with token
+     *
+     */
 
     private static final Logger log = LoggerFactory.getLogger(RoleController.class);
 

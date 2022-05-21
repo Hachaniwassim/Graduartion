@@ -1,8 +1,11 @@
 package app.igesa.enumerations;
+/**
+ *
+ * @author Tarchoun Abir
+ *
+ */
 
 public enum LangEnum {
-	US_us,
-	FR_fr,
-	IT_it
 
+	it,  en, fr
 }

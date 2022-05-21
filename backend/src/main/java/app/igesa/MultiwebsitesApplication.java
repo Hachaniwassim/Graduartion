@@ -5,6 +5,7 @@ import app.igesa.entity.CompanyBusiness;
 import app.igesa.entity.Groupe;
 import app.igesa.entity.Role;
 import app.igesa.enumerations.AccountStatus;
+import app.igesa.enumerations.ERole;
 import app.igesa.enumerations.GroupStatus;
 import app.igesa.metiers.Irole;
 import app.igesa.repository.IcomapnybusRepository;
@@ -18,15 +19,16 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.domain.AuditorAware;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
-import app.igesa.metiers.AuditorAwareImpl;
+import app.igesa.metiers.implement.AuditorAwareImpl;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import javax.annotation.Resource;
 import java.util.Date;
 
 
 @EnableJpaAuditing(auditorAwareRef = "auditorAware")
 @SpringBootApplication
-public class MultiwebsitesApplication{
+public class MultiwebsitesApplication implements CommandLineRunner {
 
 	@Resource
 	FilesStorageService storageService;
@@ -51,7 +53,7 @@ public class MultiwebsitesApplication{
 
 	}
 
-	/*@Override
+	@Override
 	public void run(String... arg) throws Exception {
 		storageService.deleteAll();
 		storageService.init();
@@ -59,8 +61,9 @@ public class MultiwebsitesApplication{
 		BCryptPasswordEncoder encoder;
 		encoder = new BCryptPasswordEncoder();
 
-		Role r1 = new Role("ROLE_ADMIN");
-		iroleRepository.save(r1);
+		Role r1 = new Role();
+		r1.setName(ERole.valueOf("ROLE_ADMIN"));
+		iroleRepository.save((r1));
 		CompanyBusiness companyBusiness = new CompanyBusiness() ;
 		companyBusiness.setDomainename("test");
 		companyBusiness.setDescription("test");
@@ -85,5 +88,5 @@ public class MultiwebsitesApplication{
 		user.setAccountStatus(AccountStatus.ACTIVE);
 		user.setGroupe(groupe);
 		userRepository.save(user);
-	}*/
+	}
 }

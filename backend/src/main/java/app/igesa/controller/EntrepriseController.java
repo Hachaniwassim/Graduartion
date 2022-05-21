@@ -2,7 +2,6 @@ package app.igesa.controller;
 import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
-
 import app.igesa.entity.Entreprise;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,49 +18,62 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
 /**
- * @author Tarchoun Abir#
+ *
+ * @author Tarchoun Abir
+ *
  */
 
-@CrossOrigin(origins = "*", maxAge = 3600)
+@CrossOrigin(origins = "*")
 @Api(tags = "ENTREPRISE")
 @RestController
 public class EntrepriseController {
-	 private static final Logger log = LoggerFactory.getLogger(EntrepriseController.class);
-	 
-	 @Autowired
-	 private Ientreprise entrepriseservice ;
+
+	/**
+	 *
+	 * @Api  PUBLIC_API : for all  ||  PRIVATE_API : with token
+	 *
+	 */
+	private final String PUBLIC_API = "/api/entreprise";
+	private final String PRIVATE_API = "/api/private/entreprise";
+
+	@Autowired
+	private Ientreprise entrepriseservice ;
+
+	/** logger for debug : warning : success **/
+	private static final Logger log = LoggerFactory.getLogger(EntrepriseController.class);
 
 
-	@RequestMapping(value="/entreprise",method =RequestMethod.POST)
+	@RequestMapping(value=PRIVATE_API,method =RequestMethod.POST)
 	@ApiOperation(value="ADD ENTREPRISE",notes="SAUVGARDER ENTREPRISE", response = EntrepriseDTO.class)
 	@ApiResponses(value= {
 			@ApiResponse(code=200,message="Entreprise was saved Successfully"),
 			@ApiResponse(code=400,message="Entreprise not valid"),
 			@ApiResponse(code=401,message="Unauthorized , without authority or permission"),
 			@ApiResponse( code=403, message="not permitted or allowed"),
-			
+
 	})
 	ResponseEntity<EntrepriseDTO> save(@RequestBody EntrepriseDTO e) {
 		log.debug(" HTTP POST {}",e);
 		return new ResponseEntity<> (entrepriseservice.save(e),HttpStatus.CREATED);
 	}
 
-	@RequestMapping(value="/entreprise",method =RequestMethod.GET)
+	@RequestMapping(value=PRIVATE_API,method =RequestMethod.GET)
+
 	@ApiOperation(value="GET A LIST OF ENTREPRISE ", responseContainer  = "Collection<EntrepriseDTO>")
 	@ApiResponses(value= {
 			@ApiResponse(code=200,message="Enterprise was found successfully"),
 			@ApiResponse( code=404, message="Entreprise Not found "),
 			@ApiResponse(code=401,message="Unauthorized , without authority or permission"),
 			@ApiResponse( code=403, message="not permitted or allowed"),
-			
+
 	})
 	public ResponseEntity<Collection<EntrepriseDTO>> view() {
-		log.debug(" HTTP GET ALL ENTREPRISE {}");
+		log.debug(" <================= HTTP GET ALL ENTREPRISE {}=================>");
 		return new ResponseEntity<>( entrepriseservice.view(),HttpStatus.OK);
 	}
 
 
-	@RequestMapping(value="/entreprise/{entrepriseId}",method =RequestMethod.GET)
+	@RequestMapping(value=PRIVATE_API + "/{id}",method =RequestMethod.GET)
 	@ApiOperation(value=" GET ENTREPRISE BY ID ",notes="GET AND SEARCH FOR ENTREPRISE BY ID ", response = EntrepriseDTO.class)
 	@ApiResponses(value= {
 			@ApiResponse(code=200,message="Enterprise was found successfully with the provided id"),
@@ -70,42 +82,45 @@ public class EntrepriseController {
 			@ApiResponse( code=403, message="not permitted or allowed"),
 
 	})
-	public ResponseEntity<Optional<EntrepriseDTO> >findById(@PathVariable Long entrepriseId) {
-		log.debug(" HTTP GET ENTREPRISE BY ID {}",entrepriseId);
-	 return new ResponseEntity ( entrepriseservice.findById(entrepriseId),HttpStatus.OK);
+	public ResponseEntity<Optional<EntrepriseDTO> >findById(@PathVariable Long id) {
+		log.debug(" <===================HTTP GET ENTREPRISE BY ID {}====================>",id);
+		return new ResponseEntity ( entrepriseservice.findById(id),HttpStatus.OK);
 	}
 
 
-	@RequestMapping(value="/entreprise",method =RequestMethod.PUT)
+	@RequestMapping(value=PRIVATE_API,method =RequestMethod.PUT)
+	@PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
 	@ApiOperation(value="UPDATE ENTREPRISE BY ID ",response = EntrepriseDTO.class)
 	@ApiResponses(value= {
 			@ApiResponse(code=200,message="Enterprise was updated successfully"),
 			@ApiResponse(code=401,message="Unauthorized , without authority or permission"),
 			@ApiResponse( code=403, message="not permitted or allowed"),
-			
+
 	})
 	public ResponseEntity<EntrepriseDTO> update( @RequestBody EntrepriseDTO e) {
 		return new ResponseEntity<>(entrepriseservice.save(e),HttpStatus.CREATED);
 	}
 
-	@RequestMapping(value="/entreprise/{id}",method =RequestMethod.DELETE)
+	@RequestMapping(value=PRIVATE_API + "/{id}",method =RequestMethod.DELETE)
+	@PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
 	@ResponseBody
 	@ApiOperation(value="DELETE ENTREPRISE BY ID ",response = EntrepriseDTO.class)
 	@ApiResponses(value= {
 			@ApiResponse(code=200,message="Enterprise was Deleted successfully"),
 			@ApiResponse(code=401,message="Unauthorized , without authority or permission"),
 			@ApiResponse( code=403, message="not permitted or allowed")
-			
+
 	})
 	public void delete(@PathVariable Long id) {
-		
-		log.debug(" HTTP DELETE ENTREPRISE BY ID {}",id);
-		
+
+		log.debug(" <=================== HTTP DELETE ENTREPRISE BY ID {}====================>",id);
+
 		entrepriseservice.delete(id);
 	}
 
 
-	@RequestMapping(value="/entreprise/groupe/{id}",method =RequestMethod.GET)
+	@RequestMapping(value= PRIVATE_API +"/groupe/{id}",method =RequestMethod.GET)
+	@PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
 	@ResponseBody
 	@ApiOperation(value="DELETE ENTREPRISE BY groupe id> ",response = EntrepriseDTO.class)
 	@ApiResponses(value= {
@@ -120,7 +135,8 @@ public class EntrepriseController {
 
 
 
-	@RequestMapping(value="/entreprise/companyname",method =RequestMethod.GET)
+	@RequestMapping(value=PRIVATE_API +"/companyname",method =RequestMethod.GET)
+	@PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
 	@ResponseBody
 	@ApiOperation(value=" GET Entreprise BY Companyname",notes="GET AND SEARCH FOR Entreprise BY companyname ", response = EntrepriseDTO.class)
 	@ApiResponses(value= {
@@ -136,9 +152,10 @@ public class EntrepriseController {
 		return entrepriseservice.FindEntrepriseByCompanyname(companyname);
 	}
 
-	@RequestMapping(value="/entreprise/curent-entreprise",method =RequestMethod.GET)
+	@RequestMapping(value=PRIVATE_API + "/current-entreprise",method =RequestMethod.GET)
+	@PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
 	@ResponseBody
-	@ApiOperation(value=" GET Entreprise ",notes="GET AND SEARCH FOR Entreprise  ", response = EntrepriseDTO.class)
+	@ApiOperation(value=" GET Entreprise ",notes="Get and Search For Entreprise  ", response = EntrepriseDTO.class)
 	@ApiResponses(value= {
 			@ApiResponse(code=200,message="Entreprise was found successfully"),
 			@ApiResponse(code=404,message="No entreprise  "),
@@ -147,7 +164,8 @@ public class EntrepriseController {
 
 	})
 
-	public Entreprise getCurrentEnterprise(@RequestParam("enterpriseId") Long enterpriseId) {
+	public Entreprise getCurrentEnterprise() {
+
 		return entrepriseservice.getCurrentEnterprise();
 	}
 }

@@ -1,12 +1,13 @@
 package app.igesa.dto;
-
-import app.igesa.entity.Plateforme;
+import app.igesa.entity.Entreprise;
+import app.igesa.entity.siteinfo.Plateforme;
 import lombok.Builder;
 import lombok.Data;
 import java.util.Date;
 
 /**
  * @author Tarchoun Abir
+ *
  */
 
 @Data
@@ -18,10 +19,10 @@ public class PlateformeDTO {
 	private String phone ;
 	private String adresse ;
 	private Boolean published;
-	private EntrepriseDTO entreprise;
 	protected Date createdDate;
 	protected Date lastModifiedDate;
 	protected String createdBy;
+	private  Long entrepriseId;
 	public static PlateformeDTO fromEntity(Plateforme plateforme) {
     	if ( plateforme == null) {
     		return null;
@@ -34,7 +35,7 @@ public class PlateformeDTO {
 				.published(plateforme.getPublished())
 				.lastModifiedDate(plateforme.getLastModifiedDate())
 				.createdDate(plateforme.getCreatedDate())
-				.entreprise(EntrepriseDTO.fromEntity(plateforme.getEntreprise()))
+				.entrepriseId(plateforme.getEntreprise().getId())
 				.build();
 	}
 
@@ -52,7 +53,10 @@ public class PlateformeDTO {
 		plateforme.setPublished(dto.getPublished());
 		plateforme.setLastModifiedDate(dto.getLastModifiedDate());
 		plateforme.setCreatedDate(dto.getCreatedDate());
-		plateforme.setEntreprise(EntrepriseDTO.toEntity(dto.getEntreprise()));
+		//===========================> Entreprise ===========================>
+		Entreprise entreprise = new Entreprise();
+		entreprise.setId(dto.getEntrepriseId());
+		plateforme.setEntreprise(entreprise);
 		return plateforme;
 	}
 

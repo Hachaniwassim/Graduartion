@@ -1,14 +1,10 @@
 package app.igesa.strategy;
 
-import app.igesa.dto.CategoryDTO;
 import app.igesa.dto.ProductDTO;
-import app.igesa.entity.Product;
 import app.igesa.enumerations.ErrorCode;
 import app.igesa.exceptions.InvalideEntityException;
-import app.igesa.metiers.FlickrImpl;
 import app.igesa.metiers.Iflicker;
 import app.igesa.metiers.Iproduct;
-import app.igesa.metiers.ProductImp;
 import com.flickr4java.flickr.FlickrException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

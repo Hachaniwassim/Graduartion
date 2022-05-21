@@ -1,7 +1,11 @@
 package app.igesa.enumerations;
 
 import lombok.Getter;
-
+/**
+ *
+ * @author Tarchoun Abir
+ *
+ */
 @Getter
 public enum ErrorCode {
 	

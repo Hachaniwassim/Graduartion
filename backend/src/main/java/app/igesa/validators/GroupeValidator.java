@@ -2,7 +2,6 @@ package app.igesa.validators;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.springframework.util.StringUtils;
 import app.igesa.dto.GroupeDTO;
 
@@ -20,9 +19,7 @@ public class GroupeValidator {
 		if( !StringUtils.hasLength(groupeDTO.getName()));{
 		  errors.add("Veuillez renseigner le Nom du Groupe !");
 	  }
-		if( groupeDTO.getCompanyBusiness()==null);{
-			errors.add("Veuillez renseigner le champ company Business !");
-		}
+
 		return errors;
 }
 }

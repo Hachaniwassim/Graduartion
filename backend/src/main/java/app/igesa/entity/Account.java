@@ -34,6 +34,8 @@ public class Account extends Auditable {
     private String matchingPassword;
     private String fiscaleCode;
     private AccountStatus accountStatus;
+    @Enumerated(EnumType.STRING)
+    //private ERole role ;
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(	name = "account_roles",
             joinColumns = @JoinColumn(name = "account_id"),

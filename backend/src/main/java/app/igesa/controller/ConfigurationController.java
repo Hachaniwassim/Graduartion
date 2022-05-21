@@ -18,20 +18,31 @@ import java.util.Locale;
 import java.util.Optional;
 
 /**
- * @author Tarchoun Abir#
+ *
+ * @author Tarchoun Abir
+ *
  */
-@CrossOrigin(origins = "*", maxAge = 3600)
+@CrossOrigin(origins = "*")
 @RestController
 @Api(tags = "CONFIGURATION")
 public class ConfigurationController {
 
-    private static final Logger log = LoggerFactory.getLogger(ConfigurationController.class);
+    /**
+     *
+     * Api  PUBLIC_API : for all  // PRIVATE_API : with token
+     *
+     **/
+    private final String PUBLIC_API = "/api/config";
+    private final String PRIVATE_API = "/api/private/config";
 
+   /** logger for : debug , warning , success **/
+    private static final Logger log = LoggerFactory.getLogger(ConfigurationController.class);
     @Autowired
     private Iconfiguration iconfigurationService ;
 
 
-    @RequestMapping(value="/config",method = RequestMethod.POST)
+    @RequestMapping(value=PRIVATE_API ,method = RequestMethod.POST)
+    @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
     @ApiOperation(value="ADD CONFIGURATION",notes="SAUVGARDER CONFIGURATION", response = ConfigGeneralDTO.class)
     @ApiResponses(value= {
             @ApiResponse(code=200,message="Configuration was saved Successfully"),
@@ -46,7 +57,8 @@ public class ConfigurationController {
     }
 
 
-    @RequestMapping(value="/config",method =RequestMethod.GET)
+    @RequestMapping(value=PRIVATE_API ,method =RequestMethod.GET)
+    @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
     @ApiOperation(value="GET CONFIGURATION GENERALE", responseContainer  = "Collection<ConfigGeneralDTO>")
     @ApiResponses(value= {
             @ApiResponse(code=200,message="Configuration was found successfully"),
@@ -62,7 +74,8 @@ public class ConfigurationController {
 
 
 
-    @RequestMapping(value="/config/{id}",method =RequestMethod.GET)
+    @RequestMapping(value=PRIVATE_API  + "/{id}",method =RequestMethod.GET)
+    @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
     @ApiOperation(value=" GET CONFIG BY ID ",notes="GET AND SEARCH FOR CONFIG BY ID ", response = ConfigGeneralDTO.class)
     @ApiResponses(value= {
             @ApiResponse(code=200,message="Config was found successfully with the provided id"),
@@ -78,8 +91,9 @@ public class ConfigurationController {
     }
 
 
-    @PreAuthorize("hasRole('MODERATOR') or hasRole('ADMIN')")
-    @RequestMapping(value="/config",method =RequestMethod.PUT)
+    //@PreAuthorize("hasRole('MODERATOR') or hasRole('ADMIN')")
+    @RequestMapping(value=PRIVATE_API ,method =RequestMethod.PUT)
+    @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
     @ApiOperation(value="UPDATE CONFIG  ",response = ConfigGeneralDTO.class)
     @ApiResponses(value= {
             @ApiResponse(code=200,message="Config was updated successfully"),
@@ -92,7 +106,8 @@ public class ConfigurationController {
         return new ResponseEntity<>(iconfigurationService.save(c),HttpStatus.CREATED);
     }
 
-    @RequestMapping(value="/config/{id}",method =RequestMethod.DELETE)
+    @RequestMapping(value=PRIVATE_API  + "/{id}",method =RequestMethod.DELETE)
+    @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
     @ResponseBody
     @ApiOperation(value="DELETE CONFIGURATION BY ID ",response = ConfigGeneralDTO.class)
     @ApiResponses(value= {

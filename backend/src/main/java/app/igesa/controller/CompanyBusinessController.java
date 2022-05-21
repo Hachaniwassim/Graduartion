@@ -15,27 +15,33 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import app.igesa.metiers.IcompanyBusiness;
-
 /**
- * @author Tarchoun Abir#
+ *
+ * @author Wassim Hachaani
+ *
  */
 
-
-@CrossOrigin(origins = "*", maxAge = 3600)
+@CrossOrigin(origins = "*")
 @RestController
 @Api(tags = "COMPANYBUSINESS")
 public class CompanyBusinessController {
-
-
- @Autowired
-  IcompanyBusiness icompanyBusinessService ;
+    /**
+     *
+     * Api  PUBLIC_API : for all  // PRIVATE_API : with token
+     *
+     **/
+    private final String PUBLIC_API = "/api/company";
+    private final String PRIVATE_API = "/api/private/company";
+    @Autowired
+    IcompanyBusiness icompanyBusinessService ;
 
 
 
     private static final Logger log = LoggerFactory.getLogger(CompanyBusinessController.class);
 
 
-    @RequestMapping(value="/company",method = RequestMethod.POST)
+    @RequestMapping(value=PRIVATE_API ,method = RequestMethod.POST)
+    @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
     @ApiOperation(value="ADD COMPANYBUSINISS ",notes="SAUVGARDER COMPANYBUSINISS ", response = CompanyBusinessDTO.class)
     @ApiResponses(value= {
             @ApiResponse(code=200,message="CompanyBusiness was saved Successfully"),
@@ -50,7 +56,8 @@ public class CompanyBusinessController {
     }
 
 
-    @RequestMapping(value="/company",method =RequestMethod.GET)
+    @RequestMapping(value=PRIVATE_API ,method =RequestMethod.GET)
+    @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
     @ApiOperation(value="GET A LIST OF COMPANY BUSINESS  ", responseContainer  = "Collection<CompanyBusinessDTO>")
     @ApiResponses(value= {
             @ApiResponse(code=200,message="CompanyBusiness  was found successfully"),
@@ -66,7 +73,8 @@ public class CompanyBusinessController {
     }
 
 
-    @RequestMapping(value="/company/{id}",method =RequestMethod.GET)
+    @RequestMapping(value=PRIVATE_API + "/{id}",method =RequestMethod.GET)
+    @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
     @ApiOperation(value=" GET COMPANYBUSINESS BY ID ",notes="GET AND SEARCH FOR COMPANYBUSINESS BY ID ", response = CompanyBusinessDTO.class)
     @ApiResponses(value= {
             @ApiResponse(code=200,message="Company business was found successfully with the provided id"),
@@ -82,7 +90,7 @@ public class CompanyBusinessController {
     }
 
 
-    @RequestMapping(value="/company",method =RequestMethod.PUT)
+    @RequestMapping(value=PRIVATE_API ,method =RequestMethod.PUT)
     @ApiOperation(value="UPDATE COMPANY BUSINESS BY ID ",response = CompanyBusinessDTO.class)
     @ApiResponses(value= {
             @ApiResponse(code=200,message="companyBusines  was updated successfully"),
@@ -95,7 +103,7 @@ public class CompanyBusinessController {
         return new ResponseEntity<>(icompanyBusinessService.save(c),HttpStatus.CREATED);
     }
 
-    @RequestMapping(value="/company/{id}",method =RequestMethod.DELETE)
+    @RequestMapping(value=PRIVATE_API + "/{id}",method =RequestMethod.DELETE)
     @ResponseBody
     @ApiOperation(value="DELETE COMPANY BUSINESS BY ID ",response = CompanyBusinessDTO.class)
     @ApiResponses(value= {
@@ -112,7 +120,7 @@ public class CompanyBusinessController {
     }
 
 
-    @RequestMapping(value="/company/description",method =RequestMethod.GET)
+    @RequestMapping(value=PRIVATE_API + "/description",method =RequestMethod.GET)
     @ResponseBody
     @ApiOperation(value=" GET COMPANYBUSINESS BY DESCRIPTION",notes="GET AND SEARCH FOR COMPANYBUSINESS BY DESCRIPTION ", response = CompanyBusinessDTO.class)
     @ApiResponses(value= {

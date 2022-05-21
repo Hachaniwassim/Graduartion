@@ -27,12 +27,11 @@ import javax.sql.DataSource;
 
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(
-		// securedEnabled = true,
-		// jsr250Enabled = true,
-		prePostEnabled = true)
+@EnableGlobalMethodSecurity( prePostEnabled = true)
 /**
+ *
  * @author Tarchoun Abir
+ *
  */
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
@@ -69,11 +68,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			"/webjars/**"
 	};
 
-	public void addCorsMappings(CorsRegistry registry) {
-		registry.addMapping("/**")
-				.allowedOrigins("http://localhost:4200")
-				.allowedMethods("GET","POST","DELETE","OPTION","PUT");
-	}
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.httpBasic().disable().csrf().disable()
@@ -83,25 +77,26 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.and()
 				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 				.and()
-				// dont authenticate this particular request
 				.authorizeRequests()
 				.antMatchers("/api/auth/**").permitAll()
 				.antMatchers("/api/test/**").permitAll()
-				.antMatchers("/**").permitAll()
+				 .antMatchers("/**").permitAll()
+				// dont authenticate this particular request
+				.antMatchers("/api/private/**").authenticated()
 				.antMatchers(AUTH_WHITELIST).permitAll()
 				.anyRequest().authenticated().and()
 				.exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
 				//remember me configuration
-		         .rememberMe().tokenRepository(persistentTokenRepository()).tokenValiditySeconds(86400)
+				.rememberMe().tokenRepository(persistentTokenRepository()).tokenValiditySeconds(86400)
 				.key("rem-me-key")
 				.rememberMeParameter("remember-me-param")
 				.rememberMeCookieName("my-remember-me");
-	         	http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
+		http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
 	}
-    @Bean
+	@Bean
 	public PersistentTokenRepository persistentTokenRepository(){
-	JdbcTokenRepositoryImpl db = new JdbcTokenRepositoryImpl();
-	db.setDataSource(dataSource);
-	return db;
-}
+		JdbcTokenRepositoryImpl db = new JdbcTokenRepositoryImpl();
+		db.setDataSource(dataSource);
+		return db;
+	}
 }

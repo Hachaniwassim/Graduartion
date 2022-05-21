@@ -1,43 +1,58 @@
 package app.igesa.entity;
-
 import javax.persistence.*;
-
 import app.igesa.translation.CategoryTranslation;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  *
  * @author Tarchoun Abir
+ *
  */
+
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 @Data
 @Entity
 @Table(name="Category")
 public class Category extends Auditable {
 	@Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-	@Column(name="Id")
 	private Long id ;
-
-	@Column(name="Image")
 	private String image ;
-
 	private String title;
 	private String description ;
-	
-	@Column(name="MenuImage")
+	private String name ;
 	private String menuimage ;
-	
-	@Column(name="BannerImage")
 	private String bannerimage ;
-	
-	@Column(name="Status")
-	private boolean status ;
+
+	/**
+	 *
+	 * Entreprise
+	 *
+	 */
+
+	@ManyToOne
+	private Entreprise enterprise;
+	@Column(columnDefinition = "int default 1") // used to srt categories in FO of client
+	private int priority;
+	@JsonIgnore
+	@OneToMany(mappedBy="category")
+	private List<Product> products = new ArrayList<>();
+
+	@ManyToOne(optional = true)
+	@JsonIgnoreProperties(value = {"subCategoryList"}, allowSetters = true)
+	private Category parent;
+
+	@OneToMany(mappedBy = "parent")
+	@JsonIgnoreProperties(value = {"parent"}, allowSetters = true)
+	@OrderBy("priority ASC")
+	private List<Category> subCategoryList;
 
 	@OneToMany(mappedBy="category",cascade = CascadeType.ALL)
 	private List<CategoryTranslation> categoryTranslations ;

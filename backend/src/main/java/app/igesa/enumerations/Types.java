@@ -1,7 +1,11 @@
 package app.igesa.enumerations;
-
+/**
+ *
+ * @author Tarchoun Abir
+ *
+ */
 public enum Types {
-	NWES,
+	NEWS,
 	REVENDEURS,
 	ASSISTANCE,
 	LINKS,

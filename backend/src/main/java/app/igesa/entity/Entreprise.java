@@ -1,13 +1,17 @@
 package app.igesa.entity;
 import java.util.List;
 import javax.persistence.*;
+
+import app.igesa.entity.siteinfo.Plateforme;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 
 /**
+ *
  * @author Tarchoun Abir
+ *
  */
 
 @Data
@@ -16,31 +20,29 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name="entreprise")
 public class Entreprise  extends Auditable{
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 
 	@Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
 	private Long id ;
-	@Column(name="Email")
 	private String email ;
-	@Column(name="Phone")
 	private String phone ;
-	@Column(name="Codefiscale")
 	private String codefiscale ;
-	@Column(name="Fax")
 	private String fax ;
-	@Column(name="Note")
 	private String note ;
 	@Column(name="CompanyName", unique = true,nullable = false)
 	private String companyname ;
 
+    /**
+	 * Groupe
+     */
 
-	@ManyToOne(fetch= FetchType.LAZY)
-    @JoinColumn(name="groupe_id")
+	@ManyToOne
 	private Groupe groupe;
+	/**
+	 * Lists
+	 */
 
 	@OneToMany(mappedBy="entreprise",cascade = CascadeType.ALL)
     private List<Plateforme>plateforme;

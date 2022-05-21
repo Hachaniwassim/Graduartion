@@ -1,5 +1,7 @@
 package app.igesa.entity;
 import javax.persistence.*;
+
+import app.igesa.enumerations.ERole;
 import lombok.*;
 
 /**
