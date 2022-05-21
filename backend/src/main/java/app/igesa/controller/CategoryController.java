@@ -64,7 +64,7 @@ public class CategoryController {
     })
     public ResponseEntity<Collection<CategoryDTO>> view() {
         log.debug(" HTTP GET ALL Category {}");
-        return new ResponseEntity<>( categoryService.view(),HttpStatus.OK);
+        return new ResponseEntity<>( categoryService.getAllByEntreprise(),HttpStatus.OK);
     }
 
 
@@ -117,7 +117,7 @@ public class CategoryController {
             @ApiResponse(code=200,message="Category was Deleted successfully")
 
     })
-    public void deleteImage( @PathVariable("id") Long id,  @RequestParam String type) {
+    public void deleteImage( @PathVariable("id") Long id , @RequestParam String type) {
         categoryService.deleteImage(id, type);
     }
 }

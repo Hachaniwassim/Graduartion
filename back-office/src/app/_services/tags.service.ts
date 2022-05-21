@@ -5,6 +5,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import * as _ from 'lodash';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators'
+import { environment } from 'src/environments/environment';
 import { TagsDTO } from '../models/dto/TagsDTO';
 
 @Injectable({
@@ -13,7 +14,7 @@ import { TagsDTO } from '../models/dto/TagsDTO';
 export class TagsSerice {
 
   //api backend
-  private base_url="http://localhost:8089/tags";
+  private base_url= environment.privateApi + "/tags";
   
 
  TagsDTO ={

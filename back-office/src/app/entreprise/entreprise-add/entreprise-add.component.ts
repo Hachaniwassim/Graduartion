@@ -18,6 +18,15 @@ import { GroupeDTO } from 'src/app/models/dto/groupeDTO';
   templateUrl: './entreprise-add.component.html',
   styleUrls: ['./entreprise-add.component.css']
 })
+
+
+/**
+ * 
+ * @author Tarchoun Abir
+ *
+ **/
+
+
 export class EntrepriseAddComponent implements OnInit {
 
   @ViewChild('entrepriseForm', { static: false })
@@ -31,8 +40,6 @@ export class EntrepriseAddComponent implements OnInit {
   @ViewChild(MatSort, {}) sort!: MatSort;
   groupeServices: GroupeDTO[] = [];
 
-
-
     constructor(private dialog: MatDialog, public entrepriseService: EntrepriseService, public dialogRef: MatDialogRef<EntrepriseAddComponent>,
     private notificationService: NotificationService, private groupeService : GroupeService ,private router: Router, public _location: Location) {
     this.entrepriseData = {} as EntrepriseDTO;
@@ -42,6 +49,7 @@ export class EntrepriseAddComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllEntreprise();
+    /** to get Groupe id **/
     this.groupeService.getallGroupe().subscribe(res => {
       console.log(res)
       this.groupeServices = res;
@@ -93,6 +101,7 @@ export class EntrepriseAddComponent implements OnInit {
   reloadPage() {
     window.location.reload();
   }
+  //** all entreprise **/
   getAllEntreprise(){
     this.entrepriseService.getAllEntreprise().subscribe((response: any) => {
     this.datasource.data = response;

@@ -56,4 +56,9 @@ public class Category extends Auditable {
 
 	@OneToMany(mappedBy="category",cascade = CascadeType.ALL)
 	private List<CategoryTranslation> categoryTranslations ;
+
+	@ManyToOne
+	@JoinColumn(name = "entreprise_id")
+	private Entreprise entreprise;
+
 }

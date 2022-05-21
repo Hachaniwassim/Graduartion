@@ -49,7 +49,6 @@ import { AgendaService, DayService, MonthAgendaService, MonthService, ScheduleMo
 import { SimpleNotificationsModule } from 'angular2-notifications';
 import { CompanyViewComponent } from './companybusiness/company-view/company-view.component';
 import { CookiesV2Component } from './cookies-v2/cookies-v2.component';
-import { AngularEditorModule } from '@kolkov/angular-editor';
 import { PosproductlistViewComponent } from './posproductlist/posproductlist-view/posproductlist-view.component';
 import { PosproductlistAddComponent} from './posproductlist/posproductlist-add/posproductlist-add.component';
 import { PosListComponent } from './posproductlist/pos-list/pos-list.component';
@@ -58,7 +57,6 @@ import { PlateformeListComponent } from './plateforme/plateforme-list/plateforme
 import { PlateformeViewComponent } from './plateforme/plateforme-view/plateforme-view.component';
 import { PlateformeAddComponent } from './plateforme/plateforme-add/plateforme-add.component';
 import { NgxSpinnerModule } from "ngx-spinner"; 
-import { CKEditorModule } from 'ckeditor4-angular';
 import { ProductAddComponent } from './posproducts/product-add/product-add.component';
 import { ProductListComponent } from './posproducts/product-list/product-list.component';
 import { RolesComponent } from './roles/roles.component';
@@ -74,6 +72,12 @@ import { HomescustomerlogosComponent } from './pages/homescustomerlogos/homescus
 import { HomelistComponent } from './pages/homelist/homelist.component';
 import { HomeprimaryslideComponent } from './pages/homeprimaryslide/homeprimaryslide.component';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
+import { CKEditorModule } from 'ckeditor4-angular';
+import { EditorModule } from '@tinymce/tinymce-angular';
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -135,6 +139,7 @@ import { ResetpasswordComponent } from './resetpassword/resetpassword.component'
     RolesListComponent,
     RolesViewComponent,
     ResetpasswordComponent,
+    
   
     
   ],
@@ -152,10 +157,11 @@ import { ResetpasswordComponent } from './resetpassword/resetpassword.component'
     FormsModule, 
     ScheduleModule, 
     SimpleNotificationsModule.forRoot(),
-    AngularEditorModule,
     NgxSpinnerModule,
+    NgSelectModule,
     CKEditorModule,
-    NgSelectModule
+     EditorModule
+ 
     
 
 

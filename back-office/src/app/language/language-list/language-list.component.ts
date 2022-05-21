@@ -13,7 +13,7 @@ import Swal from 'sweetalert2';
 import { AddLanguageComponent } from '../add-language/add-language.component';
 import { LanguageViewComponent } from '../language-view/language-view.component';
 
-import { languageDTO } from 'src/app/models/dto/languageDTO';
+import { languageDTO } from 'src/app/models/entity/languageDTO';
 import { List } from 'lodash';
 import { NgxSpinnerService } from "ngx-spinner";
 import { MatSnackBar } from '@angular/material/snack-bar';

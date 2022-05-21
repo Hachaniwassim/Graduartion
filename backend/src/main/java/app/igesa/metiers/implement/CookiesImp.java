@@ -38,13 +38,13 @@ public class CookiesImp implements Icookies {
          cookies.setTitle(cookiesDto.getTitle());
          cookies.setHtmlContent(cookiesDto.getHtmlContent());
          Cookies saved = cookiesRepository.save(CookiesDTO.toEntity(cookiesDto));
-        return CookiesDTO.fromEntity(saved);
+         return CookiesDTO.fromEntity(saved);
 
     }
 
 
     @Override
-    public Collection<CookiesDTO> getCookies() {
+    public Collection<CookiesDTO> getCookiesByEntreprise() {
         log.debug("HTTP GET ALL {} ..");
         return cookiesRepository.findFirstByEntrepriseId(ientrepriseService.getCurrentEnterprise().getId()).stream()
                 .map(CookiesDTO::fromEntity)

@@ -19,11 +19,12 @@ import java.util.Date;
 public class PrivacyDTO  {
     private Long id ;
     private Long entrepriseId;
+    @Column(columnDefinition="text")
     private String title ;
+    @Column(columnDefinition="text")
     private String htmlContent ;
     protected Date createdDate;
     protected Date lastModifiedDate;
-    private EntrepriseDTO entreprise;
 
     public static PrivacyDTO fromEntity(Privacy privacy) {
 
@@ -43,12 +44,12 @@ public class PrivacyDTO  {
         privacy.setId(dto.getId());
         privacy.setHtmlContent(dto.getHtmlContent());
         privacy.setTitle(dto.getTitle());
+        privacy.setCreatedDate(dto.getCreatedDate());
+        privacy.setLastModifiedDate(dto.getLastModifiedDate());
         //=================> entreprise
         Entreprise entreprise = new Entreprise();
         entreprise.setId(dto.getEntrepriseId());
         privacy.setEntreprise(entreprise);
-        privacy.setCreatedDate(dto.getCreatedDate());
-        privacy.setLastModifiedDate(dto.getLastModifiedDate());
         return privacy;
     }
 

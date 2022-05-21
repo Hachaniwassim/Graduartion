@@ -1,3 +1,9 @@
+
+
+/**
+ * @author Wassim Haachani
+ */
+
 export interface categoryDTO{
     id?:number ;
 	image? : string;

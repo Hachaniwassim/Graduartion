@@ -29,8 +29,6 @@ public class GroupeDTO {
     protected Date createdDate;
     protected Date lastModifiedDate;
     private Long companyId;
-    @JsonIgnore
-    private List<EntrepriseDTO>entreprise ;
 
     public static GroupeDTO fromEntity(Groupe groupe) {
 

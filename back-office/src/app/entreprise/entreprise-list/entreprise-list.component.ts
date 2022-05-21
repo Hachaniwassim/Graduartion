@@ -20,6 +20,16 @@ import Swal from 'sweetalert2';
   templateUrl: './entreprise-list.component.html',
   styleUrls: ['./entreprise-list.component.css']
 })
+
+
+/**
+ * 
+ * @author Tarchoun Abir
+ *
+ **/
+
+
+
 export class EntrepriseListComponent implements OnInit {
   @Output()
   entrepriseDTO!: EntrepriseDTO;

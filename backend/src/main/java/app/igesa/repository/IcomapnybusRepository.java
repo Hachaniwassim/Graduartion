@@ -1,16 +1,13 @@
 package app.igesa.repository;
-
-import app.igesa.dto.CompanyBusinessDTO;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import app.igesa.entity.CompanyBusiness;
-
 import java.util.List;
-import java.util.Optional;
 
+/**
+ * @author Wassim Hachaani
+ */
 
 public interface IcomapnybusRepository extends JpaRepository<CompanyBusiness,Long> {
 

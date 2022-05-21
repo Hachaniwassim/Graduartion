@@ -47,8 +47,8 @@ public class EntrepriseDTO {
 				.note(entreprise.getNote())
 				.phone(entreprise.getPhone())
 				.createdDate(entreprise.getCreatedDate())
-				.groupeId(entreprise.getGroupe().getId())
 				.lastModifiedDate(entreprise.getLastModifiedDate())
+				//.groupeId(entreprise.getGroupe().getId())
 				.build();
     }
     

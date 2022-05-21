@@ -22,10 +22,11 @@
       <ng-container matColumnDef="role">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Role </mat-header-cell>
         <mat-cell  *matCellDef="let element">
-          <div *ngFor="let role of element.roles">
+        <div *ngFor="let role of element.roles">
             {{role.name}}
           </div>
-           </mat-cell>
+          <!--{{element.role}}--></mat-cell>
+          
       </ng-container>
       <ng-container matColumnDef="fiscaleCode">
         <mat-header-cell *matHeaderCellDef mat-sort-header >Fiscale Code</mat-header-cell>

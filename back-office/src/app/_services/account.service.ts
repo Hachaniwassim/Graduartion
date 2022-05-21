@@ -7,20 +7,37 @@ import { Observable, of, ReplaySubject, throwError } from 'rxjs';
 import { catchError, map, retry, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { AccountDTO } from '../models/dto/accountDTO';
+import { CustomHttpRespone } from '../models/entity/custom-http-response';
 
 @Injectable({
   providedIn: 'root'
 })
+
+/**
+ *----------------------
+ * @author tarchoun Abir
+ *----------------------
+ */
+
 export class Accountservice {
 
   //api backend
-  private base_url= environment.api + '/user';
+  private base_url= environment.privateApi + '/user';
   
+
   private userIdentity: AccountDTO | null = null;
   private authenticationState = new ReplaySubject<AccountDTO | null>();
   private accountCache$?: Observable<AccountDTO | null>;
 
-  constructor(private http :HttpClient, private datePipe: DatePipe) { }
+  constructor(private http :HttpClient) { 
+
+  }
+
+/*************************************
+ * 
+ *  -----Handling Errors-------
+ * 
+ *************************************/
 
   //http opttion
   httpOptions={ 
@@ -29,6 +46,7 @@ export class Accountservice {
 
     })
   }
+
   //handel api  errors 
   handleError(error: HttpErrorResponse){
     if( error.error instanceof ErrorEvent){
@@ -48,66 +66,99 @@ export class Accountservice {
 
 
 
+
+/*************************************
+ * 
+ *  ------Crud Oporations-------
+ * 
+ *************************************/
+
 // insert 
 create(item : any){
-  return this.http.post<any>(this.base_url,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
+  return this.http.post<any>(`${this.base_url}`,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
 }
 
 //get all account data 
 all():Observable<AccountDTO[]>{
-   return this.http.get<AccountDTO[]>(this.base_url).pipe(retry(2),catchError(this.handleError));
+   return this.http.get<AccountDTO[]>(`${this.base_url}`).pipe(retry(2),catchError(this.handleError));
  }
 
 
   // get account by id
   getByid(id:number):Observable<AccountDTO>{
-    return this.http.get<AccountDTO>(this.base_url + '/' +id).pipe(retry(2),catchError(this.handleError));
+    return this.http.get<AccountDTO>(`${this.base_url}` + '/' +id).pipe(retry(2),catchError(this.handleError));
 
   }
 
-   // update account by Id the
+   // update account by Id 
    update(item : any){
-    return this.http.put<any>(this.base_url,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
+    return this.http.put<any>(`${this.base_url}`,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
    }
 
  
     // delete accounts
     delete(id:number){
-      return this.http.delete<AccountDTO>(this.base_url + '/' +id,this.httpOptions).pipe(retry(2),catchError(this.handleError));
+      return this.http.delete<AccountDTO>(`${this.base_url}`+ '/' +id,this.httpOptions).pipe(retry(2),catchError(this.handleError));
 
 }
 
-//validation formulaire
-    form : FormGroup= new FormGroup({
-    id: new FormControl(null),
-    username: new FormControl(''),
-    email : new FormControl(''),
-    password : new FormControl(''),
-    matchingPassword : new FormControl(''),
-    fiscaleCode : new FormControl(''),
-    accountStatus: new FormControl(''),
-});
-
-// inialisation formulaire 
-initializeFormGroup() {
-    this.form.setValue({
-    id :null,
-    username: null,
-    email: null,
-    password: null,
-    matchingPassword: null,
-    fiscaleCode: null,
-    accountStatus:null
-  });
-}
-populateForm(account: any) {
+//get value for update 
+  populateForm(account: any) {
   this.form.patchValue(_.omit(account));
-}
+   }
 
 
    //update account by status
    updateAccountByStatus(id : number,item : string){
     return this.http.put<any>(this.base_url + '/toggle-status/' + id,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
      }
+
+
+     //reset password with token 
+     
+     public resetPasswordtoken(email: string): Observable<CustomHttpRespone> {
+      return this.http.get<CustomHttpRespone>(`${this.base_url}/resetpasswordtoken/${email}`);
+    }
+
+
+
+
+
+/********************************************************
+ * 
+ * 
+ * ---Initialisation Formulaire // Validate Formulaire---
+ * 
+ * 
+ *********************************************************/
+
+
+
+
+    //validation formulaire
+    form : FormGroup= new FormGroup({
+      id: new FormControl(null),
+      username: new FormControl(''),
+      email : new FormControl(''),
+      password : new FormControl(''),
+      matchingPassword : new FormControl(''),
+      fiscaleCode : new FormControl(''),
+      accountStatus: new FormControl(''),
+  });
+
+
+  
+  // inialisation formulaire 
+  initializeFormGroup() {
+      this.form.setValue({
+      id :null,
+      username: null,
+      email: null,
+      password: null,
+      matchingPassword: null,
+      fiscaleCode: null,
+      accountStatus:null
+    });
+  }
    
 }

@@ -1,3 +1,7 @@
+/**
+ * @author Tarchoun Abir
+ */
+
 export class AccountDTO{
     id!:number ;
 	username! : string;
@@ -9,5 +13,5 @@ export class AccountDTO{
     fiscaleCode !: string;
     createdDate !:   Date;
     lastModifiedDate!: Date; 
-    roles!: string[] ;
+    role ?: string ;
 }

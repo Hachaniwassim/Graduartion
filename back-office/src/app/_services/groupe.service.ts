@@ -15,11 +15,11 @@ import { GroupeDTO } from '../models/dto/groupeDTO';
 export class GroupeService {
 
   //api backend
-  private base_url = environment.api + '/groupe';
+  private base_url = environment.privateApi+ '/groupe';
 
 
 
-  constructor(private http: HttpClient, private datePipe: DatePipe) { }
+  constructor(private http: HttpClient) { }
 
   //http opttion
   httpOptions = {
@@ -50,39 +50,39 @@ export class GroupeService {
   // insert 
   createGroupe(item: any): Observable<GroupeDTO> {
   
-    return this.http.post<GroupeDTO>(this.base_url, JSON.stringify(item), this.httpOptions).pipe(retry(2), catchError(this.handleError));
+    return this.http.post<GroupeDTO>(`${this.base_url}`, JSON.stringify(item), this.httpOptions).pipe(retry(2), catchError(this.handleError));
   }
 
   //get all data 
   getallGroupe(): Observable<GroupeDTO[]> {
-    return this.http.get<GroupeDTO[]>(this.base_url).pipe(retry(2), catchError(this.handleError));
+    return this.http.get<GroupeDTO[]>(`${this.base_url}`).pipe(retry(2), catchError(this.handleError));
   }
 
 
   // get by id
   getByidGroupe(id: number): Observable<GroupeDTO> {
-    return this.http.get<GroupeDTO>(this.base_url + '/' + id).pipe(retry(2), catchError(this.handleError));
+    return this.http.get<GroupeDTO>(`${this.base_url}` + '/' + id).pipe(retry(2), catchError(this.handleError));
 
 
   }
   //get all  data 
 getAllCompanyBussiness():Observable<CompanyBusinessDTO[]>{
-  return this.http.get<CompanyBusinessDTO[]>(this.base_url).pipe(retry(2),catchError(this.handleError));
+  return this.http.get<CompanyBusinessDTO[]>(`${this.base_url}`).pipe(retry(2),catchError(this.handleError));
 }
 
   // update by Id 
   updateGroupe(item: GroupeDTO) {
-    return this.http.put<GroupeDTO>(this.base_url, JSON.stringify(item), this.httpOptions).pipe(retry(2), catchError(this.handleError));
+    return this.http.put<GroupeDTO>(`${this.base_url}`, JSON.stringify(item), this.httpOptions).pipe(retry(2), catchError(this.handleError));
   }
 
   // delete groupe
   deleteGroupe(id: number) {
-    return this.http.delete<GroupeDTO>(this.base_url + '/' + id, this.httpOptions).pipe(retry(2), catchError(this.handleError));
+    return this.http.delete<GroupeDTO>(`${this.base_url}` + '/' + id, this.httpOptions).pipe(retry(2), catchError(this.handleError));
 
   }
   // delete all groupe 
   deleteAllGroupe() {
-    return this.http.delete(this.base_url).pipe(retry(2), catchError(this.handleError));
+    return this.http.delete(`${this.base_url}`).pipe(retry(2), catchError(this.handleError));
 
   }
 
@@ -127,7 +127,7 @@ getAllCompanyBussiness():Observable<CompanyBusinessDTO[]>{
 
    //update groupe  by status
    updateGroupeByStatus(id : number,item : string){
- return this.http.put<any>(this.base_url + '/toggle-status/' + id,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
+ return this.http.put<any>(`${this.base_url}`+ '/toggle-status/' + id,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
   }
 
 

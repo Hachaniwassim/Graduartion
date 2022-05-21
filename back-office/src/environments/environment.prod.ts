@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  api: 'http://localhost:8089',
-  publicApi: 'api',
+  privateApi : 'http://localhost:8089/api/private',
+  publicApi: 'http://localhost:8089',
 };

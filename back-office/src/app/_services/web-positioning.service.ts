@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class WebPositioningService {
-  private readonly API = environment.api + 'api/private/web-positioning';
+  private readonly API = environment.privateApi + 'api/private/web-positioning';
 
   constructor(
     private http: HttpClient

@@ -48,7 +48,7 @@ public class PrivacyController {
     })
     ResponseEntity<PrivacyDTO> save(@RequestBody PrivacyDTO p) {
         log.debug(" HTTP POST {}",p);
-        return new ResponseEntity<> (iprivacy.save(p), HttpStatus.CREATED);
+        return new ResponseEntity<> (iprivacy.updateByEntreprise(p), HttpStatus.CREATED);
     }
 
 
@@ -64,7 +64,7 @@ public class PrivacyController {
     })
     public ResponseEntity<Collection<PrivacyDTO>> view() {
         log.debug(" HTTP GET ALL privacy  {}");
-        return new ResponseEntity<>( iprivacy.view(),HttpStatus.OK);
+        return new ResponseEntity<>( iprivacy.getByEntreprise(),HttpStatus.OK);
     }
 
     @RequestMapping(value=PRIVATE_API + "/{id}",method = RequestMethod.GET)
@@ -93,7 +93,7 @@ public class PrivacyController {
 
     })
     public ResponseEntity<PrivacyDTO>update(@RequestBody PrivacyDTO c) {
-        return new ResponseEntity<>(iprivacy.save(c),HttpStatus.CREATED);
+        return new ResponseEntity<>(iprivacy.updateByEntreprise(c),HttpStatus.CREATED);
     }
 
     @RequestMapping(value=PRIVATE_API + "/{id}",method =RequestMethod.DELETE)

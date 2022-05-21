@@ -1,29 +1,40 @@
-import { DatePipe } from '@angular/common';
+
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
 import * as _ from 'lodash';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 import { privacyDTO } from '../models/dto/privacyDTO';
 
 @Injectable({
   providedIn: 'root'
 })
+
+/**
+ * 
+ * @author Tarchoun Abir
+ * 
+ */
+
 export class Privacyservice {
 
-  //api backend
-  private base_url = "http://localhost:8089/privacy";
+/*********************************
+ * 
+ * ----------Api Backend---------
+ * 
+ *******************************/
+  private base_url = environment.privateApi + "/privacy";
 
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
-  PrivacyDTO = {
-    title: '',
-    description: '',
-    description2: '',
-    description3: '',
-  }
-  constructor(private http: HttpClient, private datePipe: DatePipe) { }
+
+
+/***************************************************
+ * 
+ * -------------- Handling Erros -----------------
+ * 
+ **************************************************/
 
   //http opttion
   httpOptions = {
@@ -49,37 +60,36 @@ export class Privacyservice {
     // return an observabel with a user-facing error message 
     return throwError('something bad happined , please try again later .');
   };
+  
+  constructor(private http: HttpClient) { }
 
-
-  // insert 
-  createPrivacy(item: privacyDTO): Observable<privacyDTO> {
-    return this.http.post<privacyDTO>(this.base_url, JSON.stringify(item), this.httpOptions).pipe(retry(2), catchError(this.handleError));
-  }
-
-  //get all account data 
-  getallPrivacy(): Observable<privacyDTO[]> {
+/**************************
+ * 
+ * Get privacy by current Entreprise
+ *
+ */
+  getPrivacyByEntreprise(): Observable<privacyDTO[]> {
     return this.http.get<privacyDTO[]>(this.base_url).pipe(retry(2), catchError(this.handleError));
   }
 
-
-  // get account by id
+/**************************
+ * 
+ * Get privacy by Entreprise id
+ *
+ */
   getPrivacyByid(id: number): Observable<privacyDTO> {
     return this.http.get<privacyDTO>(this.base_url + '/' + id).pipe(retry(2), catchError(this.handleError));
 
   }
 
-  // update account by Id the
-  updatePrivacy(item: any) {
-    return this.http.put(this.base_url, JSON.stringify(item), this.httpOptions).pipe(retry(2), catchError(this.handleError));
+ /**************************
+  * 
+ * update privacy by Entreprise
+ * 
+ */
+  update(request: any) {
+    return this.http.post<privacyDTO>(`${this.base_url}`, request);
   }
-
-  // delete accounts
-  deletePrivacy(id: number) {
-    return this.http.delete<privacyDTO>(this.base_url + '/' + id, this.httpOptions).pipe(retry(2), catchError(this.handleError));
-
-  }
-
-
-
-   
+  
+  
 }

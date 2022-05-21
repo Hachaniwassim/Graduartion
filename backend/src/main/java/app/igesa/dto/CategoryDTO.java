@@ -1,5 +1,6 @@
 package app.igesa.dto;
 import app.igesa.entity.Category;
+import app.igesa.entity.Entreprise;
 import lombok.Builder;
 import lombok.Data;
 
@@ -21,6 +22,7 @@ public class CategoryDTO {
 	protected Date createdDate;
 	protected Date lastModifiedDate;
 	private boolean status ;
+	private Long entrepriseId;
 
 
 	public static CategoryDTO fromEntity(Category category) {
@@ -34,6 +36,7 @@ public class CategoryDTO {
 				.image(category.getImage())
 				.lastModifiedDate(category.getLastModifiedDate())
 				.createdDate(category.getCreatedDate())
+				.entrepriseId(category.getEnterprise().getId())
 				.build();
 	}
 
@@ -53,6 +56,10 @@ public class CategoryDTO {
 		category.setCreatedDate(dto.getCreatedDate());
 		category.setLastModifiedDate(dto.getLastModifiedDate());
 		category.setImage(dto.getImage());
+		//===========================> Entreprise
+		Entreprise entreprise = new Entreprise();
+		entreprise.setId(dto.getEntrepriseId());
+		category.setEnterprise(entreprise);
 		return category;
 	}
 }

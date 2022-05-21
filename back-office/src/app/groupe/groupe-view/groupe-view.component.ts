@@ -7,6 +7,13 @@ import { GroupeDTO } from 'src/app/models/dto/groupeDTO';
   templateUrl: './groupe-view.component.html',
   styleUrls: ['./groupe-view.component.css']
 })
+
+/**
+ * 
+ * @author Tarchoun Abir
+ *
+ **/
+
 export class GroupeViewComponent implements OnInit {
 
   constructor(@Inject(MAT_DIALOG_DATA) public groupe:GroupeDTO,public dialog: MatDialog,private ref: ChangeDetectorRef

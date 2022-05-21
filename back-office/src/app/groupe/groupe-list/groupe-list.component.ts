@@ -21,6 +21,12 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   templateUrl: './groupe-list.component.html',
   styleUrls: ['./groupe-list.component.css']
 })
+/**
+ * 
+ * @author Tarchoun Abir
+ *
+ **/
+
 export class GroupeListComponent implements OnInit {
   @Output()
   groupeDTO !: GroupeDTO;
@@ -47,7 +53,9 @@ export class GroupeListComponent implements OnInit {
   }
 
 
-  //data sorting 
+ /**
+  * Data Sorting
+  */
   ngAfterViewInit() {
     this.datasource.paginator = this.paginator;
     this.datasource.sort = this.sort;
@@ -65,8 +73,10 @@ export class GroupeListComponent implements OnInit {
     })
 
   }
-
-  getByGroupe(id: any) {
+ /**********************
+  *  getByIdGroupe
+  */
+  getByIdGroupe(id: any) {
     this.groupeService.getByidGroupe(id)
       .subscribe(
         data => {
@@ -78,21 +88,25 @@ export class GroupeListComponent implements OnInit {
         });
   }
 
-  //search for data 
-
+  /********************
+   *   search Clear 
+   */
   onSearchClear() {
     this.searchKey = "";
     this.applyFilter();
   }
 
-  // fiter data 
+ /**********************
+  *  Filter Data
+  */
   applyFilter() {
     this.datasource.filter = this.searchKey.trim().toLowerCase();
 
   }
 
-
-  // delete data 
+ /**********************
+  *  Delete Groupe By Id
+  */
   onDeleteGroupe(id: number) {
 
     Swal.fire({
@@ -132,7 +146,9 @@ export class GroupeListComponent implements OnInit {
 
   }
 
-  //view details groupe
+ /**********************
+  *  View Details Groupe
+  */
   ViewGroupe(row: any) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
@@ -151,8 +167,9 @@ export class GroupeListComponent implements OnInit {
     ), dialogConfig
 
   }
-
-  // create dialog config
+ /***************************
+  *  Dialog Config For create 
+  */
   onCreateGroupe() {
     this.groupeService.form.reset();
     const dialogConfig = new MatDialogConfig();
@@ -164,7 +181,10 @@ export class GroupeListComponent implements OnInit {
 
   }
 
-  // edite dialogConfig
+
+ /***************************
+  *  Dialog Config For Edit
+  */
   onEditGroupe(row: any) {
     this.groupeService.populateForm(row);
     const dialogConfig = new MatDialogConfig();
@@ -175,21 +195,9 @@ export class GroupeListComponent implements OnInit {
     this.datasource.data.push(row)
   }
 
-  // clear data 
-  onClear() {
-    this.groupeService.form.reset();
-    this.groupeService.initializeFormGroup();
-  }
-
-  //refrech 
-  refresh(): void {
-    this.router.navigateByUrl("/refresh", { skipLocationChange: true }).then(() => {
-      console.log(decodeURI(this._location.path()));
-      this.router.navigate([decodeURI(this._location.path())]);
-    });
-  }
-
-  //update status groupe
+  /***************************
+  * update Groupe Status
+  */
   updateactiveGroupe(element: GroupeDTO) {
     Swal.fire({
       title: 'Are you sure to Update status  !?',
@@ -224,8 +232,9 @@ export class GroupeListComponent implements OnInit {
 
   }
 
-
-  // delete all groupe
+ /***************************
+  *  Delete all Groupe
+  */
   removeAllGroupe() {
     Swal.fire({
       title: 'Are you sure to delete all Groupes  !?',
@@ -266,7 +275,9 @@ export class GroupeListComponent implements OnInit {
     });
 
   }
-  //filtring by active groupe 
+ /*****************************
+  *  iFiltring By Active Groupe
+  */
   active = "";
   searchByActiveGroupe() {
     this.groupeService.findByActiveGroupe(this.active)
@@ -279,6 +290,23 @@ export class GroupeListComponent implements OnInit {
         error => {
           console.log(error);
         });
+  }
+
+
+  
+
+  // clear data 
+  onClear() {
+    this.groupeService.form.reset();
+    this.groupeService.initializeFormGroup();
+  }
+
+  //refrech 
+  refresh(): void {
+    this.router.navigateByUrl("/refresh", { skipLocationChange: true }).then(() => {
+      console.log(decodeURI(this._location.path()));
+      this.router.navigate([decodeURI(this._location.path())]);
+    });
   }
 
 }

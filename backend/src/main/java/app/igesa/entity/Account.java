@@ -45,7 +45,7 @@ public class Account extends Auditable {
     @ManyToOne(fetch= FetchType.LAZY,cascade = {CascadeType.REFRESH,CascadeType.MERGE})
     @JoinColumn(name = "groupe_id",updatable = false)
     private Groupe groupe ;
-    @ManyToOne(fetch= FetchType.LAZY)
+    @ManyToOne
     private Entreprise entreprise ;
 
     public Account(String username, String email, String encode, String encode1, String fiscaleCode, AccountStatus accountStatus) {

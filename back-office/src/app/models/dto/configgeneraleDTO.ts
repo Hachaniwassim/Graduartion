@@ -1,3 +1,8 @@
+
+/**
+ * @author Wassim Haachani
+ */
+
 export class configgeneraleDTO{
     id?:number ;
 	facebook? : string;
