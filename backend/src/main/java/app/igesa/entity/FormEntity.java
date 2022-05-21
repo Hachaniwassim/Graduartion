@@ -8,6 +8,7 @@ import org.hibernate.Hibernate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import java.util.Objects;
 
 /**
@@ -31,6 +32,7 @@ public class FormEntity  extends Auditable{
 	private String companyname;
 	private String mobile ;
 	private String fax ;
+	@Email
 	private String email ;
 	private String adresse ;
 	private String nationality ;

@@ -26,6 +26,7 @@ public class Category extends Auditable {
 	private Long id ;
 	private String image ;
 	private String title;
+	@Column(columnDefinition="text")
 	private String description ;
 	private String name ;
 	private String menuimage ;
@@ -41,6 +42,7 @@ public class Category extends Auditable {
 	private Entreprise enterprise;
 	@Column(columnDefinition = "int default 1") // used to srt categories in FO of client
 	private int priority;
+
 	@JsonIgnore
 	@OneToMany(mappedBy="category")
 	private List<Product> products = new ArrayList<>();

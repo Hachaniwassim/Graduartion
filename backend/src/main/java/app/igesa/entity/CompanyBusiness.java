@@ -7,7 +7,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
+ *
  * @author Tarchoun Abir
+ *
  **/
 
 @Data
@@ -25,9 +27,14 @@ public class CompanyBusiness extends Auditable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id ;
+	@Column(columnDefinition="text")
 	private String description ;
 	private String domainename ;
-
+	/**
+	 *
+	 * Groupe List
+	 *
+	 */
 	@OneToMany(mappedBy="companyBusiness",cascade = CascadeType.ALL)
     private List<Groupe> groupe ;
 

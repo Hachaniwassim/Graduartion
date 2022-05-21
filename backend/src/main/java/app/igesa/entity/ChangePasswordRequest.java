@@ -2,6 +2,10 @@ package app.igesa.entity;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * @author Tarchoun Abir
+ *
+ */
 @Getter
 @Setter
 public class ChangePasswordRequest {

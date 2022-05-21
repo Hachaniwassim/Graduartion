@@ -1,14 +1,15 @@
 package app.igesa.dto;
-
 import app.igesa.entity.Entreprise;
-import app.igesa.entity.pages.Page3;
+import app.igesa.entity.Page3;
 import lombok.Builder;
 import lombok.Data;
-
+import javax.persistence.Column;
 import java.util.Date;
 
 /**
+ *
  * @author Tarchoun Abir
+ *
  */
 
 @Builder
@@ -16,7 +17,9 @@ import java.util.Date;
 public class Page3DTO {
 
     private Long id ;
+    @Column(columnDefinition="text")
     private String title ;
+    @Column(columnDefinition="text")
     private String htmlContent;
     private Long entrepriseId;
     protected Date createdDate;

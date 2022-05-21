@@ -1,20 +1,19 @@
 package app.igesa.entity.pages;
-
 import javax.persistence.*;
-
 import app.igesa.entity.Auditable;
 import app.igesa.entity.Entreprise;
 import app.igesa.enumerations.PagesTypes;
-import app.igesa.translation.ConfigurationTranslation;
 import app.igesa.translation.PagesTranslations;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import java.util.List;
 
+
 /**
+ *
  * @author Tarchoun Abir
+ *
  **/
 
 @Data
@@ -26,19 +25,21 @@ public class Pages extends Auditable {
 	@Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
 	private Long id ;
-	
-	@Column(name="Published")
-	private boolean published ;
-    @Column(name="pageTypes")
 	private PagesTypes pagetype;
-
+	@Column(columnDefinition="text")
 	private String title ;
-
+	@Column(columnDefinition="text")
 	private String description ;
-	@ManyToOne(fetch= FetchType.LAZY)
-	@JoinColumn(name = "entreprise_id")
+
+	/**
+	 * Entreprise
+	 */
+	@ManyToOne
 	private Entreprise entreprise;
 
+	/**
+	 * translation
+	 */
 	@OneToMany(mappedBy="pages",cascade = CascadeType.ALL)
 	private List<PagesTranslations> pagesTranslations;
 }

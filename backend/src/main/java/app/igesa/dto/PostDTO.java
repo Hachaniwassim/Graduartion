@@ -1,5 +1,6 @@
 package app.igesa.dto;
 
+import app.igesa.entity.Entreprise;
 import app.igesa.entity.Post;
 import app.igesa.enumerations.Types;
 import lombok.Builder;
@@ -31,6 +32,7 @@ public class PostDTO {
 	protected Date lastModifiedDate;
 	protected String createdBy;
 	private Enum<Types> types;
+	private Long entrepriseId ;
 
 	public static PostDTO fromEntity(Post post) {
 		if (post == null) {
@@ -67,6 +69,10 @@ public class PostDTO {
 		post.setLastModifiedDate(post.getLastModifiedDate());
 		post.setTags(TagsDTO.toEntity(dto.getTags()));
 		post.setPage(PageDTO.toEntity(dto.getPage()));
+		//===========================> Entreprise ===========================>
+		Entreprise entreprise = new Entreprise();
+		entreprise.setId(dto.getEntrepriseId());
+		post.setEntreprise(entreprise);
 		return post;
 	}
 
