@@ -21,7 +21,6 @@ import { PosdatabaseComponent } from './posWeb/posdatabase/posdatabase.component
 import { PoscookiesComponent } from './posWeb/poscookies/poscookies.component';
 import { PrivacypolicyComponent } from './privacypolicy/privacypolicy.component';
 import { PosprivacyComponent } from './posWeb/posprivacy/posprivacy.component';
-import { WhoareweComponent } from './whoarewe/whoarewe.component';
 import { DatabaseComponent } from './database/database.component';
 import { CookiesComponent } from './cookies/cookies.component';
 import { ManagementComponent } from './management/management.component';
@@ -74,6 +73,7 @@ import { HomeprimaryslideComponent } from './pages/homeprimaryslide/homeprimarys
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 import { CKEditorModule } from 'ckeditor4-angular';
 import { EditorModule } from '@tinymce/tinymce-angular';
+import { WhoareweComponent } from './pages/whoarewe/whoarewe.component';
 
 
 
