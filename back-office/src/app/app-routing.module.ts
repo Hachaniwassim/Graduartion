@@ -5,7 +5,6 @@ import { CommonModule } from '@angular/common';
 import { NotfoundComponent } from "./notfound/notfound.component";
 import { MaterialModule } from './material/material.module';
 import { DatabaseComponent } from './database/database.component';
-import { WhoareweComponent } from './whoarewe/whoarewe.component';
 import { CookiesComponent } from './cookies/cookies.component';
 import { PrivacypolicyComponent } from './privacypolicy/privacypolicy.component';
 import { ManagementComponent } from './management/management.component';
@@ -44,6 +43,7 @@ import { HomescustomerlogosComponent } from './pages/homescustomerlogos/homescus
 import { HomelistComponent } from './pages/homelist/homelist.component';
 import { HomeprimaryslideComponent } from './pages/homeprimaryslide/homeprimaryslide.component';
 import {ResetpasswordComponent} from "./resetpassword/resetpassword.component";
+import { WhoareweComponent } from './pages/whoarewe/whoarewe.component';
 
 
 

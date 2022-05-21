@@ -15,6 +15,12 @@ import Swal from 'sweetalert2';
   templateUrl: './privacypolicy.component.html',
   styleUrls: ['./privacypolicy.component.css']
 })
+
+/*********
+ * 
+ * @author Tarchoun Abir
+ * 
+ */
 export class PrivacypolicyComponent implements OnInit {
 
   data !: privacyDTO;
@@ -112,9 +118,9 @@ export class PrivacypolicyComponent implements OnInit {
   }
 
   /***********************
-  * 
+  * ***********
   *  update 
-  * 
+  * ***********
   */
 
   save() {

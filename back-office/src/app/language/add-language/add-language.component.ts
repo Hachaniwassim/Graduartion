@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 import { DialogService } from 'src/app/shared/dialog.service';
 import { NotificationService } from 'src/app/shared/notification.service';
 import { Languageservice } from 'src/app/_services/language.service';
-import { languageDTO } from 'src/app/models/entity/languageDTO';
+import { languageDTO } from 'src/app/models/dto/languageDTO';
 @Component({
   selector: 'app-add-language',
   templateUrl: './add-language.component.html',

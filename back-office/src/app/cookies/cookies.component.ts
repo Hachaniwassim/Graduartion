@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 import { CookieDTO } from '../models/dto/cookieDTO';
 import { CookiesService } from '../_services/cookies.service';
 import {Location}from '@angular/common';
+
 @Component({
   selector: 'app-cookies',
   templateUrl: './cookies.component.html',
@@ -231,7 +232,7 @@ export class CookiesComponent implements OnInit {
           error => {
             // snackBar error
             this._snackBar.open("Error occurend !!" + error?.message, "", {
-              duration: 3000,
+              duration: 5000,
               horizontalPosition: "right",
               verticalPosition: "top",
               panelClass: ["mat-toolbar", "mat-warn"],

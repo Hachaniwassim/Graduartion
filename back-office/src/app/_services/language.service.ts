@@ -6,7 +6,7 @@ import * as _ from 'lodash';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { languageDTO } from '../models/entity/languageDTO';
+import { languageDTO } from '../models/dto/languageDTO';
 import { Language } from '../models/enum/language.enum';
 
 @Injectable({
