@@ -5,22 +5,23 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import * as _ from 'lodash';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 import { RoleDTO } from '../models/dto/roleDTO';
-import { ERole } from '../models/enum/erole';
+import { Role } from '../models/entity/role';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RoleService {
-  //api backend
-  private base_url = "http://localhost:8089/role";
+
+  
+ /**************************
+  * Api Backend
+  *************************/
+  private base_url = environment.privateApi + "/role";
 
 
-  roleDTO = {
-    name: '',
-  }
-
-  constructor(private http: HttpClient, private datePipe: DatePipe) { }
+  constructor(private http: HttpClient) { }
 
   //http opttion
   httpOptions = {
@@ -54,13 +55,13 @@ export class RoleService {
     return this.http.post<RoleDTO>(this.base_url, JSON.stringify(item), this.httpOptions).pipe(retry(2), catchError(this.handleError));
   }
 
-  //get all team data 
+  //get all 
   getallrole(): Observable<RoleDTO[]> {
     return this.http.get<RoleDTO[]>(this.base_url).pipe(retry(2), catchError(this.handleError));
   }
 
 
-  // get team by id
+  // get by id
   getByidrole(id: number): Observable<RoleDTO> {
     return this.http.get<RoleDTO>(this.base_url + '/' + id).pipe(retry(2), catchError(this.handleError));
 
@@ -68,35 +69,16 @@ export class RoleService {
   }
 
 
-  // update team by Id the
+  // update
   updaterole(item: RoleDTO) {
     return this.http.put<RoleDTO>(this.base_url, JSON.stringify(item), this.httpOptions).pipe(retry(2), catchError(this.handleError));
   }
 
-  // delete groupe
+  // delete 
   deleterole(id: number) {
     return this.http.delete<RoleDTO>(this.base_url + '/' + id, this.httpOptions).pipe(retry(2), catchError(this.handleError));
 
   }
-  // get all groupe 
-  deleteAllrole() {
-    return this.http.delete(this.base_url).pipe(retry(2), catchError(this.handleError));
-
-  }
-
-
-  //find by active
-  findByActiverole(active: any) {
-    return this.http.get(`${this.base_url}?active${active}`);
-  }
-
-
-
-  //find by confirmed
-  findByConfirmedrole(confirme: any) {
-    return this.http.get(`${this.base_url}?confirme${confirme}`);
-  }
-
 
   //validation formulaire
   form: FormGroup = new FormGroup({
@@ -111,15 +93,14 @@ export class RoleService {
       name: '',
     });
   }
+  // get value for update 
   populateForm(role: any) {
     this.form.patchValue(_.omit(role));
   }
 
-   //update groupe  by status
-   updateroleByStatus(id : number,item : ERole){
- return this.http.put<any>(this.base_url + '/toggle-status/' + id,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
+  //get Role
+  getRoles() :Observable<Role[]>{
+    return this.http.get<Role[]>(this.base_url);
   }
-
-
 }
 

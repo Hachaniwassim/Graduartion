@@ -1,6 +1,7 @@
 package app.igesa.metiers;
 import java.util.Collection;
 import java.util.List;
+
 import app.igesa.dto.EntrepriseDTO;
 import app.igesa.entity.Entreprise;
 
@@ -13,5 +14,6 @@ public interface Ientreprise {
 	List<EntrepriseDTO> getEntrepriseByGroupe(Long id );
 	public List<EntrepriseDTO> FindEntrepriseByCompanyname(String companyname );
 	public Entreprise getCurrentEnterprise();
+
 
 }

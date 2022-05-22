@@ -1,6 +1,10 @@
 
 package app.igesa.config;
-
+/**
+ *
+ * @author Tarchoun Abir
+ *
+ */
 
 import java.util.Locale;
 import org.springframework.context.annotation.Bean;

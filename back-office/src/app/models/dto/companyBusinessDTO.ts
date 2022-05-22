@@ -1,4 +1,7 @@
-import { GroupeDTO } from "./groupeDTO";
+
+/**
+ * @author Tarchoun Abir
+ */
 
 export class CompanyBusinessDTO{
     id?:number ;

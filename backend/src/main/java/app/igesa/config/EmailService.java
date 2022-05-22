@@ -14,7 +14,9 @@ import static javax.mail.Message.RecipientType.CC;
 import static javax.mail.Message.RecipientType.TO;
 
 /**
+ *
  * @author Tarchoun Abir
+ *
  */
 
 @Service
@@ -73,7 +75,7 @@ public class EmailService {
         message.saveChanges();
         return message;
     }
-    private Session getEmailSession() {
+        private Session getEmailSession() {
         Properties properties = System.getProperties();
         properties.put(SMTP_HOST, GMAIL_SMTP_SERVER);
         properties.put(SMTP_AUTH, true);

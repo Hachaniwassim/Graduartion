@@ -12,7 +12,9 @@ import lombok.NoArgsConstructor;
 
 
 /**
+ *
  * @author Tarchoun Abir
+ *
  */
 
 @AllArgsConstructor
@@ -27,13 +29,6 @@ public class GroupeDTO {
     protected Date createdDate;
     protected Date lastModifiedDate;
     private Long companyId;
-    private CompanyBusinessDTO companyBusiness;
-    @JsonIgnore
-    private List<EntrepriseDTO>entreprise ;
-
-
-
-
 
     public static GroupeDTO fromEntity(Groupe groupe) {
 
@@ -44,8 +39,8 @@ public class GroupeDTO {
 				.description(groupe.getDescription())
                 .lastModifiedDate(groupe.getLastModifiedDate())
                 .createdDate(groupe.getCreatedDate())
-                .companyBusiness(CompanyBusinessDTO.fromEntity(groupe.getCompanyBusiness()))
-                .build();
+                .companyId(groupe.getCompanyBusiness().getId())
+                        .build();
 
     }
 
@@ -61,6 +56,7 @@ public class GroupeDTO {
            groupe.setDescription(dto.getDescription());
            groupe.setLastModifiedDate(dto.getLastModifiedDate());
            groupe.setCreatedDate(dto.getCreatedDate());
+           //===========================> company Bussiness ===========================>
            CompanyBusiness companyBusiness = new CompanyBusiness();
            companyBusiness.setId(dto.getCompanyId());
            groupe.setCompanyBusiness(companyBusiness);

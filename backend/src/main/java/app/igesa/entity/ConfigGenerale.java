@@ -1,6 +1,6 @@
 package app.igesa.entity;
-
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import app.igesa.translation.ConfigurationTranslation;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import lombok.AllArgsConstructor;
@@ -10,7 +10,9 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 /**
+ *
  * @author Tarchoun Abir
+ *
  **/
 
 @AllArgsConstructor
@@ -24,40 +26,35 @@ public class ConfigGenerale extends Auditable{
 
 	@Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-	@Column(name="Id")
 	private Long id ;
-	@Column(name="Facebook")
 	private String facebook ;
-	@Column(name="Twitter")
 	private String twitter ;
-	@Column(name="Youtube")
 	private String youtube ;
-	@Column(name="Logo")
 	private String image ;
-	@Column(name="Favicon")
 	private String favicon ;
-	@Column(name="Adresse")
 	private String adresse ;
-	@Column(name="Email")
+	@Email
 	private String email ;
-	@Column(name="Phone")
 	private String phone ;
-	@Column(name="Fax")
 	private String fax ;
-	@Column(name="CopyRight")
 	private String copyright ;
-	@Column(name="title")
 	private String title ;
-	@Column(name="Newslettertitle")
 	private String newslettertitle;
 	private String newslettersubtitle ;
 	private String tagline ;
-	//private RobotsTags robotsTags;
 
-	@ManyToOne(fetch = FetchType.LAZY )
-	@JoinColumn(name="entreprise_id")
+	/**
+	 *
+	 * Entreprise
+	 *
+	 */
+	@ManyToOne
 	private Entreprise entreprise;
-
+	/**
+	 *
+	 * Translation
+	 *
+	 */
 
 	@OneToMany(mappedBy="configGenerale",cascade = CascadeType.ALL)
 	private List<ConfigurationTranslation> configurationTranslations;

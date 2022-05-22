@@ -7,6 +7,12 @@ import { EntrepriseDTO } from 'src/app/models/dto/entreprisDTO';
   templateUrl: './entreprise-view.component.html',
   styleUrls: ['./entreprise-view.component.css']
 })
+/**
+ * 
+ * @author Tarchoun Abir
+ *
+ **/
+
 export class EntrepriseViewComponent implements OnInit {
 
   constructor(@Inject(MAT_DIALOG_DATA) public entreprise :EntrepriseDTO,public dialog: MatDialog,private ref: ChangeDetectorRef

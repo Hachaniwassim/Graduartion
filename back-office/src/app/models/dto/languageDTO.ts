@@ -1,9 +1,13 @@
-import { Language } from "../enum/language.enum";
 
-export interface languageDTO{
-    id: number;
-    lang: Language;
-    name: string;
-    image :string,
-    active: boolean;
+/**
+ * @author Wassim Haachani
+ */
+export class languageDTO{
+    id !: number;
+    lang!: string;
+    name!: string;
+    flag !:string;
+    createdDate !:Date;
+    lastModifiedDate!: Date;
+    active !: boolean;
     }

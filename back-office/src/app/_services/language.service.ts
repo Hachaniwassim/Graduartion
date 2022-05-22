@@ -5,6 +5,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import * as _ from 'lodash';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 import { languageDTO } from '../models/dto/languageDTO';
 import { Language } from '../models/enum/language.enum';
 
@@ -14,17 +15,11 @@ import { Language } from '../models/enum/language.enum';
 export class Languageservice {
 
   //api backend
-  private base_url="http://localhost:8089/";
+  private base_url= environment.privateApi +"/languages";
   
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
-  LanguageDTO={
-    lang:'', 
-    name: '',
-    image: '',
-    active: true,
-  }
-  constructor(private http: HttpClient, private datePipe: DatePipe) { }
+  constructor(private http: HttpClient) { }
 
   //http opttion
   httpOptions = {

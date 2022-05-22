@@ -8,7 +8,9 @@ import javax.persistence.Column;
 import java.util.Date;
 
 /**
+ *
  * @author Tarchoun Abir
+ *
  */
 
 
@@ -17,11 +19,12 @@ import java.util.Date;
 public class PrivacyDTO  {
     private Long id ;
     private Long entrepriseId;
+    @Column(columnDefinition="text")
     private String title ;
+    @Column(columnDefinition="text")
     private String htmlContent ;
     protected Date createdDate;
     protected Date lastModifiedDate;
-    //private EntrepriseDTO entreprise;
 
     public static PrivacyDTO fromEntity(Privacy privacy) {
 
@@ -31,7 +34,7 @@ public class PrivacyDTO  {
                 .title(privacy.getTitle())
                 .lastModifiedDate(privacy.getLastModifiedDate())
                 .createdDate(privacy.getCreatedDate())
-                //.entreprise(EntrepriseDTO.fromEntity(privacy.getEntreprise()))
+                 .entrepriseId(privacy.getEntreprise().getId())
                 .build();
     }
 
@@ -41,11 +44,12 @@ public class PrivacyDTO  {
         privacy.setId(dto.getId());
         privacy.setHtmlContent(dto.getHtmlContent());
         privacy.setTitle(dto.getTitle());
-        Entreprise entreprise = new Entreprise();
-        entreprise.setId(dto.getEntrepriseId());
-        //privacy.setEntreprise(entreprise);
         privacy.setCreatedDate(dto.getCreatedDate());
         privacy.setLastModifiedDate(dto.getLastModifiedDate());
+        //=================> entreprise
+        Entreprise entreprise = new Entreprise();
+        entreprise.setId(dto.getEntrepriseId());
+        privacy.setEntreprise(entreprise);
         return privacy;
     }
 

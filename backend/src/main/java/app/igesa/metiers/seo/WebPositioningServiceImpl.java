@@ -4,10 +4,9 @@ import app.igesa.entity.seo.Meta;
 import app.igesa.entity.seo.WebPositioningClientResponse;
 import app.igesa.entity.seo.WebPositioningPk;
 import app.igesa.enumerations.PagesTypes;
-import app.igesa.metiers.EntrepriseImpl;
+import app.igesa.metiers.Ientreprise;
 import app.igesa.repository.seo.WebPositioningRepository;
 import org.springframework.stereotype.Service;
-
 import java.util.Locale;
 
 /**
@@ -17,11 +16,11 @@ import java.util.Locale;
 
 @Service
 public class WebPositioningServiceImpl implements WebPositioningService {
-    private final EntrepriseImpl enterpriseService;
+    private final Ientreprise enterpriseService;
     private final WebPositioningRepository webPositioningRepository;
 
     public WebPositioningServiceImpl(
-            EntrepriseImpl enterpriseService,
+            Ientreprise enterpriseService,
             WebPositioningRepository webPositioningRepository) {
         this.enterpriseService = enterpriseService;
         this.webPositioningRepository = webPositioningRepository;

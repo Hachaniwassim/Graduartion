@@ -1,11 +1,11 @@
 package app.igesa.dto;
 
-import app.igesa.entity.Cookies;
-import app.igesa.entity.Page1;
+import app.igesa.entity.Entreprise;
 import app.igesa.entity.Page2;
 import lombok.Builder;
 import lombok.Data;
 
+import javax.persistence.Column;
 import java.util.Date;
 
 /**
@@ -17,7 +17,9 @@ import java.util.Date;
 public class Page2DTO {
 
     private Long id ;
+    @Column(columnDefinition="text")
     private String title ;
+    @Column(columnDefinition="text")
     private String htmlContent;
     private Long entrepriseId;
     protected Date createdDate;
@@ -37,16 +39,17 @@ public class Page2DTO {
 
     public static Page2 toEntity(Page2DTO dto) {
 
-        Page2 page = new Page2();
-        page.setId(dto.getId());
-        page.setHtmlContent(dto.getHtmlContent());
-        page.setTitle(dto.getTitle());
-        page.setCreatedDate(dto.getCreatedDate());
-        page.setLastModifiedDate(dto.getLastModifiedDate());
-        //Entreprise entreprise = new Entreprise();
-        //entreprise.setId(dto.getEntrepriseId());
-        //page.setEntreprise(entreprise);
-        return page;
+        Page2 pages = new Page2();
+        pages.setId(dto.getId());
+        pages.setHtmlContent(dto.getHtmlContent());
+        pages.setTitle(dto.getTitle());
+        pages.setCreatedDate(dto.getCreatedDate());
+        pages.setLastModifiedDate(dto.getLastModifiedDate());
+        //===========================> Entreprise ===========================>
+        Entreprise entreprise = new Entreprise();
+        entreprise.setId(dto.getEntrepriseId());
+        pages.setEntreprise(entreprise);
+        return pages;
     }
 
 

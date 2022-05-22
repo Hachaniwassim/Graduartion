@@ -1,4 +1,258 @@
-2022-05-17 00:01:46,429 INFO  AbstractEntityManagerFactoryBean:648 - [] Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-05-17 00:01:46,538 INFO  ExecutorConfigurationSupport:218 - [] Shutting down ExecutorService 'applicationTaskExecutor'
-2022-05-17 00:01:46,557 INFO  HikariDataSource:350 - [] HikariPool-1 - Shutdown initiated...
-2022-05-17 00:01:46,610 INFO  HikariDataSource:352 - [] HikariPool-1 - Shutdown completed.
+2022-05-18 00:51:34,726 INFO  StartupInfoLogger:55 - [] Starting MultiwebsitesApplication using Java 18 on DESKTOP-CI469KC with PID 15440 (C:\Users\mss\Desktop\PFEEEE\Graduartion\backend\target\classes started by mss in C:\Users\mss\Desktop\PFEEEE\Graduartion\backend)
+2022-05-18 00:51:34,740 INFO  SpringApplication:660 - [] No active profile set, falling back to default profiles: default
+2022-05-18 00:51:40,496 INFO  RepositoryConfigurationDelegate:128 - [] Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2022-05-18 00:51:41,236 INFO  RepositoryConfigurationDelegate:188 - [] Finished Spring Data repository scanning in 713 ms. Found 21 JPA repository interfaces.
+2022-05-18 00:51:42,254 INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker:350 - [] Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@4d98e41b' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-05-18 00:51:42,273 INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker:350 - [] Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-05-18 00:51:43,005 INFO  TomcatWebServer:108 - [] Tomcat initialized with port(s): 8089 (http)
+2022-05-18 00:51:43,028 INFO  DirectJDKLog:173 - [] Starting service [Tomcat]
+2022-05-18 00:51:43,029 INFO  DirectJDKLog:173 - [] Starting Servlet engine: [Apache Tomcat/9.0.39]
+2022-05-18 00:51:43,563 INFO  DirectJDKLog:173 - [] Initializing Spring embedded WebApplicationContext
+2022-05-18 00:51:43,563 INFO  ServletWebServerApplicationContext:289 - [] Root WebApplicationContext: initialization completed in 8658 ms
+2022-05-18 00:51:44,105 WARN  JpaBaseConfiguration$JpaWebConfiguration:221 - [] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-05-18 00:51:44,294 INFO  ExecutorConfigurationSupport:181 - [] Initializing ExecutorService 'applicationTaskExecutor'
+2022-05-18 00:51:44,471 INFO  LogHelper:31 - [] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-05-18 00:51:44,608 INFO  Version:44 - [] HHH000412: Hibernate ORM core version 5.4.23.Final
+2022-05-18 00:51:45,134 INFO  JavaReflectionManager:56 - [] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-05-18 00:51:45,426 INFO  HikariDataSource:110 - [] HikariPool-1 - Starting...
+2022-05-18 00:51:46,138 INFO  HikariDataSource:123 - [] HikariPool-1 - Start completed.
+2022-05-18 00:51:46,176 INFO  Dialect:170 - [] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-05-18 00:51:47,585 INFO  EndpointLinksResolver:58 - [] Exposing 2 endpoint(s) beneath base path '/actuator'
+2022-05-18 00:51:47,962 INFO  PropertySourcedRequestMappingHandlerMapping:69 - [] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-05-18 00:51:48,638 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@24e1e90a, org.springframework.security.web.context.SecurityContextPersistenceFilter@1e7cfd49, org.springframework.security.web.header.HeaderWriterFilter@3df04fa1, org.springframework.security.web.authentication.logout.LogoutFilter@3cf06a01, app.igesa.security.jwt.AuthTokenFilter@4c6bba7d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@ca10069, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2168def, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@1b465fa9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7d95166a, org.springframework.security.web.session.SessionManagementFilter@1aa59698, org.springframework.security.web.access.ExceptionTranslationFilter@48aa0813, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1f4dd016]
+2022-05-18 00:51:51,301 INFO  JtaPlatformInitiator:52 - [] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-05-18 00:51:51,319 INFO  AbstractEntityManagerFactoryBean:434 - [] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-05-18 00:51:52,426 INFO  TomcatWebServer:220 - [] Tomcat started on port(s): 8089 (http) with context path ''
+2022-05-18 00:51:52,429 INFO  DocumentationPluginsBootstrapper:160 - [] Context refreshed
+2022-05-18 00:51:52,528 INFO  DocumentationPluginsBootstrapper:163 - [] Found 1 custom documentation plugin(s)
+2022-05-18 00:51:52,733 INFO  ApiListingReferenceScanner:41 - [] Scanning for api listing references
+2022-05-18 00:51:53,680 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_1
+2022-05-18 00:51:53,685 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_1
+2022-05-18 00:51:53,693 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_1
+2022-05-18 00:51:53,698 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_1
+2022-05-18 00:51:53,711 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_1
+2022-05-18 00:51:53,732 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_2
+2022-05-18 00:51:53,744 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_2
+2022-05-18 00:51:53,760 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_2
+2022-05-18 00:51:53,763 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_2
+2022-05-18 00:51:53,769 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_2
+2022-05-18 00:51:53,802 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_3
+2022-05-18 00:51:53,842 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_3
+2022-05-18 00:51:53,863 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_3
+2022-05-18 00:51:53,871 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_3
+2022-05-18 00:51:53,876 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_3
+2022-05-18 00:51:53,886 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_4
+2022-05-18 00:51:53,905 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_4
+2022-05-18 00:51:53,914 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_5
+2022-05-18 00:51:54,028 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_4
+2022-05-18 00:51:54,036 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_4
+2022-05-18 00:51:54,048 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_4
+2022-05-18 00:51:54,613 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_5
+2022-05-18 00:51:54,625 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_6
+2022-05-18 00:51:54,633 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_5
+2022-05-18 00:51:54,638 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_5
+2022-05-18 00:51:54,649 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_5
+2022-05-18 00:51:54,705 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_6
+2022-05-18 00:51:54,708 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_7
+2022-05-18 00:51:54,715 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_6
+2022-05-18 00:51:54,722 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_6
+2022-05-18 00:51:54,728 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_6
+2022-05-18 00:51:54,736 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: handleUsingGET_1
+2022-05-18 00:51:54,739 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: handleUsingGET_2
+2022-05-18 00:51:54,746 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_7
+2022-05-18 00:51:54,750 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_8
+2022-05-18 00:51:54,754 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_7
+2022-05-18 00:51:54,766 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_7
+2022-05-18 00:51:54,770 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_7
+2022-05-18 00:51:54,777 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_8
+2022-05-18 00:51:54,780 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_9
+2022-05-18 00:51:55,230 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_8
+2022-05-18 00:51:55,246 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_8
+2022-05-18 00:51:55,249 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_8
+2022-05-18 00:51:55,270 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_9
+2022-05-18 00:51:55,274 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_10
+2022-05-18 00:51:55,286 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_9
+2022-05-18 00:51:55,292 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_9
+2022-05-18 00:51:55,377 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_9
+2022-05-18 00:51:55,399 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_10
+2022-05-18 00:51:55,413 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_11
+2022-05-18 00:51:55,431 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_10
+2022-05-18 00:51:55,445 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_10
+2022-05-18 00:51:55,517 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_10
+2022-05-18 00:51:56,833 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_11
+2022-05-18 00:51:56,839 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_12
+2022-05-18 00:51:56,846 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_11
+2022-05-18 00:51:56,849 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_11
+2022-05-18 00:51:56,853 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_11
+2022-05-18 00:51:56,874 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_12
+2022-05-18 00:51:56,878 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_13
+2022-05-18 00:51:57,008 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_12
+2022-05-18 00:51:57,127 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_12
+2022-05-18 00:51:57,292 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_12
+2022-05-18 00:51:57,299 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_13
+2022-05-18 00:51:57,303 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_14
+2022-05-18 00:51:57,308 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_13
+2022-05-18 00:51:57,311 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_13
+2022-05-18 00:51:57,314 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_13
+2022-05-18 00:51:57,324 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_14
+2022-05-18 00:51:57,328 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_15
+2022-05-18 00:51:57,338 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_14
+2022-05-18 00:51:57,341 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_14
+2022-05-18 00:51:57,345 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_14
+2022-05-18 00:51:57,349 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_15
+2022-05-18 00:51:57,355 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_16
+2022-05-18 00:51:57,357 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_15
+2022-05-18 00:51:57,377 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_15
+2022-05-18 00:51:57,381 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_15
+2022-05-18 00:51:57,391 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_16
+2022-05-18 00:51:57,398 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_17
+2022-05-18 00:51:57,402 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_16
+2022-05-18 00:51:57,543 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_16
+2022-05-18 00:51:57,559 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_16
+2022-05-18 00:51:57,848 INFO  DeferredRepositoryInitializationListener:51 - [] Triggering deferred initialization of Spring Data repositories…
+2022-05-18 00:52:04,431 INFO  DeferredRepositoryInitializationListener:55 - [] Spring Data repositories initialized!
+2022-05-18 00:52:04,471 INFO  StartupInfoLogger:61 - [] Started MultiwebsitesApplication in 30.812 seconds (JVM running for 32.962)
+2022-05-18 00:52:06,836 INFO  DirectJDKLog:173 - [] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-05-18 00:52:06,837 INFO  FrameworkServlet:525 - [] Initializing Servlet 'dispatcherServlet'
+2022-05-18 00:52:06,842 INFO  FrameworkServlet:547 - [] Completed initialization in 4 ms
+2022-05-18 00:58:42,326 ERROR JwtUtils:54 - [] Invalid JWT token: JWT strings must contain exactly 2 period characters. Found: 0
+2022-05-18 00:58:45,828 ERROR JwtUtils:54 - [] Invalid JWT token: JWT strings must contain exactly 2 period characters. Found: 0
+2022-05-18 00:58:48,147 ERROR JwtUtils:54 - [] Invalid JWT token: JWT strings must contain exactly 2 period characters. Found: 0
+2022-05-18 00:58:48,149 ERROR JwtUtils:54 - [] Invalid JWT token: JWT strings must contain exactly 2 period characters. Found: 0
+2022-05-18 00:58:50,177 ERROR JwtUtils:54 - [] Invalid JWT token: JWT strings must contain exactly 2 period characters. Found: 0
+2022-05-18 00:59:09,970 ERROR JwtUtils:54 - [] Invalid JWT token: JWT strings must contain exactly 2 period characters. Found: 0
+2022-05-18 01:24:07,894 ERROR JwtUtils:54 - [] Invalid JWT token: JWT strings must contain exactly 2 period characters. Found: 0
+2022-05-18 01:29:40,099 INFO  AbstractEntityManagerFactoryBean:648 - [] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-05-18 01:29:40,248 INFO  ExecutorConfigurationSupport:218 - [] Shutting down ExecutorService 'applicationTaskExecutor'
+2022-05-18 01:29:40,256 INFO  HikariDataSource:350 - [] HikariPool-1 - Shutdown initiated...
+2022-05-18 01:29:40,408 INFO  HikariDataSource:352 - [] HikariPool-1 - Shutdown completed.
+2022-05-18 01:30:32,170 INFO  StartupInfoLogger:55 - [] Starting MultiwebsitesApplication using Java 18 on DESKTOP-CI469KC with PID 15864 (C:\Users\mss\Desktop\PFEEEE\Graduartion\backend\target\classes started by mss in C:\Users\mss\Desktop\PFEEEE\Graduartion\backend)
+2022-05-18 01:30:32,178 INFO  SpringApplication:660 - [] No active profile set, falling back to default profiles: default
+2022-05-18 01:30:43,640 INFO  RepositoryConfigurationDelegate:128 - [] Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2022-05-18 01:30:44,131 INFO  RepositoryConfigurationDelegate:188 - [] Finished Spring Data repository scanning in 461 ms. Found 21 JPA repository interfaces.
+2022-05-18 01:30:49,439 INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker:350 - [] Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@5d508d22' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-05-18 01:30:49,457 INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker:350 - [] Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-05-18 01:30:53,261 INFO  TomcatWebServer:108 - [] Tomcat initialized with port(s): 8089 (http)
+2022-05-18 01:30:53,306 INFO  DirectJDKLog:173 - [] Starting service [Tomcat]
+2022-05-18 01:30:53,313 INFO  DirectJDKLog:173 - [] Starting Servlet engine: [Apache Tomcat/9.0.39]
+2022-05-18 01:30:54,281 INFO  DirectJDKLog:173 - [] Initializing Spring embedded WebApplicationContext
+2022-05-18 01:30:54,283 INFO  ServletWebServerApplicationContext:289 - [] Root WebApplicationContext: initialization completed in 21738 ms
+2022-05-18 01:30:57,824 WARN  JpaBaseConfiguration$JpaWebConfiguration:221 - [] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-05-18 01:30:58,375 INFO  ExecutorConfigurationSupport:181 - [] Initializing ExecutorService 'applicationTaskExecutor'
+2022-05-18 01:30:58,818 INFO  LogHelper:31 - [] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-05-18 01:31:00,662 INFO  Version:44 - [] HHH000412: Hibernate ORM core version 5.4.23.Final
+2022-05-18 01:31:03,586 INFO  JavaReflectionManager:56 - [] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-05-18 01:31:07,511 INFO  HikariDataSource:110 - [] HikariPool-1 - Starting...
+2022-05-18 01:31:08,955 INFO  HikariDataSource:123 - [] HikariPool-1 - Start completed.
+2022-05-18 01:31:09,186 INFO  Dialect:170 - [] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-05-18 01:31:11,461 INFO  EndpointLinksResolver:58 - [] Exposing 2 endpoint(s) beneath base path '/actuator'
+2022-05-18 01:31:11,824 INFO  PropertySourcedRequestMappingHandlerMapping:69 - [] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-05-18 01:31:12,391 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@18ac4af6, org.springframework.security.web.context.SecurityContextPersistenceFilter@32dbca45, org.springframework.security.web.header.HeaderWriterFilter@4ff074a0, org.springframework.security.web.authentication.logout.LogoutFilter@621392ea, app.igesa.security.jwt.AuthTokenFilter@5dc7841c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@684b26b7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@799fb45e, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@79445efb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@117fb9ba, org.springframework.security.web.session.SessionManagementFilter@57927bc9, org.springframework.security.web.access.ExceptionTranslationFilter@7598d675, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2b400bd0]
+2022-05-18 01:31:17,032 INFO  JtaPlatformInitiator:52 - [] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-05-18 01:31:17,064 INFO  AbstractEntityManagerFactoryBean:434 - [] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-05-18 01:31:20,832 INFO  TomcatWebServer:220 - [] Tomcat started on port(s): 8089 (http) with context path ''
+2022-05-18 01:31:20,835 INFO  DocumentationPluginsBootstrapper:160 - [] Context refreshed
+2022-05-18 01:31:20,901 INFO  DocumentationPluginsBootstrapper:163 - [] Found 1 custom documentation plugin(s)
+2022-05-18 01:31:21,060 INFO  ApiListingReferenceScanner:41 - [] Scanning for api listing references
+2022-05-18 01:31:21,671 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_1
+2022-05-18 01:31:21,727 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_1
+2022-05-18 01:31:21,733 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_1
+2022-05-18 01:31:21,737 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_1
+2022-05-18 01:31:21,752 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_1
+2022-05-18 01:31:21,768 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_2
+2022-05-18 01:31:21,773 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_2
+2022-05-18 01:31:21,780 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_2
+2022-05-18 01:31:21,784 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_2
+2022-05-18 01:31:21,796 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_2
+2022-05-18 01:31:21,819 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_3
+2022-05-18 01:31:21,824 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_3
+2022-05-18 01:31:21,841 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_3
+2022-05-18 01:31:21,846 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_3
+2022-05-18 01:31:21,852 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_3
+2022-05-18 01:31:21,868 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_4
+2022-05-18 01:31:21,894 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_4
+2022-05-18 01:31:21,902 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_5
+2022-05-18 01:31:21,931 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_4
+2022-05-18 01:31:21,941 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_4
+2022-05-18 01:31:21,955 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_4
+2022-05-18 01:31:22,016 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_5
+2022-05-18 01:31:22,028 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_6
+2022-05-18 01:31:22,041 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_5
+2022-05-18 01:31:22,059 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_5
+2022-05-18 01:31:22,063 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_5
+2022-05-18 01:31:22,122 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_6
+2022-05-18 01:31:22,126 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_7
+2022-05-18 01:31:22,136 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_6
+2022-05-18 01:31:22,144 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_6
+2022-05-18 01:31:22,165 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_6
+2022-05-18 01:31:22,225 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: handleUsingGET_1
+2022-05-18 01:31:22,241 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: handleUsingGET_2
+2022-05-18 01:31:22,279 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_7
+2022-05-18 01:31:22,284 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_8
+2022-05-18 01:31:22,289 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_7
+2022-05-18 01:31:22,296 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_7
+2022-05-18 01:31:22,299 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_7
+2022-05-18 01:31:22,306 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_8
+2022-05-18 01:31:22,309 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_9
+2022-05-18 01:31:22,326 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_8
+2022-05-18 01:31:22,330 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_8
+2022-05-18 01:31:22,334 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_8
+2022-05-18 01:31:22,341 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_9
+2022-05-18 01:31:22,346 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_10
+2022-05-18 01:31:22,352 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_9
+2022-05-18 01:31:22,356 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_9
+2022-05-18 01:31:22,360 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_9
+2022-05-18 01:31:22,374 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_10
+2022-05-18 01:31:22,384 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_11
+2022-05-18 01:31:22,392 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_10
+2022-05-18 01:31:22,396 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_10
+2022-05-18 01:31:22,407 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_10
+2022-05-18 01:31:22,467 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_11
+2022-05-18 01:31:22,475 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_12
+2022-05-18 01:31:22,481 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_11
+2022-05-18 01:31:22,484 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_11
+2022-05-18 01:31:22,492 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_11
+2022-05-18 01:31:22,513 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_12
+2022-05-18 01:31:22,517 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_13
+2022-05-18 01:31:22,529 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_12
+2022-05-18 01:31:22,532 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_12
+2022-05-18 01:31:22,538 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_12
+2022-05-18 01:31:22,546 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_13
+2022-05-18 01:31:22,550 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_14
+2022-05-18 01:31:22,555 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_13
+2022-05-18 01:31:22,575 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_13
+2022-05-18 01:31:22,579 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_13
+2022-05-18 01:31:22,608 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_14
+2022-05-18 01:31:22,611 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_15
+2022-05-18 01:31:22,629 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_14
+2022-05-18 01:31:22,651 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_14
+2022-05-18 01:31:22,657 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_14
+2022-05-18 01:31:22,663 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_15
+2022-05-18 01:31:22,671 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_16
+2022-05-18 01:31:22,674 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_15
+2022-05-18 01:31:22,677 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_15
+2022-05-18 01:31:22,681 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_15
+2022-05-18 01:31:22,686 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_16
+2022-05-18 01:31:22,704 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_17
+2022-05-18 01:31:22,707 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_16
+2022-05-18 01:31:22,712 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_16
+2022-05-18 01:31:22,719 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_16
+2022-05-18 01:31:22,793 INFO  DeferredRepositoryInitializationListener:51 - [] Triggering deferred initialization of Spring Data repositories…
+2022-05-18 01:31:24,662 INFO  DeferredRepositoryInitializationListener:55 - [] Spring Data repositories initialized!
+2022-05-18 01:31:24,684 INFO  StartupInfoLogger:61 - [] Started MultiwebsitesApplication in 57.46 seconds (JVM running for 66.059)
+2022-05-18 01:31:48,322 INFO  DirectJDKLog:173 - [] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-05-18 01:31:48,324 INFO  FrameworkServlet:525 - [] Initializing Servlet 'dispatcherServlet'
+2022-05-18 01:31:48,329 INFO  FrameworkServlet:547 - [] Completed initialization in 5 ms
+2022-05-18 01:31:48,428 ERROR AuthEntryPointJwt:22 - [] Unauthorized error: Full authentication is required to access this resource
+2022-05-18 02:05:58,327 ERROR JwtUtils:54 - [] Invalid JWT token: JWT strings must contain exactly 2 period characters. Found: 0
+2022-05-18 02:05:58,336 ERROR AuthEntryPointJwt:22 - [] Unauthorized error: Full authentication is required to access this resource
+2022-05-18 02:05:58,536 ERROR JwtUtils:54 - [] Invalid JWT token: JWT strings must contain exactly 2 period characters. Found: 0
+2022-05-18 02:05:58,547 ERROR AuthEntryPointJwt:22 - [] Unauthorized error: Full authentication is required to access this resource
+2022-05-18 02:05:58,587 ERROR JwtUtils:54 - [] Invalid JWT token: JWT strings must contain exactly 2 period characters. Found: 0
+2022-05-18 02:05:58,591 ERROR AuthEntryPointJwt:22 - [] Unauthorized error: Full authentication is required to access this resource
+2022-05-18 02:24:10,356 ERROR JwtUtils:56 - [] JWT token is expired: JWT expired at 2022-05-06T12:01:19Z. Current time: 2022-05-18T02:24:10Z, a difference of 1002171353 milliseconds.  Allowed clock skew: 0 milliseconds.
+2022-05-18 02:24:21,773 ERROR JwtUtils:56 - [] JWT token is expired: JWT expired at 2022-05-06T12:01:19Z. Current time: 2022-05-18T02:24:21Z, a difference of 1002182772 milliseconds.  Allowed clock skew: 0 milliseconds.
+2022-05-18 03:06:58,408 INFO  AbstractEntityManagerFactoryBean:648 - [] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-05-18 03:06:58,442 INFO  ExecutorConfigurationSupport:218 - [] Shutting down ExecutorService 'applicationTaskExecutor'
+2022-05-18 03:06:58,446 INFO  HikariDataSource:350 - [] HikariPool-1 - Shutdown initiated...
+2022-05-18 03:06:58,472 INFO  HikariDataSource:352 - [] HikariPool-1 - Shutdown completed.

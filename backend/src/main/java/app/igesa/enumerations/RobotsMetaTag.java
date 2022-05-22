@@ -5,8 +5,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * @author tarchoun Abir
  *
+ * @author tarchoun Abir
  *
  */
 public enum RobotsMetaTag {

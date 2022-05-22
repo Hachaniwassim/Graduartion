@@ -1,5 +1,4 @@
 package app.igesa.controller;
-
 import app.igesa.strategy.StrategyPhotoContext;
 import com.flickr4java.flickr.FlickrException;
 import io.swagger.annotations.Api;
@@ -12,13 +11,24 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 
 /**
- * @author Tarchoun Abir#
+ *
+ * @author Tarchoun Abir
+ *
  */
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @Api(tags = "PHOTOS")
 public class PhotoController {
+    /**
+     *
+     * @Api  PUBLIC_API : for all  ||  PRIVATE_API : with token
+     *
+     */
+
+    private final String PUBLIC_API = "api/photos";
+    private final String PRIVATE_API = "api/private/photos";
+
     private StrategyPhotoContext strategyPhotoContext;
 
     @Autowired
@@ -29,7 +39,7 @@ public class PhotoController {
 
 
 
-    @RequestMapping(value="/photos/{id}/{title}/{context}",method = RequestMethod.POST)
+    @RequestMapping(value=PRIVATE_API + "/{id}/{title}/{context}",method = RequestMethod.POST)
     @ApiOperation(value="ADD PAGE",notes="SAUVGARDER PAGE", response = PhotoController.class)
     @ApiResponses(value= {
             @ApiResponse(code=200,message="Page was saved Successfully"),

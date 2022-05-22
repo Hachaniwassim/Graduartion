@@ -1,11 +1,14 @@
 package app.igesa.entity;
 
 /**
+ *
  * @author Tarchoun Abir
+ *
  */
 import javax.persistence.*;
 
 import app.igesa.entity.seo.Meta;
+import app.igesa.enumerations.ProductTypes;
 import app.igesa.translation.ProductTranslation;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -28,26 +31,47 @@ public class Product extends Auditable{
     @GeneratedValue(strategy= GenerationType.IDENTITY)
 	private Long id ;
 	private String title ;
-	private String detailimage ;
+	private String detailsimage ;
 	private String note ;
 	private String name ;
+	private String description;
 	@Column(name="Image")
 	private String image ;
-	@Column(name="ConsultatioNumber")
-	private  int consultationNumber ;
-	@ManyToOne(fetch= FetchType.LAZY)
-	@JoinColumn(name="entreprise_id")
-	private Entreprise entreprise;
+	@Enumerated(EnumType.STRING)
+	private ProductTypes type;
+	/**
+	 * Translation :: still not use
+	 */
 
-	@ManyToOne(fetch= FetchType.LAZY)
-	@JoinColumn(name = "category_id")
-	private Category category;
 	@OneToMany(mappedBy="product",cascade = CascadeType.ALL)
 	private List<ProductTranslation> productTranslations;
-	@OneToMany(mappedBy="product",cascade = CascadeType.ALL)
-	private List<Meta> metas;
-	@ManyToOne(fetch= FetchType.LAZY)
-	@JoinColumn(name = "tags_id")
-	private Tags tags;
+	/**
+	 * ENTERPRISE
+	 */
+
+	@ManyToOne
+	private Entreprise entreprise;
+
+	/**
+	 * CATEGORIES
+	 */
+
+	@ManyToOne
+	private Category category;
+	/**
+	 * SEO
+	 */
+
+	private String urlKey;
+	private String metaTitle;
+	private String metaKey;
+	private String metaDescription;
+
+    /**
+    * TAGS
+    */
+
+     @ManyToOne
+     private Tags tags;
 
 }

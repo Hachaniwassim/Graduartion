@@ -1,7 +1,4 @@
 package app.igesa.entity;
-/**
- * @author Tarchoun Abir
- */
 import java.util.List;
 import javax.persistence.*;
 import app.igesa.enumerations.GroupStatus;
@@ -10,7 +7,9 @@ import lombok.*;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 /**
+ *
  * @author Tarchoun Abir
+ *
  **/
 @AllArgsConstructor
 @Data
@@ -27,27 +26,31 @@ public class Groupe  extends Auditable{
     private Long id;
     @Column(name="Name", unique = true)
     private String name;
-
-    @Column(name = "Description")
+    @Column(columnDefinition="text")
     private String description;
-
-    @Column(name = "GroupStatus")
+    /**
+     * Status active :: blocked :: pending
+     */
     private GroupStatus groupStatus;
 
-    //Enterprise
+    /**
+     * Entreprise
+     */
     @JsonIgnore
     @OneToMany(mappedBy = "groupe", cascade = CascadeType.ALL)
     private List<Entreprise> entreprise;
 
-    //Account
+    /**
+     * Account
+     */
     @JsonIgnore
     @OneToMany(mappedBy = "groupe")
     private List<Account> accounts;
 
-
-
-    @ManyToOne(fetch= FetchType.LAZY)
-    @JoinColumn(name = "company_business_id")
+    /**
+     * Activity Types
+     */
+    @ManyToOne
     private CompanyBusiness companyBusiness;
 
 

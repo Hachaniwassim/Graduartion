@@ -26,7 +26,7 @@ export class CompanyListComponent implements OnInit {
   @ViewChild('companyForm', { static: false })
   companyForm!: FormGroup;
   companyData !: CompanyBusinessDTO;
-  companybusiness!: CompanyBusinessDTO[];
+  companybusiness : CompanyBusinessDTO[]=[];
   searchKey!: string;
   showspinner = false;
   data: any;
@@ -84,11 +84,12 @@ export class CompanyListComponent implements OnInit {
             this.datasource.data = this.datasource.data.filter((o: any) => {
                return o.id !== id ? o : false;
              })
-             console.log(this.datasource.data);
+             this.companybusiness.push(res);
           })
           this.notificationService.success(' :: Deleted Successfully')
         }
       });
+   
   }
 
   getone() {

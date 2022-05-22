@@ -8,7 +8,9 @@ import javax.persistence.Column;
 import java.util.Date;
 
 /**
+ *
  * @author Tarchoun Abir
+ *
  */
 
 @Builder
@@ -16,7 +18,9 @@ import java.util.Date;
 public class CookiesDTO {
 
     private Long id ;
+    @Column(columnDefinition="text")
     private String title ;
+    @Column(columnDefinition="text")
     private String htmlContent;
     private Long entrepriseId;
     protected Date createdDate;
@@ -42,9 +46,10 @@ public class CookiesDTO {
         cookie.setTitle(dto.getTitle());
         cookie.setCreatedDate(dto.getCreatedDate());
         cookie.setLastModifiedDate(dto.getLastModifiedDate());
-        //Entreprise entreprise = new Entreprise();
-        //entreprise.setId(dto.getEntrepriseId());
-        //cookie.setEntreprise(entreprise);
+        //===========================> Entreprise
+        Entreprise entreprise = new Entreprise();
+        entreprise.setId(dto.getEntrepriseId());
+        cookie.setEntreprise(entreprise);
         return cookie;
     }
 

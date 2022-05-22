@@ -1,8 +1,18 @@
 package app.igesa.repository;
-
 import app.igesa.entity.Category;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import java.util.Optional;
 
-public interface IcategoryRepository extends JpaRepository<Category,Long>{
+/**
+ *
+ * @author  Tarchoun.Abir
+ *
+ */
+public interface IcategoryRepository extends JpaRepository<Category,Long>, JpaSpecificationExecutor<Category>{
 
+
+        Optional<Category> findFirstByEntrepriseId(Long id);
 }
+
+

@@ -1,32 +1,27 @@
 package app.igesa.entity;
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import lombok.*;
 import javax.persistence.*;
+
 /**
- * @author Tarchoun Abir
- **/
-
+ * @author  Tarchoun Abir
+ *
+ */
 @Data
-@AllArgsConstructor
+@Setter
+@Getter
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
-@Table(name="Page1")
-@EqualsAndHashCode(callSuper= true)
-@EntityListeners(AuditingEntityListener.class)
-public class Page1 extends Auditable {
+@Table(name = "Page1")
+public class Page1  extends Auditable{
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private Long id ;
+    @Column(columnDefinition="text")
+    private String title ;
+    @Column(columnDefinition="text")
+    private String htmlContent ;
+    @ManyToOne
+    private Entreprise entreprise;
 
-        @Id
-        @GeneratedValue(strategy= GenerationType.IDENTITY)
-        private Long id ;
-        @Column(name="title")
-        private String title ;
-        @Column(name="description")
-        private String htmlContent ;
-        @ManyToOne
-        private Entreprise entreprise;
-
-    }
+}

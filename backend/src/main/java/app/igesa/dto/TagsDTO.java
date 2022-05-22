@@ -35,7 +35,6 @@ public class TagsDTO {
 				.description(tag.getDescription())
 				.lastModifiedDate(tag.getLastModifiedDate())
 				.createdDate(tag.getCreatedDate())
-				//.companyBusiness(CompanyBusinessDTO.fromEntity(entreprise.getCompanyBusiness()))
 				.build();
 	}
 

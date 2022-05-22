@@ -3,15 +3,15 @@
   <div class="content-page">
     <!-- Start content -->
     <div class="content">
-      <form class="form p-3" [formGroup]="privacy" id="privacy">
-        <h3>Privacy Policy</h3>
-        <mat-progress-bar mode="determinate" value="15"></mat-progress-bar><br><br>
+      <form class="form p-3" [formGroup]="privacy" id="privacy">  
+      <h4>  Front office side section title</h4>
+      <mat-progress-bar mode="determinate" value="22"></mat-progress-bar><br><br>
         <div class="card card-fullheight">
           <div class="card-body">
             <div class="row">
               <div class="col-md-6 col-sm-6">
-                <label>Tilte Front Office *</label>
-                <input type="text" formControlName="title" placeholder="title" class="form-control form-control-sm">
+                <label>Tilte Front Office *</label><br>
+                <input type="text" formControlName="title" placeholder="title" class="form-control ">
               </div>
             </div>
             <div class="row mt-5">
@@ -23,15 +23,13 @@
           </div>
         </div>
         <br><br><br>
-
+        <h4>Privacy Policy Text</h4> 
+        <mat-progress-bar mode="determinate" value="15"></mat-progress-bar><br><br>
         <div class="card card-fullheight">
           <div class="card-body">
-            <div class="row mt-5">
               <div class="col-md-12 col-sm-12 mt-5">
-                <label>Description * </label>
-                <ckeditor class="w-100 col-12"  [config]='config' formControlName="htmlContent"
-                ></ckeditor>
-              </div>
+                <label>Privacy policy text *</label><br>
+                <ckeditor class="w-100 col-12"  [config]='config' formControlName="htmlContent"></ckeditor>
             </div>
             <div class="row mt-5">
               <div class="col-md-12 col-sm-12 ">

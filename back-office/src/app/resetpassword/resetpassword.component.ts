@@ -3,8 +3,8 @@ import {Subscription} from "rxjs";
 import {AuthService} from "../_services/auth.service";
 import {Router} from "@angular/router";
 import {NgForm} from "@angular/forms";
-import {CustomHttpRespone} from "../models/custom-http-response";
 import {HttpErrorResponse} from "@angular/common/http";
+import { CustomHttpRespone } from '../models/entity/custom-http-response';
 
 @Component({
   selector: 'app-resetpassword',
@@ -23,9 +23,9 @@ export class ResetpasswordComponent implements OnInit,OnDestroy {
     this.refreshing = true;
     const emailAddress = emailForm.value['reset-password-email'];
     this.subscriptions.push(
-      this.authService.resetPassword(emailAddress).subscribe(
+      this.authService.forgetPassword(emailAddress).subscribe(
         (response: CustomHttpRespone) => {
-      console.log(response);
+          console.log(response);
           this.refreshing = false;
         },
         (error: HttpErrorResponse) => {

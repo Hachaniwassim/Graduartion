@@ -14,9 +14,9 @@ import { CompanyBusinessDTO } from '../models/dto/companyBusinessDTO';
 export class CompanybusinessService {
 
   //api backend
-  private base_url=environment.api + '/company';
+  private base_url=environment.privateApi + '/company';
 
-  constructor(private http :HttpClient, private datePipe: DatePipe) { }
+  constructor(private http :HttpClient) { }
 
   //http opttion
   httpOptions={ 
@@ -50,13 +50,13 @@ createCompayBusiness(item : CompanyBusinessDTO):Observable<CompanyBusinessDTO>{
 
 //get all team data 
 getAllCompanyBussiness():Observable<CompanyBusinessDTO[]>{
-   return this.http.get<CompanyBusinessDTO[]>(this.base_url).pipe(retry(2),catchError(this.handleError));
+   return this.http.get<CompanyBusinessDTO[]>(`${this.base_url}`).pipe(retry(2),catchError(this.handleError));
  }
 
 
   // get team by id
   getByidCompany(id:number):Observable<CompanyBusinessDTO>{
-    return this.http.get<CompanyBusinessDTO>(this.base_url + '/' +id).pipe(retry(2),catchError(this.handleError));
+    return this.http.get<CompanyBusinessDTO>(`${this.base_url}`+ '/' +id).pipe(retry(2),catchError(this.handleError));
 
   }
 
@@ -67,7 +67,7 @@ getAllCompanyBussiness():Observable<CompanyBusinessDTO[]>{
 
     // delete cars
     deleteCompanyBusiness(id:number){
-      return this.http.delete<CompanyBusinessDTO>(this.base_url + '/' +id,this.httpOptions).pipe(retry(2),catchError(this.handleError));
+      return this.http.delete<CompanyBusinessDTO>(`${this.base_url}`+ '/' +id,this.httpOptions).pipe(retry(2),catchError(this.handleError));
 
 }
 

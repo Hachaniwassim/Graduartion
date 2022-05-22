@@ -18,6 +18,14 @@ import { CompanyBusinessDTO } from 'src/app/models/dto/companyBusinessDTO';
   templateUrl: './groupe-add.component.html',
   styleUrls: ['./groupe-add.component.css']
 })
+
+
+/**
+ * 
+ * @author Tarchoun Abir
+ *
+ **/
+
 export class GroupeAddComponent implements OnInit {
 
   @ViewChild('groupeForm', { static: false })

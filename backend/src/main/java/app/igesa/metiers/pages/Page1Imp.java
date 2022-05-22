@@ -1,29 +1,23 @@
 package app.igesa.metiers.pages;
-
 import app.igesa.dto.Page1DTO;
-import app.igesa.dto.Page3DTO;
-import app.igesa.dto.PrivacyDTO;
 import app.igesa.entity.Page1;
-import app.igesa.entity.Page3;
-import app.igesa.entity.Privacy;
 import app.igesa.exceptions.ResourceNotFoundException;
+import app.igesa.metiers.Ientreprise;
 import app.igesa.metiers.Ipage1;
-import app.igesa.metiers.Ipage3;
-import app.igesa.metiers.Iprivacy;
-import app.igesa.repository.Page1Repository;
-import app.igesa.repository.Page3Repository;
-import app.igesa.repository.PrivacyRepository;
+import app.igesa.repository.pages.Page1Repository;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.Collection;
 import java.util.stream.Collectors;
+
 /**
+ *
  * Wassim Hachaani
+ *
  */
 @Service
 @NoArgsConstructor
@@ -35,23 +29,30 @@ public class Page1Imp implements Ipage1 {
 
     @Autowired
     Page1Repository page1Repository;
+    @Autowired
+    Ientreprise ientrepriseService;
 
     @Override
-    public Page1DTO save(Page1DTO p) {
-        Page1 saved = page1Repository.save(Page1DTO.toEntity(p));
+    public Page1DTO save(Page1DTO page1DTO) {
+        Page1 pages= new Page1();
+        if (page1DTO.getId()!=null){
+            pages = page1Repository.findById(page1DTO.getId()).orElseThrow(IllegalAccessError::new);
+        }
+        pages.setEntreprise(ientrepriseService.getCurrentEnterprise());
+        pages.setTitle(page1DTO.getTitle());
+        pages.setHtmlContent(page1DTO.getHtmlContent());
+        Page1 saved = page1Repository.save(Page1DTO.toEntity((page1DTO)));
         return Page1DTO.fromEntity(saved);
-
 
     }
 
     @Override
     public Collection<Page1DTO> view() {
-        log.debug("HTTP GET ALL {} ..");
-        return page1Repository.findAll().stream()
+        log.debug("<====================HTTP by current entreprise =====================>");
+        return page1Repository.findFirstByEntrepriseId(ientrepriseService.getCurrentEnterprise().getId()).stream()
                 .map(Page1DTO::fromEntity)
                 .collect(Collectors.toList());
     }
-
     @Override
     public Page1DTO findById(Long id) {
         log.debug("HTTP GET BY ID {} ..", id);

@@ -1,12 +1,16 @@
 package app.igesa.dto;
+import app.igesa.entity.Entreprise;
 import app.igesa.entity.Page1;
 import lombok.Builder;
 import lombok.Data;
 
+import javax.persistence.Column;
 import java.util.Date;
 
 /**
+ *
  * @author Tarchoun Abir
+ *
  */
 
 @Builder
@@ -14,7 +18,9 @@ import java.util.Date;
 public class Page1DTO {
 
     private Long id ;
+    @Column(columnDefinition="text")
     private String title ;
+    @Column(columnDefinition="text")
     private String htmlContent;
     private Long entrepriseId;
     protected Date createdDate;
@@ -40,9 +46,10 @@ public class Page1DTO {
         page.setTitle(dto.getTitle());
         page.setCreatedDate(dto.getCreatedDate());
         page.setLastModifiedDate(dto.getLastModifiedDate());
-        //Entreprise entreprise = new Entreprise();
-        //entreprise.setId(dto.getEntrepriseId());
-        //page.setEntreprise(entreprise);
+        //===========================> Entreprise ===========================>
+        Entreprise entreprise = new Entreprise();
+        entreprise.setId(dto.getEntrepriseId());
+        page.setEntreprise(entreprise);
         return page;
     }
 

@@ -13,34 +13,45 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Collection;
 
 /**
+ *
  * @author Wassim Hachani
+ *
  */
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 public class Page3Controller {
+
+    /**
+     *
+     * Api  PUBLIC_API : for all  // PRIVATE_API : with token
+     *
+     **/
+    private final String PUBLIC_API = "/api/pages3";
+    private final String PRIVATE_API = "/api/private/pages3";
+
     @Autowired
     Ipage3 ipage3;
 
     private static final Logger log = LoggerFactory.getLogger(Page3Controller.class);
 
 
-    @RequestMapping(value="/page3",method = RequestMethod.POST)
+    @RequestMapping(value=PRIVATE_API ,method = RequestMethod.POST)
     @ApiOperation(value="ADD Page",notes="SAUVGARDER PAGE", response = Page3DTO.class)
     @ApiResponses(value= {
-            @ApiResponse(code=200,message="pagewas saved Successfully"),
+            @ApiResponse(code=200,message="page was saved Successfully"),
             @ApiResponse(code=400,message="page not valid"),
             @ApiResponse(code=401,message="Unauthorized , without authority or permission"),
             @ApiResponse( code=403, message="not permitted or allowed"),
 
     })
     ResponseEntity<Page3DTO> save(@RequestBody Page3DTO p) {
-        log.debug(" HTTP POST {}",p);
+        log.debug(" <==================== HTTP POST {} =============================>",p);
         return new ResponseEntity<> (ipage3.save(p), HttpStatus.CREATED);
     }
 
 
-    @RequestMapping(value="/page3",method = RequestMethod.GET)
+    @RequestMapping(value=PRIVATE_API ,method = RequestMethod.GET)
     @ApiOperation(value="GET PAGE",notes="PAGES", responseContainer  = "Collection<Page3DTO>")
     @ApiResponses(value= {
             @ApiResponse(code=200,message="page was founded Successfully"),
@@ -50,11 +61,11 @@ public class Page3Controller {
 
     })
     public ResponseEntity<Collection<Page3DTO>> view() {
-        log.debug(" HTTP GET ALL privacy  {}");
+        log.debug(" <====================== HTTP GET ALL privacy ===================> {}");
         return new ResponseEntity<>( ipage3.view(),HttpStatus.OK);
     }
 
-    @RequestMapping(value="/page3/{id}",method = RequestMethod.GET)
+    @RequestMapping(value=PRIVATE_API  + "/{id}",method = RequestMethod.GET)
     @ApiOperation(value="GET PAGE",notes="GET PAGE", response = Page3DTO.class)
     @ApiResponses(value= {
             @ApiResponse(code=200,message="page by id was founded Successfully"),
@@ -64,12 +75,12 @@ public class Page3Controller {
 
     })
     public ResponseEntity<Page3DTO>findById(@PathVariable Long id) {
-        log.debug(" HTTP GET PAGE  BY ID {}",id);
+        log.debug("<====================== HTTP GET PAGE  BY ID {}=========================>",id);
         return new ResponseEntity<>(ipage3.findById(id),HttpStatus.OK);
     }
 
 
-    @RequestMapping(value="/page3",method =RequestMethod.PUT)
+    @RequestMapping(value=PRIVATE_API ,method =RequestMethod.PUT)
     @ApiOperation(value="UPDATE pages  ",response = Page3DTO.class)
     @ApiResponses(value= {
             @ApiResponse(code=200,message="page was updated successfully"),
@@ -81,7 +92,7 @@ public class Page3Controller {
         return new ResponseEntity<>(ipage3.save(c),HttpStatus.CREATED);
     }
 
-    @RequestMapping(value="/page3/{id}",method =RequestMethod.DELETE)
+    @RequestMapping(value=PRIVATE_API  + "/{id}",method =RequestMethod.DELETE)
     @ResponseBody
     @ApiOperation(value="DELETE BY ID ",response = Page3DTO.class)
     @ApiResponses(value= {
@@ -92,8 +103,7 @@ public class Page3Controller {
     })
     public void delete(@PathVariable Long id) {
 
-        log.debug(" HTTP DELETE BY ID {}",id);
-
+        log.debug(" <====================HTTP DELETE BY ID {}===============================>",id);
         ipage3.delete(id);
     }
 

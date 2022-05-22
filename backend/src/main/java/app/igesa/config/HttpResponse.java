@@ -2,7 +2,11 @@ package app.igesa.config;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.http.HttpStatus;
 import java.util.Date;
-
+/**
+ *
+ * @author Tarchoun Abir
+ *
+ */
 public class HttpResponse {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM-dd-yyyy hh:mm:ss", timezone = "America/New_York")
     private Date timeStamp;

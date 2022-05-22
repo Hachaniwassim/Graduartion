@@ -6,7 +6,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.util.Collection;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -15,13 +14,16 @@ import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import app.igesa.dto.GroupeDTO;
 import app.igesa.metiers.Igroupe;
 
 
 /**
- * @author Tarchoun Abir#
+ *
+ * @author Tarchoun Abir
+ *
  */
 
 @RestController
@@ -29,14 +31,25 @@ import app.igesa.metiers.Igroupe;
 @Api(tags = "GROUPE")
 public class GroupeController {
 
+	/**
+	 *
+	 * @Api  PUBLIC_API : for all  ||  PRIVATE_API : with token
+	 *
+	 */
+	private final String PUBLIC_API = "/api/groupe";
+	private final String PRIVATE_API = "/api/private/groupe";
+
 	private static final Logger log = LoggerFactory.getLogger(GroupeController.class);
+
 	@Autowired
 	private Igroupe groupeservice;
 	@Autowired
 	private IgroupeRepository igroupeRepository;
 
 
-	@RequestMapping(value = "/groupe", method = RequestMethod.POST)
+
+	@RequestMapping(value = PRIVATE_API, method = RequestMethod.POST)
+	@PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
 	@ApiOperation(value = "ADD GROUPE", notes = "SAUVGARDER GROUPE", response = GroupeDTO.class)
 	@ApiResponses(value = {
 			@ApiResponse(code = 200, message = "Groupe was saved Successfully"),
@@ -51,7 +64,8 @@ public class GroupeController {
 	}
 
 
-	@RequestMapping(value = "/groupe", method = RequestMethod.GET)
+	@RequestMapping(value = PRIVATE_API, method = RequestMethod.GET)
+	@PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
 	@ApiOperation(value = "GET A LIST OF GROUPE ", responseContainer = "Collection<GroupeDTO>")
 	@ApiResponses(value = {
 			@ApiResponse(code = 200, message = "Groupe was found successfully"),
@@ -66,7 +80,8 @@ public class GroupeController {
 	}
 
 
-	@RequestMapping(value = "/groupe/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = PRIVATE_API + "/{id}", method = RequestMethod.GET)
+	@PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
 	@ApiOperation(value = " GET GROUPE BY ID ", notes = "GET AND SEARCH FOR GROUPE BY ID ", response = GroupeDTO.class)
 	@ApiResponses(value = {
 			@ApiResponse(code = 200, message = "Groupe was found successfully with the provided id"),
@@ -80,7 +95,8 @@ public class GroupeController {
 		return groupeservice.findById(id);
 	}
 
-	@RequestMapping(value = "/groupe/{id}", method = RequestMethod.DELETE)
+	@RequestMapping(value = PRIVATE_API + "/{id}", method = RequestMethod.DELETE)
+	@PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
 	@ResponseBody
 	@ApiOperation(value = "DELETE GROUPE BY ID ", response = GroupeDTO.class)
 	@ApiResponses(value = {
@@ -94,7 +110,8 @@ public class GroupeController {
 		groupeservice.delete(id);
 	}
 
-	@RequestMapping(value = "/groupe", method = RequestMethod.PUT)
+	@RequestMapping(value = PRIVATE_API, method = RequestMethod.PUT)
+	@PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
 	@ApiOperation(value = "UPDATE GROUPE BY ID ", response = GroupeDTO.class)
 	@ApiResponses(value = {
 			@ApiResponse(code = 200, message = "Groupe was updated successfully"),
@@ -107,7 +124,8 @@ public class GroupeController {
 	}
 
 
-	@RequestMapping(value = "/groupe/active", method = RequestMethod.GET)
+	@RequestMapping(value = PRIVATE_API + "/active", method = RequestMethod.GET)
+	@PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
 	@ApiOperation(value = "find by active groupe ", response = GroupeDTO.class)
 	@ApiResponses(value = {
 			@ApiResponse(code = 200, message = "Groupe was fouded successfully"),
@@ -126,7 +144,8 @@ public class GroupeController {
 		}
 	}
 
-	@RequestMapping(value = "/groupe/confirmed", method = RequestMethod.GET)
+	@RequestMapping(value = PRIVATE_API + "/confirmed", method = RequestMethod.GET)
+	@PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
 	@ApiOperation(value = " find by confirmed   groupe", response = GroupeDTO.class)
 	@ApiResponses(value = {
 			@ApiResponse(code = 200, message = "Groupe was founded successfully"),
@@ -146,27 +165,9 @@ public class GroupeController {
 	}
 
 
-	@RequestMapping(value = "/groupe/deleted", method = RequestMethod.GET)
-	@ApiOperation(value = " find by deleted   groupe", response = GroupeDTO.class)
-	@ApiResponses(value = {
-			@ApiResponse(code = 200, message = "Groupe was founded successfully"),
-			@ApiResponse(code = 401, message = "Unauthorized , without authority or permission"),
-			@ApiResponse(code = 403, message = "not permitted or allowed"),
-	})
-	public ResponseEntity<List<GroupeDTO>> findByDeletedGroupe() {
-		try {
-			List<GroupeDTO> groupes = igroupeRepository.findByGroupStatus(GroupStatus.BLOCKED).stream().map(GroupeDTO::fromEntity).collect(Collectors.toList());
-			if (groupes.isEmpty()) {
-				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-			}
-			return new ResponseEntity<>(groupes, HttpStatus.OK);
-		} catch (Exception e) {
-			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-		}
-	}
 
-
-	@RequestMapping(value = "/groupe", method = RequestMethod.DELETE)
+	@RequestMapping(value = PRIVATE_API, method = RequestMethod.DELETE)
+	@PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
 	@ApiOperation(value = " delete all groupes ", response = GroupeDTO.class)
 	@ApiResponses(value = {
 			@ApiResponse(code = 200, message = "all groupes was deleted successfully"),
@@ -183,7 +184,7 @@ public class GroupeController {
 
 	}
 
-	@RequestMapping(value = "/groupe/toggle-status/{id}", method = RequestMethod.PUT)
+	@RequestMapping(value = PRIVATE_API + "/toggle-status/{id}", method = RequestMethod.PUT)
 	@ApiOperation(value = "UPDATE GROUPE BY ID ", response = GroupeDTO.class)
 	@ApiResponses(value = {
 			@ApiResponse(code = 200, message = "Groupe was updated successfully"),
@@ -193,4 +194,13 @@ public class GroupeController {
 	public ResponseEntity<GroupeDTO> updateStatus(@PathVariable("id") long id, @RequestBody GroupStatus status) {
 		return new ResponseEntity<>(groupeservice.updateSatus(id, status), HttpStatus.CREATED);
 	}
+
+
+
+	@PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
+	@GetMapping(value = PRIVATE_API + "/current-groupe")
+	public Groupe getCurrentGroup() {
+		return groupeservice.getCurrentGroup();
+	}
+
 }

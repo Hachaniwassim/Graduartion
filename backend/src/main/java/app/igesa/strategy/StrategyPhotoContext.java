@@ -1,6 +1,6 @@
 package app.igesa.strategy;
 import app.igesa.enumerations.ErrorCode;
-import app.igesa.exceptions.InvalidOporationException;
+import app.igesa.exceptions.InvalideEntityException;
 import com.flickr4java.flickr.FlickrException;
 import lombok.Setter;
 import org.springframework.beans.factory.BeanFactory;
@@ -46,7 +46,7 @@ public class StrategyPhotoContext {
             case "Category":
                 strategy = beanFactory.getBean(beanName,SaveCategoryPhoto.class);
                 break;
-            default:throw new InvalidOporationException("Context Not Recognized for Backup ", ErrorCode.UNKHNOWN_CONTEXT);
+            default:throw new InvalideEntityException("Context Not Recognized for Backup ", ErrorCode.UNKHNOWN_CONTEXT);
         }
     }
 

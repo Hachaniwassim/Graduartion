@@ -1,8 +1,6 @@
 package app.igesa.controller.seo;
-import app.igesa.dto.CategoryDTO;
 import app.igesa.dto.seo.WebPositioningDto;
 import app.igesa.entity.seo.Meta;
-import app.igesa.entity.seo.WebPositioningClientResponse;
 import app.igesa.enumerations.PagesTypes;
 import app.igesa.metiers.seo.WebPositioningService;
 import io.swagger.annotations.Api;
@@ -10,7 +8,6 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import org.springframework.web.bind.annotation.*;
-import java.util.Locale;
 
 /**
  *

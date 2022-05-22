@@ -1,13 +1,16 @@
 package app.igesa.entity;
-/**
- *  @author Tarchoun Abir
- */
 import app.igesa.enumerations.AccountStatus;
 import lombok.*;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import java.util.HashSet;
 import java.util.Set;
+
+/**
+ *
+ *  @author Tarchoun Abir
+ *
+ */
 
 @Data
 @Getter
@@ -34,18 +37,38 @@ public class Account extends Auditable {
     private String matchingPassword;
     private String fiscaleCode;
     private AccountStatus accountStatus;
+
+    /**
+     * Role
+     *
+     */
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(	name = "account_roles",
             joinColumns = @JoinColumn(name = "account_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
-
-    @ManyToOne(fetch= FetchType.LAZY,cascade = {CascadeType.REFRESH,CascadeType.MERGE})
-    @JoinColumn(name = "groupe_id",updatable = false)
+    /***
+     * Groupe
+     */
+    @ManyToOne
     private Groupe groupe ;
-    @ManyToOne(fetch= FetchType.LAZY)
+
+    /***
+     * Entreprise
+     */
+    @ManyToOne
     private Entreprise entreprise ;
 
+    /**
+     *
+     * Constructeur
+     * @param username
+     * @param email
+     * @param encode
+     * @param encode1
+     * @param fiscaleCode
+     * @param accountStatus
+     */
     public Account(String username, String email, String encode, String encode1, String fiscaleCode, AccountStatus accountStatus) {
         super();
         this.username=username;

@@ -12,11 +12,8 @@ import { Languageservice } from 'src/app/_services/language.service';
 import Swal from 'sweetalert2';
 import { AddLanguageComponent } from '../add-language/add-language.component';
 import { LanguageViewComponent } from '../language-view/language-view.component';
-
-import { languageDTO } from 'src/app/models/dto/languageDTO';
-import { List } from 'lodash';
-import { NgxSpinnerService } from "ngx-spinner";
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { languageDTO } from 'src/app/models/dto/languageDTO';
 
 @Component({
   selector: 'app-language-list',

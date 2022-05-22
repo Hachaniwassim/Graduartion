@@ -35,10 +35,6 @@ public class EntrepriseDTO {
 	protected Date createdDate;
 	protected Date lastModifiedDate;
 	private Long groupeId;
-	private GroupeDTO groupe ;
-	@JsonIgnore
-	private List<ConfigGeneralDTO> config ;
-	
 
     public static EntrepriseDTO fromEntity(Entreprise entreprise) {
 
@@ -51,8 +47,8 @@ public class EntrepriseDTO {
 				.note(entreprise.getNote())
 				.phone(entreprise.getPhone())
 				.createdDate(entreprise.getCreatedDate())
-				//.groupe(GroupeDTO.fromEntity(entreprise.getGroupe().getId()))
 				.lastModifiedDate(entreprise.getLastModifiedDate())
+				//.groupeId(entreprise.getGroupe().getId())
 				.build();
     }
     
@@ -68,6 +64,7 @@ public class EntrepriseDTO {
 				entreprise.setPhone(dto.getPhone());
 				entreprise.setCreatedDate(dto.getCreatedDate());
 				entreprise.setLastModifiedDate(dto.getLastModifiedDate());
+		        //===========================> Groupe ===========================>
 		        Groupe groupe = new Groupe();
 		        groupe.setId(dto.getGroupeId());
 		        entreprise.setGroupe(groupe);

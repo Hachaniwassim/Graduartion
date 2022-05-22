@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  api: 'http://localhost:8089',
-  publicApi: 'api',
+  privateApi : 'http://localhost:8089/api/private',
+  publicApi: 'http://localhost:8089',
 };
 
 /*
