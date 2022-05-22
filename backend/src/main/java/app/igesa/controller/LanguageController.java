@@ -24,11 +24,14 @@ import org.slf4j.LoggerFactory;
 @Api(tags = "LANGUAGE")
 public class LanguageController {
 
-    /**
+
+
+    /*********************************************************
      *
      * @Api  PUBLIC_API : for all  ||  PRIVATE_API : with token
      *
-     */
+     *********************************************************/
+
     private final String PUBLIC_API = "api/language";
     private final String PRIVATE_API = "api/private/language";
 

@@ -1,4 +1,5 @@
 package app.igesa.metiers.pages;
+import app.igesa.dto.CookiesDTO;
 import app.igesa.dto.Page1DTO;
 import app.igesa.entity.Page1;
 import app.igesa.exceptions.ResourceNotFoundException;
@@ -34,13 +35,13 @@ public class Page1Imp implements Ipage1 {
 
     @Override
     public Page1DTO save(Page1DTO page1DTO) {
-        Page1 pages= new Page1();
+        Page1 page= new Page1();
         if (page1DTO.getId()!=null){
-            pages = page1Repository.findById(page1DTO.getId()).orElseThrow(IllegalAccessError::new);
+            page = page1Repository.findById(page1DTO.getId()).orElseThrow(IllegalAccessError::new);
         }
-        pages.setEntreprise(ientrepriseService.getCurrentEnterprise());
-        pages.setTitle(page1DTO.getTitle());
-        pages.setHtmlContent(page1DTO.getHtmlContent());
+        page.setEntreprise(ientrepriseService.getCurrentEnterprise());
+        page.setTitle(page1DTO.getTitle());
+        page.setHtmlContent(page1DTO.getHtmlContent());
         Page1 saved = page1Repository.save(Page1DTO.toEntity((page1DTO)));
         return Page1DTO.fromEntity(saved);
 
@@ -53,18 +54,6 @@ public class Page1Imp implements Ipage1 {
                 .map(Page1DTO::fromEntity)
                 .collect(Collectors.toList());
     }
-    @Override
-    public Page1DTO findById(Long id) {
-        log.debug("HTTP GET BY ID {} ..", id);
-        if (id == null) {
-            log.error(" Id is NULL .. !!");
-            return null;
-        }
-
-        return page1Repository.findById(id).map(Page1DTO::fromEntity).orElseThrow(() ->
-                new ResourceNotFoundException(" No page with  Id = :: " + id + " was founded {} ..!"));
-
-    }
 
     @Override
     public void delete(Long id) {
@@ -75,6 +64,19 @@ public class Page1Imp implements Ipage1 {
         }
         page1Repository.deleteById(id);
     }
+    @Override
+    public Page1DTO findById(Long id) {
+        log.debug("HTTP GET BY ID {} ..", id);
+        if (id == null) {
+            log.error(" cookies Id is NULL .. !!");
+            return null;
+        }
+
+        return page1Repository.findById(id).map(Page1DTO::fromEntity).orElseThrow(() ->
+                new ResourceNotFoundException(" No cookies   with  Id = :: " + id + " was founded {} ..!"));
+
+    }
+
 
 }
 

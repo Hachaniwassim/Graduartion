@@ -6,12 +6,12 @@ import javax.persistence.*;
  * @author Tarchoun Abir
  *
  */
-@Entity
+@Entity(name = "Assistance")
 @Setter
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "Page2")
+@Table(name = "Assistance")
 public class Page2 extends  Auditable {
         @Id
         @GeneratedValue(strategy= GenerationType.IDENTITY)

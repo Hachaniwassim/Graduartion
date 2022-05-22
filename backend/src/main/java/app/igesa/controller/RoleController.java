@@ -26,11 +26,13 @@ import java.util.Optional;
 @Api(tags = "ROLE")
 public class RoleController {
 
-    /**
+
+
+    /*********************************************************
      *
      * @Api  PUBLIC_API : for all  ||  PRIVATE_API : with token
      *
-     */
+     *********************************************************/
 
     private static final Logger log = LoggerFactory.getLogger(RoleController.class);
 

@@ -24,7 +24,7 @@ import java.util.Date;
 
 @EnableJpaAuditing(auditorAwareRef = "auditorAware")
 @SpringBootApplication
-public class MultiwebsitesApplication {
+public class MultiwebsitesApplication  {
 
 	@Resource
 	FilesStorageService storageService;
@@ -62,6 +62,7 @@ public class MultiwebsitesApplication {
 		CompanyBusiness companyBusiness = new CompanyBusiness() ;
 		companyBusiness.setDomainename("test");
 		companyBusiness.setDescription("test");
+		icomapnybusRepository.save(companyBusiness);
 		Groupe groupe= new Groupe();
 		groupe.setCompanyBusiness(companyBusiness);
 		groupe.setDescription("mss");
@@ -71,6 +72,9 @@ public class MultiwebsitesApplication {
 		igroupeRepository.save(groupe);
 		Entreprise entreprise = new Entreprise();
 		entreprise.setEmail("mssinfo@tn.net");
+		entreprise.setCodefiscale("5555555555");
+		entreprise.setCompanyname("MSS");
+		entreprise.setNote("test test test ");
 		entreprise.setCreatedDate(new Date());
 		entreprise.setLastModifiedDate(new Date());
 		entreprise.setGroupe(groupe);

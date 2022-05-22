@@ -8,6 +8,6 @@ import java.util.Collection;
 public interface Ipage1 {
     public Page1DTO save (Page1DTO  p);
     public Collection<Page1DTO  > view();
-    public Page1DTO  findById(Long id);
+    public Page1DTO findById(Long id);
     public void delete(Long id);
 }

@@ -23,16 +23,17 @@ import java.util.Collection;
 @RestController
 public class Page1Controller {
 
-    /**
+    /*********************************************************
      *
-     * Api  PUBLIC_API : for all  // PRIVATE_API : with token
+     * Api  PUBLIC_API : for all  ||  PRIVATE_API : with token
      *
-     **/
+     *********************************************************/
+
     private final String PUBLIC_API = "/api/pages1";
     private final String PRIVATE_API = "/api/private/pages1";
 
     @Autowired
-    Ipage1 ipage1;
+    Ipage1 ipage1Service;
 
     private static final Logger log = LoggerFactory.getLogger(Page1Controller.class);
 
@@ -49,7 +50,7 @@ public class Page1Controller {
     })
     ResponseEntity<Page1DTO> save(@RequestBody Page1DTO p) {
         log.debug(" <=================== HTTP POST {}========================>",p);
-        return new ResponseEntity<> (ipage1.save(p), HttpStatus.CREATED);
+        return new ResponseEntity<> (ipage1Service.save(p), HttpStatus.CREATED);
     }
 
 
@@ -65,7 +66,7 @@ public class Page1Controller {
     })
     public ResponseEntity<Collection<Page1DTO>> view() {
         log.debug(" <==================== HTTP GET ALL privacy  {}====================>");
-        return new ResponseEntity<>( ipage1.view(),HttpStatus.OK);
+        return new ResponseEntity<>( ipage1Service.view(),HttpStatus.OK);
     }
 
     @RequestMapping(value=PRIVATE_API + "/{id}",method = RequestMethod.GET)
@@ -80,7 +81,7 @@ public class Page1Controller {
     })
     public ResponseEntity<Page1DTO>findById(@PathVariable Long id) {
         log.debug(" <===================HTTP GET PAGE  BY ID {}=======================>",id);
-        return new ResponseEntity<>(ipage1.findById(id),HttpStatus.OK);
+        return new ResponseEntity<>(ipage1Service.findById(id),HttpStatus.OK);
     }
 
 
@@ -95,7 +96,7 @@ public class Page1Controller {
     public ResponseEntity<Page1DTO>update(@RequestBody Page1DTO c) {
 
         log.debug(" <=================== Update {}=======================>");
-        return new ResponseEntity<>(ipage1.save(c),HttpStatus.CREATED);
+        return new ResponseEntity<>(ipage1Service.save(c),HttpStatus.CREATED);
     }
 
     @RequestMapping(value=PRIVATE_API + "/{id}",method =RequestMethod.DELETE)
@@ -110,7 +111,7 @@ public class Page1Controller {
     })
     public void delete(@PathVariable Long id) {
         log.debug("<========================== HTTP DELETE BY ID {}========================>",id);
-        ipage1.delete(id);
+        ipage1Service.delete(id);
     }
 
 }
