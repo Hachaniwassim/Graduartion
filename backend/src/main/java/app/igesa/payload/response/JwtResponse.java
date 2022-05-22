@@ -20,16 +20,16 @@ public class JwtResponse {
 	private String fiscaleCode;
 	private AccountStatus accountStatus;
 	private List<String> roles;
-	private Long groupeId ;
+	private Long groupId ;
 
-	public JwtResponse(String token, Long id, String username, String email, List<String> roles, String fiscaleCode, AccountStatus accountStatus,Long groupeId) {
+	public JwtResponse(String token, Long id, String username, String email, List<String> roles, String fiscaleCode, AccountStatus accountStatus,Long groupId) {
 		this.token = token;
 		this.id = id;
 		this.username = username;
 		this.email = email;
 		this.roles = roles;
 		this.fiscaleCode = fiscaleCode;
-		this.groupeId=groupeId;
+		this.groupId=groupId;
 		this.accountStatus = accountStatus;
 
 	}
@@ -80,11 +80,11 @@ public class JwtResponse {
 		this.fiscaleCode = fiscaleCode;
 	}
 
-	public Long getGroupeId() {
-		return groupeId;
+	public Long getGroupId() {
+		return groupId;
 	}
 
-	public void setGroupeId(Long groupeId) {
-		this.groupeId = groupeId;
+	public void setGroupId(Long groupId) {
+		this.groupId = groupId;
 	}
 }

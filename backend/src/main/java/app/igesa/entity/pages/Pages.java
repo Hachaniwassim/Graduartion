@@ -4,9 +4,8 @@ import app.igesa.entity.Auditable;
 import app.igesa.entity.Entreprise;
 import app.igesa.enumerations.PagesTypes;
 import app.igesa.translation.PagesTranslations;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
 import java.util.List;
 
 
@@ -19,6 +18,8 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 @Entity
 @Table(name="Pages")
 public class Pages extends Auditable {
