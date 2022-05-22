@@ -15,6 +15,8 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { ContactComponent } from './contact/contact.component';
 import { UsefullLinksComponent } from './usefull-links/usefull-links.component';
 import { AboutComponent } from './about/about.component';
+import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
+import { CookiesComponent } from './cookies/cookies.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { AboutComponent } from './about/about.component';
     ContactComponent,
     UsefullLinksComponent,
     AboutComponent,
+    PrivacyPolicyComponent,
+    CookiesComponent,
   ],
   imports: [
     BrowserModule,
