@@ -35,12 +35,12 @@ export class AboutService {
    * 
    *   ------- Handling Erros ---------
    * 
-   ***************************************/
+   **************************************/
 
   //http opttion
   httpOptions = {
     headers: new HttpHeaders({
-      
+
       'content-type': 'application/json'
 
     })
