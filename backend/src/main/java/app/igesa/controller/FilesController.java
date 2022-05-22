@@ -28,11 +28,11 @@ import java.util.stream.Collectors;
 public class FilesController {
 
 
-  /**
+  /*********************************************************
    *
-   * @Api  PUBLIC_API : for all  ||  PRIVATE_API : with token
+   * Api  PUBLIC_API : for all  ||  PRIVATE_API : with token
    *
-   */
+   *********************************************************/
 
   private final String PUBLIC_API = "api/upload";
   private final String PRIVATE_API = "api/private/upload";

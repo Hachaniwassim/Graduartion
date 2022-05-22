@@ -11,8 +11,8 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-@Table(name = "Page1")
+@Entity(name = "About")
+@Table(name = "About")
 public class Page1  extends Auditable{
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)

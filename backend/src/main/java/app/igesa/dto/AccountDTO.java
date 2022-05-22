@@ -1,5 +1,6 @@
 package app.igesa.dto;
 import app.igesa.entity.Account;
+import app.igesa.entity.Entreprise;
 import app.igesa.entity.Groupe;
 import app.igesa.entity.Role;
 import app.igesa.enumerations.AccountStatus;
@@ -31,6 +32,7 @@ public class AccountDTO {
     protected Date lastModifiedDate;
     protected Date createdDate;
     private Long groupId;
+    private Long entrepriseId;
     private Set<Role> roles = new HashSet<>();
 
     public static AccountDTO fromEntity(Account account) {
@@ -46,6 +48,7 @@ public class AccountDTO {
                 .lastModifiedDate(account.getLastModifiedDate())
                 .groupId(account.getGroupe().getId())
                 .roles(account.getRoles())
+                .entrepriseId(account.getEntreprise().getId())
                 .createdDate(account.getCreatedDate())
                 .build();
     }
@@ -67,6 +70,10 @@ public class AccountDTO {
         Groupe groupe = new Groupe();
         groupe.setId(dto.getGroupId());
         account.setGroupe(groupe);
+        //=================> entreprise
+        Entreprise entreprise = new Entreprise();
+        entreprise.setId(dto.getEntrepriseId());
+        account.setEntreprise(entreprise);
         return account;
     }
 

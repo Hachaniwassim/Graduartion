@@ -23,11 +23,14 @@ import org.slf4j.LoggerFactory;
 @RestController
 @Api(tags = "POST")
 public class PostController {
-    /**
+
+
+    /*********************************************************
      *
      * @Api  PUBLIC_API : for all  ||  PRIVATE_API : with token
      *
-     */
+     *********************************************************/
+
     private final String PUBLIC_API = "api/post";
     private final String PRIVATE_API = "api/private/post";
 

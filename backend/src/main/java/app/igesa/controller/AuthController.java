@@ -47,11 +47,12 @@ import java.util.stream.Collectors;
 @Api(tags = "Authentification" )
 public class AuthController {
 
-	/**
+
+	/*********************************************************
 	 *
-	 * Api  PUBLIC_API : for all  // PRIVATE_API : with token
+	 * Api  PUBLIC_API : for all  ||  PRIVATE_API : with token
 	 *
-	 */
+	 *********************************************************/
 	private final String PUBLIC_API = "/api/auth";
 	private final String PRIVATE_API = "/api/private/user";
 

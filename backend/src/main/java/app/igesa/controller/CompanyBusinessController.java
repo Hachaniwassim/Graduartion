@@ -25,11 +25,13 @@ import app.igesa.metiers.IcompanyBusiness;
 @RestController
 @Api(tags = "COMPANYBUSINESS")
 public class CompanyBusinessController {
-    /**
+
+    /*********************************************************
      *
-     * Api  PUBLIC_API : for all  // PRIVATE_API : with token
+     * Api  PUBLIC_API : for all  ||  PRIVATE_API : with token
      *
-     **/
+     *********************************************************/
+
     private final String PUBLIC_API = "/api/company";
     private final String PRIVATE_API = "/api/private/company";
     @Autowired

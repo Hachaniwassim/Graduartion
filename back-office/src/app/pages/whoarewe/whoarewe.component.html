@@ -1,0 +1,46 @@
+<br><br><br>
+<div id="wrapper">
+  <div class="content-page">
+    <!-- Start content -->
+    <div class="content">
+      <form class="form p-3" [formGroup]="about" id="about">  
+      <h4>  Front office side section title</h4>
+      <mat-progress-bar mode="determinate" value="22"></mat-progress-bar><br><br>
+        <div class="card card-fullheight">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6 col-sm-6">
+                <label>Tilte Front Office *</label><br>
+                <input type="text" formControlName="title" placeholder="title" class="form-control ">
+              </div>
+            </div>
+            <div class="row mt-5">
+              <div class="col-md-12 col-sm-12 ">
+                <button mat-flat-button class="float-right" color="primary" (click)="save()">save
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br><br><br>
+        <h4>About As Text</h4> 
+        <mat-progress-bar mode="determinate" value="15"></mat-progress-bar><br><br>
+        <div class="card card-fullheight">
+          <div class="card-body">
+              <div class="col-md-12 col-sm-12 mt-5">
+                <label>About As text *</label><br>
+                <ckeditor class="w-100 col-12"  [config]='config' formControlName="htmlContent"></ckeditor>
+                <!--<a id="find_us" href="http://maps.google.com?q=Via Consolare Antica, 308, Capo d'Orlando, ME, Italia" target="blank"><i class="fa fa-map"></i></a>-->
+            </div>  
+            <div class="row mt-5">
+              <div class="col-md-12 col-sm-12 ">
+                <button mat-flat-button class="float-right" color="primary" (click)="save()">save
+                </button>&nbsp;
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>   
