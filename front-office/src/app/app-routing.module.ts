@@ -10,6 +10,7 @@ import { ResetpasswordComponent } from "./resetpassword/resetpassword.component"
 import { RegisterComponent } from "./register/register.component";
 import { AboutComponent } from "./about/about.component";
 import { UsefullLinksComponent } from "./usefull-links/usefull-links.component";
+import { ContactComponent } from "./contact/contact.component";
 
 
 const routes : Routes =[
@@ -30,6 +31,8 @@ const routes : Routes =[
   { path: 'about', component: AboutComponent },
 
   { path: 'usefulllinks', component: UsefullLinksComponent },
+
+  { path: 'contact', component: ContactComponent },
 
   // 404 not found
   { path: '**', component: NotfoundComponent },
