@@ -9,7 +9,7 @@
 					<div class="col-md-4 col-sm-3">
 						<!-- Logo Area -->
 						<div class="logo_area">
-							 <a href="index.html"><img src="../../assets/img/igesa.it.png" alt="Logo" style="width: 41%;" /></a>
+							 <a href="index.html"><img src="../../assets/img/igesa.png" alt="Logo" style="width: 41%;" /></a>
 						</div>
 						
 						 <div class="navbar-header">
@@ -24,19 +24,18 @@
 					</div>
 				
 					<!-- Main Menu Area -->
-					<div class="col-md-8 col-sm-9">
+					<div class="col-md-13 col-sm-13">
 						<nav id="main_menu" class="navbar-right">
-							
 							<div id="navbar" class="navbar-collapse collapse">
 								<ul id="nav" class="nav navbar-nav">
-									<li><a routerLink="/home">Home</a></li>
-									<li><a routerLink="/about">About</a></li>
-									<li><a  routerLink="/sellers">Our Sellers</a></li>
-									<li><a  routerLink="/products">Products</a></li>
-									<li><a routerLink="/usefulllinks" >Usefull Links</a></li>	
-									<li><a href="#testimonial_area">testimonials</a></li>
-									<li><a href="#blog_area">Blog</a></li>
-									<li><a routerLink="/contact">Contact</a></li>
+									<li><a (click)="reloadPage()" routerLink="/home">Home</a></li>
+									<li><a (click)="reloadPage()"  routerLink="/about">About</a></li>
+									<li><a (click)="reloadPage()"   routerLink="/sellers">Our Sellers</a></li>
+									<li><a (click)="reloadPage()"  routerLink="/products">Products</a></li>
+									<li><a (click)="reloadPage()"  routerLink="/usefulllinks" >Usefull Links</a></li>	
+									<li><a (click)="reloadPage()"   href="#testimonial_area">testimonials</a></li>
+									<li><a (click)="reloadPage()"  href="#blog_area">Blog</a></li>
+									<li><a (click)="reloadPage()"  routerLink="/contact">Contact</a></li>
 								</ul>
 							</div>
 						</nav>

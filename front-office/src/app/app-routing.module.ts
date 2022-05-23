@@ -17,13 +17,15 @@ import { PrivacyPolicyComponent } from "./privacy-policy/privacy-policy.componen
 
 const routes : Routes =[
 
+ 
+  
+  { path : "home", component : HomeComponent},
   { path: 'login', component: LoginComponent },
   { path: 'resetpassword', component: ResetpasswordComponent },
   { path: 'register', component: RegisterComponent },
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   //home
 
-  { path : "home", component : HomeComponent},
 
   { path: 'products', loadChildren: () => import('./products/products.module').then(m => m.ProductsModule) },
 
