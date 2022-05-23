@@ -92,7 +92,7 @@ all():Observable<AccountDTO[]>{
 
    // update account by Id 
    update(item : any){
-    return this.http.put<any>(`${this.base_url}`,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
+    return this.http.put<any>(`${this.base_url}`,item,this.httpOptions).pipe(retry(2),catchError(this.handleError));
    }
 
  
@@ -143,7 +143,7 @@ all():Observable<AccountDTO[]>{
       password : new FormControl(''),
       matchingPassword : new FormControl(''),
       fiscaleCode : new FormControl(''),
-      accountStatus: new FormControl(''),
+      accountStatus: new FormControl('')
   });
 
 
@@ -157,7 +157,10 @@ all():Observable<AccountDTO[]>{
       password: null,
       matchingPassword: null,
       fiscaleCode: null,
-      accountStatus:null
+      accountStatus:null,
+      groupeId : null,
+      createdDate :null,
+      lastModifiedDate :null,
     });
   }
    

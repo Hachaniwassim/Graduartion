@@ -9,6 +9,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Type;
 
 
 /**
@@ -33,6 +34,7 @@ public class Entreprise  extends Auditable{
 	private String phone ;
 	private String codefiscale ;
 	private String fax ;
+	@Type(type = "org.hibernate.type.TextType")
 	private String note ;
 	@Column(name="CompanyName", unique = true,nullable = false)
 	private String companyname ;

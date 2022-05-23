@@ -5,6 +5,7 @@ import app.igesa.entity.Entreprise;
 import app.igesa.enumerations.PagesTypes;
 import app.igesa.translation.PagesTranslations;
 import lombok.*;
+import org.hibernate.annotations.Type;
 
 import java.util.List;
 
@@ -27,7 +28,7 @@ public class Pages extends Auditable {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
 	private Long id ;
 	private PagesTypes pagetype;
-	@Column(columnDefinition="text")
+	@Type(type = "org.hibernate.type.TextType")
 	private String title ;
 	@Column(columnDefinition="text")
 	private String description ;

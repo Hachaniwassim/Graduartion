@@ -4,6 +4,8 @@ import app.igesa.translation.CategoryTranslation;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
+import org.hibernate.annotations.Type;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,8 +27,9 @@ public class Category extends Auditable {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
 	private Long id ;
 	private String image ;
+	@Type(type = "org.hibernate.type.TextType")
 	private String title;
-	@Column(columnDefinition="text")
+	@Type(type = "org.hibernate.type.TextType")
 	private String description ;
 	private String name ;
 	private String menuimage ;

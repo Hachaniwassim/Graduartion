@@ -4,6 +4,7 @@ import javax.persistence.*;
 import app.igesa.enumerations.GroupStatus;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
+import org.hibernate.annotations.Type;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 /**
@@ -26,7 +27,7 @@ public class Groupe  extends Auditable{
     private Long id;
     @Column(name="Name", unique = true)
     private String name;
-    @Column(columnDefinition="text")
+    @Type(type = "org.hibernate.type.TextType")
     private String description;
     /**
      * Status active :: blocked :: pending

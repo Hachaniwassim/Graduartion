@@ -44,7 +44,7 @@ export class EntrepriseListComponent implements OnInit {
     datasource = new MatTableDataSource(this.entreprise)
     id=this.route.snapshot.params['id'];
     message!: string;
-    displayedColumns: string[] = ['companyname','codefiscale','email','createdDate','lastModifiedDate','actions'];
+    displayedColumns: string[] = ['companyname','email','phone','codefiscale','createdDate','lastModifiedDate','actions'];
 
     @ViewChild(MatPaginator) paginator!: MatPaginator;
     @ViewChild(MatSort, {}) sort!: MatSort;
@@ -175,12 +175,4 @@ export class EntrepriseListComponent implements OnInit {
       this.showspinner = true;
       setTimeout(() => { this.showspinner = false; }, 2000)
     }
-  
-  
-    
-  
 }
-function res(res: any) {
-  throw new Error('Function not implemented.');
-}
-

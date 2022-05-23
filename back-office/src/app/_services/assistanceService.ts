@@ -5,9 +5,7 @@ import * as _ from 'lodash';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { Page1DTO } from '../models/dto/page1DTO';
 import { Page2DTO } from '../models/dto/page2DTO';
-import { privacyDTO } from '../models/dto/privacyDTO';
 
 @Injectable({
   providedIn: 'root'
@@ -68,7 +66,7 @@ export class AssistanceService {
    *
    *******************************/
 
-  getPagesByCurrentEntreprise(): Observable<privacyDTO[]> {
+  getPagesByCurrentEntreprise(): Observable<Page2DTO[]> {
     return this.http.get<Page2DTO[]>(this.base_url).pipe(retry(2), catchError(this.handleError));
   }
 
@@ -78,7 +76,7 @@ export class AssistanceService {
    *
    ****************************/
 
-  getPage2Byid(id: number): Observable<Page1DTO> {
+  getPage2Byid(id: number): Observable<Page2DTO> {
     return this.http.get<Page2DTO>(this.base_url + '/' + id).pipe(retry(2), catchError(this.handleError));
 
   }

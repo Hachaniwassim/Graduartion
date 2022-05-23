@@ -14,4 +14,5 @@ export class AccountDTO{
     createdDate !:   Date;
     lastModifiedDate!: Date; 
     role ?: string ;
+    entrepriseId?:number;
 }

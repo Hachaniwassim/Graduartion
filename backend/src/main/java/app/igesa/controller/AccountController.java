@@ -4,7 +4,7 @@ import app.igesa.config.EmailService;
 import app.igesa.config.HttpResponse;
 import app.igesa.dto.AccountDTO;
 import app.igesa.entity.Account;
-import app.igesa.entity.ChangePasswordRequest;
+import app.igesa.payload.request.ChangePasswordRequest;
 import app.igesa.enumerations.AccountStatus;
 import app.igesa.metiers.implement.AccountImp;
 import app.igesa.repository.AccountRepository;
@@ -15,6 +15,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
@@ -53,12 +54,12 @@ public class AccountController {
     AccountRepository accountRepository;
     @Autowired
     private EmailService emailService;
-    @Autowired
     private BCryptPasswordEncoder passwordEncoder;
 
 
 
     @RequestMapping(value = PRIVATE_API, method = RequestMethod.POST)
+    @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
     @ApiOperation(value = "ADD User", notes = "SAUVGARDER USER", response = Account.class)
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "user was saved Successfully"),
@@ -88,6 +89,7 @@ public class AccountController {
     }
 
 
+    @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
     @RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
     @ApiOperation(value = " GET USER BY ID ", notes = "GET AND SEARCH FOR ROLE  BY ID ", response = Account.class)
     @ApiResponses(value = {
@@ -103,6 +105,8 @@ public class AccountController {
     }
 
 
+
+    @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
     @RequestMapping(value = PRIVATE_API, method = RequestMethod.PUT)
     @ApiOperation(value = "UPDATE User BY ID ", response = Account.class)
     @ApiResponses(value = {
@@ -115,6 +119,7 @@ public class AccountController {
         return new ResponseEntity<>(accountImpService.save(user),HttpStatus.CREATED);
     }
 
+    @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
     @RequestMapping(value = PRIVATE_API + "/{id}", method = RequestMethod.DELETE)
     @ResponseBody
     @ApiOperation(value = "DELETE User BY ID ", response = Account.class)
@@ -130,6 +135,7 @@ public class AccountController {
         return ResponseEntity.noContent().build();
     }
 
+    @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
     @RequestMapping(value = PRIVATE_API + "/toggle-status/{id}", method = RequestMethod.PUT)
     @ApiOperation(value = "UPDATE USER BY Status", response = AccountDTO.class)
     @ApiResponses(value = {
@@ -142,6 +148,7 @@ public class AccountController {
     }
 
     // <=============change password=====================>
+    @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
     @PostMapping(PRIVATE_API +"/change-password")
     @ApiOperation(value = "Change Password", notes = "change password", response = AccountDTO.class)
     @ApiResponses(value = {
@@ -157,6 +164,7 @@ public class AccountController {
 
 
     //get current user identity
+    @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN') or hasRole('USER')")
     @GetMapping(PRIVATE_API + "/me")
     @ApiOperation(value = "current user", notes = "current user ", response = AccountDTO.class)
     @ApiResponses(value = {
@@ -172,6 +180,8 @@ public class AccountController {
     }
 
      //  change  password <=============> update by email
+
+    @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
     @GetMapping(PRIVATE_API + "/resetpasswordtoken/{email}")
     @ApiOperation(value = "Reset Password Token", notes = "reset password", response = AccountDTO.class)
     @ApiResponses(value = {

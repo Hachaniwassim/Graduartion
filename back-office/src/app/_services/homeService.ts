@@ -5,9 +5,7 @@ import * as _ from 'lodash';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { Page1DTO } from '../models/dto/page1DTO';
 import { Page3DTO } from '../models/dto/page3DTO';
-import { privacyDTO } from '../models/dto/privacyDTO';
 
 @Injectable({
   providedIn: 'root'
@@ -26,7 +24,7 @@ export class HomeService {
    *    -----Api Backend-----
    * 
    *******************************/
-  private base_url = environment.privateApi + '/pages1';
+  private base_url = environment.privateApi + '/pages3';
 
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
@@ -72,18 +70,18 @@ export class HomeService {
    *
    *******************************/
 
-  getPagesByCurrentEntreprise(): Observable<privacyDTO[]> {
+  getPagesByCurrentEntreprise(): Observable<Page3DTO[]> {
     return this.http.get<Page3DTO[]>(this.base_url).pipe(retry(2), catchError(this.handleError));
   }
 
   /****************************
    * 
-   * Get page1 by Entreprise id
+   * Get page by Entreprise id
    *
    ***************************/
 
-  getPage1Byid(id: number): Observable<Page1DTO> {
-    return this.http.get<Page1DTO>(this.base_url + '/' + id).pipe(retry(2), catchError(this.handleError));
+  getPage1Byid(id: number): Observable<Page3DTO> {
+    return this.http.get<Page3DTO>(this.base_url + '/' + id).pipe(retry(2), catchError(this.handleError));
 
   }
 

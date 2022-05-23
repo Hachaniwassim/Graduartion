@@ -71,7 +71,7 @@ export class AboutService {
    *
    *******************************/
 
-  getPagesByCurrentEntreprise(): Observable<privacyDTO[]> {
+  getPagesByCurrentEntreprise(): Observable<Page1DTO[]> {
     return this.http.get<Page1DTO[]>(this.base_url).pipe(retry(2), catchError(this.handleError));
   }
 

@@ -17,7 +17,7 @@
       </ng-container>
       <ng-container matColumnDef="email">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Email </mat-header-cell>
-        <mat-cell *matCellDef="let element">{{element.email}} </mat-cell>
+        <mat-cell *matCellDef="let element"><a style="text-decoration: none !important; color: black;"  href="mailto:{{element.email}}">{{element.email}}</a> </mat-cell>
       </ng-container>
       <ng-container matColumnDef="role">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Role </mat-header-cell>

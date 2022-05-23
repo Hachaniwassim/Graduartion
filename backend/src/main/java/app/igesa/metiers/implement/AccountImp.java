@@ -2,7 +2,7 @@ package app.igesa.metiers.implement;
 import app.igesa.config.EmailService;
 import app.igesa.dto.AccountDTO;
 import app.igesa.entity.Account;
-import app.igesa.entity.ChangePasswordRequest;
+import app.igesa.payload.request.ChangePasswordRequest;
 import app.igesa.enumerations.AccountStatus;
 import app.igesa.enumerations.ErrorCode;
 import app.igesa.exceptions.ResourceNotFoundException;

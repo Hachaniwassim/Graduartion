@@ -14,11 +14,12 @@
                 <input type="text" formControlName="title" placeholder="title" class="form-control ">
               </div>
             </div>
-            <div class="row mt-5">
+            <div class="row mt-5 float-right">
               <div class="col-md-12 col-sm-12 ">
-                <button mat-flat-button class="float-right" color="primary" (click)="save()">save
-                </button>
-              </div>
+                <button mat-flat-button  color="primary"  (click)="save()">Save
+                </button>&nbsp;
+                <button mat-raised-button (click)="refresh()"  color="warn" > Canncel</button>
+            </div>
             </div>
           </div>
         </div>
@@ -31,11 +32,12 @@
                 <label>Assistance text *</label><br>
                 <ckeditor class="w-100 col-12"  [config]='config' formControlName="htmlContent"></ckeditor>
             </div>  
-            <div class="row mt-5">
+            <div class="row mt-5 float-right">
               <div class="col-md-12 col-sm-12 ">
-                <button mat-flat-button class="float-right" color="primary" (click)="save()">save
+                <button mat-flat-button  color="primary"  (click)="save()">Save
                 </button>&nbsp;
-              </div>
+                <button mat-raised-button (click)="refresh()"  color="warn" > Canncel</button>
+            </div>
             </div>
           </div>
         </div>

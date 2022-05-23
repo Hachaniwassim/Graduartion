@@ -36,6 +36,14 @@ public class EmailService {
         smtpTransport.sendMessage(message, message.getAllRecipients());
         smtpTransport.close();
     }
+
+    public void sendContactConfirm( String email,String username) throws MessagingException {
+        Message message = StatusContanct(email,username);
+        SMTPTransport smtpTransport = (SMTPTransport) getEmailSession().getTransport(SIMPLE_MAIL_TRANSFER_PROTOCOL);
+        smtpTransport.connect(GMAIL_SMTP_SERVER, USERNAME, PASSWORD);
+        smtpTransport.sendMessage(message, message.getAllRecipients());
+        smtpTransport.close();
+    }
     public void sendNotifBlockedAccount( String email,String username) throws MessagingException {
         Message message = BlockedAccountEmail(email,username);
         SMTPTransport smtpTransport = (SMTPTransport) getEmailSession().getTransport(SIMPLE_MAIL_TRANSFER_PROTOCOL);
@@ -70,7 +78,19 @@ public class EmailService {
         message.setRecipients(TO, InternetAddress.parse(email, false));
         message.setRecipients(CC, InternetAddress.parse(CC_EMAIL, false));
         message.setSubject(EMAIL_SUBJECT2);
-        message.setText("Hello "+ username +", \n \n You account have been actived , you can logged in Now " + "\n \n The Support Team");
+        message.setText("Hello "+ username +", \n \n Your account have been actived , you can logged in Now " + "\n \n The Support Team");
+        message.setSentDate(new Date());
+        message.saveChanges();
+        return message;
+    }
+    private Message StatusContanct( String email,String username) throws MessagingException {
+        Message message = new MimeMessage(getEmailSession());
+        message.setFrom(new InternetAddress(FROM_EMAIL));
+        message.setRecipients(TO, InternetAddress.parse(email, false));
+        message.setRecipients(CC, InternetAddress.parse(CC_EMAIL, false));
+        message.setSubject(EMAIL_SUBJECT2);
+        message.setText("Hello "+ username +", \n \n Your Contact message have been accepted , " + "\n \n " +
+                " Get in touch with our assistance Form more details " + "\n \n" + "The Support Team");
         message.setSentDate(new Date());
         message.saveChanges();
         return message;

@@ -28,8 +28,8 @@ public class FlickrImpl implements Iflicker {
     public String savePhoto(InputStream image, String title) throws FlickrException {
         UploadMetaData uploadMetaData =new UploadMetaData();
         uploadMetaData.setTitle(title);
-        String photoID =flickr.getUploader().upload(image,uploadMetaData);
-        return flickr.getPhotosInterface().getPhoto(photoID).getMedium640Url();
+        String photoID =this.flickr.getUploader().upload(image,uploadMetaData);
+        return this.flickr.getPhotosInterface().getPhoto(photoID).getMedium640Url();
     }
 
 
