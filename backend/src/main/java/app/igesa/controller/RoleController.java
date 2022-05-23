@@ -21,7 +21,7 @@ import java.util.Optional;
  *
  */
 
-@CrossOrigin(origins = "*", maxAge = 3600)
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @Api(tags = "ROLE")
 public class RoleController {

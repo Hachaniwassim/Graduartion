@@ -27,7 +27,7 @@ import app.igesa.metiers.Igroupe;
  */
 
 @RestController
-@CrossOrigin(origins = "*", maxAge = 3600)
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @Api(tags = "GROUPE")
 public class GroupeController {
 

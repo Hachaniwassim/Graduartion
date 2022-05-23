@@ -7,7 +7,7 @@ import { LeftSlideBarComponent } from './left-slide-bar/left-slide-bar.component
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
-import { FormsModule, NgSelectOption, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PossupportComponent } from './posWeb/possupport/possupport.component';
 import { PoscontactsComponent } from './posWeb/poscontacts/poscontacts.component';
 import { PoshomeComponent } from './posWeb/poshome/poshome.component';
@@ -24,7 +24,7 @@ import { PosprivacyComponent } from './posWeb/posprivacy/posprivacy.component';
 import { DatabaseComponent } from './database/database.component';
 import { CookiesComponent } from './cookies/cookies.component';
 import { ManagementComponent } from './management/management.component';
-import { UsefulllinksComponent } from './usefulllinks/usefulllinks.component';
+import { UsefulllinksComponent } from './pages/usefulllinks/usefulllinks.component';
 import { MatConfirmDialogComponent } from './mat-confirm-dialog/mat-confirm-dialog.component';
 import { MatDialogRef } from '@angular/material/dialog';
 import { DatePipe } from '@angular/common';

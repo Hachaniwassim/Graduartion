@@ -31,7 +31,7 @@ public class AccountDTO {
     private AccountStatus accountStatus;
     protected Date lastModifiedDate;
     protected Date createdDate;
-    private Long groupId;
+    private Long groupeId;
     private Long entrepriseId;
     private Set<Role> roles = new HashSet<>();
 
@@ -46,7 +46,7 @@ public class AccountDTO {
                 .matchingPassword(account.getMatchingPassword())
                 .password(account.getPassword())
                 .lastModifiedDate(account.getLastModifiedDate())
-                .groupId(account.getGroupe().getId())
+                .groupeId(account.getGroupe().getId())
                 .roles(account.getRoles())
                 .entrepriseId(account.getEntreprise().getId())
                 .createdDate(account.getCreatedDate())
@@ -68,7 +68,7 @@ public class AccountDTO {
         account.setRoles(dto.getRoles());
         //===================> Groupe
         Groupe groupe = new Groupe();
-        groupe.setId(dto.getGroupId());
+        groupe.setId(dto.getGroupeId());
         account.setGroupe(groupe);
         //=================> entreprise
         Entreprise entreprise = new Entreprise();

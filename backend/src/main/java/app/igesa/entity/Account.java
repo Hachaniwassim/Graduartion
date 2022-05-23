@@ -59,27 +59,13 @@ public class Account extends Auditable {
     @ManyToOne
     private Entreprise entreprise ;
 
-    /**
-     *
-     * Constructeur
-     * @param username
-     * @param email
-     * @param encode
-     * @param encode1
-     * @param fiscaleCode
-     * @param accountStatus
-     */
-    public Account(String username, String email, String encode, String encode1, String fiscaleCode, AccountStatus accountStatus) {
-        super();
-        this.username=username;
-        this.email=email;
-        this.password=encode;
-        this.matchingPassword=encode1;
-        this.fiscaleCode=fiscaleCode;
-        this.accountStatus=accountStatus;
-    }
-    
-    
-    
 
+    public Account(String username, String email, String encode, String encode1, String fiscaleCode, AccountStatus accountStatus) {
+    this.username=username;
+    this.password = encode;
+    this.matchingPassword=encode1;
+    this.fiscaleCode=fiscaleCode;
+    this.email=email;
+    this.accountStatus=accountStatus;
+    }
 }

@@ -20,7 +20,7 @@ import java.util.Collection;
  *
  */
 
-@CrossOrigin(origins = "*", maxAge = 3600)
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 public class PrivacyController {
 

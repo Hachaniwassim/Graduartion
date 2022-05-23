@@ -3,6 +3,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 import app.igesa.entity.Entreprise;
+import app.igesa.repository.IentrepriseRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,7 @@ import io.swagger.annotations.ApiResponses;
  *
  */
 
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @Api(tags = "ENTREPRISE")
 @RestController
 public class EntrepriseController {
@@ -40,13 +41,15 @@ public class EntrepriseController {
 
 	@Autowired
 	private Ientreprise entrepriseservice ;
+	@Autowired
+	IentrepriseRepository ientrepriseRepository;
 
 	/** logger for debug : warning : success **/
 	private static final Logger log = LoggerFactory.getLogger(EntrepriseController.class);
 
 
-	@RequestMapping(value=PRIVATE_API,method =RequestMethod.POST)
 	@PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
+	@RequestMapping(value=PRIVATE_API,method =RequestMethod.POST)
 	@ApiOperation(value="ADD ENTREPRISE",notes="SAUVGARDER ENTREPRISE", response = EntrepriseDTO.class)
 	@ApiResponses(value= {
 			@ApiResponse(code=200,message="Entreprise was saved Successfully"),
@@ -60,8 +63,8 @@ public class EntrepriseController {
 		return new ResponseEntity<> (entrepriseservice.save(e),HttpStatus.CREATED);
 	}
 
-	@RequestMapping(value=PRIVATE_API,method =RequestMethod.GET)
 	@PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
+	@RequestMapping(value=PRIVATE_API,method =RequestMethod.GET)
 	@ApiOperation(value="GET A LIST OF ENTREPRISE ", responseContainer  = "Collection<EntrepriseDTO>")
 	@ApiResponses(value= {
 			@ApiResponse(code=200,message="Enterprise was found successfully"),
@@ -75,9 +78,8 @@ public class EntrepriseController {
 		return new ResponseEntity<>( entrepriseservice.view(),HttpStatus.OK);
 	}
 
-
-	@RequestMapping(value=PRIVATE_API + "/{id}",method =RequestMethod.GET)
 	@PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
+	@RequestMapping(value=PRIVATE_API + "/{id}",method =RequestMethod.GET)
 	@ApiOperation(value=" GET ENTREPRISE BY ID ",notes="GET AND SEARCH FOR ENTREPRISE BY ID ", response = EntrepriseDTO.class)
 	@ApiResponses(value= {
 			@ApiResponse(code=200,message="Enterprise was found successfully with the provided id"),
@@ -104,9 +106,8 @@ public class EntrepriseController {
 	public ResponseEntity<EntrepriseDTO> update( @RequestBody EntrepriseDTO e) {
 		return new ResponseEntity<>(entrepriseservice.save(e),HttpStatus.CREATED);
 	}
-
-	@RequestMapping(value=PRIVATE_API + "/{id}",method =RequestMethod.DELETE)
 	@PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
+	@RequestMapping(value=PRIVATE_API + "/{id}",method =RequestMethod.DELETE)
 	@ResponseBody
 	@ApiOperation(value="DELETE ENTREPRISE BY ID ",response = EntrepriseDTO.class)
 	@ApiResponses(value= {
@@ -122,9 +123,8 @@ public class EntrepriseController {
 		entrepriseservice.delete(id);
 	}
 
-
-	@RequestMapping(value= PRIVATE_API +"/groupe/{id}",method =RequestMethod.GET)
 	@PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
+	@RequestMapping(value= PRIVATE_API +"/groupe/{id}",method =RequestMethod.GET)
 	@ResponseBody
 	@ApiOperation(value="DELETE ENTREPRISE BY groupe id> ",response = EntrepriseDTO.class)
 	@ApiResponses(value= {
@@ -168,8 +168,9 @@ public class EntrepriseController {
 
 	})
 
-	public Entreprise getCurrentEnterprise() {
-
+	    public Entreprise getCurrentEnterprise() {
 		return entrepriseservice.getCurrentEnterprise();
-	}
+	      }
+
+
 }

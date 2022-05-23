@@ -14,6 +14,5 @@ public interface Ientreprise {
 	List<EntrepriseDTO> getEntrepriseByGroupe(Long id );
 	public List<EntrepriseDTO> FindEntrepriseByCompanyname(String companyname );
 	public Entreprise getCurrentEnterprise();
-
-
+    //public Long countEntreprise();
 }

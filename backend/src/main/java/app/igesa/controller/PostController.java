@@ -19,7 +19,7 @@ import org.slf4j.LoggerFactory;
  *
  */
 
-@CrossOrigin(origins = "*", maxAge = 3600)
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @Api(tags = "POST")
 public class PostController {

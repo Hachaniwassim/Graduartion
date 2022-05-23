@@ -30,7 +30,7 @@ import static org.springframework.http.HttpStatus.OK;
  */
 
 @RestController
-@CrossOrigin(origins = "*", maxAge = 3600)
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class AccountController {
 
 
