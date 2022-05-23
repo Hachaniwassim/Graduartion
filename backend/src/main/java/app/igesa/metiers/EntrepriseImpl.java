@@ -34,7 +34,7 @@ public class EntrepriseImpl implements Ientreprise {
 
 	@Override
 	public EntrepriseDTO save(EntrepriseDTO e) {
-		log.debug( "<========================= ADD Entreprise ================================>");
+		log.debug( "<========================= ADD Enterprise ==========================>");
 		Entreprise saved = entrepriseRepository.save(EntrepriseDTO.toEntity(e));
 		entrepriseRepository.count();
 		return EntrepriseDTO.fromEntity(saved);
@@ -43,7 +43,7 @@ public class EntrepriseImpl implements Ientreprise {
 	@Override
 	public Entreprise getCurrentEnterprise() {
 
-		log.debug( "<========================= Current Entreprise ================================>");
+		log.debug( "<========================= Current Enterprise ============================>");
 		Long entrepriseId = authService.getIdentity().getEntrepriseId();
 		if (null == entrepriseId) {
 			throw new IllegalArgumentException();
@@ -61,7 +61,7 @@ public class EntrepriseImpl implements Ientreprise {
 
 	@Override
       public Collection<EntrepriseDTO> view() {
-		  log.debug( "<========================= Get All Entreprise ================================>");
+		  log.debug( "<========================= Get All Enterprise ================================>");
 	     return entrepriseRepository.findAll().stream()
 	       .map(EntrepriseDTO::fromEntity)
 	       .collect(Collectors.toList());
@@ -70,21 +70,21 @@ public class EntrepriseImpl implements Ientreprise {
 
     @Override
      public EntrepriseDTO findById(Long id) {
-		log.debug( "<========================= ADD Groupe =============================>");
+		log.debug( "<========================= ADD Group =============================>");
 	    if ( id == null) {
-		log.error(" Entreprise Id is NULL .. !!");
+		log.error(" Enterprise Id is NULL .. !!");
 		return null ;
 		}
 	      return  entrepriseRepository.findById(id).map(EntrepriseDTO::fromEntity).orElseThrow(()->
-	      new ResourceNotFoundException(" No Entreprise  with  Id = :: " +id+ " was founded {} ..!",
+	      new ResourceNotFoundException(" No Enterprise  with  Id = :: " +id+ " was founded {} ..!",
 	      ErrorCode.ENTREPRISE_NOT_FOUND));
 	     }
 
        @Override
        public void delete(Long id) {
-		   log.debug( "<=========================  Delete Entreprise ===========================>");
+		   log.debug( "<=========================  Delete Enterprise ===========================>");
     	   if ( id == null) {
-    			log.error(" ENTREPRISE ID IS NULL ");
+    			log.error(" ENTERPRISE ID IS NULL ");
     		    return;
     			}
            entrepriseRepository.deleteById(id);
@@ -93,7 +93,7 @@ public class EntrepriseImpl implements Ientreprise {
 
       @Override
       public List<EntrepriseDTO> getEntrepriseByGroupe(Long id) {
-		log.debug( "<=========================  Get Entreprise By Groupe  ===========================>");
+		log.debug( "<=========================  Get Enterprise By Group  ===========================>");
 		return entrepriseRepository.findEntrepriseByGroupe(id).stream()
 				.map(EntrepriseDTO::fromEntity)
 				.collect(Collectors.toList());
@@ -101,7 +101,7 @@ public class EntrepriseImpl implements Ientreprise {
 
 	@Override
 	public List<EntrepriseDTO> FindEntrepriseByCompanyname(String companyname) {
-		log.debug( "<=========================  Entreprise  ===========================>");
+		log.debug( "<=========================  Enterprise  ===========================>");
 		return entrepriseRepository.findEntrepriseByCompanyname(companyname).stream().map(EntrepriseDTO::fromEntity).collect(Collectors.toList());
 	}
 

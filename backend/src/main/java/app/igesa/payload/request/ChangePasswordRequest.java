@@ -1,4 +1,4 @@
-package app.igesa.entity;
+package app.igesa.payload.request;
 import lombok.Getter;
 import lombok.Setter;
 

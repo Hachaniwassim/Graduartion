@@ -30,12 +30,13 @@
       </ng-container>
       <ng-container matColumnDef="email">
         <mat-header-cell *matHeaderCellDef mat-sort-header>Email</mat-header-cell>
-        <mat-cell *matCellDef="let element">{{element.email}} </mat-cell>
+        <mat-cell *matCellDef="let element"><a style="text-decoration: none !important; color: black;"  href="mailto:{{element.email}}">{{element.email}}</a> </mat-cell>
       </ng-container>
-      <!--<ng-container matColumnDef="phone">
+      <ng-container matColumnDef="phone">
         <mat-header-cell *matHeaderCellDef mat-sort-header>Phone</mat-header-cell>
-        <mat-cell *matCellDef="let element">{{element.phone}} </mat-cell>
-      </ng-container>-->
+       
+       <mat-cell *matCellDef="let element"><a style="text-decoration: none !important; color:black" href="tel:+{{element.phone}}"> <i class="fa fa-phone">  {{element.phone}} </i></a></mat-cell>
+      </ng-container>
       <!--<ng-container matColumnDef="fax">
         <mat-header-cell *matHeaderCellDef mat-sort-header>Fax</mat-header-cell>
         <mat-cell *matCellDef="let element">{{element.fax}} </mat-cell>

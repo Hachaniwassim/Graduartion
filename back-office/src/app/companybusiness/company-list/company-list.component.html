@@ -9,7 +9,7 @@
       <mat-icon>close</mat-icon>
     </button>
   </mat-form-field>
-</div><br>
+</div><br><br>
 <div class="table-responsive table-hover">
   <mat-table [dataSource]="datasource" matSort>
     <ng-container matColumnDef="description">
@@ -60,5 +60,4 @@
   </mat-table>
   <mat-paginator [pageSizeOptions]="[ 5, 10, 25, 100]" [pageSize]="5" showFirstLastButtons></mat-paginator>
 </div>
-
 <br>

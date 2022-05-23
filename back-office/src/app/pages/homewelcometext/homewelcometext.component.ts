@@ -3,9 +3,10 @@ import { Location}from '@angular/common';
 import { Page2DTO } from 'src/app/models/dto/page2DTO';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AssistanceService } from 'src/app/_services/assistanceService';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import Swal from 'sweetalert2';
+import { HomeService } from 'src/app/_services/homeService';
+import { Page3DTO } from 'src/app/models/dto/page3DTO';
 
 @Component({
   selector: 'app-homewelcometext',
@@ -20,9 +21,9 @@ export class HomewelcometextComponent implements OnInit {
  * 
  */
 
-  data !: Page2DTO;
-  assistance !: FormGroup;
-  constructor(private fb: FormBuilder, private assistanceService: AssistanceService ,
+  data !: Page3DTO;
+  home !: FormGroup;
+  constructor(private fb: FormBuilder, private homeService: HomeService ,
     public router: Router, public _location: Location, public _snackBar: MatSnackBar,) {
  
   }
@@ -34,7 +35,7 @@ export class HomewelcometextComponent implements OnInit {
    ***********************************************************/
  
   config = {
-    height: 700,
+    height: 400,
  
     image: {
       // Configure the available styles.
@@ -95,7 +96,7 @@ export class HomewelcometextComponent implements OnInit {
     /***************
      * Formcontrol
      */
-    this.assistance = this.fb.group({
+    this.home = this.fb.group({
       id: new FormControl(),
       title: new FormControl(''),
       htmlContent: new FormControl(''),
@@ -107,9 +108,9 @@ export class HomewelcometextComponent implements OnInit {
     /***********************************
      * Get privacy policy By Entreprise 
      */
-    this.assistanceService.getPagesByCurrentEntreprise().subscribe((res: Page2DTO[]) => {
+    this.homeService.getPagesByCurrentEntreprise().subscribe((res: Page3DTO[]) => {
       this.data = res[0];
-      this.assistance.patchValue(this.data);
+      this.home.patchValue(this.data);
  
     });
   }
@@ -129,7 +130,7 @@ export class HomewelcometextComponent implements OnInit {
          cancelButtonText: 'No',
          }).then((result) => {
          if (result.value) {
-         this.assistanceService.update(this.assistance.value).subscribe(r => {
+         this.homeService.update(this.home.value).subscribe(r => {
           //test
           console.log(r);
           // snackBar success 

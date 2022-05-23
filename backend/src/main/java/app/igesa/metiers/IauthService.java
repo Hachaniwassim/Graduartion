@@ -2,7 +2,7 @@ package app.igesa.metiers;
 
 import app.igesa.dto.AccountDTO;
 import app.igesa.entity.Account;
-import app.igesa.entity.ChangePasswordRequest;
+import app.igesa.payload.request.ChangePasswordRequest;
 import app.igesa.enumerations.AccountStatus;
 
 import javax.mail.MessagingException;

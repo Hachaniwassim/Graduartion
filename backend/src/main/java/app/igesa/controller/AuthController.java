@@ -79,9 +79,9 @@ public class AuthController {
 	@Autowired
 	private EmailService emailService;
 	@Autowired
-	private BCryptPasswordEncoder passwordEncoder;
-	@Autowired
 	private CaptchaService captchaService;
+
+	private BCryptPasswordEncoder passwordEncoder;
 
 	public AuthController(AuthenticationManager authenticationManager, AccountRepository userRepository, RoleRepository roleRepository, IgroupeRepository igroupeRepository, PasswordEncoder encoder, JwtUtils jwtUtils, EmailService emailService, CaptchaService captchaService) {
 		this.authenticationManager = authenticationManager;
@@ -225,8 +225,8 @@ public class AuthController {
 	}
 
 
-	@GetMapping( PUBLIC_API + "/resetpasswordtoken/{email}")
-	@ApiOperation(value = "Reset Password Token", notes = "reset password", response = Account.class)
+	@GetMapping( PUBLIC_API + "/resetpassword/{email}")
+	@ApiOperation(value = "Reset Password", notes = "reset password", response = Account.class)
 	@ApiResponses(value = {
 			@ApiResponse(code = 200, message = "reset passwordsucessfully"),
 			@ApiResponse(code = 400, message = "bad resquest"),
@@ -234,7 +234,7 @@ public class AuthController {
 			@ApiResponse(code = 403, message = "not permitted or allowed"),
 
 	})
-	public ResponseEntity<HttpResponse> resetPasswordToken(@PathVariable("email") String email)  throws MessagingException {
+	public ResponseEntity<HttpResponse> resetPassword(@PathVariable("email") String email)  throws MessagingException {
 		Account user = userRepository.findByEmail(email);
 		String password = generatePassword();
 		user.setPassword(encodePassword(password));

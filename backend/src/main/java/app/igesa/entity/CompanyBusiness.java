@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Type;
 
 /**
  *
@@ -29,6 +30,7 @@ public class CompanyBusiness extends Auditable {
 	private Long id ;
 	@Column(columnDefinition="text")
 	private String description ;
+	@Type(type = "org.hibernate.type.TextType")
 	private String domainename ;
 	/**
 	 *

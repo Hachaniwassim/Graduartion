@@ -6,7 +6,7 @@ import { map } from 'rxjs/operators';
 import { ChangePasswordRequest } from '../models/entity/change-password-request';
 import { CustomHttpRespone } from '../models/entity/custom-http-response';
 
-const AUTH_API= environment.publicApi +'/api/auth/';
+const AUTH_API= environment.publicApi + '/api/auth' ;
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
@@ -30,7 +30,7 @@ export class AuthService {
 
   
     login(username: string, password: string): Observable<any> {
-      return this.http.post(AUTH_API + 'signin', {
+      return this.http.post(AUTH_API + '/signin', {
         username,
         password
       }, httpOptions);
@@ -38,7 +38,7 @@ export class AuthService {
   
     register(username: string, email: string, password: string, matchingPassword:string ,
       fiscaleCode:string): Observable<any> {
-      return this.http.post(AUTH_API + 'signup', {
+      return this.http.post(AUTH_API + '/signup', {
         username,
         email,
         password,
@@ -54,7 +54,7 @@ export class AuthService {
     }
 
   public forgetPassword(email: string): Observable<CustomHttpRespone> {
-    return this.http.get<CustomHttpRespone>(`${AUTH_API}resetpasswordtoken/${email}`);
+    return this.http.get<CustomHttpRespone>(`${AUTH_API}/resetpasswordtoken/${email}`);
   }
  
  

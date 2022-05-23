@@ -44,6 +44,11 @@ export class ProfileComponent implements OnInit {
       matchingPassword: new FormControl(),
       fiscaleCode: new FormControl(),
       accountStatus: new FormControl(),
+      groupeId :new FormControl(),
+      role: new FormControl(),
+      createdDate: new FormControl(),
+      lastModifiedDate: new FormControl(),
+      entrepriseId: new FormControl(),
     });
   }
 

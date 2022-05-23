@@ -1,85 +1,62 @@
 <br><br><br>
 <div id="wrapper" *ngIf="currentUser; else loggedOut">
   <div class="content-page">
-    <!-- Start content -->
     <div class="content">
-      <br>
-      <h5> update profile </h5>
-      <mat-progress-bar mode="determinate" value="10"></mat-progress-bar><br><br><br>
-      <div class="card m-b-30">
-        <div class="card-body">
           <div class="container">
+          <div class="card m-b-30">
+           <div class="card-body"><br>
+                 <h5> Update profile </h5>
             <form class="example-form" [formGroup]="account"><br><br>
               <div class="row">
                 <div class="col-md-6 col-sm-6">
-                  <label [ngStyle]="{'color':'blue'}"> Username * </label>
-                  <input type="text" formControlName="username" placeholder="title"
-                    class="form-control">
+                  <label> Username * </label>
+                  <input type="text" formControlName="username" placeholder="title" class="form-control">
                 </div>
-              </div>    
+              </div>
               <div class="row">
-                <div class="col-md-6 col-sm-6">
-                  <br>
-                  <label [ngStyle]="{'color':'blue'}">Email *</label>
-                  <br>
+                <div class="col-md-6 col-sm-6"><br>
+                  <label> Email *</label><br>
                   <input type="email" formControlName="email" placeholder="title" class="form-control ">
                 </div>
               </div>
               <div class="row">
                 <div class="col-md-6 col-sm-6">
                   <br>
-                  <label [ngStyle]="{'color':'blue'}">FiscaleCode *</label>
-                  <input type="text" formControlName="fiscaleCode" placeholder="title"
-                    class="form-control">
+                  <label> FiscaleCode *</label>
+                  <input type="text" formControlName="fiscaleCode" placeholder="title" class="form-control">
                 </div>
               </div>
-              <div class="row">
-                <div class="col-md-6 col-sm-6">
-                  <br>
-                  <label [ngStyle]="{'color':'blue'}">Status *</label>
-                  <input type="text" formControlName="accountStatus" placeholder="title"
-                    class="form-control">
-                </div>
-              </div>
-            </form>
-            <br>
-            <button mat-raised-button color="primary" style="width: 100px;" (click)="save()">Save</button>
+            </form><br>
+            <button mat-raised-button color="primary" style="width: 90px;" (click)="save()">Save</button>
             &nbsp;&nbsp;
-            <button mat-raised-button color="warn" style="width: 100px;">Canncel</button>
-            <br><br>
-          </div>
-        </div>
-      </div>
-      <br>
-      <div>
-        <br><br><br>
-        <h5>Change Password</h5>
-        <mat-progress-bar mode="determinate" value="12"></mat-progress-bar><br><br><br>
-        <div class="card m-b-30">
-          <div class="card-body">
-              <div class="container">
+            <button mat-raised-button>Canncel</button><br><br>
+            </div><br>
+              <div class="container"><br>
+                <h5> Update Password with email</h5>
                 <form class="example-form" #emailForm="ngForm" (ngSubmit)="onResetPassword(emailForm)"><br><br>
+                <div class="row">
+                <div class="col-md-6 col-sm-6">
                   <input type="email" class="form-control" name="reset-password-email" id="reset-password-email" ngModel
-                    required placeholder="Enter your Email" />
-                  <br>
-                    <button mat-raised-button color="primary" style="width: 110px;" [disabled]="emailForm.invalid"
-                      type="submit">
-                      <i *ngIf="refreshing" class="fas fa-spinner fa-spin"></i>&nbsp;&nbsp;
-                      <span *ngIf="refreshing">Loading...</span>
-                      <span *ngIf="!refreshing">Reset</span>
-                    </button>&nbsp;&nbsp;
-                    <button mat-raised-button color="warn" style="width: 110px;">Canncel</button>
+                    required placeholder="Enter your Email" /><br>
+                    </div></div>
+                  <button mat-raised-button color="primary" style="width: 110px;" [disabled]="emailForm.invalid"
+                    type="submit">
+                    <i *ngIf="refreshing" class="fas fa-spinner fa-spin"></i>&nbsp;&nbsp;
+                    <span *ngIf="refreshing">Loading...</span>
+                    <span *ngIf="!refreshing">Reset</span>
+                  </button>&nbsp;&nbsp;
+                  <button mat-raised-button color="warn" style="width: 110px;">Canncel</button>
                   <br><br>
-                </form>
-                <br><br><br>
+                </form><br><br><br>
               </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <!-- content -->
-  </div>
-</div>
+  
+
+   <div><br><br><br>
 <ng-template #loggedOut>
   Please login.
 </ng-template>
