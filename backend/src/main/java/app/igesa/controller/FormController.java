@@ -18,10 +18,12 @@ import org.slf4j.LoggerFactory;
 import java.util.Optional;
 
 /**
- * @author Tarchoun Abir#
+ *
+ * @author Tarchoun Abir
+ *
  */
 
-@CrossOrigin(origins = "*", maxAge = 3600)
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @Api(tags = "FORMENTITY")
 public class FormController {

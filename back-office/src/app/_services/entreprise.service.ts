@@ -61,7 +61,7 @@ export class EntrepriseService {
   }
 
   
-   //get all grope
+   //get all groupe
    getallGroupe(): Observable<GroupeDTO[]> {
     return this.http.get<GroupeDTO[]>(this.base_url).pipe(retry(2), catchError(this.handleError));
   }
@@ -83,11 +83,6 @@ export class EntrepriseService {
        return this.http.delete<EntrepriseDTO>(this.base_url + '/' +id,this.httpOptions).pipe(retry(2),catchError(this.handleError));
  
  }
-    // get all groupe 
-    deleteAllEntreprise(){
-      return this.http.delete(this.base_url).pipe(retry(2),catchError(this.handleError));
-  
-    }
  
    
 

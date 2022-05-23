@@ -16,7 +16,7 @@ import java.io.IOException;
  *
  */
 
-@CrossOrigin(origins = "*", maxAge = 3600)
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @Api(tags = "PHOTOS")
 public class PhotoController {

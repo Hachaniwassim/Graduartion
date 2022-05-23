@@ -72,7 +72,7 @@ public class Page1Imp implements Ipage1 {
             return null;
         }
 
-        return page1Repository.findById(id).map(Page1DTO::fromEntity).orElseThrow(() ->
+        return page1Repository.findFirstByEntrepriseId(ientrepriseService.getCurrentEnterprise().getId()).map(Page1DTO::fromEntity).orElseThrow(() ->
                 new ResourceNotFoundException(" No cookies   with  Id = :: " + id + " was founded {} ..!"));
 
     }

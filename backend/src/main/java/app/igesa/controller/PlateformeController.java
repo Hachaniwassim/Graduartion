@@ -21,7 +21,7 @@ import org.slf4j.LoggerFactory;
  *
  */
 
-@CrossOrigin(origins = "*", maxAge = 3600)
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @Api(tags = "PLATEFORME" )
 @RestController
 public class PlateformeController {

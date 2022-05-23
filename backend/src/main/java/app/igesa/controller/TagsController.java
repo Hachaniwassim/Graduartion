@@ -19,7 +19,7 @@ import java.util.Optional;
  *
  */
 
-@CrossOrigin(origins = "*", maxAge = 3600)
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @Api(tags = "TAGS")
 public class TagsController {
@@ -87,7 +87,6 @@ public class TagsController {
         log.debug(" HTTP GET TAGS BY ID {}",id);
         return new ResponseEntity<>( itagsService.findById(id),HttpStatus.OK);
     }
-
 
     @RequestMapping(value=PRIVATE_API,method =RequestMethod.PUT)
     @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")

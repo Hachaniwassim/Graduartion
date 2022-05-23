@@ -19,7 +19,7 @@ import org.slf4j.LoggerFactory;
  * @author Wassim Hachani
  *
  */
-@CrossOrigin(origins = "*", maxAge = 3600)
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @Api(tags = "LANGUAGE")
 public class LanguageController {

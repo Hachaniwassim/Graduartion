@@ -20,17 +20,19 @@ public class JwtResponse {
 	private String fiscaleCode;
 	private AccountStatus accountStatus;
 	private List<String> roles;
-	private Long groupId ;
+	private Long groupeId ;
+	private Long entrepriseId;
 
-	public JwtResponse(String token, Long id, String username, String email, List<String> roles, String fiscaleCode, AccountStatus accountStatus,Long groupId) {
+	public JwtResponse(String token, Long id, String username, String email, List<String> roles, String fiscaleCode, AccountStatus accountStatus,Long groupeId,Long entrepriseId) {
 		this.token = token;
 		this.id = id;
 		this.username = username;
 		this.email = email;
 		this.roles = roles;
 		this.fiscaleCode = fiscaleCode;
-		this.groupId=groupId;
+		this.groupeId=groupeId;
 		this.accountStatus = accountStatus;
+		this.entrepriseId=entrepriseId;
 
 	}
 
@@ -68,23 +70,43 @@ public class JwtResponse {
 		this.username = username;
 	}
 
+	public String getFiscaleCode() {
+		return fiscaleCode;
+	}
+
+	public AccountStatus getAccountStatus() {
+		return accountStatus;
+	}
+
 	public List<String> getRoles() {
 		return roles;
 	}
 
-	public String getFiscaleCode() {
-		return fiscaleCode;
+	public Long getGroupeId() {
+		return groupeId;
+	}
+
+	public Long getEntrepriseId() {
+		return entrepriseId;
 	}
 
 	public void setFiscaleCode(String fiscaleCode) {
 		this.fiscaleCode = fiscaleCode;
 	}
 
-	public Long getGroupId() {
-		return groupId;
+	public void setAccountStatus(AccountStatus accountStatus) {
+		this.accountStatus = accountStatus;
 	}
 
-	public void setGroupId(Long groupId) {
-		this.groupId = groupId;
+	public void setRoles(List<String> roles) {
+		this.roles = roles;
+	}
+
+	public void setGroupeId(Long groupeId) {
+		this.groupeId = groupeId;
+	}
+
+	public void setEntrepriseId(Long entrepriseId) {
+		this.entrepriseId = entrepriseId;
 	}
 }

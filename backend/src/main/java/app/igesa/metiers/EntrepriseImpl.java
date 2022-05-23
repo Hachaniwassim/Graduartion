@@ -1,7 +1,6 @@
 package app.igesa.metiers;
 import java.util.Collection;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,6 +36,7 @@ public class EntrepriseImpl implements Ientreprise {
 	public EntrepriseDTO save(EntrepriseDTO e) {
 		log.debug( "<========================= ADD Entreprise ================================>");
 		Entreprise saved = entrepriseRepository.save(EntrepriseDTO.toEntity(e));
+		entrepriseRepository.count();
 		return EntrepriseDTO.fromEntity(saved);
         }
 
@@ -53,8 +53,13 @@ public class EntrepriseImpl implements Ientreprise {
 
 	}
 
+	/*@Override
+	public Long countEntreprise() {
+		return entrepriseRepository.count();
+	}*/
 
-      @Override
+
+	@Override
       public Collection<EntrepriseDTO> view() {
 		  log.debug( "<========================= Get All Entreprise ================================>");
 	     return entrepriseRepository.findAll().stream()

@@ -1,8 +1,5 @@
 package app.igesa.metiers;
-
-import app.igesa.dto.Page1DTO;
 import app.igesa.dto.Page3DTO;
-
 import java.util.Collection;
 
 /**

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ff9817fc-af2b-4d36-acb3-e64204e8fa39" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/application.log" beforeDir="false" afterPath="$PROJECT_DIR$/application.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-office/src/app/_services/entreprise.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back-office/src/app/_services/entreprise.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-office/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back-office/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-office/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back-office/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-office/src/app/main-template/main-template.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-office/src/app/main-template/main-template.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-office/src/app/main-template/main-template.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-office/src/app/main-template/main-template.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-office/src/app/pages/homenewslist/homenewslist.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/back-office/src/app/pages/homenewslist/homenewslist.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-office/src/app/pages/homenewslist/homenewslist.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back-office/src/app/pages/homenewslist/homenewslist.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-office/src/app/pages/homewelcometext/homewelcometext.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/back-office/src/app/pages/homewelcometext/homewelcometext.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-office/src/app/pages/homewelcometext/homewelcometext.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back-office/src/app/pages/homewelcometext/homewelcometext.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-office/src/app/support/support-routing.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-office/src/app/support/support.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-office/src/app/support/support.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-office/src/app/support/support.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-office/src/app/support/support.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-office/src/app/support/support.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-office/src/app/usefulllinks/usefulllinks.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-office/src/app/usefulllinks/usefulllinks.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-office/src/app/usefulllinks/usefulllinks.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-office/src/app/usefulllinks/usefulllinks.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/MultiwebsitesApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/MultiwebsitesApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/config/WebConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/config/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/AccountController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/CompanyBusinessController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/CompanyBusinessController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/ConfigurationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/ConfigurationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/CookiesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/CookiesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/EntrepriseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/EntrepriseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/FilesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/FilesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/FormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/FormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/GroupeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/GroupeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/LanguageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/LanguageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/PagesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/PagesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/PhotoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/PhotoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/PlateformeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/PlateformeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/PostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/PostController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/PrivacyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/PrivacyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/RoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/RoleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/TagsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/TagsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/controller/TestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/dto/AccountDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/dto/AccountDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/dto/EntrepriseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/dto/EntrepriseDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/entity/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/entity/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/entity/Entreprise.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/entity/Entreprise.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/entity/Groupe.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/entity/Groupe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/entity/Page2.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/entity/Page2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/metiers/EntrepriseImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/metiers/EntrepriseImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/metiers/Ientreprise.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/metiers/Ientreprise.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/metiers/Ipage3.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/metiers/Ipage3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/metiers/UserDetailsImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/metiers/UserDetailsImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/metiers/implement/AccountImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/metiers/implement/AccountImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/metiers/pages/Page1Imp.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/metiers/pages/Page1Imp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/payload/response/JwtResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/payload/response/JwtResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/payload/response/RecaptchaResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/payload/response/RecaptchaResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/repository/IentrepriseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/repository/IentrepriseRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/app/igesa/security/jwt/AuthTokenFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/app/igesa/security/jwt/AuthTokenFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="myId2FirstActivated">
+      <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="true" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+      </map>
+    </option>
+    <option name="myId2Visible">
+      <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="false" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="false" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="false" />
+      </map>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="29Wyif2f2m8I4UneTnSGBzqHnxv" />
+  <component name="ProjectViewState">
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+  </component>
+  <component name="RunManager">
+    <configuration name="MultiwebsitesApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="multiwebsites" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="app.igesa.MultiwebsitesApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ff9817fc-af2b-4d36-acb3-e64204e8fa39" name="Changes" comment="" />
+      <created>1653243285745</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1653243285745</updated>
+      <workItem from="1653243313936" duration="9833000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

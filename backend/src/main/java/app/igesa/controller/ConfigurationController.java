@@ -22,7 +22,7 @@ import java.util.Optional;
  * @author Tarchoun Abir
  *
  */
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @Api(tags = "CONFIGURATION")
 public class ConfigurationController {

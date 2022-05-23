@@ -78,9 +78,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 				.and()
 				.authorizeRequests()
+				.antMatchers(HttpMethod.OPTIONS).permitAll()
 				.antMatchers("/api/auth/**").permitAll()
 				.antMatchers("/api/test/**").permitAll()
-				 .antMatchers("/**").permitAll()
+				 .antMatchers("/**/**").permitAll()
 				// dont authenticate this particular request
 				.antMatchers("/api/private/**").authenticated()
 				.antMatchers(AUTH_WHITELIST).permitAll()

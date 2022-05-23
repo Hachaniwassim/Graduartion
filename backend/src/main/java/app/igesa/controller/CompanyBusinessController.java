@@ -21,7 +21,7 @@ import app.igesa.metiers.IcompanyBusiness;
  *
  */
 
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @Api(tags = "COMPANYBUSINESS")
 public class CompanyBusinessController {

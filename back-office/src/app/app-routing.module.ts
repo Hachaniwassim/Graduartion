@@ -8,7 +8,7 @@ import { DatabaseComponent } from './database/database.component';
 import { CookiesComponent } from './cookies/cookies.component';
 import { PrivacypolicyComponent } from './privacypolicy/privacypolicy.component';
 import { ManagementComponent } from './management/management.component';
-import { UsefulllinksComponent } from './usefulllinks/usefulllinks.component';
+import { UsefulllinksComponent } from './pages/usefulllinks/usefulllinks.component';
 
 //Positioning Web
 import { PosproductlistComponent } from './posproductlist/posproductlist.component';
@@ -62,7 +62,7 @@ const routes: Routes = [
   //configurations
   { path: 'configurations', loadChildren: () => import('./configurations/configurations.module').then(m => m.ConfigurationsModule), canActivate: [AuthGuard] },
   //contact
-  { path: 'support', loadChildren: () => import('./support/support.module').then(m => m.SupportModule) },
+  { path: 'support', loadChildren: () => import('./pages/support/support.module').then(m => m.SupportModule) },
   //lien utiles
   { path: 'liens-utiles', loadChildren: () => import('./liens-utiles/liens-utiles.module').then(m => m.LiensUtilesModule), canActivate: [AuthGuard] },
   //cookies
@@ -140,6 +140,8 @@ const routes: Routes = [
   { path: 'cookies-notifier', loadChildren: () => import('./cookies-notifier/cookies-notifier.module').then(m => m.CookiesNotifierModule) },
 
   { path: 'page', loadChildren: () => import('./web-positioning/web-positioning.module').then(m => m.WebPositioningModule) },
+
+  { path: 'assistance', loadChildren: () => import('./pages/assistance/assistance.module').then(m => m.AssistanceModule) },
 
 
   // 404 not found

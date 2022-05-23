@@ -24,7 +24,7 @@ import java.util.Optional;
  * @author Wassim Hachani
  *
  */
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @Api(tags = "CATEGORY")
 public class CategoryController {

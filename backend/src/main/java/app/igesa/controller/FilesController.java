@@ -24,7 +24,7 @@ import java.util.stream.Collectors;
  */
 
 @RestController
-@CrossOrigin(origins = "*", maxAge = 3600)
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class FilesController {
 
 

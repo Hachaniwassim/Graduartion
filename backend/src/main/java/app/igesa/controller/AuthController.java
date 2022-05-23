@@ -1,4 +1,5 @@
 package app.igesa.controller;
+import app.igesa.config.CaptchaService;
 import app.igesa.entity.Account;
 import app.igesa.entity.Role;
 import app.igesa.enumerations.ERole;
@@ -18,6 +19,10 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import app.igesa.config.HttpResponse;
 import app.igesa.config.EmailService;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -75,8 +80,20 @@ public class AuthController {
 	private EmailService emailService;
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
+	@Autowired
+	private CaptchaService captchaService;
 
-
+	public AuthController(AuthenticationManager authenticationManager, AccountRepository userRepository, RoleRepository roleRepository, IgroupeRepository igroupeRepository, PasswordEncoder encoder, JwtUtils jwtUtils, EmailService emailService, CaptchaService captchaService) {
+		this.authenticationManager = authenticationManager;
+		this.userRepository = userRepository;
+		this.roleRepository = roleRepository;
+		this.igroupeRepository = igroupeRepository;
+		this.encoder = encoder;
+		this.jwtUtils = jwtUtils;
+		this.emailService = emailService;
+		this.passwordEncoder = passwordEncoder;
+		this.captchaService = captchaService;
+	}
 
 	@PostMapping(  PUBLIC_API + "/signin")
 	@ApiOperation(value = "Signin", notes = "login  ", response = LoginRequest.class)
@@ -100,6 +117,12 @@ public class AuthController {
 		List<String> roles = userDetails.getAuthorities().stream()
 				.map(item -> item.getAuthority())
 				.collect(Collectors.toList());
+		/*boolean captchaVerified = captchaService.verify(loginRequest.getRecaptchaResponse());
+		if (!captchaVerified) {
+			throw new RuntimeException(" erreur captcha not valid");
+		} else if (captchaVerified) {
+			return ResponseEntity.ok(" valid captcha");
+		}*/
 
 		if (userDetails.getAccountStatus() == AccountStatus.ACTIVE){
 			System.out.println(userDetails);
@@ -108,7 +131,9 @@ public class AuthController {
 					userDetails.getUsername(),
 					userDetails.getEmail(),
 					roles, userDetails.getFiscaleCode(),
-					userDetails.getAccountStatus(), userDetails.getGroupeId()));
+					userDetails.getAccountStatus(),
+					userDetails.getGroupeId(),
+					userDetails.getEntrepriseId()));
 
 		}
 		if (userDetails.getAccountStatus() == AccountStatus.PENDING) {

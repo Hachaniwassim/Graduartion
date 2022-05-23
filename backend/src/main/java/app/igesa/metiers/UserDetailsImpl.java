@@ -57,7 +57,7 @@ public class UserDetailsImpl implements UserDetails {
 						account.getEmail(),
 						account.getPassword(),
 						account.getFiscaleCode(),
-				        account.getEntreprise().getId(),
+						account.getEntreprise().getId(),
 						account.getGroupe().getId(),
 				        account.getAccountStatus(),
 						authorities);

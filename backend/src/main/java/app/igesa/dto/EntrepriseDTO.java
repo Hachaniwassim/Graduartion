@@ -1,20 +1,10 @@
 package app.igesa.dto;
-
-/*
- *
- *
- * @author Tarchoun Abir
- *
- *
- */
 import app.igesa.entity.Entreprise;
 import app.igesa.entity.Groupe;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
 import lombok.Data;
 import javax.persistence.Column;
 import java.util.Date;
-import java.util.List;
 
 /**
  *  @author Tarchoun Abir
@@ -48,7 +38,7 @@ public class EntrepriseDTO {
 				.phone(entreprise.getPhone())
 				.createdDate(entreprise.getCreatedDate())
 				.lastModifiedDate(entreprise.getLastModifiedDate())
-				//.groupeId(entreprise.getGroupe().getId())
+				.groupeId(entreprise.getGroupe().getId())
 				.build();
     }
     

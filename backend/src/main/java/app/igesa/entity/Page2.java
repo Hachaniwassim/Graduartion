@@ -6,6 +6,7 @@ import javax.persistence.*;
  * @author Tarchoun Abir
  *
  */
+@Data
 @Entity(name = "Assistance")
 @Setter
 @Getter
