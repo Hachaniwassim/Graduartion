@@ -19,7 +19,7 @@ export class BreadcrumbService {
   }
 
   clearBreadcrumb() {
-    this.subject.next();
+    this.subject.next
   }
 
   getBreadcrumb(): Observable<any> {

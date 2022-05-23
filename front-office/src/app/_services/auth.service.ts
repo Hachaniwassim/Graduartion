@@ -4,7 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import {CustomHttpRespone} from "../models/custom-http-response";
 
-const AUTH_API= environment.api +'/api/auth/';
+const AUTH_API= environment.publicApi+'/auth/';
 
 
 @Injectable({
@@ -61,9 +61,6 @@ export class AuthService {
     });
   }
 
-  public resetPassword(email: string): Observable<CustomHttpRespone> {
-    return this.http.get<CustomHttpRespone>(`${AUTH_API}resetpassword/${email}`);
-  }
   public resetPasswordtoken(email: string): Observable<CustomHttpRespone> {
     return this.http.get<CustomHttpRespone>(`${AUTH_API}resetpasswordtoken/${email}`);
   }

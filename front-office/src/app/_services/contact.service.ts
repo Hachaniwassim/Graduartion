@@ -1,4 +1,3 @@
-import { DatePipe } from '@angular/common';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -14,9 +13,9 @@ import { CompanyBusinessDTO } from '../models/dto/companyBusinessDTO';
 export class Contactservice {
 
   //api backend
-  private base_url=environment.api + '/contact';
+  private base_url=environment.publicApi + '/contact';
   
-  constructor(private http :HttpClient, private datePipe: DatePipe) { }
+  constructor(private http :HttpClient) { }
 
   //http opttion
   httpOptions={ 
@@ -43,58 +42,5 @@ export class Contactservice {
 };
 
 
-// insert 
-create(item : CompanyBusinessDTO):Observable<CompanyBusinessDTO>{
-  return this.http.post<CompanyBusinessDTO>(this.base_url,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
-}
 
-//get all account data 
-all():Observable<CompanyBusinessDTO>{
-   return this.http.get<CompanyBusinessDTO>(this.base_url).pipe(retry(2),catchError(this.handleError));
- }
-
-
-  // get account by id
-  getByid(id:number):Observable<CompanyBusinessDTO>{
-    return this.http.get<CompanyBusinessDTO>(this.base_url + '/' +id).pipe(retry(2),catchError(this.handleError));
-
-  }
-
-   // update account by Id the
-   update(item : CompanyBusinessDTO){
-    return this.http.put<CompanyBusinessDTO>(this.base_url,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
-   }
-
-    // delete accounts
-    delete(id:number){
-      return this.http.delete<CompanyBusinessDTO>(this.base_url + '/' +id,this.httpOptions).pipe(retry(2),catchError(this.handleError));
-
-}
-
-//validation formulaire
-  form : FormGroup= new FormGroup({
-    id: new FormControl(null),
-    username: new FormControl('',Validators.required),
-    email : new FormControl('',[ Validators.required]),
-    password : new FormControl('',[ Validators.required]),
-    matchingPassword : new FormControl('',[ Validators.required]),
-    fiscaleCode : new FormControl('',[ Validators.required]),
-
- 
-});
-
-// inialisation formulaire 
-initializeFormGroup() {
-  this.form.setValue({
-    id :null,
-    username: null,
-    email: null,
-    password: null,
-    matchingPassword: null,
-    fiscaleCode: null,
-  });
-}
-populateForm(company: any) {
-  this.form.patchValue(_.omit(company));
-}
 }
