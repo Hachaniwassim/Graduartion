@@ -1,5 +1,6 @@
 package app.igesa.payload.request;
 import app.igesa.enumerations.AccountStatus;
+import app.igesa.enumerations.ERole;
 import app.igesa.validators.PasswordMatches;
 import lombok.*;
 import javax.validation.constraints.NotEmpty;
@@ -30,4 +31,5 @@ public class SignupRequest {
     public void setRole(Set<String> role) {
       this.role = role;
     }
+
 }

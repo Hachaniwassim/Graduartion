@@ -1,7 +1,6 @@
 package app.igesa;
 import app.igesa.entity.*;
 import app.igesa.enumerations.AccountStatus;
-import app.igesa.enumerations.ERole;
 import app.igesa.enumerations.GroupStatus;
 import app.igesa.metiers.Irole;
 import app.igesa.repository.IcomapnybusRepository;
@@ -20,6 +19,7 @@ import app.igesa.metiers.implement.AuditorAwareImpl;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import javax.annotation.Resource;
 import java.util.Date;
+import java.util.Set;
 
 
 @EnableJpaAuditing(auditorAwareRef = "auditorAware")
@@ -56,9 +56,6 @@ public class MultiwebsitesApplication  {
 		storageService.init();
 		BCryptPasswordEncoder encoder;
 		encoder = new BCryptPasswordEncoder();
-		Role r1 = new Role();
-		r1.setName(ERole.valueOf("ROLE_ADMIN"));
-		iroleRepository.save((r1));
 		CompanyBusiness companyBusiness = new CompanyBusiness() ;
 		companyBusiness.setDomainename("test");
 		companyBusiness.setDescription("test");
@@ -85,7 +82,6 @@ public class MultiwebsitesApplication  {
 		encoder = new BCryptPasswordEncoder();
 		user.setUsername("ottavio lucifero");
 		user.setPassword(encoder.encode("mss123#"));
-		user.getRoles().add(r1);
 		user.setEmail("lucifero@mss.tn");
 		user.setMatchingPassword(encoder.encode("mss123#"));
 		user.setFiscaleCode("11397488");

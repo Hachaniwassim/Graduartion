@@ -1,17 +1,18 @@
 package app.igesa.metiers;
-
-import app.igesa.entity.Role;
 import java.util.List;
-import java.util.Optional;
-
+import app.igesa.dto.RoleDTO;
+/**
+ *
+ * @author Tarchoun Abir
+ *
+ */
 
 public interface Irole {
-    public Role save(Role r);
-    public Optional<Role> findById(Long id);
-
-    List<Role> findAll();
-
+    public RoleDTO save(RoleDTO r);
+    List<RoleDTO> view();
+    public RoleDTO findById(Long id);
     public void delete(Long id);
-    public Role update(Long id, Role r);
+    public void updateRole(Long role_id,Long account_id);
+
 
 }

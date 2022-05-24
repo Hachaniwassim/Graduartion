@@ -3,10 +3,15 @@ package app.igesa.controller;
 import app.igesa.config.EmailService;
 import app.igesa.config.HttpResponse;
 import app.igesa.dto.AccountDTO;
+import app.igesa.dto.EntrepriseDTO;
 import app.igesa.entity.Account;
+import app.igesa.metiers.IauthService;
+import app.igesa.payload.request.AssignRequest;
 import app.igesa.payload.request.ChangePasswordRequest;
 import app.igesa.enumerations.AccountStatus;
 import app.igesa.metiers.implement.AccountImp;
+import app.igesa.payload.request.UpdateProfilRequest;
+import app.igesa.payload.response.MessageResponse;
 import app.igesa.repository.AccountRepository;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -34,7 +39,6 @@ import static org.springframework.http.HttpStatus.OK;
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class AccountController {
 
-
     public static final String EMAIL_SENT = "An email with a new password was sent to: ";
 
 
@@ -43,17 +47,18 @@ public class AccountController {
      * Api  PUBLIC_API : for all  ||  PRIVATE_API : with token
      *
      *********************************************************/
+
     private final String PUBLIC_API = "/api/user";
     private final String PRIVATE_API = "/api/private/user";
 
     private static final Logger log = LoggerFactory.getLogger(AccountController.class);
 
     @Autowired
-    AccountImp accountImpService ;
-    @Autowired
     AccountRepository accountRepository;
     @Autowired
     private EmailService emailService;
+    @Autowired
+    IauthService accountService ;
     private BCryptPasswordEncoder passwordEncoder;
 
 
@@ -70,7 +75,7 @@ public class AccountController {
     })
     ResponseEntity<AccountDTO> save(@RequestBody AccountDTO account) {
         log.debug(" HTTP POST {}", account);
-        return new ResponseEntity<>(accountImpService.save(account), HttpStatus.CREATED);
+        return new ResponseEntity<>(accountService.save(account), HttpStatus.CREATED);
     }
 
 
@@ -85,7 +90,7 @@ public class AccountController {
     })
     public ResponseEntity<Collection<AccountDTO>>view() {
         log.debug(" HTTP GET ALL {}");
-        return new ResponseEntity<>(accountImpService.findAll(), HttpStatus.OK);
+        return new ResponseEntity<>(accountService.findAll(), HttpStatus.OK);
     }
 
 
@@ -101,7 +106,7 @@ public class AccountController {
     })
     public ResponseEntity <AccountDTO> findById(@PathVariable Long id) {
         log.debug(" HTTP GET  BY ID {}", id);
-        return new ResponseEntity<>(accountImpService.findById(id), HttpStatus.OK);
+        return new ResponseEntity<>(accountService.findById(id), HttpStatus.OK);
     }
 
 
@@ -116,7 +121,7 @@ public class AccountController {
 
     })
     public ResponseEntity<AccountDTO> update(@RequestBody AccountDTO user ) {
-        return new ResponseEntity<>(accountImpService.save(user),HttpStatus.CREATED);
+        return new ResponseEntity<>(accountService.save(user),HttpStatus.CREATED);
     }
 
     @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
@@ -131,7 +136,7 @@ public class AccountController {
     })
     public ResponseEntity delete(@PathVariable Long id) {
         log.debug(" HTTP DELETE BY ID {}", id);
-        accountImpService.delete(id);
+        accountService.delete(id);
         return ResponseEntity.noContent().build();
     }
 
@@ -144,7 +149,7 @@ public class AccountController {
             @ApiResponse(code = 403, message = "not permitted or allowed"),
     })
     public Account updateSatus(@PathVariable("id")  Long id, @RequestBody AccountStatus status) throws MessagingException {
-        return accountImpService.updateSatus(id, status);
+        return accountService.updateSatus(id, status);
     }
 
     // <=============change password=====================>
@@ -159,7 +164,7 @@ public class AccountController {
 
     })
     public boolean changePassword(@RequestBody ChangePasswordRequest request) {
-        return accountImpService.changePassword(request);
+        return accountService.changePassword(request);
     }
 
 
@@ -175,7 +180,7 @@ public class AccountController {
 
     })
     public UserDetails getIdentity() {
-        return accountImpService.getIdentity();
+        return accountService.getIdentity();
 
     }
 
@@ -195,7 +200,7 @@ public class AccountController {
         Account user = accountRepository.findByEmail(email);
         String password = generatePassword();
         user.setPassword(encodePassword(password));
-        accountImpService.save(AccountDTO.fromEntity(user));
+        accountService.save(AccountDTO.fromEntity(user));
         emailService.sendNewPasswordEmail(user.getUsername(), password, user.getEmail());
         return response(OK, EMAIL_SENT + email);
     }
@@ -208,6 +213,27 @@ public class AccountController {
     private ResponseEntity<HttpResponse> response(HttpStatus httpStatus, String message) {
         return new ResponseEntity<>(new HttpResponse(httpStatus.value(), httpStatus, httpStatus.getReasonPhrase().toUpperCase(),
                 message), httpStatus);
+    }
+
+
+    /**
+     * @param updateProfilRequest
+     *
+     */
+    @RequestMapping(value = PRIVATE_API + "/update-currentUser", method = RequestMethod.PUT)
+    @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
+    @ApiOperation(value="update user " ,notes="update  user")
+    @ApiResponses(value= {
+            @ApiResponse(code=200,message="current user  was assigned Successfully"),
+            @ApiResponse(code=400,message="current not valid"),
+            @ApiResponse(code=401,message="Unauthorized , without authority or permission"),
+            @ApiResponse( code=403, message="not permitted or allowed"),
+
+    })
+    ResponseEntity  updateCUrrentUser (@RequestBody UpdateProfilRequest updateProfilRequest) {
+
+        accountService.updateCUrrentUser(updateProfilRequest.getUsername(),updateProfilRequest.getEmail(),updateProfilRequest.getFiscaleCode());
+        return ResponseEntity.ok(new MessageResponse("user updated successfully"));
     }
 
 
