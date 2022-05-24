@@ -70,16 +70,19 @@ export class EntrepriseAddComponent implements OnInit {
       if (!this.entrepriseService.form.get('id')?.value)
         this.entrepriseService.createEntreprise(this.entrepriseService.form.value).subscribe((res) => {
           this.entreprise.push(res);
-          this.notificationService.success(':: Submitted successfully');
+          
+          this.notificationService.success('  ::  '  + ' ' + 'add successfully' + ' ' + '⚡');
         })
 
       else(
         this.entrepriseService.updateEntreprise(this.entrepriseService.form.value).subscribe((res) => {
           this.entreprise.push(res);
+           this.notificationService.success('  ::  '  + ' ' + 'updated successfully' + ' ' + '⚡');
         })) 
         this.onClose();
         this.refresh();
       }
+      this.refresh();
   }
 
 

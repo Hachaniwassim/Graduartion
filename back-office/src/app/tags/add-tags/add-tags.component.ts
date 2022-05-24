@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import {Location}from '@angular/common';
@@ -6,6 +6,9 @@ import { DialogService } from 'src/app/shared/dialog.service';
 import { NotificationService } from 'src/app/shared/notification.service';
 import { TagsSerice } from 'src/app/_services/tags.service';
 import { TagsDTO } from 'src/app/models/dto/TagsDTO';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-add-tags',
@@ -14,15 +17,26 @@ import { TagsDTO } from 'src/app/models/dto/TagsDTO';
 })
 export class AddTagsComponent implements OnInit {
 
- 
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort, {}) sort!: MatSort;
+  tags:TagsDTO[]=[];
+  datasource = new MatTableDataSource(this.tags)
+  
   constructor(private dialog: MatDialog, private dialogService: DialogService, public tagsService:TagsSerice, public dialogRef: MatDialogRef<AddTagsComponent>,
     private notificationService: NotificationService, private router: Router, public _location: Location) {
     
   }
+ //data sorting 
+ ngAfterViewInit() {
+  this.datasource.paginator = this.paginator;
+  this.datasource.sort = this.sort;
+}
 
-  tags:TagsDTO[]=[];
+ 
 
   ngOnInit(): void {
+  this.datasource.paginator = this.paginator;
+  this.datasource.sort = this.sort;
   }
 
   //clear data
@@ -66,7 +80,5 @@ export class AddTagsComponent implements OnInit {
     this.dialogRef.close();
   }
   
-  reloadPage() {
-    window.location.reload();
-  }
+
 }

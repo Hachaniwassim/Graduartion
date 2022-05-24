@@ -1,36 +1,154 @@
 <mat-toolbar>
-    <span>{{Accountservice.form.controls['id'].value?"Modify Role":"New Account"}}</span>
-    <span class="fill-remaining-space"></span>
-    <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
-  </mat-toolbar>
-  <form [formGroup]="Accountservice.form" class="normal-form" (submit)="onSubmit()"   class="normal-form">
-    <mat-grid-list cols="2" rowHeight="220px">
-      <mat-grid-tile>
-          <div class="controles-container">
-            <select id="role" formControlName="role" matInput required  class="select-etiquette"> *---------- Roles ----------*
-            <option disabled selected="selected">--------------------------- Roles ---------------------------</option>
-            <option value="ROLE_ADMIN">ROLE_ADMIN</option> 
-            <option value="ROLE_USER">ROLE_USER</option> 
-            <option value="ROLE_MODERATEUR">ROLE_MODERATEUR</option> 
-            </select>
-           <!--<input type="hidden"  matInput formControlName="id" >
-        <input type="hidden" matInput formControlName="username" >
-        <input type="hidden" matInput formControlName="password">
-        <input type="hidden" matInput formControlName="groupeId"  >
-        <input type="hidden" matInput formControlName="matchingPassword"   name="matchingPassword"  id="matchingPassword" placeholder="_id">
-        <input type="hidden" matInput formControlName="fiscaleCode"  name="fiscaleCode"  id="fiscaleCode" >--->
+  <span>{{
+    Accountservice.form.controls["id"].value ? "Modify Role" : "New Account"
+  }}</span>
+  <span class="fill-remaining-space"></span>
+  <button
+    class="btn-dialog-close"
+    mat-stroked-button
+    (click)="onClose()"
+    tabIndex="-1"
+  >
+    <mat-icon>clear</mat-icon>
+  </button>
+</mat-toolbar>
+
+<form
+  [formGroup]="Accountservice.form"
+  class="normal-form"
+  (submit)="onSubmit()"
+>
+  <mat-grid-list cols="1" rowHeight="220px">
+    <mat-grid-tile>
+      <div class="controles-container">
+        <div>
+          <label for="roles-select">check role </label>
+
+          <div
+            *ngFor="let role of roleservices"
+            (change)="checkCheckBoxvalue($event)"
+          >
+            <input
+              [value]="role.id"
+              type="checkbox"
+              [checked]="selectedRoleID == role.id ? true : null"
+            />
+            {{ role.name }}
+          </div>
+        </div><br>
+         <label for="entreprise-select">Assign Entreprise</label>
+         
+         <div class="row">
+          <div class="col-md-6 col-sm-6">
+        <select
+          class="form-control"
+          name="entreprises"
+          id="entreprises-select"
+          formControlName="entrepriseId"
+        >
+          <option value="">Select a entreprise</option>
+          <option
+            *ngFor="let entreprise of entreprises"
+            [value]="entreprise.id"
+            [attr.selected]="data.entrepriseId == entreprise.id ? true : null"
+          >
+            {{ entreprise.companyname }}
+          </option>
+        </select>
         </div>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <div class="controles-container">
+        </div>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <div class="controles-container">
+    <div class="button-row">
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          [disabled]="Accountservice.form.invalid">Save</button>
+        <button mat-raised-button mat-dialog-close>Cancel</button>
+        <button mat-raised-button color="warn" (click)="onClear()">
+          Clear
+        </button>
+      </div>
+    </div>
+</form>
+
+
+
+<!--<mat-toolbar>
+  <span>{{
+    Accountservice.form.controls["id"].value ? "Modify Role" : "New Account"
+  }}</span>
+  <span class="fill-remaining-space"></span>
+  <button
+    class="btn-dialog-close"
+    mat-stroked-button
+    (click)="onClose()"
+    tabIndex="-1"
+  >
+    <mat-icon>clear</mat-icon>
+  </button>
+</mat-toolbar>
+
+<form
+  [formGroup]="Accountservice.form"
+  class="normal-form"
+  (submit)="onSubmit()"
+  class="normal-form"
+>
+  <mat-grid-list cols="2" rowHeight="220px">
+    <mat-grid-tile>
+      <div class="controles-container">
+        <select
+          formControlName="roleId"
+          class="select-etiquette"
+          ([ngModel])="(roleSelected)"
+          (ngModelChange)="onChangeRole($event)"
+        >
+          <option selected="selected">Select a role</option>
+          <option *ngFor="let role of roleservices" [value]="role.id">
+            {{ role.name }}
+          </option>
+        </select>
+
+        <select
+          class="form-control"
+          name="entreprises"
+          id="entreprises-select"
+          formControlName="entrepriseId"
+        >
+          <option value="">Select a entreprise</option>
+          <option
+            *ngFor="let entreprise of entreprises"
+            [value]="entreprise.id"
+            [attr.selected]="data.entrepriseId == entreprise.id ? true : null"
+          >
+            {{ entreprise.companyname }}
+          </option>
+        </select>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="controles-container">
+        <div class="button-row">
           <div class="button-row">
-            <div class="button-row">
-              <button mat-raised-button color="primary" type="submit"  [disabled]="Accountservice.form.invalid">Save</button>
-                <button mat-raised-button  mat-dialog-close>Cancel</button>
-              <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
-            </div>
+            <button
+              mat-raised-button
+              color="primary"
+              type="submit"
+              [disabled]="Accountservice.form.invalid"
+            >
+              Save
+            </button>
+            <button mat-raised-button mat-dialog-close>Cancel</button>
+            <button mat-raised-button color="warn" (click)="onClear()">
+              Clear
+            </button>
           </div>
         </div>
-      </mat-grid-tile>
-    </mat-grid-list>
-  </form> 
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</form>--->
