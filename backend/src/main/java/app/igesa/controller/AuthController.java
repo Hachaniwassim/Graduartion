@@ -37,6 +37,8 @@ import org.springframework.web.bind.annotation.*;
 import javax.mail.MessagingException;
 import javax.validation.Valid;
 import static org.springframework.http.HttpStatus.OK;
+
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -47,7 +49,7 @@ import java.util.stream.Collectors;
  *
  **/
 
-@CrossOrigin(origins = "*", maxAge = 3600)
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @Api(tags = "Authentification" )
 public class AuthController {
@@ -177,7 +179,9 @@ public class AuthController {
 
 
 		// Create new user's account
+		//initialisation of role and status ===>
 		signUpRequest.setAccountStatus(AccountStatus.PENDING);
+		signUpRequest.setRole(Collections.singleton("ROLE_USER"));
 		Account user =(new Account(
 				signUpRequest.getUsername(),
 				signUpRequest.getEmail(),
@@ -207,7 +211,7 @@ public class AuthController {
 
 						break;
 					case "mod":
-						Role modRole = roleRepository.findByName(ERole.ROLE_MODERATOR)
+						Role modRole = roleRepository.findByName(ERole.ROLE_MODERATEUR)
 								.orElseThrow(() -> new RuntimeException("Error: Role is not found."));
 						roles.add(modRole);
 

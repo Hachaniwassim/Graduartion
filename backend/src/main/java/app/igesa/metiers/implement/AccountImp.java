@@ -13,6 +13,7 @@ import app.igesa.repository.AccountRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -135,7 +136,20 @@ public class AccountImp implements IauthService {
          return null;
 
     }
+    /**
+     * @assign entreprise ==============================>
+     */
+    @Override
+    public void assignEntreprise(Long entreprise_id,Long groupe_id,Long id){
+        userRepository.assignEntreprise(entreprise_id,groupe_id,id);
+    }
+    /**
+     * @update current user info ==============================>
+     */
 
-
+    @Override
+    public void updateCUrrentUser(String username, String email, String fiscaleCode){
+        userRepository.updateCUrrentUser(username,email,fiscaleCode);
+    }
 
 }

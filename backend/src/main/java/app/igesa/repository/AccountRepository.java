@@ -1,13 +1,15 @@
 package app.igesa.repository;
-
 import app.igesa.entity.Account;
-import app.igesa.metiers.UserDetailsImpl;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 /**
- * @author Tarchoun.Abir$
+ * @author Tarchoun Abir
  *
  */
 @Repository
@@ -15,13 +17,20 @@ public interface AccountRepository extends JpaRepository<Account, Long> {
 
 
 	Optional<Account> findByUsername(String username);
-
 	Boolean existsByUsername(String username);
-
 	Boolean existsByEmail(String email);
-
-
     public Account findByEmail(String email);
 
-	//public void resetPassword(String email);
+	//for update
+	@Modifying
+	@Transactional
+	@Query(value="update accounts a set entreprise_id= :entreprise_id, groupe_id= :groupe_id where a.id = :id",nativeQuery = true)
+	public void assignEntreprise(@Param("entreprise_id") Long entreprise_id, @Param("groupe_id") Long groupe_id, @Param("id") Long id);
+
+
+	@Modifying
+	@Transactional
+	@Query(value="update accounts a set  username= :username, email= :email , fiscaleCode=:fiscaleCode where a.id = :id",nativeQuery = true)
+	void updateCUrrentUser(@Param("username") String username, @Param("email") String email, @Param("fiscaleCode") String fiscaleCode);
+
 }

@@ -3,6 +3,9 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 import app.igesa.entity.Entreprise;
+import app.igesa.metiers.IauthService;
+import app.igesa.payload.request.AssignRequest;
+import app.igesa.payload.response.MessageResponse;
 import app.igesa.repository.IentrepriseRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -43,6 +46,8 @@ public class EntrepriseController {
 	private Ientreprise entrepriseservice ;
 	@Autowired
 	IentrepriseRepository ientrepriseRepository;
+	@Autowired
+	IauthService accountservice;
 
 	/** logger for debug : warning : success **/
 	private static final Logger log = LoggerFactory.getLogger(EntrepriseController.class);
@@ -172,5 +177,24 @@ public class EntrepriseController {
 		return entrepriseservice.getCurrentEnterprise();
 	      }
 
+	/**
+	 * @param  assignRequest
+	 *
+	 */
+	@RequestMapping(value = PRIVATE_API + "/assign-entreprise", method = RequestMethod.POST)
+	@PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
+	@ApiOperation(value="ASSIGN ENTREPRISE",notes="ASSIGN ENTREPRISE")
+	@ApiResponses(value= {
+			@ApiResponse(code=200,message="Entreprise was assigned Successfully"),
+			@ApiResponse(code=400,message="Entreprise not valid"),
+			@ApiResponse(code=401,message="Unauthorized , without authority or permission"),
+			@ApiResponse( code=403, message="not permitted or allowed"),
 
+	})
+	ResponseEntity assignEntreprise(@RequestBody AssignRequest assignRequest) {
+		EntrepriseDTO entreprise = entrepriseservice.findById(assignRequest.getIdEntreprise());
+		Long id_groupe = entreprise.getGroupeId();
+		accountservice.assignEntreprise(entreprise.getId(),id_groupe,assignRequest.getIdAccount());
+		return ResponseEntity.ok(new MessageResponse("entreprise assigned successfully"));
+	}
 }

@@ -1,5 +1,4 @@
 package app.igesa.metiers;
-
 import app.igesa.dto.AccountDTO;
 import app.igesa.entity.Account;
 import app.igesa.payload.request.ChangePasswordRequest;
@@ -8,6 +7,11 @@ import app.igesa.enumerations.AccountStatus;
 import javax.mail.MessagingException;
 import java.util.List;
 
+/**
+ *
+ * @author Tarchoun Abir
+ *
+ */
 public interface IauthService {
 
     public Account updateSatus(Long id, AccountStatus status) throws MessagingException;
@@ -23,4 +27,8 @@ public interface IauthService {
     boolean changePassword(ChangePasswordRequest request);
 
     UserDetailsImpl getIdentity();
+
+    public void assignEntreprise(Long entreprise_id,Long groupe_id,Long id);
+
+    void updateCUrrentUser(String username, String email, String fiscaleCode);
 }

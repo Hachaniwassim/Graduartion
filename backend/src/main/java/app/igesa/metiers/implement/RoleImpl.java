@@ -1,8 +1,9 @@
 package app.igesa.metiers.implement;
-
 import java.util.List;
-import java.util.Optional;
-
+import java.util.stream.Collectors;
+import app.igesa.dto.RoleDTO;
+import app.igesa.enumerations.ErrorCode;
+import app.igesa.exceptions.ResourceNotFoundException;
 import app.igesa.metiers.Irole;
 import app.igesa.repository.RoleRepository;
 import org.slf4j.Logger;
@@ -29,33 +30,51 @@ public class RoleImpl  implements Irole {
 
     private static final Logger log = LoggerFactory.getLogger(RoleImpl.class);
 
-@Override
-    public Role save(Role r) {
 
-    log.debug("http post :: ");
-    return roleRepository.save(r);
-      }
+
     @Override
-    public Optional<Role> findById(Long id) {
-       return roleRepository.findById(id);
+    public RoleDTO save(RoleDTO r) {
+        Role saved =roleRepository.save(RoleDTO.toEntity(r));
+        return RoleDTO.fromEntity(saved);
+    }
+
+
+
+    @Override
+    public List<RoleDTO> view() {
+        return roleRepository.findAll().stream()
+                .map(RoleDTO::fromEntity)
+                .collect(Collectors.toList());
     }
 
     @Override
-    public List<Role> findAll() {
-        return roleRepository.findAll();
+    public RoleDTO findById(Long id) {
+        if ( id == null) {
+            log.error(" Tags Id is NULL .. !!");
+            return null ;
+        }
+
+        return roleRepository.findById(id).map(RoleDTO::fromEntity).orElseThrow(()->
+                new ResourceNotFoundException(" No Tags  with  Id = :: " +id+ " was founded {} ..!",
+                        ErrorCode.TAGS_NOT_FOUND));
     }
+
+
     @Override
     public void delete(Long id) {
+        if ( id == null) {
+            log.error(" Tags ID IS NULL ");
+            return;
+        }
         roleRepository.deleteById(id);
-    }
-
-    public Role update(Long id, Role r) {
-       Role role = roleRepository.findById(id).orElseThrow(() -> new RuntimeException("Role introuvable avec id : : " +id));
-        role.setName(r.getName());
-       return roleRepository.save(role);
-
 
     }
+    @Override
+    public void updateRole(Long role_id,Long account_id){
+        roleRepository.updateRoleQuerry(role_id,account_id);
+
+    }
+
 }
 
 
