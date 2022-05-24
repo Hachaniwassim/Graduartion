@@ -31,6 +31,8 @@ const routes : Routes =[
 
   { path: 'sellers', loadChildren: () => import('./sellers/sellers.module').then(m => m.SellersModule) },
 
+  { path: 'cookies-notifier', loadChildren: () => import('./cookies-notifier/cookies-notifier.module').then(m => m.CookiesNotifierModule) },
+
   //About
   { path: 'about', component: AboutComponent },
 
