@@ -17,6 +17,7 @@ import { UsefullLinksComponent } from './usefull-links/usefull-links.component';
 import { AboutComponent } from './about/about.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { CookiesComponent } from './cookies/cookies.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { CookiesComponent } from './cookies/cookies.component';
     AboutComponent,
     PrivacyPolicyComponent,
     CookiesComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
