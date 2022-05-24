@@ -1,1 +1,63 @@
-<p>product-details works!</p>
+	  <!-- backtotop - start -->
+      <div id="thetop"></div>
+      <div class="backtotop">
+          <a href="/cars-rent" (click)="reloadPage()" class="scroll">
+              <i class="fa fa-arrow-up"></i>
+          </a>
+      </div>
+      <!-- backtotop - end -->   
+
+<div class="ftco-blocks-cover-1" >
+<div class="ftco-cover-1 overlay innerpage" style="background-image: url('assets/images/plan17.jpg')">
+  <div class="container">
+    <div class="row align-items-center justify-content-center">
+      <div class="col-lg-6 text-center">
+      
+        <h1>Our For Rent Cars</h1>
+       
+        <h3 align="center"  style="color:rgb(223, 223, 223)">Find Your Own Raod A Car For Everyone</h3>
+
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<main>
+<div class="site-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 mb-5 mb-lg-0 order-lg-2">
+        <img [src]="product?.image"  alt="Image" class="img-fluid">
+      </div>
+      <div class="col-lg-4 mr-auto">
+        <h3><a href="#"> <!--  {{  product?.title }}--></a></h3>
+        <div class="rating">
+          <span class="icon-star text-warning"></span>
+          <span class="icon-star text-warning"></span>
+          <span class="icon-star text-warning"></span>
+          <span class="icon-star text-warning"></span>
+          <span class="icon-star text-warning"></span>
+        </div>
+        <br>
+        <span> <!--  {{ product?.detailimage}}--></span>
+     <br>
+          <span>note : </span>
+          <span class="spec">$ <!--  {{ product?.note}} --></span>
+        <br>
+          <span> name : </span>
+          <span class="spec">      <!--  {{ product?.name }} -->   KM</span>
+       <br>
+       <br>
+       <span> consultationNumber : </span>
+       <span class="spec">      <!--  {{ product?.consultationNumber }} -->   KM</span>
+       <br>
+       <br>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</main>
+<br><br><br>
