@@ -2,10 +2,12 @@
 <div id="wrapper" *ngIf="currentUser; else loggedOut">
   <div class="content-page">
     <div class="content">
-          <div class="container">
-          <div class="card m-b-30">
-           <div class="card-body"><br>
-                 <h5> Update profile </h5>
+      <div class="container">
+        <div class="card m-b-30">
+          <div class="card-body">
+            <img width="300px" class="float-right" height="350px" width="380px" src="../../assets/images/setting.gif" alt=""
+              srcset=""> <br>
+            <h5> Update profile </h5>
             <form class="example-form" [formGroup]="account"><br><br>
               <div class="row">
                 <div class="col-md-6 col-sm-6">
@@ -26,37 +28,39 @@
                   <input type="text" formControlName="fiscaleCode" placeholder="title" class="form-control">
                 </div>
               </div>
-            </form><br>
-            <button mat-raised-button color="primary" style="width: 90px;" (click)="save()">Save</button>
-            &nbsp;&nbsp;
-            <button mat-raised-button>Canncel</button><br><br>
+            </form><br><br>
+            <div class="row">
+            <div class="col-md-6 col-sm-6">&nbsp;&nbsp;
+            <button mat-raised-button color="primary" style="width: 85px;"(click)="save()">Save</button>  &nbsp;&nbsp;
+            <button mat-raised-button>Canncel</button>
+            </div>
             </div><br>
-              <div class="container"><br>
-                <h5> Update Password with email</h5>
-                <form class="example-form" #emailForm="ngForm" (ngSubmit)="onResetPassword(emailForm)"><br><br>
-                <div class="row">
+          <div class="container"><br>
+            <h5> Update Password with email</h5>
+            <form class="example-form" #emailForm="ngForm" (ngSubmit)="onResetPassword(emailForm)"><br><br>
+              <div class="row">
                 <div class="col-md-6 col-sm-6">
                   <input type="email" class="form-control" name="reset-password-email" id="reset-password-email" ngModel
                     required placeholder="Enter your Email" /><br>
-                    </div></div>
-                  <button mat-raised-button color="primary" style="width: 110px;" [disabled]="emailForm.invalid"
-                    type="submit">
-                    <i *ngIf="refreshing" class="fas fa-spinner fa-spin"></i>&nbsp;&nbsp;
-                    <span *ngIf="refreshing">Loading...</span>
-                    <span *ngIf="!refreshing">Reset</span>
-                  </button>&nbsp;&nbsp;
-                  <button mat-raised-button color="warn" style="width: 110px;">Canncel</button>
-                  <br><br>
-                </form><br><br><br>
+                </div>
               </div>
-            </div>
+              <button mat-raised-button color="primary" style="width: 110px;" [disabled]="emailForm.invalid"
+                type="submit">
+                <i *ngIf="refreshing" class="fas fa-spinner fa-spin"></i>&nbsp;&nbsp;
+                <span *ngIf="refreshing">Loading...</span>
+                <span *ngIf="!refreshing">Reset</span>
+              </button>&nbsp;&nbsp;
+              <button mat-raised-button color="warn" style="width: 110px;">Canncel</button>
+              <br><br>
+            </form><br><br><br>
           </div>
         </div>
       </div>
     </div>
-  
-
-   <div><br><br><br>
-<ng-template #loggedOut>
-  Please login.
-</ng-template>
+    </div>
+  </div>
+</div>
+<div><br><br><br>
+  <ng-template #loggedOut>
+    Please login.
+  </ng-template>

@@ -125,12 +125,15 @@ export class GroupeListComponent implements OnInit {
               if (result.dismiss === Swal.DismissReason.cancel) {
               }
               // snackBar success 
-              this._snackBar.open("Groupes Deleted Successfully","OK"+'⚡',{
+              this._snackBar.open("Groupes Deleted Successfully",+ '' + "OK" + ''+ '⚡',{
                 duration: 5000,
                 horizontalPosition: "right",
                 verticalPosition: "top",
                 panelClass: ["mat-toolbar", "mat-success"],
               });
+              
+    
+            this.refresh();
              },
               error => {
               // snackBar error
@@ -216,7 +219,7 @@ export class GroupeListComponent implements OnInit {
             this.datasource.data[index].groupStatus = res.groupStatus;
           }
            // snackBar success 
-         this._snackBar.open("status updated Successfully", "OK"+'⚡', {
+         this._snackBar.open("status updated Successfully",+ ' '+  "OK"+ ' '+'⚡', {
           duration: 5000,
           horizontalPosition: "right",
           verticalPosition: "top",
@@ -249,7 +252,7 @@ export class GroupeListComponent implements OnInit {
             response => {
               console.log(response);
               // snackBar success 
-              this._snackBar.open("Groupes Deleted Successfully", "OK"+'⚡', {
+              this._snackBar.open("Groupes Deleted Successfully", + '' + "OK"+ ' '+ '⚡', {
                 duration: 5000,
                 horizontalPosition: "right",
                 verticalPosition: "top",

@@ -83,7 +83,7 @@ export class GroupeAddComponent implements OnInit {
         console.log(this.groupeService.form.value);
         this.groupeService.createGroupe(this.groupeService.form.value).subscribe((res) => {
           console.log(res);
-          this.notificationService.success(':: Submitted successfully');
+          this.notificationService.success('::  '  + ' ' + 'add successfully' + ' ' + '⚡');
           this.groupe.push(res);
 
         });
@@ -91,7 +91,8 @@ export class GroupeAddComponent implements OnInit {
 
       else (
         this.groupeService.updateGroupe(this.groupeService.form.value).subscribe((res) => {
-          this.groupe.push(res);
+          this.groupe.push(res); 
+          this.notificationService.success('::  '  + ' ' + 'updated successfully' + ' ' + '⚡');
 
         }));
     }
