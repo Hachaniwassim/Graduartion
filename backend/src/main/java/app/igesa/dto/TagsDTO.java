@@ -20,10 +20,6 @@ public class TagsDTO {
 	private String description ;
 	protected Date createdDate;
 	protected Date lastModifiedDate;
-	@JsonIgnore
-	private List<PostDTO> pots;
-	@JsonIgnore
-	private List<ProductDTO> products;
 
 
 	public static TagsDTO fromEntity(Tags tag) {

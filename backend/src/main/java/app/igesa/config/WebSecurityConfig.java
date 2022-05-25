@@ -80,6 +80,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.authorizeRequests()
 				.antMatchers(HttpMethod.OPTIONS).permitAll()
 				.antMatchers("/api/auth/**").permitAll()
+				.antMatchers("/api/**").permitAll()
 				.antMatchers("/api/test/**").permitAll()
 				 .antMatchers("/**/**").permitAll()
 				// dont authenticate this particular request
