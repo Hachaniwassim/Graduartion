@@ -49,10 +49,11 @@
                 </div>
             </div>
                 
-						
+			<div *ngFor="let cookie of cookieslist">
                 <div class="container">
+                    <p class="small text-muted">{{cookie.htmlContent}}</p>
                     <!-- Stack the columns on mobile by making one full-width and the other half-width -->
-                    <p>Un cookie è una piccola stringa di testo che un sito invia al browser e salva sul tuo computer quando visiti dei siti internet. Alcuni di questi cookies sono necessari al corretto funzionamento del sito, altri sono invece utili al visitatore perché in grado di memorizzare in modo sicuro ad esempio il nome utente o le impostazioni di lingua. Il vantaggio di avere dei cookies installati nel proprio pc è quello di non aver più bisogno di compilare le stesse informazioni ogni qualvolta si voglia accedere ad un sito visitato in precedenza.</p>
+                    <!-- <p>Un cookie è una piccola stringa di testo che un sito invia al browser e salva sul tuo computer quando visiti dei siti internet. Alcuni di questi cookies sono necessari al corretto funzionamento del sito, altri sono invece utili al visitatore perché in grado di memorizzare in modo sicuro ad esempio il nome utente o le impostazioni di lingua. Il vantaggio di avere dei cookies installati nel proprio pc è quello di non aver più bisogno di compilare le stesse informazioni ogni qualvolta si voglia accedere ad un sito visitato in precedenza.</p>
                 
                     <h3>Che tipo di cookies utilizza <a href=" www.igesa.it"> www.igesa.it</a> e a quale scopo ?</h3>
 
@@ -80,9 +81,10 @@
                     
                     <p>Per modificare le impostazioni, segui il procedimento indicato dai vari browser che trovi alle voci "Opzioni", "Preferenze" o "Privacy".</p>
                 
-                    <p>Per saperne di più riguardo ai cookies leggi la normativa.</p>
+                    <p>Per saperne di più riguardo ai cookies leggi la normativa.</p> -->
                     
                 </div>
+            </div>
     
         </div>
     </section>

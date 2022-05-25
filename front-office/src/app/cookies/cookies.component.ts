@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CookiesService } from '../_services/cookies.service';
 
 @Component({
   selector: 'app-cookies',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CookiesComponent implements OnInit {
 
-  constructor() { }
+  public cookieslist: any = [];
+  constructor( private cookiesService : CookiesService) { }
 
   ngOnInit(): void {
+    this.cookiesService.getCurrentEnterpriseCookies().subscribe(
+      res => this.cookieslist = res
+    );
   }
-
 }
