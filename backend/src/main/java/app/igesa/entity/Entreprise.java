@@ -99,6 +99,10 @@ public class Entreprise  extends Auditable{
 	@JsonIgnore
 	@OneToMany(mappedBy="entreprise",cascade = CascadeType.ALL)
 	private List<Pages> pages= new ArrayList<>();
+	@JsonIgnore
+	@OneToMany(mappedBy="entreprise",cascade = CascadeType.ALL)
+	private List<Tags> tags= new ArrayList<>();
+
 
 
 

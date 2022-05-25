@@ -3,11 +3,14 @@ import app.igesa.dto.TagsDTO;
 import java.util.Collection;
 import java.util.Optional;
 
+/**
+ * Tarchoun Abir
+ */
 public interface Itags {
 
     public TagsDTO save (TagsDTO  p);
     public Collection<TagsDTO> view();
-    public Optional<TagsDTO> findById(Long id);
+   // public Optional<TagsDTO> findById(Long id);
     public void delete(Long id);
-    public TagsDTO update(TagsDTO p, Long id);
+    //public TagsDTO update(TagsDTO p, Long id);
 }
