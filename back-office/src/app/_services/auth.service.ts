@@ -54,7 +54,7 @@ export class AuthService {
     }
 
   public forgetPassword(email: string): Observable<CustomHttpRespone> {
-    return this.http.get<CustomHttpRespone>(`${AUTH_API}/resetpasswordtoken/${email}`);
+    return this.http.get<CustomHttpRespone>(`${AUTH_API}/resetpassword/${email}`);
   }
  
  

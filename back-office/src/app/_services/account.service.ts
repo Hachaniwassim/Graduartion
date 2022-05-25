@@ -137,7 +137,7 @@ export class Accountservice {
 
   public resetPasswordtoken(email: string): Observable<CustomHttpRespone> {
     return this.http.get<CustomHttpRespone>(
-      `${this.base_url}/resetpasswordtoken/${email}`
+      `${this.base_url}/resetpassword/${email}`
     );
   }
 
