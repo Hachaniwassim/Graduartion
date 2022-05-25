@@ -18,6 +18,7 @@ import { AboutComponent } from './about/about.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { CookiesComponent } from './cookies/cookies.component';
 import { FooterComponent } from './footer/footer.component';
+import { AssitanceComponent } from './assitance/assitance.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { FooterComponent } from './footer/footer.component';
     PrivacyPolicyComponent,
     CookiesComponent,
     FooterComponent,
+    AssitanceComponent,
   ],
   imports: [
     BrowserModule,
