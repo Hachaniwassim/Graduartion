@@ -1,10 +1,14 @@
 package app.igesa.metiers.implement;
 
 import app.igesa.dto.FormDTO;
+import app.igesa.dto.Page2DTO;
 import app.igesa.entity.FormEntity;
+import app.igesa.entity.Page2;
+import app.igesa.enumerations.ContactStatus;
 import app.igesa.enumerations.ErrorCode;
 import app.igesa.exceptions.InvalideEntityException;
 import app.igesa.exceptions.ResourceNotFoundException;
+import app.igesa.metiers.Ientreprise;
 import app.igesa.metiers.IformEntity;
 import app.igesa.repository.IformEntityRepository;
 import app.igesa.validators.FromValidator;
@@ -31,26 +35,33 @@ public class FormEntityImp implements IformEntity {
 
     @Autowired
     IformEntityRepository iformEntityRepository;
+    @Autowired
+    Ientreprise ientrepriseService;
     private static final Logger log = LoggerFactory.getLogger(FormEntityImp.class);
 
 
     @Override
     public FormDTO save(FormDTO f) {
-        List<String> errors = FromValidator.validate(f);
-        if (f.getId()!= null) {
-
-        }
-        if(!errors.isEmpty()) {
-            log.error("Form not valid !" ,f);
-            throw new InvalideEntityException("FormEntity not valid !", ErrorCode.FORM_NOT_VALID,errors);}
-
-        FormEntity saved =iformEntityRepository.save(FormDTO.toEntity(f));
-        return FormDTO.fromEntity(saved);
+            FormEntity formEntity= new FormEntity();
+            if (f.getId()!=null){
+                formEntity = iformEntityRepository.findById(f.getId()).orElseThrow(IllegalAccessError::new);
+            }
+            formEntity.setEntreprise(ientrepriseService.getCurrentEnterprise());
+            formEntity.setContactstatus(ContactStatus.PENDING);
+            formEntity.setCompanyname(f.getCompanyname());
+            formEntity.setName(f.getName());
+            formEntity.setReferent(f.getReferent());
+            formEntity.setAdresse(f.getAdresse());
+            formEntity.setMobile(f.getMobile());
+            formEntity.setFax(f.getFax());
+            formEntity.setNationality(f.getNationality());
+            FormEntity saved = iformEntityRepository.save(FormDTO.toEntity((f)));
+            return FormDTO.fromEntity(saved);
     }
 
     @Override
     public Collection<FormDTO> view() {
-        return iformEntityRepository.findAll().stream()
+        return iformEntityRepository.findFirstByEntrepriseId(ientrepriseService.getCurrentEnterprise().getId()).stream()
                 .map(FormDTO::fromEntity)
                 .collect(Collectors.toList());
     }
@@ -62,7 +73,7 @@ public class FormEntityImp implements IformEntity {
             return null ;
         }
 
-        return  Optional.of(iformEntityRepository.findById(id).map(FormDTO::fromEntity).orElseThrow(()->
+        return  Optional.of(iformEntityRepository.findByEntrepriseId(ientrepriseService.getCurrentEnterprise().getId()).map(FormDTO::fromEntity).orElseThrow(()->
                 new ResourceNotFoundException(" No FormEntity with  Id = :: " +id+ " was founded {} ..!",
                         ErrorCode.FORMENTITY_NOT_FOUND)));
 

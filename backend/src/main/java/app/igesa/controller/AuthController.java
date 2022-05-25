@@ -54,12 +54,9 @@ import java.util.stream.Collectors;
 @Api(tags = "Authentification" )
 public class AuthController {
 
-
-	/*********************************************************
-	 *
-	 * Api  PUBLIC_API : for all  ||  PRIVATE_API : with token
-	 *
-	 *********************************************************/
+	/**
+	 * @Api private with token // public without token
+	 */
 	private final String PUBLIC_API = "/api/auth";
 	private final String PRIVATE_API = "/api/private/user";
 
@@ -134,8 +131,8 @@ public class AuthController {
 					userDetails.getEmail(),
 					roles, userDetails.getFiscaleCode(),
 					userDetails.getAccountStatus(),
-					userDetails.getGroupeId(),
-					userDetails.getEntrepriseId()));
+					userDetails.getGroupeId()
+					));
 
 		}
 		if (userDetails.getAccountStatus() == AccountStatus.PENDING) {

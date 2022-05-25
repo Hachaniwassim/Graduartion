@@ -49,7 +49,7 @@ public class Page1Imp implements Ipage1 {
 
     @Override
     public Collection<Page1DTO> view() {
-        log.debug("<====================HTTP by current entreprise =====================>");
+        log.debug("<==================== HTTP by current entreprise =====================>");
         return page1Repository.findFirstByEntrepriseId(ientrepriseService.getCurrentEnterprise().getId()).stream()
                 .map(Page1DTO::fromEntity)
                 .collect(Collectors.toList());
@@ -68,12 +68,12 @@ public class Page1Imp implements Ipage1 {
     public Page1DTO findById(Long id) {
         log.debug("HTTP GET BY ID {} ..", id);
         if (id == null) {
-            log.error(" cookies Id is NULL .. !!");
+            log.error("  Id is NULL .. !!");
             return null;
         }
 
         return page1Repository.findFirstByEntrepriseId(ientrepriseService.getCurrentEnterprise().getId()).map(Page1DTO::fromEntity).orElseThrow(() ->
-                new ResourceNotFoundException(" No cookies   with  Id = :: " + id + " was founded {} ..!"));
+                new ResourceNotFoundException(" No page  with  Id = :: " + id + " was founded {} ..!"));
 
     }
 

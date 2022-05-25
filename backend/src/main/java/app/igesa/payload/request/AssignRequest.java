@@ -14,26 +14,10 @@ import lombok.Setter;
 @Getter
 public class AssignRequest {
 
-    private Long id_entreprise;
+    private Long id_groupe;
     private Long id_account;
 
-
-    public Long getIdEntreprise() {
-        return id_entreprise;
+    public Long getId_groupe() {
+        return id_groupe;
     }
-
-    public void setIdEntreprise(Long id_entreprise) {
-        this.id_entreprise = id_entreprise;
-    }
-
-
-    public Long getIdAccount() {
-        return id_account;
-    }
-
-    public void setIdAccount(Long id_account) {
-        this.id_account = id_account;
-    }
-
-
 }

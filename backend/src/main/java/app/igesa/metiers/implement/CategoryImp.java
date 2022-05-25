@@ -1,25 +1,17 @@
 package app.igesa.metiers.implement;
-
 import app.igesa.dto.CategoryDTO;
-import app.igesa.dto.CookiesDTO;
 import app.igesa.entity.Category;
-import app.igesa.entity.Cookies;
 import app.igesa.enumerations.ErrorCode;
-import app.igesa.enumerations.ImageTypes;
-import app.igesa.exceptions.InvalideEntityException;
 import app.igesa.exceptions.ResourceNotFoundException;
 import app.igesa.metiers.Icategory;
 import app.igesa.metiers.Ientreprise;
-import app.igesa.metiers.images.ImageService;
 import app.igesa.repository.IcategoryRepository;
-import app.igesa.validators.CategoryValidators;
+import app.igesa.upload.FilesStorageService;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
-import org.hibernate.type.ImageType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.Collection;
-import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import org.slf4j.Logger;
@@ -38,10 +30,11 @@ public class CategoryImp  implements Icategory {
 
     @Autowired
     IcategoryRepository icategoryRepository;
-    @Autowired
-    ImageService imageService;
+
     @Autowired
     Ientreprise ientrepriseService;
+    @Autowired
+    FilesStorageService filesStorageService;
     private static final Logger log = LoggerFactory.getLogger(CategoryImp.class);
 
     @Override
@@ -98,7 +91,7 @@ public class CategoryImp  implements Icategory {
             name = category.getBannerimage().substring(category.getBannerimage().indexOf("/category/") + "/category/".length(), category.getBannerimage().indexOf("?enterpriseId"));
             category.setBannerimage(null);
         }
-        imageService.deleteImage(ImageTypes.CATEGORY, name, gid, eid);
+        //filesStorageService.deleteImage(ImageTypes.CATEGORY, name, gid, eid);
         icategoryRepository.save(category);
     }
 

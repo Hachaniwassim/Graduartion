@@ -140,8 +140,8 @@ public class AccountImp implements IauthService {
      * @assign entreprise ==============================>
      */
     @Override
-    public void assignEntreprise(Long entreprise_id,Long groupe_id,Long id){
-        userRepository.assignEntreprise(entreprise_id,groupe_id,id);
+    public void assignGroupe(Long groupe_id,Long id){
+        userRepository.assignGroupe(groupe_id,id);
     }
     /**
      * @update current user info ==============================>

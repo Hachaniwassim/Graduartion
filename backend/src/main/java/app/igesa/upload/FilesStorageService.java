@@ -3,6 +3,7 @@ package app.igesa.upload;
 import app.igesa.enumerations.ImageTypes;
 import app.igesa.enumerations.PagesTypes;
 import org.springframework.core.io.Resource;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.nio.file.Path;
@@ -18,4 +19,9 @@ public interface FilesStorageService {
   public void deleteById( Long id);
 
   public Stream<Path> loadAll();
-}
+
+  String uploadImage(MultipartFile file, ImageTypes imageType , Long parentId);
+
+  ResponseEntity<String> loadImage(Long id, ImageTypes imageType, Long eid);
+
+  }

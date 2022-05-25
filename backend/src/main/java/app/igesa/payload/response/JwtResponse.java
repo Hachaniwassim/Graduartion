@@ -21,9 +21,9 @@ public class JwtResponse {
 	private AccountStatus accountStatus;
 	private List<String> roles;
 	private Long groupeId ;
-	private Long entrepriseId;
+	//private Long entrepriseId;
 
-	public JwtResponse(String token, Long id, String username, String email, List<String> roles, String fiscaleCode, AccountStatus accountStatus,Long groupeId,Long entrepriseId) {
+	public JwtResponse(String token, Long id, String username, String email, List<String> roles, String fiscaleCode, AccountStatus accountStatus,Long groupeId) {
 		this.token = token;
 		this.id = id;
 		this.username = username;
@@ -32,7 +32,7 @@ public class JwtResponse {
 		this.fiscaleCode = fiscaleCode;
 		this.groupeId=groupeId;
 		this.accountStatus = accountStatus;
-		this.entrepriseId=entrepriseId;
+
 
 	}
 
@@ -85,11 +85,6 @@ public class JwtResponse {
 	public Long getGroupeId() {
 		return groupeId;
 	}
-
-	public Long getEntrepriseId() {
-		return entrepriseId;
-	}
-
 	public void setFiscaleCode(String fiscaleCode) {
 		this.fiscaleCode = fiscaleCode;
 	}
@@ -105,8 +100,5 @@ public class JwtResponse {
 	public void setGroupeId(Long groupeId) {
 		this.groupeId = groupeId;
 	}
-
-	public void setEntrepriseId(Long entrepriseId) {
-		this.entrepriseId = entrepriseId;
 	}
-}
+

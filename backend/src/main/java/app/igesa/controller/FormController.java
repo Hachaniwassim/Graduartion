@@ -43,8 +43,7 @@ public class FormController {
     private static final Logger log = LoggerFactory.getLogger(FormController.class);
 
 
-    @RequestMapping(value=PRIVATE_API,method = RequestMethod.POST)
-    @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
+    @RequestMapping(value=PUBLIC_API,method = RequestMethod.POST)
     @ApiOperation(value="ADD FORM ENTITY  ",notes="SAUVGARDER FORM ENTITY ", response = FormDTO.class)
     @ApiResponses(value= {
             @ApiResponse(code=200,message="FormEntity was saved Successfully"),
@@ -60,6 +59,7 @@ public class FormController {
 
 
     @RequestMapping(value=PRIVATE_API,method =RequestMethod.GET)
+    @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
     @ApiOperation(value="GET A LIST OF FORM ENTITY  ", responseContainer  = "Collection<FormDTO>")
     @ApiResponses(value= {
             @ApiResponse(code=200,message="FormEntity was found successfully"),
