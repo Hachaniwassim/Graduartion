@@ -39,7 +39,7 @@ public class CookiesController {
     Icookies icookies;
 
 
-    @RequestMapping(value=PRIVATE_API,method = RequestMethod.GET)
+    @RequestMapping(value=PUBLIC_API,method = RequestMethod.GET)
     @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
     @ApiOperation(value="GET Cookies",notes="GET COOKIEES", responseContainer  = "Collection<CookiesDTO>")
     @ApiResponses(value= {

@@ -1,9 +1,6 @@
 package app.igesa.dto;
 import java.util.Date;
-import java.util.List;
-import app.igesa.entity.CompanyBusiness;
 import app.igesa.enumerations.GroupStatus;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import app.igesa.entity.Groupe;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -28,7 +25,7 @@ public class GroupeDTO {
     private GroupStatus groupStatus;
     protected Date createdDate;
     protected Date lastModifiedDate;
-    private Long companyId;
+    private String maxOperateur;
 
     public static GroupeDTO fromEntity(Groupe groupe) {
 
@@ -39,7 +36,8 @@ public class GroupeDTO {
 				.description(groupe.getDescription())
                 .lastModifiedDate(groupe.getLastModifiedDate())
                 .createdDate(groupe.getCreatedDate())
-                .companyId(groupe.getCompanyBusiness().getId())
+                //nombre operateur
+                .maxOperateur(groupe.getMaxOperateur())
                         .build();
 
     }
@@ -48,7 +46,6 @@ public class GroupeDTO {
     
     public static Groupe toEntity(GroupeDTO dto) {
 
-    	
            Groupe groupe = new Groupe();
            groupe.setId(dto.getId());
            groupe.setName(dto.getName());
@@ -56,10 +53,8 @@ public class GroupeDTO {
            groupe.setDescription(dto.getDescription());
            groupe.setLastModifiedDate(dto.getLastModifiedDate());
            groupe.setCreatedDate(dto.getCreatedDate());
-           //===========================> company Bussiness ===========================>
-           CompanyBusiness companyBusiness = new CompanyBusiness();
-           companyBusiness.setId(dto.getCompanyId());
-           groupe.setCompanyBusiness(companyBusiness);
+           //maxOperateur
+           groupe.setMaxOperateur(dto.getMaxOperateur());
 
         return groupe;
     }

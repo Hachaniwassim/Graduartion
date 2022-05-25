@@ -34,11 +34,11 @@ public class CompanyBusiness extends Auditable {
 	private String domainename ;
 	/**
 	 *
-	 * Groupe List
+	 * Entreprise List
 	 *
 	 */
 	@OneToMany(mappedBy="companyBusiness",cascade = CascadeType.ALL)
-    private List<Groupe> groupe ;
+    private List<Entreprise> entreprises ;
 
 
     public CompanyBusiness(String description ,String domainename) {

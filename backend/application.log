@@ -1,2 +1,1747 @@
 2022-05-25 07:53:26,982 WARN  HikariPool$HouseKeeper:787 - [] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=8h12m17s233ms753µs900ns).
 2022-05-25 08:00:11,620 ERROR AuthEntryPointJwt:25 - [] Unauthorized error: Bad credentials
+2022-05-25 10:18:40,085 INFO  AbstractEntityManagerFactoryBean:648 - [] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-05-25 10:18:40,182 INFO  ExecutorConfigurationSupport:218 - [] Shutting down ExecutorService 'applicationTaskExecutor'
+2022-05-25 10:18:40,184 INFO  HikariDataSource:350 - [] HikariPool-1 - Shutdown initiated...
+2022-05-25 10:18:40,217 INFO  HikariDataSource:352 - [] HikariPool-1 - Shutdown completed.
+2022-05-25 10:18:56,088 INFO  StartupInfoLogger:55 - [] Starting MultiwebsitesApplication using Java 18 on DESKTOP-CI469KC with PID 24244 (C:\Users\mss\Desktop\PFEEEE\Graduartion\backend\target\classes started by mss in C:\Users\mss\Desktop\PFEEEE\Graduartion\backend)
+2022-05-25 10:18:56,095 INFO  SpringApplication:660 - [] No active profile set, falling back to default profiles: default
+2022-05-25 10:18:58,609 INFO  RepositoryConfigurationDelegate:128 - [] Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2022-05-25 10:18:58,928 INFO  RepositoryConfigurationDelegate:188 - [] Finished Spring Data repository scanning in 300 ms. Found 20 JPA repository interfaces.
+2022-05-25 10:18:59,496 INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker:350 - [] Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@71664560' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-05-25 10:18:59,505 INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker:350 - [] Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-05-25 10:18:59,933 INFO  TomcatWebServer:108 - [] Tomcat initialized with port(s): 8089 (http)
+2022-05-25 10:18:59,955 INFO  DirectJDKLog:173 - [] Starting service [Tomcat]
+2022-05-25 10:18:59,956 INFO  DirectJDKLog:173 - [] Starting Servlet engine: [Apache Tomcat/9.0.39]
+2022-05-25 10:19:00,279 INFO  DirectJDKLog:173 - [] Initializing Spring embedded WebApplicationContext
+2022-05-25 10:19:00,281 INFO  ServletWebServerApplicationContext:289 - [] Root WebApplicationContext: initialization completed in 4034 ms
+2022-05-25 10:19:00,729 WARN  JpaBaseConfiguration$JpaWebConfiguration:221 - [] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-05-25 10:19:00,852 INFO  ExecutorConfigurationSupport:181 - [] Initializing ExecutorService 'applicationTaskExecutor'
+2022-05-25 10:19:00,962 INFO  LogHelper:31 - [] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-05-25 10:19:01,082 INFO  Version:44 - [] HHH000412: Hibernate ORM core version 5.4.23.Final
+2022-05-25 10:19:01,777 INFO  JavaReflectionManager:56 - [] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-05-25 10:19:02,114 INFO  HikariDataSource:110 - [] HikariPool-1 - Starting...
+2022-05-25 10:19:02,338 INFO  HikariDataSource:123 - [] HikariPool-1 - Start completed.
+2022-05-25 10:19:02,379 INFO  Dialect:170 - [] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-05-25 10:19:03,592 INFO  EndpointLinksResolver:58 - [] Exposing 2 endpoint(s) beneath base path '/actuator'
+2022-05-25 10:19:03,771 INFO  PropertySourcedRequestMappingHandlerMapping:69 - [] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-05-25 10:19:04,029 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@73b8ab2c, org.springframework.security.web.context.SecurityContextPersistenceFilter@5dd3727c, org.springframework.security.web.header.HeaderWriterFilter@4de158ca, org.springframework.security.web.authentication.logout.LogoutFilter@5a1c7619, app.igesa.security.jwt.AuthTokenFilter@1426370c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@229cb4d8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7d3bcd3, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@13aa54f1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5600a278, org.springframework.security.web.session.SessionManagementFilter@2f8f40cc, org.springframework.security.web.access.ExceptionTranslationFilter@48d31d25, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@19739906]
+2022-05-25 10:19:05,944 INFO  JtaPlatformInitiator:52 - [] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-05-25 10:19:05,956 INFO  AbstractEntityManagerFactoryBean:434 - [] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-05-25 10:19:06,508 INFO  TomcatWebServer:220 - [] Tomcat started on port(s): 8089 (http) with context path ''
+2022-05-25 10:19:06,510 INFO  DocumentationPluginsBootstrapper:160 - [] Context refreshed
+2022-05-25 10:19:06,538 INFO  DocumentationPluginsBootstrapper:163 - [] Found 1 custom documentation plugin(s)
+2022-05-25 10:19:06,649 INFO  ApiListingReferenceScanner:41 - [] Scanning for api listing references
+2022-05-25 10:19:07,098 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_1
+2022-05-25 10:19:07,104 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_1
+2022-05-25 10:19:07,115 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_1
+2022-05-25 10:19:07,119 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_1
+2022-05-25 10:19:07,135 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_1
+2022-05-25 10:19:07,149 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_2
+2022-05-25 10:19:07,152 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_2
+2022-05-25 10:19:07,157 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_2
+2022-05-25 10:19:07,165 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_2
+2022-05-25 10:19:07,170 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_2
+2022-05-25 10:19:07,195 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_3
+2022-05-25 10:19:07,202 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_3
+2022-05-25 10:19:07,237 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_3
+2022-05-25 10:19:07,241 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_3
+2022-05-25 10:19:07,263 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_3
+2022-05-25 10:19:07,299 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_4
+2022-05-25 10:19:07,344 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_4
+2022-05-25 10:19:07,354 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_5
+2022-05-25 10:19:07,395 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_4
+2022-05-25 10:19:07,404 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_4
+2022-05-25 10:19:07,409 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_4
+2022-05-25 10:19:07,493 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_5
+2022-05-25 10:19:07,508 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_6
+2022-05-25 10:19:07,518 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_5
+2022-05-25 10:19:07,522 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_5
+2022-05-25 10:19:07,526 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_5
+2022-05-25 10:19:07,575 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_6
+2022-05-25 10:19:07,579 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_7
+2022-05-25 10:19:07,583 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_6
+2022-05-25 10:19:07,586 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_6
+2022-05-25 10:19:07,590 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_6
+2022-05-25 10:19:07,595 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: handleUsingGET_1
+2022-05-25 10:19:07,598 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: handleUsingGET_2
+2022-05-25 10:19:07,604 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_7
+2022-05-25 10:19:07,608 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_8
+2022-05-25 10:19:07,615 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_7
+2022-05-25 10:19:07,620 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_7
+2022-05-25 10:19:07,635 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_7
+2022-05-25 10:19:07,643 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_8
+2022-05-25 10:19:07,646 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_9
+2022-05-25 10:19:07,650 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_8
+2022-05-25 10:19:07,651 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_8
+2022-05-25 10:19:07,654 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_8
+2022-05-25 10:19:07,659 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_9
+2022-05-25 10:19:07,663 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_10
+2022-05-25 10:19:07,669 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_9
+2022-05-25 10:19:07,672 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_9
+2022-05-25 10:19:07,676 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_9
+2022-05-25 10:19:07,683 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_10
+2022-05-25 10:19:07,688 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_11
+2022-05-25 10:19:07,693 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_10
+2022-05-25 10:19:07,696 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_10
+2022-05-25 10:19:07,703 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_10
+2022-05-25 10:19:07,758 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_11
+2022-05-25 10:19:07,769 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_12
+2022-05-25 10:19:07,781 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_11
+2022-05-25 10:19:07,786 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_11
+2022-05-25 10:19:07,792 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_11
+2022-05-25 10:19:07,820 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_12
+2022-05-25 10:19:07,823 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_13
+2022-05-25 10:19:07,833 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_12
+2022-05-25 10:19:07,836 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_12
+2022-05-25 10:19:07,841 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_12
+2022-05-25 10:19:07,847 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_13
+2022-05-25 10:19:07,850 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_14
+2022-05-25 10:19:07,853 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_13
+2022-05-25 10:19:07,854 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_13
+2022-05-25 10:19:07,858 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_13
+2022-05-25 10:19:07,869 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_14
+2022-05-25 10:19:07,872 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_15
+2022-05-25 10:19:07,879 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_14
+2022-05-25 10:19:07,882 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_14
+2022-05-25 10:19:07,893 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_14
+2022-05-25 10:19:07,897 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_15
+2022-05-25 10:19:07,901 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_16
+2022-05-25 10:19:07,904 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_15
+2022-05-25 10:19:07,915 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_15
+2022-05-25 10:19:07,919 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_16
+2022-05-25 10:19:07,926 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_17
+2022-05-25 10:19:07,930 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_16
+2022-05-25 10:19:07,932 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_15
+2022-05-25 10:19:07,934 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_16
+2022-05-25 10:19:08,033 INFO  DeferredRepositoryInitializationListener:51 - [] Triggering deferred initialization of Spring Data repositories…
+2022-05-25 10:19:09,674 INFO  DeferredRepositoryInitializationListener:55 - [] Spring Data repositories initialized!
+2022-05-25 10:19:09,708 INFO  StartupInfoLogger:61 - [] Started MultiwebsitesApplication in 14.568 seconds (JVM running for 16.718)
+2022-05-25 11:02:14,218 INFO  DirectJDKLog:173 - [] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-05-25 11:02:14,222 INFO  FrameworkServlet:525 - [] Initializing Servlet 'dispatcherServlet'
+2022-05-25 11:02:14,227 INFO  FrameworkServlet:547 - [] Completed initialization in 4 ms
+2022-05-25 11:02:14,582 ERROR DirectJDKLog:175 - [] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException: Cannot invoke "app.igesa.metiers.UserDetailsImpl.getCenterId()" because the return value of "app.igesa.metiers.IauthService.getIdentity()" is null] with root cause
+java.lang.NullPointerException: Cannot invoke "app.igesa.metiers.UserDetailsImpl.getCenterId()" because the return value of "app.igesa.metiers.IauthService.getIdentity()" is null
+	at app.igesa.metiers.EntrepriseImpl.getCurrentEnterprise(EntrepriseImpl.java:47)
+	at app.igesa.metiers.implement.CookiesImp.getCookiesByEntreprise(CookiesImp.java:49)
+	at app.igesa.controller.CookiesController.GetCookiesByEntreprise(CookiesController.java:53)
+	at app.igesa.controller.CookiesController$$FastClassBySpringCGLIB$$62cd443f.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:687)
+	at app.igesa.controller.CookiesController$$EnhancerBySpringCGLIB$$f5422e7d.GetCookiesByEntreprise(<generated>)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:893)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:807)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1061)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:961)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:113)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:327)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:113)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:133)
+	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:92)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at app.igesa.security.jwt.AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:54)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:110)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:80)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:211)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:183)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2022-05-25 11:04:16,352 ERROR DirectJDKLog:175 - [] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException: Cannot invoke "app.igesa.metiers.UserDetailsImpl.getCenterId()" because the return value of "app.igesa.metiers.IauthService.getIdentity()" is null] with root cause
+java.lang.NullPointerException: Cannot invoke "app.igesa.metiers.UserDetailsImpl.getCenterId()" because the return value of "app.igesa.metiers.IauthService.getIdentity()" is null
+	at app.igesa.metiers.EntrepriseImpl.getCurrentEnterprise(EntrepriseImpl.java:47)
+	at app.igesa.metiers.implement.CookiesImp.getCookiesByEntreprise(CookiesImp.java:49)
+	at app.igesa.controller.CookiesController.GetCookiesByEntreprise(CookiesController.java:53)
+	at app.igesa.controller.CookiesController$$FastClassBySpringCGLIB$$62cd443f.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:687)
+	at app.igesa.controller.CookiesController$$EnhancerBySpringCGLIB$$f5422e7d.GetCookiesByEntreprise(<generated>)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:893)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:807)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1061)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:961)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:113)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:327)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:113)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:133)
+	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:92)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at app.igesa.security.jwt.AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:54)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:110)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:80)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:211)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:183)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2022-05-25 11:06:31,561 INFO  AbstractEntityManagerFactoryBean:648 - [] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-05-25 11:06:31,569 INFO  ExecutorConfigurationSupport:218 - [] Shutting down ExecutorService 'applicationTaskExecutor'
+2022-05-25 11:06:31,570 INFO  HikariDataSource:350 - [] HikariPool-1 - Shutdown initiated...
+2022-05-25 11:06:31,612 INFO  HikariDataSource:352 - [] HikariPool-1 - Shutdown completed.
+2022-05-25 11:06:45,282 INFO  StartupInfoLogger:55 - [] Starting MultiwebsitesApplication using Java 18 on DESKTOP-CI469KC with PID 14180 (C:\Users\mss\Desktop\PFEEEE\Graduartion\backend\target\classes started by mss in C:\Users\mss\Desktop\PFEEEE\Graduartion\backend)
+2022-05-25 11:06:45,289 INFO  SpringApplication:660 - [] No active profile set, falling back to default profiles: default
+2022-05-25 11:06:47,677 INFO  RepositoryConfigurationDelegate:128 - [] Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2022-05-25 11:06:47,987 INFO  RepositoryConfigurationDelegate:188 - [] Finished Spring Data repository scanning in 291 ms. Found 20 JPA repository interfaces.
+2022-05-25 11:06:48,476 INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker:350 - [] Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@30c19bff' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-05-25 11:06:48,485 INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker:350 - [] Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-05-25 11:06:48,850 INFO  TomcatWebServer:108 - [] Tomcat initialized with port(s): 8089 (http)
+2022-05-25 11:06:48,867 INFO  DirectJDKLog:173 - [] Starting service [Tomcat]
+2022-05-25 11:06:48,868 INFO  DirectJDKLog:173 - [] Starting Servlet engine: [Apache Tomcat/9.0.39]
+2022-05-25 11:06:49,037 INFO  DirectJDKLog:173 - [] Initializing Spring embedded WebApplicationContext
+2022-05-25 11:06:49,038 INFO  ServletWebServerApplicationContext:289 - [] Root WebApplicationContext: initialization completed in 3620 ms
+2022-05-25 11:06:49,317 WARN  JpaBaseConfiguration$JpaWebConfiguration:221 - [] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-05-25 11:06:49,423 INFO  ExecutorConfigurationSupport:181 - [] Initializing ExecutorService 'applicationTaskExecutor'
+2022-05-25 11:06:49,535 INFO  LogHelper:31 - [] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-05-25 11:06:49,654 INFO  Version:44 - [] HHH000412: Hibernate ORM core version 5.4.23.Final
+2022-05-25 11:06:49,906 INFO  JavaReflectionManager:56 - [] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-05-25 11:06:50,130 INFO  HikariDataSource:110 - [] HikariPool-1 - Starting...
+2022-05-25 11:06:50,367 INFO  HikariDataSource:123 - [] HikariPool-1 - Start completed.
+2022-05-25 11:06:50,401 INFO  Dialect:170 - [] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-05-25 11:06:51,685 INFO  EndpointLinksResolver:58 - [] Exposing 2 endpoint(s) beneath base path '/actuator'
+2022-05-25 11:06:51,880 INFO  PropertySourcedRequestMappingHandlerMapping:69 - [] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-05-25 11:06:52,150 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6eb00cbe, org.springframework.security.web.context.SecurityContextPersistenceFilter@76e9eed8, org.springframework.security.web.header.HeaderWriterFilter@4af7ac25, org.springframework.security.web.authentication.logout.LogoutFilter@300aa927, app.igesa.security.jwt.AuthTokenFilter@b55f5b7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@474619d9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1c135f63, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@2e44cb34, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@74e4be21, org.springframework.security.web.session.SessionManagementFilter@774013dc, org.springframework.security.web.access.ExceptionTranslationFilter@1d0b447b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@41026e5c]
+2022-05-25 11:06:53,472 INFO  JtaPlatformInitiator:52 - [] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-05-25 11:06:53,483 INFO  AbstractEntityManagerFactoryBean:434 - [] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-05-25 11:06:54,134 INFO  TomcatWebServer:220 - [] Tomcat started on port(s): 8089 (http) with context path ''
+2022-05-25 11:06:54,137 INFO  DocumentationPluginsBootstrapper:160 - [] Context refreshed
+2022-05-25 11:06:54,168 INFO  DocumentationPluginsBootstrapper:163 - [] Found 1 custom documentation plugin(s)
+2022-05-25 11:06:54,255 INFO  ApiListingReferenceScanner:41 - [] Scanning for api listing references
+2022-05-25 11:06:54,563 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_1
+2022-05-25 11:06:54,571 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_1
+2022-05-25 11:06:54,580 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_1
+2022-05-25 11:06:54,585 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_1
+2022-05-25 11:06:54,595 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_1
+2022-05-25 11:06:54,608 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_2
+2022-05-25 11:06:54,611 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_2
+2022-05-25 11:06:54,617 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_2
+2022-05-25 11:06:54,622 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_2
+2022-05-25 11:06:54,628 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_2
+2022-05-25 11:06:54,647 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_3
+2022-05-25 11:06:54,651 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_3
+2022-05-25 11:06:54,672 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_3
+2022-05-25 11:06:54,674 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_3
+2022-05-25 11:06:54,678 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_3
+2022-05-25 11:06:54,687 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_4
+2022-05-25 11:06:54,699 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_4
+2022-05-25 11:06:54,705 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_5
+2022-05-25 11:06:54,719 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_4
+2022-05-25 11:06:54,735 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_4
+2022-05-25 11:06:54,740 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_4
+2022-05-25 11:06:54,792 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_5
+2022-05-25 11:06:54,802 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_6
+2022-05-25 11:06:54,808 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_5
+2022-05-25 11:06:54,810 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_5
+2022-05-25 11:06:54,813 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_5
+2022-05-25 11:06:54,848 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_6
+2022-05-25 11:06:54,852 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_7
+2022-05-25 11:06:54,856 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_6
+2022-05-25 11:06:54,858 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_6
+2022-05-25 11:06:54,861 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_6
+2022-05-25 11:06:54,866 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: handleUsingGET_1
+2022-05-25 11:06:54,868 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: handleUsingGET_2
+2022-05-25 11:06:54,873 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_7
+2022-05-25 11:06:54,876 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_8
+2022-05-25 11:06:54,880 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_7
+2022-05-25 11:06:54,885 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_7
+2022-05-25 11:06:54,890 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_7
+2022-05-25 11:06:54,899 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_8
+2022-05-25 11:06:54,901 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_9
+2022-05-25 11:06:54,904 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_8
+2022-05-25 11:06:54,905 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_8
+2022-05-25 11:06:54,907 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_8
+2022-05-25 11:06:54,911 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_9
+2022-05-25 11:06:54,913 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_10
+2022-05-25 11:06:54,917 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_9
+2022-05-25 11:06:54,920 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_9
+2022-05-25 11:06:54,922 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_9
+2022-05-25 11:06:54,927 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_10
+2022-05-25 11:06:54,930 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_11
+2022-05-25 11:06:54,933 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_10
+2022-05-25 11:06:54,935 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_10
+2022-05-25 11:06:54,938 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_10
+2022-05-25 11:06:54,962 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_11
+2022-05-25 11:06:54,965 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_12
+2022-05-25 11:06:54,969 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_11
+2022-05-25 11:06:54,971 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_11
+2022-05-25 11:06:54,973 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_11
+2022-05-25 11:06:54,983 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_12
+2022-05-25 11:06:54,985 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_13
+2022-05-25 11:06:54,990 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_12
+2022-05-25 11:06:54,992 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_12
+2022-05-25 11:06:54,995 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_12
+2022-05-25 11:06:55,000 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_13
+2022-05-25 11:06:55,003 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_14
+2022-05-25 11:06:55,005 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_13
+2022-05-25 11:06:55,007 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_13
+2022-05-25 11:06:55,010 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_13
+2022-05-25 11:06:55,021 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_14
+2022-05-25 11:06:55,023 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_15
+2022-05-25 11:06:55,027 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_14
+2022-05-25 11:06:55,029 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_14
+2022-05-25 11:06:55,038 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_14
+2022-05-25 11:06:55,042 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_15
+2022-05-25 11:06:55,046 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_16
+2022-05-25 11:06:55,049 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_15
+2022-05-25 11:06:55,054 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_15
+2022-05-25 11:06:55,056 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_16
+2022-05-25 11:06:55,060 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_17
+2022-05-25 11:06:55,063 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_16
+2022-05-25 11:06:55,066 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_15
+2022-05-25 11:06:55,068 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_16
+2022-05-25 11:06:55,129 INFO  DeferredRepositoryInitializationListener:51 - [] Triggering deferred initialization of Spring Data repositories…
+2022-05-25 11:06:56,533 INFO  DeferredRepositoryInitializationListener:55 - [] Spring Data repositories initialized!
+2022-05-25 11:06:56,555 INFO  StartupInfoLogger:61 - [] Started MultiwebsitesApplication in 12.087 seconds (JVM running for 14.206)
+2022-05-25 11:10:20,053 INFO  AbstractEntityManagerFactoryBean:648 - [] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-05-25 11:10:20,056 INFO  ExecutorConfigurationSupport:218 - [] Shutting down ExecutorService 'applicationTaskExecutor'
+2022-05-25 11:10:20,057 INFO  HikariDataSource:350 - [] HikariPool-1 - Shutdown initiated...
+2022-05-25 11:10:20,088 INFO  HikariDataSource:352 - [] HikariPool-1 - Shutdown completed.
+2022-05-25 11:10:28,182 INFO  StartupInfoLogger:55 - [] Starting MultiwebsitesApplication using Java 18 on DESKTOP-CI469KC with PID 18872 (C:\Users\mss\Desktop\PFEEEE\Graduartion\backend\target\classes started by mss in C:\Users\mss\Desktop\PFEEEE\Graduartion\backend)
+2022-05-25 11:10:28,190 INFO  SpringApplication:660 - [] No active profile set, falling back to default profiles: default
+2022-05-25 11:10:31,380 INFO  RepositoryConfigurationDelegate:128 - [] Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2022-05-25 11:10:31,675 INFO  RepositoryConfigurationDelegate:188 - [] Finished Spring Data repository scanning in 276 ms. Found 20 JPA repository interfaces.
+2022-05-25 11:10:32,240 INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker:350 - [] Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@71664560' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-05-25 11:10:32,248 INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker:350 - [] Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-05-25 11:10:32,569 INFO  TomcatWebServer:108 - [] Tomcat initialized with port(s): 8089 (http)
+2022-05-25 11:10:32,590 INFO  DirectJDKLog:173 - [] Starting service [Tomcat]
+2022-05-25 11:10:32,590 INFO  DirectJDKLog:173 - [] Starting Servlet engine: [Apache Tomcat/9.0.39]
+2022-05-25 11:10:32,729 INFO  DirectJDKLog:173 - [] Initializing Spring embedded WebApplicationContext
+2022-05-25 11:10:32,730 INFO  ServletWebServerApplicationContext:289 - [] Root WebApplicationContext: initialization completed in 4330 ms
+2022-05-25 11:10:33,020 WARN  JpaBaseConfiguration$JpaWebConfiguration:221 - [] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-05-25 11:10:33,138 INFO  ExecutorConfigurationSupport:181 - [] Initializing ExecutorService 'applicationTaskExecutor'
+2022-05-25 11:10:33,231 INFO  LogHelper:31 - [] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-05-25 11:10:33,302 INFO  Version:44 - [] HHH000412: Hibernate ORM core version 5.4.23.Final
+2022-05-25 11:10:33,480 INFO  JavaReflectionManager:56 - [] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-05-25 11:10:33,626 INFO  HikariDataSource:110 - [] HikariPool-1 - Starting...
+2022-05-25 11:10:33,821 INFO  HikariDataSource:123 - [] HikariPool-1 - Start completed.
+2022-05-25 11:10:33,846 INFO  Dialect:170 - [] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-05-25 11:10:35,125 INFO  EndpointLinksResolver:58 - [] Exposing 2 endpoint(s) beneath base path '/actuator'
+2022-05-25 11:10:35,271 INFO  PropertySourcedRequestMappingHandlerMapping:69 - [] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-05-25 11:10:35,544 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2e44cb34, org.springframework.security.web.context.SecurityContextPersistenceFilter@474619d9, org.springframework.security.web.header.HeaderWriterFilter@3cf06a01, org.springframework.security.web.authentication.logout.LogoutFilter@1f4dd016, app.igesa.security.jwt.AuthTokenFilter@54be6213, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@391dfe7c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@29bd2796, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@73b8ab2c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@731e0bff, org.springframework.security.web.session.SessionManagementFilter@76e9eed8, org.springframework.security.web.access.ExceptionTranslationFilter@4f2fdf3d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6408be5]
+2022-05-25 11:10:36,913 INFO  JtaPlatformInitiator:52 - [] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-05-25 11:10:36,925 INFO  AbstractEntityManagerFactoryBean:434 - [] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-05-25 11:10:37,472 INFO  TomcatWebServer:220 - [] Tomcat started on port(s): 8089 (http) with context path ''
+2022-05-25 11:10:37,474 INFO  DocumentationPluginsBootstrapper:160 - [] Context refreshed
+2022-05-25 11:10:37,497 INFO  DocumentationPluginsBootstrapper:163 - [] Found 1 custom documentation plugin(s)
+2022-05-25 11:10:37,578 INFO  ApiListingReferenceScanner:41 - [] Scanning for api listing references
+2022-05-25 11:10:37,900 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_1
+2022-05-25 11:10:37,906 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_1
+2022-05-25 11:10:37,916 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_1
+2022-05-25 11:10:37,923 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_1
+2022-05-25 11:10:37,928 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_1
+2022-05-25 11:10:37,941 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_2
+2022-05-25 11:10:37,945 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_2
+2022-05-25 11:10:37,949 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_2
+2022-05-25 11:10:37,958 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_2
+2022-05-25 11:10:37,964 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_2
+2022-05-25 11:10:37,979 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_3
+2022-05-25 11:10:37,983 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_3
+2022-05-25 11:10:38,005 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_3
+2022-05-25 11:10:38,009 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_3
+2022-05-25 11:10:38,013 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_3
+2022-05-25 11:10:38,023 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_4
+2022-05-25 11:10:38,054 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_4
+2022-05-25 11:10:38,059 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_5
+2022-05-25 11:10:38,071 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_4
+2022-05-25 11:10:38,074 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_4
+2022-05-25 11:10:38,083 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_4
+2022-05-25 11:10:38,131 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_5
+2022-05-25 11:10:38,143 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_6
+2022-05-25 11:10:38,149 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_5
+2022-05-25 11:10:38,152 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_5
+2022-05-25 11:10:38,154 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_5
+2022-05-25 11:10:38,195 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_6
+2022-05-25 11:10:38,198 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_7
+2022-05-25 11:10:38,202 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_6
+2022-05-25 11:10:38,204 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_6
+2022-05-25 11:10:38,208 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_6
+2022-05-25 11:10:38,213 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: handleUsingGET_1
+2022-05-25 11:10:38,216 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: handleUsingGET_2
+2022-05-25 11:10:38,220 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_7
+2022-05-25 11:10:38,222 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_8
+2022-05-25 11:10:38,229 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_7
+2022-05-25 11:10:38,233 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_7
+2022-05-25 11:10:38,236 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_7
+2022-05-25 11:10:38,243 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_8
+2022-05-25 11:10:38,246 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_9
+2022-05-25 11:10:38,250 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_8
+2022-05-25 11:10:38,252 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_8
+2022-05-25 11:10:38,255 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_8
+2022-05-25 11:10:38,260 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_9
+2022-05-25 11:10:38,263 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_10
+2022-05-25 11:10:38,267 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_9
+2022-05-25 11:10:38,270 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_9
+2022-05-25 11:10:38,273 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_9
+2022-05-25 11:10:38,280 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_10
+2022-05-25 11:10:38,284 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_11
+2022-05-25 11:10:38,288 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_10
+2022-05-25 11:10:38,290 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_10
+2022-05-25 11:10:38,293 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_10
+2022-05-25 11:10:38,322 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_11
+2022-05-25 11:10:38,327 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_12
+2022-05-25 11:10:38,331 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_11
+2022-05-25 11:10:38,333 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_11
+2022-05-25 11:10:38,336 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_11
+2022-05-25 11:10:38,350 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_12
+2022-05-25 11:10:38,353 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_13
+2022-05-25 11:10:38,360 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_12
+2022-05-25 11:10:38,363 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_12
+2022-05-25 11:10:38,365 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_12
+2022-05-25 11:10:38,370 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_13
+2022-05-25 11:10:38,372 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_14
+2022-05-25 11:10:38,377 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_13
+2022-05-25 11:10:38,380 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_13
+2022-05-25 11:10:38,382 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_13
+2022-05-25 11:10:38,400 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_14
+2022-05-25 11:10:38,403 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_15
+2022-05-25 11:10:38,408 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_14
+2022-05-25 11:10:38,411 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_14
+2022-05-25 11:10:38,416 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_14
+2022-05-25 11:10:38,419 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_15
+2022-05-25 11:10:38,425 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_16
+2022-05-25 11:10:38,427 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_15
+2022-05-25 11:10:38,431 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_15
+2022-05-25 11:10:38,434 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_16
+2022-05-25 11:10:38,438 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_17
+2022-05-25 11:10:38,441 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_16
+2022-05-25 11:10:38,443 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_15
+2022-05-25 11:10:38,445 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_16
+2022-05-25 11:10:38,502 INFO  DeferredRepositoryInitializationListener:51 - [] Triggering deferred initialization of Spring Data repositories…
+2022-05-25 11:10:39,847 INFO  DeferredRepositoryInitializationListener:55 - [] Spring Data repositories initialized!
+2022-05-25 11:10:39,870 INFO  StartupInfoLogger:61 - [] Started MultiwebsitesApplication in 13.498 seconds (JVM running for 16.442)
+2022-05-25 11:10:49,615 INFO  DirectJDKLog:173 - [] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-05-25 11:10:49,621 INFO  FrameworkServlet:525 - [] Initializing Servlet 'dispatcherServlet'
+2022-05-25 11:10:49,632 INFO  FrameworkServlet:547 - [] Completed initialization in 8 ms
+2022-05-25 11:10:49,896 ERROR DirectJDKLog:175 - [] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException: Cannot invoke "app.igesa.metiers.UserDetailsImpl.getCenterId()" because the return value of "app.igesa.metiers.IauthService.getIdentity()" is null] with root cause
+java.lang.NullPointerException: Cannot invoke "app.igesa.metiers.UserDetailsImpl.getCenterId()" because the return value of "app.igesa.metiers.IauthService.getIdentity()" is null
+	at app.igesa.metiers.EntrepriseImpl.getCurrentEnterprise(EntrepriseImpl.java:47)
+	at app.igesa.metiers.implement.CookiesImp.getCookiesByEntreprise(CookiesImp.java:49)
+	at app.igesa.controller.CookiesController.GetCookiesByEntreprise(CookiesController.java:53)
+	at app.igesa.controller.CookiesController$$FastClassBySpringCGLIB$$62cd443f.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:687)
+	at app.igesa.controller.CookiesController$$EnhancerBySpringCGLIB$$85029331.GetCookiesByEntreprise(<generated>)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:893)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:807)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1061)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:961)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:113)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:327)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:113)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:133)
+	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:92)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at app.igesa.security.jwt.AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:54)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:110)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:80)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:211)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:183)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2022-05-25 11:19:55,440 ERROR DirectJDKLog:175 - [] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException: Cannot invoke "app.igesa.metiers.UserDetailsImpl.getCenterId()" because the return value of "app.igesa.metiers.IauthService.getIdentity()" is null] with root cause
+java.lang.NullPointerException: Cannot invoke "app.igesa.metiers.UserDetailsImpl.getCenterId()" because the return value of "app.igesa.metiers.IauthService.getIdentity()" is null
+	at app.igesa.metiers.EntrepriseImpl.getCurrentEnterprise(EntrepriseImpl.java:47)
+	at app.igesa.metiers.implement.CookiesImp.getCookiesByEntreprise(CookiesImp.java:49)
+	at app.igesa.controller.CookiesController.GetCookiesByEntreprise(CookiesController.java:53)
+	at app.igesa.controller.CookiesController$$FastClassBySpringCGLIB$$62cd443f.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:687)
+	at app.igesa.controller.CookiesController$$EnhancerBySpringCGLIB$$85029331.GetCookiesByEntreprise(<generated>)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:893)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:807)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1061)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:961)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:113)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:327)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:113)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:133)
+	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:92)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at app.igesa.security.jwt.AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:54)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:110)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:80)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:211)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:183)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2022-05-25 11:20:22,724 ERROR DirectJDKLog:175 - [] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException: Cannot invoke "app.igesa.metiers.UserDetailsImpl.getCenterId()" because the return value of "app.igesa.metiers.IauthService.getIdentity()" is null] with root cause
+java.lang.NullPointerException: Cannot invoke "app.igesa.metiers.UserDetailsImpl.getCenterId()" because the return value of "app.igesa.metiers.IauthService.getIdentity()" is null
+	at app.igesa.metiers.EntrepriseImpl.getCurrentEnterprise(EntrepriseImpl.java:47)
+	at app.igesa.metiers.implement.CookiesImp.getCookiesByEntreprise(CookiesImp.java:49)
+	at app.igesa.controller.CookiesController.GetCookiesByEntreprise(CookiesController.java:53)
+	at app.igesa.controller.CookiesController$$FastClassBySpringCGLIB$$62cd443f.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:687)
+	at app.igesa.controller.CookiesController$$EnhancerBySpringCGLIB$$85029331.GetCookiesByEntreprise(<generated>)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:893)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:807)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1061)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:961)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:113)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:327)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:113)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:133)
+	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:92)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at app.igesa.security.jwt.AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:54)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:110)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:80)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:211)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:183)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2022-05-25 11:20:53,245 ERROR DirectJDKLog:175 - [] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException: Cannot invoke "app.igesa.metiers.UserDetailsImpl.getCenterId()" because the return value of "app.igesa.metiers.IauthService.getIdentity()" is null] with root cause
+java.lang.NullPointerException: Cannot invoke "app.igesa.metiers.UserDetailsImpl.getCenterId()" because the return value of "app.igesa.metiers.IauthService.getIdentity()" is null
+	at app.igesa.metiers.EntrepriseImpl.getCurrentEnterprise(EntrepriseImpl.java:47)
+	at app.igesa.metiers.implement.CookiesImp.getCookiesByEntreprise(CookiesImp.java:49)
+	at app.igesa.controller.CookiesController.GetCookiesByEntreprise(CookiesController.java:53)
+	at app.igesa.controller.CookiesController$$FastClassBySpringCGLIB$$62cd443f.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:687)
+	at app.igesa.controller.CookiesController$$EnhancerBySpringCGLIB$$85029331.GetCookiesByEntreprise(<generated>)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:893)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:807)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1061)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:961)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:113)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:327)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:113)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:133)
+	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:92)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at app.igesa.security.jwt.AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:54)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:110)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:80)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:211)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:183)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2022-05-25 11:21:38,714 ERROR DirectJDKLog:175 - [] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException: Cannot invoke "app.igesa.metiers.UserDetailsImpl.getCenterId()" because the return value of "app.igesa.metiers.IauthService.getIdentity()" is null] with root cause
+java.lang.NullPointerException: Cannot invoke "app.igesa.metiers.UserDetailsImpl.getCenterId()" because the return value of "app.igesa.metiers.IauthService.getIdentity()" is null
+	at app.igesa.metiers.EntrepriseImpl.getCurrentEnterprise(EntrepriseImpl.java:47)
+	at app.igesa.metiers.implement.CookiesImp.getCookiesByEntreprise(CookiesImp.java:49)
+	at app.igesa.controller.CookiesController.GetCookiesByEntreprise(CookiesController.java:53)
+	at app.igesa.controller.CookiesController$$FastClassBySpringCGLIB$$62cd443f.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:687)
+	at app.igesa.controller.CookiesController$$EnhancerBySpringCGLIB$$85029331.GetCookiesByEntreprise(<generated>)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:893)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:807)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1061)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:961)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:113)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:327)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:113)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:133)
+	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:92)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at app.igesa.security.jwt.AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:54)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:110)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:80)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:211)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:183)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2022-05-25 11:22:46,311 ERROR DirectJDKLog:175 - [] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException: Cannot invoke "app.igesa.metiers.UserDetailsImpl.getCenterId()" because the return value of "app.igesa.metiers.IauthService.getIdentity()" is null] with root cause
+java.lang.NullPointerException: Cannot invoke "app.igesa.metiers.UserDetailsImpl.getCenterId()" because the return value of "app.igesa.metiers.IauthService.getIdentity()" is null
+	at app.igesa.metiers.EntrepriseImpl.getCurrentEnterprise(EntrepriseImpl.java:47)
+	at app.igesa.metiers.implement.CookiesImp.getCookiesByEntreprise(CookiesImp.java:49)
+	at app.igesa.controller.CookiesController.GetCookiesByEntreprise(CookiesController.java:53)
+	at app.igesa.controller.CookiesController$$FastClassBySpringCGLIB$$62cd443f.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:687)
+	at app.igesa.controller.CookiesController$$EnhancerBySpringCGLIB$$85029331.GetCookiesByEntreprise(<generated>)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:893)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:807)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1061)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:961)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:113)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:327)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:113)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:133)
+	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:92)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at app.igesa.security.jwt.AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:54)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:110)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:80)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:211)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:183)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2022-05-25 11:22:46,350 ERROR DirectJDKLog:175 - [] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException: Cannot invoke "app.igesa.metiers.UserDetailsImpl.getCenterId()" because the return value of "app.igesa.metiers.IauthService.getIdentity()" is null] with root cause
+java.lang.NullPointerException: Cannot invoke "app.igesa.metiers.UserDetailsImpl.getCenterId()" because the return value of "app.igesa.metiers.IauthService.getIdentity()" is null
+	at app.igesa.metiers.EntrepriseImpl.getCurrentEnterprise(EntrepriseImpl.java:47)
+	at app.igesa.metiers.implement.CookiesImp.getCookiesByEntreprise(CookiesImp.java:49)
+	at app.igesa.controller.CookiesController.GetCookiesByEntreprise(CookiesController.java:53)
+	at app.igesa.controller.CookiesController$$FastClassBySpringCGLIB$$62cd443f.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:687)
+	at app.igesa.controller.CookiesController$$EnhancerBySpringCGLIB$$85029331.GetCookiesByEntreprise(<generated>)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:893)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:807)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1061)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:961)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:113)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:327)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:113)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:133)
+	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:92)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at app.igesa.security.jwt.AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:54)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:110)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:80)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:211)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:183)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2022-05-25 11:23:31,070 ERROR DirectJDKLog:175 - [] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException: Cannot invoke "app.igesa.metiers.UserDetailsImpl.getCenterId()" because the return value of "app.igesa.metiers.IauthService.getIdentity()" is null] with root cause
+java.lang.NullPointerException: Cannot invoke "app.igesa.metiers.UserDetailsImpl.getCenterId()" because the return value of "app.igesa.metiers.IauthService.getIdentity()" is null
+	at app.igesa.metiers.EntrepriseImpl.getCurrentEnterprise(EntrepriseImpl.java:47)
+	at app.igesa.metiers.implement.CookiesImp.getCookiesByEntreprise(CookiesImp.java:49)
+	at app.igesa.controller.CookiesController.GetCookiesByEntreprise(CookiesController.java:53)
+	at app.igesa.controller.CookiesController$$FastClassBySpringCGLIB$$62cd443f.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:687)
+	at app.igesa.controller.CookiesController$$EnhancerBySpringCGLIB$$85029331.GetCookiesByEntreprise(<generated>)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:893)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:807)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1061)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:961)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:113)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:327)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:113)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:133)
+	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:92)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at app.igesa.security.jwt.AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:54)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:110)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:80)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:211)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:183)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2022-05-25 11:23:47,842 ERROR DirectJDKLog:175 - [] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException: Cannot invoke "app.igesa.metiers.UserDetailsImpl.getCenterId()" because the return value of "app.igesa.metiers.IauthService.getIdentity()" is null] with root cause
+java.lang.NullPointerException: Cannot invoke "app.igesa.metiers.UserDetailsImpl.getCenterId()" because the return value of "app.igesa.metiers.IauthService.getIdentity()" is null
+	at app.igesa.metiers.EntrepriseImpl.getCurrentEnterprise(EntrepriseImpl.java:47)
+	at app.igesa.metiers.implement.CookiesImp.getCookiesByEntreprise(CookiesImp.java:49)
+	at app.igesa.controller.CookiesController.GetCookiesByEntreprise(CookiesController.java:53)
+	at app.igesa.controller.CookiesController$$FastClassBySpringCGLIB$$62cd443f.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:687)
+	at app.igesa.controller.CookiesController$$EnhancerBySpringCGLIB$$85029331.GetCookiesByEntreprise(<generated>)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:893)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:807)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1061)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:961)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:113)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:327)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:113)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:133)
+	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:92)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at app.igesa.security.jwt.AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:54)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:110)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:80)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:211)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:183)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2022-05-25 11:32:53,802 ERROR DirectJDKLog:175 - [] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException: Cannot invoke "app.igesa.metiers.UserDetailsImpl.getCenterId()" because the return value of "app.igesa.metiers.IauthService.getIdentity()" is null] with root cause
+java.lang.NullPointerException: Cannot invoke "app.igesa.metiers.UserDetailsImpl.getCenterId()" because the return value of "app.igesa.metiers.IauthService.getIdentity()" is null
+	at app.igesa.metiers.EntrepriseImpl.getCurrentEnterprise(EntrepriseImpl.java:47)
+	at app.igesa.metiers.implement.CookiesImp.getCookiesByEntreprise(CookiesImp.java:49)
+	at app.igesa.controller.CookiesController.GetCookiesByEntreprise(CookiesController.java:53)
+	at app.igesa.controller.CookiesController$$FastClassBySpringCGLIB$$62cd443f.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:687)
+	at app.igesa.controller.CookiesController$$EnhancerBySpringCGLIB$$85029331.GetCookiesByEntreprise(<generated>)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:893)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:807)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1061)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:961)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:113)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:327)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:113)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:133)
+	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:92)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at app.igesa.security.jwt.AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:54)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:110)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:80)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:211)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:183)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2022-05-25 11:33:33,231 WARN  ResponseEntityExceptionHandler:209 - [] Request method 'GET' not supported
+2022-05-25 11:33:33,278 WARN  ResponseEntityExceptionHandler:209 - [] Request method 'GET' not supported
+2022-05-25 11:33:33,315 WARN  ResponseEntityExceptionHandler:209 - [] Request method 'GET' not supported
+2022-05-25 11:34:34,209 INFO  AbstractEntityManagerFactoryBean:648 - [] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-05-25 11:34:34,211 INFO  ExecutorConfigurationSupport:218 - [] Shutting down ExecutorService 'applicationTaskExecutor'
+2022-05-25 11:34:34,212 INFO  HikariDataSource:350 - [] HikariPool-1 - Shutdown initiated...
+2022-05-25 11:34:34,230 INFO  HikariDataSource:352 - [] HikariPool-1 - Shutdown completed.
+2022-05-25 11:34:46,696 INFO  StartupInfoLogger:55 - [] Starting MultiwebsitesApplication using Java 18 on DESKTOP-CI469KC with PID 25568 (C:\Users\mss\Desktop\PFEEEE\Graduartion\backend\target\classes started by mss in C:\Users\mss\Desktop\PFEEEE\Graduartion\backend)
+2022-05-25 11:34:46,702 INFO  SpringApplication:660 - [] No active profile set, falling back to default profiles: default
+2022-05-25 11:34:48,804 INFO  RepositoryConfigurationDelegate:128 - [] Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2022-05-25 11:34:49,184 INFO  RepositoryConfigurationDelegate:188 - [] Finished Spring Data repository scanning in 367 ms. Found 20 JPA repository interfaces.
+2022-05-25 11:34:49,658 INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker:350 - [] Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@108e9837' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-05-25 11:34:49,668 INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker:350 - [] Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-05-25 11:34:49,980 INFO  TomcatWebServer:108 - [] Tomcat initialized with port(s): 8089 (http)
+2022-05-25 11:34:49,993 INFO  DirectJDKLog:173 - [] Starting service [Tomcat]
+2022-05-25 11:34:49,995 INFO  DirectJDKLog:173 - [] Starting Servlet engine: [Apache Tomcat/9.0.39]
+2022-05-25 11:34:50,164 INFO  DirectJDKLog:173 - [] Initializing Spring embedded WebApplicationContext
+2022-05-25 11:34:50,165 INFO  ServletWebServerApplicationContext:289 - [] Root WebApplicationContext: initialization completed in 3323 ms
+2022-05-25 11:34:50,430 WARN  JpaBaseConfiguration$JpaWebConfiguration:221 - [] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-05-25 11:34:50,539 INFO  ExecutorConfigurationSupport:181 - [] Initializing ExecutorService 'applicationTaskExecutor'
+2022-05-25 11:34:50,624 INFO  LogHelper:31 - [] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-05-25 11:34:50,707 INFO  Version:44 - [] HHH000412: Hibernate ORM core version 5.4.23.Final
+2022-05-25 11:34:50,869 INFO  JavaReflectionManager:56 - [] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-05-25 11:34:51,042 INFO  HikariDataSource:110 - [] HikariPool-1 - Starting...
+2022-05-25 11:34:51,292 INFO  HikariDataSource:123 - [] HikariPool-1 - Start completed.
+2022-05-25 11:34:51,319 INFO  Dialect:170 - [] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-05-25 11:34:52,537 INFO  EndpointLinksResolver:58 - [] Exposing 2 endpoint(s) beneath base path '/actuator'
+2022-05-25 11:34:52,675 INFO  PropertySourcedRequestMappingHandlerMapping:69 - [] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-05-25 11:34:52,938 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@52eca410, org.springframework.security.web.context.SecurityContextPersistenceFilter@2f61de04, org.springframework.security.web.header.HeaderWriterFilter@3400d6fa, org.springframework.security.web.authentication.logout.LogoutFilter@5dce5c03, app.igesa.security.jwt.AuthTokenFilter@98637a2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5b59c3d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4f2fdf3d, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@224d537d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@63d0e8d, org.springframework.security.web.session.SessionManagementFilter@3c3cd13a, org.springframework.security.web.access.ExceptionTranslationFilter@3a8640f7, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1169fdfd]
+2022-05-25 11:34:54,098 INFO  JtaPlatformInitiator:52 - [] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-05-25 11:34:54,113 INFO  AbstractEntityManagerFactoryBean:434 - [] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-05-25 11:34:54,646 INFO  TomcatWebServer:220 - [] Tomcat started on port(s): 8089 (http) with context path ''
+2022-05-25 11:34:54,648 INFO  DocumentationPluginsBootstrapper:160 - [] Context refreshed
+2022-05-25 11:34:54,676 INFO  DocumentationPluginsBootstrapper:163 - [] Found 1 custom documentation plugin(s)
+2022-05-25 11:34:54,756 INFO  ApiListingReferenceScanner:41 - [] Scanning for api listing references
+2022-05-25 11:34:55,059 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_1
+2022-05-25 11:34:55,066 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_1
+2022-05-25 11:34:55,082 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_1
+2022-05-25 11:34:55,084 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_1
+2022-05-25 11:34:55,089 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_1
+2022-05-25 11:34:55,101 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_2
+2022-05-25 11:34:55,104 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_2
+2022-05-25 11:34:55,111 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_2
+2022-05-25 11:34:55,120 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_2
+2022-05-25 11:34:55,126 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_2
+2022-05-25 11:34:55,140 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_3
+2022-05-25 11:34:55,143 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_3
+2022-05-25 11:34:55,164 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_3
+2022-05-25 11:34:55,167 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_3
+2022-05-25 11:34:55,171 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_3
+2022-05-25 11:34:55,181 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_4
+2022-05-25 11:34:55,195 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_4
+2022-05-25 11:34:55,201 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_5
+2022-05-25 11:34:55,216 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_4
+2022-05-25 11:34:55,219 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_4
+2022-05-25 11:34:55,223 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_4
+2022-05-25 11:34:55,260 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_5
+2022-05-25 11:34:55,275 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_6
+2022-05-25 11:34:55,285 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_5
+2022-05-25 11:34:55,287 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_5
+2022-05-25 11:34:55,289 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_5
+2022-05-25 11:34:55,329 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_6
+2022-05-25 11:34:55,331 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_7
+2022-05-25 11:34:55,336 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_6
+2022-05-25 11:34:55,339 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_6
+2022-05-25 11:34:55,341 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_6
+2022-05-25 11:34:55,347 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: handleUsingGET_1
+2022-05-25 11:34:55,349 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: handleUsingGET_2
+2022-05-25 11:34:55,354 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_7
+2022-05-25 11:34:55,357 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_8
+2022-05-25 11:34:55,364 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_7
+2022-05-25 11:34:55,368 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_7
+2022-05-25 11:34:55,371 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_7
+2022-05-25 11:34:55,377 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_8
+2022-05-25 11:34:55,379 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_9
+2022-05-25 11:34:55,382 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_8
+2022-05-25 11:34:55,384 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_8
+2022-05-25 11:34:55,385 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_8
+2022-05-25 11:34:55,390 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_9
+2022-05-25 11:34:55,392 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_10
+2022-05-25 11:34:55,396 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_9
+2022-05-25 11:34:55,399 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_9
+2022-05-25 11:34:55,401 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_9
+2022-05-25 11:34:55,406 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_10
+2022-05-25 11:34:55,409 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_11
+2022-05-25 11:34:55,413 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_10
+2022-05-25 11:34:55,414 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_10
+2022-05-25 11:34:55,417 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_10
+2022-05-25 11:34:55,444 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_11
+2022-05-25 11:34:55,447 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_12
+2022-05-25 11:34:55,451 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_11
+2022-05-25 11:34:55,453 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_11
+2022-05-25 11:34:55,456 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_11
+2022-05-25 11:34:55,466 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_12
+2022-05-25 11:34:55,468 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_13
+2022-05-25 11:34:55,473 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_12
+2022-05-25 11:34:55,475 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_12
+2022-05-25 11:34:55,478 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_12
+2022-05-25 11:34:55,485 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_13
+2022-05-25 11:34:55,488 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_14
+2022-05-25 11:34:55,494 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_13
+2022-05-25 11:34:55,497 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_13
+2022-05-25 11:34:55,499 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_13
+2022-05-25 11:34:55,509 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_14
+2022-05-25 11:34:55,513 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_15
+2022-05-25 11:34:55,517 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_14
+2022-05-25 11:34:55,520 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_14
+2022-05-25 11:34:55,524 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_14
+2022-05-25 11:34:55,528 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_15
+2022-05-25 11:34:55,533 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_16
+2022-05-25 11:34:55,535 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_15
+2022-05-25 11:34:55,540 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_15
+2022-05-25 11:34:55,542 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: deleteUsingDELETE_16
+2022-05-25 11:34:55,547 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: findByIdUsingGET_17
+2022-05-25 11:34:55,550 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: saveUsingPOST_16
+2022-05-25 11:34:55,552 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_15
+2022-05-25 11:34:55,554 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_16
+2022-05-25 11:34:55,613 INFO  DeferredRepositoryInitializationListener:51 - [] Triggering deferred initialization of Spring Data repositories…
+2022-05-25 11:34:57,022 INFO  DeferredRepositoryInitializationListener:55 - [] Spring Data repositories initialized!
+2022-05-25 11:34:57,052 INFO  StartupInfoLogger:61 - [] Started MultiwebsitesApplication in 11.252 seconds (JVM running for 13.263)
+2022-05-25 14:37:18,171 WARN  HikariPool$HouseKeeper:787 - [] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3h26s772ms854µs800ns).
+2022-05-25 15:13:50,899 WARN  HikariPool$HouseKeeper:787 - [] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=37m13s783ms235µs900ns).
+2022-05-25 15:14:11,998 INFO  DirectJDKLog:173 - [] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-05-25 15:14:11,999 INFO  FrameworkServlet:525 - [] Initializing Servlet 'dispatcherServlet'
+2022-05-25 15:14:12,004 INFO  FrameworkServlet:547 - [] Completed initialization in 4 ms
+2022-05-25 15:14:12,710 WARN  ResponseEntityExceptionHandler:209 - [] Request method 'GET' not supported
+2022-05-25 15:14:12,863 WARN  ResponseEntityExceptionHandler:209 - [] Request method 'GET' not supported
+2022-05-25 15:14:12,911 WARN  ResponseEntityExceptionHandler:209 - [] Request method 'GET' not supported
