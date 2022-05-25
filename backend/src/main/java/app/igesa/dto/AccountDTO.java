@@ -6,8 +6,6 @@ import app.igesa.entity.Role;
 import app.igesa.enumerations.AccountStatus;
 import lombok.Builder;
 import lombok.Data;
-
-import javax.persistence.Column;
 import javax.validation.constraints.Email;
 import java.util.Date;
 import java.util.HashSet;
@@ -33,7 +31,7 @@ import java.util.Set;
         protected Date lastModifiedDate;
         protected Date createdDate;
         private Long groupId;
-        private Long entrepriseId;
+       // private Long entrepriseId;
         private Set<Role> roles = new HashSet<>();
 
         public static app.igesa.dto.AccountDTO fromEntity(Account account) {
@@ -51,9 +49,12 @@ import java.util.Set;
                     .roles(account.getRoles())
                     .createdDate(account.getCreatedDate());
             // .build();
-            if(account.getEntreprise()!=null){
+           /* if(account.getEntreprise()!=null){
                 adto.entrepriseId(account.getEntreprise().getId());
-            }if(account.getGroupe()!=null){
+            }
+            */
+            if(account.getGroupe()!=null){
+
                 adto.groupId(account.getGroupe().getId());
             }
             return adto.build();
@@ -78,8 +79,8 @@ import java.util.Set;
             account.setGroupe(groupe);
             //===================> entreprise
             Entreprise entreprise = new Entreprise();
-            entreprise.setId(dto.getEntrepriseId());
-            account.setEntreprise(entreprise);
+            //entreprise.setId(dto.getEntrepriseId());
+            //account.setEntreprise(entreprise);
             return account;
         }
 

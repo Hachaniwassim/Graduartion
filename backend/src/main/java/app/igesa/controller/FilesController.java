@@ -1,8 +1,6 @@
 package app.igesa.controller;
-
 import app.igesa.entity.FileInfo;
 import app.igesa.enumerations.ImageTypes;
-import app.igesa.enumerations.PagesTypes;
 import app.igesa.upload.FilesStorageService;
 import app.igesa.upload.message.ResponseMessage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +11,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -40,21 +37,6 @@ public class FilesController {
   @Autowired
   FilesStorageService storageService;
 
-
-  @PostMapping(PRIVATE_API)
-  public ResponseEntity<ResponseMessage> uploadFile(@RequestParam("file") MultipartFile file, @RequestBody  ImageTypes fileType, @PathVariable Integer id) {
-    String message = "";
-    try {
-      storageService.save(file,fileType,id);
-
-      message = "Uploaded the file successfully: " + file.getOriginalFilename();
-      return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage(message));
-    } catch (Exception e) {
-      message = "Could not upload the file: " + file.getOriginalFilename() + "!";
-      return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(new ResponseMessage(message));
-    }
-  }
-
   @GetMapping(PRIVATE_API + "/files")
   public ResponseEntity<List<FileInfo>> getListFiles() {
     List<FileInfo> fileInfos = storageService.loadAll().map(path -> {
@@ -62,7 +44,7 @@ public class FilesController {
 
       String url = MvcUriComponentsBuilder
 
-          .fromMethodName(FilesController.class, "getFile", path.getFileName().toString()).build().toString();
+              .fromMethodName(FilesController.class, "getFile", path.getFileName().toString()).build().toString();
 
 
       return new FileInfo(filename, url);
@@ -76,10 +58,35 @@ public class FilesController {
   public ResponseEntity<Resource> getFile(@PathVariable String filename, @PathVariable Integer id) {
     Resource file = storageService.load(ImageTypes.valueOf(filename), id);
     return ResponseEntity.ok()
-        .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + file.getFilename() + "\"").body(file);
+            .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + file.getFilename() + "\"").body(file);
   }
-@DeleteMapping(PRIVATE_API + "/files/all")
+
+  @DeleteMapping(PRIVATE_API + "/files/all")
   public void deleteAll() {
     storageService.deleteAll();
   }
+
+
+  @PostMapping(PRIVATE_API + "/{fileType}/{parentId}")
+  public ResponseEntity<ResponseMessage> uploadFile(@RequestParam("file") MultipartFile file, @PathVariable ImageTypes fileType, @PathVariable Long parentId) {
+    String message = "";
+    try {
+      storageService.uploadImage(file, fileType, parentId);
+
+      message = "Uploaded the file successfully: " + file.getOriginalFilename();
+      return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage(message));
+    } catch (Exception e) {
+      message = "Could not upload the file: " + file.getOriginalFilename() + "!";
+      return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(new ResponseMessage(message));
+    }
+  }
+
+
+  @GetMapping(PRIVATE_API + "/{enterpriseId}/{fileType}/{parentId}")
+  public ResponseEntity<String> getImage(@PathVariable(value = "enterpriseId", required = false) Long enterpriseId,
+                                         @PathVariable("parentId") Long id,
+                                         @PathVariable("fileType") ImageTypes type) {
+    return storageService.loadImage(id, type, enterpriseId);
+  }
+
 }

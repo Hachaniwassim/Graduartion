@@ -24,8 +24,8 @@ public interface AccountRepository extends JpaRepository<Account, Long> {
 	//for update
 	@Modifying
 	@Transactional
-	@Query(value="update accounts a set entreprise_id= :entreprise_id, groupe_id= :groupe_id where a.id = :id",nativeQuery = true)
-	public void assignEntreprise(@Param("entreprise_id") Long entreprise_id, @Param("groupe_id") Long groupe_id, @Param("id") Long id);
+	@Query(value="update accounts a set groupe_id= :groupe_id where a.id = :id",nativeQuery = true)
+	public void assignGroupe(@Param("groupe_id") Long groupe_id, @Param("id") Long id);
 
 
 	@Modifying

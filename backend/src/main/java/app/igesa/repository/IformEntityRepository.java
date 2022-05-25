@@ -7,4 +7,6 @@ import java.util.Optional;
  */
 public interface IformEntityRepository  extends JpaRepository<FormEntity,Long> {
     Optional<FormEntity> findFirstByEntrepriseId(Long id);
+    Optional<FormEntity> findByEntrepriseId(Long id);
+
 }

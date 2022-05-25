@@ -36,7 +36,9 @@ public class UserDetailsImpl implements UserDetails {
 
 	private String fiscaleCode ;
 
-	private Long entrepriseId ;
+	@Getter
+	@Setter
+	private Long centerId;
 
 	private Long groupeId;
 
@@ -44,20 +46,28 @@ public class UserDetailsImpl implements UserDetails {
 
 	private Collection<? extends GrantedAuthority> authorities;
 
+	public UserDetailsImpl(Long id, String username, String email, String password, String fiscaleCode, Long id1, AccountStatus accountStatus, List<GrantedAuthority> authorities) {
+	this.id=id;
+	this.username=username;
+	this.email=email;
+	this.password=password;
+	this.fiscaleCode=fiscaleCode;
+	this.accountStatus=accountStatus;
+	this.authorities=authorities;
+	this.centerId=id1;
+	}
 
 
 	public static UserDetailsImpl build(Account account) {
 		List<GrantedAuthority> authorities = account.getRoles().stream()
 				.map(role -> new SimpleGrantedAuthority(role.getName().name()))
 				.collect(Collectors.toList());
-
 		return new UserDetailsImpl(
 						account.getId(),
 						account.getUsername(),
 						account.getEmail(),
 						account.getPassword(),
 						account.getFiscaleCode(),
-						account.getEntreprise().getId(),
 						account.getGroupe().getId(),
 				        account.getAccountStatus(),
 						authorities);

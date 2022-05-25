@@ -53,12 +53,6 @@ public class Account extends Auditable {
     @ManyToOne
     private Groupe groupe ;
 
-    /***
-     * Entreprise
-     */
-    @ManyToOne
-    private Entreprise entreprise ;
-
 
     public Account(String username, String email, String encode, String encode1, String fiscaleCode, AccountStatus accountStatus) {
     this.username=username;

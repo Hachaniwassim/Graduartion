@@ -1,6 +1,9 @@
 package app.igesa.controller;
 import app.igesa.entity.Groupe;
 import app.igesa.enumerations.GroupStatus;
+import app.igesa.metiers.IauthService;
+import app.igesa.payload.request.AssignRequest;
+import app.igesa.payload.response.MessageResponse;
 import app.igesa.repository.IgroupeRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -48,6 +51,8 @@ public class GroupeController {
 	private Igroupe groupeservice;
 	@Autowired
 	private IgroupeRepository igroupeRepository;
+	@Autowired
+	IauthService accountservice;
 
 
 
@@ -206,4 +211,22 @@ public class GroupeController {
 		return groupeservice.getCurrentGroup();
 	}
 
+	/**
+	 * @param  assignRequest
+	 *
+	 */
+	@RequestMapping(value = PRIVATE_API + "/assign-groupe", method = RequestMethod.POST)
+	@PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
+	@ApiOperation(value="ASSIGN ENTREPRISE",notes="ASSIGN ENTREPRISE")
+	@ApiResponses(value= {
+			@ApiResponse(code=200,message="Entreprise was assigned Successfully"),
+			@ApiResponse(code=400,message="Entreprise not valid"),
+			@ApiResponse(code=401,message="Unauthorized , without authority or permission"),
+			@ApiResponse( code=403, message="not permitted or allowed"),
+
+	})
+	ResponseEntity assignEGroupe(@RequestBody AssignRequest assignRequest){
+		accountservice.assignGroupe(assignRequest.getId_groupe(),assignRequest.getId_account());
+		return ResponseEntity.ok(new MessageResponse("groupe assigned successfully"));
+}
 }
