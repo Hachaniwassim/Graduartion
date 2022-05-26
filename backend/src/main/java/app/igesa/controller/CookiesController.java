@@ -23,13 +23,11 @@ import java.util.Collection;
 @RestController
 public class CookiesController {
 
-    /*********************************************************
+    /**************************
      *
-     * Api  PUBLIC_API : for all  ||  PRIVATE_API : with token
+     *@PRIVATE_API : with token
      *
-     *********************************************************/
-
-    private final String PUBLIC_API = "/api/cookies";
+     ******/
     private final String PRIVATE_API = "/api/private/cookies";
 
     /** logger for debug : warning : success **/
@@ -39,7 +37,7 @@ public class CookiesController {
     Icookies icookies;
 
 
-    @RequestMapping(value=PUBLIC_API,method = RequestMethod.GET)
+    @RequestMapping(value=PRIVATE_API ,method = RequestMethod.GET)
     @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
     @ApiOperation(value="GET Cookies",notes="GET COOKIEES", responseContainer  = "Collection<CookiesDTO>")
     @ApiResponses(value= {

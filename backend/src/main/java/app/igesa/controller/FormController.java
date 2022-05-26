@@ -29,12 +29,12 @@ import java.util.Optional;
 public class FormController {
 
 
-    /*********************************************************
+
+    /**************************
      *
-     * @Api  PUBLIC_API : for all  ||  PRIVATE_API : with token
+     *@PRIVATE_API : with token
      *
-     *********************************************************/
-    private final String PUBLIC_API = "api/form";
+     ******/
     private final String PRIVATE_API = "api/private/form";
 
     @Autowired
@@ -43,7 +43,7 @@ public class FormController {
     private static final Logger log = LoggerFactory.getLogger(FormController.class);
 
 
-    @RequestMapping(value=PUBLIC_API,method = RequestMethod.POST)
+    @RequestMapping(value=PRIVATE_API,method = RequestMethod.POST)
     @ApiOperation(value="ADD FORM ENTITY  ",notes="SAUVGARDER FORM ENTITY ", response = FormDTO.class)
     @ApiResponses(value= {
             @ApiResponse(code=200,message="FormEntity was saved Successfully"),

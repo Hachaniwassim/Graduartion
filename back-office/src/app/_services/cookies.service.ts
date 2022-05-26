@@ -74,7 +74,7 @@ export class CookiesService {
 
   /**************************
    * 
-   * Put Privacy By Entreprise
+   * Update By Entreprise
    * 
    */
   update(request: any) {

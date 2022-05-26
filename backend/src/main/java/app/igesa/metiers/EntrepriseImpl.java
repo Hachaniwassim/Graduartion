@@ -44,7 +44,7 @@ public class EntrepriseImpl implements Ientreprise {
 	public Entreprise getCurrentEnterprise() {
 
 		log.debug( "<========================= Current Enterprise ============================>");
-		Long entrepriseId = authService.getIdentity().getCenterId();
+		Long entrepriseId = authService.getIdentity().getGroupeId();
 		if (null == entrepriseId) {
 			throw new IllegalArgumentException();
 		}

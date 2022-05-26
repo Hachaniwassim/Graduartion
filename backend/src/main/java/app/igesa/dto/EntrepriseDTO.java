@@ -34,7 +34,7 @@ public class EntrepriseDTO {
 	private String city ;
 	private String street;
 	private String refrente;
-	private String Vatnumber;
+	//private String Vatnumber;
 	private Long CompanyBusinessId ;
 
     public static EntrepriseDTO fromEntity(Entreprise entreprise) {
@@ -50,13 +50,13 @@ public class EntrepriseDTO {
 				.createdDate(entreprise.getCreatedDate())
 				.lastModifiedDate(entreprise.getLastModifiedDate())
 				.websiteUrl(entreprise.getWebsiteUrl())
+				.CompanyBusinessId(entreprise.getCompanyBusiness().getId())
 				.adresse(entreprise.getAdresse())
 				.refrente(entreprise.getRefrente())
 				.street(entreprise.getStreet())
-				.Vatnumber(entreprise.getVatnumber())
+				//.Vatnumber(entreprise.getVatnumber())
 				.city(entreprise.getCity())
 				.groupeId(entreprise.getGroupe().getId())
-				.CompanyBusinessId(entreprise.getCompanyBusiness().getId())
 				.build();
     }
     
@@ -77,16 +77,17 @@ public class EntrepriseDTO {
 		entreprise.setStreet(dto.getStreet());
 		entreprise.setWebsiteUrl(dto.getWebsiteUrl());
 		entreprise.setCity(dto.getCity());
-		entreprise.setVatnumber(dto.getVatnumber());
+		//entreprise.setVatnumber(dto.getVatnumber());
+
+		//===========================> company Bussiness ===========================>
+		CompanyBusiness companyBusiness = new CompanyBusiness();
+		companyBusiness.setId(dto.getCompanyBusinessId());
+		entreprise.setCompanyBusiness(companyBusiness);
 
 		//===========================> Groupe ===========================>
 		Groupe groupe = new Groupe();
 		groupe.setId(dto.getGroupeId());
 		entreprise.setGroupe(groupe);
-		//===========================> company Bussiness ===========================>
-		CompanyBusiness companyBusiness = new CompanyBusiness();
-		companyBusiness.setId(dto.getCompanyBusinessId());
-		entreprise.setCompanyBusiness(companyBusiness);
 		return  entreprise;
 	}
 }

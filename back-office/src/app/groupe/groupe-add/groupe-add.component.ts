@@ -31,7 +31,7 @@ export class GroupeAddComponent implements OnInit {
   @ViewChild('groupeForm', { static: false })
   groupeForm !: FormGroup;
   groupeData !: GroupeDTO;
-  groupe: GroupeDTO[]=[];
+  groupe: GroupeDTO[] = [];
   searchKey!: string;
   showspinner = false;
   datasource = new MatTableDataSource(this.groupe)
@@ -53,10 +53,10 @@ export class GroupeAddComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllGroupe();
-   /* this.companyService.getAllCompanyBussiness().subscribe(res => {
-      console.log(res)
-      this.companyServices = res;
-    })*/
+    /* this.companyService.getAllCompanyBussiness().subscribe(res => {
+       console.log(res)
+       this.companyServices = res;
+     })*/
 
   }
 
@@ -81,16 +81,18 @@ export class GroupeAddComponent implements OnInit {
         console.log(this.groupeService.form.value);
         this.groupeService.createGroupe(this.groupeService.form.value).subscribe((res) => {
           console.log(res);
-          this.notificationService.success('  ::  '  + ' ' + ' add successfully '  + '⚡');
+          this.notificationService.success('  ::  ' + ' ' + ' add successfully ' + '⚡');
           this.groupe.push(res);
+          this.refresh();
 
         });
       }
 
       else (
         this.groupeService.updateGroupe(this.groupeService.form.value).subscribe((res) => {
-          this.groupe.push(res); 
-          this.notificationService.success('  ::  '  + ' ' + ' updated successfully '  + '⚡');
+          this.groupe.push(res);
+          this.notificationService.success('  ::  ' + ' ' + ' updated successfully ' + '⚡');
+          this.refresh();
 
         }));
     }

@@ -7,4 +7,9 @@ package app.igesa.controller.publicsFO;
  */
 
 public class CookiesPubController {
+    /**************************
+     *
+     *@PUBLIC_API : without token
+     *
+     ******/
 }

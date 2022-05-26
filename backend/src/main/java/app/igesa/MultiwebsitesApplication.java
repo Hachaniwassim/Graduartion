@@ -1,6 +1,8 @@
 package app.igesa;
+import app.igesa.dto.RoleDTO;
 import app.igesa.entity.*;
 import app.igesa.enumerations.AccountStatus;
+import app.igesa.enumerations.ERole;
 import app.igesa.enumerations.GroupStatus;
 import app.igesa.metiers.Irole;
 import app.igesa.repository.IcomapnybusRepository;
@@ -24,7 +26,7 @@ import java.util.Set;
 
 @EnableJpaAuditing(auditorAwareRef = "auditorAware")
 @SpringBootApplication
-public class MultiwebsitesApplication  {
+public class MultiwebsitesApplication /*implements CommandLineRunner*/ {
 
 	@Resource
 	FilesStorageService storageService;
@@ -56,15 +58,17 @@ public class MultiwebsitesApplication  {
 		storageService.init();
 		BCryptPasswordEncoder encoder;
 		encoder = new BCryptPasswordEncoder();
+		Role role = new Role("ROLE_ADMIN");
+		iroleRepository.save(RoleDTO.fromEntity(role));
 		CompanyBusiness companyBusiness = new CompanyBusiness() ;
 		companyBusiness.setDomainename("test");
 		companyBusiness.setDescription("test");
 		icomapnybusRepository.save(companyBusiness);
 		Groupe groupe= new Groupe();
-		groupe.setCompanyBusiness(companyBusiness);
 		groupe.setDescription("mss");
 		groupe.setGroupStatus(GroupStatus.ACTIVE);
 		groupe.setName("mss");
+		groupe.setMaxOperateur("40");
 		groupe.setId(groupe.getId());
 		igroupeRepository.save(groupe);
 		Entreprise entreprise = new Entreprise();
@@ -75,6 +79,12 @@ public class MultiwebsitesApplication  {
 		entreprise.setCreatedDate(new Date());
 		entreprise.setLastModifiedDate(new Date());
 		entreprise.setGroupe(groupe);
+		entreprise.setStreet("test");
+		entreprise.setCity("test");
+		entreprise.setRefrente("test");
+		entreprise.setCompanyBusiness(companyBusiness);
+		entreprise.setAdresse("test sounine");
+		entreprise.setWebsiteUrl("http://mss.net/");
 		entreprise.setPhone("22145879631");
 		entreprise.setFax("789546213");
 		ientrepriseRepository.save(entreprise);
@@ -89,7 +99,6 @@ public class MultiwebsitesApplication  {
 		user.setLastModifiedDate(new Date());
 		user.setAccountStatus(AccountStatus.ACTIVE);
 		user.setGroupe(groupe);
-		user.setEntreprise(entreprise);
 		userRepository.save(user);
 	}*/
 }

@@ -8,4 +8,9 @@ package app.igesa.controller.publicsFO;
 
 
 public class PrivacyPubController {
+    /**************************
+     *
+     *@PUBLIC_API : without token
+     *
+     ******/
 }

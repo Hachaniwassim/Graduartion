@@ -15,10 +15,12 @@ import { EntrepriseDTO } from 'src/app/models/dto/entreprisDTO';
 
 export class EntrepriseViewComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public entreprise :EntrepriseDTO,public dialog: MatDialog,private ref: ChangeDetectorRef
+  constructor(@Inject(MAT_DIALOG_DATA) public entreprise :EntrepriseDTO, public dialog: MatDialog,private ref: ChangeDetectorRef
   ) { }
 
   ngOnInit(): void {
   }
+
+  
 
 }

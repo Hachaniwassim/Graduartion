@@ -129,7 +129,7 @@ export class AccountListComponent implements OnInit {
     this.Accountservice.form.reset();
     this.Accountservice.initializeFormGroup();
   }
-  //update status groupe
+  //update status 
   updateaStatusAccount(element: AccountDTO) {
     Swal.fire({
       title: 'Are you sure to Update status  !?',

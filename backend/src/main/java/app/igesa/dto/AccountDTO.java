@@ -30,7 +30,7 @@ import java.util.Set;
         private AccountStatus accountStatus;
         protected Date lastModifiedDate;
         protected Date createdDate;
-        private Long groupId;
+        private Long groupeId;
        // private Long entrepriseId;
         private Set<Role> roles = new HashSet<>();
 
@@ -44,8 +44,8 @@ import java.util.Set;
                     .matchingPassword(account.getMatchingPassword())
                     .password(account.getPassword())
                     .lastModifiedDate(account.getLastModifiedDate())
-                    //.groupId(account.getGroupe().getId())
-                    //.entrepriseId(account.getEntreprise().getId())
+                   // .groupId(account.getGroupe().getId())
+                   // //.entrepriseId(account.getEntreprise().getId())
                     .roles(account.getRoles())
                     .createdDate(account.getCreatedDate());
             // .build();
@@ -55,7 +55,7 @@ import java.util.Set;
             */
             if(account.getGroupe()!=null){
 
-                adto.groupId(account.getGroupe().getId());
+                adto.groupeId(account.getGroupe().getId());
             }
             return adto.build();
         }
@@ -75,12 +75,8 @@ import java.util.Set;
             account.setRoles(dto.getRoles());
             //===================> Groupe
             Groupe groupe = new Groupe();
-            groupe.setId(dto.getGroupId());
+            groupe.setId(dto.getGroupeId());
             account.setGroupe(groupe);
-            //===================> entreprise
-            Entreprise entreprise = new Entreprise();
-            //entreprise.setId(dto.getEntrepriseId());
-            //account.setEntreprise(entreprise);
             return account;
         }
 

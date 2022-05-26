@@ -22,11 +22,11 @@ import java.io.IOException;
 public class PhotoController {
 
 
-    /*********************************************************
+    /**************************
      *
-     * @Api  PUBLIC_API : for all  ||  PRIVATE_API : with token
+     *@PRIVATE_API : with token
      *
-     *********************************************************/
+     ******/
 
     private final String PUBLIC_API = "api/photos";
     private final String PRIVATE_API = "api/private/photos";

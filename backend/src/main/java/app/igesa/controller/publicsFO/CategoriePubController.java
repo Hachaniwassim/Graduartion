@@ -7,4 +7,10 @@ package app.igesa.controller.publicsFO;
 
 //===========> for front-office
 public class CategoriePubController {
+
+    /**************************
+     *
+     *@PUBLIC_API : without token
+     *
+     ******/
 }

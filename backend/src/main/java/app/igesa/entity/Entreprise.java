@@ -45,7 +45,7 @@ public class Entreprise  extends Auditable{
 	private String city ;
 	private String street;
 	private String refrente;
-	private String Vatnumber;
+	//private String Vatnumber;
 
     /**
 	 * Groupe

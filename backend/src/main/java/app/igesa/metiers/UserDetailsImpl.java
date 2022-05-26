@@ -39,14 +39,15 @@ public class UserDetailsImpl implements UserDetails {
 	@Getter
 	@Setter
 	private Long centerId;
-
+	@Getter
+	@Setter
 	private Long groupeId;
 
    private AccountStatus accountStatus;
 
 	private Collection<? extends GrantedAuthority> authorities;
 
-	public UserDetailsImpl(Long id, String username, String email, String password, String fiscaleCode, Long id1, AccountStatus accountStatus, List<GrantedAuthority> authorities) {
+	public UserDetailsImpl(Long id, String username, String email, String password, String fiscaleCode, AccountStatus accountStatus, Long groupeId, List<GrantedAuthority> authorities) {
 	this.id=id;
 	this.username=username;
 	this.email=email;
@@ -54,7 +55,19 @@ public class UserDetailsImpl implements UserDetails {
 	this.fiscaleCode=fiscaleCode;
 	this.accountStatus=accountStatus;
 	this.authorities=authorities;
-	this.centerId=id1;
+	this.groupeId=groupeId;
+	}
+
+	public UserDetailsImpl(Long id, String username, String email, String password, String fiscaleCode, AccountStatus accountStatus,Long id1, List<GrantedAuthority> authorities,Long groupeId) {
+		this.id=id;
+		this.username=username;
+		this.email=email;
+		this.password=password;
+		this.fiscaleCode=fiscaleCode;
+		this.accountStatus=accountStatus;
+		this.authorities=authorities;
+		this.centerId=id1;
+
 	}
 
 
@@ -68,8 +81,8 @@ public class UserDetailsImpl implements UserDetails {
 						account.getEmail(),
 						account.getPassword(),
 						account.getFiscaleCode(),
-						account.getGroupe().getId(),
 				        account.getAccountStatus(),
+				        account.getGroupe().getId(),
 						authorities);
 	}
 

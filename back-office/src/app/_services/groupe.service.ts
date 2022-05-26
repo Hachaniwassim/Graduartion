@@ -87,22 +87,24 @@ getAllCompanyBussiness():Observable<CompanyBusinessDTO[]>{
     return this.http.delete<GroupeDTO>(`${this.base_url}` + '/' + id, this.httpOptions).pipe(retry(2), catchError(this.handleError));
 
   }
-  // delete all groupe 
-  deleteAllGroupe() {
-    return this.http.delete(`${this.base_url}`).pipe(retry(2), catchError(this.handleError));
-
-  }
+ 
 
 
   populateForm(groupe: any) {
     this.form.patchValue(_.omit(groupe));
   }
 
-   //update groupe  by status
-   updateGroupeByStatus(id : number,item : string){
-   return this.http.put<any>(`${this.base_url}`+ '/toggle-status/' + id,item,this.httpOptions).pipe(retry(2),catchError(this.handleError));
+   
+  //update by status
+  updateGroupetByStatus(id: number, item: string) {
+    return this.http
+      .put<any>(
+        this.base_url + '/toggle-status/' + id,
+        JSON.stringify(item),
+        this.httpOptions
+      )
+      .pipe(retry(2), catchError(this.handleError));
   }
-
      
    //validation formulaire
    form: FormGroup = new FormGroup({
