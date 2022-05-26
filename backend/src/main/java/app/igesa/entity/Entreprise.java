@@ -2,6 +2,8 @@ package app.igesa.entity;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+
 import app.igesa.entity.pages.Pages;
 import app.igesa.entity.siteinfo.Plateforme;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -29,6 +31,7 @@ public class Entreprise  extends Auditable{
 	@Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
 	private Long id ;
+	@Email
 	private String email ;
 	private String phone ;
 	private String codefiscale ;

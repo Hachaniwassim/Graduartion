@@ -77,6 +77,7 @@ public class EntrepriseDTO {
 		entreprise.setStreet(dto.getStreet());
 		entreprise.setWebsiteUrl(dto.getWebsiteUrl());
 		entreprise.setCity(dto.getCity());
+		entreprise.setVatnumber(dto.getVatnumber());
 
 		//===========================> Groupe ===========================>
 		Groupe groupe = new Groupe();
