@@ -28,11 +28,10 @@ public class TagsController {
 
     /*********************************************************
      *
-     * @Api  PUBLIC_API : for all  ||  PRIVATE_API : with token
+     * @Api  PRIVATE_API : with token
      *
-     *********************************************************/
+     ********/
 
-    private final String PUBLIC_API = "api/tags";
     private final String PRIVATE_API = "api/private/tags";
 
     private static final Logger log = LoggerFactory.getLogger(TagsController.class);
@@ -73,7 +72,7 @@ public class TagsController {
     }
 
 
-    @RequestMapping(value=PRIVATE_API + "/{id}",method =RequestMethod.GET)
+   /* @RequestMapping(value=PRIVATE_API + "/{id}",method =RequestMethod.GET)
     @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
     @ApiOperation(value=" GET TAGS BY ID ",notes="GET AND SEARCH FOR TAGS BY ID ", response = TagsDTO.class)
     @ApiResponses(value= {
@@ -86,7 +85,7 @@ public class TagsController {
     public ResponseEntity<Optional<TagsDTO>>findById(@PathVariable Long id) {
         log.debug(" HTTP GET TAGS BY ID {}",id);
         return new ResponseEntity<>( itagsService.findById(id),HttpStatus.OK);
-    }
+    }*/
 
     @RequestMapping(value=PRIVATE_API,method =RequestMethod.PUT)
     @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
