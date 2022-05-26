@@ -74,8 +74,8 @@ export class LoginComponent implements OnInit {
         console.log(res);
         this.groupeServices = res;
       });
+       
     }
-    this.router.navigate(['/dashboard']);
   }
 
      // show password
@@ -108,14 +108,21 @@ export class LoginComponent implements OnInit {
         //recuperation response
         this.recaptchaResponse = response;
 
-        //this.schooseGroup= true;
-        if (data.roles === 'ROLE_ADMIN' || data.roles === 'ROLE_MODERATEUR') {
+        if (data.roles[0] === 'ROLE_ADMIN' ){
+          localStorage.removeItem('reload');
           this.router.navigate(['/dashboard']);
           return;
-        } else if (data.roles === 'ROLE_USER') {
+          }
+       if(data.roles[0] === 'ROLE_MODERATOR') {
+          this.router.navigate(['/dashboard']);
+          return;
+        } 
+        
+        if (data.roles[0] === 'ROLE_USER') {
           this.router.navigate(['/']);
           return;
         }
+     
         this.reloadPage();
       },
 
@@ -143,7 +150,6 @@ export class LoginComponent implements OnInit {
       }
     );
   }
-
   logout(): void {
     this.tokenStorage.signOut();
     this.router.navigate(['/']);

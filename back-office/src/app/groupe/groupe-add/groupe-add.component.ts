@@ -39,8 +39,6 @@ export class GroupeAddComponent implements OnInit {
   @ViewChild(MatSort, {}) sort!: MatSort;
   companyServices: CompanyBusinessDTO[] = [];
 
-
-
   constructor(private dialog: MatDialog, private dialogService: DialogService, public groupeService: GroupeService, public dialogRef: MatDialogRef<GroupeAddComponent>,
     private notificationService: NotificationService,
     private companyService: CompanybusinessService, private router: Router, public _location: Location) {
@@ -55,10 +53,10 @@ export class GroupeAddComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllGroupe();
-    this.companyService.getAllCompanyBussiness().subscribe(res => {
+   /* this.companyService.getAllCompanyBussiness().subscribe(res => {
       console.log(res)
       this.companyServices = res;
-    })
+    })*/
 
   }
 
@@ -83,7 +81,7 @@ export class GroupeAddComponent implements OnInit {
         console.log(this.groupeService.form.value);
         this.groupeService.createGroupe(this.groupeService.form.value).subscribe((res) => {
           console.log(res);
-          this.notificationService.success('::  '  + ' ' + 'add successfully' + ' ' + '⚡');
+          this.notificationService.success('  ::  '  + ' ' + ' add successfully '  + '⚡');
           this.groupe.push(res);
 
         });
@@ -92,7 +90,7 @@ export class GroupeAddComponent implements OnInit {
       else (
         this.groupeService.updateGroupe(this.groupeService.form.value).subscribe((res) => {
           this.groupe.push(res); 
-          this.notificationService.success('::  '  + ' ' + 'updated successfully' + ' ' + '⚡');
+          this.notificationService.success('  ::  '  + ' ' + ' updated successfully '  + '⚡');
 
         }));
     }
@@ -109,6 +107,7 @@ export class GroupeAddComponent implements OnInit {
       this.router.navigate([decodeURI(this._location.path())]);
     });
   }
+
 
   // dialogue close 
   onClose() {

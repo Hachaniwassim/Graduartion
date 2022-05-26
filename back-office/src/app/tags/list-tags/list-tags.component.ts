@@ -27,7 +27,6 @@ export class ListTagsComponent implements OnInit {
   showspinner = false;
   tags : any ;
   datasource = new MatTableDataSource(this.tag)
-  id=this.route.snapshot.params['id'];
   message!: string;
   displayedColumns: string[] = ['id','description','actions'];
 

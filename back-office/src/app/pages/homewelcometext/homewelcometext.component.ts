@@ -134,7 +134,7 @@ export class HomewelcometextComponent implements OnInit {
           //test
           console.log(r);
           // snackBar success 
-          this._snackBar.open("Updated Successfully", "OK" + '⚡', {
+          this._snackBar.open("Updated Successfully", ' ' + "OK" +  ' ' +'⚡', {
             duration: 5000,
             horizontalPosition: "right",
             verticalPosition: "top",
