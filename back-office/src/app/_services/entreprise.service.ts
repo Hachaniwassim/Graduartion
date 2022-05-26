@@ -11,13 +11,20 @@ import { GroupeDTO } from '../models/dto/groupeDTO';
 @Injectable({
   providedIn: 'root'
 })
+
+
+
+/**************************
+ * 
+ * @author Tarchoun Abir
+ * 
+ */
 export class EntrepriseService {
+
+  
 
    //api backend
    private base_url= environment.privateApi +'/entreprise';
-
- 
-
    
    constructor(private http :HttpClient, private datePipe: DatePipe) { }
  
@@ -50,7 +57,7 @@ export class EntrepriseService {
  
  // insert entreprise 
  createEntreprise(item : EntrepriseDTO):Observable<EntrepriseDTO>{
-   return this.http.post<EntrepriseDTO>(this.base_url,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
+   return this.http.post<EntrepriseDTO>(this.base_url,item,this.httpOptions).pipe(retry(2),catchError(this.handleError));
  }
  
 
@@ -75,7 +82,7 @@ export class EntrepriseService {
    }
    // update team by Id the
    updateEntreprise(item : EntrepriseDTO){
-    return this.http.put<EntrepriseDTO>(this.base_url,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
+    return this.http.put<EntrepriseDTO>(this.base_url,item,this.httpOptions).pipe(retry(2),catchError(this.handleError));
    }
 
      // delete groupe
@@ -91,11 +98,19 @@ export class EntrepriseService {
    id: new FormControl(null),
    companyname : new FormControl('',[ Validators.required]),
    phone :new  FormControl('',[Validators.required]),
-   email: new FormControl('',/*[ Validators.email,Validators.required]*/),
+   email: new FormControl('',[ Validators.email,Validators.required]),
    codefiscale: new FormControl('',[Validators.required]),
    note : new FormControl(''),  
    fax : new FormControl('',[ Validators.required]),
-   groupeId : new FormControl(null)
+   groupeId : new FormControl(null,[ Validators.required]),
+   CompanyBusinessId: new FormControl(null,[ Validators.required]),
+   city : new FormControl(''),
+   refrente: new FormControl(''),
+   street : new FormControl(''),
+   adresse : new FormControl(''),
+   websiteUrl: new FormControl('',[ Validators.required]),
+   Vatnumber:new FormControl('',[ Validators.required])
+
    
   
  });
@@ -103,14 +118,21 @@ export class EntrepriseService {
  // inialisation formulaire 
  initializeFormGroup() {
    this.form.setValue({
-     id :null,
-     companyname: '',
-     phone: '',
-     fax: true,
-     codefiscale:'',
-      note : '',
+      id :null,
+      companyname: '',
+      phone: '',
+      fax: '',
+      codefiscale:'',
+      note :'',
       email:'',
-      groupeId :null
+      groupeId :null,
+      CompanyBusinessId:null,
+      adresse :'',
+      city : '',
+      street:'', 
+      refrente:'',
+      Vatnumber: '',
+      websiteUrl:''
  
    });
  }

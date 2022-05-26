@@ -42,10 +42,9 @@ export class GroupeListComponent implements OnInit {
   result: any;
   company: List<CompanyBusinessDTO> = [];
   datasource = new MatTableDataSource(this.groupe)
-  displayedColumns: string[] = ['name', 'groupStatus', 'createdDate', 'lastModifiedDate', 'actions'];
+  displayedColumns: string[] = ['id','name', 'maxOperateur','groupStatus', 'createdDate', 'lastModifiedDate', 'actions'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort, {}) sort!: MatSort;
-  id = this.route.snapshot.params['id'];
   message!: string;
   constructor(private _snackBar: MatSnackBar, private dialog: MatDialog, private groupeService: GroupeService, private dialogService: DialogService, private companyService: CompanybusinessService,
    private route: ActivatedRoute, public router: Router, public _location: Location) {
@@ -278,25 +277,6 @@ export class GroupeListComponent implements OnInit {
     });
 
   }
- /*****************************
-  *  iFiltring By Active Groupe
-  */
-  active = "";
-  searchByActiveGroupe() {
-    this.groupeService.findByActiveGroupe(this.active)
-      .subscribe(
-        data => {
-
-          this.datasource.filter = this.active.trim().toLowerCase();
-          this.active.trim().toLowerCase() == data;
-        },
-        error => {
-          console.log(error);
-        });
-  }
-
-
-  
 
   // clear data 
   onClear() {
@@ -311,6 +291,24 @@ export class GroupeListComponent implements OnInit {
       this.router.navigate([decodeURI(this._location.path())]);
     });
   }
+
+   /*****************************
+  *  iFiltring By Active Groupe
+
+  active = "";
+  searchByActiveGroupe() {
+    this.groupeService.findByActiveGroupe(this.active)
+      .subscribe(
+        data => {
+
+          this.datasource.filter = this.active.trim().toLowerCase();
+          this.active.trim().toLowerCase() == data;
+        },
+        error => {
+          console.log(error);
+        });
+  }
+*/
 
 }
 

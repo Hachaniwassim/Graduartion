@@ -21,7 +21,6 @@ import{FormArray}from '@angular/forms';
   styleUrls: ['./account-edit.component.css'],
 })
 export class AccountEditComponent implements OnInit {
-  //semah
   entrepriseSelected = null;
   roleSelected = null;
 

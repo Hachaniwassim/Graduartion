@@ -12,6 +12,8 @@ import { Router } from '@angular/router';
 import { EntrepriseService } from 'src/app/_services/entreprise.service';
 import { GroupeService } from 'src/app/_services/groupe.service';
 import { GroupeDTO } from 'src/app/models/dto/groupeDTO';
+import { CompanyBusinessDTO } from 'src/app/models/dto/companyBusinessDTO';
+import { CompanybusinessService } from 'src/app/_services/companybusiness.service';
 
 @Component({
   selector: 'app-entreprise-add',
@@ -39,9 +41,10 @@ export class EntrepriseAddComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort, {}) sort!: MatSort;
   groupeServices: GroupeDTO[] = [];
+  companyServices: CompanyBusinessDTO[] = [];
 
     constructor(private dialog: MatDialog, public entrepriseService: EntrepriseService, public dialogRef: MatDialogRef<EntrepriseAddComponent>,
-    private notificationService: NotificationService, private groupeService : GroupeService ,private router: Router, public _location: Location) {
+    private notificationService: NotificationService,private companyService: CompanybusinessService, private groupeService : GroupeService ,private router: Router, public _location: Location) {
     this.entrepriseData = {} as EntrepriseDTO;
   }
 
@@ -53,6 +56,10 @@ export class EntrepriseAddComponent implements OnInit {
     this.groupeService.getallGroupe().subscribe(res => {
       console.log(res)
       this.groupeServices = res;
+    })
+    this.companyService.getAllCompanyBussiness().subscribe(res => {
+      console.log(res)
+      this.companyServices = res
     })
    
   }
@@ -70,14 +77,14 @@ export class EntrepriseAddComponent implements OnInit {
       if (!this.entrepriseService.form.get('id')?.value)
         this.entrepriseService.createEntreprise(this.entrepriseService.form.value).subscribe((res) => {
           this.entreprise.push(res);
-          
-          this.notificationService.success('  ::  '  + ' ' + 'add successfully' + ' ' + '⚡');
+          this.refresh();
+          this.notificationService.success('  ::  '  + ' ' +  ' add successfully ' + ' ' + '⚡');
         })
 
       else(
         this.entrepriseService.updateEntreprise(this.entrepriseService.form.value).subscribe((res) => {
           this.entreprise.push(res);
-           this.notificationService.success('  ::  '  + ' ' + 'updated successfully' + ' ' + '⚡');
+           this.notificationService.success('  ::  '  + ' ' + ' updated successfully ' + ' ' + '⚡');
         })) 
         this.onClose();
         this.refresh();
