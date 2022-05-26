@@ -36,13 +36,13 @@ public class GroupeController {
 
 
 
-	/*********************************************************
+	/**********************************************
 	 *
-	 * @Api  PUBLIC_API : for all  ||  PRIVATE_API : with token
+	 * @Api PRIVATE_API : with token
 	 *
-	 *********************************************************/
+	 ****/
 
-	private final String PUBLIC_API = "/api/groupe";
+	//private final String PUBLIC_API = "/api/groupe";
 	private final String PRIVATE_API = "/api/private/groupe";
 
 	private static final Logger log = LoggerFactory.getLogger(GroupeController.class);
@@ -132,56 +132,6 @@ public class GroupeController {
 	}
 
 
-	@RequestMapping(value = PRIVATE_API + "/active", method = RequestMethod.GET)
-	@PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
-	@ApiOperation(value = "find by active groupe ", response = GroupeDTO.class)
-	@ApiResponses(value = {
-			@ApiResponse(code = 200, message = "Groupe was fouded successfully"),
-			@ApiResponse(code = 401, message = "Unauthorized , without authority or permission"),
-			@ApiResponse(code = 403, message = "not permitted or allowed"),
-	})
-	public ResponseEntity<List<GroupeDTO>> findByActiveGroupe() {
-		try {
-			List<GroupeDTO> groupes = igroupeRepository.findByGroupStatus(GroupStatus.ACTIVE).stream().map(GroupeDTO::fromEntity).collect(Collectors.toList());
-			if (groupes.isEmpty()) {
-				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-			}
-			return new ResponseEntity<>(groupes, HttpStatus.OK);
-		} catch (Exception e) {
-			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-		}
-	}
-
-	@RequestMapping(value = PRIVATE_API + "/confirmed", method = RequestMethod.GET)
-	@PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
-	@ApiOperation(value = " find by confirmed   groupe", response = GroupeDTO.class)
-	@ApiResponses(value = {
-			@ApiResponse(code = 200, message = "Groupe was founded successfully"),
-			@ApiResponse(code = 401, message = "Unauthorized , without authority or permission"),
-			@ApiResponse(code = 403, message = "not permitted or allowed"),
-	})
-	public ResponseEntity<List<GroupeDTO>> findByConfirmedGroupe() {
-		try {
-			List<GroupeDTO> groupes = igroupeRepository.findByGroupStatus(GroupStatus.ACTIVE).stream().map(GroupeDTO::fromEntity).collect(Collectors.toList());
-			if (groupes.isEmpty()) {
-				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-			}
-			return new ResponseEntity<>(groupes, HttpStatus.OK);
-		} catch (Exception e) {
-			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-		}
-	}
-
-
-
-	@RequestMapping(value = PRIVATE_API, method = RequestMethod.DELETE)
-	@PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
-	@ApiOperation(value = " delete all groupes ", response = GroupeDTO.class)
-	@ApiResponses(value = {
-			@ApiResponse(code = 200, message = "all groupes was deleted successfully"),
-			@ApiResponse(code = 401, message = "Unauthorized , without authority or permission"),
-			@ApiResponse(code = 403, message = "not permitted or allowed"),
-	})
 	public ResponseEntity<HttpStatus> deleteAllGroupe() {
 		try {
 			groupeservice.deleteAll();
@@ -193,6 +143,7 @@ public class GroupeController {
 	}
 
 	@RequestMapping(value = PRIVATE_API + "/toggle-status/{id}", method = RequestMethod.PUT)
+	@PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
 	@ApiOperation(value = "UPDATE GROUPE BY ID ", response = GroupeDTO.class)
 	@ApiResponses(value = {
 			@ApiResponse(code = 200, message = "Groupe was updated successfully"),

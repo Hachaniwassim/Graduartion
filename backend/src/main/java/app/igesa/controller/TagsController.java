@@ -26,12 +26,11 @@ public class TagsController {
 
 
 
-    /*********************************************************
+    /**************************
      *
-     * @Api  PRIVATE_API : with token
+     *@PRIVATE_API : with token
      *
-     ********/
-
+     ******/
     private final String PRIVATE_API = "api/private/tags";
 
     private static final Logger log = LoggerFactory.getLogger(TagsController.class);

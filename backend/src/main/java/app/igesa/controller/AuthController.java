@@ -54,11 +54,13 @@ import java.util.stream.Collectors;
 @Api(tags = "Authentification" )
 public class AuthController {
 
-	/**
-	 * @Api private with token // public without token
+	/***************************
+	 *
+	 * @Api private with token
+	 *
 	 */
 	private final String PUBLIC_API = "/api/auth";
-	private final String PRIVATE_API = "/api/private/user";
+
 
 	/** email Send **/
 	public static final String EMAIL_SENT = "An email with a new password was sent to: ";
@@ -208,7 +210,7 @@ public class AuthController {
 
 						break;
 					case "mod":
-						Role modRole = roleRepository.findByName(ERole.ROLE_MODERATEUR)
+						Role modRole = roleRepository.findByName(ERole.ROLE_MODERATOR)
 								.orElseThrow(() -> new RuntimeException("Error: Role is not found."));
 						roles.add(modRole);
 

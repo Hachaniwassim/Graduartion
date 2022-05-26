@@ -1,11 +1,11 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import {Location}from '@angular/common';
 import { FormGroup } from '@angular/forms';
 import { EntrepriseDTO } from 'src/app/models/dto/entreprisDTO';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { NotificationService } from 'src/app/shared/notification.service';
 import { DialogService } from 'src/app/shared/dialog.service';
 import { Router } from '@angular/router';
@@ -37,18 +37,39 @@ export class EntrepriseAddComponent implements OnInit {
   entreprise: EntrepriseDTO[]=[];
   searchKey!: string;
   showspinner = false;
+  companybusiness = null;
+  selectedCompany = 0;
+  
   datasource = new MatTableDataSource(this.entreprise)
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort, {}) sort!: MatSort;
   groupeServices: GroupeDTO[] = [];
   companyServices: CompanyBusinessDTO[] = [];
+  
 
     constructor(private dialog: MatDialog, public entrepriseService: EntrepriseService, public dialogRef: MatDialogRef<EntrepriseAddComponent>,
-    private notificationService: NotificationService,private companyService: CompanybusinessService, private groupeService : GroupeService ,private router: Router, public _location: Location) {
-    this.entrepriseData = {} as EntrepriseDTO;
+    
+      private notificationService: NotificationService,
+      private companyService: CompanybusinessService, 
+      private groupeService : GroupeService ,
+      private router: Router, public _location: Location, 
+     @Inject(MAT_DIALOG_DATA)
+      public data: {
+      id: Number;
+      CompanyBusinessId: Number;
+    }
+    )  {
+   // this.entrepriseData = {} as EntrepriseDTO;
+  
   }
 
-  
+  onCountryChange(event:any)
+{
+  console.log(event.dialCode);
+  console.log(event.name);
+  console.log(event.iso2);
+}
+
 
   ngOnInit(): void {
     this.getAllEntreprise();

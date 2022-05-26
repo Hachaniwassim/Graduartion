@@ -42,7 +42,7 @@ export class GroupeListComponent implements OnInit {
   result: any;
   company: List<CompanyBusinessDTO> = [];
   datasource = new MatTableDataSource(this.groupe)
-  displayedColumns: string[] = ['id','name', 'maxOperateur','groupStatus', 'createdDate', 'lastModifiedDate', 'actions'];
+  displayedColumns: string[] = ['name', 'maxOperateur','groupStatus', 'createdDate', 'lastModifiedDate', 'actions'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort, {}) sort!: MatSort;
   message!: string;
@@ -200,6 +200,8 @@ export class GroupeListComponent implements OnInit {
   /***************************
   * update Groupe Status
   */
+
+  
   updateactiveGroupe(element: GroupeDTO) {
     Swal.fire({
       title: 'Are you sure to Update status  !?',
@@ -209,7 +211,7 @@ export class GroupeListComponent implements OnInit {
       cancelButtonText: 'No.',
     }).then((result) => {
       if (result.value) {
-        this.groupeService.updateGroupeByStatus(element.id, element.groupStatus).subscribe(res => {
+        this.groupeService.updateGroupetByStatus(element.id, element.groupStatus).subscribe(res => {
 
           console.log(res);
 
@@ -234,50 +236,7 @@ export class GroupeListComponent implements OnInit {
 
   }
 
- /***************************
-  *  Delete all Groupe
-  */
-  removeAllGroupe() {
-    Swal.fire({
-      title: 'Are you sure to delete all Groupes  !?',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonText: 'Yes',
-      cancelButtonText: 'No',
-    }).then((result) => {
-      if (result.value) {
-        this.groupeService.deleteAllGroupe()
-          .subscribe(
-            response => {
-              console.log(response);
-              // snackBar success 
-              this._snackBar.open("Groupes Deleted Successfully", + '' + "OK"+ ' '+ '⚡', {
-                duration: 5000,
-                horizontalPosition: "right",
-                verticalPosition: "top",
-                panelClass: ["mat-toolbar", "mat-succes"],
-              });
-              Swal.fire('Deleted!', ' All Groupe  was Deleted successfully.', 'success');
-              if (result.dismiss === Swal.DismissReason.cancel) {
-              }
-              this.refresh();
-            },
-
-            error => {
-              // snackBar error
-              this._snackBar.open("Error occurend !!" + error?.message, "", {
-                duration: 3000,
-                horizontalPosition: "right",
-                verticalPosition: "top",
-                panelClass: ["mat-toolbar", "mat-warn"],
-              });
-            });
-      }
-
-    });
-
-  }
-
+ 
   // clear data 
   onClear() {
     this.groupeService.form.reset();

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
  *
  */
 
+// for test roles
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping("/api/test")

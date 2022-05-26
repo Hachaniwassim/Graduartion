@@ -1,15 +1,15 @@
 <mat-toolbar>
-  <span>{{groupeService.form.controls['id'].value?"Modify Groupe ":"New Groupe"}}</span>
+  <span>{{groupeService.form.controls['id'].value?"Modify Group ":"New Group"}}</span>
   <span class="fill-remaining-space"></span>
   <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
 </mat-toolbar><br><br>
   <form [formGroup]="groupeService.form" class="normal-form" (submit)="onSubmit()" class="normal-form">
-    <mat-grid-list cols="1" rowHeight="240px">
+    <mat-grid-list cols="1" rowHeight="260px">
       <mat-grid-tile>
         <div class="controles-container">
           <input type="hidden" formControlName="id">
           <mat-form-field style="margin-left: 30px;">
-            <input formControlName="name" matInput placeholder="name">
+            <input formControlName="name" matInput placeholder="name" required>
             <mat-error *ngIf="groupeService.form.controls['name'].errors?.required">this field is mandatory.
             </mat-error>
           </mat-form-field>
@@ -24,7 +24,7 @@
         </mat-error>   
         </mat-form-field>  
         <mat-form-field style="margin-left: 30px;">
-          <input type="number" formControlName="maxOperateur" matInput placeholder="maxOperateur">
+          <input type="number" formControlName="maxOperateur" matInput placeholder="maxOperateur" required>
           <mat-error *ngIf="groupeService.form.controls['maxOperateur'].errors?.required">this field is mandatory.
           </mat-error>
         </mat-form-field> 
@@ -40,7 +40,7 @@
     </mat-grid-list>
     <div class="button-row" align="center">
       <button mat-raised-button color="primary" type="submit"
-        [disabled]="groupeService.form.invalid" (click)="refresh()">Save</button>
+        [disabled]="groupeService.form.invalid" (click)="refresh()">  <mat-icon>save </mat-icon>  Save</button>
         <button mat-raised-button  mat-dialog-close> <mat-icon>close</mat-icon>Cancel</button>
       <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
   </div>

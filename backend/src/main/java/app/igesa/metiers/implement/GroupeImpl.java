@@ -90,13 +90,13 @@ public class GroupeImpl implements Igroupe {
 			Groupe groupe = Data.get();
 
 			if (GroupStatus.ACTIVE == status) {
+				groupe.setGroupStatus(GroupStatus.BLOCKED);
+			}
+			if (GroupStatus.BLOCKED== status) {
 				groupe.setGroupStatus(GroupStatus.PENDING);
 			}
-			if (GroupStatus.PENDING == status) {
+			if (GroupStatus.PENDING== status) {
 				groupe.setGroupStatus(GroupStatus.ACTIVE);
-			}
-			if (GroupStatus.BLOCKED == status) {
-				groupe.setGroupStatus(GroupStatus.BLOCKED);
 			}
 
 			saved = groupeRepository.save(groupe);

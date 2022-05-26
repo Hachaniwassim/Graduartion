@@ -27,13 +27,12 @@ import org.slf4j.LoggerFactory;
 public class PagesController {
 
 
-    /*********************************************************
-     *
-     * @Api  PUBLIC_API : for all  ||  PRIVATE_API : with token
-     *
-     *********************************************************/
 
-    private final String PUBLIC_API = "api/pages";
+    /**************************
+     *
+     *@PRIVATE_API : with token
+     *
+     ******/
     private final String PRIVATE_API = "api/private/pages";
     private static final Logger log = LoggerFactory.getLogger(PagesController.class);
     @Autowired

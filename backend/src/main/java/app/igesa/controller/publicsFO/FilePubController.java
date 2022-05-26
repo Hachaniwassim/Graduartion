@@ -6,4 +6,9 @@ package app.igesa.controller.publicsFO;
 
 
 public class FilePubController {
+    /**************************
+     *
+     *@PUBLIC_API : without token
+     *
+     ******/
 }

@@ -19,7 +19,7 @@
           </mat-error>
         </mat-form-field>
         <mat-form-field style="margin-left: 40px;">
-          <input formControlName="domainename" matInput placeholder="domainename">
+          <input formControlName="domainename" matInput placeholder="domainename" required>
           <mat-error *ngIf="companyService.form.controls['domainename'].errors?.required">this field is mandatory.
           </mat-error>
         </mat-form-field>
@@ -29,7 +29,7 @@
     <mat-grid-tile>
       <div class="button-row">
           <button mat-raised-button color="primary" type="submit"
-            [disabled]="companyService.form.invalid" (click)="refresh()">Save</button>
+            [disabled]="companyService.form.invalid" (click)="refresh()">  <mat-icon>save </mat-icon>  Save</button>
             <button mat-raised-button  mat-dialog-close> <mat-icon>close</mat-icon>Cancel</button>
           <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
       </div>
