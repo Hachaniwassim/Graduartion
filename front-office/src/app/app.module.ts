@@ -3,6 +3,7 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './material/material.module';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -37,6 +38,7 @@ import { AssitanceComponent } from './assitance/assitance.component';
     AssitanceComponent,
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     RouterModule,
     AppRoutingModule,

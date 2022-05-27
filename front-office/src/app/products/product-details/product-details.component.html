@@ -1,7 +1,46 @@
-	  <!-- backtotop - start -->
+	  
+    <!-- START PRELOADER -->
+<div class="preloader">
+  <div class="status">
+      <div class="status-mes">
+          <div class="loader">
+              <div class="loader__bar"></div>
+              <div class="loader__bar"></div>
+              <div class="loader__bar"></div>
+              <div class="loader__bar"></div>
+              <div class="loader__bar"></div>
+              <div class="loader__ball"></div>
+          </div>
+      </div>
+  </div>
+</div>	
+<!-- Start Slider Area -->
+  <section id="slider_area">
+      <div >
+
+          
+
+          <div class="slider_item3 single_slide text-right">
+              <div class="container">
+                  <div class="single-slide-item-table">
+                      <div class="single-slide-item-tablecell">
+                          <div class="slider_content slider-animated-3">
+                              <span class="sl_heading animated">Product details</span>
+                              <h2 class="animated"> <span>Discover</span> Them</h2>
+                              <p class="animated">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mattis congue ipsum eu ultricies  Vivamus <br />  viverra tortor tincidunt placerat eleifend  Nulla</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+  <!-- End Slider Area -->
+  
+    <!-- backtotop - start -->
       <div id="thetop"></div>
       <div class="backtotop">
-          <a href="/cars-rent" (click)="reloadPage()" class="scroll">
+          <a routerLink="/products" (click)="reloadPage()" class="scroll">
               <i class="fa fa-arrow-up"></i>
           </a>
       </div>
@@ -28,10 +67,10 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-6 mb-5 mb-lg-0 order-lg-2">
-        <img [src]="product?.image"  alt="Image" class="img-fluid">
+        <img [src]="product?.image" width="200" class="rounded-circle">
       </div>
       <div class="col-lg-4 mr-auto">
-        <h3><a href="#"> <!--  {{  product?.title }}--></a></h3>
+        <h3><a href="#"> product?.title</a></h3>
         <div class="rating">
           <span class="icon-star text-warning"></span>
           <span class="icon-star text-warning"></span>
@@ -40,17 +79,17 @@
           <span class="icon-star text-warning"></span>
         </div>
         <br>
-        <span> <!--  {{ product?.detailimage}}--></span>
+        <span> {{ product?.detailimage}}</span>
      <br>
           <span>note : </span>
-          <span class="spec">$ <!--  {{ product?.note}} --></span>
+          <span class="spec">$   {{ product?.note}} </span>
         <br>
           <span> name : </span>
-          <span class="spec">      <!--  {{ product?.name }} -->   KM</span>
+          <span class="spec">      {{ product?.name }}   </span>
        <br>
        <br>
        <span> consultationNumber : </span>
-       <span class="spec">      <!--  {{ product?.consultationNumber }} -->   KM</span>
+       <span class="spec">       {{ product?.consultationNumber }}   </span>
        <br>
        <br>
       </div>

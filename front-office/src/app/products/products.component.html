@@ -52,17 +52,18 @@
                 
             <div class="row">
                 <div class="col-md-3 col-sm-6">
-                    <div class="single_about">
+                    <div class="single_about" *ngFor="let product of productslist">
                         <div class="about_icon">
-                            <i class="fa fa-laptop"></i>
+                            <img [src]="product.image" alt="" class="w-100 card-img-top">
                         </div>
                         <div class="about_content">
                             <h3>
-                                Professional
-                            </h3>
+                                {{product.title}}                        
+                                </h3>
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam finibus velit nec 
-                            </p>
+                                {{product.name}}  
+                                                
+                                      </p>
                             <button >
                                 <mat-icon>info</mat-icon>
                             </button>
