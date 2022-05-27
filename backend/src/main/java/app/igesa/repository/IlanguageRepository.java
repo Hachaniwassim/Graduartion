@@ -11,5 +11,5 @@ import java.util.List;
  */
 public interface IlanguageRepository extends JpaRepository<Language,Long>, JpaSpecificationExecutor<Language> {
 
-   // List<Language> findByEntrepriseId(Long id);
+   //List<Language> findByEntrepriseId(Long id);
 }

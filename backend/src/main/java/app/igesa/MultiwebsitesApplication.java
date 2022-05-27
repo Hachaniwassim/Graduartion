@@ -26,7 +26,7 @@ import java.util.Set;
 
 @EnableJpaAuditing(auditorAwareRef = "auditorAware")
 @SpringBootApplication
-public class MultiwebsitesApplication /*implements CommandLineRunner*/ {
+public class MultiwebsitesApplication /*implements CommandLineRunner */{
 
 	@Resource
 	FilesStorageService storageService;
