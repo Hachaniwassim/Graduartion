@@ -1,4 +1,5 @@
 package app.igesa.repository;
+import app.igesa.entity.Cookies;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -15,5 +16,6 @@ public interface IcomapnybusRepository extends JpaRepository<CompanyBusiness,Lon
 
 	@Query("select po from CompanyBusiness po where po.description like :x")
 	List<CompanyBusiness> findCompanyBusinessesByDescription(@Param("x")String description);
+	//List<Cookies> findByEntrepriseId(Long id);
 
 }

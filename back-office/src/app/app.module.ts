@@ -163,12 +163,8 @@ import { ChoiseEntrepriseComponent } from './choise-entreprise/choise-entreprise
     NgxSpinnerModule,
     NgSelectModule,
     CKEditorModule,
-     EditorModule,
-     Ng2TelInputModule
- 
-    
-
-
+    EditorModule,
+    Ng2TelInputModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   exports: [MaterialModule, ScheduleModule,NgxSpinnerModule,NgSelectModule],

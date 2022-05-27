@@ -12,6 +12,6 @@ public interface IentrepriseRepository  extends JpaRepository<Entreprise,Long> {
     @Query("select po from Entreprise po where po.companyname like :x")
     List<Entreprise> findEntrepriseByCompanyname(@Param("x") String companyname);
 
-    @Query(value = "SELECT * FROM Entreprise f WHERE f.groupeId= :groupeId", nativeQuery = true)
+    @Query(value="SELECT * FROM Entreprise f WHERE f.groupe_id= :groupeId" ,nativeQuery = true)
     List<Entreprise> findEntrepriseByGroupe(@Param("groupeId") Long id);
 }

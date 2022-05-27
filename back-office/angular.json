@@ -36,7 +36,8 @@
               "./node_modules/bootstrap-icons/font/bootstrap-icons.css",
               "./node_modules/sweetalert2/src/sweetalert2.scss",
               "node_modules/ngx-spinner/animations/ball-scale-multiple.css",
-              "node_modules/intl-tel-input/build/css/intlTelInput.css"
+              "node_modules/intl-tel-input/build/css/intlTelInput.css",
+              "node_modules/flag-icon-css/css/flag-icon.min.css"
 
             ],
             "scripts": [

@@ -234,6 +234,27 @@ public class AccountController {
         return ResponseEntity.ok(new MessageResponse("user updated successfully"));
     }
 
+    /**
+     * @param assignRequest
+     * @auther Zied & Semah
+     */
+    @RequestMapping(value = PRIVATE_API + "/assign-group", method = RequestMethod.POST)
+    @PreAuthorize("hasRole('ADMIN')")
+    @ApiOperation(value = "ASSIGN ENTREPRISE", notes = "ASSIGN ENTREPRISE")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Entreprise was assigned Successfully"),
+            @ApiResponse(code = 400, message = "Entreprise not valid"),
+            @ApiResponse(code = 401, message = "Unauthorized , without authority or permission"),
+            @ApiResponse(code = 403, message = "not permitted or allowed"),
+
+    })
+    ResponseEntity assignGroup(@RequestBody AssignRequest assignRequest) {
+
+
+        accountService.assignGroup(assignRequest.getId_groupe(), assignRequest.getId_account());
+        return ResponseEntity.ok(new MessageResponse("group assigned successfully"));
+    }
+
 
 }
 

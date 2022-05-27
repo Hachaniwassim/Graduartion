@@ -4,7 +4,11 @@ import app.igesa.dto.CookiesDTO;
 import java.util.Collection;
 
 public interface Icookies {
-    public Collection<CookiesDTO > getCookiesByEntreprise();
-    CookiesDTO updateCookies(CookiesDTO c);
-    public CookiesDTO findById(Long id);
+    CookiesDTO updateCookies(CookiesDTO c, Long id_entreprise);
+
+    CookiesDTO findByEntrepriseId(Long id_entreprise);
+
+    Collection<CookiesDTO> findCookiesByEntrepriseId(Long id_entreprise);
+
+    CookiesDTO findById(Long id);
 }

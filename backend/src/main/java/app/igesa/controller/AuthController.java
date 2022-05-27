@@ -81,7 +81,7 @@ public class AuthController {
 	private EmailService emailService;
 	@Autowired
 	private CaptchaService captchaService;
-
+	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
 
 	public AuthController(AuthenticationManager authenticationManager, AccountRepository userRepository, RoleRepository roleRepository, IgroupeRepository igroupeRepository, PasswordEncoder encoder, JwtUtils jwtUtils, EmailService emailService, CaptchaService captchaService) {

@@ -1,7 +1,9 @@
 package app.igesa.repository;
+import app.igesa.entity.Cookies;
 import app.igesa.entity.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -10,4 +12,5 @@ import java.util.Optional;
  */
 public interface IproductRepository extends JpaRepository<Product,Long> , JpaSpecificationExecutor<Product> {
     Optional<Product> findFirstByEntrepriseId(Long id);
+    //List<Product> findByEntrepriseId(Long id);
 }

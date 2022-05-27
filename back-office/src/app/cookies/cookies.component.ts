@@ -193,12 +193,14 @@ export class CookiesComponent implements OnInit {
   }
 
   ngOnInit() {
-      this.cookiesService.getCookiesByEntrepriseId().subscribe((res) => {
-       this.data = res;
-      this.cookie.patchValue(this.data) ;
-      console.log('the cockiees =====>',res);
-  }
-    )
+      this.cookiesService.getCookiesByEntrepriseId().subscribe((res: CookieDTO[]) => {
+        this.data=res[0]
+
+        this.cookie.patchValue(this.data);
+
+      console.log('the cockiees =====>',this.data);
+  })
+    
 }
 
   /********************************

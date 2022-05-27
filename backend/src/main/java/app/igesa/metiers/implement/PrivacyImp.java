@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.Collection;
+import java.util.Optional;
 import java.util.stream.Collectors;
 /**
  *
@@ -29,7 +30,7 @@ public class PrivacyImp  implements Iprivacy {
     PrivacyRepository privacyRepository;
 
     @Override
-    public PrivacyDTO updateByEntreprise(PrivacyDTO p) {
+    public PrivacyDTO updateByEntreprise(PrivacyDTO p,Long id_entreprise) {
         Privacy privacy = new Privacy();
         if (p.getId()!=null){
            privacy = privacyRepository.findById(p.getId()).orElseThrow(IllegalAccessError::new);
@@ -42,15 +43,27 @@ public class PrivacyImp  implements Iprivacy {
 
     }
 
+    /**
+     *
+     * return collection
+     * @param id_entreprise
+     * @return
+     */
 
     @Override
-    public Collection<PrivacyDTO> getByEntreprise (){
+    public Collection<PrivacyDTO> getprivacy(Long id_entreprise){
         log.debug("HTTP GET ALL {} ..");
-        return privacyRepository.findFirstByEntrepriseId(ientrepriseService.getCurrentEnterprise().getId()).stream()
+        return privacyRepository.findByEntrepriseId(id_entreprise).stream()
                 .map(PrivacyDTO::fromEntity)
                 .collect(Collectors.toList());
     }
 
+    /**
+     *
+     * find by id
+     * @param id
+     * @return
+     */
     @Override
     public PrivacyDTO findById(Long id) {
         log.debug("HTTP GET BY ID {} ..", id);
@@ -64,6 +77,11 @@ public class PrivacyImp  implements Iprivacy {
 
     }
 
+    /**
+     * delete privacy
+     * @param id
+     */
+
     @Override
     public void delete(Long id) {
         log.debug("HTTP DELETE BY ID {} ..", id);
@@ -73,6 +91,25 @@ public class PrivacyImp  implements Iprivacy {
         }
         privacyRepository.deleteById(id);
 }
+
+
+    /**
+     *
+     * @param id_entreprise : optional just 1 entreprise
+     * @return
+     */
+    @Override
+    public Optional<PrivacyDTO> findByEntrepriseId(Long id_entreprise) {
+        log.debug("HTTP GET BY ID {} ..", id_entreprise);
+        if (id_entreprise == null) {
+            log.error(" Id is NULL .. !!");
+            return null;
+        }
+
+        return privacyRepository.findFirstByEntrepriseId(id_entreprise).map(PrivacyDTO::fromEntity);
+
+    }
+
 
 }
 
