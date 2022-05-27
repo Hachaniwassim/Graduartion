@@ -3,6 +3,10 @@ package app.igesa.payload.request;
 import lombok.Data;
 import lombok.Setter;
 
+/**
+ * @author  Tarchoun Abir
+ *
+ */
 @Data
 @Setter
 public class LoginRequest {

@@ -52,23 +52,16 @@ export class CookiesService {
     return throwError('something bad happined , please try again later .');
   };
 
-  /**************************
-   * 
-   * Get Privacy By Entreprise
-   * 
-   */
-  getCookiesByEntreprise(): Observable<CookieDTO[]> {
-    return this.http.get<CookieDTO[]>(this.base_url).pipe(retry(2), catchError(this.handleError));
-  }
+
 
 
    /**************************
    * 
-   * Get Privacy By EntrepriseId
+   * Get Privacy By EntrepriseId 
    * 
    */
-  getCookiesByEntrepriseId(): Observable<CookieDTO> {
-    return this.http.get<CookieDTO>(this.base_url + '/' + localStorage.getItem('idEntreprise')).pipe(retry(2), catchError(this.handleError));
+  getCookiesByEntrepriseId() : Observable<CookieDTO[]> {
+    return this.http.get<CookieDTO[]>(this.base_url + '/list-entreprise/' +  localStorage.getItem('idEntreprise')).pipe(retry(2), catchError(this.handleError));
 
   }
 

@@ -1,5 +1,9 @@
 package app.igesa.payload.request;
 
+/**
+ * @author Tarchoun Abir
+ *
+ */
 public class EntreprisesByGroupRequest {
         private Long id_group;
         public Long getId_group() {
