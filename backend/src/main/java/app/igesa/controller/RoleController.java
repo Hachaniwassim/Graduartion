@@ -107,6 +107,7 @@ public class RoleController {
         return ResponseEntity.noContent().build();
     }
 
+    //semah abir
     @PreAuthorize("hasRole('MODERATOR') or hasRole('ADMIN')")
     @RequestMapping(value = PRIVATE_API + "/update-role", method = RequestMethod.POST)
     @ResponseBody
@@ -114,6 +115,7 @@ public class RoleController {
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Role was Deleted successfully"),
             @ApiResponse(code = 401, message = "Unauthorized , without authority or permission"),
+            @ApiResponse(code = 403, message = "not permitted or allowed"),
             @ApiResponse(code = 403, message = "not permitted or allowed")
 
     })

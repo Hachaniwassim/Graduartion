@@ -1,5 +1,6 @@
 package app.igesa.repository;
 import app.igesa.entity.Account;
+import app.igesa.entity.Cookies;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -7,6 +8,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 /**
  * @author Tarchoun Abir
@@ -33,4 +35,5 @@ public interface AccountRepository extends JpaRepository<Account, Long> {
 	@Query(value="update accounts a set  username= :username, email= :email , fiscaleCode=:fiscaleCode where a.id = :id",nativeQuery = true)
 	void updateCUrrentUser(@Param("username") String username, @Param("email") String email, @Param("fiscaleCode") String fiscaleCode);
 
+	//List<Account> findByEntrepriseId(Long id);
 }

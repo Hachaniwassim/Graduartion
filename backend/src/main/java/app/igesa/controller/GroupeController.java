@@ -177,7 +177,7 @@ public class GroupeController {
 
 	})
 	ResponseEntity assignEGroupe(@RequestBody AssignRequest assignRequest){
-		accountservice.assignGroupe(assignRequest.getId_groupe(),assignRequest.getId_account());
+		accountservice.assignGroup(assignRequest.getId_groupe(),assignRequest.getId_account());
 		return ResponseEntity.ok(new MessageResponse("groupe assigned successfully"));
 }
 }

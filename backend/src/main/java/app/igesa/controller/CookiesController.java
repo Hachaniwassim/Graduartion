@@ -94,5 +94,24 @@ public class CookiesController {
         return new ResponseEntity<>(icookies.updateCookies(c),HttpStatus.CREATED);
     }
 
+    /****
+     *
+     * @param id_entreprise GET COOKIED BY ENTREPRISE ID
+     * @return
+     */
+    @RequestMapping(value=PRIVATE_API+"/list-entreprise/{id_entreprise}",method = RequestMethod.GET)
+    @ApiOperation(value="GET Cookies",notes="GET COOKIEES", responseContainer  = "Collection<CookiesDTO>")
+    @ApiResponses(value= {
+            @ApiResponse(code=200,message="cookies was founded Successfully"),
+            @ApiResponse(code=400,message="cookies not found"),
+            @ApiResponse(code=401,message="Unauthorized , without authority or permission"),
+            @ApiResponse( code=403, message="not permitted or allowed"),
+
+    })
+    public ResponseEntity<Collection<CookiesDTO>> getCookiesByEntreprise(@PathVariable Long id_entreprise) {
+
+        return new ResponseEntity<>( icookies.findCookiesByEntrepriseId(id_entreprise),HttpStatus.OK);
+    }
+
 
 }

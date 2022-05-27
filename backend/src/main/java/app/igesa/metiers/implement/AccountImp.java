@@ -137,13 +137,6 @@ public class AccountImp implements IauthService {
 
     }
     /**
-     * @assign entreprise ==============================>
-     */
-    @Override
-    public void assignGroupe(Long groupe_id,Long id){
-        userRepository.assignGroupe(groupe_id,id);
-    }
-    /**
      * @update current user info ==============================>
      */
 
@@ -151,5 +144,11 @@ public class AccountImp implements IauthService {
     public void updateCUrrentUser(String username, String email, String fiscaleCode){
         userRepository.updateCUrrentUser(username,email,fiscaleCode);
     }
+
+    @Override
+    public void assignGroup(Long groupe_id,Long id){
+        userRepository.assignGroupe(groupe_id,id);
+    }
+
 
 }

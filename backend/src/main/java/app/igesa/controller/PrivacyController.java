@@ -95,6 +95,7 @@ public class PrivacyController {
 
     })
     public ResponseEntity<PrivacyDTO>update(@RequestBody PrivacyDTO c) {
+
         return new ResponseEntity<>(iprivacy.updateByEntreprise(c),HttpStatus.CREATED);
     }
 

@@ -5,6 +5,7 @@ import java.util.Optional;
 import app.igesa.entity.Entreprise;
 import app.igesa.metiers.IauthService;
 import app.igesa.payload.request.AssignRequest;
+import app.igesa.payload.request.EntreprisesByGroupRequest;
 import app.igesa.payload.response.MessageResponse;
 import app.igesa.repository.IentrepriseRepository;
 import org.slf4j.Logger;
@@ -127,20 +128,19 @@ public class EntrepriseController {
 		entrepriseservice.delete(id);
 	}
 
+	@RequestMapping(value = PRIVATE_API + "/groupe", method = RequestMethod.POST)
 	@PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
-	@RequestMapping(value= PRIVATE_API +"/groupe/{id}",method =RequestMethod.GET)
 	@ResponseBody
-	@ApiOperation(value="DELETE ENTREPRISE BY groupe id> ",response = EntrepriseDTO.class)
-	@ApiResponses(value= {
-			@ApiResponse(code=200,message="groupe was foundsuccessfully"),
-			@ApiResponse(code=401,message="Unauthorized , without authority or permission"),
-			@ApiResponse( code=403, message="not permitted or allowed")
+	@ApiOperation(value = "DELETE ENTREPRISE BY groupe id> ", response = EntrepriseDTO.class)
+	@ApiResponses(value = {
+			@ApiResponse(code = 200, message = "groupe was foundsuccessfully"),
+			@ApiResponse(code = 401, message = "Unauthorized , without authority or permission"),
+			@ApiResponse(code = 403, message = "not permitted or allowed")
 
 	})
-	public List<EntrepriseDTO> getEntrepriseByGroupe(@PathVariable Long id) {
-		return entrepriseservice.getEntrepriseByGroupe(id);
+	public List<EntrepriseDTO> getEntrepriseByGroupe(@RequestBody EntreprisesByGroupRequest entreprisesByGroupRequest) {
+		return entrepriseservice.getEntrepriseByGroupe(entreprisesByGroupRequest.getId_group());
 	}
-
 
 
 	@RequestMapping(value=PRIVATE_API +"/companyname",method =RequestMethod.GET)

@@ -28,6 +28,12 @@ public class CookiesImp implements Icookies {
     Ientreprise ientrepriseService ;
     @Autowired
     CookiesRepository cookiesRepository;
+
+    @Override
+    public Collection<CookiesDTO> getCookiesByEntreprise() {
+        return null;
+    }
+
     @Override
     public CookiesDTO updateCookies(CookiesDTO cookiesDto) {
         Cookies cookies= new Cookies();
@@ -43,13 +49,13 @@ public class CookiesImp implements Icookies {
     }
 
 
-    @Override
+   /* @Override
     public Collection<CookiesDTO> getCookiesByEntreprise() {
         log.debug("HTTP GET ALL {} ..");
         return cookiesRepository.findFirstByEntrepriseId(ientrepriseService.getCurrentEnterprise().getId()).stream()
                 .map(CookiesDTO::fromEntity)
                 .collect(Collectors.toList());
-    }
+    }*/
  
 
 
@@ -65,9 +71,18 @@ public class CookiesImp implements Icookies {
                 new ResourceNotFoundException(" No cookies   with  Id = :: " + id + " was founded {} ..!"));
 
     }
+    @Override
+    public Collection<CookiesDTO> findCookiesByEntrepriseId(Long id_entreprise) {
 
-
+        return cookiesRepository.findByEntrepriseId(id_entreprise).stream()
+                .map(CookiesDTO::fromEntity)
+                .collect(Collectors.toList());
+    }
 
 }
+
+
+
+
 
 

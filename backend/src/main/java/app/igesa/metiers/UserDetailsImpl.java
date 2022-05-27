@@ -39,26 +39,14 @@ public class UserDetailsImpl implements UserDetails {
 	@Getter
 	@Setter
 	private Long centerId;
-	@Getter
-	@Setter
+
 	private Long groupeId;
 
-   private AccountStatus accountStatus;
+	private AccountStatus accountStatus;
 
 	private Collection<? extends GrantedAuthority> authorities;
 
-	public UserDetailsImpl(Long id, String username, String email, String password, String fiscaleCode, AccountStatus accountStatus, Long groupeId, List<GrantedAuthority> authorities) {
-	this.id=id;
-	this.username=username;
-	this.email=email;
-	this.password=password;
-	this.fiscaleCode=fiscaleCode;
-	this.accountStatus=accountStatus;
-	this.authorities=authorities;
-	this.groupeId=groupeId;
-	}
-
-	public UserDetailsImpl(Long id, String username, String email, String password, String fiscaleCode, AccountStatus accountStatus,Long id1, List<GrantedAuthority> authorities,Long groupeId) {
+	public UserDetailsImpl(Long id, String username, String email, String password, String fiscaleCode, Long id1, AccountStatus accountStatus, List<GrantedAuthority> authorities,Long groupeId) {
 		this.id=id;
 		this.username=username;
 		this.email=email;
@@ -67,7 +55,8 @@ public class UserDetailsImpl implements UserDetails {
 		this.accountStatus=accountStatus;
 		this.authorities=authorities;
 		this.centerId=id1;
-
+		//semah
+		this.groupeId=groupeId;
 	}
 
 
@@ -76,14 +65,16 @@ public class UserDetailsImpl implements UserDetails {
 				.map(role -> new SimpleGrantedAuthority(role.getName().name()))
 				.collect(Collectors.toList());
 		return new UserDetailsImpl(
-						account.getId(),
-						account.getUsername(),
-						account.getEmail(),
-						account.getPassword(),
-						account.getFiscaleCode(),
-				        account.getAccountStatus(),
-				        account.getGroupe().getId(),
-						authorities);
+				account.getId(),
+				account.getUsername(),
+				account.getEmail(),
+				account.getPassword(),
+				account.getFiscaleCode(),
+				account.getGroupe().getId(),
+				account.getAccountStatus(),
+				authorities,
+				account.getGroupe().getId()
+		);
 	}
 
 

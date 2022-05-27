@@ -17,7 +17,8 @@ public class AssignRequest {
     private Long id_groupe;
     private Long id_account;
 
-    public Long getId_groupe() {
-        return id_groupe;
-    }
+
+//   public Long getId_groupe() {
+//        return id_groupe;
+//    }
 }

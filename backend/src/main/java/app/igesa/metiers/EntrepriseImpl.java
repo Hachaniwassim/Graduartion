@@ -53,11 +53,13 @@ public class EntrepriseImpl implements Ientreprise {
 
 	}
 
-	/*@Override
-	public Long countEntreprise() {
-		return entrepriseRepository.count();
-	}*/
-
+	@Override
+	public List<EntrepriseDTO> getEntrepriseByGroupe(Long id) {
+		log.debug( "<=========================  Get Enterprise By Group  ===========================>");
+		return entrepriseRepository.findEntrepriseByGroupe(id).stream()
+				.map(EntrepriseDTO::fromEntity)
+				.collect(Collectors.toList());
+	}
 
 	@Override
       public Collection<EntrepriseDTO> view() {
@@ -91,13 +93,7 @@ public class EntrepriseImpl implements Ientreprise {
             }
 
 
-      @Override
-      public List<EntrepriseDTO> getEntrepriseByGroupe(Long id) {
-		log.debug( "<=========================  Get Enterprise By Group  ===========================>");
-		return entrepriseRepository.findEntrepriseByGroupe(id).stream()
-				.map(EntrepriseDTO::fromEntity)
-				.collect(Collectors.toList());
-       }
+
 
 	@Override
 	public List<EntrepriseDTO> FindEntrepriseByCompanyname(String companyname) {
