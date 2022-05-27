@@ -1,0 +1,351 @@
+/***************************** login style ************************************/
+
+label {
+  display: block;
+  margin-top: 10px;
+}
+
+.card-container.card {
+  max-width: 380px !important;
+  padding: 50px 40px;
+}
+
+.card {
+  background-color: white;
+  padding: 20px 25px 30px;
+  margin: 0 auto 25px;
+  margin-top: 50px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.profile-img-card {
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 10px;
+  display: block;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.content-divider.center {
+  text-align: center;
+}
+
+.content-divider {
+  position: relative;
+  z-index: 1;
+}
+
+.content-divider>span,
+.content-divider>a {
+  background-color: rgb(255, 255, 255);
+  color: #000;
+  display: inline-block;
+  padding: 2px 12px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.content-divider>span:before,
+.content-divider>a:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 1px;
+  background-color: rgb(254, 252, 252);
+  width: 100%;
+  z-index: -1;
+}
+
+.social-login .btn-img {
+  width: 30px;
+  height: auto;
+  padding: 0.6rem 0;
+  margin-right: 15px;
+}
+
+.btn-img-linkedin {
+  width: auto;
+  height: 50px;
+  padding: 0.6rem 0;
+  margin-right: 10px;
+}
+
+.form-group .has-error {
+  color: rgb(183, 5, 5);
+}
+
+.form-group .btn {
+  color: white;
+  background-color: #446DCA;
+  font-size: 19px;
+  font-weight: 600;
+  text-align: left;
+  width: 180px;
+  padding: 10px 30px;
+  margin: 0 25px 0 0;
+  border-radius: 30px;
+  border: none;
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s ease 0s;
+}
+
+.form-group .btn:hover,
+.form-group .btn:focus {
+  color: white;
+  background-color: #222;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  outline: none;
+}
+
+.form-group .btn:after {
+  content: '';
+  height: 70%;
+  width: 110%;
+  border-top: 5px solid #fff;
+  border-bottom: 5px solid #fff;
+  transform: rotate(-50deg);
+  position: absolute;
+  right: -105px;
+  top: -65px;
+  transition: all 0.5s ease 0s;
+}
+
+.form-group .btn:hover:after {
+  right: -70px;
+  top: -30px;
+}
+
+.form-group .form-control:focus {
+  box-shadow: none;
+  border-color: #446DCA;
+}
+
+.version {
+  font-size: 1rem;
+  font-weight: 610;
+  letter-spacing: 2px;
+}
+
+.footer {
+  bottom: 10px;
+  width: 100%;
+}
+
+.languages a {
+  margin-right: 10px;
+
+  letter-spacing: 1px;
+}
+
+.form-group.form-control:focus {
+  box-shadow: none;
+  border-color: #446DCA;
+}
+
+:host {
+  background-color: #eef1f7;
+  flex: 1 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.form-group.form-control::placeholder {
+  color: #222;
+  font-size: 15px;
+}
+
+.form-group .input-icon {
+  color: #7b7b7b;
+  font-size: 23px;
+  position: absolute;
+  left: 310px;
+  top: 210px;
+}
+
+/* validate form  */
+.form-control.ng-touched.ng-invalid {
+  border: 1px solid rgb(183, 5, 5);
+  border-left: 5px solid rgb(183, 5, 5);
+}
+
+/* validate form  */
+.form-control.ng-touched.ng-valid {
+  border: 1px solid #446DCA;
+  border-left: 5px solid #446DCA;
+}
+
+/*.form-control .textarea.ng-invalid   {
+  border: 1px solid red;
+  border-left: 5px solid red;
+}*/
+
+/* alert msg d erreur */
+
+div.msg {
+  margin-top: 15px;
+  color: rgb(183, 5, 5);
+}
+
+
+/* validate form  */
+input.ng-invalid {
+  border-left: 5px solid rgb(183, 5, 5);
+}
+
+/*from  :: https://www.formget.com/angularjs-form-validation/ */
+
+
+/**  =====================
+      Authentication css start
+==========================  **/
+.auth-wrapper {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  overflow: hidden;
+  min-width: 100%;
+  min-height: 100vh;
+  width: 390px;
+  padding: 15px;
+  z-index: 5;
+}
+
+
+
+.auth-wrapper .auth-content {
+  position: relative;
+  z-index: 5;
+}
+
+.auth-wrapper .auth-content.multyform,
+.auth-wrapper .auth-content.subscribe {
+  width: 100%;
+}
+
+.auth-wrapper .auth-icon {
+  font-size: 30px;
+}
+
+.auth-wrapper .auth-icon:before {
+  background: linear-gradient(-135deg, #7588dd 0%, #0d87a3 100%);
+  background-clip: text;
+  --text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.auth-wrapper.offline {
+  background-image: none;
+}
+
+.auth-wrapper.offline:before {
+  display: none;
+}
+
+.auth-wrapper .auth-bg .r {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+}
+
+@media only screen and (max-width: 768px) {
+  .auth-wrapper {
+    max-width: 360px;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .auth-wrapper .card .card-body {
+    padding: 30px 15px;
+  }
+}
+
+
+.auth-wrapper .auth-bg .r.s {
+  width: 20px;
+  height: 20px;
+}
+
+.auth-wrapper .auth-bg .r.s:nth-child(2) {
+  top: 150px;
+  right: -150px;
+  background: #04a9f5;
+}
+
+.auth-wrapper .auth-bg .r.s:nth-child(3) {
+  left: -150px;
+  bottom: 150px;
+  background: #3e45d9;
+}
+
+.auth-wrapper .auth-bg .r:nth-child(odd) {
+  -webkit-animation: floating 7s infinite;
+  animation: floating 7s infinite;
+}
+
+.auth-wrapper .auth-bg .r:nth-child(even) {
+  -webkit-animation: floating 9s infinite;
+  animation: floating 9s infinite;
+}
+
+
+.auth-tabs .tab-content {
+  overflow: hidden;
+  position: relative;
+}
+
+.auth-tabs .tab-content .auth-icon {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 150px;
+  -webkit-transform: rotate(-30deg);
+  transform: rotate(-30deg);
+}
+
+/* image varient start */
+@-webkit-keyframes floating {
+  from {
+    -webkit-transform: rotate(0deg) translate(-10px) rotate(0deg);
+    transform: rotate(0deg) translate(-10px) rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg) translate(-10px) rotate(-360deg);
+    transform: rotate(360deg) translate(-10px) rotate(-360deg);
+  }
+}
+
+@keyframes floating {
+  from {
+    -webkit-transform: rotate(0deg) translate(-10px) rotate(0deg);
+    transform: rotate(0deg) translate(-10px) rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg) translate(-10px) rotate(-360deg);
+    transform: rotate(360deg) translate(-10px) rotate(-360deg);
+  }
+}

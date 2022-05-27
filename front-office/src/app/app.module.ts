@@ -20,6 +20,8 @@ import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.componen
 import { CookiesComponent } from './cookies/cookies.component';
 import { FooterComponent } from './footer/footer.component';
 import { AssitanceComponent } from './assitance/assitance.component';
+import { ProfileComponent } from './profile/profile.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -36,14 +38,17 @@ import { AssitanceComponent } from './assitance/assitance.component';
     CookiesComponent,
     FooterComponent,
     AssitanceComponent,
+    ProfileComponent,
   ],
   imports: [
+    ReactiveFormsModule,
     HttpClientModule,
     BrowserModule,
     RouterModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   exports: [MaterialModule],

@@ -14,6 +14,7 @@ import { ContactComponent } from "./contact/contact.component";
 import { CookiesComponent } from "./cookies/cookies.component";
 import { PrivacyPolicyComponent } from "./privacy-policy/privacy-policy.component";
 import { AssitanceComponent } from "./assitance/assitance.component";
+import { ProfileComponent } from "./profile/profile.component";
 
 
 const routes : Routes =[
@@ -46,6 +47,8 @@ const routes : Routes =[
   { path: 'privacypolicy', component: PrivacyPolicyComponent },
 
   { path: 'assistance', component: AssitanceComponent },
+
+  { path: 'profile', component: ProfileComponent },
 
   // 404 not found
   { path: '**', component: NotfoundComponent },
