@@ -75,6 +75,7 @@ import { CKEditorModule } from 'ckeditor4-angular';
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { WhoareweComponent } from './pages/whoarewe/whoarewe.component';
 import {Ng2TelInputModule} from 'ng2-tel-input';
+import { ChoiseEntrepriseComponent } from './choise-entreprise/choise-entreprise.component';
 
 
 
@@ -140,6 +141,7 @@ import {Ng2TelInputModule} from 'ng2-tel-input';
     RolesListComponent,
     RolesViewComponent,
     ResetpasswordComponent,
+    ChoiseEntrepriseComponent,
     
   
     

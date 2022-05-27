@@ -44,6 +44,7 @@ import { HomelistComponent } from './pages/homelist/homelist.component';
 import { HomeprimaryslideComponent } from './pages/homeprimaryslide/homeprimaryslide.component';
 import {ResetpasswordComponent} from "./resetpassword/resetpassword.component";
 import { WhoareweComponent } from './pages/whoarewe/whoarewe.component';
+import { ChoiseEntrepriseComponent } from './choise-entreprise/choise-entreprise.component';
 
 
 
@@ -142,7 +143,11 @@ const routes: Routes = [
   { path: 'page', loadChildren: () => import('./web-positioning/web-positioning.module').then(m => m.WebPositioningModule) },
 
   { path: 'assistance', loadChildren: () => import('./pages/assistance/assistance.module').then(m => m.AssistanceModule) },
-
+  {
+    path: 'choiseentreprise',
+    component: ChoiseEntrepriseComponent, canActivate: [AuthGuard] 
+    
+  },
 
   // 404 not found
   { path: '**', component: NotfoundComponent },
