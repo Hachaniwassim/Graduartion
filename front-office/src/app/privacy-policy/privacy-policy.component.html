@@ -49,10 +49,12 @@
                 </div>
             </div>
                 
-						
+				<div  *ngFor="let privacy of privacylist">		
                 <div class="container">
                     <!-- Stack the columns on mobile by making one full-width and the other half-width -->
-                    <p>Igesa s.r.l con sede in Capo d’Orlando (ME), Via Consolare Antica n.308 in qualità di titolare del trattamento dei dati personali ai sensi del d. lgs. 196/2003 e successive modifiche e del Regolamento UE 679/2016 intende informala delle modalità di gestione del sito www.igesa.it in riferimento al trattamento dei dati personali degli utenti che lo consultano.</p>
+                    <p class="small text-muted">{{privacy.htmlContent}}</p>
+
+                    <!-- <p>Igesa s.r.l con sede in Capo d’Orlando (ME), Via Consolare Antica n.308 in qualità di titolare del trattamento dei dati personali ai sensi del d. lgs. 196/2003 e successive modifiche e del Regolamento UE 679/2016 intende informala delle modalità di gestione del sito www.igesa.it in riferimento al trattamento dei dati personali degli utenti che lo consultano.</p>
                 
                     <p>La presente Privacy Policy, si intende resa solo per il sito www.igesa.it mentre non si applica ad altri siti web eventualmente consultati tramite link esterni, ed è da intendersi quale Informativa resa ai sensi dell’art. 13 della Normativa Applicabile a coloro che interagiscono con il Sito; si conforma alla Raccomandazione n. 2/2001 relativa ai requisiti minimi per la raccolta di dati on-line nell’Unione Europea, adottata il 17 maggio 2001 dal Gruppo di Lavoro Articolo 29.
                         Il trattamento dei suoi i dati personali sarà improntato ai principi di liceità, correttezza, trasparenza, limitazione delle finalità e della conservazione, minimizzazione dei dati, esattezza, integrità e riservatezza. I suoi dati personali verranno pertanto trattati in accordo alle disposizioni legislative della Normativa Applicabile e degli obblighi di riservatezza ivi previsti.</p>
@@ -115,7 +117,9 @@
                                 h)    Diritto di proporre reclamo a un’autorità di controllo;</p>
                                 <p>Le richieste vanno rivolte via e-mail all’indirizzo: <a href="privacy@igesa.it">privacy@igesa.it</a> 
                                 </p>
+                                -->
                         </div>
+                    </div>
     
         </div>
     </section>
