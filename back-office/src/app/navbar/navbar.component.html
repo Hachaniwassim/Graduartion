@@ -1,7 +1,7 @@
 <div id="wrapper" [hidden]="!isLoggedIn">
 
     <!-- Top Bar Start -->
-    <div class="topbar" *ngIf="isLoggedIn && showAdminBoard">
+    <div class="topbar" *ngIf="isLoggedIn && showAdminBoard && entrepriseSelected">
         <!-- LOGO -->
         <div class="topbar-left">
             <a href="#" class="logo">
@@ -60,8 +60,8 @@
                     </button>
                 </li>
 
-            </ul>
+            </ul> 
         </nav>  
+        <app-left-slide-bar ></app-left-slide-bar>
     </div>
     
-<app-left-slide-bar ></app-left-slide-bar>

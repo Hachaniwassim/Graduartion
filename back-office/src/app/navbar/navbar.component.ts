@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import{Location}from '@angular/common';
 import { TokenStorageService } from '../_services/token-storage.service';
 
 @Component({
@@ -14,9 +15,10 @@ export class NavbarComponent implements OnInit {
   showAdminBoard = false;
   showModeratorBoard = false;
   showUserBoard = false ;
+  entrepriseSelected = false;
   username?: string;
 
-  constructor(private tokenStorageService: TokenStorageService,public router : Router) { }
+  constructor(private tokenStorageService: TokenStorageService,public router : Router, public _location: Location) { }
 
   ngOnInit(): void {
     this.isLoggedIn = !!this.tokenStorageService.getToken();
@@ -24,19 +26,26 @@ export class NavbarComponent implements OnInit {
     if (this.isLoggedIn) {
       const user = this.tokenStorageService.getUser();
       this.roles = user.roles;
-
       this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
       this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR');
       this.showUserBoard = this.roles.includes('ROLE_USER')
       this.username = user.username;
+      this.entrepriseSelected = localStorage.getItem('idEntreprise') ? true:false
     }
    
   }
-
- 
   logout(): void {
    this.tokenStorageService.signOut();
     window.location.reload();
+    this.refresh();
+  }
+
+   //refrech 
+   refresh(): void {
+    this.router.navigateByUrl("/refresh", { skipLocationChange: true }).then(() => {
+      console.log(decodeURI(this._location.path()));
+      this.router.navigate([decodeURI(this._location.path())]);
+    });
   }
 
 }
