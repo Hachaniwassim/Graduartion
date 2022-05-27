@@ -16,13 +16,7 @@ export class TagsSerice {
   //api backend
   private base_url= environment.privateApi + "/tags";
   
-
- TagsDTO ={
-    description:'', 
-    createdDate :'',
-    lastModifiedDate:'',
-  }
-  constructor(private http :HttpClient, private datePipe: DatePipe) { }
+  constructor(private http :HttpClient) { }
 
   //http opttion
   httpOptions={ 
@@ -51,35 +45,36 @@ export class TagsSerice {
 
 // insert 
 createtags(item :TagsDTO):Observable<TagsDTO>{
-  return this.http.post<TagsDTO>(this.base_url,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
+  return this.http.post<TagsDTO>(this.base_url,item,this.httpOptions)
 }
 
 //get all data 
 getAlltags():Observable<TagsDTO>{
-   return this.http.get<TagsDTO>(this.base_url).pipe(retry(2),catchError(this.handleError));
+   return this.http.get<TagsDTO>(this.base_url)
  }
 
 
   // get tags by id
   getByidTags(id:number):Observable<TagsDTO>{
-    return this.http.get<TagsDTO>(this.base_url + '/' +id).pipe(retry(2),catchError(this.handleError));
+    return this.http.get<TagsDTO>(this.base_url + '/' +id);
 
   }
 
    // update tags by Id the
    updateTags(item :TagsDTO){
-    return this.http.put<TagsDTO>(this.base_url,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
+    return this.http.put<TagsDTO>(this.base_url,item,this.httpOptions)
    }
 
     // delete cars
     deleteTags(id:number){
-      return this.http.delete<TagsDTO>(this.base_url + '/' +id,this.httpOptions).pipe(retry(2),catchError(this.handleError));
+      return this.http.delete<TagsDTO>(this.base_url + '/' +id,this.httpOptions);
 
 }
 
 //validation formulaire
   form : FormGroup= new FormGroup({
     id: new FormControl(null),
+    entrepriseId: new FormControl(null),
     description: new FormControl('',Validators.required),
  
 });
@@ -88,6 +83,7 @@ getAlltags():Observable<TagsDTO>{
 initializeFormGroup() {
   this.form.setValue({
     id :null,
+    entrepriseId :null,
     description: '',
    
 

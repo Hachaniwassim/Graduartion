@@ -13,10 +13,17 @@ import { environment } from 'src/environments/environment';
 import { AccountDTO } from '../models/dto/accountDTO';
 import { CustomHttpRespone } from '../models/entity/custom-http-response';
 import { FormBuilder } from '@angular/forms';
+import { GroupeDTO } from '../models/dto/groupeDTO';
 
 @Injectable({
   providedIn: 'root',
 })
+
+/****
+ * 
+ * @author Tarchoun Abir 
+ * 
+ */
 export class Accountservice {
   //api backend
   private base_url = environment.privateApi + '/user';
@@ -45,12 +52,24 @@ export class Accountservice {
     return throwError('something bad happined , please try again later .');
   }
 
+  /*************************
+   * 
+   * 
+   * CRUD OPORATION
+   * 
+   */
+
+
+
+
   // insert
   create(item: any) {
     return this.http
       .post<any>(`${this.base_url}`, JSON.stringify(item), this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
+
+
 
   //get all account data
   all(): Observable<AccountDTO[]> {
@@ -59,40 +78,31 @@ export class Accountservice {
       .pipe(retry(2), catchError(this.handleError));
   }
 
-  //zied
+
+
+
+  // get entreprises 
   entreprises(): Observable<any[]> {
     return this.http.get<any[]>(environment.privateApi + '/entreprise');
   }
-  //semah
-  changeRoel(id_account: Number, id_role: any) {
-    id_role = Number(id_role);
-    let result = this.http.post<any>(
-      environment.privateApi + '/role/update-role',
-      {
-        id_role,
-        id_account,
-      }
-    );
 
-    console.log(
-      'Request result ====>' + environment.privateApi + '/assign-entreprise'
-    );
-    return result;
-  }
 
-  // get account by id
-  getByid(id: number): Observable<AccountDTO> {
-    return this.http
-      .get<AccountDTO>(`${this.base_url}` + '/' + id)
-      .pipe(retry(2), catchError(this.handleError));
-  }
-
-  // update account by Id the
+  // update account 
   update(item: any) {
     return this.http
       .post<any>(`${this.base_url}`, JSON.stringify(item), this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
+
+
+
+  /**
+   * 
+   * @param id_account 
+   * @param id_entreprise 
+   * @returns  Assign entreprise to account
+   * 
+   */
 
   assignEntreprise(id_account: Number, id_entreprise: Number) {
     id_entreprise = Number(id_entreprise);
@@ -110,12 +120,90 @@ export class Accountservice {
     return result;
   }
 
-  // delete accounts
+/***
+ * delete account
+ */
   delete(id: number) {
     return this.http
       .delete<AccountDTO>(`${this.base_url}` + '/' + id, this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
+
+
+  /**
+   * 
+   * @param id_groupe 
+   * @param id_account 
+   * @returns Group Assign to Account
+   */
+
+  assignGroup(id_groupe: Number, id_account: Number) {
+    id_groupe = Number(id_groupe);
+    let result = this.http.post<any>(
+      environment.privateApi + '/user/assign-group',
+          {
+        id_groupe,
+        id_account,
+      }
+    );
+    return result;
+  }
+
+  /**
+   * 
+   * @param id_account 
+   * @param id_role 
+   * @returns change Role 
+   */
+  
+  changeRole(id_account: Number, id_role: any) {
+    id_role = Number(id_role);
+    let result = this.http.post<any>(
+      environment.privateApi + '/roles/update-role',
+      {
+        id_role,
+        id_account,
+      }
+    );
+
+    console.log(
+      'Request result ====>' + environment.privateApi + '/assign-entreprise'
+    );
+    return result;
+  }
+
+  /**
+   * 
+   * @returns Get All Group
+   * 
+   */
+
+  getallGroupe(): Observable<GroupeDTO[]> {
+    /*  console.log(this.http); */
+    return this.http
+      .get<GroupeDTO[]>(`${environment.privateApi + '/groupe'}`, {})
+      .pipe(retry(2), catchError(this.handleError));
+  }
+
+
+
+/**
+ * 
+ * @param id_group GET Entreprise By Group
+ * @returns 
+ */
+
+  getEntreprisesByGroup(id_group: Number): Observable<any[]> {
+    id_group = Number(id_group);
+    return this.http
+      .post<any[]>(environment.privateApi + '/entreprise/groupe', {
+        id_group,
+      })
+      .pipe(retry(2), catchError(this.handleError));
+  }
+
+
+
 
   //get value for update
   populateForm(account: any) {
@@ -137,7 +225,7 @@ export class Accountservice {
 
   public resetPasswordtoken(email: string): Observable<CustomHttpRespone> {
     return this.http.get<CustomHttpRespone>(
-      `${this.base_url}/resetpassword/${email}`
+      `${this.base_url}/resetpasswordtoken/${email}`
     );
   }
 
@@ -150,11 +238,7 @@ export class Accountservice {
     matchingPassword: new FormControl(''),
     fiscaleCode: new FormControl(''),
     accountStatus: new FormControl(''),
-    groupeId: new FormControl(''),
-    entrepriseId: new FormControl(''),
-    roleId: new FormControl(''),
-    rolesArray: this.fb.array([]),
-    role: new FormControl(''),
+    groupId: new FormControl(''),
   });
 
   // inialisation formulaire
@@ -167,11 +251,7 @@ export class Accountservice {
       matchingPassword: null,
       fiscaleCode: null,
       accountStatus: null,
-      groupeId: null,
-      entrepriseId: null,
-      roleId: null,
-      rolesArray: [],
-      role: null,
+      groupId: null
     });
   }
 

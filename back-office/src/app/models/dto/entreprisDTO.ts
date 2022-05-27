@@ -11,10 +11,16 @@ export class EntrepriseDTO{
         fax!: string;
         email!: string;
         note!: string;
-        groupeId!: string;
+        groupeId!: number;
+        CompanyBusinessId!: number;
         createdDate !: Date;
         lastModifiedDate!: Date; 
-        
+        adresse !: string;
+	city!:string ;
+        street !:string ;
+        refrente!: string;
+       // Vatnumber!: string;
+        websiteUrl!: string;
        
       
 

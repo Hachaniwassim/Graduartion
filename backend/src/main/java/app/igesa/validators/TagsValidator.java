@@ -21,9 +21,6 @@ public class TagsValidator {
             errors.add("Veuillez renseigner la description  !");
         }
 
-        if(tagsDTO.getProducts() == null) {
-            errors.add("Veuillez renseigner le produit !");
-        }
         return errors;
     }
 }

@@ -11,6 +11,6 @@ name!: string;
 description!: string;
 createdDate !: Date;
 lastModifiedDate!: Date; 
-companyId!: number;
 groupStatus!: string;
+maxOperateur?: string;
 }

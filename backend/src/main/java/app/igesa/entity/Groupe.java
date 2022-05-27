@@ -29,6 +29,7 @@ public class Groupe  extends Auditable{
     private String name;
     @Type(type = "org.hibernate.type.TextType")
     private String description;
+    private String maxOperateur;
     /**
      * Status active :: blocked :: pending
      */
@@ -48,11 +49,6 @@ public class Groupe  extends Auditable{
     @OneToMany(mappedBy = "groupe")
     private List<Account> accounts;
 
-    /**
-     * Activity Types
-     */
-    @ManyToOne
-    private CompanyBusiness companyBusiness;
 
 
 

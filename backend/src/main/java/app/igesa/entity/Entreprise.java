@@ -2,6 +2,7 @@ package app.igesa.entity;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 
 import app.igesa.entity.pages.Pages;
 import app.igesa.entity.siteinfo.Plateforme;
@@ -30,6 +31,7 @@ public class Entreprise  extends Auditable{
 	@Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
 	private Long id ;
+	@Email
 	private String email ;
 	private String phone ;
 	private String codefiscale ;
@@ -38,6 +40,12 @@ public class Entreprise  extends Auditable{
 	private String note ;
 	@Column(name="CompanyName", unique = true,nullable = false)
 	private String companyname ;
+	private String websiteUrl;
+	private String adresse;
+	private String city ;
+	private String street;
+	private String refrente;
+	//private String Vatnumber;
 
     /**
 	 * Groupe
@@ -45,6 +53,15 @@ public class Entreprise  extends Auditable{
 
 	@ManyToOne
 	private Groupe groupe;
+
+
+	/**
+	 * Activity Types
+	 */
+	@ManyToOne
+	private CompanyBusiness companyBusiness;
+
+
 	/**
 	 * Lists
 	 *
@@ -85,10 +102,10 @@ public class Entreprise  extends Auditable{
 	@JsonIgnore
 	@OneToMany(mappedBy="entreprise",cascade = CascadeType.ALL)
 	private List<Pages> pages= new ArrayList<>();
-
-	/*JsonIgnore
+	@JsonIgnore
 	@OneToMany(mappedBy="entreprise",cascade = CascadeType.ALL)
-	private List<Account> accounts= new ArrayList<>();*/
+	private List<Tags> tags= new ArrayList<>();
+
 
 
 

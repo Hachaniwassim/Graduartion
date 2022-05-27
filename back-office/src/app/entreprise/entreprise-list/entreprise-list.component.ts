@@ -48,6 +48,7 @@ export class EntrepriseListComponent implements OnInit {
 
     @ViewChild(MatPaginator) paginator!: MatPaginator;
     @ViewChild(MatSort, {}) sort!: MatSort;
+     response: any;
     constructor(private dialog: MatDialog,private entrepriseService :EntrepriseService ,private groupeService :GroupeService,private dialogService: DialogService,
       private notificationService: NotificationService,private route: ActivatedRoute, public router: Router, public _location: Location) {
       this.entrepriseData = {} as EntrepriseDTO;
@@ -97,11 +98,14 @@ export class EntrepriseListComponent implements OnInit {
       this.dialogService.openConfirmDialog('Are you sure to delete this record ?')
         .afterClosed().subscribe((res: any) => {
           if (res) {
-            this.entrepriseService.deleteEntreprise(id).subscribe(() => {
+            this.entrepriseService.deleteEntreprise(id).subscribe((data) => {
+              data = this.response;
+              this.entreprise.push(this.response);
             })
             this.notificationService.success(' :: Deleted Successfully')
-            this.refresh();
+            
           }
+         this.refresh();
         });
     }
   
@@ -109,25 +113,31 @@ export class EntrepriseListComponent implements OnInit {
   
     //view details entreprise
      ViewEntreprise(row : any) { 
-      const dialogConfig = new MatDialogConfig();  
-      dialogConfig.disableClose = true;  
-      dialogConfig.autoFocus = true; 
-      dialogConfig.width = "100%"; 
+      this.entrepriseService.populateForm(row);
+      const dialogConfig = new MatDialogConfig();
+      dialogConfig.disableClose = true;
+      dialogConfig.autoFocus = true;
+      dialogConfig.width = "60%";
       dialogConfig.position = {  
           'top': '100px',    
       }; 
        this.dialog.open(EntrepriseViewComponent, {
             data: {
-             companyname : row.companyname,
+              companyname : row.companyname,
               phone :row.phone,
               fax:row.fax,
               note :row.note,
               codefiscale:row.codefiscale,
               email :row.email,
-              goupe:row.groupe,
+              adresse :row.adresse,
+              refrente :row.refrente,
+              companyBusinessId :row.companyBusinessId,
+              street :row.street,
+              city :row.city,
+              goupeId:row.groupeId,
             },
           }
-          ),dialogConfig
+       )
   
         }
   

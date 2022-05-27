@@ -1,10 +1,8 @@
 package app.igesa.entity;
 import java.util.List;
 import javax.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+
+import lombok.*;
 import org.hibernate.annotations.Type;
 
 /**
@@ -17,7 +15,8 @@ import org.hibernate.annotations.Type;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Builder
+@Getter
+@Setter
 @Table(name="CompanyBusiness",
 		uniqueConstraints = {
 		@UniqueConstraint(columnNames = "domainename")}
@@ -34,11 +33,11 @@ public class CompanyBusiness extends Auditable {
 	private String domainename ;
 	/**
 	 *
-	 * Groupe List
+	 * Entreprise List
 	 *
 	 */
 	@OneToMany(mappedBy="companyBusiness",cascade = CascadeType.ALL)
-    private List<Groupe> groupe ;
+    private List<Entreprise> entreprises ;
 
 
     public CompanyBusiness(String description ,String domainename) {

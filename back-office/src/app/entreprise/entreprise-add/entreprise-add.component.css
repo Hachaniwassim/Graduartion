@@ -1,0 +1,29 @@
+.example-form {
+    min-width: 100px;
+    max-width: 1000px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  
+  td {
+    padding-right: 8px;
+  }
+
+  input.ng-invalid {
+    border-right:2.5px solid rgb(251, 6, 6)
+  
+    
+  }
+ 
+  mat-select.ng-invalid {
+    
+    border-right:2.5px solid rgb(251, 6, 6)
+
+  }
+  /*.mat-divider {
+    border-top-color: rgb(3, 3, 164);
+  }*/
+  

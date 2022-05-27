@@ -24,6 +24,12 @@ public class Tags extends Auditable {
 	private Long id ;
 	@Column(columnDefinition="text")
 	private String description ;
+	/**
+	 * Entreprise
+	 */
+       @ManyToOne
+	   private Entreprise entreprise ;
+
 
 	/**
 	 * post list

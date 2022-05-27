@@ -12,11 +12,18 @@ import { GroupeDTO } from '../models/dto/groupeDTO';
 @Injectable({
   providedIn: 'root'
 })
+
+/**************************
+ *
+ * @author Tarchoun Abir
+ * 
+ */
+
+
 export class GroupeService {
 
   //api backend
   private base_url = environment.privateApi+ '/groupe';
-
 
 
   constructor(private http: HttpClient) { }
@@ -50,7 +57,7 @@ export class GroupeService {
   // insert 
   createGroupe(item: any): Observable<GroupeDTO> {
   
-    return this.http.post<GroupeDTO>(`${this.base_url}`, JSON.stringify(item), this.httpOptions).pipe(retry(2), catchError(this.handleError));
+    return this.http.post<GroupeDTO>(`${this.base_url}`, item, this.httpOptions).pipe(retry(2), catchError(this.handleError));
   }
 
   //get all data 
@@ -72,7 +79,7 @@ getAllCompanyBussiness():Observable<CompanyBusinessDTO[]>{
 
   // update by Id 
   updateGroupe(item: GroupeDTO) {
-    return this.http.put<GroupeDTO>(`${this.base_url}`, JSON.stringify(item), this.httpOptions).pipe(retry(2), catchError(this.handleError));
+    return this.http.put<GroupeDTO>(`${this.base_url}`, item, this.httpOptions).pipe(retry(2), catchError(this.handleError));
   }
 
   // delete groupe
@@ -80,33 +87,32 @@ getAllCompanyBussiness():Observable<CompanyBusinessDTO[]>{
     return this.http.delete<GroupeDTO>(`${this.base_url}` + '/' + id, this.httpOptions).pipe(retry(2), catchError(this.handleError));
 
   }
-  // delete all groupe 
-  deleteAllGroupe() {
-    return this.http.delete(`${this.base_url}`).pipe(retry(2), catchError(this.handleError));
+ 
 
+
+  populateForm(groupe: any) {
+    this.form.patchValue(_.omit(groupe));
   }
 
-
-  //find by active
-  findByActiveGroupe(active: any) {
-    return this.http.get(`${this.base_url}?active${active}`);
+   
+  //update by status
+  updateGroupetByStatus(id: number, item: string) {
+    return this.http
+      .put<any>(
+        this.base_url + '/toggle-status/' + id,
+        JSON.stringify(item),
+        this.httpOptions
+      )
+      .pipe(retry(2), catchError(this.handleError));
   }
-
-
-
-  //find by confirmed
-  findByConfirmedGroupe(confirme: any) {
-    return this.http.get(`${this.base_url}?confirme${confirme}`);
-  }
-
-
-  //validation formulaire
-  form: FormGroup = new FormGroup({
+     
+   //validation formulaire
+   form: FormGroup = new FormGroup({
     id: new FormControl(null),
     description: new FormControl('', Validators.required),
     name: new FormControl('', [Validators.required]),
     groupStatus: new FormControl(null),
-    companyId:new FormControl(null)
+    maxOperateur:new FormControl(null)
 
 
   });
@@ -118,18 +124,9 @@ getAllCompanyBussiness():Observable<CompanyBusinessDTO[]>{
       name: '',
       description: '',
       groupStatus: '',
-      companyId: null
+      maxOperateur:''
     });
   }
-  populateForm(groupe: any) {
-    this.form.patchValue(_.omit(groupe));
-  }
-
-   //update groupe  by status
-   updateGroupeByStatus(id : number,item : string){
- return this.http.put<any>(`${this.base_url}`+ '/toggle-status/' + id,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
-  }
-
 
 }
 

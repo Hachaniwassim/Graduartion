@@ -3,5 +3,6 @@ export class TagsDTO{
   description!: string;
   createdDate!: Date;
   lastModifiedDate!: Date; 
+  entrepriseId!: number;
   }
   

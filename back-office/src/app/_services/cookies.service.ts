@@ -67,14 +67,14 @@ export class CookiesService {
    * Get Privacy By EntrepriseId
    * 
    */
-  getCookiesByEntrepriseId(id: number): Observable<CookieDTO> {
-    return this.http.get<CookieDTO>(this.base_url + '/' + id).pipe(retry(2), catchError(this.handleError));
+  getCookiesByEntrepriseId(): Observable<CookieDTO> {
+    return this.http.get<CookieDTO>(this.base_url + '/' + localStorage.getItem('idEntreprise')).pipe(retry(2), catchError(this.handleError));
 
   }
 
   /**************************
    * 
-   * Put Privacy By Entreprise
+   * UpdateBy Entreprise
    * 
    */
   update(request: any) {

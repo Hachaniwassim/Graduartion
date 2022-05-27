@@ -1,8 +1,9 @@
 package app.igesa.metiers.implement;
+import app.igesa.dto.PrivacyDTO;
 import app.igesa.dto.TagsDTO;
+import app.igesa.entity.Privacy;
 import app.igesa.entity.Tags;
-import app.igesa.enumerations.ErrorCode;
-import app.igesa.exceptions.ResourceNotFoundException;
+import app.igesa.metiers.Ientreprise;
 import app.igesa.metiers.Itags;
 import app.igesa.repository.ItagsRepository;
 import org.slf4j.Logger;
@@ -12,7 +13,6 @@ import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.Collection;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
@@ -25,40 +25,38 @@ import java.util.stream.Collectors;
 @Service
 public class TagsImp implements Itags {
 
+    @Autowired
+    Ientreprise ientrepriseService;
 
     @Autowired
     ItagsRepository itagsRepository;
+
     private static final Logger log = LoggerFactory.getLogger(TagsImp.class);
 
 
     @Override
     public TagsDTO save(TagsDTO p) {
-        Tags saved =itagsRepository.save(TagsDTO.toEntity(p));
+       Tags tags = new Tags();
+        if (p.getId()!=null){
+           tags = itagsRepository.findById(p.getId()).orElseThrow(IllegalAccessError::new);
+        }
+        tags.setEntreprise(ientrepriseService.getCurrentEnterprise());
+        tags.setDescription(p.getDescription());
+        Tags saved = itagsRepository.save(TagsDTO.toEntity(p));
         return TagsDTO.fromEntity(saved);
     }
 
     @Override
     public Collection<TagsDTO> view() {
-        return itagsRepository.findAll().stream()
+        return itagsRepository.findFirstByEntrepriseId(ientrepriseService.getCurrentEnterprise().getId()).stream()
                 .map(TagsDTO::fromEntity)
                 .collect(Collectors.toList());
     }
 
-    @Override
-    public Optional<TagsDTO> findById(Long id) {
-        if ( id == null) {
-            log.error(" Tags Id is NULL .. !!");
-            return null ;
-        }
-
-        return  Optional.of(itagsRepository.findById(id).map(TagsDTO::fromEntity).orElseThrow(()->
-                new ResourceNotFoundException(" No Tags  with  Id = :: " +id+ " was founded {} ..!",
-                        ErrorCode.TAGS_NOT_FOUND)));
-    }
 
     @Override
     public void delete(Long id) {
-        if ( id == null) {
+        if (id == null) {
             log.error(" Tags ID IS NULL ");
             return;
         }
@@ -66,8 +64,4 @@ public class TagsImp implements Itags {
 
     }
 
-    @Override
-    public TagsDTO update(TagsDTO p, Long id) {
-        return null;
-    }
 }

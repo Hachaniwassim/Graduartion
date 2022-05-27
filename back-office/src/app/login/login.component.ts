@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { NotificationsService } from 'angular2-notifications';
 import Swal from 'sweetalert2';
 import { Location } from '@angular/common';
@@ -11,6 +11,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Accountservice } from '../_services/account.service';
 import { GroupeDTO } from '../models/dto/groupeDTO';
 import { GroupeService } from '../_services/groupe.service';
+import { EntrepriseDTO } from '../models/dto/entreprisDTO';
 //variale for test validation robots
 declare var grecaptcha: any;
 
@@ -19,17 +20,6 @@ declare var grecaptcha: any;
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
-
-
-
-/**
- * 
- * @author Tarchoun Abir
- *
- **/
-
-
-
 export class LoginComponent implements OnInit {
   protected f!: FormGroup;
   form: any = {
@@ -52,6 +42,8 @@ export class LoginComponent implements OnInit {
   schooseGroup = false;
   groupeFormControl = new FormControl(null, Validators.required);
   data: any;
+  groupId = 1;
+  entreprisesByGroup: any;
 
   constructor(
     private notfication: NotificationsService,
@@ -65,7 +57,7 @@ export class LoginComponent implements OnInit {
     public _location: Location,
     private tokenStorage: TokenStorageService,
     private notificationService: NotificationService
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     if (this.tokenStorage.getToken()) {
@@ -73,18 +65,20 @@ export class LoginComponent implements OnInit {
       this.groupeService.getallGroupe().subscribe((res) => {
         console.log(res);
         this.groupeServices = res;
+  
       });
     }
-    this.router.navigate(['/dashboard']);
+    //this.router.navigate(['/dashboard']);
+    /* localStorage.removeItem('idEntreprise') */
   }
 
-     // show password
-    toggleFieldTextType() {
+  // show password
+  toggleFieldTextType() {
     this.fieldTextType = !this.fieldTextType;
-     }
+  }
 
-    //post login
-    onSubmit(): void {
+  //post login
+  onSubmit(): void {
     const { username, password } = this.form;
 
     //constant response for test robots
@@ -99,7 +93,6 @@ export class LoginComponent implements OnInit {
 
     this.authService.login(username, password).subscribe(
       (data: any) => {
-        //get token : data.token
         this.tokenStorage.saveToken(data.token);
         this.tokenStorage.saveUser(data);
         this.isLoginFailed = false;
@@ -107,13 +100,26 @@ export class LoginComponent implements OnInit {
 
         //recuperation response
         this.recaptchaResponse = response;
+        
+        console.log('responce of the login route =>', JSON.stringify(data));
+        this.groupId = data.groupeId;
 
-        //this.schooseGroup= true;
-        if (data.roles === 'ROLE_ADMIN' || data.roles === 'ROLE_MODERATEUR') {
+        //======
+        if (data.roles[0] === 'ROLE_MODERATOR') {
+          //this.schooseGroup= true;
           this.router.navigate(['/dashboard']);
           return;
-        } else if (data.roles === 'ROLE_USER') {
+        } else if (data.roles[0] === 'ROLE_USER') {
           this.router.navigate(['/']);
+          return;
+        } else if (data.roles[0] === 'ROLE_ADMIN') {
+          console.log('this entreprises by group console =>', data.groupeId);
+          let navigationExtras: NavigationExtras = {
+            queryParams: {
+              groupId: data.groupeId,
+            },
+          };
+          this.router.navigate(['/choiseentreprise'], navigationExtras);
           return;
         }
         this.reloadPage();

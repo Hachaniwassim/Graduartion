@@ -1,154 +1,46 @@
 <mat-toolbar>
   <span>{{
     Accountservice.form.controls["id"].value ? "Modify Role" : "New Account"
-  }}</span>
+    }}</span>
   <span class="fill-remaining-space"></span>
-  <button
-    class="btn-dialog-close"
-    mat-stroked-button
-    (click)="onClose()"
-    tabIndex="-1"
-  >
+  <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1">
     <mat-icon>clear</mat-icon>
   </button>
 </mat-toolbar>
 
-<form
-  [formGroup]="Accountservice.form"
-  class="normal-form"
-  (submit)="onSubmit()"
->
+<form [formGroup]="Accountservice.form" class="normal-form" (submit)="onSubmit()">
   <mat-grid-list cols="1" rowHeight="220px">
     <mat-grid-tile>
       <div class="controles-container">
         <div>
-          <label for="roles-select">check role </label>
-
-          <div
-            *ngFor="let role of roleservices"
-            (change)="checkCheckBoxvalue($event)"
-          >
-            <input
-              [value]="role.id"
-              type="checkbox"
-              [checked]="selectedRoleID == role.id ? true : null"
-            />
-            {{ role.name }}
-          </div>
-        </div><br>
-         <label for="entreprise-select">Assign Entreprise</label>
-         
-         <div class="row">
-          <div class="col-md-6 col-sm-6">
-        <select
-          class="form-control"
-          name="entreprises"
-          id="entreprises-select"
-          formControlName="entrepriseId"
-        >
-          <option value="">Select a entreprise</option>
-          <option
-            *ngFor="let entreprise of entreprises"
-            [value]="entreprise.id"
-            [attr.selected]="data.entrepriseId == entreprise.id ? true : null"
-          >
-            {{ entreprise.companyname }}
-          </option>
-        </select>
-        </div>
-        </div>
-      </div>
-    </mat-grid-tile>
-  </mat-grid-list>
-  <div class="controles-container">
-    <div class="button-row">
-        <button
-          mat-raised-button
-          color="primary"
-          type="submit"
-          [disabled]="Accountservice.form.invalid">Save</button>
-        <button mat-raised-button mat-dialog-close>Cancel</button>
-        <button mat-raised-button color="warn" (click)="onClear()">
-          Clear
-        </button>
-      </div>
-    </div>
-</form>
-
-
-
-<!--<mat-toolbar>
-  <span>{{
-    Accountservice.form.controls["id"].value ? "Modify Role" : "New Account"
-  }}</span>
-  <span class="fill-remaining-space"></span>
-  <button
-    class="btn-dialog-close"
-    mat-stroked-button
-    (click)="onClose()"
-    tabIndex="-1"
-  >
-    <mat-icon>clear</mat-icon>
-  </button>
-</mat-toolbar>
-
-<form
-  [formGroup]="Accountservice.form"
-  class="normal-form"
-  (submit)="onSubmit()"
-  class="normal-form"
->
-  <mat-grid-list cols="2" rowHeight="220px">
-    <mat-grid-tile>
-      <div class="controles-container">
-        <select
-          formControlName="roleId"
-          class="select-etiquette"
-          ([ngModel])="(roleSelected)"
-          (ngModelChange)="onChangeRole($event)"
-        >
-          <option selected="selected">Select a role</option>
-          <option *ngFor="let role of roleservices" [value]="role.id">
-            {{ role.name }}
-          </option>
-        </select>
-
-        <select
-          class="form-control"
-          name="entreprises"
-          id="entreprises-select"
-          formControlName="entrepriseId"
-        >
-          <option value="">Select a entreprise</option>
-          <option
-            *ngFor="let entreprise of entreprises"
-            [value]="entreprise.id"
-            [attr.selected]="data.entrepriseId == entreprise.id ? true : null"
-          >
-            {{ entreprise.companyname }}
+          <label for=""> Update Role</label><br> 
+          <select class="form-control" name="roles" id="roles-select" (change)="onChangeRole($event)">
+            <option *ngFor="let role of roleservices" [value]="role.id"
+              [attr.selected]="selectedRoleID == role.id ? true : null">
+              {{ role.name }}
+            </option>
+          </select>
+        </div><br><br>
+        <mat-divider></mat-divider><br>
+        <label for=""> Assign Group</label><br>
+        <select class="form-control" name="groups" id="groups-select">
+          <option *ngFor="let group of groups" [value]="group.id"
+            [attr.selected]="data.groupId == group.id ? true : null">
+            {{ group.name }}
           </option>
         </select>
       </div>
-    </mat-grid-tile>
-    <mat-grid-tile>
-      <div class="controles-container">
+      <div class="container">
         <div class="button-row">
-          <div class="button-row">
-            <button
-              mat-raised-button
-              color="primary"
-              type="submit"
-              [disabled]="Accountservice.form.invalid"
-            >
-              Save
+            <button mat-raised-button color="primary" type="submit" [disabled]="Accountservice.form.invalid">
+             <mat-icon>save</mat-icon> Save
             </button>
-            <button mat-raised-button mat-dialog-close>Cancel</button>
-            <button mat-raised-button color="warn" (click)="onClear()">
+            <button mat-raised-button mat-dialog-close> <mat-icon>close</mat-icon>Cancel</button>
+            <!--<button mat-raised-button color="warn" (click)="onClear()">
               Clear
-            </button>
-          </div>
+            </button>-->
         </div>
       </div>
     </mat-grid-tile>
   </mat-grid-list>
-</form>--->
+</form>

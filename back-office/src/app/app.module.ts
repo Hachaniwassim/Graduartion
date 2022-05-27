@@ -74,6 +74,8 @@ import { ResetpasswordComponent } from './resetpassword/resetpassword.component'
 import { CKEditorModule } from 'ckeditor4-angular';
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { WhoareweComponent } from './pages/whoarewe/whoarewe.component';
+import {Ng2TelInputModule} from 'ng2-tel-input';
+import { ChoiseEntrepriseComponent } from './choise-entreprise/choise-entreprise.component';
 
 
 
@@ -139,6 +141,7 @@ import { WhoareweComponent } from './pages/whoarewe/whoarewe.component';
     RolesListComponent,
     RolesViewComponent,
     ResetpasswordComponent,
+    ChoiseEntrepriseComponent,
     
   
     
@@ -160,7 +163,8 @@ import { WhoareweComponent } from './pages/whoarewe/whoarewe.component';
     NgxSpinnerModule,
     NgSelectModule,
     CKEditorModule,
-     EditorModule
+     EditorModule,
+     Ng2TelInputModule
  
     
 

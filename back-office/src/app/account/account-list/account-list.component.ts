@@ -108,6 +108,7 @@ export class AccountListComponent implements OnInit {
 
   onEdit(row: any) {
     this.Accountservice.populateForm(row);
+    console.log('the row ===>', JSON.stringify(row));
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
@@ -115,13 +116,10 @@ export class AccountListComponent implements OnInit {
     dialogConfig.width = '60%';
     dialogConfig.data = {
       id: row.id,
-      entrepriseId: row.entrepriseId,
-      //besh n3adih comme chaine de carractere ( khater ki nadih array yamel probleme)
-      roles: JSON.stringify(row.roles)
+      groupId: row.groupId,
+      roles: JSON.stringify(row.roles),
     };
-
-    // let testvar = this.Accountservice.fortest(row);
-
+    
     this.dialog.open(AccountEditComponent, dialogConfig);
   }
 
@@ -129,7 +127,7 @@ export class AccountListComponent implements OnInit {
     this.Accountservice.form.reset();
     this.Accountservice.initializeFormGroup();
   }
-  //update status groupe
+  //update status 
   updateaStatusAccount(element: AccountDTO) {
     Swal.fire({
       title: 'Are you sure to Update status  !?',

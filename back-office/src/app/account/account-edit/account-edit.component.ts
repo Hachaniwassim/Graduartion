@@ -13,7 +13,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { FormControl } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { RoleDTO } from 'src/app/models/dto/roleDTO';
-import{FormArray}from '@angular/forms';
+/* import { FormArray } from '@angular/forms'; */
 
 @Component({
   selector: 'app-account-edit',
@@ -22,7 +22,6 @@ import{FormArray}from '@angular/forms';
 })
 export class AccountEditComponent implements OnInit {
   //semah
-  entrepriseSelected = null;
   roleSelected = null;
 
   account: AccountDTO[] = [];
@@ -30,8 +29,7 @@ export class AccountEditComponent implements OnInit {
   public roleservices: RoleDTO[] = [];
   private subscriptions: Subscription[] = [];
   datasource = new MatTableDataSource(this.account);
-  entreprises = null;
-  selectedEntreprise = 0;
+  groups = null;
   selectedRoleID = 0;
   constructor(
     public Accountservice: Accountservice,
@@ -44,28 +42,50 @@ export class AccountEditComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA)
     public data: {
       id: Number;
-      entrepriseId: Number;
+      groupId: Number;
       roleId: Number;
-      //besh namel catch lil role
-      roles:string;
+      roles: string;
     }
   ) {}
 
   ngOnInit(): void {
-    this.Accountservice.form.value.rolesArray = [];
+    this.fetchFirstRoleID();
     this.getAll();
     this.getRoles();
-    this.getEntreprises();
-    this.fetchFirstRoleID();
+    //this.getEntreprises();
+    this.getGroups();
   }
 
-
-  //fetch
+  //semah
   fetchFirstRoleID() {
     this.selectedRoleID = JSON.parse(this.data.roles)[0].id;
+    console.log('fetchFirst role =>', this.selectedRoleID);
   }
 
-//roleArray
+  getAll() {
+    this.Accountservice.all().subscribe((response: any) => {
+      this.datasource.data = response;
+    });
+  }
+
+  getGroups() {
+    this.Accountservice.getallGroupe().subscribe((response: any) => {
+      this.groups = response;
+    });
+    console.log('groups = ' + this.groups);
+  }
+  // getEntreprises() {
+  //   this.Accountservice.entreprises().subscribe((response: any) => {
+  //     this.entreprises = response;
+  //   });
+  //   console.log('entreprises = ' + this.entreprises);
+  // }
+
+  onClear() {
+    this.Accountservice.form.reset();
+    this.Accountservice.initializeFormGroup();
+  }
+  /*
   checkCheckBoxvalue(event: any) {
     const checkArray: FormArray = this.Accountservice.form.get(
       'rolesArray'
@@ -73,7 +93,7 @@ export class AccountEditComponent implements OnInit {
     if (event.target.checked) {
       checkArray.push(new FormControl(event.target.value));
     } else {
-      let i: number = 1;
+      let i: number = 0;
       checkArray.controls.forEach((item: any) => {
         if (item.value == event.target.value) {
           console.log('item.value====>', item.value);
@@ -84,32 +104,13 @@ export class AccountEditComponent implements OnInit {
         i++;
       });
     }
-  }
-
-  onChangeRole(val: any) {
-    console.log('onChangeRole==========================>', val);
-  }
-
-  getAll() {
-    this.Accountservice.all().subscribe((response: any) => {
-      this.datasource.data = response;
-    });
-  }
-
-  getEntreprises() {
-    this.Accountservice.entreprises().subscribe((response: any) => {
-      this.entreprises = response;
-    });
-    console.log('entreprises = ' + this.entreprises);
-  }
-
-  onClear() {
-    this.Accountservice.form.reset();
-    this.Accountservice.initializeFormGroup();
+  }*/
+  onChangeRole(event: any) {
+    this.selectedRoleID = event.target.value;
+    console.log('test on change role =>', event.target.value);
   }
 
   onSubmit() {
-    console.log('====>rolesArray =>'+this.Accountservice.form.value.rolesArray);
     if (this.Accountservice.form.valid) {
       if (!this.Accountservice.form.get('id')?.value) {
         this.Accountservice.update(this.Accountservice.form.value).subscribe(
@@ -119,28 +120,33 @@ export class AccountEditComponent implements OnInit {
         );
       } else {
         if (
-          this.data.entrepriseId != this.Accountservice.form.value.entrepriseId
+          this.Accountservice.form.value.groupId &&
+          this.data.groupId != this.Accountservice.form.value.groupId
         ) {
-          this.Accountservice.assignEntreprise(
-            this.data.id,
-            this.Accountservice.form.value.entrepriseId
+          this.Accountservice.assignGroup(
+            this.Accountservice.form.value.groupId,
+            this.data.id
           ).subscribe((res) => {
-            this.notificationService.success(
-              ':: Entreprise Assigned successfully'
-            ),
+            this.notificationService.success(':: group Assigned successfully'),
               (error: any) => {
                 console.log('errr =>', error);
               };
           });
         }
-        /*this.Accountservice.update(this.Accountservice.form.value).subscribe(
-          () => {
-            this.notificationService.success(':: Submitted successfully');
-          }
-        );*/
-        this.Accountservice.changeRoel(
+        // this.Accountservice.update(this.Accountservice.form.value).subscribe(
+        //   () => {
+        //     this.notificationService.success(':: Submitted successfully');
+        //   }
+        // );
+
+        //semah
+      }
+      if (
+        Number(this.selectedRoleID) != Number(JSON.parse(this.data.roles)[0].id)
+      ) {
+        this.Accountservice.changeRole(
           this.data.id,
-          this.Accountservice.form.value.roleId
+          this.selectedRoleID
         ).subscribe((res) => {
           console.log('test ', res);
 
@@ -164,7 +170,6 @@ export class AccountEditComponent implements OnInit {
     this.subscriptions.push(
       this.roleService.getRoles().subscribe(
         (response: RoleDTO[]) => {
-          console.log('response roles : ', JSON.stringify(response));
           this.roleservices = response;
         },
         (errorResponse: HttpErrorResponse) => {
