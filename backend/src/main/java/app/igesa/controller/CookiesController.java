@@ -38,7 +38,7 @@ public class CookiesController {
 
 
     @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
-    @RequestMapping(value=PRIVATE_API + "/{id_entreprise}",method =RequestMethod.POST)
+    @RequestMapping(value=PRIVATE_API + "/post-cookies/{id_entreprise}",method =RequestMethod.POST)
     @ApiOperation(value="UPDATE cookies   ",response = CookiesDTO.class)
     @ApiResponses(value= {
             @ApiResponse(code=200,message="cookies was updated successfully"),
@@ -46,13 +46,13 @@ public class CookiesController {
             @ApiResponse( code=403, message="not permitted or allowed"),
 
     })
-    public ResponseEntity<CookiesDTO>SaveCookiesByEntreprise(@RequestBody CookiesDTO c,@PathVariable Long  id_entreprise) {
+    public ResponseEntity<CookiesDTO>updateByEntreprise(@RequestBody CookiesDTO c,@PathVariable Long  id_entreprise) {
         return new ResponseEntity<>(icookies.updateCookies(c,id_entreprise),HttpStatus.CREATED);
     }
 
 
     @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
-    @RequestMapping(value=PRIVATE_API + "/{id_entreprise}",method =RequestMethod.PUT)
+    @RequestMapping(value=PRIVATE_API + "/update/{id_entreprise}",method =RequestMethod.PUT)
 
     @ApiOperation(value="UPDATE cookies   ",response = CookiesDTO.class)
     @ApiResponses(value= {
@@ -67,7 +67,7 @@ public class CookiesController {
 
     /****
      *
-     * @param id_entreprise GET COOKIED BY ENTREPRISE ID
+     * @param id_entreprise
      * @return
      */
 
@@ -83,12 +83,12 @@ public class CookiesController {
     })
     public ResponseEntity<Collection<CookiesDTO>> getCookiesByEntreprise(@PathVariable Long id_entreprise) {
 
-        return new ResponseEntity<>( icookies.findCookiesByEntrepriseId(id_entreprise),HttpStatus.OK);
+        return new ResponseEntity<>( icookies.getCookiesByEntrepriseId(id_entreprise),HttpStatus.OK);
     }
 
     @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
-    @RequestMapping(value=PRIVATE_API+"/{id_entreprise}",method = RequestMethod.GET)
-    @ApiOperation(value="GET Cookies",notes="GET COOKIEES", responseContainer  = "Collection<CookiesDTO>")
+    @RequestMapping(value=PRIVATE_API+"/{id}",method = RequestMethod.GET)
+    @ApiOperation(value="GET Cookies",notes="GET COOKIEES", response = CookiesDTO.class)
     @ApiResponses(value= {
             @ApiResponse(code=200,message="cookies was founded Successfully"),
             @ApiResponse(code=400,message="cookies not found"),
@@ -97,9 +97,9 @@ public class CookiesController {
 
     })
 
-    public ResponseEntity<CookiesDTO>findById(@PathVariable Long id_entreprise) {
-        log.debug(" HTTP GET COOKIES BY ID {}",id_entreprise);
-        return new ResponseEntity<>(icookies.findByEntrepriseId(id_entreprise),HttpStatus.OK);
+    public ResponseEntity<CookiesDTO>findById(@PathVariable Long id) {
+        log.debug(" HTTP GET COOKIES BY ID {}",id);
+        return new ResponseEntity<>(icookies.findById(id),HttpStatus.OK);
     }
 
 

@@ -8,7 +8,7 @@ public interface Icookies {
 
     CookiesDTO findByEntrepriseId(Long id_entreprise);
 
-    Collection<CookiesDTO> findCookiesByEntrepriseId(Long id_entreprise);
+    Collection<CookiesDTO> getCookiesByEntrepriseId(Long id_entreprise);
 
     CookiesDTO findById(Long id);
 }

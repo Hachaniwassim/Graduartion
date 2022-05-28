@@ -4,9 +4,9 @@ import java.util.Collection;
 import java.util.Optional;
 
 public interface Iprivacy {
-    public PrivacyDTO updateByEntreprise (PrivacyDTO p,Long id_entreprise);
+    public PrivacyDTO updateByEntreprise (PrivacyDTO p);
 
-    Collection<PrivacyDTO> getprivacy(Long id_entreprise);
+    Collection<PrivacyDTO> FindByEntrepriseId(Long id_entreprise);
 
     public PrivacyDTO  findById(Long id_entreprise);
     public void delete(Long id);

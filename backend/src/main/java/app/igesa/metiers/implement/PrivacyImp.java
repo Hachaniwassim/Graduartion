@@ -30,7 +30,7 @@ public class PrivacyImp  implements Iprivacy {
     PrivacyRepository privacyRepository;
 
     @Override
-    public PrivacyDTO updateByEntreprise(PrivacyDTO p,Long id_entreprise) {
+    public PrivacyDTO updateByEntreprise(PrivacyDTO p) {
         Privacy privacy = new Privacy();
         if (p.getId()!=null){
            privacy = privacyRepository.findById(p.getId()).orElseThrow(IllegalAccessError::new);
@@ -51,7 +51,7 @@ public class PrivacyImp  implements Iprivacy {
      */
 
     @Override
-    public Collection<PrivacyDTO> getprivacy(Long id_entreprise){
+    public Collection<PrivacyDTO> FindByEntrepriseId(Long id_entreprise){
         log.debug("HTTP GET ALL {} ..");
         return privacyRepository.findByEntrepriseId(id_entreprise).stream()
                 .map(PrivacyDTO::fromEntity)

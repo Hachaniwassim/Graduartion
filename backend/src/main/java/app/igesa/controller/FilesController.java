@@ -27,7 +27,7 @@ public class FilesController {
 
   /*********************************************************
    *
-   * Api  PUBLIC_API : for all  ||  PRIVATE_API : with token
+   * Api  PRIVATE_API : with token
    *
    *********************************************************/
 
@@ -67,11 +67,11 @@ public class FilesController {
   }
 
 
-  @PostMapping(PRIVATE_API + "/{fileType}/{parentId}")
-  public ResponseEntity<ResponseMessage> uploadFile(@RequestParam("file") MultipartFile file, @PathVariable ImageTypes fileType, @PathVariable Long parentId) {
+  @PostMapping(PRIVATE_API + "/{fileType}/{id_entreprise}")
+  public ResponseEntity<ResponseMessage> uploadFile(@RequestParam("file") MultipartFile file, @PathVariable ImageTypes fileType,@PathVariable Long id_entreprise) {
     String message = "";
     try {
-      storageService.uploadImage(file, fileType, parentId);
+      storageService.uploadImage(file, fileType,id_entreprise);
 
       message = "Uploaded the file successfully: " + file.getOriginalFilename();
       return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage(message));
@@ -82,11 +82,11 @@ public class FilesController {
   }
 
 
-  @GetMapping(PRIVATE_API + "/{enterpriseId}/{fileType}/{parentId}")
-  public ResponseEntity<String> getImage(@PathVariable(value = "enterpriseId", required = false) Long enterpriseId,
+  @GetMapping(PRIVATE_API + "/{fileType}/{parentId}/{id_enterprise}")
+  public ResponseEntity<String> getImage(@PathVariable(value = "id_enterprise", required = false) Long id_enterprise,
                                          @PathVariable("parentId") Long id,
                                          @PathVariable("fileType") ImageTypes type) {
-    return storageService.loadImage(id, type, enterpriseId);
+    return storageService.loadImage(id,type,id_enterprise);
   }
 
 }
