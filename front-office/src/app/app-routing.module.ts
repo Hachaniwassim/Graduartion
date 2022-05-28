@@ -50,9 +50,9 @@ const routes : Routes =[
 
   { path: 'assistance', component: AssitanceComponent },
 
-  { path: 'profile', component: ProfileComponent },
+  { path: 'profile', component: ProfileComponent , canActivate: [AuthGuard] },
 
-  { path: 'postulseller', component: PostulsellerComponent },
+  { path: 'postulseller', component: PostulsellerComponent , canActivate: [AuthGuard] },
 
 
   // 404 not found

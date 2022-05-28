@@ -1,31 +1,34 @@
 <br><br><br>
-<div id="wrapper" *ngIf="currentUser; else loggedOut">
-  <div class="content-page">
-    <div class="content">
+<div class="container" *ngIf="currentUser; else loggedOut">
+  <div class="container" >
+    <div class="container" >
       <div class="container">
-        <div class="card m-b-30">
-          <div class="card-body">
-            <img width="300px" class="float-right" height="350px" width="380px" src="../../assets/images/setting.gif" alt=""
-              srcset=""> <br>
-            <h5> Update profile </h5>
+        <div class="container">
+          <div  class="card-body">
+            <img width="300px" height="300px" src="../../assets/img/profile.gif" alt="" srcset=""> <br>
+            <div class="col-sm-12 col-xs-12 text-center wow fadeIn" data-wow-delay=".1s">
+              <div class="section_title">
+                  <h2 style="right: 450px;">Update <span>Profile</span></h2>
+              </div>
+          </div>
             <form class="example-form" [formGroup]="account"><br><br>
               <div class="row">
                 <div class="col-md-6 col-sm-6">
                   <label> Username * </label>
-                  <input type="text" formControlName="username" placeholder="title" class="form-control">
+                  <input type="text" formControlName="username" placeholder="Username" class="form-control">
                 </div>
               </div>
               <div class="row">
                 <div class="col-md-6 col-sm-6"><br>
                   <label> Email *</label><br>
-                  <input type="email" formControlName="email" placeholder="title" class="form-control ">
+                  <input type="email" formControlName="email" placeholder="Email" class="form-control ">
                 </div>
               </div>
               <div class="row">
                 <div class="col-md-6 col-sm-6">
                   <br>
                   <label> FiscaleCode *</label>
-                  <input type="text" formControlName="fiscaleCode" placeholder="title" class="form-control">
+                  <input type="text" formControlName="fiscaleCode" placeholder="Fiscale Code" class="form-control">
                 </div>
               </div>
             </form><br><br>
@@ -35,7 +38,7 @@
             <button mat-raised-button>Canncel</button>
             </div>
             </div><br>
-          <div class="container"><br>
+          <div ><br>
             <h5> Update Password with email</h5>
             <form class="example-form" #emailForm="ngForm" (ngSubmit)="onResetPassword(emailForm)"><br><br>
               <div class="row">
