@@ -23,6 +23,8 @@ import { AssitanceComponent } from './assitance/assitance.component';
 import { ProfileComponent } from './profile/profile.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthGuard } from './guard/auth.guard';
+import { SimpleNotificationsModule } from 'angular2-notifications';
+
 
 @NgModule({
   declarations: [
@@ -49,7 +51,10 @@ import { AuthGuard } from './guard/auth.guard';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    FormsModule
+    FormsModule,
+    SimpleNotificationsModule.forRoot(),
+
+    
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   exports: [MaterialModule],
