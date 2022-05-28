@@ -6,7 +6,7 @@ import { CustomHttpRespone } from '../models/custom-http-response';
 import { Accountservice } from '../_services/account.service';
 import { AuthService } from '../_services/auth.service';
 import { TokenStorageService } from '../_services/token-storage.service';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -33,7 +33,7 @@ export class ProfileComponent implements OnInit {
   private subscriptions: Subscription[] = [];
 
 
-  constructor(private token: TokenStorageService, private authService: AuthService, private accountService: Accountservice, private fb: FormBuilder) {
+  constructor(private tokenStorage: TokenStorageService, private authService: AuthService, private accountService: Accountservice, private fb: FormBuilder) {
 
     //validation Form
     this.account = this.fb.group({
@@ -52,10 +52,44 @@ export class ProfileComponent implements OnInit {
     });
   }
 
+  isLoggedIn = false;
+  isLoginFailed = false;
+  errorMessage = '';
+  roles: string[] = [];
+  username? : string;
+
   ngOnInit(): void {
-    this.currentUser = this.token.getUser();
+    this.currentUser = this.tokenStorage.getUser();
     this.account.patchValue(this.currentUser);
     console.log(this.currentUser)
+    //authorisation
+    console.log('Life Cyle Hook with spontaneous response.');
+    this.isLoggedIn= true;
+    this.roles = this.tokenStorage.getUser().roles;
+    this.username=this.tokenStorage.getUser().username;
+    this.successNotification();
+  }
+  tinyAlert() {
+    Swal.fire('Hey there!');
+  }
+  successNotification() {
+    Swal.fire('welcome', ' you have been logged successfully', 'success');
+  }
+  alertConfirmation() {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'This process is irreversible.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, go ahead.',
+      cancelButtonText: 'No, let me think',
+    }).then((result) => {
+      if (result.value) {
+        Swal.fire('Removed!', 'Product removed successfully.', 'success');
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        Swal.fire('Cancelled', 'Product still in our database.)', 'error');
+      }
+    });
   }
 
 

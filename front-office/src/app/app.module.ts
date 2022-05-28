@@ -22,6 +22,7 @@ import { FooterComponent } from './footer/footer.component';
 import { AssitanceComponent } from './assitance/assitance.component';
 import { ProfileComponent } from './profile/profile.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthGuard } from './guard/auth.guard';
 
 @NgModule({
   declarations: [
