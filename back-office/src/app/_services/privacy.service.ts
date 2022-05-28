@@ -69,9 +69,10 @@ export class Privacyservice {
  *
  */
   getPrivacyByEntreprise(): Observable<privacyDTO[]> {
-    return this.http.get<privacyDTO[]>(this.base_url).pipe(retry(2), catchError(this.handleError));
+    return this.http.get<privacyDTO[]>(this.base_url + '/list-privacy/' + localStorage.getItem('idEntreprise')).pipe(retry(2), catchError(this.handleError));
   }
 
+  
 /**************************
  * 
  * Get privacy by Entreprise id
@@ -82,13 +83,16 @@ export class Privacyservice {
 
   }
 
+  
  /**************************
   * 
  * update privacy by Entreprise
  * 
  */
   update(request: any) {
-    return this.http.post<privacyDTO>(`${this.base_url}`, request);
+    console.log('the request ====>',request)
+    return this.http.post<privacyDTO>(`${this.base_url + '/post-privacy/' }`, request);
+    
   }
   
   

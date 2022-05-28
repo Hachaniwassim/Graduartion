@@ -28,7 +28,7 @@ public class PrivacyController {
 
 
     @PreAuthorize("hasRole('MODERATOR') or hasRole('ADMIN')")
-    @RequestMapping(value = PRIVATE_API + "post/{id_entreprise}", method = RequestMethod.POST)
+    @RequestMapping(value = PRIVATE_API + "/post-privacy", method = RequestMethod.POST)
     @ApiOperation(value = "ADD PRIVACY", notes = "SAUVGARDER PRIVACY", response = PrivacyDTO.class)
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "privacy was saved Successfully"),
@@ -37,9 +37,9 @@ public class PrivacyController {
             @ApiResponse(code = 403, message = "not permitted or allowed"),
 
     })
-    ResponseEntity<PrivacyDTO> save(@RequestBody PrivacyDTO p,Long id_entreprise) {
+    ResponseEntity<PrivacyDTO> save(@RequestBody PrivacyDTO p) {
         log.debug(" HTTP POST {}", p);
-        return new ResponseEntity<>(iprivacy.updateByEntreprise(p,id_entreprise), HttpStatus.CREATED);
+        return new ResponseEntity<>(iprivacy.updateByEntreprise(p), HttpStatus.CREATED);
     }
 
 
@@ -53,9 +53,9 @@ public class PrivacyController {
             @ApiResponse(code = 403, message = "not permitted or allowed"),
 
     })
-    public ResponseEntity<Collection<PrivacyDTO>> view(Long id_entreprise) {
+    public ResponseEntity<Collection<PrivacyDTO>> view( @PathVariable Long id_entreprise) {
         log.debug(" HTTP GET ALL privacy  {}");
-        return new ResponseEntity<>(iprivacy.getprivacy(id_entreprise), HttpStatus.OK);
+        return new ResponseEntity<>(iprivacy.FindByEntrepriseId(id_entreprise), HttpStatus.OK);
     }
 
     @RequestMapping(value = PRIVATE_API + "/{id}", method = RequestMethod.GET)
@@ -74,7 +74,7 @@ public class PrivacyController {
     }
 
 
-    @RequestMapping(value = PRIVATE_API + "/update/{id_entreprise}", method = RequestMethod.PUT)
+    @RequestMapping(value = PRIVATE_API + "/update-privacy/{id_entreprise}", method = RequestMethod.PUT)
     @PreAuthorize("hasRole('MODERATOR') or hasRole('ADMIN')")
     @ApiOperation(value = "UPDATE privacy  ", response = PrivacyDTO.class)
     @ApiResponses(value = {
@@ -83,9 +83,9 @@ public class PrivacyController {
             @ApiResponse(code = 403, message = "not permitted or allowed"),
 
     })
-    public ResponseEntity<PrivacyDTO> update(@RequestBody PrivacyDTO c, Long id_entreprise) {
+    public ResponseEntity<PrivacyDTO> update(@RequestBody PrivacyDTO c) {
 
-        return new ResponseEntity<>(iprivacy.updateByEntreprise(c, id_entreprise), HttpStatus.CREATED);
+        return new ResponseEntity<>(iprivacy.updateByEntreprise(c), HttpStatus.CREATED);
     }
 
     @RequestMapping(value = PRIVATE_API + "/{id}", method = RequestMethod.DELETE)
