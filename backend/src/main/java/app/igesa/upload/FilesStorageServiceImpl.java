@@ -23,7 +23,11 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.Optional;
+import java.util.Random;
 import java.util.UUID;
 import java.util.stream.Stream;
 
@@ -47,15 +51,7 @@ public class FilesStorageServiceImpl implements FilesStorageService {
     }
   }
 
-  @Override
-  public void save(MultipartFile file, ImageTypes fileType, Integer id) {
-    try {
-      String filePath = "Enterprise-" + enterpriseService.getCurrentEnterprise().getId() + "/" + fileType + "/" + "test" + ".jpg";
-      Files.copy(file.getInputStream(), this.root.resolve(filePath));
-    } catch (Exception e) {
-      throw new RuntimeException("Could not store the file. Error: " + e.getMessage());
-    }
-  }
+
 
   @Override
   public Resource load(ImageTypes fileType, Integer id) {
@@ -96,16 +92,16 @@ public class FilesStorageServiceImpl implements FilesStorageService {
   }
 
 
-
+// nahi parent id baad
   @Override
-  public String uploadImage(MultipartFile file, ImageTypes imageType, Long parentId) {
+  public String uploadImage(MultipartFile file, ImageTypes imageType ,Long id_entreprise) {
     if (file == null) {
       throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR);
     }
     if (file.getContentType() == null || (file.getContentType() != null && !file.getContentType().startsWith("image"))) {
       throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, "This file is not an image");
     }
-    String baseDestination = this.path + "Enterprise-" + enterpriseService.getCurrentEnterprise().getId() +
+    String baseDestination = this.path + "Enterprise-" + id_entreprise +
             "/" + imageType.name().toLowerCase().replace("_", "-") + "/" ;
     Path imagePath = Paths.get(baseDestination);
     if (!imagePath.toFile().exists()) {
@@ -117,9 +113,11 @@ public class FilesStorageServiceImpl implements FilesStorageService {
       }
 
     }
-
+    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+    Random random = new Random();
+    String ImageName = String.valueOf(random.ints(97, 122 + 1));
     String fileExtension = getExtensionByStringHandling(file.getOriginalFilename()).orElse(file.getContentType().substring(6));
-    String filePath = baseDestination + parentId + "." + fileExtension;
+    String filePath = baseDestination + ImageName + "." + fileExtension;
 
     try {
 
@@ -132,7 +130,7 @@ public class FilesStorageServiceImpl implements FilesStorageService {
 
       throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR);
     }
-    return parentId + '.' + fileExtension;
+    return ImageName + '.' + fileExtension;
   }
 
 
@@ -144,7 +142,7 @@ public class FilesStorageServiceImpl implements FilesStorageService {
 
 
   @Override
-  public ResponseEntity<String> loadImage(Long id, ImageTypes imageType, Long eid) {
+  public ResponseEntity<String> loadImage( Long parentId,ImageTypes imageType, Long eid) {
     if (eid == null) {
       eid = enterpriseService.getCurrentEnterprise().getId();
     }
@@ -153,10 +151,10 @@ public class FilesStorageServiceImpl implements FilesStorageService {
     try {
       switch (imageType) {
         case PRODUCT:
-          file = ResourceUtils.getFile(path + "Enterprise-" + eid + "/" + ImageTypes.PRODUCT + "/" + id + ".jpg");
+          file = ResourceUtils.getFile(path + "Enterprise-" + eid + "/" + ImageTypes.PRODUCT + "/" + parentId+ ".jpg");
           break;
         case NEWS:
-          file = ResourceUtils.getFile(path + "News/Enterprise-" + enterpriseService.getCurrentEnterprise().getId() + "/" + "news-" + id + ".jpg");
+          file = ResourceUtils.getFile(path + "News/Enterprise-" + enterpriseService.getCurrentEnterprise().getId() + "/" + "news-" +parentId+ ".jpg");
           break;
         default:
           new IllegalArgumentException();

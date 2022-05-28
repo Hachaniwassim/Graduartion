@@ -12,7 +12,8 @@ import java.util.stream.Stream;
 public interface FilesStorageService {
   public void init();
 
-  public void save(MultipartFile file, ImageTypes fileType, Integer id);
+  //public void save(MultipartFile file, ImageTypes fileType, Integer id,Long id_entreprise);
+
   public Resource load(ImageTypes fileType, Integer id);
 
   public void deleteAll();
@@ -20,8 +21,8 @@ public interface FilesStorageService {
 
   public Stream<Path> loadAll();
 
-  String uploadImage(MultipartFile file, ImageTypes imageType , Long parentId);
+  String uploadImage(MultipartFile file, ImageTypes imageType,Long id_enterprise);
 
-  ResponseEntity<String> loadImage(Long id, ImageTypes imageType, Long eid);
+  ResponseEntity<String> loadImage(  Long parentId,ImageTypes imageType,Long id_entreprise);
 
   }

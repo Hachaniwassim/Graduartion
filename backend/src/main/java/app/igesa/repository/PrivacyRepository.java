@@ -12,6 +12,6 @@ import java.util.Optional;
  */
 public interface PrivacyRepository extends JpaRepository<Privacy, Long>, JpaSpecificationExecutor<Privacy> {
     Optional<Privacy> findFirstByEntrepriseId(Long id);
-    List<Privacy> findByEntrepriseId(Long id);
-    Privacy findPrivacyByEntrepriseId(Long id_entreprise);
+    List<Privacy> findByEntrepriseId(Long  id_entreprise);
+   // Privacy findPrivacyByEntrepriseId(Long id_entreprise);
 }

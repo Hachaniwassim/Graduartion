@@ -34,6 +34,11 @@ public class CookiesImp implements Icookies {
 
     @Override
     public CookiesDTO updateCookies(CookiesDTO cookiesDto, Long id_entreprise) {
+        Cookies cookies = new Cookies();
+        if (cookies.getId()!=null){
+            cookies = cookiesRepository.findById(cookiesDto.getId()).orElseThrow(IllegalAccessError::new);
+        }
+        cookies.setEntreprise((Entreprise) cookiesRepository.findByEntrepriseId(id_entreprise));
         Cookies saved = cookiesRepository.save(CookiesDTO.toEntity(cookiesDto));
         return CookiesDTO.fromEntity(saved);
 
@@ -52,7 +57,7 @@ public class CookiesImp implements Icookies {
 
 
     @Override
-    public Collection<CookiesDTO> findCookiesByEntrepriseId(Long id_entreprise) {
+    public Collection<CookiesDTO> getCookiesByEntrepriseId(Long id_entreprise) {
 
         return cookiesRepository.findByEntrepriseId(id_entreprise).stream()
                 .map(CookiesDTO::fromEntity)
