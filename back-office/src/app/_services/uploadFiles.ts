@@ -53,14 +53,10 @@ uploadFile(file: File):any {
 
 
 getFile(){
-   return this.http.get<CompanyBusinessDTO[]>(`${this.base_url + '/{enterpriseId}/{fileType}/{parentId}'}`).pipe(retry(2),catchError(this.handleError));
- }
-
-
-    deleteFile(id:number){
-      return this.http.delete<CompanyBusinessDTO>(`${this.base_url}`+ '/' +id,this.httpOptions).pipe(retry(2),catchError(this.handleError));
-
+   return this.http.get(this.base_url + localStorage.getItem('idEntreprise') +'/PRODUCT' );
 }
+
+
 
 
 }
