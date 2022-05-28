@@ -33,9 +33,13 @@
 									<li><a (click)="reloadPage()"   routerLink="/sellers">Our Sellers</a></li>
 									<li><a (click)="reloadPage()"  routerLink="/products">Products</a></li>
 									<li><a (click)="reloadPage()"  routerLink="/usefulllinks" >Usefull Links</a></li>	
-									<li><a (click)="reloadPage()"   href="#testimonial_area">testimonials</a></li>
-									<li><a (click)="reloadPage()"  href="#blog_area">Blog</a></li>
 									<li><a (click)="reloadPage()"  routerLink="/contact">Contact</a></li>
+									<li>        
+										<a routerLink="/login" *ngIf="!isLoggedIn"> 
+											<i class="fa fa-lock"></i> Login / Register</a> 
+										<a  *ngIf="isLoggedIn"> 
+											<i class="fa fa-lock"></i> {{username}}</a> 
+									</li>
 								</ul>
 							</div>
 						</nav>
