@@ -16,6 +16,7 @@ import { PrivacyPolicyComponent } from "./privacy-policy/privacy-policy.componen
 import { AssitanceComponent } from "./assitance/assitance.component";
 import { ProfileComponent } from "./profile/profile.component";
 import { AuthGuard } from './guard/auth.guard';
+import { PostulsellerComponent } from "./postulseller/postulseller.component";
 
 
 const routes : Routes =[
@@ -50,6 +51,9 @@ const routes : Routes =[
   { path: 'assistance', component: AssitanceComponent },
 
   { path: 'profile', component: ProfileComponent },
+
+  { path: 'postulseller', component: PostulsellerComponent },
+
 
   // 404 not found
   { path: '**', component: NotfoundComponent },

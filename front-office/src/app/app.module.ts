@@ -24,6 +24,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthGuard } from './guard/auth.guard';
 import { SimpleNotificationsModule } from 'angular2-notifications';
+import { PostulsellerComponent } from './postulseller/postulseller.component';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { SimpleNotificationsModule } from 'angular2-notifications';
     FooterComponent,
     AssitanceComponent,
     ProfileComponent,
+    PostulsellerComponent,
   ],
   imports: [
     ReactiveFormsModule,
