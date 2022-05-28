@@ -95,6 +95,13 @@ export class Accountservice {
   }
 
 
+  //update currentUser info
+    updateCurrentUser(item: any) {
+      return this.http.put(`${this.base_url + "/update-currentUser"}`, item)
+        
+    }
+  
+
 
   /**
    * 
@@ -167,7 +174,7 @@ export class Accountservice {
     );
 
     console.log(
-      'Request result ====>' + environment.privateApi + '/assign-entreprise'
+      'Request result ====>' + environment.privateApi + '/roles/update-role'
     );
     return result;
   }

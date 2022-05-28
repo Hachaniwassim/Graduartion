@@ -91,7 +91,7 @@ export class Privacyservice {
  */
   update(request: any) {
     console.log('the request ====>',request)
-    return this.http.post<privacyDTO>(`${this.base_url + '/post-privacy/' }`, request);
+    return this.http.post<privacyDTO>(`${this.base_url + '/post-privacy' }`, request);
     
   }
   

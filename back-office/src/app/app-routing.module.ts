@@ -42,7 +42,7 @@ import { HomenewslistComponent } from './pages/homenewslist/homenewslist.compone
 import { HomescustomerlogosComponent } from './pages/homescustomerlogos/homescustomerlogos.component';
 import { HomelistComponent } from './pages/homelist/homelist.component';
 import { HomeprimaryslideComponent } from './pages/homeprimaryslide/homeprimaryslide.component';
-import {ResetpasswordComponent} from "./resetpassword/resetpassword.component";
+import { ResetpasswordComponent } from "./resetpassword/resetpassword.component";
 import { WhoareweComponent } from './pages/whoarewe/whoarewe.component';
 import { ChoiseEntrepriseComponent } from './choise-entreprise/choise-entreprise.component';
 
@@ -120,34 +120,31 @@ const routes: Routes = [
   { path: 'admin', component: BoardAdminComponent, canActivate: [AuthGuard] },
 
   //profile
-  { path: 'profile', component: ProfileComponent },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
 
   //dashboard
   { path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule), canActivate: [AuthGuard] },
 
-  { path: 'groupe', loadChildren: () => import('./groupe/groupe.module').then(m => m.GroupeModule) , canActivate: [AuthGuard] },
+  { path: 'groupe', loadChildren: () => import('./groupe/groupe.module').then(m => m.GroupeModule), canActivate: [AuthGuard] },
 
 
   { path: 'entreprise', loadChildren: () => import('./entreprise/entreprise.module').then(m => m.EntrepriseModule), canActivate: [AuthGuard] },
 
 
-  { path: 'tags', loadChildren: () => import('./tags/tags.module').then(m => m.TagsModule) , canActivate: [AuthGuard] },
+  { path: 'tags', loadChildren: () => import('./tags/tags.module').then(m => m.TagsModule), canActivate: [AuthGuard] },
 
 
-  { path: 'language', loadChildren: () => import('./language/language.module').then(m => m.LanguageModule) , canActivate: [AuthGuard] },
+  { path: 'language', loadChildren: () => import('./language/language.module').then(m => m.LanguageModule), canActivate: [AuthGuard] },
 
-  { path: 'tap-to-top', loadChildren: () => import('./tap-to-top/tap-to-top.module').then(m => m.TapToTopModule) },
+  { path: 'tap-to-top', loadChildren: () => import('./tap-to-top/tap-to-top.module').then(m => m.TapToTopModule), canActivate: [AuthGuard] },
 
-  { path: 'cookies-notifier', loadChildren: () => import('./cookies-notifier/cookies-notifier.module').then(m => m.CookiesNotifierModule) },
+  { path: 'cookies-notifier', loadChildren: () => import('./cookies-notifier/cookies-notifier.module').then(m => m.CookiesNotifierModule), canActivate: [AuthGuard] },
 
-  { path: 'page', loadChildren: () => import('./web-positioning/web-positioning.module').then(m => m.WebPositioningModule) },
+  { path: 'page', loadChildren: () => import('./web-positioning/web-positioning.module').then(m => m.WebPositioningModule), canActivate: [AuthGuard] },
 
-  { path: 'assistance', loadChildren: () => import('./pages/assistance/assistance.module').then(m => m.AssistanceModule) },
-  {
-    path: 'choiseentreprise',
-    component: ChoiseEntrepriseComponent, canActivate: [AuthGuard] 
-    
-  },
+  { path: 'assistance', loadChildren: () => import('./pages/assistance/assistance.module').then(m => m.AssistanceModule), canActivate: [AuthGuard] },
+ 
+  { path: 'choiseentreprise',component: ChoiseEntrepriseComponent, canActivate: [AuthGuard] },
 
   // 404 not found
   { path: '**', component: NotfoundComponent },

@@ -72,7 +72,7 @@ export class AboutService {
    *******************************/
 
   getPagesByCurrentEntreprise(): Observable<Page1DTO[]> {
-    return this.http.get<Page1DTO[]>(this.base_url).pipe(retry(2), catchError(this.handleError));
+    return this.http.get<Page1DTO[]>(this.base_url + '/list-page1/' +  localStorage.getItem('idEntreprise')).pipe(retry(2), catchError(this.handleError));
   }
 
   /****************************
@@ -92,7 +92,7 @@ export class AboutService {
   * 
   **************************/
   update(request: any) {
-    return this.http.post<Page1DTO>(`${this.base_url}`, request);
+    return this.http.post<Page1DTO>(`${this.base_url + "/post-about"}`, request);
   }
 
 
