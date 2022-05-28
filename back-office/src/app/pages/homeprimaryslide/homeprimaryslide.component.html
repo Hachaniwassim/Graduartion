@@ -10,9 +10,11 @@
               <mat-progress-bar mode="determinate" value="18"></mat-progress-bar><br><br>
               <div class="container">
                 <form class="example-form">
-                  <input type="file"> <br> <br>
+                  <input type="file"
+                  id="file"
+                  (change)="onSelectFile($event)"/> <br> <br>
                   <section> </section>
-                  <button mat-raised-button color="primary" style="width: 100px;">Save</button>
+                  <button mat-raised-button color="primary" style="width: 100px;"(click)="onUploadFile()">Save</button>
                 </form>
               </div>
            </fieldset>
