@@ -32,8 +32,8 @@ public interface AccountRepository extends JpaRepository<Account, Long> {
 
 	@Modifying
 	@Transactional
-	@Query(value="update accounts a set  username= :username, email= :email , fiscaleCode=:fiscaleCode where a.id = :id",nativeQuery = true)
-	void updateCUrrentUser(@Param("username") String username, @Param("email") String email, @Param("fiscaleCode") String fiscaleCode);
+	@Query(value="update accounts a set  username= :username, email= :email , fiscale_code=:fiscale_code where a.id = :id",nativeQuery = true)
+	void updateCUrrentUser(@Param("username") String username, @Param("email") String email, @Param("fiscale_code") String fiscale_code,@Param("id")Long id);
 
 	//List<Account> findByEntrepriseId(Long id);
 }

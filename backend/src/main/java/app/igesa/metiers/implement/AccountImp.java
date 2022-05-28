@@ -141,8 +141,8 @@ public class AccountImp implements IauthService {
      */
 
     @Override
-    public void updateCUrrentUser(String username, String email, String fiscaleCode){
-        userRepository.updateCUrrentUser(username,email,fiscaleCode);
+    public void updateCUrrentUser(String username, String email, String fiscaleCode,Long idAccount){
+        userRepository.updateCUrrentUser(username,email,fiscaleCode,idAccount);
     }
 
     @Override

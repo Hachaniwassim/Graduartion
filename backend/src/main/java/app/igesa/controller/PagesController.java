@@ -54,7 +54,7 @@ public class PagesController {
     }
 
 
-    @RequestMapping(value=PRIVATE_API ,method =RequestMethod.GET)
+    @RequestMapping(value=PRIVATE_API + "/list-pages/{id_enterprise}" ,method =RequestMethod.GET)
     @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
     @ApiOperation(value="GET A LIST OF PAGE ", responseContainer  = "Collection<PageDTO>")
     @ApiResponses(value= {
@@ -64,9 +64,9 @@ public class PagesController {
             @ApiResponse( code=403, message="Not permitted or allowed"),
 
     })
-    public ResponseEntity<Collection<PageDTO>> view() {
+    public ResponseEntity<Collection<PageDTO>> view( @PathVariable Long id_enterprise) {
         log.debug(" HTTP GET ALL PAGES {}");
-        return new ResponseEntity<>( ipagesService.view(),HttpStatus.OK);
+        return new ResponseEntity<>( ipagesService.view(id_enterprise),HttpStatus.OK);
     }
 
 

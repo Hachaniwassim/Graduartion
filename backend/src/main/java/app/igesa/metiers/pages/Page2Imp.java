@@ -33,22 +33,22 @@ public class Page2Imp implements Ipage2 {
 
         @Override
         public Page2DTO save(Page2DTO p) {
-            Page2 pages= new Page2();
+           /* Page2 pages= new Page2();
             if (p.getId()!=null){
                 pages = page2Repository.findById(p.getId()).orElseThrow(IllegalAccessError::new);
             }
             pages.setEntreprise(ientrepriseService.getCurrentEnterprise());
             pages.setTitle(p.getTitle());
-            pages.setHtmlContent(p.getHtmlContent());
+            pages.setHtmlContent(p.getHtmlContent());*/
             Page2 saved = page2Repository.save(Page2DTO.toEntity((p)));
             return Page2DTO.fromEntity(saved);
 
         }
 
         @Override
-        public Collection<Page2DTO> view() {
+        public Collection<Page2DTO> view(Long id_entreprise) {
             log.debug("<====================HTTP by current entreprise =====================>");
-            return page2Repository.findFirstByEntrepriseId(ientrepriseService.getCurrentEnterprise().getId()).stream()
+            return page2Repository.findByEntrepriseId(id_entreprise).stream()
                     .map(Page2DTO::fromEntity)
                     .collect(Collectors.toList());
         }

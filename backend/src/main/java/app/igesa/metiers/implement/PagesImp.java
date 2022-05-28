@@ -34,14 +34,15 @@ public class PagesImp  implements Ipages {
 
     @Override
     public PageDTO save(PageDTO p) {
+
        Pages saved =ipagesRepository.save(PageDTO.toEntity(p));
         return PageDTO.fromEntity(saved);
 
     }
 
     @Override
-    public Collection<PageDTO> view() {
-        return ipagesRepository.findAll().stream()
+    public Collection<PageDTO> view(Long id_entreprise) {
+        return ipagesRepository.findByEntrepriseId(id_entreprise).stream()
                 .map(PageDTO::fromEntity)
                 .collect(Collectors.toList());
     }
@@ -69,8 +70,4 @@ public class PagesImp  implements Ipages {
         ipagesRepository.deleteById(id);
     }
 
-    @Override
-    public PageDTO update(PageDTO p, Long id) {
-        return null;
-    }
 }

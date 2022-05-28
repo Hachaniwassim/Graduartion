@@ -7,7 +7,7 @@ import java.util.Collection;
  */
 public interface Ipage3 {
     public Page3DTO save (Page3DTO p);
-    public Collection<Page3DTO  > view();
+    public Collection<Page3DTO> view(Long id_enterprise);
     public Page3DTO  findById(Long id);
     public void delete(Long id);
 }

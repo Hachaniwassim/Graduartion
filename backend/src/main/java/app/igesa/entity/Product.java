@@ -17,7 +17,10 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -71,7 +74,10 @@ public class Product extends Auditable{
     * TAGS
     */
 
-     @ManyToOne
-     private Tags tags;
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(	name = "products_tags",
+			joinColumns = @JoinColumn(name = "product_id"),
+			inverseJoinColumns = @JoinColumn(name = "tag_id"))
+	private Set<Tags> tags = new HashSet<>();
 
 }

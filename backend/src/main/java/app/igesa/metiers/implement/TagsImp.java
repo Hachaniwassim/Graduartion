@@ -36,19 +36,20 @@ public class TagsImp implements Itags {
 
     @Override
     public TagsDTO save(TagsDTO p) {
-       Tags tags = new Tags();
-        if (p.getId()!=null){
-           tags = itagsRepository.findById(p.getId()).orElseThrow(IllegalAccessError::new);
-        }
-        tags.setEntreprise(ientrepriseService.getCurrentEnterprise());
-        tags.setDescription(p.getDescription());
+       /*Tags tags = new Tags();
+       if (p.getId()!=null){
+         tags = itagsRepository.findById(p.getId()).orElseThrow(IllegalAccessError::new);
+       }*/
+       // tags.setEntreprise(ientrepriseService.getCurrentEnterprise());
+       // tags.setDescription(p.getDescription());
         Tags saved = itagsRepository.save(TagsDTO.toEntity(p));
         return TagsDTO.fromEntity(saved);
+
     }
 
     @Override
-    public Collection<TagsDTO> view() {
-        return itagsRepository.findFirstByEntrepriseId(ientrepriseService.getCurrentEnterprise().getId()).stream()
+    public Collection<TagsDTO> view(Long id_entreprise) {
+        return itagsRepository.findByEntrepriseId(id_entreprise).stream()
                 .map(TagsDTO::fromEntity)
                 .collect(Collectors.toList());
     }

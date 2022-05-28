@@ -17,17 +17,15 @@ import java.util.List;
 @Builder
 @Data
 public class TagsDTO {
-	private Long id ;
+	private  Long id ;
 	private String description ;
 	protected Date createdDate;
 	protected Date lastModifiedDate;
-	private Long entrepriseId;
+	private   Long entrepriseId;
 
 
 	public static TagsDTO fromEntity(Tags tag) {
-		if ( tag == null) {
-			return null;
-		}
+
 		return TagsDTO.builder()
 				.id(tag.getId())
 				.description(tag.getDescription())
@@ -39,15 +37,10 @@ public class TagsDTO {
 
 	public static Tags toEntity(TagsDTO dto) {
 
-		if (dto == null) {
-			return null;
-		}
-
 		Tags tag = new Tags();
 		tag.setId(dto.getId());
 		tag.setDescription(dto.getDescription());
 		tag.setLastModifiedDate(dto.getLastModifiedDate());
-		tag.setCreatedDate(dto.getCreatedDate());
 		tag.setCreatedDate(dto.getCreatedDate());
 		//======================================>Entreprise<=============================
 		Entreprise entreprise = new Entreprise();

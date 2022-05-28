@@ -1,11 +1,5 @@
 package app.igesa.controller.pages;
 
-/**
- *
- * @author wassim Hachanni
- *
- */
-
 import app.igesa.dto.Page2DTO;
 import app.igesa.metiers.Ipage2;
 import io.swagger.annotations.ApiOperation;
@@ -18,25 +12,28 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.Collection;
+/**
+ *
+ * @author wassim Hachanni
+ *
+ */
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 public class Page2Controller {
 
-
-    /*********************************************************
+    /*****************************
      *
-     * Api  PUBLIC_API : for all  ||  PRIVATE_API : with token
+     * @Api PRIVATE_API : with token
      *
-     *********************************************************/
+     **************/
 
-    private final String PUBLIC_API = "/api/pages2";
     private final String PRIVATE_API = "/api/private/pages2";
     @Autowired
     Ipage2 ipage2;
 
     private static final Logger log = LoggerFactory.getLogger(Page2Controller.class);
-    @RequestMapping(value=PRIVATE_API ,method = RequestMethod.POST)
+    @RequestMapping(value=PRIVATE_API + "/post-assitance" ,method = RequestMethod.POST)
     @ApiOperation(value="ADD Page",notes="SAUVGARDER PAGE", response = Page2DTO.class)
     @ApiResponses(value= {
             @ApiResponse(code=200,message="pagewas saved Successfully"),
@@ -51,7 +48,9 @@ public class Page2Controller {
     }
 
 
-    @RequestMapping(value=PRIVATE_API,method = RequestMethod.GET)
+
+
+    @RequestMapping(value=PRIVATE_API + "/list-page2/{id_enterprise}",method = RequestMethod.GET)
     @ApiOperation(value="GET PAGE",notes="PAGES", responseContainer  = "Collection<Page2DTO>")
     @ApiResponses(value= {
             @ApiResponse(code=200,message="page was founded Successfully"),
@@ -60,10 +59,12 @@ public class Page2Controller {
             @ApiResponse( code=403, message="not permitted or allowed"),
 
     })
-    public ResponseEntity<Collection<Page2DTO>> view() {
+    public ResponseEntity<Collection<Page2DTO>> view( @PathVariable Long id_enterprise) {
         log.debug("<================= HTTP GET ALL privacy  {}=======================>");
-        return new ResponseEntity<>( ipage2.view(),HttpStatus.OK);
+        return new ResponseEntity<>( ipage2.view(id_enterprise),HttpStatus.OK);
     }
+
+
 
     @RequestMapping(value=PRIVATE_API + "/{id}",method = RequestMethod.GET)
     @ApiOperation(value="GET PAGE",notes="GET PAGE", response = Page2DTO.class)
@@ -80,6 +81,8 @@ public class Page2Controller {
     }
 
 
+
+
     @RequestMapping(value=PRIVATE_API ,method =RequestMethod.PUT)
     @ApiOperation(value="UPDATE pages  ",response = Page2DTO.class)
     @ApiResponses(value= {
@@ -91,6 +94,9 @@ public class Page2Controller {
     public ResponseEntity<Page2DTO>update(@RequestBody Page2DTO c) {
         return new ResponseEntity<>(ipage2.save(c),HttpStatus.CREATED);
     }
+
+
+
 
     @RequestMapping(value=PRIVATE_API + "/{id}",method =RequestMethod.DELETE)
     @ResponseBody

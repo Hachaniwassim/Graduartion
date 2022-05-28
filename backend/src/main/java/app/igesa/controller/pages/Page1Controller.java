@@ -23,13 +23,12 @@ import java.util.Collection;
 @RestController
 public class Page1Controller {
 
-    /*********************************************************
+    /***************
      *
-     * Api  PUBLIC_API : for all  ||  PRIVATE_API : with token
+     *@Api PRIVATE_API : with token
      *
-     *********************************************************/
+     *********/
 
-    private final String PUBLIC_API = "/api/pages1";
     private final String PRIVATE_API = "/api/private/pages1";
 
     @Autowired
@@ -38,7 +37,9 @@ public class Page1Controller {
     private static final Logger log = LoggerFactory.getLogger(Page1Controller.class);
 
 
-    @RequestMapping(value=PRIVATE_API,method = RequestMethod.POST)
+
+
+    @RequestMapping(value=PRIVATE_API + "/post-about",method = RequestMethod.POST)
     @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
     @ApiOperation(value="ADD Page",notes="SAUVGARDER PAGE", response = Page1DTO.class)
     @ApiResponses(value= {
@@ -54,7 +55,10 @@ public class Page1Controller {
     }
 
 
-    @RequestMapping(value=PRIVATE_API,method = RequestMethod.GET)
+
+
+
+    @RequestMapping(value=PRIVATE_API + "/list-page1/{id_enterprise}",method = RequestMethod.GET)
     @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
     @ApiOperation(value="GET PAGE",notes="PAGES", responseContainer  = "Collection<Page1DTO>")
     @ApiResponses(value= {
@@ -64,10 +68,14 @@ public class Page1Controller {
             @ApiResponse( code=403, message="not permitted or allowed"),
 
     })
-    public ResponseEntity<Collection<Page1DTO>> view() {
+    public ResponseEntity<Collection<Page1DTO>> view( @PathVariable Long id_enterprise) {
         log.debug(" <==================== HTTP GET ALL privacy  {}====================>");
-        return new ResponseEntity<>( ipage1Service.view(),HttpStatus.OK);
+        return new ResponseEntity<>( ipage1Service.view(id_enterprise),HttpStatus.OK);
     }
+
+
+
+
 
     @RequestMapping(value=PRIVATE_API + "/{id}",method = RequestMethod.GET)
     @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
@@ -85,6 +93,9 @@ public class Page1Controller {
     }
 
 
+
+
+
     @RequestMapping(value=PRIVATE_API,method =RequestMethod.PUT)
     @ApiOperation(value="UPDATE pages  ",response = Page1DTO.class)
     @ApiResponses(value= {
@@ -98,6 +109,11 @@ public class Page1Controller {
         log.debug(" <=================== Update {}=======================>");
         return new ResponseEntity<>(ipage1Service.save(c),HttpStatus.CREATED);
     }
+
+
+
+
+
 
     @RequestMapping(value=PRIVATE_API + "/{id}",method =RequestMethod.DELETE)
     @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")

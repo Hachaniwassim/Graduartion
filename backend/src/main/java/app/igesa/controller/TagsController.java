@@ -49,13 +49,12 @@ public class TagsController {
             @ApiResponse( code=403, message="not permitted or allowed"),
 
     })
-    ResponseEntity<TagsDTO> save( @RequestBody TagsDTO t) {
-        log.debug(" HTTP POST {}",t);
-        return new ResponseEntity<> (itagsService.save(t), HttpStatus.CREATED);
+    ResponseEntity<TagsDTO> save( @RequestBody TagsDTO tags) {
+        return new ResponseEntity<> (itagsService.save(tags) ,HttpStatus.CREATED);
     }
 
 
-    @RequestMapping(value=PRIVATE_API,method =RequestMethod.GET)
+    @RequestMapping(value=PRIVATE_API + "/list-tags/{id_entreprise}",method =RequestMethod.GET)
     @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
     @ApiOperation(value="GET A LIST OF TAGS", responseContainer  = "Collection<TagsDTO>")
     @ApiResponses(value= {
@@ -65,9 +64,9 @@ public class TagsController {
             @ApiResponse( code=403, message="not permitted or allowed"),
 
     })
-    public ResponseEntity<Collection<TagsDTO>>view() {
+    public ResponseEntity<Collection<TagsDTO>>view( @PathVariable Long id_entreprise) {
         log.debug(" HTTP GET ALL TAGS {}");
-        return new ResponseEntity<>( itagsService.view(),HttpStatus.OK);
+        return new ResponseEntity<>( itagsService.view(id_entreprise),HttpStatus.OK);
     }
 
 

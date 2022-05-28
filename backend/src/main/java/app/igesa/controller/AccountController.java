@@ -57,6 +57,7 @@ public class AccountController {
     private EmailService emailService;
     @Autowired
     IauthService accountService ;
+    @Autowired
     private BCryptPasswordEncoder passwordEncoder;
 
 
@@ -215,9 +216,25 @@ public class AccountController {
 
 
     /**
-     * @param updateProfilRequest
+     * @param
      *
      */
+    @RequestMapping(value = PRIVATE_API + "/update-currentUser/{userName}/{email}/{fiscalCode}/{idAccount}", method = RequestMethod.GET)
+    @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
+    @ApiOperation(value="update user " ,notes="update  user")
+    @ApiResponses(value= {
+            @ApiResponse(code=200,message="current user  was assigned Successfully"),
+            @ApiResponse(code=400,message="current not valid"),
+            @ApiResponse(code=401,message="Unauthorized , without authority or permission"),
+            @ApiResponse( code=403, message="not permitted or allowed"),
+
+    })
+    ResponseEntity  updateCUrrentUserAnotherMethod (@PathVariable String userName,@PathVariable String email,@PathVariable String fiscalCode,@PathVariable Long idAccount) {
+
+        accountService.updateCUrrentUser(userName,email,fiscalCode,idAccount);
+        return ResponseEntity.ok(new MessageResponse("user updated successfully"));
+    }
+
     @RequestMapping(value = PRIVATE_API + "/update-currentUser", method = RequestMethod.PUT)
     @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
     @ApiOperation(value="update user " ,notes="update  user")
@@ -230,13 +247,13 @@ public class AccountController {
     })
     ResponseEntity  updateCUrrentUser (@RequestBody UpdateProfilRequest updateProfilRequest) {
 
-        accountService.updateCUrrentUser(updateProfilRequest.getUsername(),updateProfilRequest.getEmail(),updateProfilRequest.getFiscaleCode());
+        accountService.updateCUrrentUser(updateProfilRequest.getUsername(),updateProfilRequest.getEmail(),updateProfilRequest.getFiscaleCode(),updateProfilRequest.getIdAccount());
         return ResponseEntity.ok(new MessageResponse("user updated successfully"));
     }
 
     /**
      * @param assignRequest
-     * @auther Zied & Semah
+     * @auther
      */
     @RequestMapping(value = PRIVATE_API + "/assign-group", method = RequestMethod.POST)
     @PreAuthorize("hasRole('ADMIN')")

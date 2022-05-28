@@ -4,7 +4,7 @@ import app.igesa.dto.CookiesDTO;
 import java.util.Collection;
 
 public interface Icookies {
-    CookiesDTO updateCookies(CookiesDTO c, Long id_entreprise);
+    CookiesDTO updateCookies(CookiesDTO c);
 
     CookiesDTO findByEntrepriseId(Long id_entreprise);
 

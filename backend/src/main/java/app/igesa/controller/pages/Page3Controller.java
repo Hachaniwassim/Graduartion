@@ -23,13 +23,12 @@ import java.util.Collection;
 public class Page3Controller {
 
 
-    /*********************************************************
+    /*****************************
      *
-     * Api  PUBLIC_API : for all  ||  PRIVATE_API : with token
+     * @Api PRIVATE_API : with token
      *
-     *********************************************************/
+     **************/
 
-    private final String PUBLIC_API = "/api/pages3";
     private final String PRIVATE_API = "/api/private/pages3";
 
     @Autowired
@@ -38,7 +37,9 @@ public class Page3Controller {
     private static final Logger log = LoggerFactory.getLogger(Page3Controller.class);
 
 
-    @RequestMapping(value=PRIVATE_API ,method = RequestMethod.POST)
+
+
+    @RequestMapping(value=PRIVATE_API + "/post-home-text",method = RequestMethod.POST)
     @ApiOperation(value="ADD Page",notes="SAUVGARDER PAGE", response = Page3DTO.class)
     @ApiResponses(value= {
             @ApiResponse(code=200,message="page was saved Successfully"),
@@ -53,7 +54,10 @@ public class Page3Controller {
     }
 
 
-    @RequestMapping(value=PRIVATE_API ,method = RequestMethod.GET)
+
+
+
+    @RequestMapping(value=PRIVATE_API + "/list-page3/{id_enterprise}" ,method = RequestMethod.GET)
     @ApiOperation(value="GET PAGE",notes="PAGES", responseContainer  = "Collection<Page3DTO>")
     @ApiResponses(value= {
             @ApiResponse(code=200,message="page was founded Successfully"),
@@ -62,10 +66,13 @@ public class Page3Controller {
             @ApiResponse( code=403, message="not permitted or allowed"),
 
     })
-    public ResponseEntity<Collection<Page3DTO>> view() {
+    public ResponseEntity<Collection<Page3DTO>> view( @PathVariable  Long id_enterprise) {
         log.debug(" <====================== HTTP GET ALL privacy ===================> {}");
-        return new ResponseEntity<>( ipage3.view(),HttpStatus.OK);
+        return new ResponseEntity<>( ipage3.view(id_enterprise),HttpStatus.OK);
     }
+
+
+
 
     @RequestMapping(value=PRIVATE_API  + "/{id}",method = RequestMethod.GET)
     @ApiOperation(value="GET PAGE",notes="GET PAGE", response = Page3DTO.class)
@@ -82,6 +89,11 @@ public class Page3Controller {
     }
 
 
+
+
+
+
+
     @RequestMapping(value=PRIVATE_API ,method =RequestMethod.PUT)
     @ApiOperation(value="UPDATE pages  ",response = Page3DTO.class)
     @ApiResponses(value= {
@@ -93,6 +105,12 @@ public class Page3Controller {
     public ResponseEntity<Page3DTO>update(@RequestBody Page3DTO c) {
         return new ResponseEntity<>(ipage3.save(c),HttpStatus.CREATED);
     }
+
+
+
+
+
+
 
     @RequestMapping(value=PRIVATE_API  + "/{id}",method =RequestMethod.DELETE)
     @ResponseBody

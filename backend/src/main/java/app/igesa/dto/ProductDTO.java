@@ -4,7 +4,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
 import lombok.Data;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+
 /**
  *
  * @author Tarchoun Abir
@@ -19,7 +22,6 @@ public class ProductDTO {
 	private String detailimage ;
 	private String note ;
 	private String name ;
-	private TagsDTO tags ;
 	protected Date createdDate;
 	protected Date lastModifiedDate;
 	protected String createdBy;
@@ -27,7 +29,10 @@ public class ProductDTO {
 	private CategoryDTO category;
 	private Long entrepriseId;
 	private Long categorieId;
-	private Long tagsId;
+	private Set<Tags> tags;
+	//private Long tagsId;
+    //private TagsDTO tags ;
+
 
 	public static ProductDTO fromEntity(Product product) {
 		if ( product == null) {
@@ -40,12 +45,13 @@ public class ProductDTO {
 				.detailimage(product.getDetailsimage())
 				.note(product.getNote())
 				.name(product.getName())
-				.tags(TagsDTO.fromEntity(product.getTags()))
 				.lastModifiedDate(product.getLastModifiedDate())
 				.createdDate(product.getCreatedDate())
 				.entrepriseId(product.getEntreprise().getId())
-				.tagsId(product.getTags().getId())
 				.categorieId(product.getCategory().getId())
+				.tags(product.getTags())
+				//.tagsId(product.getTags().getId())
+				//.tags(TagsDTO.fromEntity(product.getTags()))
 				.build();
 	}
 
@@ -64,10 +70,7 @@ public class ProductDTO {
 		 product.setDetailsimage(dto.getDetailimage());
 		 product.setCreatedDate(dto.getCreatedDate());
 		 product.setLastModifiedDate(dto.getLastModifiedDate());
-		 //=================> tags
-		 Tags tag = new Tags();
-		 tag.setId(dto.getTagsId());
-		 product.setTags(tag);
+		 product.setTags(dto.getTags());
 		 //=================> entreprise
 		 Entreprise entreprise= new Entreprise();
 		 entreprise.setId(dto.getEntrepriseId());
@@ -76,6 +79,12 @@ public class ProductDTO {
 		 Category  category = new Category();
 		 category.setId(dto.getCategorieId());
 		 product.setCategory(category);
+
+		//=================> tags
+		// Tags tag = new Tags();
+		// tag.setId(dto.getTagsId());
+		// product.setTags(tag);
+
 		 return product;
 	}
 
