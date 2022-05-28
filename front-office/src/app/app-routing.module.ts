@@ -15,6 +15,7 @@ import { CookiesComponent } from "./cookies/cookies.component";
 import { PrivacyPolicyComponent } from "./privacy-policy/privacy-policy.component";
 import { AssitanceComponent } from "./assitance/assitance.component";
 import { ProfileComponent } from "./profile/profile.component";
+import { AuthGuard } from './guard/auth.guard';
 
 
 const routes : Routes =[
