@@ -2,6 +2,7 @@ package app.igesa.entity;
 
 import javax.persistence.*;
 import app.igesa.translation.TagsTranslation;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -34,15 +35,15 @@ public class Tags extends Auditable {
 	/**
 	 * post list
 	 */
+	@JsonIgnore
 	@OneToMany(mappedBy="tags",cascade = CascadeType.ALL)
 	private List<Post>posts ;
 
 	/**
-	 * product List
+	 *
+	 * translation
 	 */
-	@OneToMany(mappedBy="tags",cascade = CascadeType.ALL)
-	private List<Product>products;
-
+    @JsonIgnore
 	@OneToMany(mappedBy="tags",cascade = CascadeType.ALL)
 	private List<TagsTranslation>tagsTranslations;
 }

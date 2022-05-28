@@ -44,38 +44,40 @@ export class TagsSerice {
 
 
 // insert 
-createtags(item :TagsDTO):Observable<TagsDTO>{
-  return this.http.post<TagsDTO>(this.base_url,item,this.httpOptions)
+createtags(request: any){
+  return this.http.post<TagsDTO>(this.base_url,request)
 }
 
 //get all data 
-getAlltags():Observable<TagsDTO>{
-   return this.http.get<TagsDTO>(this.base_url)
- }
-
+getAlltags():Observable<TagsDTO[]>{
+   return this.http.get<TagsDTO[]>(this.base_url + '/list-tags/' + localStorage.getItem('idEntreprise'));
+}
 
   // get tags by id
   getByidTags(id:number):Observable<TagsDTO>{
-    return this.http.get<TagsDTO>(this.base_url + '/' +id);
+    return this.http.get<TagsDTO>(this.base_url + '/' +id)
 
   }
 
    // update tags by Id the
    updateTags(item :TagsDTO){
-    return this.http.put<TagsDTO>(this.base_url,item,this.httpOptions)
+    return this.http.put<TagsDTO>(this.base_url,item,this.httpOptions);
    }
 
     // delete cars
     deleteTags(id:number){
-      return this.http.delete<TagsDTO>(this.base_url + '/' +id,this.httpOptions);
+      return this.http.delete<TagsDTO>(this.base_url + '/' +id,this.httpOptions).pipe(retry(2), catchError(this.handleError));
 
 }
 
 //validation formulaire
   form : FormGroup= new FormGroup({
-    id: new FormControl(null),
+    id: new FormControl(null),//identreprise
     entrepriseId: new FormControl(null),
     description: new FormControl('',Validators.required),
+    createdDate:new FormControl(''),
+    lastModifiedDate:new FormControl('')
+    
  
 });
 
@@ -85,6 +87,8 @@ initializeFormGroup() {
     id :null,
     entrepriseId :null,
     description: '',
+    lastModifiedDate:new Date(),
+    createdDate:''
    
 
   });

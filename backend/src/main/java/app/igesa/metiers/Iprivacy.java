@@ -11,5 +11,4 @@ public interface Iprivacy {
     public PrivacyDTO  findById(Long id_entreprise);
     public void delete(Long id);
 
-    Optional<PrivacyDTO> findByEntrepriseId(Long id_entreprise);
 }

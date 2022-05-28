@@ -37,19 +37,18 @@ public class Page3Imp implements Ipage3 {
             Page3 pages= new Page3();
             if (p.getId()!=null){
                 pages = page3Repository.findById(p.getId()).orElseThrow(IllegalAccessError::new);
-            }
-            pages.setEntreprise(ientrepriseService.getCurrentEnterprise());
+            }/*pages.setEntreprise(ientrepriseService.getCurrentEnterprise());
             pages.setTitle(p.getTitle());
-            pages.setHtmlContent(p.getHtmlContent());
+            pages.setHtmlContent(p.getHtmlContent());*/
             Page3 saved = page3Repository.save(Page3DTO.toEntity((p)));
             return Page3DTO.fromEntity(saved);
 
         }
 
         @Override
-        public Collection<Page3DTO> view() {
+        public Collection<Page3DTO> view(Long id_entreprise) {
             log.debug("<====================HTTP by current entreprise =====================>");
-            return page3Repository.findFirstByEntrepriseId(ientrepriseService.getCurrentEnterprise().getId()).stream()
+            return page3Repository.findByEntrepriseId(id_entreprise).stream()
                     .map(Page3DTO::fromEntity)
                     .collect(Collectors.toList());
         }

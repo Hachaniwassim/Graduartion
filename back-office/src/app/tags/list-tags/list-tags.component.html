@@ -24,14 +24,14 @@
       <mat-header-cell *matHeaderCellDef mat-sort-header style="margin-Left:10px;"> Description </mat-header-cell>
       <mat-cell *matCellDef="let element" style="margin-Left:10px;"> {{element.description}} </mat-cell>
     </ng-container>
-    <!--<ng-container matColumnDef="createdDate">
+    <ng-container matColumnDef="createdDate">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Created At</mat-header-cell>
       <mat-cell *matCellDef="let element">{{element.createdDate  | date:'medium'}} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="lastModifiedDate">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Last Modified At</mat-header-cell>
       <mat-cell *matCellDef="let element">{{element.lastModifiedDate  | date:'medium'}} </mat-cell>
-    </ng-container>-->
+    </ng-container>
     <ng-container matColumnDef="actions">
       <mat-header-cell *matHeaderCellDef></mat-header-cell>
       <mat-cell *matCellDef="let row">&nbsp;&nbsp;&nbsp;

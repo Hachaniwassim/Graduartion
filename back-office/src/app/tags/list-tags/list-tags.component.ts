@@ -28,7 +28,7 @@ export class ListTagsComponent implements OnInit {
   tags : any ;
   datasource = new MatTableDataSource(this.tag)
   message!: string;
-  displayedColumns: string[] = ['id','description','actions'];
+  displayedColumns: string[] = ['id','description','createdDate', 'lastModifiedDate', 'actions'];
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort, {}) sort!: MatSort;

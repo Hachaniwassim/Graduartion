@@ -28,7 +28,7 @@ public interface IauthService {
 
     UserDetailsImpl getIdentity();
 
-    void updateCUrrentUser(String username, String email, String fiscaleCode);
+    void updateCUrrentUser(String username, String email, String fiscaleCode,Long idAccount);
 
     void assignGroup(Long groupe_id, Long id);
 

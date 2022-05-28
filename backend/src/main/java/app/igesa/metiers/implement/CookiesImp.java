@@ -33,12 +33,12 @@ public class CookiesImp implements Icookies {
     CookiesRepository cookiesRepository;
 
     @Override
-    public CookiesDTO updateCookies(CookiesDTO cookiesDto, Long id_entreprise) {
-        Cookies cookies = new Cookies();
-        if (cookies.getId()!=null){
-            cookies = cookiesRepository.findById(cookiesDto.getId()).orElseThrow(IllegalAccessError::new);
-        }
-        cookies.setEntreprise((Entreprise) cookiesRepository.findByEntrepriseId(id_entreprise));
+    public CookiesDTO updateCookies(CookiesDTO cookiesDto) {
+       // Cookies cookies = new Cookies();
+        //if (cookies.getId()!=null){
+        //    cookies = cookiesRepository.findById(cookiesDto.getId()).orElseThrow(IllegalAccessError::new);
+       // }
+       // cookies.setEntreprise((Entreprise) cookiesRepository.findByEntrepriseId(id_entreprise));
         Cookies saved = cookiesRepository.save(CookiesDTO.toEntity(cookiesDto));
         return CookiesDTO.fromEntity(saved);
 

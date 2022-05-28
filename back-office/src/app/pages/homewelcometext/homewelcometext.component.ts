@@ -106,10 +106,11 @@ export class HomewelcometextComponent implements OnInit {
     });
  
     /***********************************
-     * Get privacy policy By Entreprise 
+     * Get  By Entreprise 
      */
     this.homeService.getPagesByCurrentEntreprise().subscribe((res: Page3DTO[]) => {
       this.data = res[0];
+      console.log("===============> data" ,this.data)
       this.home.patchValue(this.data);
  
     });

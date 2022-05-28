@@ -31,13 +31,13 @@ public class PrivacyImp  implements Iprivacy {
 
     @Override
     public PrivacyDTO updateByEntreprise(PrivacyDTO p) {
-        Privacy privacy = new Privacy();
-        if (p.getId()!=null){
-           privacy = privacyRepository.findById(p.getId()).orElseThrow(IllegalAccessError::new);
-        }
-        privacy.setEntreprise(ientrepriseService.getCurrentEnterprise());
-        privacy.setTitle(p.getTitle());
-        privacy.setHtmlContent(p.getHtmlContent());
+        //Privacy privacy = new Privacy();
+        //if (p.getId()!=null){
+        //   privacy = privacyRepository.findById(p.getId()).orElseThrow(IllegalAccessError::new);
+       // }
+       // privacy.setEntreprise(ientrepriseService.getCurrentEnterprise());
+        //privacy.setTitle(p.getTitle());
+       // privacy.setHtmlContent(p.getHtmlContent());
         Privacy saved = privacyRepository.save(PrivacyDTO.toEntity(p));
         return PrivacyDTO.fromEntity(saved);
 
@@ -93,22 +93,6 @@ public class PrivacyImp  implements Iprivacy {
 }
 
 
-    /**
-     *
-     * @param id_entreprise : optional just 1 entreprise
-     * @return
-     */
-    @Override
-    public Optional<PrivacyDTO> findByEntrepriseId(Long id_entreprise) {
-        log.debug("HTTP GET BY ID {} ..", id_entreprise);
-        if (id_entreprise == null) {
-            log.error(" Id is NULL .. !!");
-            return null;
-        }
-
-        return privacyRepository.findFirstByEntrepriseId(id_entreprise).map(PrivacyDTO::fromEntity);
-
-    }
 
 
 }

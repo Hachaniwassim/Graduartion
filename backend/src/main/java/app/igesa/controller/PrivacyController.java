@@ -74,7 +74,7 @@ public class PrivacyController {
     }
 
 
-    @RequestMapping(value = PRIVATE_API + "/update-privacy/{id_entreprise}", method = RequestMethod.PUT)
+    @RequestMapping(value = PRIVATE_API + "/update-privacy", method = RequestMethod.PUT)
     @PreAuthorize("hasRole('MODERATOR') or hasRole('ADMIN')")
     @ApiOperation(value = "UPDATE privacy  ", response = PrivacyDTO.class)
     @ApiResponses(value = {

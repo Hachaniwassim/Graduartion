@@ -61,7 +61,7 @@ export class CookiesService {
    * 
    */
   getCookiesByEntrepriseId() : Observable<CookieDTO[]> {
-    return this.http.get<CookieDTO[]>(this.base_url + '/list-entreprise/' +  localStorage.getItem('idEntreprise')).pipe(retry(2), catchError(this.handleError));
+    return this.http.get<CookieDTO[]>(this.base_url + '/list-cookies/' +  localStorage.getItem('idEntreprise')).pipe(retry(2), catchError(this.handleError));
 
   }
 

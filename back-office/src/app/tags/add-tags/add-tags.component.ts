@@ -47,10 +47,20 @@ export class AddTagsComponent implements OnInit {
 
    // submit data with context EDITE : CREATE
    onSubmit() {
+     
+     
     if (this.tagsService.form.valid) {
       if (!this.tagsService.form.get('id')?.value)
-        this.tagsService.createtags(this.tagsService.form.value).subscribe((res) => {
+        this.tagsService.createtags({
+          id:this.tagsService.form.value.id,
+          description:this.tagsService.form.value.description,
+          createdDate:new Date(),
+          lastModifiedDate:new Date(),
+          entrepriseId:localStorage.getItem('idEntreprise'),
+
+        }).subscribe((res) => {
           this.tags.push(res);
+          console.log('the result of add tags ====>',res)
           
           this.notificationService.success(':: Submitted successfully');
         })

@@ -71,7 +71,7 @@ export class HomeService {
    *******************************/
 
   getPagesByCurrentEntreprise(): Observable<Page3DTO[]> {
-    return this.http.get<Page3DTO[]>(this.base_url).pipe(retry(2), catchError(this.handleError));
+    return this.http.get<Page3DTO[]>(this.base_url + '/list-page3/' +  localStorage.getItem('idEntreprise')).pipe(retry(2), catchError(this.handleError));
   }
 
   /****************************
@@ -91,7 +91,7 @@ export class HomeService {
   * 
   **************************/
   update(request: any) {
-    return this.http.post<Page3DTO>(`${this.base_url}`, request);
+    return this.http.post<Page3DTO>(`${this.base_url + "/post-home-text"}`, request);
   }
 
 

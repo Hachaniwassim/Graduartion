@@ -103,7 +103,7 @@ public class Entreprise  extends Auditable{
 	@OneToMany(mappedBy="entreprise",cascade = CascadeType.ALL)
 	private List<Pages> pages= new ArrayList<>();
 	@JsonIgnore
-	@OneToMany(mappedBy="entreprise",cascade = CascadeType.ALL)
+	@OneToMany(mappedBy="entreprise")
 	private List<Tags> tags= new ArrayList<>();
 
 

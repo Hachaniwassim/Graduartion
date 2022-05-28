@@ -35,22 +35,22 @@ public class Page1Imp implements Ipage1 {
 
     @Override
     public Page1DTO save(Page1DTO page1DTO) {
-        Page1 page= new Page1();
+       /* Page1 page= new Page1();
         if (page1DTO.getId()!=null){
             page = page1Repository.findById(page1DTO.getId()).orElseThrow(IllegalAccessError::new);
         }
         page.setEntreprise(ientrepriseService.getCurrentEnterprise());
         page.setTitle(page1DTO.getTitle());
-        page.setHtmlContent(page1DTO.getHtmlContent());
+        page.setHtmlContent(page1DTO.getHtmlContent());*/
         Page1 saved = page1Repository.save(Page1DTO.toEntity((page1DTO)));
         return Page1DTO.fromEntity(saved);
 
     }
 
     @Override
-    public Collection<Page1DTO> view() {
+    public Collection<Page1DTO> view(Long id_enterprise) {
         log.debug("<==================== HTTP by current entreprise =====================>");
-        return page1Repository.findFirstByEntrepriseId(ientrepriseService.getCurrentEnterprise().getId()).stream()
+        return page1Repository.findByEntrepriseId(id_enterprise).stream()
                 .map(Page1DTO::fromEntity)
                 .collect(Collectors.toList());
     }

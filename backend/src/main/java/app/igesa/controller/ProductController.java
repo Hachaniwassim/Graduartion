@@ -30,7 +30,6 @@ public class ProductController {
      *@PRIVATE_API : with token
      *
      ******/
-    private final String PUBLIC_API = "api/product";
     private final String PRIVATE_API = "api/private/product";
 
     private static final Logger log = LoggerFactory.getLogger(PostController.class);

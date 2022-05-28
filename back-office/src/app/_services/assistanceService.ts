@@ -67,7 +67,7 @@ export class AssistanceService {
    *******************************/
 
   getPagesByCurrentEntreprise(): Observable<Page2DTO[]> {
-    return this.http.get<Page2DTO[]>(this.base_url).pipe(retry(2), catchError(this.handleError));
+    return this.http.get<Page2DTO[]>(this.base_url + '/list-page1/' +  localStorage.getItem('idEntreprise')).pipe(retry(2), catchError(this.handleError));
   }
 
   /****************************
@@ -87,7 +87,7 @@ export class AssistanceService {
    * 
    *************************/
   update(request: any) {
-    return this.http.post<Page2DTO>(`${this.base_url}`, request);
+    return this.http.post<Page2DTO>(`${this.base_url+ "/post-assistance"}`, request);
   }
 
 
