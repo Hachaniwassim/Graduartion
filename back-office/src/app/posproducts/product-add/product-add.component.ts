@@ -48,7 +48,7 @@ export class ProductAddComponent implements OnInit {
         })
 
       else(
-        this.productService.updateproduct(this.productService.form.value).subscribe(() => {
+        this.productService.update(this.productService.form.value).subscribe(() => {
         }))
       this.productService.form.reset();
       this.productService.initializeFormGroup();

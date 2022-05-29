@@ -11,5 +11,8 @@ export interface categoryDTO{
     description? : string;
     menuimage? : string;
     bannerimage ? : string;
-    status ? : string;
+    subtitle ? : string;
+    createdDate ? : string;
+    lastModifiedDate ? : string;
+    entrepriseId?:number;
 }

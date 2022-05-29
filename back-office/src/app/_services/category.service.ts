@@ -14,11 +14,11 @@ import { categoryDTO } from '../models/dto/categoryDTO';
 export class Gategoryservice {
 
   //api backend
-  private base_url= environment.api+ '/category';
+  private base_url= environment.privateApi + '/category';
   
 
 
-  constructor(private http :HttpClient, private datePipe: DatePipe) { }
+  constructor(private http :HttpClient) { }
 
   //http opttion
   httpOptions={ 
@@ -46,28 +46,28 @@ export class Gategoryservice {
 
 
 // insert 
-create(item : categoryDTO):Observable<categoryDTO>{
-  return this.http.post<categoryDTO>(this.base_url,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
+createCategory(request:any){
+  return this.http.post<categoryDTO>(`${this.base_url + '/post-category' }`, request);
 }
 
-//get all account data 
+//get all 
 getallCategorie():Observable<categoryDTO[]>{
-   return this.http.get<categoryDTO[]>(this.base_url).pipe(retry(2),catchError(this.handleError));
+   return this.http.get<categoryDTO[]>(this.base_url + '/list-category' + localStorage.getItem('idEntreprise'));
  }
 
+
+  updateCategory(request: any) {
+  console.log('the request ====>',request)
+  return this.http.post<categoryDTO>(`${this.base_url + '/update-category' }`, request);
+  
+}
 
   // get  by id
   getByid(id:number):Observable<categoryDTO>{
     return this.http.get<categoryDTO>(this.base_url + '/' +id).pipe(retry(2),catchError(this.handleError));
 
   }
-
-   // update by Id the
-   update(item : categoryDTO){
-    return this.http.put<categoryDTO>(this.base_url,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
-   }
-
-    // delete accounts
+    // delete
     delete(id:number){
       return this.http.delete<categoryDTO>(this.base_url + '/' +id,this.httpOptions).pipe(retry(2),catchError(this.handleError));
 
@@ -78,25 +78,32 @@ getallCategorie():Observable<categoryDTO[]>{
     id: new FormControl(null),
     image: new FormControl('',Validators.required),
     title : new FormControl('',[ Validators.required]),
-    description : new FormControl('',[ Validators.required]),
-    menuimage : new FormControl('',[ Validators.required]),
-    bannerimage : new FormControl('',[ Validators.required]),
-    status : new FormControl(''),
+    description : new FormControl(''),
+    menuimage : new FormControl(''),
+    bannerimage : new FormControl(''),
+    entrepriseId : new FormControl(''),
+    subtitle : new FormControl(''),
+    createdDate : new FormControl(''),
+    lastModifiedDate : new FormControl(''),
+    
 });
 
 // inialisation formulaire 
 initializeFormGroup() {
   this.form.setValue({
     id :null,
-    image: null,
-    title: null,
-    description: null,
-    menuimage: null,
-    bannerimage: null,
-    status: null,
+    image: '',
+    title: '',
+    subtitle: '',
+    description: '',
+    menuimage: '',
+    bannerimage: '',
+    createdDate: '',
+    lastModifiedDate: '',
+   
   });
 }
-populateForm(company: any) {
-  this.form.patchValue(_.omit(company));
+populateForm(category: any) {
+  this.form.patchValue(_.omit(category));
 }
 }

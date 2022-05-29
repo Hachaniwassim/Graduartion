@@ -13,7 +13,6 @@ import { PoscontactsComponent } from './posWeb/poscontacts/poscontacts.component
 import { PoshomeComponent } from './posWeb/poshome/poshome.component';
 import { PosnewsComponent } from './posWeb/posnews/posnews.component';
 import { PosproductsComponent } from './posproducts/posproducts.component';
-import { PosproductlistComponent } from './posproductlist/posproductlist.component';
 import { PosmanagementComponent } from './posWeb/posnews/posmanagement/posmanagement.component';
 import { PoswhorareweComponent } from './posWeb/poswhorarewe/poswhorarewe.component';
 import { PosusefulllinksComponent } from './posWeb/posusefulllinks/posusefulllinks.component';
@@ -48,9 +47,6 @@ import { AgendaService, DayService, MonthAgendaService, MonthService, ScheduleMo
 import { SimpleNotificationsModule } from 'angular2-notifications';
 import { CompanyViewComponent } from './companybusiness/company-view/company-view.component';
 import { CookiesV2Component } from './cookies-v2/cookies-v2.component';
-import { PosproductlistViewComponent } from './posproductlist/posproductlist-view/posproductlist-view.component';
-import { PosproductlistAddComponent} from './posproductlist/posproductlist-add/posproductlist-add.component';
-import { PosListComponent } from './posproductlist/pos-list/pos-list.component';
 import { PlateformeComponent } from './plateforme/plateforme.component';
 import { PlateformeListComponent } from './plateforme/plateforme-list/plateforme-list.component';
 import { PlateformeViewComponent } from './plateforme/plateforme-view/plateforme-view.component';
@@ -92,7 +88,6 @@ import { ChoiseEntrepriseComponent } from './choise-entreprise/choise-entreprise
     PosactualityComponent,
     PosnewsComponent,
     PosproductsComponent,
-    PosproductlistComponent,
     PosmanagementComponent,
     PosdealersComponent,
     PoswhorareweComponent,
@@ -127,9 +122,6 @@ import { ChoiseEntrepriseComponent } from './choise-entreprise/choise-entreprise
     AccountViewComponent,
     CompanyViewComponent,
     CookiesV2Component,
-    PosproductlistViewComponent,
-    PosproductlistAddComponent,
-    PosListComponent,
     PlateformeComponent,
     PlateformeListComponent,
     PlateformeViewComponent,
