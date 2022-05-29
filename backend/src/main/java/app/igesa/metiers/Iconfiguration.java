@@ -8,8 +8,7 @@ import java.util.Optional;
 
 public interface Iconfiguration {
     public ConfigGeneralDTO save (ConfigGeneralDTO c);
-    public Collection<ConfigGeneralDTO> view();
+    public Collection<ConfigGeneralDTO> view(Long enterprise_id);
     public ConfigGeneralDTO findById(Long id);
     public void delete(Long id);
-    public ConfigGeneralDTO update(ConfigGeneralDTO c , Long id);
 }

@@ -34,7 +34,7 @@ public class SaveLanguagePhoto implements Strategy<LanguageDTO> {
         if(!StringUtils.hasLength(Urlphoto)) {
             throw new InvalideEntityException("Language  image not valid !!", ErrorCode.LANGUAGE_NOT_VALID);
         }
-        language.setImage(Urlphoto);
+        //language.setImage(Urlphoto);
         return ilanguage.save(language);
     }
 

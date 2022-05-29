@@ -1,21 +1,23 @@
 package app.igesa.dto;
 import app.igesa.entity.Entreprise;
 import app.igesa.entity.FormEntity;
+import app.igesa.entity.Product;
 import app.igesa.enumerations.ContactStatus;
 import lombok.Builder;
 import lombok.Data;
-
 import java.util.Date;
+
 
 /**
  * @author Tarchoun Abir
  */
 
+
 @Data
 @Builder
 public class FormDTO {
 	private Long id ;
-	private String name ; 
+	private String name ;
 	private String companyname;
 	private String mobile ;
 	private String fax ;
@@ -27,10 +29,8 @@ public class FormDTO {
 	protected Date lastModifiedDate;
 	protected String createdBy;
 	private Long entrepriseId;
-	private EntrepriseDTO entreprise;
+	private Long productId;
 	private ContactStatus contactStatus;
-	//private Product softwareused ;
-	private boolean status ;
 
 
 
@@ -47,11 +47,12 @@ public class FormDTO {
 				.companyname(contact.getCompanyname())
 				.nationality(contact.getNationality())
 				.name(contact.getName())
-				.contactStatus(contact.getContactstatus())
 				.createdDate(contact.getCreatedDate())
 				.lastModifiedDate(contact.getLastModifiedDate())
 				.mobile(contact.getMobile())
-				.entreprise(EntrepriseDTO.fromEntity(contact.getEntreprise()))
+				.entrepriseId(contact.getEntreprise().getId())
+				.contactStatus(contact.getContactstatus())
+				.productId(contact.getSoftwareused().getId())
 				.build();
 	}
 
@@ -74,9 +75,14 @@ public class FormDTO {
 		contact.setCreatedDate(dto.getCreatedDate());
 		contact.setContactstatus(dto.getContactStatus());
 		contact.setName(dto.getName());
+		//=======================> entreprise
 		Entreprise entreprise = new Entreprise();
 		entreprise.setId(dto.getEntrepriseId());
 		contact.setEntreprise(entreprise);
+		//=======================> contact
+		Product product = new Product();
+		product.setId(dto.getProductId());
+		contact.setSoftwareused(product);
 		return contact;
 	}
 

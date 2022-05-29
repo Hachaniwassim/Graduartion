@@ -1,10 +1,13 @@
 package app.igesa.dto;
 
+import app.igesa.entity.Entreprise;
 import app.igesa.entity.Language;
 import app.igesa.enumerations.LangEnum;
 import lombok.Builder;
 import lombok.Data;
 
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import java.util.Date;
 
 /**
@@ -15,12 +18,11 @@ import java.util.Date;
 @Builder
 public class LanguageDTO {
     private Long id;
-    private LangEnum lang;
+    private String code;
     private String name;
-    private String image;
-    private boolean active;
     protected Date createdDate;
     protected Date lastModifiedDate;
+    private Long entrepriseId;
 
 
     public static LanguageDTO fromEntity(Language language) {
@@ -29,12 +31,11 @@ public class LanguageDTO {
         }
         return LanguageDTO.builder()
                 .id(language.getId())
-                .active(language.isActive())
-                .lang(language.getLang())
+                .code(language.getCode())
                 .name(language.getName())
-                .image(language.getFlag())
                 .createdDate(language.getCreatedDate())
                 .lastModifiedDate(language.getLastModifiedDate())
+                .entrepriseId(language.getEntreprise().getId())
                 .build();
     }
 
@@ -46,12 +47,15 @@ public class LanguageDTO {
 
         Language language= new Language();
         language.setId(dto.getId());
-        language.setLang((dto.getLang()));
-        language.setActive(dto.isActive());
-        language.setFlag(dto.getImage());
+        language.setCode(dto.getCode());
         language.setName(dto.getName());
         language.setCreatedDate(dto.getCreatedDate());
         language.setLastModifiedDate(dto.getLastModifiedDate());
+
+        //===========================> Entreprise
+        Entreprise entreprise = new Entreprise();
+        entreprise.setId(dto.getEntrepriseId());
+        language.setEntreprise(entreprise);
         return language;
     }
 

@@ -23,9 +23,6 @@ public class Postvalidator {
             return errors;
         }
 
-        if(!StringUtils.hasLength(postDTO.getContent())) {
-            errors.add("Veuillez renseigner le champ content  !");
-        }
         if(!StringUtils.hasLength(postDTO.getDescription())) {
             errors.add("Veuillez renseigner le champ description !");
         }
@@ -35,9 +32,7 @@ public class Postvalidator {
         if(!StringUtils.hasLength(postDTO.getTitle())) {
             errors.add("Veuillez renseigner le champ title !");
         }
-        if(postDTO.getTypes() == null) {
-            errors.add("Veuillez renseigner le Types !");
-        }
+
         return errors;
     }
 }

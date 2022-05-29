@@ -1,5 +1,4 @@
 package app.igesa.metiers.implement;
-
 import app.igesa.dto.LanguageDTO;
 import app.igesa.entity.Language;
 import app.igesa.enumerations.ErrorCode;
@@ -35,21 +34,15 @@ public class LanguageImp  implements Ilanguage {
 
     @Override
     public LanguageDTO save(LanguageDTO L) {
-        List<String> errors = LanguageValidators.validate(L);
-            log.debug("HTTP POST {} ..",L);
-            if(!errors.isEmpty()) {
-            log.error("Language not valid !" ,L);
-            throw new InvalideEntityException("Language NOT VALID!", ErrorCode.LANGUAGE_NOT_VALID,errors);
-            }
            Language saved =ilanguageRepository.save(LanguageDTO.toEntity(L));
             return LanguageDTO.fromEntity(saved);
 
     }
 
     @Override
-    public Collection<LanguageDTO> view() {
+    public Collection<LanguageDTO> view(Long id_entreprise) {
         log.debug("HTTP GET ALL {} ..");
-        return ilanguageRepository.findAll().stream()
+        return ilanguageRepository.findByEntrepriseId(id_entreprise).stream()
                 .map(LanguageDTO::fromEntity)
                 .collect(Collectors.toList());
     }
@@ -79,9 +72,4 @@ public class LanguageImp  implements Ilanguage {
     }
 
 
-
-    @Override
-    public LanguageDTO update(LanguageDTO L, Long id) {
-        return null;
-    }
 }

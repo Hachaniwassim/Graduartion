@@ -44,36 +44,6 @@ public class PostImp implements Ipost {
 
     @Override
     public PostDTO save(PostDTO p) {
-        List<String> errors = Postvalidator.validate(p);
-        if (p.getId()!= null) {
-
-        }
-        if(!errors.isEmpty()) {
-            log.error("POST not valid !" ,p);
-            throw new InvalideEntityException("Post not valid !", ErrorCode.POST_NOT_VALID,errors);}
-
-        Optional<Pages> page = ipagesRepository.findById(p.getPage().getId());
-
-        if( page == null) {
-
-            log.warn("Page with id =  was not found  in the database", p.getPage().getId());
-            throw new ResourceNotFoundException("Page not Found with Id  = " + p.getPage().getId()+ " In the data base" ,ErrorCode.PAGES_NOT_FOUND);
-        }
-
-        if(page.isPresent()) {
-           p.setPage(PageDTO.fromEntity(page.get()));
-        }
-        Optional<Tags> tag = itagsRepository.findById(p.getTags().getId());
-
-        if( tag== null) {
-
-            log.warn("Tag with id =  was not found  in the database", p.getTags().getId());
-            throw new ResourceNotFoundException("Tag not Found with Id  = " + p.getTags().getId()+ " In the data base" ,ErrorCode.TAGS_NOT_FOUND);
-        }
-
-        if(tag.isPresent()) {
-            p.setTags(TagsDTO.fromEntity((tag.get())));
-        }
 
 
         Post saved =ipostRepository.save(PostDTO.toEntity(p));
@@ -83,8 +53,8 @@ public class PostImp implements Ipost {
 
 
     @Override
-    public Collection<PostDTO> view() {
-        return ipostRepository.findAll().stream()
+    public Collection<PostDTO> view(Long id_entreprise) {
+        return ipostRepository.findByEntrepriseId(id_entreprise).stream()
                 .map(PostDTO::fromEntity)
                 .collect(Collectors.toList());
     }

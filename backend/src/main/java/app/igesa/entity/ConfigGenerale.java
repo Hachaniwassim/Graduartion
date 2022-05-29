@@ -2,11 +2,9 @@ package app.igesa.entity;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import app.igesa.translation.ConfigurationTranslation;
+import lombok.*;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+
 import java.util.List;
 
 /**
@@ -25,7 +23,7 @@ import java.util.List;
 public class ConfigGenerale extends Auditable{
 
 	@Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private Long id ;
 	private String facebook ;
 	private String twitter ;

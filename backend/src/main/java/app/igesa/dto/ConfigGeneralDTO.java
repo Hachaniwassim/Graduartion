@@ -26,7 +26,6 @@ public class ConfigGeneralDTO {
 	private String email ;
 	private String phone ;
 	private String fax ;
-	private EntrepriseDTO entreprise ;
 	private String tagline ;
 	private String copyright ;
 	private String newslettertitle;
@@ -57,7 +56,7 @@ public class ConfigGeneralDTO {
 				//.robotsTags(config.getRobotsTags())
 				.createdDate(config.getCreatedDate())
 				.lastModifiedDate(config.getLastModifiedDate())
-				.entreprise(EntrepriseDTO.fromEntity(config.getEntreprise()))
+				.entrepriseId(config.getEntreprise().getId())
 				.build();
 	}
 
@@ -82,9 +81,9 @@ public class ConfigGeneralDTO {
 				config.setTwitter(dto.getTwitter());
 				config.setNewslettersubtitle(dto.getNewslettersubtitle());
 				config.setNewslettertitle(dto.getNewslettertitle());
-				//config.setRobotsTags(dto.getRobotsTags());
 				config.setLastModifiedDate(dto.getLastModifiedDate());
 				config.setCreatedDate(config.getCreatedDate());
+				//===============================> enterprise
 		        Entreprise entreprise = new Entreprise();
 		        entreprise.setId(dto.getEntrepriseId());
 		        config.setEntreprise(entreprise);

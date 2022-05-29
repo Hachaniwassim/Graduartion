@@ -39,26 +39,13 @@ public class ConfigurationImp implements Iconfiguration {
 
     @Override
     public ConfigGeneralDTO save(ConfigGeneralDTO c) {
-        List<String> errors = ConfigValidator.validateConfig(c);
-        if (!errors.isEmpty()) {
-            log.error("Config not valid !", c);
-            throw new InvalideEntityException("Confignot valid !", ErrorCode.CONFIG_NOT_VALID, errors);
-        }
-
-        Optional<Entreprise> entreprise = ientrepriseRepository.findById(c.getEntreprise().getId());
-
-        if (entreprise == null) {
-
-            log.warn("Entreprise with id =  was not found  in the database", c.getEntreprise().getId());
-            throw new ResourceNotFoundException("Groupe not Found with Id  = " + c.getEntreprise().getId() + " In the data base", ErrorCode.CONFIGURATION_NOT_FOUND);
-        }
         ConfigGenerale saved =iconfigRepository.save(ConfigGeneralDTO.toEntity(c));
         return ConfigGeneralDTO.fromEntity(saved);
     }
 
     @Override
-    public Collection<ConfigGeneralDTO> view() {
-        return iconfigRepository.findAll().stream()
+    public Collection<ConfigGeneralDTO> view(Long enterprise_id) {
+        return iconfigRepository.findByEntrepriseId(enterprise_id).stream()
                 .map(ConfigGeneralDTO::fromEntity)
                 .collect(Collectors.toList());
     }
@@ -84,11 +71,6 @@ public class ConfigurationImp implements Iconfiguration {
             return;
         }
         iconfigRepository.deleteById(id);
-    }
-
-    @Override
-    public ConfigGeneralDTO update(ConfigGeneralDTO c, Long id) {
-        return null;
     }
 
 

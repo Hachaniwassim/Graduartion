@@ -32,7 +32,7 @@ public class TranslationObject {
     @ManyToOne
     private Language language;
     public void setLanguage(Language language) {
-        this.enumLanguage= language != null ? language.getLang() : null;
+        this.enumLanguage= language != null ? LangEnum.valueOf(language.getCode()) : null;
         this.language = language;
     }
 

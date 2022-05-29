@@ -1,9 +1,5 @@
 package app.igesa.metiers;
-
-
 import app.igesa.dto.NewsDTO;
-import app.igesa.dto.PostDTO;
-
 import java.util.Collection;
 
 public interface INwes {

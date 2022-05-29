@@ -56,7 +56,7 @@ public class ConfigurationController {
     }
 
 
-    @RequestMapping(value=PRIVATE_API ,method =RequestMethod.GET)
+    @RequestMapping(value=PRIVATE_API  + "/list-platform/{id_entreprise}",method =RequestMethod.GET)
     @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
     @ApiOperation(value="GET CONFIGURATION GENERALE", responseContainer  = "Collection<ConfigGeneralDTO>")
     @ApiResponses(value= {
@@ -66,9 +66,9 @@ public class ConfigurationController {
             @ApiResponse( code=403, message="not permitted or allowed"),
 
     })
-    public ResponseEntity<Collection<ConfigGeneralDTO>> view() {
+    public ResponseEntity<Collection<ConfigGeneralDTO>> view(@PathVariable Long id_entreprise) {
         log.debug(" HTTP GET CONFIG {}");
-        return new ResponseEntity<>( iconfigurationService.view(),HttpStatus.OK);
+        return new ResponseEntity<>( iconfigurationService.view(id_entreprise),HttpStatus.OK);
     }
 
 

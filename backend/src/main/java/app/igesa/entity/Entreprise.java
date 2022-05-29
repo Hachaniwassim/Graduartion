@@ -7,9 +7,7 @@ import javax.validation.constraints.Email;
 import app.igesa.entity.pages.Pages;
 import app.igesa.entity.siteinfo.Plateforme;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.Type;
 
 
@@ -23,13 +21,15 @@ import org.hibernate.annotations.Type;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Getter
+@Setter
 @Table(name="entreprise")
 public class Entreprise  extends Auditable{
 
 	private static final long serialVersionUID = 1L;
 
 	@Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private Long id ;
 	@Email
 	private String email ;
@@ -47,9 +47,9 @@ public class Entreprise  extends Auditable{
 	private String refrente;
 	//private String Vatnumber;
 
-    /**
+	/**
 	 * Groupe
-     */
+	 */
 
 	@ManyToOne
 	private Groupe groupe;
@@ -66,15 +66,15 @@ public class Entreprise  extends Auditable{
 	 * Lists
 	 *
 	 */
-    @JsonIgnore
+	@JsonIgnore
 	@OneToMany(mappedBy="entreprise",cascade = CascadeType.ALL)
-    private List<Plateforme>plateformes;
+	private List<Plateforme>plateformes;
 	@JsonIgnore
 	@OneToMany(mappedBy="entreprise",cascade = CascadeType.ALL )
 	private List<ConfigGenerale>configs;
 	@JsonIgnore
 	@OneToMany(mappedBy="entreprise",cascade = CascadeType.ALL)
-	 private List<Privacy> privacys;
+	private List<Privacy> privacys;
 	@JsonIgnore
 	@OneToMany(mappedBy="entreprise",cascade = CascadeType.ALL)
 	private List<Cookies> cookies;
@@ -107,6 +107,17 @@ public class Entreprise  extends Auditable{
 	@JsonIgnore
 	@OneToMany(mappedBy="entreprise",cascade = CascadeType.ALL)
 	private List<Tags> tags= new ArrayList<>();
+
+	@JsonIgnore
+	@OneToMany(mappedBy="entreprise",cascade = CascadeType.ALL)
+	private List<Nwes> news = new ArrayList<>();
+	@JsonIgnore
+	@OneToMany(mappedBy="entreprise",cascade = CascadeType.ALL)
+	private List<Liens> liens= new ArrayList<>();
+
+	@JsonIgnore
+	@OneToMany(mappedBy="entreprise",cascade = CascadeType.ALL)
+	private List<Language> languages= new ArrayList<>();
 
 
 

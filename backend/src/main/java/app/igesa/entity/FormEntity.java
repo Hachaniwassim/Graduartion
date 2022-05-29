@@ -1,8 +1,6 @@
 package app.igesa.entity;
 import app.igesa.enumerations.ContactStatus;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.Hibernate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import javax.persistence.*;
@@ -15,7 +13,8 @@ import java.util.Objects;
  *
  **/
 
-
+@Getter
+@Setter
 @EntityListeners(AuditingEntityListener.class)
 @Data
 @AllArgsConstructor
@@ -24,7 +23,7 @@ import java.util.Objects;
 @Table(name="Contact")
 public class FormEntity  extends Auditable{
 	@Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private Long id ;
 	private String name ;
 	private String companyname;
@@ -44,6 +43,8 @@ public class FormEntity  extends Auditable{
 	/**
 	 * Product used
 	 */
+	@Setter
+	@Getter
 	@ManyToOne
 	private Product softwareused ;
 
@@ -51,7 +52,8 @@ public class FormEntity  extends Auditable{
 	 * ENTERPRISE
 	 *
 	 */
-
+	@Setter
+	@Getter
 	@ManyToOne
 	private Entreprise entreprise;
 

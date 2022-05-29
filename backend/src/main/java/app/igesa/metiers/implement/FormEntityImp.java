@@ -60,8 +60,8 @@ public class FormEntityImp implements IformEntity {
     }
 
     @Override
-    public Collection<FormDTO> view() {
-        return iformEntityRepository.findFirstByEntrepriseId(ientrepriseService.getCurrentEnterprise().getId()).stream()
+    public Collection<FormDTO> view(Long id_entreprise) {
+        return iformEntityRepository.findByEntrepriseId(id_entreprise).stream()
                 .map(FormDTO::fromEntity)
                 .collect(Collectors.toList());
     }
@@ -73,7 +73,7 @@ public class FormEntityImp implements IformEntity {
             return null ;
         }
 
-        return  Optional.of(iformEntityRepository.findByEntrepriseId(ientrepriseService.getCurrentEnterprise().getId()).map(FormDTO::fromEntity).orElseThrow(()->
+        return  Optional.of(iformEntityRepository.findById(id).map(FormDTO::fromEntity).orElseThrow(()->
                 new ResourceNotFoundException(" No FormEntity with  Id = :: " +id+ " was founded {} ..!",
                         ErrorCode.FORMENTITY_NOT_FOUND)));
 

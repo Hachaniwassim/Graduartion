@@ -31,14 +31,6 @@ public class Tags extends Auditable {
        @ManyToOne
 	   private Entreprise entreprise ;
 
-
-	/**
-	 * post list
-	 */
-	@JsonIgnore
-	@OneToMany(mappedBy="tags",cascade = CascadeType.ALL)
-	private List<Post>posts ;
-
 	/**
 	 *
 	 * translation

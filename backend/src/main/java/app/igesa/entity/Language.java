@@ -1,41 +1,40 @@
 package app.igesa.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EntityListeners;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+
+import lombok.*;
 import org.springframework.boot.actuate.audit.listener.AuditListener;
 import app.igesa.enumerations.LangEnum;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+
 /**
  *
  * @author Tarchoun Abir
  *
  **/
+
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="language")
+@Getter
+@Setter
+@Table(name="Languages")
 @EntityListeners(value = AuditListener.class)
 public class Language extends Auditable{
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(nullable = false)
-    @Enumerated(EnumType.STRING)
-    private LangEnum lang;
+    //@Enumerated(EnumType.STRING)
+    private String code;
     @Column(columnDefinition="TEXT")
     private String name;
-    private String flag;
-    private boolean active;
-    
+    /**
+     * Entreprise
+     */
+    @Setter
+    @Getter
+    @ManyToOne
+    private Entreprise entreprise;
+
 }

@@ -43,7 +43,7 @@ public class LanguageController {
 
 
 
-    @RequestMapping(value=PRIVATE_API,method = RequestMethod.POST)
+    @RequestMapping(value=PRIVATE_API + "/post-language",method = RequestMethod.POST)
     @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
     @ApiOperation(value="ADD LANGUAGE",notes="SAUVGARDER LANGUAGE", response = LanguageDTO.class)
     @ApiResponses(value= {
@@ -59,7 +59,7 @@ public class LanguageController {
     }
 
 
-    @RequestMapping(value=PRIVATE_API,method =RequestMethod.GET)
+    @RequestMapping(value=PRIVATE_API + "/list-language/{id_entreprise}",method =RequestMethod.GET)
     @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
     @ApiOperation(value="GET A LIST OF LANGUAGE", responseContainer  = "Collection<LanguageDTO>")
     @ApiResponses(value= {
@@ -69,9 +69,9 @@ public class LanguageController {
             @ApiResponse( code=403, message="not permitted or allowed"),
 
     })
-    public ResponseEntity<Collection<LanguageDTO>> view() {
+    public ResponseEntity<Collection<LanguageDTO>> view(@PathVariable Long id_entreprise) {
         log.debug(" HTTP GET ALL LANGUAGE {}");
-        return new ResponseEntity<>(ilanguageService.view(),HttpStatus.OK);
+        return new ResponseEntity<>(ilanguageService.view(id_entreprise),HttpStatus.OK);
     }
 
 
@@ -91,7 +91,7 @@ public class LanguageController {
     }
 
 
-    @RequestMapping(value=PRIVATE_API,method =RequestMethod.PUT)
+    @RequestMapping(value=PRIVATE_API + "/update-language",method =RequestMethod.PUT)
     @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
     @ApiOperation(value="UPDATE LANGUAGE ",response = LanguageDTO.class)
     @ApiResponses(value= {
