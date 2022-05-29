@@ -31,8 +31,8 @@
                 <div class="card m-b-30">
 
                     <div class="col-md-12 col-sm-12 "><br><br>
-                        <button class="btn btn-sm btn-outline-primary"  data-bs-toggle="modal" data-bs-target="#exampleModal" id="pills-description-tab" data-toggle="pill" href="#pills-description" role="tab" aria-controls="pills-description" aria-expanded="true">Add Product</button>&nbsp;
-
+                        <button mat-flat-button color="primary"> <mat-icon>add</mat-icon> Add Product
+                        </button>&nbsp;
                     </div>
                     <div class="card-body">
                         <div class="container">
@@ -128,49 +128,3 @@
                     </div>
                 </div>
             </div>
-            
-<!-- Modal -->
-<div class="modal fade bd-example-modal-xl"  id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-aria-hidden="true">
-<div class="modal-dialog" >
-  <div class="modal-content" style="background-color: white;">
-    <div class="modal-header">
-      <h5  class="modal-title" id="exampleModalLabel">
-        Add Product
-      </h5>
-      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-    </div>
-    <div class="modal-body">
-      <form  enctype="multipart/form-data">
-        <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">Product Name</label>
-          <input type="text"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-            formControlName="title"  />
-        </div>
-        <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Image</label>
-            <input type="file" class="form-control" id="exampleInputEmail1" formControlName="image"
-              aria-describedby="emailHelp" />
-          </div>
-        <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Caracteristiques</label>
-            <ckeditor   formControlName="description" class="w-10 col-12"  [config]='config' formControlName="htmlContent"></ckeditor>
-        </div>
-          <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Requirements</label>
-            <ckeditor   formControlName="description" class="w-10 col-12"  [config]='config' formControlName="htmlContent"></ckeditor>
-
-          </div>
-
-
-        <div class="mb-3">
-                <label>Description</label><br>
-                <ckeditor   formControlName="description" class="w-10 col-12"  [config]='config' formControlName="htmlContent"></ckeditor>
-        </div>
-        <button class="w-100 btn btn-lg btn-primary" type="submit" name="submit" >
-           add
-        </button>
-      </form>
-    </div>
-  </div>
-</div>
