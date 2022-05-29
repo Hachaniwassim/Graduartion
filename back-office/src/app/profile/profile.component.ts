@@ -5,7 +5,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import Swal from 'sweetalert2';
-import { AccountDTO } from '../models/dto/accountDTO';
 import { CustomHttpRespone } from '../models/entity/custom-http-response';
 import { Accountservice } from '../_services/account.service';
 import { AuthService } from '../_services/auth.service';

@@ -35,10 +35,9 @@ export class LanguageListComponent implements OnInit {
   languages: any;
 
   datasource = new MatTableDataSource(this.language)
-  displayedColumns: string[] = [ 'name', 'groupStatus', 'createdDate', 'lastModifiedDate', 'actions'];
+  displayedColumns: string[] = [ 'name', 'code', 'createdDate', 'lastModifiedDate', 'actions'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort, {}) sort!: MatSort;
-  id = this.route.snapshot.params['id'];
   message!: string;
   constructor(private _snackBar: MatSnackBar, private dialog: MatDialog, private languageservice: Languageservice, private dialogService: DialogService,private notificationService: NotificationService, private route: ActivatedRoute, public router: Router, public _location: Location) {
     this.languageData = {} as languageDTO;
@@ -56,9 +55,6 @@ export class LanguageListComponent implements OnInit {
 
       this.languageservice.getalllanguage().subscribe((response: any) => {
       this.datasource.data = response;});
-
-    //this.getBy(this.route.snapshot.paramMap.get('id'));
-
   }
 
   getBylanguage(id: any) {
@@ -127,10 +123,8 @@ export class LanguageListComponent implements OnInit {
     dialogConfig.width = "100%";
     this.dialog.open(LanguageViewComponent, {
       data: {
-        lang: row.lang,
+        code: row.code,
         name: row.name,
-        image: row.image,
-        active: row.active,
       },
     }
     ), dialogConfig
@@ -173,80 +167,6 @@ export class LanguageListComponent implements OnInit {
     });
   }
 
-  //update status groupe
-  /*updateactiveGroupe(element: languageDTO) {
 
-    this.languageservice.updatelanguageByStatus(element.id, element.groupStatus).subscribe( res => {
-        
-         console.log(res);
-          
-          const index = this.datasource.data.indexOf(element);
-          if(index > -1) {
-            this.datasource.data[index].groupStatus = res.groupStatus;
-          }
-        },
-      // snackBar error 
-      );
-
-  }*/
-
-
-  // delete all groupe
-  removeAlllanguage() {
-    Swal.fire({
-      title: 'Are you sure to delete all Groupes  !?',
-      text: 'This process is irreversible.',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonText: 'Yes, go ahead.',
-      cancelButtonText: 'No, let me think',
-    }).then((result) => {
-      if (result.value) {
-        this.languageservice.deleteAlllanguage()
-          .subscribe(
-            response => {
-              console.log(response);
-               // snackBar success 
-              this._snackBar.open("Groupes Deleted Successfully !!", "", {
-                duration: 5000,
-                horizontalPosition: "right",
-                verticalPosition: "top",
-                panelClass: ["mat-toolbar", "mat-succes"],
-              });
-
-              this.ngOnInit();
-              this.refresh();
-            },
-
-            error => {
-               // snackBar error
-              this._snackBar.open("Erroor occurend !!" + error?.message, "", {
-                duration: 3000,
-                horizontalPosition: "right",
-                verticalPosition: "top",
-                panelClass: ["mat-toolbar", "mat-warn"],
-              });
-            });
-        Swal.fire('Deleted!', ' All Groupe  was Deleted successfully.', 'success');
-      } else if (result.dismiss === Swal.DismissReason.cancel) {
-        Swal.fire('TRY LATER...');
-      }
-    });
-
-  }
-  //filtring by active groupe 
-  active = "";
-  searchByActivelanguage() {
-    this.languageservice.findByActivelanguage(this.active)
-      .subscribe(
-        data => {
-
-          this.datasource.filter = this.active.trim().toLowerCase();
-          this.active.trim().toLowerCase() == data;
-        },
-        error => {
-          console.log(error);
-        });
-  }
-
+ 
 }

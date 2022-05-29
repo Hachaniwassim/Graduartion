@@ -4,10 +4,9 @@
  */
 export class languageDTO{
     id !: number;
-    lang!: string;
+    code!: string;
     name!: string;
-    flag !:string;
     createdDate !:Date;
     lastModifiedDate!: Date;
-    active !: boolean;
+    entrepriseId!:number;
     }
