@@ -4,5 +4,8 @@ public enum ProductTypes {
 
         FASHION,
         FOOD,
-       RETAIL
+        RETAIL,
+        HOME,
+
+
 }

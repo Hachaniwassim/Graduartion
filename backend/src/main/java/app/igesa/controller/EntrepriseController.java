@@ -121,11 +121,13 @@ public class EntrepriseController {
 			@ApiResponse( code=403, message="not permitted or allowed")
 
 	})
-	public void delete(@PathVariable Long id) {
+	public ResponseEntity delete(@PathVariable Long id) {
 
 		log.debug(" <=================== HTTP DELETE ENTREPRISE BY ID {}====================>",id);
 
 		entrepriseservice.delete(id);
+
+		return new ResponseEntity<>("{code :200 ,msg : deleted successfully}",HttpStatus.OK);
 	}
 
 	@RequestMapping(value = PRIVATE_API + "/groupe", method = RequestMethod.POST)

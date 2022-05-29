@@ -29,18 +29,18 @@ import java.util.List;
 @Api(tags = "ROLE")
 public class RoleController {
 
-    /*********************************************************
+    /***************
      *
-     * @Api PUBLIC_API : for all  ||  PRIVATE_API : with token
+     * @Api PRIVATE_API : with token
      *
-     **********************************************************/
+     ********/
 
+    private final String PRIVATE_API = "/api/private/roles";
     private static final Logger log = LoggerFactory.getLogger(RoleController.class);
 
     @Autowired
     private Irole iroleService;
-    private final String PUBLIC_API = "/api/roles";
-    private final String PRIVATE_API = "/api/private/roles";
+
 
 
     @RequestMapping(value = PRIVATE_API, method = RequestMethod.POST)
@@ -107,7 +107,6 @@ public class RoleController {
         return ResponseEntity.noContent().build();
     }
 
-    //semah abir
     @PreAuthorize("hasRole('MODERATOR') or hasRole('ADMIN')")
     @RequestMapping(value = PRIVATE_API + "/update-role", method = RequestMethod.POST)
     @ResponseBody

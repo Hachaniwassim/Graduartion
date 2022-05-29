@@ -15,8 +15,8 @@ import java.util.Optional;
 public interface IcategoryRepository extends JpaRepository<Category,Long>, JpaSpecificationExecutor<Category>{
 
 
-        Optional<Category> findFirstByEntrepriseId(Long id);
-        List<Category> findByEntrepriseId(Long id);
+        //Optional<Category> findFirstByEntrepriseId(Long id);
+        List<Category> findByEnterpriseId(Long id);
 }
 
 

@@ -38,7 +38,7 @@ public class Entreprise  extends Auditable{
 	private String fax ;
 	@Type(type = "org.hibernate.type.TextType")
 	private String note ;
-	@Column(name="CompanyName", unique = true,nullable = false)
+	@Column(name="CompanyName", unique = true)
 	private String companyname ;
 	private String websiteUrl;
 	private String adresse;
@@ -74,9 +74,6 @@ public class Entreprise  extends Auditable{
 	private List<ConfigGenerale>configs;
 	@JsonIgnore
 	@OneToMany(mappedBy="entreprise",cascade = CascadeType.ALL)
-	private List<Product>products;
-	@JsonIgnore
-	@OneToMany(mappedBy="entreprise",cascade = CascadeType.ALL)
 	 private List<Privacy> privacys;
 	@JsonIgnore
 	@OneToMany(mappedBy="entreprise",cascade = CascadeType.ALL)
@@ -85,8 +82,8 @@ public class Entreprise  extends Auditable{
 	@OneToMany(mappedBy="entreprise",cascade = CascadeType.ALL)
 	private List<FormEntity> formEntity;
 	@JsonIgnore
-	@OneToMany(mappedBy="entreprise",cascade = CascadeType.ALL)
-	private List<Category> category = new ArrayList<>();
+	@OneToMany(mappedBy="enterprise",cascade = CascadeType.ALL)
+	private List<Category> categorys= new ArrayList<>();
 	@JsonIgnore
 	@OneToMany(mappedBy="entreprise",cascade = CascadeType.ALL)
 	private List<Post> post= new ArrayList<>();
@@ -102,8 +99,13 @@ public class Entreprise  extends Auditable{
 	@JsonIgnore
 	@OneToMany(mappedBy="entreprise",cascade = CascadeType.ALL)
 	private List<Pages> pages= new ArrayList<>();
+
 	@JsonIgnore
-	@OneToMany(mappedBy="entreprise")
+	@OneToMany(mappedBy="entreprise",cascade = {CascadeType.REFRESH, CascadeType.MERGE,CascadeType.DETACH,CascadeType.PERSIST})
+	private List<Product> products= new ArrayList<>();
+
+	@JsonIgnore
+	@OneToMany(mappedBy="entreprise",cascade = CascadeType.ALL)
 	private List<Tags> tags= new ArrayList<>();
 
 

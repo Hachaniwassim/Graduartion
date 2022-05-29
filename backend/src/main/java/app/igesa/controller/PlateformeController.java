@@ -34,7 +34,6 @@ public class PlateformeController {
 	 *
 	 ******/
 
-	private final String PUBLIC_API = "api/plateforme";
 	private final String PRIVATE_API = "api/private/plateforme";
     private static final Logger log = LoggerFactory.getLogger(PlateformeController.class);
 
@@ -103,10 +102,11 @@ public class PlateformeController {
 			@ApiResponse(code=200,message="Plateforme was Deleted successfully")
 
 	})
-	public void delete(@PathVariable Long id) {
+	public ResponseEntity delete(@PathVariable Long id) {
 		log.debug("<=================HTTP Delete plateforme{}==================>",id);
 		log.debug(" HTTP DELETE PLATEFORMEBY ID {}",id);
 		plateformeservice.delete(id);
+        return new ResponseEntity<>("{code :200 ,msg : deleted successfully}",HttpStatus.OK);
 	}
 
 }

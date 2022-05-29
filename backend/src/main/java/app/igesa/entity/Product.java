@@ -10,12 +10,9 @@ import javax.persistence.*;
 import app.igesa.entity.seo.Meta;
 import app.igesa.enumerations.ProductTypes;
 import app.igesa.translation.ProductTranslation;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.*;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
 
 import java.util.HashSet;
 import java.util.List;
@@ -24,6 +21,8 @@ import java.util.Set;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 @EqualsAndHashCode(callSuper= true)
 @EntityListeners(AuditingEntityListener.class)
 @Entity
@@ -34,50 +33,49 @@ public class Product extends Auditable{
     @GeneratedValue(strategy= GenerationType.IDENTITY)
 	private Long id ;
 	private String title ;
-	private String detailsimage ;
-	private String note ;
+	private String Slug ;
 	private String name ;
+	@Column(columnDefinition="text")
 	private String description;
-	@Column(name="Image")
+	@Column(columnDefinition="text")
+	private String caracteristique;
+	@Column(columnDefinition="text")
+	private String requirements;
 	private String image ;
-	@Enumerated(EnumType.STRING)
-	private ProductTypes type;
-	/**
-	 * Translation :: still not use
-	 */
 
-	@OneToMany(mappedBy="product",cascade = CascadeType.ALL)
-	private List<ProductTranslation> productTranslations;
 	/**
 	 * ENTERPRISE
 	 */
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	private Entreprise entreprise;
 
 	/**
 	 * CATEGORIES
 	 */
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	private Category category;
+
 	/**
-	 * SEO
+	 * TAGS
 	 */
-
-	private String urlKey;
-	private String metaTitle;
-	private String metaKey;
-	private String metaDescription;
-
-    /**
-    * TAGS
-    */
 
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(	name = "products_tags",
 			joinColumns = @JoinColumn(name = "product_id"),
 			inverseJoinColumns = @JoinColumn(name = "tag_id"))
 	private Set<Tags> tags = new HashSet<>();
+
+
+	/**
+	 * SEO
+	 */
+
+	/*private String urlKey;
+	private String metaTitle;
+	private String metaKey;
+	private String metaDescription;*/
+
 
 }

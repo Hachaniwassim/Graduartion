@@ -26,14 +26,13 @@ public class LanguageController {
 
 
 
-    /*********************************************************
+    /********************
      *
-     * @Api  PUBLIC_API : for all  ||  PRIVATE_API : with token
+     * @Api  PRIVATE_API : with token
      *
-     *********************************************************/
+     *****/
 
-    private final String PUBLIC_API = "api/language";
-    private final String PRIVATE_API = "api/private/language";
+    private final String PRIVATE_API = "api/private/languages";
 
 
     @Autowired
@@ -115,11 +114,10 @@ public class LanguageController {
             @ApiResponse( code=403, message="not permitted or allowed")
 
     })
-    public void delete(@PathVariable Long id) {
-
+    public ResponseEntity delete(@PathVariable Long id) {
         log.debug(" HTTP DELETE Language BY ID {}",id);
-
         ilanguageService.delete(id);
+        return new ResponseEntity<>("{code :200 ,msg : deleted successfully}",HttpStatus.OK);
     }
 
 }

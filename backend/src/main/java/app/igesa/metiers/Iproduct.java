@@ -7,8 +7,8 @@ import java.util.Optional;
 
 public interface Iproduct {
     public ProductDTO save (ProductDTO p);
-    public Collection<ProductDTO> view();
+    public Collection<ProductDTO> view(Long enterprise_id);
     public ProductDTO findById(Long id);
     public void delete(Long id);
-    public ProductDTO update(ProductDTO p, Long id);
+    //public ProductDTO update(ProductDTO p, Long id);
 }

@@ -113,11 +113,11 @@ public class FormController {
             @ApiResponse( code=403, message="not permitted or allowed")
 
     })
-    public void delete(@PathVariable Long id) {
+    public ResponseEntity delete(@PathVariable Long id) {
 
         log.debug(" HTTP DELETE FORM ENTITY   BY ID {}",id);
-
-     iformEntityService.delete(id);
+        iformEntityService.delete(id);
+        return new ResponseEntity<>("{code :200 ,msg : deleted successfully}",HttpStatus.OK);
     }
 
 }

@@ -108,10 +108,11 @@ public class PostController {
             @ApiResponse( code=403, message="not permitted or allowed")
 
     })
-    public void delete(@PathVariable Long id) {
+    public ResponseEntity delete(@PathVariable Long id) {
 
         log.debug(" HTTP DELETE POST BY ID {}",id);
+        ipostService.delete(id);
+        return new ResponseEntity<>("{code :200 ,msg : deleted successfully}",HttpStatus.OK);
 
-       ipostService.delete(id);
     }
 }

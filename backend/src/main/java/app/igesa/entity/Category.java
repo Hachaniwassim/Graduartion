@@ -31,7 +31,7 @@ public class Category extends Auditable {
 	private String title;
 	@Type(type = "org.hibernate.type.TextType")
 	private String description ;
-	private String name ;
+	private String subtitle;
 	private String menuimage ;
 	private String bannerimage ;
 
@@ -43,12 +43,18 @@ public class Category extends Auditable {
 
 	@ManyToOne
 	private Entreprise enterprise;
-	@Column(columnDefinition = "int default 1") // used to srt categories in FO of client
-	private int priority;
+
+	@JsonIgnore
+	@OneToMany(mappedBy="category",cascade = CascadeType.ALL)
+	private List<CategoryTranslation> categoryTranslations ;
 
 	@JsonIgnore
 	@OneToMany(mappedBy="category")
 	private List<Product> products = new ArrayList<>();
+
+	/*@Column(columnDefinition = "int default 1") // used to srt categories in FO of client
+	private int priority;
+
 
 	@ManyToOne(optional = true)
 	@JsonIgnoreProperties(value = {"subCategoryList"}, allowSetters = true)
@@ -57,13 +63,9 @@ public class Category extends Auditable {
 	@OneToMany(mappedBy = "parent")
 	@JsonIgnoreProperties(value = {"parent"}, allowSetters = true)
 	@OrderBy("priority ASC")
-	private List<Category> subCategoryList;
+	private List<Category> subCategoryList;*/
 
-	@OneToMany(mappedBy="category",cascade = CascadeType.ALL)
-	private List<CategoryTranslation> categoryTranslations ;
 
-	@ManyToOne
-	@JoinColumn(name = "entreprise_id")
-	private Entreprise entreprise;
+
 
 }
