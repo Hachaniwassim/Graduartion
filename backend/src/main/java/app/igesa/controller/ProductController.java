@@ -37,7 +37,7 @@ public class ProductController {
     private Iproduct iproductService;
 
 
-    @RequestMapping(value= PRIVATE_API,method = RequestMethod.POST)
+    @RequestMapping(value= PRIVATE_API + "/post-product",method = RequestMethod.POST)
     @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
     @ApiOperation(value="ADD PRODUCT",notes="SAUVGARDER PRODUCT", response = ProductDTO.class)
     @ApiResponses(value= {
@@ -53,7 +53,7 @@ public class ProductController {
     }
 
 
-    @RequestMapping(value= PRIVATE_API,method =RequestMethod.GET)
+    @RequestMapping(value= PRIVATE_API + "/list-products/{entreprise_id}",method =RequestMethod.GET)
     @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
     @ApiOperation(value="GET A LIST OF PRODUCT", responseContainer  = "Collection<ProductDTO>")
     @ApiResponses(value= {
@@ -63,9 +63,9 @@ public class ProductController {
             @ApiResponse( code=403, message="not permitted or allowed"),
 
     })
-    public ResponseEntity<Collection<ProductDTO>> view() {
+    public ResponseEntity<Collection<ProductDTO>> view( @PathVariable Long entreprise_id) {
         log.debug(" HTTP GET ALL PRODUCT {}");
-        return new ResponseEntity<>( iproductService.view(),HttpStatus.OK);
+        return new ResponseEntity<>( iproductService.view(entreprise_id),HttpStatus.OK);
     }
 
 
@@ -85,7 +85,7 @@ public class ProductController {
     }
 
 
-    @RequestMapping(value= PRIVATE_API + "/{id}",method =RequestMethod.PUT)
+    @RequestMapping(value= PRIVATE_API + "/update-product",method =RequestMethod.PUT)
     @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
     @ApiOperation(value="UPDATE PRODUCT BY ID ",response = ProductDTO.class)
     @ApiResponses(value= {
@@ -108,11 +108,10 @@ public class ProductController {
             @ApiResponse( code=403, message="not permitted or allowed")
 
     })
-    public void delete(@PathVariable Long id) {
-
+    public ResponseEntity delete(@PathVariable Long id) {
         log.debug(" HTTP DELETE PRODUCT BY ID {}",id);
-
        iproductService.delete(id);
+        return new ResponseEntity<>("{code :200 ,msg : deleted successfully}",HttpStatus.OK);
     }
 
 

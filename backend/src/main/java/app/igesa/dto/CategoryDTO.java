@@ -20,9 +20,9 @@ public class CategoryDTO {
 	private String menuimage ;
 	private String bannerimage ;
 	protected Date createdDate;
+	private String subtitle;
 	protected Date lastModifiedDate;
-	private boolean status ;
-	private Long entrepriseId;
+	private Long enterpriseId;
 
 
 	public static CategoryDTO fromEntity(Category category) {
@@ -34,9 +34,10 @@ public class CategoryDTO {
 				.menuimage(category.getMenuimage())
 				.title(category.getTitle())
 				.image(category.getImage())
+				.subtitle(category.getSubtitle())
 				.lastModifiedDate(category.getLastModifiedDate())
 				.createdDate(category.getCreatedDate())
-				.entrepriseId(category.getEnterprise().getId())
+				.enterpriseId(category.getEnterprise().getId())
 				.build();
 	}
 
@@ -56,9 +57,10 @@ public class CategoryDTO {
 		category.setCreatedDate(dto.getCreatedDate());
 		category.setLastModifiedDate(dto.getLastModifiedDate());
 		category.setImage(dto.getImage());
+		category.setSubtitle(dto.getSubtitle());
 		//===========================> Entreprise
 		Entreprise entreprise = new Entreprise();
-		entreprise.setId(dto.getEntrepriseId());
+		entreprise.setId(dto.getEnterpriseId());
 		category.setEnterprise(entreprise);
 		return category;
 	}

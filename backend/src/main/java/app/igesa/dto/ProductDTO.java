@@ -3,6 +3,8 @@ import app.igesa.entity.*;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
 import lombok.Data;
+
+import javax.persistence.Column;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
@@ -19,19 +21,22 @@ public class ProductDTO {
 	private Long id ;
 	private String image ;
 	private String title ;
-	private String detailimage ;
-	private String note ;
+	@Column(columnDefinition="text")
+	private String description ;
+	private String Slug ;
 	private String name ;
 	protected Date createdDate;
 	protected Date lastModifiedDate;
-	protected String createdBy;
-	private  int consultationNumber ;
-	private CategoryDTO category;
+	@Column(columnDefinition="text")
+	private String caracteristique;
+	@Column(columnDefinition="text")
+	private String requirements;
 	private Long entrepriseId;
 	private Long categorieId;
-	private Set<Tags> tags;
-	//private Long tagsId;
-    //private TagsDTO tags ;
+//	@JsonIgnore
+//	private Set<Tags> tags;
+
+
 
 
 	public static ProductDTO fromEntity(Product product) {
@@ -42,16 +47,16 @@ public class ProductDTO {
 				.id(product.getId())
 				.image(product.getImage())
 				.title(product.getTitle())
-				.detailimage(product.getDetailsimage())
-				.note(product.getNote())
+				.Slug(product.getSlug())
 				.name(product.getName())
 				.lastModifiedDate(product.getLastModifiedDate())
 				.createdDate(product.getCreatedDate())
-				.entrepriseId(product.getEntreprise().getId())
+				.caracteristique(product.getCaracteristique())
+				.description(product.getDescription())
+				.requirements(product.getRequirements())
 				.categorieId(product.getCategory().getId())
-				.tags(product.getTags())
-				//.tagsId(product.getTags().getId())
-				//.tags(TagsDTO.fromEntity(product.getTags()))
+				.entrepriseId(product.getEntreprise().getId())
+
 				.build();
 	}
 
@@ -65,12 +70,13 @@ public class ProductDTO {
 		 product.setId(dto.getId());
 		 product.setImage(dto.getImage()) ;
 	     product.setTitle(dto.getTitle());
-		 product.setNote(dto.getNote());
+		 product.setSlug(dto.getSlug());
 		 product.setName(dto.getName());
-		 product.setDetailsimage(dto.getDetailimage());
+		 product.setDescription(dto.getDescription());
 		 product.setCreatedDate(dto.getCreatedDate());
 		 product.setLastModifiedDate(dto.getLastModifiedDate());
-		 product.setTags(dto.getTags());
+	 	 product.setCaracteristique(dto.getCaracteristique());
+		 product.setRequirements(dto.getRequirements());
 		 //=================> entreprise
 		 Entreprise entreprise= new Entreprise();
 		 entreprise.setId(dto.getEntrepriseId());

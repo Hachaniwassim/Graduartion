@@ -11,7 +11,6 @@ import { ManagementComponent } from './management/management.component';
 import { UsefulllinksComponent } from './pages/usefulllinks/usefulllinks.component';
 
 //Positioning Web
-import { PosproductlistComponent } from './posproductlist/posproductlist.component';
 import { PosproductsComponent } from './posproducts/posproducts.component';
 //Home
 import { BoardUserComponent } from './board-user/board-user.component';
@@ -79,7 +78,6 @@ const routes: Routes = [
   { path: "posdealers", component: PosdealersComponent, canActivate: [AuthGuard] },
   { path: "posmanagement", component: PosmanagementComponent, canActivate: [AuthGuard] },
   { path: "posnews", component: PosnewsComponent, canActivate: [AuthGuard] },
-  { path: "posproductlist", component: PosproductlistComponent, canActivate: [AuthGuard] },
   { path: "posproducts", component: PosproductsComponent, canActivate: [AuthGuard] },
   { path: "possupport", component: PossupportComponent, canActivate: [AuthGuard] },
   { path: "posusefulllinks", component: PosusefulllinksComponent, canActivate: [AuthGuard] },
@@ -145,6 +143,8 @@ const routes: Routes = [
   { path: 'assistance', loadChildren: () => import('./pages/assistance/assistance.module').then(m => m.AssistanceModule), canActivate: [AuthGuard] },
  
   { path: 'choiseentreprise',component: ChoiseEntrepriseComponent, canActivate: [AuthGuard] },
+
+  { path: 'products', loadChildren: () => import('./products/products.module').then(m => m.ProductsModule) },
 
   // 404 not found
   { path: '**', component: NotfoundComponent },

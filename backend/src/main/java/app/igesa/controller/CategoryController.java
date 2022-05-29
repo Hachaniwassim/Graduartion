@@ -56,16 +56,16 @@ public class CategoryController {
     }
 
 
-    @RequestMapping(value=PRIVATE_API,method =RequestMethod.GET)
+    @RequestMapping(value=PRIVATE_API + "/list-category/{enterprise_id}",method =RequestMethod.GET)
     @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
     @ApiOperation(value="GET A LIST OF CATEGORY ", responseContainer  = "Collection<CategoryDTO")
     @ApiResponses(value= {
             @ApiResponse(code=200,message="Category was found successfully")
 
     })
-    public ResponseEntity<Collection<CategoryDTO>> view() {
+    public ResponseEntity<Collection<CategoryDTO>> view( @PathVariable  Long enterprise_id) {
         log.debug(" HTTP GET ALL Category {}");
-        return new ResponseEntity<>( categoryService.getAllByEntreprise(),HttpStatus.OK);
+        return new ResponseEntity<>( categoryService.getAllByEntreprise(enterprise_id),HttpStatus.OK);
     }
 
 
@@ -103,11 +103,13 @@ public class CategoryController {
 
     })
 
-    public void delete(@PathVariable Long id) {
+    public ResponseEntity delete(@PathVariable Long id) {
 
         log.debug(" HTTP DELETE CATEGORY BY ID {}",id);
 
         categoryService.delete(id);
+
+        return new ResponseEntity<>("{code :200 ,msg : deleted successfully}",HttpStatus.OK);
     }
 
     @RequestMapping(value=PRIVATE_API +"/images/{id}",method =RequestMethod.DELETE)

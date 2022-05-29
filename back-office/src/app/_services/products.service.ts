@@ -5,6 +5,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import * as _ from 'lodash';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 import { productsDTO } from '../models/dto/productsDTO';
 
 @Injectable({
@@ -13,20 +14,11 @@ import { productsDTO } from '../models/dto/productsDTO';
 export class ProductService {
 
   //api backend
-  private base_url="http://localhost:8089/product";
+  private base_url= environment.privateApi +"/product";
   
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
- ProductDTO ={
-  title:'', 
-  detailimage: '',
-  note: '',
-  name: '',
-  image: '',
-  consultationNumber: '',
 
-
-  }
   constructor(private http :HttpClient, private datePipe: DatePipe) { }
 
 //http opttion
@@ -54,43 +46,51 @@ return throwError( 'something bad happined , please try again later .');
 };
 
 
-// insert 
-createproduct(item : productsDTO):Observable<productsDTO>{
-return this.http.post<productsDTO>(this.base_url,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
-}
+// create product
+createproduct(request:any){
 
-//get all team data 
-getAllproducts():Observable<productsDTO>{
- return this.http.get<productsDTO>(this.base_url).pipe(retry(2),catchError(this.handleError));
+  return this.http.post<productsDTO>(`${this.base_url + '/post-product' }`, request);
 }
 
 
-// get team by id
+//get all 
+getAllproducts():Observable<productsDTO[]>{
+    return this.http.get<productsDTO[]>(this.base_url + '/list-products' + localStorage.getItem('idEntreprise'));
+  }
+
+
+// get by id
 getByidproduct(id:number):Observable<productsDTO>{
   return this.http.get<productsDTO>(this.base_url + '/' +id).pipe(retry(2),catchError(this.handleError));
 
 }
 
- // update team by Id the
- updateproduct(item : productsDTO){
-  return this.http.put<productsDTO>(this.base_url,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
- }
+  update(request: any) {
+  console.log('the request ====>',request)
+  return this.http.post<productsDTO>(`${this.base_url + '/update-product' }`, request);
+  
+}
 
-  // delete cars
+
+  // delete 
   deleteproduct(id:number){
-    return this.http.delete<productsDTO>(this.base_url + '/' +id,this.httpOptions).pipe(retry(2),catchError(this.handleError));
+    return this.http.delete<productsDTO>(this.base_url + '/' +id);
 
 }
 
 //validation formulaire
-  form : FormGroup= new FormGroup({
+    form : FormGroup= new FormGroup({
     id: new FormControl(null),
     title: new FormControl('',Validators.required),
-    detailimage : new FormControl('',[ Validators.required]),
-    note : new FormControl('',[ Validators.required]),
-    name : new FormControl('',[ Validators.required]),
+    description : new FormControl('',[ Validators.required]),
+    caracteristique : new FormControl('',[ Validators.required]),
+   // name : new FormControl('',[ Validators.required]),
     image : new FormControl(''),
-    consultationNumber : new FormControl(''),
+    requirements : new FormControl(''),
+    createdDate: new FormControl(''),
+    lastModifiedDate : new FormControl(''),
+    entrepriseId : new FormControl(''),
+    categorieId : new FormControl(''),
 
  
 });
@@ -99,12 +99,16 @@ getByidproduct(id:number):Observable<productsDTO>{
 initializeFormGroup() {
   this.form.setValue({
     id :null,
-    title: null,
-    detailimage: null,
+    title: '',
+    caracteristique: '',
     note: null,
-    name: null,
     image: null,
-    consultationNumber: null,
+    description: '',
+    requirements:'', 
+    entrepriseId:null,
+    categorieId:null,
+    createdDate:'',
+    lastModifiedDate:''
 
   });
 }

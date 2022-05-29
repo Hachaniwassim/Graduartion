@@ -116,11 +116,13 @@ public class ConfigurationController {
 
     })
 
-    public void delete(@PathVariable Long id) {
+    public ResponseEntity delete(@PathVariable Long id) {
 
         log.debug(" HTTP DELETE CONFIG BY ID {}",id);
 
         iconfigurationService.delete(id);
+
+        return new ResponseEntity<>("{code :200 ,msg : deleted successfully}",HttpStatus.OK);
     }
 
 

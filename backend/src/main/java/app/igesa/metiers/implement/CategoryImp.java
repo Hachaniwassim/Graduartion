@@ -39,11 +39,11 @@ public class CategoryImp  implements Icategory {
 
     @Override
     public CategoryDTO save(CategoryDTO c) {
-        Category category= new Category();
+        /*Category category= new Category();
         if (c.getId()!=null){
             category = icategoryRepository.findById(c.getId()).orElseThrow(IllegalAccessError::new);
         }
-        category.setEnterprise(ientrepriseService.getCurrentEnterprise());
+        category.setEnterprise(ientrepriseService.getCurrentEnterprise());*/
         Category saved = icategoryRepository.save(CategoryDTO.toEntity(c));
         return CategoryDTO.fromEntity(saved);
 
@@ -51,8 +51,8 @@ public class CategoryImp  implements Icategory {
 
 
     @Override
-    public Collection<CategoryDTO> getAllByEntreprise() {
-        return icategoryRepository.findFirstByEntrepriseId(ientrepriseService.getCurrentEnterprise().getId()).stream()
+    public Collection<CategoryDTO> getAllByEntreprise(Long enterprise_id) {
+        return icategoryRepository.findByEnterpriseId(enterprise_id).stream()
                 .map(CategoryDTO::fromEntity)
                 .collect(Collectors.toList());
     }
@@ -96,8 +96,4 @@ public class CategoryImp  implements Icategory {
     }
 
 
-    @Override
-    public CategoryDTO update(CategoryDTO c, Long id) {
-        return null;
-    }
 }

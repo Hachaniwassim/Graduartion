@@ -46,7 +46,7 @@ public class UserDetailsImpl implements UserDetails {
 
 	private Collection<? extends GrantedAuthority> authorities;
 
-	public UserDetailsImpl(Long id, String username, String email, String password, String fiscaleCode, Long id1, AccountStatus accountStatus, List<GrantedAuthority> authorities,Long groupeId) {
+	public UserDetailsImpl(Long id, String username, String email, String password, String fiscaleCode ,Long id1, AccountStatus accountStatus, List<GrantedAuthority> authorities,Long groupeId) {
 		this.id=id;
 		this.username=username;
 		this.email=email;
@@ -55,7 +55,6 @@ public class UserDetailsImpl implements UserDetails {
 		this.accountStatus=accountStatus;
 		this.authorities=authorities;
 		this.centerId=id1;
-		//semah
 		this.groupeId=groupeId;
 	}
 

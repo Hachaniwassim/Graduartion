@@ -1,31 +1,46 @@
-
 <br><br><br>
 <div id="wrapper">
-
-<div class="content-page">
+  <div class="content-page">
     <!-- Start content -->
     <div class="content">
-      <div class="col-xl-12">
-        <div class="card m-b-30">
-            <div class="card-body">
-      <fieldset class="container" >
-        <h3 >Section title front office side</h3>
-        <mat-progress-bar mode="determinate" value="30"></mat-progress-bar><br><br>
-        
-        <div class="container">
-          <form class="example-form">  
-            <label for=""> Section title front office side*</label> <br>       
-            <mat-form-field class="example-full-width" style="width: 500px;" appearance="fill">
-              <textarea matInput  ></textarea>
-            </mat-form-field> <br>
-            <button mat-raised-button color="primary" style="width: 100px;">Save</button>
-          </form>
-
+      <form class="form p-3" [formGroup]="assistance" id="assistance">  
+      <h4>  Front office side section title</h4>
+      <mat-progress-bar mode="determinate" value="22"></mat-progress-bar><br><br>
+        <div class="card card-fullheight">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6 col-sm-6">
+                <label>Tilte Front Office *</label><br>
+                <input type="text" formControlName="title" placeholder="title" class="form-control ">
+              </div>
+            </div>
+            <div class="row mt-5">
+              <div class="col-md-12 col-sm-12 ">
+                <button mat-flat-button class="float-right" color="primary" (click)="save()">save
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
-      </fieldset>
-    </div>
-  </div>
-</div>
+        <br><br><br>
+        <h4>Customer Logo </h4> 
+        <mat-progress-bar mode="determinate" value="15"></mat-progress-bar><br><br>
+        <div class="card card-fullheight">
+          <div class="card-body">
+              <div class="col-md-12 col-sm-12 mt-5">
+                <label>Customer logo *</label><br>
+                <ckeditor class="w-100 col-12"  [config]='config' formControlName="htmlContent"></ckeditor>
+            </div>  
+            <div class="row mt-5">
+              <div class="col-md-12 col-sm-12 ">
+                <button mat-flat-button class="float-right" color="primary" (click)="save()">save
+                </button>&nbsp;
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    
       <br>
       <br>
       <div class="col-xl-12">
@@ -48,12 +63,6 @@
     </div>
   </div>
   </div>
-
-
-    </div>
-    <!-- content -->
-
-
-
-</div>
+  </div>
+  </div>
 </div>

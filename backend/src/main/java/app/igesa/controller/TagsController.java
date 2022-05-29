@@ -1,6 +1,7 @@
 package app.igesa.controller;
 import app.igesa.dto.TagsDTO;
 import app.igesa.metiers.Itags;
+import app.igesa.payload.response.MessageResponse;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -69,22 +70,6 @@ public class TagsController {
         return new ResponseEntity<>( itagsService.view(id_entreprise),HttpStatus.OK);
     }
 
-
-   /* @RequestMapping(value=PRIVATE_API + "/{id}",method =RequestMethod.GET)
-    @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
-    @ApiOperation(value=" GET TAGS BY ID ",notes="GET AND SEARCH FOR TAGS BY ID ", response = TagsDTO.class)
-    @ApiResponses(value= {
-            @ApiResponse(code=200,message="Tags was found successfully with the provided id"),
-            @ApiResponse(code=404,message="No Tags is found with the provided id "),
-            @ApiResponse(code=401,message="Unauthorized , without authority or permission"),
-            @ApiResponse( code=403, message="not permitted or allowed"),
-
-    })
-    public ResponseEntity<Optional<TagsDTO>>findById(@PathVariable Long id) {
-        log.debug(" HTTP GET TAGS BY ID {}",id);
-        return new ResponseEntity<>( itagsService.findById(id),HttpStatus.OK);
-    }*/
-
     @RequestMapping(value=PRIVATE_API,method =RequestMethod.PUT)
     @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
     @ApiOperation(value="UPDATE TAGS BY ID ",response = TagsDTO.class)
@@ -108,11 +93,13 @@ public class TagsController {
             @ApiResponse( code=403, message="not permitted or allowed")
 
     })
-    public void delete(@PathVariable Long id) {
+    public ResponseEntity delete(@PathVariable Long id) {
 
         log.debug(" HTTP DELETE TAGS BY ID {}",id);
 
         itagsService.delete(id);
+
+        return ResponseEntity.ok(new MessageResponse("deleted  successfully"));
     }
 
 

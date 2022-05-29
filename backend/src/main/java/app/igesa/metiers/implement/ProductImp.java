@@ -39,25 +39,6 @@ public class ProductImp  implements Iproduct {
 
     @Override
     public ProductDTO save(ProductDTO p) {
-        List<String> errors = ProductValidators.validate(p);
-        if (p.getId()!= null) {
-
-        }
-        if(!errors.isEmpty()) {
-            log.error("PRODUCT not valid !" ,p);
-            throw new InvalideEntityException("PRODUCT not valid !", ErrorCode.PRODUCT_NOT_VALID,errors);}
-
-        Optional<Category> category = icategoryRepository.findById(p.getCategory().getId());
-
-        if( category== null) {
-
-            log.warn("Category with id =  was not found  in the database", p.getCategory().getId());
-            throw new ResourceNotFoundException("Category not Found with Id  = " + p.getCategory().getId()+ " In the data base" ,ErrorCode.CATEGORY_NOT_FOUND);
-        }
-
-        if(category.isPresent()) {
-            p.setCategory(CategoryDTO.fromEntity(category.get()));
-        }
 
         Product saved =iproductRepository.save(ProductDTO.toEntity(p));
         return ProductDTO.fromEntity(saved);
@@ -66,8 +47,8 @@ public class ProductImp  implements Iproduct {
 
 
     @Override
-    public Collection<ProductDTO> view() {
-        return iproductRepository.findAll().stream()
+    public Collection<ProductDTO> view( Long enterprise_id) {
+        return iproductRepository.findByEntrepriseId(enterprise_id).stream()
                 .map(ProductDTO::fromEntity)
                 .collect(Collectors.toList());
     }
@@ -94,8 +75,4 @@ public class ProductImp  implements Iproduct {
       iproductRepository.deleteById(id);
     }
 
-    @Override
-    public ProductDTO update(ProductDTO p, Long id) {
-        return null;
-    }
 }
