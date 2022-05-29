@@ -66,24 +66,28 @@ export class AddLanguageComponent implements OnInit {
     if (this.languageservice.form.valid) {
 
       if (!this.languageservice.form.get('id')?.value)
-       { console.log(this.languageservice.form.value);
-        this.languageservice.createlanguage(this.languageservice.form.value).subscribe((res) => {
-          console.log(res);
-      
+        
+        this.languageservice.createlanguage({   
+          id:this.languageservice.form.value.id,
+          name:this.languageservice.form.value.name,
+          code:this.languageservice.form.value.code,
+          createdDate:new Date(),
+          lastModifiedDate:new Date(),
+          entrepriseId:localStorage.getItem('idEntreprise'),
+          }).subscribe((res) => {
+          this.language.push(res);
+          console.log('the result of add language ====>',res)
           this.notificationService.success(':: Submitted successfully');
-          this.onClose();
-        });
-      }
-
-      else(
-        this.languageservice.updatelanguage(this.languageservice.form.value).subscribe(() => {
+          this.refresh();
+        })
+    else(
+        this.languageservice.updatelanguage(this.languageservice.form.value).subscribe((res) => {
+          console.log('the result of update  language ==============>',res)  
         })) 
         this.onClose();
+     
       }
-      
-    this.languageservice.form.reset();
-    this.languageservice.initializeFormGroup();
-   // this.refresh();
+      this.refresh();
   }
 
 

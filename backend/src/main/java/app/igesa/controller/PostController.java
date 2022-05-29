@@ -53,7 +53,7 @@ public class PostController {
     }
 
 
-    @RequestMapping(value=PRIVATE_API,method =RequestMethod.GET)
+    @RequestMapping(value=PRIVATE_API + "/list-post/{id_entreprise}",method =RequestMethod.GET)
     @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
     @ApiOperation(value="GET A LIST OF Post", responseContainer  = "Collection<PostDTO>")
     @ApiResponses(value= {
@@ -63,9 +63,9 @@ public class PostController {
             @ApiResponse( code=403, message="not permitted or allowed"),
 
     })
-    public ResponseEntity<Collection<PostDTO>> view() {
+    public ResponseEntity<Collection<PostDTO>> view(@PathVariable Long id_entreprise) {
         log.debug(" HTTP GET ALL Post {}");
-        return new ResponseEntity<>( ipostService.view(),HttpStatus.OK);
+        return new ResponseEntity<>( ipostService.view(id_entreprise),HttpStatus.OK);
     }
 
 

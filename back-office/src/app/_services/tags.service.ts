@@ -48,7 +48,7 @@ createtags(request: any){
   return this.http.post<TagsDTO>(this.base_url,request)
 }
 
-//get all data 
+//get all 
 getAlltags():Observable<TagsDTO[]>{
    return this.http.get<TagsDTO[]>(this.base_url + '/list-tags/' + localStorage.getItem('idEntreprise'));
 }

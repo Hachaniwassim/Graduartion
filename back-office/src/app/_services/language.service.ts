@@ -1,4 +1,4 @@
-import { DatePipe } from '@angular/common';
+
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -7,7 +7,6 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { languageDTO } from '../models/dto/languageDTO';
-import { Language } from '../models/enum/language.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -48,81 +47,61 @@ export class Languageservice {
 
 
   // insert 
-  createlanguage(item: any): Observable<languageDTO> {
-  
-    return this.http.post<languageDTO>(this.base_url, JSON.stringify(item), this.httpOptions).pipe(retry(2), catchError(this.handleError));
+  createlanguage(request:any) {
+
+    return this.http.post<languageDTO>(this.base_url + '/post-language' , request);
   }
 
-  //get all team data 
-  getalllanguage(): Observable<languageDTO[]> {
-    return this.http.get<languageDTO[]>(this.base_url).pipe(retry(2), catchError(this.handleError));
-  }
-
-
-  // get team by id
-  getByidlanguage(id: number): Observable<languageDTO> {
-    return this.http.get<languageDTO>(this.base_url + '/' + id).pipe(retry(2), catchError(this.handleError));
-
-
+  //get all
+  getalllanguage(): Observable<languageDTO[]> {return this.http.get<languageDTO[]>(this.base_url + '/list-language/' +  localStorage.getItem('idEntreprise')).pipe(retry(2), catchError(this.handleError));
   }
 
 
-  // update team by Id the
+  // get by id
+  getByidlanguage(id: number) {
+    return this.http.get<languageDTO>(this.base_url + '/' + id);
+
+
+  }
+
+
+  // update 
   updatelanguage(item: languageDTO) {
-    return this.http.put<languageDTO>(this.base_url, JSON.stringify(item), this.httpOptions).pipe(retry(2), catchError(this.handleError));
+    return this.http.put<languageDTO>(this.base_url + '/update-language',item);
   }
 
-  // delete groupe
+
+
+  // delete 
   deletelanguage(id: number) {
     return this.http.delete<languageDTO>(this.base_url + '/' + id, this.httpOptions).pipe(retry(2), catchError(this.handleError));
-
-  }
-  // get all groupe 
-  deleteAlllanguage() {
-    return this.http.delete(this.base_url).pipe(retry(2), catchError(this.handleError));
-
-  }
-
-
-  //find by active
-  findByActivelanguage(active: any) {
-    return this.http.get(`${this.base_url}?active${active}`);
   }
 
 
 
-  //find by confirmed
-  findByConfirmelanguage(confirme: any) {
-    return this.http.get(`${this.base_url}?confirme${confirme}`);
-  }
-
-
-//validation formulaire language
+  //validation formulaire language
   form : FormGroup= new FormGroup({
-    id: new FormControl(null),
-    lang: new FormControl('',Validators.required),
+    id: new FormControl(),
+    code: new FormControl('',Validators.required),
     name : new FormControl('',[ Validators.required]),
-    image : new FormControl('',[ Validators.required]),
-    active: new FormControl('', [Validators.required]),
+    createdDate : new FormControl(''),
+     lastModifiedDate : new FormControl(''),
+    entrepriseId:new FormControl('')
 });
 
 // inialisation formulaire  language
 initializeFormGroup() {
   this.form.setValue({
-    id :null,
-    lang: null,
-    name: null,
-   // image: null,
-    active: true,
+    id :'',
+    code: '',
+    name: '',
+   createdDate : '',
+   entrepriseId :'',
+   lastModifiedDate:new Date()
   });
   
 }
 populateForm(language: any) {
   this.form.patchValue(_.omit(language));
 }
-   //update groupe  by status
-   updatelanguageByStatus(id : number,item : Language){
-    return this.http.put<any>(this.base_url + '/toggle-status/' + id,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
-     }
-   
 }

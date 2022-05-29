@@ -31,7 +31,7 @@ public class SavePostPhoto implements Strategy<PostDTO> {
         if(!StringUtils.hasLength(Urlphoto)) {
             throw new InvalideEntityException("Post image not valid", ErrorCode.POST_IMAGE_NOT_VALID);
         }
-        post.setImage(Urlphoto);
+        //post.setImage(Urlphoto);
         return ipost.save(post);
     }
     }

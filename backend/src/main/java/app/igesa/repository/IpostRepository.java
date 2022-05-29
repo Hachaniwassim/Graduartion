@@ -9,6 +9,5 @@ import java.util.List;
  *
  */
 public interface IpostRepository extends JpaRepository<Post,Long> {
-    
-//List<Post> findByEntrepriseId(Long id);
+    List<Post> findByEntrepriseId(Long id);
 }

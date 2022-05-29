@@ -18,16 +18,7 @@ public class LanguageValidators {
             return errors;
         }
 
-        if(!StringUtils.hasLength(languageDTO.getImage())) {
-            errors.add("Veuillez renseigner le champs flag  !");
-        }
-        if(!StringUtils.hasLength(languageDTO.getName())) {
-            errors.add("Veuillez renseigner le nom !");
-        }
 
-        if(languageDTO.getLang() == null) {
-            errors.add("Veuillez renseigner la lang!");
-        }
         return errors;
     }
 }

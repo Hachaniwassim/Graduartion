@@ -28,22 +28,17 @@ public class PlateformeImpl implements Iplateforme {
 	public PlateformeDTO save(PlateformeDTO p) {
 
 		log.debug( "<=========================  save site info  ===========================>");
-		Plateforme siteInfo = plateformeRepository.findFirstByEntrepriseId(entrepriseService.getCurrentEnterprise().getId()).orElse(null);
-		if (siteInfo == null) {
-			siteInfo = new Plateforme();
-			siteInfo.setEntreprise(entrepriseService.getCurrentEnterprise());
-		}
 
-		plateformeRepository.save(PlateformeDTO.toEntity(p));
-		return PlateformeDTO.fromEntity(siteInfo);
+		Plateforme saved = plateformeRepository.save(PlateformeDTO.toEntity(p));
+		return PlateformeDTO.fromEntity(saved);
 
 	}
 
 	@Override
-	public Collection<PlateformeDTO> getCurrentSiteInfo(){
+	public Collection<PlateformeDTO> getCurrentSiteInfo(Long id_entreprise){
 
 		log.debug( "<=========================  Get current site info  ===========================>");
-		return plateformeRepository.findFirstByEntrepriseId(entrepriseService.getCurrentEnterprise().getId()).stream()
+		return plateformeRepository.findByEntrepriseId(id_entreprise).stream()
 				.map(PlateformeDTO::fromEntity)
 				.collect(Collectors.toList());
 	}

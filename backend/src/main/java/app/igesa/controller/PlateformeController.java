@@ -61,9 +61,9 @@ public class PlateformeController {
 			@ApiResponse(code=200,message="Plateforme was found successfully")
 
 	})
-	public ResponseEntity<Collection<PlateformeDTO>> view() {
+	public ResponseEntity<Collection<PlateformeDTO>> view(@PathVariable Long id_entreprise) {
 		log.debug("<============================ HTTP GET ALL PLATEFORME {}==============================>");
-		return new ResponseEntity<>( plateformeservice.getCurrentSiteInfo(),HttpStatus.OK);
+		return new ResponseEntity<>( plateformeservice.getCurrentSiteInfo(id_entreprise),HttpStatus.OK);
 	}
 
 

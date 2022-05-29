@@ -34,10 +34,7 @@ public class ConfigValidator {
         }
        // if(!StringUtils.hasLength(configDTO.getLogo())) {
          //   errors.add("Veuillez uploder le logo !");
-       // }
-        if(configDTO.getEntreprise()== null) {
-            errors.add("Veuillez renseigner l'entreprise !");
-        }
+
         return errors;
     }
 }

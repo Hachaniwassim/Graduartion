@@ -6,6 +6,7 @@ import app.igesa.enumerations.Types;
 import lombok.Builder;
 import lombok.Data;
 
+import javax.persistence.Column;
 import java.util.Date;
 
 /**
@@ -17,21 +18,16 @@ import java.util.Date;
 @Data
 @Builder
 public class PostDTO {
-	
+
 	private Long id ;
 	private String title ;
+	@Column(columnDefinition="text")
 	private String description;
+	@Column(columnDefinition="text")
+	private String htmlContent ;
 	private String slug ;
-	private String subtitle ;
-	private String image ;
-	private String tagline ;
-	private String content ;
-	private PageDTO page ;
-	private TagsDTO tags;
 	protected Date createdDate;
 	protected Date lastModifiedDate;
-	protected String createdBy;
-	private Enum<Types> types;
 	private Long entrepriseId ;
 
 	public static PostDTO fromEntity(Post post) {
@@ -43,11 +39,10 @@ public class PostDTO {
 				.title(post.getTitle())
 				.description(post.getDescription())
 				.slug(post.getSlug())
-				.image(post.getImage())
-				.content(post.getContent())
-				.page(PageDTO.fromEntity(post.getPage()))
-				.tags(TagsDTO.fromEntity(post.getTags()))
-				.types(post.getType())
+				.htmlContent(post.getHtmlContent())
+				.createdDate(post.getCreatedDate())
+				.lastModifiedDate(post.getLastModifiedDate())
+				.entrepriseId(post.getEntreprise().getId())
 				.build();
 	}
 
@@ -59,16 +54,11 @@ public class PostDTO {
 
 		Post post = new Post();
 		post.setId(dto.getId());
-		post.setContent(dto.getContent());
+		post.setHtmlContent(dto.getHtmlContent());
 		post.setDescription(dto.getDescription());
-		post.setTagline(dto.getTagline());
-		post.setImage(dto.getImage());
-		post.setType(dto.getTypes());
 		post.setSlug(dto.getSlug());
 		post.setCreatedDate(post.getCreatedDate());
 		post.setLastModifiedDate(post.getLastModifiedDate());
-		post.setTags(TagsDTO.toEntity(dto.getTags()));
-		post.setPage(PageDTO.toEntity(dto.getPage()));
 		//===========================> Entreprise ===========================>
 		Entreprise entreprise = new Entreprise();
 		entreprise.setId(dto.getEntrepriseId());

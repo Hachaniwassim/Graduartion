@@ -143,7 +143,7 @@ export class EntrepriseListComponent implements OnInit {
   
     // create dialog config
     onCreateEntreprise() { 
-      //this.companyService.initializeFormGroup();
+      this.entrepriseService.initializeFormGroup();
       const dialogConfig = new MatDialogConfig();
       dialogConfig.disableClose = true;
       dialogConfig.autoFocus = true;

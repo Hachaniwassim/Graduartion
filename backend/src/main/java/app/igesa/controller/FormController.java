@@ -43,7 +43,7 @@ public class FormController {
     private static final Logger log = LoggerFactory.getLogger(FormController.class);
 
 
-    @RequestMapping(value=PRIVATE_API,method = RequestMethod.POST)
+    @RequestMapping(value=PRIVATE_API + "/post-form",method = RequestMethod.POST)
     @ApiOperation(value="ADD FORM ENTITY  ",notes="SAUVGARDER FORM ENTITY ", response = FormDTO.class)
     @ApiResponses(value= {
             @ApiResponse(code=200,message="FormEntity was saved Successfully"),
@@ -58,7 +58,7 @@ public class FormController {
     }
 
 
-    @RequestMapping(value=PRIVATE_API,method =RequestMethod.GET)
+    @RequestMapping(value=PRIVATE_API + "/list-form/{id_entreprise}",method =RequestMethod.GET)
     @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
     @ApiOperation(value="GET A LIST OF FORM ENTITY  ", responseContainer  = "Collection<FormDTO>")
     @ApiResponses(value= {
@@ -68,9 +68,9 @@ public class FormController {
             @ApiResponse( code=403, message="not permitted or allowed"),
 
     })
-    public ResponseEntity<Collection<FormDTO>> view() {
+    public ResponseEntity<Collection<FormDTO>> view(@PathVariable Long id_entreprise) {
         log.debug(" HTTP GET ALL FORM ENTITY   {}");
-        return new ResponseEntity<>( iformEntityService.view(),HttpStatus.OK);
+        return new ResponseEntity<>( iformEntityService.view(id_entreprise),HttpStatus.OK);
     }
 
 
