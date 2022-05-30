@@ -34,12 +34,32 @@
 									<li><a (click)="reloadPage()"  routerLink="/products">Products</a></li>
 									<li><a (click)="reloadPage()"  routerLink="/usefulllinks" >Usefull Links</a></li>	
 									<li><a (click)="reloadPage()"  routerLink="/contact">Contact</a></li>
+									
 									<li>        
 										<a routerLink="/login" *ngIf="!isLoggedIn"> 
 											<i class="fa fa-lock"></i> Login / Register</a> 
 										<a  *ngIf="isLoggedIn"> 
-											<i class="fa fa-lock"></i> {{username}}</a> 
-									</li>
+											<i class="fa fa-lock"></i> {{username}}
+										</a> 
+										<li *ngIf="isLoggedIn" class="dropdown notification-list list-inline-item">
+											<a class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="#"
+												role="button" aria-haspopup="false" aria-expanded="false"> {{username}} <span
+													class="mdi mdi-chevron-down"></span>
+											</a>
+											<div class="dropdown-menu dropdown-menu-right profile-dropdown ">
+												<!-- item-->
+												<a class="dropdown-item" routerLink="/profile"><i class="mdi mdi-account-circle"></i> Profile</a>
+												<a class="dropdown-item d-block" routerLink="/postulseller"><span
+														class="badge badge-success float-right">11</span><i class="mdi mdi-settings"></i>
+													Apply to be seller</a>
+												<a class="dropdown-item text-danger" (click)="logout()"><i class="mdi mdi-power text-danger"></i>
+													Logout</a>
+											</div>
+						
+										</li>
+
+									
+									
 								</ul>
 							</div>
 						</nav>
