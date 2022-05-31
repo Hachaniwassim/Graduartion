@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Linksservice } from 'src/app/_services/links.service';
 
 @Component({
   selector: 'app-usefull-links',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsefullLinksComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit(): void {
+  public linkslist: any = [];
+  constructor( private linkservice : Linksservice) { }
+ 
+ ngOnInit(): void {
+    this.linkservice.getAlllinksByEntreprise().subscribe(
+      res => this.linkslist = res
+    );
   }
-
+ 
 }
