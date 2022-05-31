@@ -56,10 +56,10 @@
             <div class="form-group">
               <input color="primary" type="file" (change)="onSelectFile($event)">
             </div><br>
-            <button mat-raised-button color="primary" *ngIf="!isEditeMode"  [disabled]="productService.form.invalid" (click)="onAddProduct()" class="float-right">
+            <button mat-raised-button color="primary" [disabled]="productService.form.invalid" (click)="onAddProduct()" class="float-right">
               <mat-icon>save</mat-icon> Save
             </button> 
-            <button  *ngIf="isEditeMode"   (click)="onUpdate()" mat-raised-button  ><mat-icon>edit_outline</mat-icon></button>&nbsp;&nbsp;
+           <!---- <button  *ngIf="isEditeMode"   (click)="onUpdate()" mat-raised-button  ><mat-icon>edit_outline</mat-icon></button>&nbsp;&nbsp;-->
             <br><br>
           </form>
         </div>
@@ -70,7 +70,7 @@
         <br><br>  
         <div class="container">
         <div class="row">
-          <div class="col-xs-6 col-md-5" *ngFor="let product of listPrducts">
+          <div class="col-xs-6 col-md-3" *ngFor="let product of listPrducts">
             <div class="card">
               <div class="wrapper">
                 <img class="card-img-top img-fluid" class="card-img-top" src="{{product.image}}" alt="Card image cap">

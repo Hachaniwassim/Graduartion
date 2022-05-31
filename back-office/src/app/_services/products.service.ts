@@ -85,7 +85,7 @@ getByidProducts(id:number):Observable<productsDTO>{
     description : new FormControl('',[ Validators.required]),
     caracteristique : new FormControl('',[ Validators.required]),
     name : new FormControl('',[ Validators.required]),
-    image : new FormControl(''),
+    //image : new FormControl(''),
     requirements : new FormControl('',Validators.required),
     createdDate: new FormControl(''),
     lastModifiedDate : new FormControl(''),
@@ -104,7 +104,7 @@ initializeFormGroup() {
     title: '',
     caracteristique: '',
     note: null,
-    image: null,
+    //image: null,
     description: '',
     requirements:'', 
     entrepriseId:null,
@@ -130,6 +130,8 @@ getCategorieByEntreprise():any{
 assignTagsToAnProduct(productId:any,tagId:any):any{
   return this.http.get<any>(environment.privateApi + '/product/assign-tags/' +productId+"/"+tagId);
 }
+
+//upload file product
 uploadProductImage(nameImage:any,file:any):any{
 
   
@@ -137,6 +139,7 @@ uploadProductImage(nameImage:any,file:any):any{
   formData.append('file', file);
   return this.http.post<any>(environment.privateApi + '/upload/PRODUCT/' +nameImage+"/"+localStorage.getItem('idEntreprise'),formData);
 }
+
 addProduct(bodyReques:any):any{
   
   return this.http.post<any>(environment.privateApi + '/product/post-product',bodyReques);

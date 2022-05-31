@@ -24,12 +24,11 @@ export class ProductsComponent implements OnInit {
   categoryByEntreprise:any;
   imageFile:any;
   typeImage:any;
-  isEditeMode=false;
-  baseProductPath="../../assets/igesa-software/images/Enterprise-"+localStorage.getItem('idEntreprise')+"/product/"
+  baseProductPath="../../assets/igesa-software/images/Enterprise-"+localStorage.getItem('idEntreprise')+"/product/";
   //selected items 
-  categorieSelected:any
- tagSelected:any
-  idProduct:any
+  categorieSelected:any;
+  tagSelected:any;
+  idProduct:any;
   ngOnInit(): void {
     this.getTagsByEntreprise();
     this.getCategorieByEntreprise();
@@ -75,9 +74,9 @@ onSelectFile(file: any){
 
 //fo add an produit resize
 async addProduct(){
-  let imageName=Math.random().toString() //+ ".png";
-  let productBody={
-    image:this.baseProductPath+imageName+"."+this.typeImage,
+    let imageName=Math.random().toString() //+ ".png";
+    let productBody={
+    image:this.baseProductPath + imageName + "." + this.typeImage,
     title:this.productService.form.value.title,
     description:this.productService.form.value.description,
     caracteristique:this.productService.form.value.caracteristique,
@@ -94,6 +93,7 @@ async addProduct(){
 await this.productService.uploadProductImage(imageName,this.imageFile).subscribe((res:any)=>{
   console.log('the result of upload image ',res);
 });
+
 await this.productService.addProduct(productBody).subscribe((res:any)=>{
   console.log('the result of add product ===>',res)
   this.idProduct=res.id
@@ -105,7 +105,6 @@ await this.productService.addProduct(productBody).subscribe((res:any)=>{
       
     },(err:any)=>{console.log('assign errr===============>',err)});
   }
- 
 });
 
 }
@@ -113,21 +112,16 @@ await this.productService.addProduct(productBody).subscribe((res:any)=>{
 
 
    getProductsByEntreprise (){
-   
      this.productService.getAllProductsByEntreprise().subscribe((res:any)=>{
       console.log('result of the product ====================>',res)
       this.listPrducts=res;
-      console.log('==================>res image',this.listPrducts[0].image);
-  
-    },(err:any)=>{console.log('result of the product ====================>',err)})
+     /*console.log('==================>res image',this.listPrducts[0].image);*/ },
+    (err:any)=>{console.log('result of the product ====================>',err)})
   }
 
   /*************************
    * delete product
    */
-
-
-     // delete data 
      onDeleteProduct(id: number) {
               Swal.fire({
                 title: 'Are you sure to delete this product !?',
@@ -152,13 +146,11 @@ await this.productService.addProduct(productBody).subscribe((res:any)=>{
                           verticalPosition: "top",
                           panelClass: ["mat-toolbar", "mat-success"],
                         });
-                        
-              
-                      this.refresh();
+                        this.refresh();
                        },
                         error => {
                         // snackBar error
-                        this._Snackbar.open("Error occurend , try later !!", "",{
+                        this._Snackbar.open("Error occurend , try later !!" + error.message, "",{
                           duration: 3000,
                           horizontalPosition: "right",
                           verticalPosition: "top",
@@ -179,12 +171,12 @@ await this.productService.addProduct(productBody).subscribe((res:any)=>{
 }
 
   onEdite(row : any){
-    this.isEditeMode = true;
+   // this.isEditeMode = true;
     this.productService.populateForm(row);
   }
 
 
-  onUpdate(){
+  /*onUpdate(){
       this.isEditeMode != this.isEditeMode
       this.productService.update(this.productService.form.value).subscribe((res) => {
         console.log("====================> updateeeeee test ", res)
@@ -192,7 +184,7 @@ await this.productService.addProduct(productBody).subscribe((res:any)=>{
         //this.notificationService.success('  ::  ' + ' ' + ' updated successfully ' + '⚡')
       }
       )
-  }
+  }*/
 
 
    
