@@ -1,12 +1,14 @@
 
 import{Location} from '@angular/common' 
 import { Component, OnInit } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { categoryDTO } from 'src/app/models/dto/categoryDTO';
 import { DialogService } from 'src/app/shared/dialog.service';
 import { NotificationService } from 'src/app/shared/notification.service';
 import { Categoryservice } from 'src/app/_services/category.service';
+import { AddCategoryComponent } from '../add-category/add-category.component';
 
 @Component({
   selector: 'app-list-category',
@@ -28,7 +30,7 @@ export class ListCategoryComponent implements OnInit {
      public categoryService : Categoryservice, 
      public _Snackbar:MatSnackBar,
       public notificationService:NotificationService,
-     public  dialogService: DialogService ) { }
+     public  dialogService: DialogService,private dialog: MatDialog ) { }
 
   ngOnInit(): void {
     this.getCategoryByEntreprise();
@@ -56,9 +58,8 @@ export class ListCategoryComponent implements OnInit {
              data=this.listCategory;
             })
             this.notificationService.success(' :: Deleted Successfully')
-            
-          }
-         this.refresh();
+            this.refresh();
+            }
         });
     }
   
@@ -95,14 +96,40 @@ export class ListCategoryComponent implements OnInit {
 
 
 
-OnAddCategory(){
+
+  // create dialog config
+  onCreateCategory() { 
+    this.categoryService.initializeFormGroup();
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "60%";
+    dialogConfig.height= "80%";
+    this.dialog.open(AddCategoryComponent, dialogConfig);
+
+  }
+
+  // edite dialogConfig
+  onEditCategory(id: any) {
+    this.categoryService.populateForm(id);
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "60%";
+    dialogConfig.height= "80%";
+    this.dialog.open(AddCategoryComponent, dialogConfig);
+
+
+  }
+
+/*OnAddCategory(){
   this.addCategory();
 
-}
+}*/
 
 
-//fo add an produit resize
-async addCategory(){
+//fo add an category resize
+/*async addCategory(){
   let imageName=Math.random().toString() //+ ".png";
   let categoryBody={
     image:this.baseCategoryPath+imageName+"."+this.typeImage,
@@ -126,5 +153,5 @@ await this.categoryService.createCategory(categoryBody).subscribe((res:any)=>{
     },
     (err:any)=>{console.log(' errr :: ===============>',err)});
   }
-
+*/
 }

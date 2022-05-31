@@ -5,7 +5,12 @@ import { categoryDTO } from 'src/app/models/dto/categoryDTO';
 import { DialogService } from 'src/app/shared/dialog.service';
 import { NotificationService } from 'src/app/shared/notification.service';
 import { Categoryservice } from 'src/app/_services/category.service';
-import {Location}from '@angular/common';
+import { Location } from '@angular/common';
+import { MatDialogRef } from '@angular/material/dialog';
+
+//make name file generated random 
+let imageName = Math.random().toString() //+ ".png";
+
 @Component({
   selector: 'app-add-category',
   templateUrl: './add-category.component.html',
@@ -16,17 +21,20 @@ import {Location}from '@angular/common';
  * @author Tarchoun Abir
  * 
  */
+
+
 export class AddCategoryComponent implements OnInit {
 
-  listCategory:categoryDTO[]=[];
-  imageFile:any;
-  typeImage:any
-  baseCategoryPath="../../assets/igesa-software/images/Enterprise-"+localStorage.getItem('idEntreprise')+"/category/"
-  constructor( public router: Router, public _location: Location,
-     public categoryService : Categoryservice, 
-     public _Snackbar:MatSnackBar,
-      public notificationService:NotificationService,
-     public  dialogService: DialogService ) { }
+  listCategory: categoryDTO[] = [];
+  imageFile: any;
+  typeImage: any;
+  baseCategoryPath = "../../assets/igesa-software/images/Enterprise-" + localStorage.getItem('idEntreprise') + "/category/";
+
+  constructor(public router: Router, public _location: Location,
+    public categoryService: Categoryservice,
+    public _Snackbar: MatSnackBar,
+    public notificationService: NotificationService,
+    public dialogService: DialogService, public dialogRef: MatDialogRef<AddCategoryComponent>) { }
 
   ngOnInit(): void {
     this.getCategoryByEntreprise();
@@ -34,105 +42,129 @@ export class AddCategoryComponent implements OnInit {
 
 
   //on select file 
-  onSelectFile(file: any){
+  onSelectFile(file: any) {
     //console.log('file =======================>',file.target.files[0]);
-    this.imageFile = file.target.files[0] ;
-    this.typeImage=file.target.files[0].name.split('.').pop();
-    console.log('file.target.files[0] :',file.target.files[0] ,"file.target.files[0].type :",file.target.files[0].name.split('.').pop()); 
+    this.imageFile = file.target.files[0];
+    this.typeImage = file.target.files[0].name.split('.').pop();
+    console.log('file.target.files[0] :', file.target.files[0], "file.target.files[0].type :", file.target.files[0].name.split('.').pop());
+  }
+
+  /**
+   * 
+   * get category By enterprise 
+   * 
+   */
+
+  getCategoryByEntreprise() {
+
+    this.categoryService.getallCategorieByEntreprise().subscribe((res: any) => {
+      console.log('result of the category====================>', res)
+      this.listCategory = res;
+      console.log('==================>res image', this.listCategory[0].image);
+
+    }, (err: any) => { console.log('result of the category ====================>', err) })
   }
 
 
 
+  // submit data with context EDITE : CREATE
+  async onSubmit() {
 
-     // delete data 
-     onDeleteCategory(id: number) {
-  
-      this.dialogService.openConfirmDialog('Are you sure to delete this record ?')
-        .afterClosed().subscribe((res: any) => {
-          if (res) {
-            this.categoryService.deleteCategory(id).subscribe((data:any) => {
-             data=this.listCategory;
-            })
-            this.notificationService.success(' :: Deleted Successfully')
-            
-          }
-         this.refresh();
+    if (this.categoryService.form.valid) {
+      if (!this.categoryService.form.get('id')?.value) {
+        let categoryBody = {
+          image: this.baseCategoryPath + imageName + "." + this.typeImage,
+          title: this.categoryService.form.value.title,
+          description: this.categoryService.form.value.description,
+          subtitle: this.categoryService.form.value.subtitle,
+          menuimage: this.categoryService.form.value.menuimage,
+          bannerimage: this.categoryService.form.value.bannerimage,
+          createdDate: new Date(),
+          lastModifiedDate: new Date(),
+          enterpriseId: localStorage.getItem('idEntreprise'),
+
+        };
+
+        // upload categorie file
+        await this.categoryService.uploadCategoryImage(imageName, this.imageFile).subscribe((res: any) => {
+          console.log('the result of upload image ', res);
         });
+
+        // create category file
+        await this.categoryService.createCategory(categoryBody).subscribe((res: any) => {
+          console.log('the result of add category===>', res)
+        },
+          (err: any) => { console.log(' errr :: ===============>', err) });
+        this.notificationService.success('  ::  ' + ' ' + 'add successfully ' + '⚡');
+        //this.refresh();
+      }
+
+
+      // update category file 
+      else (
+        this.categoryService.updateCategory(this.categoryService.form.value).subscribe((res) => {
+          console.log(res)
+          this.notificationService.success('  ::  ' + ' ' + ' updated successfully ' + '⚡');
+        }))
+      this.onClose();
     }
-  
 
-    
-    /**
-     * 
-     * get category By enterprise 
-     * 
-     */
-
-   getCategoryByEntreprise (){
-   
-    this.categoryService.getallCategorieByEntreprise().subscribe((res:any)=>{
-     console.log('result of the category====================>',res)
-     this.listCategory=res;
-     console.log('==================>res image',this.listCategory[0].image);
- 
-   },(err:any)=>{console.log('result of the category ====================>',err)})
- }
-
-/**
- * 
- * 
- * refresh 
- * 
- */
- refresh(): void {
-  this.router.navigateByUrl("/refresh", { skipLocationChange: true }).then(() => {
-    console.log(decodeURI(this._location.path()));
-    this.router.navigate([decodeURI(this._location.path())]);
-  });
-}
-
-
-
-OnAddCategory(){
-  this.addCategory();
-
-}
-
-
-//fo add an produit resize
-async addCategory(){
-  let imageName=Math.random().toString() //+ ".png";
-  let categoryBody={
-    image:this.baseCategoryPath+imageName+"."+this.typeImage,
-    title:this.categoryService.form.value.title,
-    description:this.categoryService.form.value.description,
-    subtitle:this.categoryService.form.value.subtitle,
-    menuimage:this.categoryService.form.value.menuimage,
-    bannerimage:this.categoryService.form.value.bannerimage,
-    createdDate:new Date(),
-    lastModifiedDate:new Date(),
-    entrepriseId:localStorage.getItem('idEntreprise'),
-  
-  };
-
-
-await this.categoryService.uploadCategoryImage(imageName,this.imageFile).subscribe((res:any)=>{
-  console.log('the result of upload image ',res);
-});
-await this.categoryService.createCategory(categoryBody).subscribe((res:any)=>{
-  console.log('the result of add category===>',res)
-    },
-    (err:any)=>{console.log(' errr :: ===============>',err)});
   }
 
-   /********************
-    * 
-    * CKeditor Config
-    * 
-    */
+
+
+  // delete data 
+  onDeleteCategory(id: number) {
+
+    this.dialogService.openConfirmDialog('Are you sure to delete this record ?')
+      .afterClosed().subscribe((res: any) => {
+        if (res) {
+          this.categoryService.deleteCategory(id).subscribe((data: any) => {
+            data = this.listCategory;
+          })
+          this.notificationService.success(' :: Deleted Successfully')
+
+        }
+        this.refresh();
+      });
+  }
+
+
+
+  /**
+* 
+* 
+* refresh 
+* 
+*/
+  refresh(): void {
+    this.router.navigateByUrl("/refresh", { skipLocationChange: true }).then(() => {
+      console.log(decodeURI(this._location.path()));
+      this.router.navigate([decodeURI(this._location.path())]);
+    });
+  }
+
+
+  onClear() {
+    this.categoryService.form.reset();
+    this.categoryService.initializeFormGroup();
+  }
+  // dialogue close 
+  onClose() {
+    this.categoryService.form.reset();
+    this.categoryService.initializeFormGroup();
+    this.dialogRef.close();
+  }
+
+
+  /********************
+   * 
+   * CKeditor Config
+   * 
+   */
   config = {
-    height: 200, 
-    
+    height: 200,
+
     image: {
       // Configure the available styles.
       styles: [
