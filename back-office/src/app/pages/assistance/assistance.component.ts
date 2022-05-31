@@ -128,7 +128,7 @@ export class AssistanceComponent implements OnInit {
         cancelButtonText: 'No',
         }).then((result) => {
         if (result.value) {
-        this.assistanceService.update(this.assistance.value).subscribe(r => {
+        this.assistanceService.updateAssistance(this.assistance.value).subscribe((r:any )=> {
          //test
          console.log(r);
          // snackBar success 

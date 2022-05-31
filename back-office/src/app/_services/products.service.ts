@@ -67,7 +67,7 @@ getByidProducts(id:number):Observable<productsDTO>{
 
   update(request: any) {
   console.log('the request ====>',request)
-  return this.http.post<productsDTO>(`${this.base_url + '/update-product' }`, request);
+  return this.http.put<productsDTO>(`${this.base_url + '/update-product' }`, request);
   
 }
 

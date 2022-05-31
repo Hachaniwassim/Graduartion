@@ -5,7 +5,7 @@ import * as _ from 'lodash';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { LinksDTO } from '../models/dto/linksDTO';
+import { privacyDTO } from '../models/dto/privacyDTO';
 
 @Injectable({
   providedIn: 'root'
@@ -17,14 +17,14 @@ import { LinksDTO } from '../models/dto/linksDTO';
  * 
  */
 
-export class LinksService {
+export class Privacyservice {
 
 /*********************************
  * 
  * ----------Api Backend---------
  * 
  *******************************/
-  private base_url = environment.privateApi + "/liens";
+  private base_url = environment.privateApi + "/privacy";
 
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
@@ -68,8 +68,8 @@ export class LinksService {
  * Get privacy by current Entreprise
  *
  */
-  getLinksByEntreprise(): Observable<LinksDTO[]> {
-    return this.http.get<LinksDTO[]>(this.base_url + '/list-liens/' + localStorage.getItem('idEntreprise')).pipe(retry(2), catchError(this.handleError));
+  getPrivacyByEntreprise(): Observable<privacyDTO[]> {
+    return this.http.get<privacyDTO[]>(this.base_url + '/list-privacy/' + localStorage.getItem('idEntreprise')).pipe(retry(2), catchError(this.handleError));
   }
 
   
@@ -78,8 +78,8 @@ export class LinksService {
  * Get privacy by Entreprise id
  *
  */
-  getLinksByid(id: number): Observable<LinksDTO> {
-    return this.http.get<LinksDTO>(this.base_url + '/' + id).pipe(retry(2), catchError(this.handleError));
+  getPrivacyByid(id: number): Observable<privacyDTO> {
+    return this.http.get<privacyDTO>(this.base_url + '/' + id).pipe(retry(2), catchError(this.handleError));
 
   }
 
@@ -89,9 +89,9 @@ export class LinksService {
  * update privacy by Entreprise
  * 
  */
-  updateLinksByEntreprise(request: any) {
+  update(request: any) {
     console.log('the request ====>',request)
-    return this.http.post<LinksDTO>(`${this.base_url + '/post-liens' }`, request);
+    return this.http.post<privacyDTO>(`${this.base_url + '/post-privacy' }`, request);
     
   }
   

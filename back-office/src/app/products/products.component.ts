@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { productsDTO } from '../models/dto/productsDTO';
@@ -7,6 +6,7 @@ import { DialogService } from '../shared/dialog.service';
 import { NotificationService } from '../shared/notification.service';
 import { ProductService } from '../_services/products.service';
 import{Location}from '@angular/common';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-products',
@@ -23,7 +23,8 @@ export class ProductsComponent implements OnInit {
   tagsByEntreprise:any
   categoryByEntreprise:any;
   imageFile:any;
-  typeImage:any
+  typeImage:any;
+  isEditeMode=false;
   baseProductPath="../../assets/igesa-software/images/Enterprise-"+localStorage.getItem('idEntreprise')+"/product/"
   //selected items 
   categorieSelected:any
@@ -33,6 +34,7 @@ export class ProductsComponent implements OnInit {
     this.getTagsByEntreprise();
     this.getCategorieByEntreprise();
     this.getProductsByEntreprise ();
+    this.productService.populateForm(this.idProduct)
   }
   getTagsByEntreprise(){
     this.productService.getTagsByEntreprise().subscribe((res:any)=>{
@@ -127,18 +129,44 @@ await this.productService.addProduct(productBody).subscribe((res:any)=>{
 
      // delete data 
      onDeleteProduct(id: number) {
-  
-      this.dialogService.openConfirmDialog('Are you sure to delete this record ?')
-        .afterClosed().subscribe((res: any) => {
-          if (res) {
-            this.productService.deleterPoducts(id).subscribe((data) => {
-              data = this.listPrducts;
-            })
-            this.notificationService.success(' :: Deleted Successfully')
-            
-          }
-         this.refresh();
-        });
+              Swal.fire({
+                title: 'Are you sure to delete this product !?',
+                icon: 'warning',
+                showCancelButton: true ,
+                confirmButtonText: 'Yes',
+                cancelButtonText: 'No',
+                cancelButtonColor: 'gray'
+              }).then((result) => {
+                if (result.value) {
+                  this.productService.deleterPoducts(id)
+                    .subscribe(
+                      response => {
+                        console.log(response);
+                        Swal.fire('Deleted!','All Groupe  was Deleted successfully.','success');
+                        if (result.dismiss === Swal.DismissReason.cancel) {
+                        }
+                        // snackBar success 
+                        this._Snackbar.open("Groupes Deleted Successfully",+ '' + "OK" + ''+ '⚡',{
+                          duration: 5000,
+                          horizontalPosition: "right",
+                          verticalPosition: "top",
+                          panelClass: ["mat-toolbar", "mat-success"],
+                        });
+                        
+              
+                      this.refresh();
+                       },
+                        error => {
+                        // snackBar error
+                        this._Snackbar.open("Error occurend , try later !!", "",{
+                          duration: 3000,
+                          horizontalPosition: "right",
+                          verticalPosition: "top",
+                          panelClass: ["mat-toolbar", "mat-warn"],
+                        });
+                      });
+                    }
+              });
     }
   
  
@@ -150,11 +178,20 @@ await this.productService.addProduct(productBody).subscribe((res:any)=>{
   });
 }
 
+  onEdite(row : any){
+    this.isEditeMode = true;
+    this.productService.populateForm(row);
+  }
 
 
+  onUpdate(){
+      this.isEditeMode != this.isEditeMode
+      this.productService.update(this.productService.form.value).subscribe((res) => {
+        console.log("====================> updateeeeee test ", res)
 
-  onSubmit(){
-      
+        //this.notificationService.success('  ::  ' + ' ' + ' updated successfully ' + '⚡')
+      }
+      )
   }
 
 

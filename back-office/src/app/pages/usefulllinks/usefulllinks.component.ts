@@ -6,6 +6,8 @@ import { Location } from '@angular/common';
 import { AssistanceService } from 'src/app/_services/assistanceService';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { LinksDTO } from 'src/app/models/dto/linksDTO';
+import { LinksService } from 'src/app/_services/links.service';
 
 
 @Component({
@@ -23,10 +25,10 @@ export class UsefulllinksComponent implements OnInit {
  * 
  */
 
-  data !: Page2DTO;
-  assistance !: FormGroup;
-  constructor(private fb: FormBuilder, private assistanceService: AssistanceService ,
-    public router: Router, public _location: Location, public _snackBar: MatSnackBar,) {
+  data !:LinksDTO;
+  liens !: FormGroup;
+  constructor(private fb: FormBuilder, private lienService : LinksService ,
+    public router: Router, public _location: Location, public _snackBar: MatSnackBar) {
  
   }
  
@@ -98,7 +100,7 @@ export class UsefulllinksComponent implements OnInit {
     /***************
      * Formcontrol
      */
-    this.assistance = this.fb.group({
+    this.liens = this.fb.group({
       id: new FormControl(),
       title: new FormControl(''),
       htmlContent: new FormControl(''),
@@ -110,9 +112,9 @@ export class UsefulllinksComponent implements OnInit {
     /***********************************
      * Get privacy policy By Entreprise 
      */
-    this.assistanceService.getPagesByCurrentEntreprise().subscribe((res: Page2DTO[]) => {
+    this.lienService.getLinksByEntreprise().subscribe((res: LinksDTO[]) => {
       this.data = res[0];
-      this.assistance.patchValue(this.data);
+      this.liens.patchValue(this.data);
  
     });
   }
@@ -132,7 +134,7 @@ export class UsefulllinksComponent implements OnInit {
          cancelButtonText: 'No',
          }).then((result) => {
          if (result.value) {
-         this.assistanceService.update(this.assistance.value).subscribe(r => {
+         this.lienService.updateLinksByEntreprise(this.liens.value).subscribe(r => {
           //test
           console.log(r);
           // snackBar success 
