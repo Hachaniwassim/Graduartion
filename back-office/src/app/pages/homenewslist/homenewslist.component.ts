@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Location}from '@angular/common';
+import { Location } from '@angular/common';
 import { Page2DTO } from 'src/app/models/dto/page2DTO';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AssistanceService } from 'src/app/_services/assistanceService';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import Swal from 'sweetalert2';
+import { NwesDTO } from 'src/app/models/dto/nwesDTO';
+import { NwesService } from 'src/app/_services/nwes.service';
 
 @Component({
   selector: 'app-homenewslist',
@@ -14,34 +15,117 @@ import Swal from 'sweetalert2';
 })
 export class HomenewslistComponent implements OnInit {
 
- /***********************
- * 
- * @author Tarchoun Abir
- * 
- */
+  /***********************
+  * 
+  * @author Tarchoun Abir
+  * 
+  */
 
-  data !: Page2DTO;
-  assistance !: FormGroup;
-  constructor(private fb: FormBuilder, private assistanceService: AssistanceService ,
+  data !: NwesDTO;
+  nwes!: FormGroup;
+  constructor(private fb: FormBuilder, private nwesService: NwesService,
     public router: Router, public _location: Location, public _snackBar: MatSnackBar,) {
- 
+
   }
- 
+
+  ngOnInit() {
+
+    /***************
+     * Formcontrol
+     */
+    this.nwes = this.fb.group({
+      id: new FormControl(),
+      title: new FormControl(''),
+      htmlContent: new FormControl(''),
+      createdDate: new FormControl(''),
+      lastModifiedDate: new FormControl(''),
+      entrepriseId: new FormControl('')
+    });
+
+    /***********************************
+     * Get By Entreprise 
+     */
+    this.nwesService.getNwesByEntreprise().subscribe((res: Page2DTO[]) => {
+      this.data = res[0];
+      this.nwes.patchValue(this.data);
+
+    });
+  }
+
+  /***********************
+  * ***********
+  *  update 
+  * ***********
+  */
+
+  save() {
+    Swal.fire({
+      title: 'Are you sure to update this !?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes',
+      cancelButtonText: 'No',
+    }).then((result) => {
+      if (result.value) {
+        this.nwesService.update(this.nwes.value).subscribe((r: any) => {
+          //test
+          console.log(r);
+          // snackBar success 
+          this._snackBar.open("Updated Successfully", "OK" + '⚡', {
+            duration: 5000,
+            horizontalPosition: "right",
+            verticalPosition: "top",
+            panelClass: ["mat-toolbar", "mat-succes"],
+          });
+          Swal.fire('Updated!', ' Updated successfully.', 'success');
+          if (result.dismiss === Swal.DismissReason.cancel) {
+
+          }
+          this.refresh();
+        },
+          (error: any) => {
+            // snackBar error
+            this._snackBar.open("Error occurend !!" + error?.message, "", {
+              duration: 3000,
+              horizontalPosition: "right",
+              verticalPosition: "top",
+              panelClass: ["mat-toolbar", "mat-warn"],
+            });
+          });
+      }
+      this.refresh();
+    });
+  }
+
+
+
+  /**************************
+   * 
+   *  to allow upload image 
+   * 
+   */
+  public onReady(editor: any): void {
+    if (editor.model.schema.isRegistered('image')) {
+      editor.model.schema.extend('image', { allowAttributes: 'blockIndent' });
+    }
+  }
+
+
   /************************************************************
-   * 
-   *  Config Ckeditor
-   * 
-   ***********************************************************/
- 
+  * 
+  *  Config Ckeditor
+  * 
+  ***********************************************************/
+
   config = {
     height: 700,
- 
+
     image: {
       // Configure the available styles.
       styles: [
         'alignLeft', 'alignCenter', 'alignRight'
       ],
- 
+
       // Configure the available image resize options.
       resizeOptions: [
         {
@@ -75,7 +159,7 @@ export class HomenewslistComponent implements OnInit {
           value: '75'
         }
       ],
- 
+
       // You need to configure the image toolbar, too, so it shows the new style
       // buttons as well as the resize buttons.
       toolbar: [
@@ -88,90 +172,10 @@ export class HomenewslistComponent implements OnInit {
     },
     language: 'en'
   };
- 
- 
-  ngOnInit() {
- 
-    /***************
-     * Formcontrol
-     */
-    this.assistance = this.fb.group({
-      id: new FormControl(),
-      title: new FormControl(''),
-      htmlContent: new FormControl(''),
-      createdDate: new FormControl(''),
-      lastModifiedDate: new FormControl(''),
-      entrepriseId: new FormControl('')
-    });
- 
-    /***********************************
-     * Get privacy policy By Entreprise 
-     */
-    this.assistanceService.getPagesByCurrentEntreprise().subscribe((res: Page2DTO[]) => {
-      this.data = res[0];
-      this.assistance.patchValue(this.data);
- 
-    });
-  }
- 
-  /***********************
-  * ***********
-  *  update 
-  * ***********
-  */
- 
-  save() {
-    Swal.fire({
-         title: 'Are you sure to update this !?',
-         icon: 'warning',
-         showCancelButton: true,
-         confirmButtonText: 'Yes',
-         cancelButtonText: 'No',
-         }).then((result) => {
-         if (result.value) {
-         this.assistanceService.updateAssistance(this.assistance.value).subscribe((r:any)=> {
-          //test
-          console.log(r);
-          // snackBar success 
-          this._snackBar.open("Updated Successfully", "OK" + '⚡', {
-            duration: 5000,
-            horizontalPosition: "right",
-            verticalPosition: "top",
-            panelClass: ["mat-toolbar", "mat-succes"],
-          });
-          Swal.fire('Updated!', ' Updated successfully.', 'success');
-          if (result.dismiss === Swal.DismissReason.cancel) {
-           
-          }
-          this.refresh();
-        },
- ( error: any) => {
-            // snackBar error
-            this._snackBar.open("Error occurend !!" + error?.message, "", {
-              duration: 3000,
-              horizontalPosition: "right",
-              verticalPosition: "top",
-              panelClass: ["mat-toolbar", "mat-warn"],
-            });
-          });
-      }
-      this.refresh();
-    });
-  }
- 
- 
- 
-  /**************************
-   * 
-   *  to allow upload image 
-   * 
-   */
-  public onReady(editor: any): void {
-    if (editor.model.schema.isRegistered('image')) {
-      editor.model.schema.extend('image', { allowAttributes: 'blockIndent' });
-    }
-  }
- 
+
+
+
+
   //refrech 
   refresh(): void {
     this.router.navigateByUrl("/refresh", { skipLocationChange: true }).then(() => {
@@ -179,6 +183,5 @@ export class HomenewslistComponent implements OnInit {
       this.router.navigate([decodeURI(this._location.path())]);
     });
   }
- 
- }
- 
+
+}
