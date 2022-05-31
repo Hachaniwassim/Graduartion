@@ -1,13 +1,14 @@
-export interface productsDTO{
-    id?:number ;
-	title? : string;
-    caracteristique? :string;
-    requirements:string;
-    createdDate :Date,
-    lastModifiedDate:Date,
-    description:string;
-    subtitle ? : string;
+export class productsDTO{
+    id!:number ;
+	title!: string;
+    caracteristique! :string;
+    requirements!:string;
+    createdDate !:Date;
+    lastModifiedDate!:Date;
+    description!:string;
+    name ! : string;
     entrepriseId?:number;
     categorieId? :number
-    image ? : string;
+    image !: string;
+    slug!: string;
 }

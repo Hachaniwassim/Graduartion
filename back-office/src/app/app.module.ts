@@ -75,8 +75,6 @@ import { ChoiseEntrepriseComponent } from './choise-entreprise/choise-entreprise
 
 
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -133,8 +131,7 @@ import { ChoiseEntrepriseComponent } from './choise-entreprise/choise-entreprise
     RolesListComponent,
     RolesViewComponent,
     ResetpasswordComponent,
-    ChoiseEntrepriseComponent,
-    
+    ChoiseEntrepriseComponent
   
     
   ],

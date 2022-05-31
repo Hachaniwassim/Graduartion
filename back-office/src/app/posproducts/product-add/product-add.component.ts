@@ -59,9 +59,9 @@ export class ProductAddComponent implements OnInit {
 
   }
   ngOnInit(): void {
-    this.productService.getAllproducts().subscribe(
-      res => this.productlist = res
-    );
+    // this.productService.getAllProductsByEntreprise().subscribe(
+    //   (res :any)=> this.productlist = res
+    // );
   }
 
 

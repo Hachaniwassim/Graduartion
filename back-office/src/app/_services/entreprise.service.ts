@@ -90,7 +90,7 @@ export class EntrepriseService {
 
 
   //validation formulaire
-  form: FormGroup = new FormGroup({
+    form: FormGroup = new FormGroup({
     id: new FormControl(null),
     companyname: new FormControl('', [Validators.required]),
     phone: new FormControl(''),
@@ -105,7 +105,8 @@ export class EntrepriseService {
     street: new FormControl(''),
     adresse: new FormControl('',Validators.required),
     websiteUrl: new FormControl(''),
-    //Vatnumber:new FormControl('',[ Validators.required])
+    siretNumber:new FormControl('',[ Validators.required,Validators.maxLength(14),Validators.minLength(14)]),
+    CodeBank:new FormControl('',[ Validators.required,Validators.minLength(14),Validators.maxLength(14)])
 
 
 
@@ -127,7 +128,8 @@ export class EntrepriseService {
       city: '',
       street: '',
       refrente: '',
-      // Vatnumber: '',
+      siretNumber: '',
+      CodeBank:'',
       websiteUrl: ''
 
     });

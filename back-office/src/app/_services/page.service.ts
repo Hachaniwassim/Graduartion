@@ -5,7 +5,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import * as _ from 'lodash';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
-import { pagesDTO } from '../models/dto/pageDTO';
+import { environment } from 'src/environments/environment';
+import { pagesDTO } from '../models/dto/pagesDTO';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ import { pagesDTO } from '../models/dto/pageDTO';
 export class PageService {
 
   //api backend
-  private base_url="http://localhost:8089/pages";
+  private base_url= environment.privateApi +"/pages";
   
 
 

@@ -20,17 +20,31 @@
       </td>
       <td>
         <mat-form-field class="example-full-width" appearance="fill">
-          <mat-label>FiscaleCode</mat-label>
-          <input formControlName="codefiscale" type="number" matInput required>
-          <mat-error *ngIf="entrepriseService.form.controls['codefiscale'].errors?.required">this field is mandatory.
+          <mat-label>siretNumber</mat-label>
+          <input formControlName="siretNumber" matInput maxlength="14" minlength="14" required>
+          <mat-error *ngIf="entrepriseService.form.controls['siretNumber'].errors?.required">this field is mandatory.
           </mat-error>
         </mat-form-field>
       </td>
       <td>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>CodeBank</mat-label>
+        <input formControlName="CodeBank" type="number" matInput required>
+        <mat-error *ngIf="entrepriseService.form.controls['CodeBank'].errors?.required">this field is mandatory.
+        </mat-error>
+      </mat-form-field>
+    </td>
+    <td>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>FiscaleCode</mat-label>
+      <input formControlName="codefiscale" type="number" matInput required>
+      <mat-error *ngIf="entrepriseService.form.controls['codefiscale'].errors?.required">this field is mandatory.
+      </mat-error>
+    </mat-form-field>
+  </td>
+      <td>
         <mat-form-field class="example-full-width" appearance="fill">
-          <mat-label>Website Url</mat-label>
-          <span matPrefix>http://&nbsp;</span>
-          <input formControlName="websiteUrl" matInput>
+          <input formControlName="websiteUrl" matInput placeholder="WebsiteUrl *">
           <mat-icon matSuffix color="primary">language</mat-icon>
           <!----<mat-error *ngIf="entrepriseService.form.controls['websiteUrl'].errors?.required">this field is mandatory.
           </mat-error>-->
@@ -104,7 +118,7 @@
       <td>
         <mat-form-field class="example-full-width" appearance="fill">
           <mat-label> Street </mat-label>
-          <input matInput #street formControlName="street" maxlength="5" placeholder="Ex. 94105">
+          <input matInput #street formControlName="street" maxNumber="5"   placeholder="Ex. 94105">
           <mat-hint align="end">{{street.value.length}} / 5</mat-hint>
         </mat-form-field>
       </td>

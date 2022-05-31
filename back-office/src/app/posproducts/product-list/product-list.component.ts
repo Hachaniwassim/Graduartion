@@ -47,7 +47,7 @@ export class ProductListComponent implements OnInit {
       this.dialogService.openConfirmDialog('Are you sure to delete this record ?')
         .afterClosed().subscribe((res: any) => {
           if (res) {
-            this.productService.deleteproduct(id).subscribe(() => {
+            this.productService.deleterPoducts(id).subscribe(() => {
               //filter sur l objet  optionnel
   
              /*this.datasource.data = this.datasource.data.filter((o: any) => {
@@ -91,8 +91,8 @@ export class ProductListComponent implements OnInit {
   }
   
   ngOnInit(): void {
-    this.productService.getAllproducts().subscribe(
-      res => this.productlist = res
+    this.productService.getAllProductsByEntreprise().subscribe(
+      (res:any)=> {this.productlist = res}
     );
   }
 

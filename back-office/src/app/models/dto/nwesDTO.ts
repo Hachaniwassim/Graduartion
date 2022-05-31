@@ -2,7 +2,7 @@
  * @author Tarchoun Abir
  */
 
- export class LinksDTO{
+export class NwesDTO{
     id!:number ;
 	title! : string;
     htmlContent!:string;
