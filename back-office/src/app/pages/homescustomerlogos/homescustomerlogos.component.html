@@ -4,20 +4,19 @@
     <!-- Start content -->
     <div class="content">
       <form class="form p-3" [formGroup]="assistance" id="assistance">  
-      <h4>  Front office side section title</h4>
-      <mat-progress-bar mode="determinate" value="22"></mat-progress-bar><br><br>
+      <h4> Front office side section title</h4>
+      <mat-progress-bar mode="determinate" value="20"></mat-progress-bar><br><br>
         <div class="card card-fullheight">
           <div class="card-body">
             <div class="row">
               <div class="col-md-6 col-sm-6">
                 <label>Tilte Front Office *</label><br>
-                <input type="text" formControlName="title" placeholder="title" class="form-control ">
+                <input type="text" formControlName="title" placeholder="title" class="form-control">
               </div>
             </div>
             <div class="row mt-5">
               <div class="col-md-12 col-sm-12 ">
-                <button mat-flat-button class="float-right" color="primary" (click)="save()">save
-                </button>
+              <button mat-flat-button class="float-right" color="primary" (click)="save()"><mat-icon>save</mat-icon> Save </button>
               </div>
             </div>
           </div>
@@ -39,9 +38,7 @@
             </div>
           </div>
         </div>
-      </form>
-    
-      <br>
+      </form><br>
       <br>
       <div class="col-xl-12">
         <div class="card m-b-30">

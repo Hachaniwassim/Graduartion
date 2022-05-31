@@ -1,130 +1,154 @@
-<br><br><br>
-
+<br><br>
 <div id="wrapper">
-    <div class="content-page">
-        <div class="content">
-            <form class="form p-3" id="">
-                <h4> Front office side section title</h4>
-                <mat-progress-bar mode="determinate" value="22.5"></mat-progress-bar><br><br>
-                <div class="card card-fullheight">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-6 col-sm-6">
-                                <label>Tilte Front Office *</label><br>
-                                <input type="text" formControlName="title" placeholder="title" class="form-control ">
-                            </div>
-                        </div>
-                        <div class="row mt-5 float-right">
-                            <div class="col-md-12 col-sm-12 ">
-                                <button mat-flat-button color="primary"> <mat-icon>save</mat-icon> Save
-                                </button>&nbsp;
-                                <button mat-raised-button color="warn"><mat-icon>close</mat-icon> Canncel</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </form>
-            <br><br><br>
-            <div class="col-xl-12"> 
-                <h3> Products List </h3>
-                <mat-progress-bar mode="determinate" value="12"></mat-progress-bar><br><br><br>
-                <div class="card m-b-30">
-
-                    <div class="col-md-12 col-sm-12 "><br><br>
-                        <button mat-flat-button color="primary"> <mat-icon>add</mat-icon> Add Product
-                        </button>&nbsp;
-                    </div>
-                    <div class="card-body">
-                        <div class="container">
-                            <br><br><br>
-                            
-                            <div class="row">
-                                <div class="col-md-2 col-sm-6 ">
-                                    <div class="box">
-                                        <img src="../../assets/images/user-1.png ">
-                                        <div class="box-content">
-                                            <h3 class="title">Williamson</h3>
-                                            <span class="post">Web designer</span>
-                                        </div>
-                                        <ul class="icon">
-                                            <li><a href="#"><mat-icon>edit</mat-icon></a></li>
-                                            <li><a href="#"><mat-icon>close</mat-icon></a></li>
-                                            <li><a href="#"><i class="fa fa-link"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="col-md-2 col-sm-6">
-                                    <div class="box">
-                                        <img src="../../assets/images/user-1.png ">
-                                        <div class="box-content">
-                                            <h3 class="title">Williamson</h3>
-                                            <span class="post">Web designer</span>
-                                        </div>
-                                        <ul class="icon">
-                                            <li><a href="#"><mat-icon>edit</mat-icon></a></li>
-                                            <li><a href="#"><mat-icon>close</mat-icon></a></li>
-                                            <li><a href="#"><i class="fa fa-link"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="col-md-2 col-sm-6">
-                                    <div class="box">
-                                        <img src="../../assets/images/user-1.png ">
-                                        <div class="box-content">
-                                            <h3 class="title">Williamson</h3>
-                                            <span class="post">Web designer</span>
-                                        </div>
-                                        <ul class="icon">
-                                            <li><a href="#"><mat-icon>edit</mat-icon></a></li>
-                                            <li><a href="#"><mat-icon>close</mat-icon></a></li>
-                                            <li><a href="#"><i class="fa fa-link"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="col-md-2 col-sm-6">
-                                    <div class="box">
-                                        <img src="../../assets/images/user-1.png ">
-                                        <div class="box-content">
-                                            <h3 class="title">Williamson</h3>
-                                            <span class="post">Web designer</span>
-                                        </div>
-                                        <ul class="icon">
-                                            <li><a href="#"><mat-icon>edit</mat-icon></a></li>
-                                            <li><a href="#"><mat-icon>close</mat-icon></a></li>
-                                            <li><a href="#"><i class="fa fa-link"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="col-md-2 col-sm-6">
-                                    <div class="box">
-                                        <img src="../../assets/images/user-1.png ">
-                                        <div class="box-content">
-                                            <h3 class="title">Williamson</h3>
-                                            <span class="post">Web designer</span>
-                                        </div>
-                                        <ul class="icon">
-                                            <li><a href="#"><mat-icon>edit</mat-icon></a></li>
-                                            <li><a href="#"><mat-icon>close</mat-icon></a></li>
-                                            <li><a href="#"><i class="fa fa-link"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="col-md-2 col-sm-6">
-                                    <div class="box">
-                                        <img src="../../assets/images/user-1.png ">
-                                        <div class="box-content">
-                                            <h3 class="title">Williamson</h3>
-                                            <span class="post">Web designer</span>
-                                        </div>
-                                        <ul class="icon">
-                                            <li><a href="#"><mat-icon>edit</mat-icon></a></li>
-                                            <li><a href="#"><mat-icon>close</mat-icon></a></li>
-                                            <li><a href="#"><i class="fa fa-link"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+  <div class="content-page">
+    <div class="content">
+      <h4> Add Product Form </h4><mat-divider></mat-divider><br>
+      <div class="card"><br><br>
+        <div class="container">
+          <form [formGroup]="productService.form" class="normal-form" class="normal-form">
+            <mat-form-field appearance="outline">
+              <mat-label> Title *</mat-label>
+              <input matInput formControlName="title">
+              <mat-error *ngIf="productService.form.controls['title'].errors?.required">this field is mandatory.
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline" style="margin-left:3px;">
+              <mat-label> Name *</mat-label>
+              <input matInput formControlName="name">
+              <mat-error *ngIf="productService.form.controls['name'].errors?.required">this field is mandatory.
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline" style="margin-left: 3px;">
+              <mat-label> Slug *</mat-label>
+              <input matInput formControlName="slug">
+              <mat-error *ngIf="productService.form.controls['slug'].errors?.required">this field is mandatory.
+              </mat-error>
+            </mat-form-field>
+            <div class="form-group">
+              <label> Caracteristiques * </label>
+              <ckeditor formControlName="caracteristique" class="w-10 col-12" [config]='config'></ckeditor>
             </div>
+            <div class="form-group">
+              <label> Requirements * </label>
+              <ckeditor formControlName="requirements" class="w-10 col-12" [config]='config'></ckeditor>
+            </div>
+            <div class="form-group">
+              <label> Description * </label>
+              <ckeditor formControlName="description" class="w-10 col-12" [config]='config'></ckeditor>
+            </div>
+            <label class="form-label"> Tags *</label>
+            <ng-select [multiple]="true" bindValue="id" bindLabel="description" (change)="onChangeTag($event)"
+              placeholder="select a Tags">
+              <ng-option *ngFor="let tag of tagsByEntreprise" [value]="tag.id">{{tag.description}}</ng-option>
+            </ng-select>
+            <div class="form-group">
+              <label class="form-label"> Category *</label>
+              <select class="form-control" formControlName="categorieId" (change)="onChangeCategorie($event)"
+                placeholder="category">
+                <option>
+                  select a category
+                </option>
+                <option *ngFor="let category of categoryByEntreprise" [value]="category.id">
+                  {{category.title}}
+                </option>
+              </select>
+            </div>
+            <div class="form-group">
+              <input color="primary" type="file" (change)="onSelectFile($event)">
+            </div><br>
+            <button mat-raised-button color="primary"  [disabled]="productService.form.invalid" (click)="onAddProduct()" class="float-right">
+              <mat-icon>save</mat-icon> Save
+            </button>
+            <br><br>
+          </form>
+        </div>
+      </div>
+      <br>
+      <h4>Products List</h4><mat-divider></mat-divider><br>
+      <div class="card">
+        <br><br>  
+        <div class="container">
+        <div class="row">
+          <div class="col-xs-6 col-md-5" *ngFor="let product of listPrducts">
+            <div class="card">
+              <div class="wrapper">
+                <img class="card-img-top img-fluid" class="card-img-top" src="{{product.image}}" alt="Card image cap">
+                </div><br>
+                <div class="card-body">
+                <mat-icon>schedule</mat-icon> {{product.createdDate | date:'short'}} <div class="float-right">
+                  <button mat-icon-button ><mat-icon>edit_outline</mat-icon></button>&nbsp;&nbsp;
+                  <button mat-icon-button (click)="onDeleteProduct(product.id)"><mat-icon color="warn">close</mat-icon>
+               </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!--- <div class="col-md-12 col-sm-12 "><br><br>
+                <button mat-flat-button color="primary" data-bs-toggle="modal" data-bs-target="#exampleModal" id="pills-description-tab" data-toggle="pill" href="#pills-description" role="tab" aria-controls="pills-description" aria-expanded="true"> <mat-icon>add</mat-icon> Add Product
+                </button>&nbsp;
+            </div> 
+<div class="modal fade bd-example-modal-xl"  id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+aria-hidden="true">
+<div class="modal-dialog" >
+<div class="modal-content" style="background-color: white;width: 800px;">
+<div class="modal-header">
+<h5  class="modal-title" id="exampleModalLabel">Add Product</h5><mat-divider></mat-divider><br>
+<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<div class="modal-body">
+<form  enctype="multipart/form-data" >
+<div class="form-group">
+<label class="form-label">Product Name</label>
+<input type="text"  class="form-control" formControlName="name" required/>
+</div>
+<div class="form-group">
+<label class="form-label">category</label>
+<ng-select
+[items]="category"
+bindLabel="name"
+[multiple]="true"
+[(ngModel)]="selected">
+</ng-select>
+</div>
+<div class="form-group">
+<label  class="form-label">Image</label><mat-divider></mat-divider><br>
+<input type="file" class="form-control"  formControlName="image"/>
+</div>
+<div class="mb-3">
+<label  class="form-label"> Caracteristiques *</label><mat-divider></mat-divider><br>
+<ckeditor   formControlName="caracteristique" class="w-10 col-12"  [config]='config'></ckeditor>
+</div>
+<div class="mb-3">
+<label lass="form-label"> Requirements *</label><mat-divider></mat-divider><br>
+<ckeditor   formControlName="requirments" class="w-10 col-12"  [config]='config'></ckeditor>
+</div>
+<div class="mb-3">
+<label>Description *  </label><br>
+<mat-divider></mat-divider><br>
+<ckeditor  formControlName="description" class="w-10 col-12"  [config]='config' ></ckeditor>
+</div>
+<div class="container" align="center">
+<button mat-flat-button color="primary">Save
+</button>&nbsp;
+<button mat-raised-button  data-bs-dismiss="modal" aria-label="Close"color="gray">canncel</button>
+</div>
+
+</form>-->

@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row"> 
+    <div class="col-xs-6 col-md-5" *ngFor="let category of listCategory">
+      <div class="card">
+        <div class="wrapper">
+          <img class="card-img-top img-fluid" class="card-img-top" src="{{category.image}}">
+          </div><br>
+          <div class="card-body">
+          <mat-icon>schedule</mat-icon>  <div class="float-right">
+            <button mat-icon-button ><mat-icon>edit_outline</mat-icon></button>&nbsp;&nbsp;
+            <button mat-icon-button><mat-icon color="warn">close</mat-icon>
+         </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

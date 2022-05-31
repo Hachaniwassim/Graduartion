@@ -21,8 +21,8 @@ public interface FilesStorageService {
 
   public Stream<Path> loadAll();
 
-  String uploadImage(MultipartFile file, ImageTypes imageType,Long id_enterprise);
+  String uploadImage(MultipartFile file, ImageTypes imageType,String imageName,Long id_enterprise);
 
-  ResponseEntity<String> loadImage(  Long parentId,ImageTypes imageType,Long id_entreprise);
+  ResponseEntity<String> loadImage(ImageTypes imageType,Long id_entreprise);
 
   }

@@ -1,0 +1,17 @@
+/* validate form  
+input.ng-invalid {
+    border-left: 5px solid rgb(183, 5, 5);
+  }
+.form-control.ng-touched.ng-invalid {
+    border: 1px solid rgb(183, 5, 5);
+    border-left: 5px solid rgb(183, 5, 5);
+  }
+  .form-control.ng-touched.ng-valid {
+    border: 1px solid #446DCA;
+    border-left: 5px solid #446DCA;
+  }
+  .form-group .form-control:focus {
+    box-shadow: none;
+    border-color: #446DCA;
+  }
+  */

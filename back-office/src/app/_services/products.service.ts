@@ -19,7 +19,7 @@ export class ProductService {
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
 
-  constructor(private http :HttpClient, private datePipe: DatePipe) { }
+  constructor(private http :HttpClient) { }
 
 //http opttion
 httpOptions={ 
@@ -54,13 +54,13 @@ createproduct(request:any){
 
 
 //get all 
-getAllproducts():Observable<productsDTO[]>{
-    return this.http.get<productsDTO[]>(this.base_url + '/list-products' + localStorage.getItem('idEntreprise'));
+getAllProductsByEntreprise():any{
+    return this.http.get<any>(this.base_url + '/list-products/' + localStorage.getItem('idEntreprise'));
   }
 
 
 // get by id
-getByidproduct(id:number):Observable<productsDTO>{
+getByidProducts(id:number):Observable<productsDTO>{
   return this.http.get<productsDTO>(this.base_url + '/' +id).pipe(retry(2),catchError(this.handleError));
 
 }
@@ -73,7 +73,7 @@ getByidproduct(id:number):Observable<productsDTO>{
 
 
   // delete 
-  deleteproduct(id:number){
+  deleterPoducts(id:number){
     return this.http.delete<productsDTO>(this.base_url + '/' +id);
 
 }
@@ -84,13 +84,15 @@ getByidproduct(id:number):Observable<productsDTO>{
     title: new FormControl('',Validators.required),
     description : new FormControl('',[ Validators.required]),
     caracteristique : new FormControl('',[ Validators.required]),
-   // name : new FormControl('',[ Validators.required]),
+    name : new FormControl('',[ Validators.required]),
     image : new FormControl(''),
-    requirements : new FormControl(''),
+    requirements : new FormControl('',Validators.required),
     createdDate: new FormControl(''),
     lastModifiedDate : new FormControl(''),
     entrepriseId : new FormControl(''),
     categorieId : new FormControl(''),
+    tagId: new FormControl(''),
+    slug: new FormControl('',Validators.required)
 
  
 });
@@ -107,12 +109,36 @@ initializeFormGroup() {
     requirements:'', 
     entrepriseId:null,
     categorieId:null,
+    tagId:null,
     createdDate:'',
-    lastModifiedDate:''
+    lastModifiedDate:'',
+    slug:''
 
   });
 }
 populateForm(product: any) {
   this.form.patchValue(_.omit(product));
+}
+getTagsByEntreprise():any{
+  return this.http.get<any>(environment.privateApi + '/tags/list-tags/' + localStorage.getItem('idEntreprise'));
+}
+
+getCategorieByEntreprise():any{
+  return this.http.get<any>(environment.privateApi + '/category/list-category/' + localStorage.getItem('idEntreprise'));
+}
+//for add an product
+assignTagsToAnProduct(productId:any,tagId:any):any{
+  return this.http.get<any>(environment.privateApi + '/product/assign-tags/' +productId+"/"+tagId);
+}
+uploadProductImage(nameImage:any,file:any):any{
+
+  
+  const formData: FormData = new FormData();
+  formData.append('file', file);
+  return this.http.post<any>(environment.privateApi + '/upload/PRODUCT/' +nameImage+"/"+localStorage.getItem('idEntreprise'),formData);
+}
+addProduct(bodyReques:any):any{
+  
+  return this.http.post<any>(environment.privateApi + '/product/post-product',bodyReques);
 }
 }

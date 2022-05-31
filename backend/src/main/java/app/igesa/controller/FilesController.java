@@ -67,11 +67,11 @@ public class FilesController {
   }
 
 
-  @PostMapping(PRIVATE_API + "/{fileType}/{id_entreprise}")
-  public ResponseEntity<ResponseMessage> uploadFile(@RequestParam("file") MultipartFile file, @PathVariable ImageTypes fileType,@PathVariable Long id_entreprise) {
+  @PostMapping(PRIVATE_API + "/{fileType}/{imageName}/{id_entreprise}")
+  public ResponseEntity<ResponseMessage> uploadFile(@RequestParam("file") MultipartFile file, @PathVariable ImageTypes fileType,@PathVariable String imageName,@PathVariable Long id_entreprise) {
     String message = "";
     try {
-      storageService.uploadImage(file, fileType,id_entreprise);
+      storageService.uploadImage(file, fileType,imageName,id_entreprise);
 
       message = "Uploaded the file successfully: " + file.getOriginalFilename();
       return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage(message));
@@ -82,11 +82,11 @@ public class FilesController {
   }
 
 
-  @GetMapping(PRIVATE_API + "/{fileType}/{parentId}/{id_enterprise}")
+  @GetMapping(PRIVATE_API + "/{fileType}/{id_enterprise}")
   public ResponseEntity<String> getImage(@PathVariable(value = "id_enterprise", required = false) Long id_enterprise,
-                                         @PathVariable("parentId") Long id,
+                                        // @PathVariable("parentId") Long id,
                                          @PathVariable("fileType") ImageTypes type) {
-    return storageService.loadImage(id,type,id_enterprise);
+    return storageService.loadImage(type,id_enterprise);
   }
 
 }

@@ -29,8 +29,9 @@ public class Category extends Auditable {
 	private String image ;
 	@Type(type = "org.hibernate.type.TextType")
 	private String title;
-	@Type(type = "org.hibernate.type.TextType")
+	@Column(columnDefinition="text")
 	private String description ;
+	@Type(type = "org.hibernate.type.TextType")
 	private String subtitle;
 	private String menuimage ;
 	private String bannerimage ;
