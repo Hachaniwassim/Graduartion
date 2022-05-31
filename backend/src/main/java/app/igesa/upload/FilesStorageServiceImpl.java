@@ -1,8 +1,6 @@
 package app.igesa.upload;
 import app.igesa.enumerations.ImageTypes;
-import app.igesa.enumerations.PagesTypes;
 import app.igesa.metiers.Ientreprise;
-import io.micrometer.core.lang.Nullable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
@@ -14,7 +12,6 @@ import org.springframework.util.FileSystemUtils;
 import org.springframework.util.ResourceUtils;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.server.ResponseStatusException;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -23,18 +20,15 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.Optional;
 import java.util.Random;
-import java.util.UUID;
 import java.util.stream.Stream;
 
 @Service
 public class FilesStorageServiceImpl implements FilesStorageService {
 
-  private final Path root = Paths.get("uploads");
+  private final Path root = Paths.get("${igesa.images.path}");
 
   @Value("${igesa.images.path}")
   private String path;
@@ -91,10 +85,8 @@ public class FilesStorageServiceImpl implements FilesStorageService {
     }
   }
 
-
-// nahi parent id baad
   @Override
-  public String uploadImage(MultipartFile file, ImageTypes imageType ,Long id_entreprise) {
+  public String uploadImage(MultipartFile file, ImageTypes imageType ,String imageName,Long id_entreprise) {
     if (file == null) {
       throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR);
     }
@@ -115,9 +107,9 @@ public class FilesStorageServiceImpl implements FilesStorageService {
     }
     DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
     Random random = new Random();
-    String ImageName = String.valueOf(random.ints(97, 122 + 1));
+    //String ImageName = String.valueOf(random.ints(97, 122 + 1));
     String fileExtension = getExtensionByStringHandling(file.getOriginalFilename()).orElse(file.getContentType().substring(6));
-    String filePath = baseDestination + ImageName + "." + fileExtension;
+    String filePath = baseDestination + imageName + "." + fileExtension;
 
     try {
 
@@ -130,7 +122,7 @@ public class FilesStorageServiceImpl implements FilesStorageService {
 
       throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR);
     }
-    return ImageName + '.' + fileExtension;
+    return imageName + '.' + fileExtension;
   }
 
 
@@ -142,21 +134,39 @@ public class FilesStorageServiceImpl implements FilesStorageService {
 
 
   @Override
-  public ResponseEntity<String> loadImage( Long parentId,ImageTypes imageType, Long eid) {
-    if (eid == null) {
-      eid = enterpriseService.getCurrentEnterprise().getId();
-    }
+  public ResponseEntity<String> loadImage(ImageTypes imageType, Long id_enterprise) {
+
     File file = null;
     String imageFile = null;
     try {
       switch (imageType) {
         case PRODUCT:
-          file = ResourceUtils.getFile(path + "Enterprise-" + eid + "/" + ImageTypes.PRODUCT + "/" + parentId+ ".jpg");
+          file = ResourceUtils.getFile(path + "Enterprise-" + id_enterprise+ "/" + ImageTypes.PRODUCT + "/" +  ".jpg");
           break;
         case NEWS:
-          file = ResourceUtils.getFile(path + "News/Enterprise-" + enterpriseService.getCurrentEnterprise().getId() + "/" + "news-" +parentId+ ".jpg");
+          file = ResourceUtils.getFile(path + "Enterprise-" + id_enterprise + "/" + ImageTypes.NEWS + ".jpg");
           break;
-        default:
+        case LINKS:
+          file = ResourceUtils.getFile(path + "Enterprise-" + id_enterprise + "/" + ImageTypes.LINKS + ".jpg");
+          break;
+        case BLOG_POST:
+          file = ResourceUtils.getFile(path + "Enterprise-" + id_enterprise + "/" + ImageTypes.BLOG_POST + ".jpg");
+        case CATEGORY:
+          file = ResourceUtils.getFile(path + "Enterprise-" + id_enterprise + "/" + ImageTypes.CATEGORY + ".jpg");
+          break;
+        case CAROUSEL:
+          file = ResourceUtils.getFile(path + "Enterprise-" + id_enterprise + "/" + ImageTypes.CAROUSEL + ".jpg");
+        case CLIENT:
+          file = ResourceUtils.getFile(path + "Enterprise-" + id_enterprise + "/" + ImageTypes.CLIENT + ".jpg");
+        case ICON:
+          file = ResourceUtils.getFile(path + "Enterprise-" + id_enterprise + "/" + ImageTypes.ICON+ ".jpg");
+        case BRAND_LOGO:
+          file = ResourceUtils.getFile(path + "Enterprise-" + id_enterprise + "/" + ImageTypes.BRAND_LOGO + ".jpg");
+        case Flag:
+          file = ResourceUtils.getFile(path + "Enterprise-" + id_enterprise + "/" + ImageTypes.Flag + ".jpg");
+        case ASSISTANCE:
+          file = ResourceUtils.getFile(path + "Enterprise-" + id_enterprise + "/" + ImageTypes.ASSISTANCE + ".jpg");
+          default:
           new IllegalArgumentException();
       }
 

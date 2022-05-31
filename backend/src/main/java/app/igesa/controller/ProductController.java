@@ -114,5 +114,20 @@ public class ProductController {
         return new ResponseEntity<>("{code :200 ,msg : deleted successfully}",HttpStatus.OK);
     }
 
+    @RequestMapping(value= PRIVATE_API + "/assign-tags/{product_id}/{tag_id}",method =RequestMethod.GET)
+    @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
+    @ResponseBody
+    @ApiOperation(value="DELETE PRODUCT BY ID ",response = ProductDTO.class)
+    @ApiResponses(value= {
+            @ApiResponse(code=200,message="Product was Deleted successfully"),
+            @ApiResponse(code=401,message="Unauthorized , without authority or permission"),
+            @ApiResponse( code=403, message="not permitted or allowed")
+
+    })
+    public ResponseEntity assignTags(@PathVariable Long product_id,@PathVariable Long tag_id) {
+
+        iproductService.assignTags(product_id,tag_id);
+        return new ResponseEntity<>("{assignTags Succesfully}",HttpStatus.OK);
+    }
 
 }

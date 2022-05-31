@@ -74,5 +74,8 @@ public class ProductImp  implements Iproduct {
         }
       iproductRepository.deleteById(id);
     }
-
+    @Override
+    public void assignTags(Long product_id,Long tag_id){
+        iproductRepository.assignTags(product_id,tag_id);
+    }
 }
