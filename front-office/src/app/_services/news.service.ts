@@ -6,15 +6,15 @@ import * as _ from 'lodash';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { linksDTO } from '../models/dto/linksDTO';
+import { newsDTO } from '../models/dto/newsDTO';
 
 @Injectable({
   providedIn: 'root'
 })
-export class Linksservice {
+export class Newsservice {
 
   //api backend
-  private base_url= environment.publicApi +"/links";
+  private base_url= environment.publicApi +"/nwes";
   
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
@@ -26,14 +26,14 @@ export class Linksservice {
 
   
 //get all by entreprise
-getAlllinksByEntreprise():Observable<linksDTO>{
- return this.http.get<linksDTO>(this.base_url);
+getAllnewsByEntreprise():Observable<newsDTO>{
+ return this.http.get<newsDTO>(this.base_url);
 }
 
 
 // get by id
-getByidlink(id:number):Observable<linksDTO>{
-  return this.http.get<linksDTO>(this.base_url + '/' +id);
+getByidnew(id:number):Observable<newsDTO>{
+  return this.http.get<newsDTO>(this.base_url + '/' +id);
 
 }
 
