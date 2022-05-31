@@ -3,9 +3,8 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Injectable } from '@angular/core';
 import * as _ from 'lodash';
 import { Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { privacyDTO } from '../models/dto/privacyDTO';
+import { NwesDTO } from '../models/dto/nwesDTO';
 
 @Injectable({
   providedIn: 'root'
@@ -17,14 +16,14 @@ import { privacyDTO } from '../models/dto/privacyDTO';
  * 
  */
 
-export class Privacyservice {
+export class NwesService {
 
 /*********************************
  * 
  * ----------Api Backend---------
  * 
  *******************************/
-  private base_url = environment.privateApi + "/privacy";
+  private base_url = environment.privateApi + "/nwes";
 
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
@@ -68,30 +67,29 @@ export class Privacyservice {
  * Get privacy by current Entreprise
  *
  */
-  getPrivacyByEntreprise(): Observable<privacyDTO[]> {
-    return this.http.get<privacyDTO[]>(this.base_url + '/list-privacy/' + localStorage.getItem('idEntreprise')).pipe(retry(2), catchError(this.handleError));
+  getNwesByEntreprise(): Observable<NwesDTO[]> {
+    return this.http.get<NwesDTO[]>(this.base_url + '/list-nwes/' + localStorage.getItem('idEntreprise'))
   }
 
   
 /**************************
  * 
- * Get privacy by Entreprise id
+ * Get by  id
  *
  */
-  getPrivacyByid(id: number): Observable<privacyDTO> {
-    return this.http.get<privacyDTO>(this.base_url + '/' + id).pipe(retry(2), catchError(this.handleError));
-
+  getPrivacyByid(id: number) {
+    return this.http.get<NwesDTO>(this.base_url + '/' + id);
   }
 
   
  /**************************
   * 
- * update privacy by Entreprise
+ * update by Entreprise
  * 
  */
   update(request: any) {
     console.log('the request ====>',request)
-    return this.http.post<privacyDTO>(`${this.base_url + '/post-privacy' }`, request);
+    return this.http.post<NwesDTO>(`${this.base_url + '/post-nwes' }`, request);
     
   }
   

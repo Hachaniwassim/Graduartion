@@ -2,7 +2,7 @@
  * @author Tarchoun Abir
  */
 
-export class NwesDTO{
+export class NwesDTO {
     id!:number ;
 	title! : string;
     htmlContent!:string;
