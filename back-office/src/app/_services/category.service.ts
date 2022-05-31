@@ -94,12 +94,11 @@ uploadCategoryImage(nameImage:any,file:any):any{
 //validation formulaire
     form : FormGroup= new FormGroup({
     id: new FormControl(null),
-    image: new FormControl('',Validators.required),
     title : new FormControl('',[ Validators.required]),
     description : new FormControl(''),
     menuimage : new FormControl(''),
     bannerimage : new FormControl(''),
-    entrepriseId : new FormControl(''),
+    enterpriseId : new FormControl(''),
     subtitle : new FormControl(''),
     createdDate : new FormControl(''),
     lastModifiedDate : new FormControl(''),
@@ -110,14 +109,14 @@ uploadCategoryImage(nameImage:any,file:any):any{
 initializeFormGroup() {
   this.form.setValue({
     id :null,
-    image: '',
     title: '',
     subtitle: '',
     description: '',
     menuimage: '',
     bannerimage: '',
     createdDate: '',
-    lastModifiedDate: '',
+    enterpriseId:'',
+    lastModifiedDate:new Date()
    
   });
 }
