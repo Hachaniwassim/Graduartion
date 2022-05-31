@@ -42,7 +42,7 @@ public class CategoryController {
 
 
 
-    @RequestMapping(value=PRIVATE_API ,method = RequestMethod.POST)
+    @RequestMapping(value=PRIVATE_API + "/post-category",method = RequestMethod.POST)
     @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
     @ApiOperation(value="ADD CATEGORY",notes="SAUVGARDER CATEGORY", response = CategoryDTO.class)
     @ApiResponses(value= {
@@ -83,7 +83,7 @@ public class CategoryController {
     }
 
 
-    @RequestMapping(value=PRIVATE_API ,method =RequestMethod.PUT)
+    @RequestMapping(value=PRIVATE_API + "/update-category",method =RequestMethod.PUT)
     @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
     @ApiOperation(value="UPDATE CATEGORY ",response = CategoryDTO.class)
     @ApiResponses(value= {

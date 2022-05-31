@@ -10,5 +10,6 @@ public interface Iproduct {
     public Collection<ProductDTO> view(Long enterprise_id);
     public ProductDTO findById(Long id);
     public void delete(Long id);
+    public void assignTags(Long product_id,Long tag_id);
     //public ProductDTO update(ProductDTO p, Long id);
 }

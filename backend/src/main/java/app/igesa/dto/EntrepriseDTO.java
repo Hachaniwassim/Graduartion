@@ -34,10 +34,14 @@ public class EntrepriseDTO {
 	private String city ;
 	private String street;
 	private String refrente;
-	//private String Vatnumber;
 	private Long CompanyBusinessId ;
+    @Column(name="CodeBank", unique = true)
+	private String CodeBank;
+	@Column(name="siretNumber", unique = true)
+	private String siretNumber;
 
-    public static EntrepriseDTO fromEntity(Entreprise entreprise) {
+
+	public static EntrepriseDTO fromEntity(Entreprise entreprise) {
 
 		return EntrepriseDTO.builder()
 				.id(entreprise.getId())
@@ -57,6 +61,8 @@ public class EntrepriseDTO {
 				//.Vatnumber(entreprise.getVatnumber())
 				.city(entreprise.getCity())
 				.groupeId(entreprise.getGroupe().getId())
+				.CodeBank(entreprise.getCodeBank())
+				.siretNumber(entreprise.getSiretNumber())
 				.build();
     }
     
@@ -77,7 +83,8 @@ public class EntrepriseDTO {
 		entreprise.setStreet(dto.getStreet());
 		entreprise.setWebsiteUrl(dto.getWebsiteUrl());
 		entreprise.setCity(dto.getCity());
-		//entreprise.setVatnumber(dto.getVatnumber());
+		entreprise.setCodeBank(dto.getCodeBank());
+		entreprise.setSiretNumber(dto.getSiretNumber());
 
 		//===========================> company Bussiness ===========================>
 		CompanyBusiness companyBusiness = new CompanyBusiness();

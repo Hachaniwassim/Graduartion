@@ -133,7 +133,7 @@ export class LanguageListComponent implements OnInit {
 
   // create dialog config
   onCreatelanguage() {
-    this.languageservice.form.reset();
+    //this.languageservice.form.reset();
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;

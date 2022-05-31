@@ -32,10 +32,10 @@
       <mat-header-cell *matHeaderCellDef></mat-header-cell>
       <mat-cell *matCellDef="let row">&nbsp;&nbsp;&nbsp;
         <button mat-icon-button (click)="onEditCompany(row)">
-          <mat-icon>edit_outline</mat-icon>
+          <mat-icon color="primary">edit_outline</mat-icon>
         </button>
         <button mat-icon-button color="warn" (click)="onDeleteCompany(row.id)">
-          <mat-icon>delete_outline</mat-icon>
+          <mat-icon>close</mat-icon>
         </button>
         <button mat-icon-button (click)="ViewCompany(row)">
           <mat-icon>list</mat-icon>

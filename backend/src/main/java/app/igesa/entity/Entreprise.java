@@ -45,7 +45,10 @@ public class Entreprise  extends Auditable{
 	private String city ;
 	private String street;
 	private String refrente;
-	//private String Vatnumber;
+	@Column(name="CodeBank", unique = true)
+	private String CodeBank;
+	@Column(name="siretNumber", unique = true)
+	private String siretNumber;
 
 	/**
 	 * Groupe

@@ -19,6 +19,8 @@ export class EntrepriseDTO{
 	city!:string ;
         street !:string ;
         refrente!: string;
+        siretNumber!: string;
+        CodeBank!: string;
        // Vatnumber!: string;
         websiteUrl!: string;
        

@@ -11,7 +11,13 @@ import { categoryDTO } from '../models/dto/categoryDTO';
 @Injectable({
   providedIn: 'root'
 })
-export class Gategoryservice {
+
+/*****
+ * 
+ * @author Tarchoun Abir
+ * 
+ */
+export class Categoryservice {
 
   //api backend
   private base_url= environment.privateApi + '/category';
@@ -47,15 +53,17 @@ export class Gategoryservice {
 
 // insert 
 createCategory(request:any){
-  return this.http.post<categoryDTO>(`${this.base_url + '/post-category' }`, request);
+  return this.http.post<any>(`${this.base_url + '/post-category' }`, request);
 }
 
 //get all 
-getallCategorie():Observable<categoryDTO[]>{
-   return this.http.get<categoryDTO[]>(this.base_url + '/list-category' + localStorage.getItem('idEntreprise'));
+getallCategorieByEntreprise():Observable<categoryDTO[]>{
+   return this.http.get<categoryDTO[]>(this.base_url + '/list-category/' + localStorage.getItem('idEntreprise'));
  }
 
 
+
+ // update 
   updateCategory(request: any) {
   console.log('the request ====>',request)
   return this.http.post<categoryDTO>(`${this.base_url + '/update-category' }`, request);
@@ -63,15 +71,25 @@ getallCategorie():Observable<categoryDTO[]>{
 }
 
   // get  by id
-  getByid(id:number):Observable<categoryDTO>{
-    return this.http.get<categoryDTO>(this.base_url + '/' +id).pipe(retry(2),catchError(this.handleError));
+  getByid(id:number){
+    return this.http.get<categoryDTO>(this.base_url + '/' +id);
 
   }
     // delete
-    delete(id:number){
-      return this.http.delete<categoryDTO>(this.base_url + '/' +id,this.httpOptions).pipe(retry(2),catchError(this.handleError));
+    deleteCategory(id:number){
+      return this.http.delete<categoryDTO>(this.base_url + '/' +id);
 
 }
+
+//upload image category 
+
+uploadCategoryImage(nameImage:any,file:any):any{
+  
+  const formData: FormData = new FormData();
+  formData.append('file', file);
+  return this.http.post<any>(environment.privateApi + '/upload/CATEGORY/' +nameImage+"/"+localStorage.getItem('idEntreprise'),formData);
+}
+
 
 //validation formulaire
     form : FormGroup= new FormGroup({
