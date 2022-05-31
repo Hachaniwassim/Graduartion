@@ -1,4 +1,9 @@
-<div class="container">
+<div class="controles-container">
+ <button class="float-right" mat-fab color="gray" (click)="onCreateCategory()">
+    <mat-icon>add</mat-icon>
+  </button>&nbsp;&nbsp;
+  <br><br>
+</div>
   <div class="row"> 
     <div class="col-xs-6 col-md-5" *ngFor="let category of listCategory">
       <div class="card">
@@ -6,11 +11,10 @@
           <img class="card-img-top img-fluid" class="card-img-top" src="{{category.image}}">
           </div><br>
           <div class="card-body">
-          <mat-icon>schedule</mat-icon>  <div class="float-right">
-            <button mat-icon-button ><mat-icon>edit_outline</mat-icon></button>&nbsp;&nbsp;
-            <button mat-icon-button><mat-icon color="warn">close</mat-icon>
+            <mat-icon>schedule</mat-icon> {{category.createdDate | date:'short'}} <div class="float-right">
+            <button mat-icon-button  (click)="onEditCategory(category.id)" ><mat-icon>edit_outline</mat-icon></button>&nbsp;&nbsp;
+            <button mat-icon-button><mat-icon color="warn" (click)="onDeleteCategory(category.id)">close</mat-icon>
          </button>
-        </div>
       </div>
     </div>
   </div>
