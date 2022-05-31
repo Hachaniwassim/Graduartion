@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { Page2DTO } from 'src/app/models/dto/page2DTO';
 import Swal from 'sweetalert2';
 import { Location } from '@angular/common';
-import { AssistanceService } from 'src/app/_services/assistanceService';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { postDTO } from 'src/app/models/dto/postDTO';
+import { PostClientService } from 'src/app/_services/logoClients.service';
 
 @Component({
   selector: 'app-homescustomerlogos',
@@ -21,82 +21,19 @@ export class HomescustomerlogosComponent implements OnInit {
  * 
  */
 
-  data !: Page2DTO;
-  assistance !: FormGroup;
-  constructor(private fb: FormBuilder, private assistanceService: AssistanceService ,
+  data !:postDTO;
+  logoClients !: FormGroup;
+  constructor(private fb: FormBuilder, private logoClientservice: PostClientService ,
     public router: Router, public _location: Location, public _snackBar: MatSnackBar,) {
  
   }
- 
-  /************************************************************
-   * 
-   *  Config Ckeditor
-   * 
-   ***********************************************************/
- 
-  config = {
-    height: 700,
- 
-    image: {
-      // Configure the available styles.
-      styles: [
-        'alignLeft', 'alignCenter', 'alignRight'
-      ],
- 
-      // Configure the available image resize options.
-      resizeOptions: [
-        {
-          name: 'resizeImage:original',
-          label: 'Original',
-          value: null
-        },
-        {
-          name: 'resizeImage:5',
-          label: '5%',
-          value: '5'
-        },
-        {
-          name: 'resizeImage:10',
-          label: '10%',
-          value: '10'
-        },
-        {
-          name: 'resizeImage:25',
-          label: '25%',
-          value: '25'
-        },
-        {
-          name: 'resizeImage:50',
-          label: '50%',
-          value: '50'
-        },
-        {
-          name: 'resizeImage:75',
-          label: '75%',
-          value: '75'
-        }
-      ],
- 
-      // You need to configure the image toolbar, too, so it shows the new style
-      // buttons as well as the resize buttons.
-      toolbar: [
-        'imageStyle:alignLeft', 'imageStyle:alignCenter', 'imageStyle:alignRight',
-        '|',
-        'ImageResize',
-        '|',
-        'imageTextAlternative'
-      ]
-    },
-    language: 'en'
-  };
- 
- 
+
   ngOnInit() {
  
     /***************
      * Formcontrol
      */
-    this.assistance = this.fb.group({
+    this.logoClients = this.fb.group({
       id: new FormControl(),
       title: new FormControl(''),
       htmlContent: new FormControl(''),
@@ -106,11 +43,11 @@ export class HomescustomerlogosComponent implements OnInit {
     });
  
     /***********************************
-     * Get privacy policy By Entreprise 
+     * Get logo clients By Entreprise 
      */
-    this.assistanceService.getPagesByCurrentEntreprise().subscribe((res: Page2DTO[]) => {
+    this.logoClientservice.getallLogoClientByEntreprise().subscribe((res: postDTO[]) => {
       this.data = res[0];
-      this.assistance.patchValue(this.data);
+      this.logoClients.patchValue(this.data);
  
     });
   }
@@ -130,7 +67,7 @@ export class HomescustomerlogosComponent implements OnInit {
          cancelButtonText: 'No',
          }).then((result) => {
          if (result.value) {
-         this.assistanceService.updateAssistance(this.assistance.value).subscribe(() => {
+         this.logoClientservice.update(this.logoClients.value).subscribe(() => {
           //test
           console.log("test");
           // snackBar success 
@@ -162,7 +99,69 @@ export class HomescustomerlogosComponent implements OnInit {
   }
  
  
+   /************************************************************
+   * 
+   *  Config Ckeditor
+   * 
+   ***********************************************************/
  
+    config = {
+      height: 700,
+   
+      image: {
+        // Configure the available styles.
+        styles: [
+          'alignLeft', 'alignCenter', 'alignRight'
+        ],
+   
+        // Configure the available image resize options.
+        resizeOptions: [
+          {
+            name: 'resizeImage:original',
+            label: 'Original',
+            value: null
+          },
+          {
+            name: 'resizeImage:5',
+            label: '5%',
+            value: '5'
+          },
+          {
+            name: 'resizeImage:10',
+            label: '10%',
+            value: '10'
+          },
+          {
+            name: 'resizeImage:25',
+            label: '25%',
+            value: '25'
+          },
+          {
+            name: 'resizeImage:50',
+            label: '50%',
+            value: '50'
+          },
+          {
+            name: 'resizeImage:75',
+            label: '75%',
+            value: '75'
+          }
+        ],
+   
+        // You need to configure the image toolbar, too, so it shows the new style
+        // buttons as well as the resize buttons.
+        toolbar: [
+          'imageStyle:alignLeft', 'imageStyle:alignCenter', 'imageStyle:alignRight',
+          '|',
+          'ImageResize',
+          '|',
+          'imageTextAlternative'
+        ]
+      },
+      language: 'en'
+    };
+
+
   /**************************
    * 
    *  to allow upload image 
