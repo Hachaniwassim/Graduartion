@@ -1,6 +1,6 @@
 
 <mat-toolbar>
-  <span>{{categoryService.form.controls['id'].value? "Modify Category":"New Category "}}</span>
+  <span>{{categoryService.form.controls['id'].value?"Modify Category":"New Category"}}</span>
   <span class="fill-remaining-space"></span>
   <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
 </mat-toolbar><br><br>
@@ -36,11 +36,12 @@
         <ckeditor formControlName="description" class="w-10 col-12" [config]='config'></ckeditor>
       </div> <div class="form-group">
         <input color="primary" type="file" (change)="onSelectFile($event)">
-      </div><br>
-      <button mat-raised-button color="primary"  [disabled]="categoryService.form.invalid"  class="float-right">
-        <mat-icon>save</mat-icon> Save
-      </button>
-      <br><br>
+      </div><br>&nbsp;&nbsp;
+      <div class="controle-container">&nbsp;&nbsp;
+      <button  mat-raised-button color="primary"  [disabled]="categoryService.form.invalid"  class="float-right" type="submit" ><mat-icon>save</mat-icon> Save
+        </button>
+        <br><br>
+    </div>
     </form>
   </div>
 </div>

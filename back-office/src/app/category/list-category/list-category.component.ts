@@ -8,6 +8,7 @@ import { categoryDTO } from 'src/app/models/dto/categoryDTO';
 import { DialogService } from 'src/app/shared/dialog.service';
 import { NotificationService } from 'src/app/shared/notification.service';
 import { Categoryservice } from 'src/app/_services/category.service';
+import Swal from 'sweetalert2';
 import { AddCategoryComponent } from '../add-category/add-category.component';
 
 @Component({
@@ -24,7 +25,10 @@ import { AddCategoryComponent } from '../add-category/add-category.component';
 export class ListCategoryComponent implements OnInit {
   listCategory:categoryDTO[]=[];
   imageFile:any;
-  typeImage:any
+  typeImage:any;
+  showspinner=false;
+  
+  isEditeMode = false;
   baseCategoryPath="../../assets/igesa-software/images/Enterprise-"+localStorage.getItem('idEntreprise')+"/category/"
   constructor( public router: Router, public _location: Location,
      public categoryService : Categoryservice, 
@@ -33,6 +37,7 @@ export class ListCategoryComponent implements OnInit {
      public  dialogService: DialogService,private dialog: MatDialog ) { }
 
   ngOnInit(): void {
+    
     this.getCategoryByEntreprise();
   }
 
@@ -47,22 +52,48 @@ export class ListCategoryComponent implements OnInit {
 
 
 
-
      // delete data 
      onDeleteCategory(id: number) {
-  
-      this.dialogService.openConfirmDialog('Are you sure to delete this record ?')
-        .afterClosed().subscribe((res: any) => {
-          if (res) {
-            this.categoryService.deleteCategory(id).subscribe((data:any) => {
-             data=this.listCategory;
-            })
-            this.notificationService.success(' :: Deleted Successfully')
-            this.refresh();
-            }
-        });
-    }
-  
+      
+             Swal.fire({
+              title: 'Are you sure to delete this groupe !?',
+              icon: 'warning',
+              showCancelButton: true,
+              confirmButtonText: 'Yes',
+              cancelButtonText: 'No',
+            }).then((result) => {
+              if (result.value) {
+                this.categoryService.deleteCategory(id)
+                  .subscribe(
+                    response => {
+                      console.log(response);
+                      Swal.fire('Deleted!','All Groupe  was Deleted successfully.','success');
+                      if (result.dismiss === Swal.DismissReason.cancel) {
+                      }
+                      // snackBar success 
+                      this._Snackbar.open("Groupes Deleted Successfully",+ '' + "OK" + ''+ '⚡',{
+                        duration: 5000,
+                        horizontalPosition: "right",
+                        verticalPosition: "top",
+                        panelClass: ["mat-toolbar", "mat-success"],
+                      });
+                      
+            
+                    this.refresh();
+                     },
+                      error => {
+                      // snackBar error
+                      this._Snackbar.open("Error occurend ,  !!", "",{
+                        duration: 3000,
+                        horizontalPosition: "right",
+                        verticalPosition: "top",
+                        panelClass: ["mat-toolbar", "mat-warn"],
+                      });
+                    });
+                  }
+            });
+        
+          }
 
     
     /**
@@ -73,11 +104,11 @@ export class ListCategoryComponent implements OnInit {
 
    getCategoryByEntreprise (){
    
+    this.spinner()
     this.categoryService.getallCategorieByEntreprise().subscribe((res:any)=>{
      console.log('result of the category====================>',res)
      this.listCategory=res;
      console.log('==================>res image',this.listCategory[0].image);
- 
    },(err:any)=>{console.log('result of the category ====================>',err)})
  }
 
@@ -110,8 +141,9 @@ export class ListCategoryComponent implements OnInit {
   }
 
   // edite dialogConfig
-  onEditCategory(id: any) {
-    this.categoryService.populateForm(id);
+  onEditCategory(row: any) {
+    
+    this.categoryService.populateForm(row);
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
@@ -122,36 +154,9 @@ export class ListCategoryComponent implements OnInit {
 
   }
 
-/*OnAddCategory(){
-  this.addCategory();
-
-}*/
-
-
-//fo add an category resize
-/*async addCategory(){
-  let imageName=Math.random().toString() //+ ".png";
-  let categoryBody={
-    image:this.baseCategoryPath+imageName+"."+this.typeImage,
-    title:this.categoryService.form.value.title,
-    description:this.categoryService.form.value.description,
-    subtitle:this.categoryService.form.value.subtitle,
-    menuimage:this.categoryService.form.value.menuimage,
-    bannerimage:this.categoryService.form.value.bannerimage,
-    createdDate:new Date(),
-    lastModifiedDate:new Date(),
-    entrepriseId:localStorage.getItem('idEntreprise'),
-  
-  };
-
-
-await this.categoryService.uploadCategoryImage(imageName,this.imageFile).subscribe((res:any)=>{
-  console.log('the result of upload image ',res);
-});
-await this.categoryService.createCategory(categoryBody).subscribe((res:any)=>{
-  console.log('the result of add category===>',res)
-    },
-    (err:any)=>{console.log(' errr :: ===============>',err)});
+  spinner(){ 
+    this.showspinner=true;
+    setTimeout(() => {this.showspinner=false;},2000)
   }
-*/
 }
+/*https://www.igesa.it/assets/common/images/favicon.png*/

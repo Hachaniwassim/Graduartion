@@ -130,9 +130,9 @@ export class HomescustomerlogosComponent implements OnInit {
          cancelButtonText: 'No',
          }).then((result) => {
          if (result.value) {
-         this.assistanceService.update(this.assistance.value).subscribe(r => {
+         this.assistanceService.updateAssistance(this.assistance.value).subscribe(() => {
           //test
-          console.log(r);
+          console.log("test");
           // snackBar success 
           this._snackBar.open("Updated Successfully", "OK" + '⚡', {
             duration: 5000,
@@ -147,7 +147,7 @@ export class HomescustomerlogosComponent implements OnInit {
           this.refresh();
         },
  
-          error => {
+         (error: any) => {
             // snackBar error
             this._snackBar.open("Error occurend !!" + error?.message, "", {
               duration: 3000,

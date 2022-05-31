@@ -1,10 +1,11 @@
-<div class="controles-container">
- <button class="float-right" mat-fab color="gray" (click)="onCreateCategory()">
-    <mat-icon>add</mat-icon>
-  </button>&nbsp;&nbsp;
-  <br><br>
-</div>
-  <div class="row"> 
+
+
+<mat-spinner style="margin-left: 560px; width:100px;" *ngIf="showspinner" color="primary"></mat-spinner>
+<button class="float-right" mat-fab color="gray" (click)="onCreateCategory()" *ngIf="!showspinner">
+  <mat-icon>add</mat-icon>
+</button>&nbsp;&nbsp;
+<br><br>
+ <div class="row" *ngIf="!showspinner"> 
     <div class="col-xs-6 col-md-5" *ngFor="let category of listCategory">
       <div class="card">
         <div class="wrapper">
@@ -15,6 +16,7 @@
             <button mat-icon-button  (click)="onEditCategory(category.id)" ><mat-icon>edit_outline</mat-icon></button>&nbsp;&nbsp;
             <button mat-icon-button><mat-icon color="warn" (click)="onDeleteCategory(category.id)">close</mat-icon>
          </button>
+         
       </div>
     </div>
   </div>

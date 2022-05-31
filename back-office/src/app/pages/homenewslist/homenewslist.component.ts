@@ -129,7 +129,7 @@ export class HomenewslistComponent implements OnInit {
          cancelButtonText: 'No',
          }).then((result) => {
          if (result.value) {
-         this.assistanceService.update(this.assistance.value).subscribe(r => {
+         this.assistanceService.updateAssistance(this.assistance.value).subscribe((r:any)=> {
           //test
           console.log(r);
           // snackBar success 
@@ -145,8 +145,7 @@ export class HomenewslistComponent implements OnInit {
           }
           this.refresh();
         },
- 
-          error => {
+ ( error: any) => {
             // snackBar error
             this._snackBar.open("Error occurend !!" + error?.message, "", {
               duration: 3000,

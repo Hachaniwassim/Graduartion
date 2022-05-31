@@ -66,7 +66,7 @@ getallCategorieByEntreprise():Observable<categoryDTO[]>{
  // update 
   updateCategory(request: any) {
   console.log('the request ====>',request)
-  return this.http.post<categoryDTO>(`${this.base_url + '/update-category' }`, request);
+  return this.http.put<categoryDTO>(`${this.base_url + '/update-category' }`, request);
   
 }
 
@@ -108,14 +108,14 @@ uploadCategoryImage(nameImage:any,file:any):any{
 // inialisation formulaire 
 initializeFormGroup() {
   this.form.setValue({
-    id :null,
+    id :'',
     title: '',
     subtitle: '',
     description: '',
     menuimage: '',
     bannerimage: '',
     createdDate: '',
-    enterpriseId:'',
+    enterpriseId :localStorage.getItem('idEntreprise'),
     lastModifiedDate:new Date()
    
   });

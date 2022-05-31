@@ -28,6 +28,7 @@ export class AddCategoryComponent implements OnInit {
   listCategory: categoryDTO[] = [];
   imageFile: any;
   typeImage: any;
+  isEditeMode = false;
   baseCategoryPath = "../../assets/igesa-software/images/Enterprise-" + localStorage.getItem('idEntreprise') + "/category/";
 
   constructor(public router: Router, public _location: Location,
@@ -69,7 +70,6 @@ export class AddCategoryComponent implements OnInit {
 
   // submit data with context EDITE : CREATE
   async onSubmit() {
-
     if (this.categoryService.form.valid) {
       if (!this.categoryService.form.get('id')?.value) {
         let categoryBody = {
@@ -102,14 +102,20 @@ export class AddCategoryComponent implements OnInit {
 
       // update category file 
       else (
-        this.categoryService.updateCategory(this.categoryService.form.value).subscribe((res) => {
-          console.log(res)
-          this.notificationService.success('  ::  ' + ' ' + ' updated successfully ' + '⚡');
-        }))
+        await this.categoryService.updateCategory(this.categoryService.form.value).subscribe((res) => {
+          console.log("====================> updateeeeee test ", res)
+
+          //this.notificationService.success('  ::  ' + ' ' + ' updated successfully ' + '⚡')
+        },
+
+          (err: any) => { console.log(' errr :: ===============>', err) })
+      )
       this.onClose();
     }
 
+
   }
+
 
 
 
