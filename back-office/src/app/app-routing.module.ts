@@ -148,6 +148,8 @@ const routes: Routes = [
 
   { path: 'category', loadChildren: () => import('./category/category.module').then(m => m.CategoryModule) },
 
+  { path: 'revendeurs', loadChildren: () => import('./revendeurs/revendeurs.module').then(m => m.RevendeursModule) },
+
   // 404 not found
   { path: '**', component: NotfoundComponent },
 
