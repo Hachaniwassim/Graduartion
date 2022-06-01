@@ -48,7 +48,6 @@
     "ng-connection-service": "^1.0.4",
     "ng2-tel-input": "^2.3.0",
     "ngx-captcha": "^11.0.0",
-    "ngx-image-cropper": "^6.1.0",
     "ngx-spinner": "^13.1.1",
     "ngx-translate-core": "^11.0.3",
     "popper.js": "^1.16.1",
