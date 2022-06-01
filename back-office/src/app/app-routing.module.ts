@@ -44,6 +44,7 @@ import { HomeprimaryslideComponent } from './pages/homeprimaryslide/homeprimarys
 import { ResetpasswordComponent } from "./resetpassword/resetpassword.component";
 import { WhoareweComponent } from './pages/whoarewe/whoarewe.component';
 import { ChoiseEntrepriseComponent } from './choise-entreprise/choise-entreprise.component';
+import { BrandlogoComponent } from './brandlogo/brandlogo.component';
 
 
 
@@ -147,6 +148,9 @@ const routes: Routes = [
   { path: 'products', loadChildren: () => import('./products/products.module').then(m => m.ProductsModule) },
 
   { path: 'category', loadChildren: () => import('./category/category.module').then(m => m.CategoryModule) },
+
+  { path: 'brandlogo', component: BrandlogoComponent, canActivate: [AuthGuard] },
+
 
   // 404 not found
   { path: '**', component: NotfoundComponent },
