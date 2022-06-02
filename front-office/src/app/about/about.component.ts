@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Aboutservice } from '../_services/about.service';
 
 @Component({
   selector: 'app-about',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
 
-  constructor() { }
+  public cookieslist: any = [];
+  constructor( private aboutservice : Aboutservice) { }
 
   ngOnInit(): void {
+    this.aboutservice.getAllaboutByEntreprise().subscribe(
+      res => this.cookieslist = res
+    );
   }
-
 }

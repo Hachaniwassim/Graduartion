@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Assistanceservice } from '../_services/assistance.service';
 
 @Component({
   selector: 'app-assitance',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AssitanceComponent implements OnInit {
 
-  constructor() { }
+  public cookieslist: any = [];
+  constructor( private assistanceservice : Assistanceservice) { }
 
   ngOnInit(): void {
+    this.assistanceservice.getassistanceByEntreprise().subscribe(
+      res => this.cookieslist = res
+    );
   }
-
 }
