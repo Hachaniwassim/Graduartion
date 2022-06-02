@@ -24,6 +24,7 @@ export class Categoryservice {
   
 
 
+idIfEdit:any=null;
   constructor(private http :HttpClient) { }
 
   //http opttion
@@ -93,7 +94,7 @@ uploadCategoryImage(nameImage:any,file:any):any{
 
 //validation formulaire
     form : FormGroup= new FormGroup({
-    id: new FormControl(null),
+   id: new FormControl(),
     title : new FormControl('',[ Validators.required]),
     description : new FormControl(''),
     menuimage : new FormControl(''),
@@ -108,7 +109,7 @@ uploadCategoryImage(nameImage:any,file:any):any{
 // inialisation formulaire 
 initializeFormGroup() {
   this.form.setValue({
-    id :'',
+     id :'',
     title: '',
     subtitle: '',
     description: '',
@@ -121,6 +122,8 @@ initializeFormGroup() {
   });
 }
 populateForm(category: any) {
-  this.form.patchValue(_.omit(category));
+
+  this.form.patchValue(category);
+ 
 }
 }

@@ -4,9 +4,8 @@
     <div class="topbar" *ngIf="isLoggedIn && showAdminBoard && entrepriseSelected">
         <!-- LOGO -->
         <div class="topbar-left">
-            <a href="#" class="logo">
                 <span class="logo-light">
-                    <img src="assets/images/logo.png" style="width:160px;"> </span></a>
+                    <img src="assets/images/logo.png" style="width:160px;"> </span>
         </div>
         <nav class="navbar-custom">
             <ul class="navbar-right list-inline float-right mb-0">
@@ -18,11 +17,11 @@
                     <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
                         <!-- item-->
                         <a class="dropdown-item" routerLink="/profile"><i class="mdi mdi-account-circle"></i> Profile</a>
-                        <a class="dropdown-item" href="#"><i class="mdi mdi-wallet"></i> Wallet</a>
-                        <a class="dropdown-item d-block" href="#"><span
+                        <a class="dropdown-item"><i class="mdi mdi-wallet"></i> Wallet</a>
+                        <a class="dropdown-item d-block" ><span
                                 class="badge badge-success float-right">11</span><i class="mdi mdi-settings"></i>
                             Settings</a>
-                        <a class="dropdown-item" href="#"><i class="mdi mdi-lock-open-outline"></i> Lock screen</a>
+                        <a class="dropdown-item" ><i class="mdi mdi-lock-open-outline"></i> Lock screen</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item text-danger" (click)="logout()"><i class="mdi mdi-power text-danger"></i>
                             Logout</a>
@@ -38,9 +37,9 @@
                         <img src="assets/images/us_flag.jpg" class="mr-2" height="12" alt="" />
                     </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated language-switch">
-                        <a class="dropdown-item" href="#"><img src="assets/images/french_flag.jpg" alt=""
+                        <a class="dropdown-item" ><img src="assets/images/french_flag.jpg" alt=""
                                 height="16" /><span> French </span></a>
-                        <a class="dropdown-item" href="#"><img src="assets/images/italy_flag.jpg" alt=""
+                        <a class="dropdown-item" ><img src="assets/images/italy_flag.jpg" alt=""
                                 height="16" /><span> Italian </span></a>
                     </div>
                 </li>

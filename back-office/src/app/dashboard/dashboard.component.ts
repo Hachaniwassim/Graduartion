@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import Swal from 'sweetalert2';
-import { TokenStorageService } from '../_services/token-storage.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,24 +7,9 @@ import { TokenStorageService } from '../_services/token-storage.service';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private tokenStorage: TokenStorageService) { }
-  isLoggedIn = false;
-  isLoginFailed = false;
+  constructor() { }
 
-  ngOnInit() {
-   /* if (!localStorage.getItem('reload')) {
-      setInterval(() => {
-        //replaced function() by ()=>
-        window.location.reload();
-      }, 1000);
-    } else {
-      localStorage.setItem('reload','ddffff');
-    }*/
+  ngOnInit(): void {
   }
- 
-  reloadPage() {
-    setTimeout(()=>{
-      window.location.reload();
-    }, 1000);
-}
+
 }

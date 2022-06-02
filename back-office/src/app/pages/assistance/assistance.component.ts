@@ -100,7 +100,7 @@ export class AssistanceComponent implements OnInit {
      htmlContent: new FormControl(''),
      createdDate: new FormControl(''),
      lastModifiedDate: new FormControl(''),
-     entrepriseId: new FormControl('')
+     entrepriseId: localStorage.getItem('idEntreprise'),
    });
 
    /***********************************

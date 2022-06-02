@@ -209,7 +209,7 @@ export class CookiesComponent implements OnInit {
  
     save() {
     Swal.fire({
-         title: 'Are you sure to update Privacy Policy  !?',
+         title: 'Are you sure to update Cookies !?',
          icon: 'warning',
          showCancelButton: true,
          confirmButtonText: 'Yes',

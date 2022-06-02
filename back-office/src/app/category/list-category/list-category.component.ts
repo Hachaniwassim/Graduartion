@@ -56,7 +56,7 @@ export class ListCategoryComponent implements OnInit {
      onDeleteCategory(id: number) {
       
              Swal.fire({
-              title: 'Are you sure to delete this groupe !?',
+              title: 'Are you sure to delete this category !?',
               icon: 'warning',
               showCancelButton: true,
               confirmButtonText: 'Yes',
@@ -67,33 +67,38 @@ export class ListCategoryComponent implements OnInit {
                   .subscribe(
                     response => {
                       console.log(response);
-                      Swal.fire('Deleted!','All Groupe  was Deleted successfully.','success');
+                      
+                      Swal.fire('Deleted!','category deleted successfully.','success');
                       if (result.dismiss === Swal.DismissReason.cancel) {
                       }
-                      // snackBar success 
-                      this._Snackbar.open("Groupes Deleted Successfully",+ '' + "OK" + ''+ '⚡',{
-                        duration: 5000,
-                        horizontalPosition: "right",
-                        verticalPosition: "top",
-                        panelClass: ["mat-toolbar", "mat-success"],
-                      });
                       
-            
-                    this.refresh();
-                     },
-                      error => {
-                      // snackBar error
-                      this._Snackbar.open("Error occurend ,  !!", "",{
-                        duration: 3000,
-                        horizontalPosition: "right",
-                        verticalPosition: "top",
-                        panelClass: ["mat-toolbar", "mat-warn"],
-                      });
+                    })
+                  // snackBar success 
+                  this._Snackbar.open(" Deleted Successfully",+ '' + "OK" + ''+ '⚡',{
+                    duration: 5000,
+                    horizontalPosition: "right",
+                    verticalPosition: "top",
+                    panelClass: ["mat-toolbar", "mat-success"],
+                  });
+
+                  this.getCategoryByEntreprise() 
+                  this.listCategory.push()
+                  this.refresh();
+                
+                  }
+                 /** (err:any)=>{
+
+                    this._Snackbar.open(" erreur ",+ '' + err.message + ''+ '⚡',{
+                      duration: 5000,
+                      horizontalPosition: "right",
+                      verticalPosition: "top",
+                      panelClass: ["mat-toolbar", "mat-success"],
                     });
                   }
-            });
-        
-          }
+                  */
+              })
+              
+         }
 
     
     /**
@@ -142,6 +147,7 @@ export class ListCategoryComponent implements OnInit {
 
   // edite dialogConfig
   onEditCategory(row: any) {
+    console.log('======================id===>',this.categoryService.form.value.id);
     
     this.categoryService.populateForm(row);
     const dialogConfig = new MatDialogConfig();

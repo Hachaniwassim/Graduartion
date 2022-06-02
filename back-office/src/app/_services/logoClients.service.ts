@@ -73,10 +73,5 @@ getallLogoClientByEntreprise():Observable<postDTO[]>{
     return this.http.post<postDTO>(`${this.base_url + '/post-logo-clients' }`, request);
 
    }
-    // delete posts
-    delete(id:number){
-      return this.http.delete<postDTO>(this.base_url + '/' +id);
-
-}
-
+    
 }

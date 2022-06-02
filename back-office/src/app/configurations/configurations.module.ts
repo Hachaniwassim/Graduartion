@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ConfigurationsRoutingModule } from './configurations-routing.module';
@@ -7,11 +7,11 @@ import { ConfigurationsComponent } from './configurations.component';
 
 @NgModule({
   declarations: [
-    ConfigurationsComponent
+    ConfigurationsComponent,
   ],
   imports: [
     CommonModule,
-    ConfigurationsRoutingModule
+    ConfigurationsRoutingModule,
   ]
 })
 export class ConfigurationsModule { }

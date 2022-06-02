@@ -1,24 +1,47 @@
 package app.igesa.config;
 import com.flickr4java.flickr.Flickr;
+import com.flickr4java.flickr.FlickrException;
 import com.flickr4java.flickr.REST;
 import com.flickr4java.flickr.RequestContext;
 import com.flickr4java.flickr.auth.Auth;
 import com.flickr4java.flickr.auth.Permission;
+import com.github.scribejava.apis.FlickrApi;
+import com.github.scribejava.core.builder.ServiceBuilder;
+import com.github.scribejava.core.model.OAuth1AccessToken;
+import com.github.scribejava.core.model.OAuth1RequestToken;
+import com.github.scribejava.core.oauth.OAuth10aService;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.concurrent.ExecutionException;
 /**
- *
  * @author Tarchoun Abir
  *
  */
-//@Configuration
+@Configuration
 public class FlickrConfig {
-
 
     private String apiKey = "c5a8d5b0948e9858bd6a989495403c25";
     private String apiSecret = "f04e888ce591c683";
     private String appKey = "72157720838532597-873d0b6031d2fe72";
     private String appSecret = "a7031c1ba8f32524";
 
+
+
+    @Bean
+    public Flickr getFlickr() {
+        Flickr flickr = new Flickr(apiKey, apiSecret, new REST());
+        Auth auth = new Auth();
+        auth.setPermission(Permission.DELETE);
+        auth.setToken(appKey);
+        auth.setTokenSecret(appSecret);
+        RequestContext requestContext = RequestContext.getRequestContext();
+        requestContext.setAuth(auth);
+        flickr.setAuth(auth);
+        return flickr;
+    }
 
     /*@Bean
     public Flickr getFlickr() throws IOException, ExecutionException, InterruptedException, FlickrException {
@@ -44,17 +67,5 @@ public class FlickrConfig {
 
 
 
-    @Bean
-    public Flickr getFlickr() {
-        Flickr flickr = new Flickr(apiKey, apiSecret, new REST());
-        Auth auth = new Auth();
-        auth.setPermission(Permission.DELETE);
-        auth.setToken(appKey);
-        auth.setTokenSecret(appSecret);
-        RequestContext requestContext = RequestContext.getRequestContext();
-        requestContext.setAuth(auth);
-        flickr.setAuth(auth);
-        return flickr;
-    }
 
 }
