@@ -72,8 +72,6 @@ import { EditorModule } from '@tinymce/tinymce-angular';
 import { WhoareweComponent } from './pages/whoarewe/whoarewe.component';
 import {Ng2TelInputModule} from 'ng2-tel-input';
 import { ChoiseEntrepriseComponent } from './choise-entreprise/choise-entreprise.component';
-import { BrandlogoComponent } from './brandlogo/brandlogo.component';
-import { ImageCropperModule } from 'ngx-image-cropper';
 
 
 
@@ -133,8 +131,7 @@ import { ImageCropperModule } from 'ngx-image-cropper';
     RolesListComponent,
     RolesViewComponent,
     ResetpasswordComponent,
-    ChoiseEntrepriseComponent,
-    BrandlogoComponent
+    ChoiseEntrepriseComponent
   
     
   ],
@@ -156,8 +153,7 @@ import { ImageCropperModule } from 'ngx-image-cropper';
     NgSelectModule,
     CKEditorModule,
     EditorModule,
-    Ng2TelInputModule,
-    ImageCropperModule
+    Ng2TelInputModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   exports: [MaterialModule, ScheduleModule,NgxSpinnerModule,NgSelectModule],
