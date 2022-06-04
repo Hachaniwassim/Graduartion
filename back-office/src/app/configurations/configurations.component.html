@@ -1,71 +1,87 @@
+
+
 <br><br><br>
 <div id="wrapper">
-<div class="content-page">
-    <!-- Start content -->
+  <div class="content-page">
     <div class="content">
-            <div class="col-xl-12">
-            <div class="card m-b-30">
+      <div class="col-xl-12">
+        <form class="form p-3" [formGroup]="confiG" id="confiG">
+          <h5> General Configuration </h5>
+          <mat-progress-bar mode="determinate" value="18"></mat-progress-bar><br><br>
+          <div class="card card-fullheight">
             <div class="card-body">
-        <div class="container ">
-        <form action="" *ngFor="let configurations of cofigrationsList">
-            <h2  for="">General Configurations</h2> <br>
-            <mat-progress-bar mode="determinate" value="40"></mat-progress-bar><br><br>
-            <table class="example-full-width" cellspacing="0"><tr>
-                <td>
-                    <label for="">Phone *</label> <br>
-                    <mat-form-field style="width: 230px;" appearance="fill">
-                  <mat-label></mat-label>
-                  <input matInput value="{{ configurations.phone }}">
-                </mat-form-field></td> &nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <td>
-                    <label for="">Email *</label> <br>
-                    <mat-form-field style="width: 230px;" appearance="fill">
-                  <input matInput value="{{ configurations.email }}">
-                </mat-form-field></td>
-              </tr></table>
-            <div>
-                <label for="">Facebook</label> <br>
-                <mat-form-field appearance="fill" style="width: 500px;">
-                <input matInput #input maxlength="10" value="{{ configurations.facebook }}"  >
-              </mat-form-field>
-            </div>
-            <div>
-                <label for="">Twitter</label> <br>
-                <mat-form-field  appearance="fill" style="width: 500px;">
-                <input matInput #input maxlength="10" value="{{ configurations.twitter }}">
-              </mat-form-field>
-            </div>
-            <div>
-                <label for="">Youtube</label> <br>
-                <mat-form-field  appearance="fill" style="width: 500px;">
-                <input matInput #input maxlength="10" value="{{ configurations.youtube }}">
-              </mat-form-field>
-            </div>
-            <form >
-                <label for="">Footer Copyright *</label> <br>
-                <mat-form-field  appearance="fill" style="width: 500px;">
-                  <textarea matInput style="height: 70px;">{{ configurations.footer_Copyright }}</textarea>
-                </mat-form-field>
-              </form>
-              <form >
-                <label for="">Footer Corporate Information *</label> <br>
-                <mat-form-field  appearance="fill" style="width: 500px;">
-                  <textarea matInput style="height: 70px;">{{ configurations.footer_Corporate_Information }}</textarea>
-                </mat-form-field>
-              </form>
-            <button mat-raised-button color="primary" style="width: 100px;">Save</button>
-            &nbsp;&nbsp;
-            <button mat-raised-button color="warn" style="width: 100px;">Canncel</button>
+              <!--<img width="300px" class="float-right" height="350px"  src="../../assets/images/setting.gif" alt=""
+                    srcset=""> <br>-->
+              <div class="row">
+                <div class="form-group">
+                  <div class="col-md-6 col-sm-6"><br><br>
+                    <mat-label> Email *</mat-label><br>
+                    <input type="text" formControlName="email" placeholder="email *" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-md-6 col-sm-6">
+                    <mat-label> Phone *</mat-label><br>
+                    <input type="text" formControlName="phone" placeholder="phone *" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-md-6 col-sm-6">
+                    <mat-label> Adress *</mat-label><br>
+                    <input type="text" formControlName="adresse" placeholder="adresse *" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-md-6 col-sm-6">
+                    <mat-label> Fax *</mat-label><br>
+                    <input type="text" formControlName="fax" placeholder="fax *" class="form-control ">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-md-6 col-sm-6">
+                    <mat-label> Facebook *</mat-label><br>
+                    <input type="text" formControlName="facebook" placeholder="facebook *" class="form-control ">
+                  </div>
+                </div>
 
-  
+                <div class="form-group">
+                  <div class="col-md-6 col-sm-6">
+                    <mat-label> News letter subtitle *</mat-label><br>
+                    <input type="text" formControlName="newslettersubtitle" placeholder="newslettersubtitle*"
+                      class="form-control ">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-md-6 col-sm-6">
+                    <mat-label> News letter title *</mat-label><br>
+                    <input type="text" formControlName="newslettertitle" placeholder="newslettertitle *"
+                      class="form-control ">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-md-6 col-sm-6">
+                    <mat-label> Twitter *</mat-label><br>
+                    <input type="text" formControlName="twitter" placeholder="twitter *" class="form-control ">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-md-12 col-sm-12 mt-5">
+                    <mat-label> Copyright *</mat-label><br>
+                    <ckeditor class="w-100 col-12" [config]='config' formControlName="copyright"></ckeditor>
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-5">
+                <div class="col-md-12 col-sm-12 ">
+                  <button mat-flat-button class="float-right" color="primary" (click)="save()">
+                    <mat-icon>save </mat-icon> save
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </form>
+      </div>
     </div>
-  </div>
-    </div>
-  </div>
-  </div>
-  
-  
   </div>
 </div>

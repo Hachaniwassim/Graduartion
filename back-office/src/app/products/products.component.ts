@@ -24,6 +24,7 @@ export class ProductsComponent implements OnInit {
   categoryByEntreprise:any;
   imageFile:any;
   typeImage:any;
+  isEditeMode=false;
   baseProductPath="../../assets/igesa-software/images/Enterprise-"+localStorage.getItem('idEntreprise')+"/product/";
   //selected items 
   categorieSelected:any;
@@ -60,6 +61,8 @@ this.tagSelected=event;
 }
 
 onSelectFile(file: any){
+  
+  //test="../../assets/igesa-software/images/Enterprise-2/product/0.6628314392580117.png"  
 
   //console.log('file =======================>',file.target.files[0]);
   this.imageFile = file.target.files[0] ;
@@ -70,7 +73,6 @@ onSelectFile(file: any){
  this.addProduct();
 }
 
-//test="../../assets/igesa-software/images/Enterprise-2/product/0.6628314392580117.png"
 
 //fo add an produit resize
 async addProduct(){
@@ -136,29 +138,31 @@ await this.productService.addProduct(productBody).subscribe((res:any)=>{
                     .subscribe(
                       response => {
                         console.log(response);
+                        
                         Swal.fire('Deleted!','All Groupe  was Deleted successfully.','success');
                         if (result.dismiss === Swal.DismissReason.cancel) {
                         }
-                        // snackBar success 
-                        this._Snackbar.open("Groupes Deleted Successfully",+ '' + "OK" + ''+ '⚡',{
-                          duration: 5000,
-                          horizontalPosition: "right",
-                          verticalPosition: "top",
-                          panelClass: ["mat-toolbar", "mat-success"],
-                        });
-                        this.refresh();
-                       },
-                        error => {
-                        // snackBar error
-                        this._Snackbar.open("Error occurend , try later !!" + error.message, "",{
-                          duration: 3000,
-                          horizontalPosition: "right",
-                          verticalPosition: "top",
-                          panelClass: ["mat-toolbar", "mat-warn"],
-                        });
+                        
+                       this.refresh();
+                       this.getProductsByEntreprise();
+                       this.listProduct.push();
+                       
+                      });
+                       // snackBar success 
+                       this._Snackbar.open("Groupes Deleted Successfully",+ '' + "OK" + ''+ '⚡',{
+                        duration: 5000,
+                        horizontalPosition: "right",
+                        verticalPosition: "top",
+                        panelClass: ["mat-toolbar", "mat-success"],
                       });
                     }
+                    
+       this.refresh();
+             this.getProductsByEntreprise();
+             this.listProduct.push();
+                  
               });
+              
     }
   
  
@@ -171,12 +175,12 @@ await this.productService.addProduct(productBody).subscribe((res:any)=>{
 }
 
   onEdite(row : any){
-   // this.isEditeMode = true;
+    this.isEditeMode = true;
     this.productService.populateForm(row);
   }
 
 
-  /*onUpdate(){
+  onUpdate(){
       this.isEditeMode != this.isEditeMode
       this.productService.update(this.productService.form.value).subscribe((res) => {
         console.log("====================> updateeeeee test ", res)
@@ -184,15 +188,15 @@ await this.productService.addProduct(productBody).subscribe((res:any)=>{
         //this.notificationService.success('  ::  ' + ' ' + ' updated successfully ' + '⚡')
       }
       )
-  }*/
+  }
 
 
+  //CKeditor
    
   config = {
     height: 200, 
     
     image: {
-      // Configure the available styles.
       styles: [
         'alignLeft', 'alignCenter', 'alignRight'
       ],

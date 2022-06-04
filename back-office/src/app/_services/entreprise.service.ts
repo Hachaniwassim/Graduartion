@@ -99,7 +99,7 @@ export class EntrepriseService {
     note: new FormControl(''),
     fax: new FormControl('', [Validators.required,Validators.minLength(8)]),
     groupeId: new FormControl(null, [Validators.required]),
-    CompanyBusinessId: new FormControl(null, [Validators.required]),
+    companyBusinessId: new FormControl(null, [Validators.required]),
     city: new FormControl('',[ Validators.required]),
     refrente: new FormControl(''),
     street: new FormControl(''),
@@ -123,7 +123,7 @@ export class EntrepriseService {
       note: '',
       email: '',
       groupeId: null,
-      CompanyBusinessId: null,
+      companyBusinessId: null,
       adresse: '',
       city: '',
       street: '',
@@ -137,6 +137,7 @@ export class EntrepriseService {
 
   // get info for update
   populateForm(entreprise: any) {
+    console.log(entreprise);
     this.form.patchValue(_.omit(entreprise));
   }
 

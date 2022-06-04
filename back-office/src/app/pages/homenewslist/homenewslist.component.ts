@@ -39,7 +39,7 @@ export class HomenewslistComponent implements OnInit {
       htmlContent: new FormControl(''),
       createdDate: new FormControl(''),
       lastModifiedDate: new FormControl(''),
-      entrepriseId: new FormControl('')
+      entrepriseId: localStorage.getItem('idEntreprise')
     });
 
     /***********************************
@@ -60,7 +60,7 @@ export class HomenewslistComponent implements OnInit {
 
   save() {
     Swal.fire({
-      title: 'Are you sure to update this !?',
+      title: 'Are you sure to update Nwes  !?',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonText: 'Yes',

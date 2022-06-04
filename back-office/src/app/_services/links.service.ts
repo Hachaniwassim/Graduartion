@@ -69,8 +69,7 @@ export class LinksService {
  *
  */
   getLinksByEntreprise(): Observable<LinksDTO[]> {
-    return this.http.get<LinksDTO[]>(this.base_url + '/list-liens/' + localStorage.getItem('idEntreprise')).pipe(retry(2), catchError(this.handleError));
-  }
+    return this.http.get<LinksDTO[]>(this.base_url + '/list-liens/' + localStorage.getItem('idEntreprise'));}
 
   
 /**************************
@@ -80,6 +79,7 @@ export class LinksService {
  */
   getLinksByid(id: number): Observable<LinksDTO> {
     return this.http.get<LinksDTO>(this.base_url + '/' + id).pipe(retry(2), catchError(this.handleError));
+
 
   }
 

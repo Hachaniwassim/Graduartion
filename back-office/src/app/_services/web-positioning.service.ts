@@ -7,18 +7,18 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class WebPositioningService {
-  private readonly API = environment.privateApi + 'api/private/web-positioning';
+  private readonly API = environment.privateApi + '/web-positioning';
 
   constructor(
     private http: HttpClient
   ) { }
 
   update(request: any) {
-    return this.http.post<void>(this.API, request);
+    return this.http.post<void>(this.API + "/update-web-positioning", request);
   }
 
   getCurrentEnterprisePageInfo(page: PagesTypes) {
-    return this.http.get<WebPositioning>(this.API + '/' + page);
+    return this.http.get<WebPositioning>(this.API + '/' + page + '/'+ localStorage.getItem('idEntreprise'));
   }
 
 

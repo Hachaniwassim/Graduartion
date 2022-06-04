@@ -38,7 +38,7 @@ export class AddCategoryComponent implements OnInit {
     public dialogService: DialogService, public dialogRef: MatDialogRef<AddCategoryComponent>) { }
 
   ngOnInit(): void {
-    this.getCategoryByEntreprise();
+   // sortingthis.getCategoryByEntreprise();
   }
 
 
@@ -70,8 +70,12 @@ export class AddCategoryComponent implements OnInit {
 
   // submit data with context EDITE : CREATE
   async onSubmit() {
+   
     if (this.categoryService.form.valid) {
-      if (!this.categoryService.form.get('id')?.value) {
+      console.log('validation')
+      //if (!this.categoryService.form.value.id) {
+        if (!this.categoryService.form.get('id')?.value)
+          console.log('i am in ts file ============> if ',this.categoryService.idIfEdit);
         let categoryBody = {
           image: this.baseCategoryPath + imageName + "." + this.typeImage,
           title: this.categoryService.form.value.title,
@@ -83,7 +87,7 @@ export class AddCategoryComponent implements OnInit {
           lastModifiedDate: new Date(),
           enterpriseId: localStorage.getItem('idEntreprise'),
 
-        };
+        }
 
         // upload categorie file
         await this.categoryService.uploadCategoryImage(imageName, this.imageFile).subscribe((res: any) => {
@@ -101,20 +105,19 @@ export class AddCategoryComponent implements OnInit {
 
 
       // update category file 
-      else (
-        await this.categoryService.updateCategory(this.categoryService.form.value).subscribe((res) => {
+      if(
+         this.categoryService.updateCategory(this.categoryService.form.value).subscribe((res) => {
           console.log("====================> updateeeeee test ", res)
 
           //this.notificationService.success('  ::  ' + ' ' + ' updated successfully ' + '⚡')
-        },
-
-          (err: any) => { console.log(' errr :: ===============>', err) })
+         }
+        )
       )
       this.onClose();
     }
 
 
-  }
+  
 
 
 

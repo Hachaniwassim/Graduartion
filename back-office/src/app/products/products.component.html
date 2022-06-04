@@ -59,7 +59,7 @@
             <button mat-raised-button color="primary" [disabled]="productService.form.invalid" (click)="onAddProduct()" class="float-right">
               <mat-icon>save</mat-icon> Save
             </button> 
-           <!---- <button  *ngIf="isEditeMode"   (click)="onUpdate()" mat-raised-button  ><mat-icon>edit_outline</mat-icon></button>&nbsp;&nbsp;-->
+           <button  *ngIf="isEditeMode"   (click)="onUpdate()" mat-raised-button  ><mat-icon>edit_outline</mat-icon> update </button>&nbsp;&nbsp;
             <br><br>
           </form>
         </div>
@@ -77,7 +77,7 @@
                 </div><br>
                 <div class="card-body">
                 <mat-icon>schedule</mat-icon> {{product.createdDate | date:'short'}} <div class="float-right">
-                  <button  (click)="onEdite(product.id)"  mat-icon-button ><mat-icon>edit_outline</mat-icon></button>&nbsp;&nbsp;
+                  <button  (click)="onEdite(product)"  mat-icon-button ><mat-icon>edit_outline</mat-icon></button>&nbsp;&nbsp;
                   <button mat-icon-button (click)="onDeleteProduct(product.id)"><mat-icon color="warn">close</mat-icon>
                </button>
               </div>

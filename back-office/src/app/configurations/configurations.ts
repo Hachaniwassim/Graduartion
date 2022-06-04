@@ -1,7 +1,6 @@
 
-import { configuration } from "./configurations.model";
 
-export const configurations: configuration[] = [
+/*export const configurations: configuration[] = [
     {
         id: '1',
         phone: +21654100060,
@@ -12,4 +11,4 @@ export const configurations: configuration[] = [
         footer_Copyright:'© 2020 Igesa Srl. All Rights Reserved. 1988 - 2020',
         footer_Corporate_Information:'Igesa Srl - Via Consolare Antica, 308 - 98071 Capo'
     },
-  ]; 
+  ];*/

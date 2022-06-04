@@ -72,6 +72,7 @@ import { EditorModule } from '@tinymce/tinymce-angular';
 import { WhoareweComponent } from './pages/whoarewe/whoarewe.component';
 import {Ng2TelInputModule} from 'ng2-tel-input';
 import { ChoiseEntrepriseComponent } from './choise-entreprise/choise-entreprise.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 
@@ -131,7 +132,8 @@ import { ChoiseEntrepriseComponent } from './choise-entreprise/choise-entreprise
     RolesListComponent,
     RolesViewComponent,
     ResetpasswordComponent,
-    ChoiseEntrepriseComponent
+    ChoiseEntrepriseComponent,
+    DashboardComponent
   
     
   ],

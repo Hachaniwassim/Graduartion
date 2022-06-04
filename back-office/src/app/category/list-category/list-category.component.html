@@ -13,7 +13,7 @@
           </div><br>
           <div class="card-body">
             <mat-icon>schedule</mat-icon> {{category.createdDate | date:'short'}} <div class="float-right">
-            <button mat-icon-button  (click)="onEditCategory(category.id)" ><mat-icon>edit_outline</mat-icon></button>&nbsp;&nbsp;
+            <button mat-icon-button  (click)="onEditCategory(category)" ><mat-icon>edit_outline</mat-icon></button>&nbsp;&nbsp;
             <button mat-icon-button><mat-icon color="warn" (click)="onDeleteCategory(category.id)">close</mat-icon>
          </button>
          

@@ -4,7 +4,6 @@ import { Injectable } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import * as _ from 'lodash';
 import { Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { configgeneraleDTO } from '../models/dto/configgeneraleDTO';
 
@@ -14,10 +13,10 @@ import { configgeneraleDTO } from '../models/dto/configgeneraleDTO';
 export class ConfigGeneraleService {
 
   //api backend
-  private base_url= environment.api +'/config';
+  private base_url= environment.privateApi +'/config';
   
 
-  constructor(private http :HttpClient, private datePipe: DatePipe) { }
+  constructor(private http :HttpClient) { }
 
   //http opttion
   httpOptions={ 
@@ -44,70 +43,18 @@ export class ConfigGeneraleService {
 };
 
 
-// insert  data 
-create(item : configgeneraleDTO):Observable<configgeneraleDTO>{
-  return this.http.post<configgeneraleDTO>(this.base_url,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
-}
 
-//get all  data 
-all():Observable<configgeneraleDTO[]>{
-   return this.http.get<configgeneraleDTO[]>(this.base_url).pipe(retry(2),catchError(this.handleError));
+//get by entreprise
+getConfigByEntreprise():Observable<configgeneraleDTO[]>{
+   return this.http.get<configgeneraleDTO[]>(this.base_url + '/config-entreprise/' + localStorage.getItem('idEntreprise'));
  }
 
 
-  // get  by id
-  getByid(id:number):Observable<configgeneraleDTO>{
-    return this.http.get<configgeneraleDTO>(this.base_url + '/' +id).pipe(retry(2),catchError(this.handleError));
 
-  }
-
-   // update account by Id the
-   update(item : configgeneraleDTO){
-    return this.http.put<configgeneraleDTO>(this.base_url,JSON.stringify(item),this.httpOptions).pipe(retry(2),catchError(this.handleError));
+   // update by entreprise
+   update( request : any){
+    return this.http.post<configgeneraleDTO>(this.base_url + '/post-config',request)
    }
 
-    // delete accounts
-    delete(id:number){
-      return this.http.delete<configgeneraleDTO>(this.base_url + '/' +id,this.httpOptions).pipe(retry(2),catchError(this.handleError));
 
-}
-
-//validation formulaire
-  form : FormGroup= new FormGroup({
-    id: new FormControl(null),
-    facebook: new FormControl('',Validators.required),
-    twitter : new FormControl('',[ Validators.required]),
-    youtube : new FormControl('',[ Validators.required]),
-    image : new FormControl('',[ Validators.required]),
-    adresse : new FormControl('',[ Validators.required]),
-    email : new FormControl('',[ Validators.required]),
-    phone : new FormControl('',[ Validators.required]),
-    fax : new FormControl('',[ Validators.required]),
-    title : new FormControl('',[ Validators.required]),
-    newslettertitle : new FormControl('',[ Validators.required]),
-    newslettersubtitle : new FormControl('',[ Validators.required]),
-    tagline : new FormControl('',[ Validators.required]),
-});
-
-// inialisation formulaire 
-initializeFormGroup() {
-  this.form.setValue({
-    id :null,
-    facebook: null,
-    twitter: null,
-    youtube: null,
-    image: null,
-    adresse: null,
-    email: null,
-    phone: null,
-    fax: null,
-    title: null,
-    newslettertitle: null,
-    newslettersubtitle: null,
-    tagline: null,
-  });
-}
-populateForm(company: any) {
-  this.form.patchValue(_.omit(company));
-}
 }

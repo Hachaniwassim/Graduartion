@@ -37,7 +37,7 @@ export class PrivacypolicyComponent implements OnInit {
    ***********************************************************/
 
   config = {
-    height: 700,
+    height: 400,
 
     image: {
       // Configure the available styles.
@@ -104,7 +104,7 @@ export class PrivacypolicyComponent implements OnInit {
       htmlContent: new FormControl(''),
       createdDate: new FormControl(''),
       lastModifiedDate: new FormControl(''),
-      entrepriseId: new FormControl('')
+      entrepriseId: localStorage.getItem('idEntreprise'),
     });
 
     /***********************************

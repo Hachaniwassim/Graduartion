@@ -71,7 +71,7 @@ export class CookiesService {
    * 
    */
   update(request: any) {
-    return this.http.post<CookieDTO>(`${this.base_url}`, request);
+    return this.http.post<CookieDTO>(`${this.base_url + "/post-cookies"}`, request);
   }
 
 }
