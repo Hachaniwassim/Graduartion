@@ -1,4 +1,4 @@
-package it.igesa.controller;
+package it.igesa.resources;
 import it.igesa.domaine.Groupe;
 import it.igesa.enumerations.GroupStatus;
 import it.igesa.services.IauthService;

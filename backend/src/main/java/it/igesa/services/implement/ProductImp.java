@@ -1,7 +1,5 @@
 package it.igesa.services.implement;
 
-import app.igesa.dto.*;
-import app.igesa.domaine.*;
 import it.igesa.domaine.Product;
 import it.igesa.dto.ProductDTO;
 import it.igesa.enumerations.ErrorCode;

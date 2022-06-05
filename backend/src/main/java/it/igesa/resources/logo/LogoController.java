@@ -1,4 +1,4 @@
-package it.igesa.controller.logo;
+package it.igesa.resources.logo;
 
 
 import it.igesa.dto.LogoDTO;

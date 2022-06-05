@@ -1,5 +1,5 @@
 
-package it.igesa.controller;
+package it.igesa.resources;
 import it.igesa.config.EmailService;
 import it.igesa.config.HttpResponse;
 import it.igesa.dto.AccountDTO;

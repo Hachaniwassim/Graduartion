@@ -1,4 +1,4 @@
-package it.igesa.controller.seo;
+package it.igesa.resources.seo;
 import it.igesa.dto.seo.WebPositioningDto;
 import it.igesa.domaine.seo.Seo;
 import it.igesa.enumerations.PagesTypes;

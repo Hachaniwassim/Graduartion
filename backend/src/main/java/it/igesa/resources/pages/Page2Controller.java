@@ -1,4 +1,4 @@
-package it.igesa.controller.pages;
+package it.igesa.resources.pages;
 
 import it.igesa.dto.Page2DTO;
 import it.igesa.services.Ipage2;

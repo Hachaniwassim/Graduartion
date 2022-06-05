@@ -104,7 +104,7 @@
 2022-05-12 11:30:21,607 INFO  Dialect:170 - [] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
 2022-05-12 11:30:22,436 INFO  EndpointLinksResolver:58 - [] Exposing 2 endpoint(s) beneath base path '/actuator'
 2022-05-12 11:30:22,647 INFO  PropertySourcedRequestMappingHandlerMapping:69 - [] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-05-12 11:30:22,982 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@24068086, org.springframework.security.web.context.SecurityContextPersistenceFilter@d6d683e, org.springframework.security.web.header.HeaderWriterFilter@50f05307, org.springframework.security.web.authentication.logout.LogoutFilter@32dbca45, app.igesa.security.jwt.AuthTokenFilter@1c2d63f0, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@43778371, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2a2798a2, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@2295566b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@32513dea, org.springframework.security.web.session.SessionManagementFilter@1c53bd49, org.springframework.security.web.access.ExceptionTranslationFilter@1b69fc07, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1d1b3620]
+2022-05-12 11:30:22,982 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@24068086, org.springframework.security.web.context.SecurityContextPersistenceFilter@d6d683e, org.springframework.security.web.header.HeaderWriterFilter@50f05307, org.springframework.security.web.authentication.logout.LogoutFilter@32dbca45, AuthTokenFilter@1c2d63f0, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@43778371, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2a2798a2, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@2295566b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@32513dea, org.springframework.security.web.session.SessionManagementFilter@1c53bd49, org.springframework.security.web.access.ExceptionTranslationFilter@1b69fc07, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1d1b3620]
 2022-05-12 11:30:24,433 INFO  JtaPlatformInitiator:52 - [] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
 2022-05-12 11:30:24,452 INFO  AbstractEntityManagerFactoryBean:434 - [] Initialized JPA EntityManagerFactory for persistence unit 'default'
 2022-05-12 11:30:24,986 INFO  TomcatWebServer:220 - [] Tomcat started on port(s): 8089 (http) with context path ''
@@ -185,7 +185,7 @@
 2022-05-12 11:30:25,932 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_14
 2022-05-12 11:30:25,934 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_14
 2022-05-12 11:30:25,961 INFO  DeferredRepositoryInitializationListener:51 - [] Triggering deferred initialization of Spring Data repositories…
-2022-05-12 11:30:26,862 WARN  AbstractApplicationContext:596 - [] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'cookiesRepository': FactoryBean threw exception on object creation; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.Optional app.igesa.repository.CookiesRepository.findFirstByEnterpriseId(java.lang.Long)! No property enterpriseId found for type Cookies!
+2022-05-12 11:30:26,862 WARN  AbstractApplicationContext:596 - [] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'cookiesRepository': FactoryBean threw exception on object creation; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.Optional CookiesRepository.findFirstByEnterpriseId(java.lang.Long)! No property enterpriseId found for type Cookies!
 2022-05-12 11:30:26,890 INFO  AbstractEntityManagerFactoryBean:648 - [] Closing JPA EntityManagerFactory for persistence unit 'default'
 2022-05-12 11:30:26,892 INFO  ExecutorConfigurationSupport:218 - [] Shutting down ExecutorService 'applicationTaskExecutor'
 2022-05-12 11:30:26,893 INFO  HikariDataSource:350 - [] HikariPool-1 - Shutdown initiated...
@@ -195,7 +195,7 @@
 
 Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
 2022-05-12 11:30:27,054 ERROR SpringApplication:856 - [] Application run failed
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'cookiesRepository': FactoryBean threw exception on object creation; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.Optional app.igesa.repository.CookiesRepository.findFirstByEnterpriseId(java.lang.Long)! No property enterpriseId found for type Cookies!
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'cookiesRepository': FactoryBean threw exception on object creation; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.Optional CookiesRepository.findFirstByEnterpriseId(java.lang.Long)! No property enterpriseId found for type Cookies!
 	at org.springframework.beans.factory.support.FactoryBeanRegistrySupport.doGetObjectFromFactoryBean(FactoryBeanRegistrySupport.java:176)
 	at org.springframework.beans.factory.support.FactoryBeanRegistrySupport.getObjectFromFactoryBean(FactoryBeanRegistrySupport.java:101)
 	at org.springframework.beans.factory.support.AbstractBeanFactory.getObjectForBeanInstance(AbstractBeanFactory.java:1879)
@@ -220,8 +220,8 @@ org.springframework.beans.factory.BeanCreationException: Error creating bean wit
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:326)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1309)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1298)
-	at app.igesa.MultiwebsitesApplication.main(MultiwebsitesApplication.java:50)
-Caused by: java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.Optional app.igesa.repository.CookiesRepository.findFirstByEnterpriseId(java.lang.Long)! No property enterpriseId found for type Cookies!
+	at MultiwebsitesApplication.main(MultiwebsitesApplication.java:50)
+Caused by: java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.Optional CookiesRepository.findFirstByEnterpriseId(java.lang.Long)! No property enterpriseId found for type Cookies!
 	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.<init>(PartTreeJpaQuery.java:96)
 	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:107)
 	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateIfNotFoundQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:218)
@@ -302,7 +302,7 @@ Caused by: org.springframework.data.mapping.PropertyReferenceException: No prope
 2022-05-12 11:31:29,098 INFO  Dialect:170 - [] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
 2022-05-12 11:31:29,989 INFO  EndpointLinksResolver:58 - [] Exposing 2 endpoint(s) beneath base path '/actuator'
 2022-05-12 11:31:30,236 INFO  PropertySourcedRequestMappingHandlerMapping:69 - [] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-05-12 11:31:30,471 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@c1a74d, org.springframework.security.web.context.SecurityContextPersistenceFilter@74a5bef0, org.springframework.security.web.header.HeaderWriterFilter@53a09566, org.springframework.security.web.authentication.logout.LogoutFilter@7544260a, app.igesa.security.jwt.AuthTokenFilter@64fdcf99, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@570ed9c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@727956bb, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@69c1ea07, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@472719df, org.springframework.security.web.session.SessionManagementFilter@5896b9f5, org.springframework.security.web.access.ExceptionTranslationFilter@1d1b3620, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2fea9a7b]
+2022-05-12 11:31:30,471 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@c1a74d, org.springframework.security.web.context.SecurityContextPersistenceFilter@74a5bef0, org.springframework.security.web.header.HeaderWriterFilter@53a09566, org.springframework.security.web.authentication.logout.LogoutFilter@7544260a, AuthTokenFilter@64fdcf99, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@570ed9c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@727956bb, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@69c1ea07, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@472719df, org.springframework.security.web.session.SessionManagementFilter@5896b9f5, org.springframework.security.web.access.ExceptionTranslationFilter@1d1b3620, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2fea9a7b]
 2022-05-12 11:31:31,475 INFO  JtaPlatformInitiator:52 - [] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
 2022-05-12 11:31:31,491 INFO  AbstractEntityManagerFactoryBean:434 - [] Initialized JPA EntityManagerFactory for persistence unit 'default'
 2022-05-12 11:31:32,040 INFO  TomcatWebServer:220 - [] Tomcat started on port(s): 8089 (http) with context path ''
@@ -383,7 +383,7 @@ Caused by: org.springframework.data.mapping.PropertyReferenceException: No prope
 2022-05-12 11:31:32,958 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_14
 2022-05-12 11:31:32,960 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_14
 2022-05-12 11:31:32,982 INFO  DeferredRepositoryInitializationListener:51 - [] Triggering deferred initialization of Spring Data repositories…
-2022-05-12 11:31:33,884 WARN  AbstractApplicationContext:596 - [] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'cookiesRepository': FactoryBean threw exception on object creation; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.Optional app.igesa.repository.CookiesRepository.findFirstByEnterpriseId(java.lang.Long)! No property enterpriseId found for type Cookies!
+2022-05-12 11:31:33,884 WARN  AbstractApplicationContext:596 - [] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'cookiesRepository': FactoryBean threw exception on object creation; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.Optional CookiesRepository.findFirstByEnterpriseId(java.lang.Long)! No property enterpriseId found for type Cookies!
 2022-05-12 11:31:33,909 INFO  AbstractEntityManagerFactoryBean:648 - [] Closing JPA EntityManagerFactory for persistence unit 'default'
 2022-05-12 11:31:33,911 INFO  ExecutorConfigurationSupport:218 - [] Shutting down ExecutorService 'applicationTaskExecutor'
 2022-05-12 11:31:33,912 INFO  HikariDataSource:350 - [] HikariPool-1 - Shutdown initiated...
@@ -393,7 +393,7 @@ Caused by: org.springframework.data.mapping.PropertyReferenceException: No prope
 
 Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
 2022-05-12 11:31:34,069 ERROR SpringApplication:856 - [] Application run failed
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'cookiesRepository': FactoryBean threw exception on object creation; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.Optional app.igesa.repository.CookiesRepository.findFirstByEnterpriseId(java.lang.Long)! No property enterpriseId found for type Cookies!
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'cookiesRepository': FactoryBean threw exception on object creation; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.Optional CookiesRepository.findFirstByEnterpriseId(java.lang.Long)! No property enterpriseId found for type Cookies!
 	at org.springframework.beans.factory.support.FactoryBeanRegistrySupport.doGetObjectFromFactoryBean(FactoryBeanRegistrySupport.java:176)
 	at org.springframework.beans.factory.support.FactoryBeanRegistrySupport.getObjectFromFactoryBean(FactoryBeanRegistrySupport.java:101)
 	at org.springframework.beans.factory.support.AbstractBeanFactory.getObjectForBeanInstance(AbstractBeanFactory.java:1879)
@@ -418,8 +418,8 @@ org.springframework.beans.factory.BeanCreationException: Error creating bean wit
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:326)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1309)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1298)
-	at app.igesa.MultiwebsitesApplication.main(MultiwebsitesApplication.java:50)
-Caused by: java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.Optional app.igesa.repository.CookiesRepository.findFirstByEnterpriseId(java.lang.Long)! No property enterpriseId found for type Cookies!
+	at MultiwebsitesApplication.main(MultiwebsitesApplication.java:50)
+Caused by: java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.Optional CookiesRepository.findFirstByEnterpriseId(java.lang.Long)! No property enterpriseId found for type Cookies!
 	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.<init>(PartTreeJpaQuery.java:96)
 	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:107)
 	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateIfNotFoundQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:218)
@@ -500,7 +500,7 @@ Caused by: org.springframework.data.mapping.PropertyReferenceException: No prope
 2022-05-12 11:39:09,324 INFO  Dialect:170 - [] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
 2022-05-12 11:39:10,177 INFO  EndpointLinksResolver:58 - [] Exposing 2 endpoint(s) beneath base path '/actuator'
 2022-05-12 11:39:10,431 INFO  PropertySourcedRequestMappingHandlerMapping:69 - [] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-05-12 11:39:10,659 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@520c3dcb, org.springframework.security.web.context.SecurityContextPersistenceFilter@3f908bc0, org.springframework.security.web.header.HeaderWriterFilter@2f75a9b1, org.springframework.security.web.authentication.logout.LogoutFilter@34a33343, app.igesa.security.jwt.AuthTokenFilter@223967ea, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@26cdd4af, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@42cfd794, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@56f72909, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@145fe8ab, org.springframework.security.web.session.SessionManagementFilter@3d3b272a, org.springframework.security.web.access.ExceptionTranslationFilter@2dde0a34, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@23ec63af]
+2022-05-12 11:39:10,659 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@520c3dcb, org.springframework.security.web.context.SecurityContextPersistenceFilter@3f908bc0, org.springframework.security.web.header.HeaderWriterFilter@2f75a9b1, org.springframework.security.web.authentication.logout.LogoutFilter@34a33343, AuthTokenFilter@223967ea, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@26cdd4af, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@42cfd794, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@56f72909, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@145fe8ab, org.springframework.security.web.session.SessionManagementFilter@3d3b272a, org.springframework.security.web.access.ExceptionTranslationFilter@2dde0a34, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@23ec63af]
 2022-05-12 11:39:11,755 INFO  JtaPlatformInitiator:52 - [] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
 2022-05-12 11:39:11,774 INFO  AbstractEntityManagerFactoryBean:434 - [] Initialized JPA EntityManagerFactory for persistence unit 'default'
 2022-05-12 11:39:12,380 INFO  TomcatWebServer:220 - [] Tomcat started on port(s): 8089 (http) with context path ''
@@ -586,11 +586,11 @@ Caused by: org.springframework.data.mapping.PropertyReferenceException: No prope
 2022-05-12 11:46:31,494 INFO  DirectJDKLog:173 - [] Initializing Spring DispatcherServlet 'dispatcherServlet'
 2022-05-12 11:46:31,498 INFO  FrameworkServlet:525 - [] Initializing Servlet 'dispatcherServlet'
 2022-05-12 11:46:31,504 INFO  FrameworkServlet:547 - [] Completed initialization in 5 ms
-2022-05-12 11:57:48,183 ERROR DirectJDKLog:175 - [] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException: Cannot invoke "app.igesa.metiers.UserDetailsImpl.getEntrepriseId()" because the return value of "app.igesa.metiers.UserDetailsServiceImpl.getIdentity()" is null] with root cause
-java.lang.NullPointerException: Cannot invoke "app.igesa.metiers.UserDetailsImpl.getEntrepriseId()" because the return value of "app.igesa.metiers.UserDetailsServiceImpl.getIdentity()" is null
-	at app.igesa.metiers.EntrepriseImpl.getCurrentEnterprise(EntrepriseImpl.java:49)
-	at app.igesa.metiers.CookiesIImp.getCookies(CookiesIImp.java:48)
-	at app.igesa.controller.CookiesController.viewCookies(CookiesController.java:43)
+2022-05-12 11:57:48,183 ERROR DirectJDKLog:175 - [] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException: Cannot invoke "UserDetailsImpl.getEntrepriseId()" because the return value of "UserDetailsServiceImpl.getIdentity()" is null] with root cause
+java.lang.NullPointerException: Cannot invoke "UserDetailsImpl.getEntrepriseId()" because the return value of "UserDetailsServiceImpl.getIdentity()" is null
+	at EntrepriseImpl.getCurrentEnterprise(EntrepriseImpl.java:49)
+	at app.igesa.services.CookiesIImp.getCookies(CookiesIImp.java:48)
+	at CookiesController.viewCookies(CookiesController.java:43)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
 	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
@@ -633,7 +633,7 @@ java.lang.NullPointerException: Cannot invoke "app.igesa.metiers.UserDetailsImpl
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
 	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at app.igesa.security.jwt.AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:47)
+	at AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:47)
 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
 	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
@@ -712,7 +712,7 @@ java.lang.NullPointerException: Cannot invoke "app.igesa.metiers.UserDetailsImpl
 2022-05-12 12:07:27,725 INFO  Dialect:170 - [] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
 2022-05-12 12:07:28,558 INFO  EndpointLinksResolver:58 - [] Exposing 2 endpoint(s) beneath base path '/actuator'
 2022-05-12 12:07:28,792 INFO  PropertySourcedRequestMappingHandlerMapping:69 - [] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-05-12 12:07:29,007 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@fd69983, org.springframework.security.web.context.SecurityContextPersistenceFilter@1f75fd1d, org.springframework.security.web.header.HeaderWriterFilter@1a06602f, org.springframework.security.web.authentication.logout.LogoutFilter@362be0cd, app.igesa.security.jwt.AuthTokenFilter@6684f7f2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@638d2ce3, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5e681097, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@7c682e26, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@22429a11, org.springframework.security.web.session.SessionManagementFilter@5fe3b058, org.springframework.security.web.access.ExceptionTranslationFilter@2ecdcfe3, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4946485c]
+2022-05-12 12:07:29,007 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@fd69983, org.springframework.security.web.context.SecurityContextPersistenceFilter@1f75fd1d, org.springframework.security.web.header.HeaderWriterFilter@1a06602f, org.springframework.security.web.authentication.logout.LogoutFilter@362be0cd, AuthTokenFilter@6684f7f2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@638d2ce3, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5e681097, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@7c682e26, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@22429a11, org.springframework.security.web.session.SessionManagementFilter@5fe3b058, org.springframework.security.web.access.ExceptionTranslationFilter@2ecdcfe3, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4946485c]
 2022-05-12 12:07:30,062 INFO  JtaPlatformInitiator:52 - [] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
 2022-05-12 12:07:30,078 INFO  AbstractEntityManagerFactoryBean:434 - [] Initialized JPA EntityManagerFactory for persistence unit 'default'
 2022-05-12 12:07:30,672 INFO  TomcatWebServer:220 - [] Tomcat started on port(s): 8089 (http) with context path ''
@@ -798,11 +798,11 @@ java.lang.NullPointerException: Cannot invoke "app.igesa.metiers.UserDetailsImpl
 2022-05-12 12:07:32,999 INFO  DirectJDKLog:173 - [] Initializing Spring DispatcherServlet 'dispatcherServlet'
 2022-05-12 12:07:33,000 INFO  FrameworkServlet:525 - [] Initializing Servlet 'dispatcherServlet'
 2022-05-12 12:07:33,002 INFO  FrameworkServlet:547 - [] Completed initialization in 2 ms
-2022-05-12 12:08:27,363 ERROR DirectJDKLog:175 - [] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException: Cannot invoke "app.igesa.metiers.UserDetailsImpl.getEntrepriseId()" because the return value of "app.igesa.metiers.UserDetailsServiceImpl.getIdentity()" is null] with root cause
-java.lang.NullPointerException: Cannot invoke "app.igesa.metiers.UserDetailsImpl.getEntrepriseId()" because the return value of "app.igesa.metiers.UserDetailsServiceImpl.getIdentity()" is null
-	at app.igesa.metiers.EntrepriseImpl.getCurrentEnterprise(EntrepriseImpl.java:49)
-	at app.igesa.metiers.CookiesIImp.getCookies(CookiesIImp.java:48)
-	at app.igesa.controller.CookiesController.viewCookies(CookiesController.java:43)
+2022-05-12 12:08:27,363 ERROR DirectJDKLog:175 - [] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException: Cannot invoke "UserDetailsImpl.getEntrepriseId()" because the return value of "UserDetailsServiceImpl.getIdentity()" is null] with root cause
+java.lang.NullPointerException: Cannot invoke "UserDetailsImpl.getEntrepriseId()" because the return value of "UserDetailsServiceImpl.getIdentity()" is null
+	at EntrepriseImpl.getCurrentEnterprise(EntrepriseImpl.java:49)
+	at app.igesa.services.CookiesIImp.getCookies(CookiesIImp.java:48)
+	at CookiesController.viewCookies(CookiesController.java:43)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
 	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
@@ -845,7 +845,7 @@ java.lang.NullPointerException: Cannot invoke "app.igesa.metiers.UserDetailsImpl
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
 	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at app.igesa.security.jwt.AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:47)
+	at AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:47)
 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
 	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
@@ -924,7 +924,7 @@ java.lang.NullPointerException: Cannot invoke "app.igesa.metiers.UserDetailsImpl
 2022-05-12 12:11:07,101 INFO  Dialect:170 - [] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
 2022-05-12 12:11:08,061 INFO  EndpointLinksResolver:58 - [] Exposing 2 endpoint(s) beneath base path '/actuator'
 2022-05-12 12:11:08,313 INFO  PropertySourcedRequestMappingHandlerMapping:69 - [] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-05-12 12:11:08,596 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@323efafe, org.springframework.security.web.context.SecurityContextPersistenceFilter@152891f8, org.springframework.security.web.header.HeaderWriterFilter@212e39ee, org.springframework.security.web.authentication.logout.LogoutFilter@19e801b5, app.igesa.security.jwt.AuthTokenFilter@62058742, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@15a484a9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6acb45c1, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@1c788d08, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@32dbca45, org.springframework.security.web.session.SessionManagementFilter@1c411474, org.springframework.security.web.access.ExceptionTranslationFilter@1cb44a2f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@126254ec]
+2022-05-12 12:11:08,596 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@323efafe, org.springframework.security.web.context.SecurityContextPersistenceFilter@152891f8, org.springframework.security.web.header.HeaderWriterFilter@212e39ee, org.springframework.security.web.authentication.logout.LogoutFilter@19e801b5, AuthTokenFilter@62058742, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@15a484a9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6acb45c1, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@1c788d08, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@32dbca45, org.springframework.security.web.session.SessionManagementFilter@1c411474, org.springframework.security.web.access.ExceptionTranslationFilter@1cb44a2f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@126254ec]
 2022-05-12 12:11:09,720 INFO  JtaPlatformInitiator:52 - [] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
 2022-05-12 12:11:09,731 INFO  AbstractEntityManagerFactoryBean:434 - [] Initialized JPA EntityManagerFactory for persistence unit 'default'
 2022-05-12 12:11:10,322 INFO  TomcatWebServer:220 - [] Tomcat started on port(s): 8089 (http) with context path ''
@@ -1013,8 +1013,8 @@ java.lang.NullPointerException: Cannot invoke "app.igesa.metiers.UserDetailsImpl
 2022-05-12 12:12:22,320 ERROR DirectJDKLog:175 - [] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Handler dispatch failed; nested exception is java.lang.IllegalAccessError] with root cause
 java.lang.IllegalAccessError: null
 	at java.base/java.util.Optional.orElseThrow(Optional.java:403)
-	at app.igesa.metiers.CookiesIImp.updateCookies(CookiesIImp.java:36)
-	at app.igesa.controller.CookiesController.updateCookies(CookiesController.java:71)
+	at app.igesa.services.CookiesIImp.updateCookies(CookiesIImp.java:36)
+	at CookiesController.updateCookies(CookiesController.java:71)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
 	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
@@ -1057,7 +1057,7 @@ java.lang.IllegalAccessError: null
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
 	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at app.igesa.security.jwt.AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:47)
+	at AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:47)
 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
 	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
@@ -1114,8 +1114,8 @@ java.lang.IllegalAccessError: null
 2022-05-12 12:13:08,655 ERROR DirectJDKLog:175 - [] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Handler dispatch failed; nested exception is java.lang.IllegalAccessError] with root cause
 java.lang.IllegalAccessError: null
 	at java.base/java.util.Optional.orElseThrow(Optional.java:403)
-	at app.igesa.metiers.CookiesIImp.updateCookies(CookiesIImp.java:36)
-	at app.igesa.controller.CookiesController.updateCookies(CookiesController.java:71)
+	at app.igesa.services.CookiesIImp.updateCookies(CookiesIImp.java:36)
+	at CookiesController.updateCookies(CookiesController.java:71)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
 	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
@@ -1158,7 +1158,7 @@ java.lang.IllegalAccessError: null
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
 	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at app.igesa.security.jwt.AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:47)
+	at AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:47)
 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
 	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
@@ -1237,7 +1237,7 @@ java.lang.IllegalAccessError: null
 2022-05-12 12:15:41,564 INFO  Dialect:170 - [] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
 2022-05-12 12:15:42,956 INFO  EndpointLinksResolver:58 - [] Exposing 2 endpoint(s) beneath base path '/actuator'
 2022-05-12 12:15:43,357 INFO  PropertySourcedRequestMappingHandlerMapping:69 - [] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-05-12 12:15:43,953 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3856d0cb, org.springframework.security.web.context.SecurityContextPersistenceFilter@61bd0845, org.springframework.security.web.header.HeaderWriterFilter@124ff64d, org.springframework.security.web.authentication.logout.LogoutFilter@1d654b5f, app.igesa.security.jwt.AuthTokenFilter@4c65d8e3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@35d4035f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@c6c84fa, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@4efed0e0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2125535d, org.springframework.security.web.session.SessionManagementFilter@2c02a007, org.springframework.security.web.access.ExceptionTranslationFilter@5018b56b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3835d3fd]
+2022-05-12 12:15:43,953 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3856d0cb, org.springframework.security.web.context.SecurityContextPersistenceFilter@61bd0845, org.springframework.security.web.header.HeaderWriterFilter@124ff64d, org.springframework.security.web.authentication.logout.LogoutFilter@1d654b5f, AuthTokenFilter@4c65d8e3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@35d4035f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@c6c84fa, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@4efed0e0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2125535d, org.springframework.security.web.session.SessionManagementFilter@2c02a007, org.springframework.security.web.access.ExceptionTranslationFilter@5018b56b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3835d3fd]
 2022-05-12 12:15:46,030 INFO  JtaPlatformInitiator:52 - [] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
 2022-05-12 12:15:46,049 INFO  AbstractEntityManagerFactoryBean:434 - [] Initialized JPA EntityManagerFactory for persistence unit 'default'
 2022-05-12 12:15:47,292 INFO  TomcatWebServer:220 - [] Tomcat started on port(s): 8089 (http) with context path ''
@@ -1326,8 +1326,8 @@ java.lang.IllegalAccessError: null
 2022-05-12 12:17:02,118 ERROR DirectJDKLog:175 - [] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Handler dispatch failed; nested exception is java.lang.IllegalAccessError] with root cause
 java.lang.IllegalAccessError: null
 	at java.base/java.util.Optional.orElseThrow(Optional.java:403)
-	at app.igesa.metiers.CookiesIImp.updateCookies(CookiesIImp.java:36)
-	at app.igesa.controller.CookiesController.updateCookies(CookiesController.java:71)
+	at app.igesa.services.CookiesIImp.updateCookies(CookiesIImp.java:36)
+	at CookiesController.updateCookies(CookiesController.java:71)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
 	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
@@ -1370,7 +1370,7 @@ java.lang.IllegalAccessError: null
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
 	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at app.igesa.security.jwt.AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:47)
+	at AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:47)
 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
 	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
@@ -1449,7 +1449,7 @@ java.lang.IllegalAccessError: null
 2022-05-12 12:17:53,910 INFO  Dialect:170 - [] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
 2022-05-12 12:17:55,410 INFO  EndpointLinksResolver:58 - [] Exposing 2 endpoint(s) beneath base path '/actuator'
 2022-05-12 12:17:55,727 INFO  PropertySourcedRequestMappingHandlerMapping:69 - [] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-05-12 12:17:56,155 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7ebc5be6, org.springframework.security.web.context.SecurityContextPersistenceFilter@294ebe11, org.springframework.security.web.header.HeaderWriterFilter@7672960e, org.springframework.security.web.authentication.logout.LogoutFilter@30a62a5b, app.igesa.security.jwt.AuthTokenFilter@3386c206, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2862271a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@45849604, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@63c4d16, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4627dfda, org.springframework.security.web.session.SessionManagementFilter@76220ef1, org.springframework.security.web.access.ExceptionTranslationFilter@26d24d7a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@b76b7d8]
+2022-05-12 12:17:56,155 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7ebc5be6, org.springframework.security.web.context.SecurityContextPersistenceFilter@294ebe11, org.springframework.security.web.header.HeaderWriterFilter@7672960e, org.springframework.security.web.authentication.logout.LogoutFilter@30a62a5b, AuthTokenFilter@3386c206, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2862271a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@45849604, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@63c4d16, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4627dfda, org.springframework.security.web.session.SessionManagementFilter@76220ef1, org.springframework.security.web.access.ExceptionTranslationFilter@26d24d7a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@b76b7d8]
 2022-05-12 12:17:57,676 INFO  JtaPlatformInitiator:52 - [] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
 2022-05-12 12:17:57,696 INFO  AbstractEntityManagerFactoryBean:434 - [] Initialized JPA EntityManagerFactory for persistence unit 'default'
 2022-05-12 12:17:58,602 INFO  TomcatWebServer:220 - [] Tomcat started on port(s): 8089 (http) with context path ''
@@ -1564,7 +1564,7 @@ java.lang.IllegalAccessError: null
 2022-05-12 12:40:18,173 INFO  Dialect:170 - [] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
 2022-05-12 12:40:19,229 INFO  EndpointLinksResolver:58 - [] Exposing 2 endpoint(s) beneath base path '/actuator'
 2022-05-12 12:40:19,492 INFO  PropertySourcedRequestMappingHandlerMapping:69 - [] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-05-12 12:40:19,777 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@26d24d7a, org.springframework.security.web.context.SecurityContextPersistenceFilter@4449b273, org.springframework.security.web.header.HeaderWriterFilter@93f15f6, org.springframework.security.web.authentication.logout.LogoutFilter@37364634, app.igesa.security.jwt.AuthTokenFilter@5da57a64, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1d9bd1d6, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5b88af70, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@5ec6a1b6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5a78b52b, org.springframework.security.web.session.SessionManagementFilter@1592e540, org.springframework.security.web.access.ExceptionTranslationFilter@4ad8d36f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6b3b4f37]
+2022-05-12 12:40:19,777 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@26d24d7a, org.springframework.security.web.context.SecurityContextPersistenceFilter@4449b273, org.springframework.security.web.header.HeaderWriterFilter@93f15f6, org.springframework.security.web.authentication.logout.LogoutFilter@37364634, AuthTokenFilter@5da57a64, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1d9bd1d6, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5b88af70, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@5ec6a1b6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5a78b52b, org.springframework.security.web.session.SessionManagementFilter@1592e540, org.springframework.security.web.access.ExceptionTranslationFilter@4ad8d36f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6b3b4f37]
 2022-05-12 12:40:21,082 INFO  JtaPlatformInitiator:52 - [] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
 2022-05-12 12:40:21,095 INFO  AbstractEntityManagerFactoryBean:434 - [] Initialized JPA EntityManagerFactory for persistence unit 'default'
 2022-05-12 12:40:21,766 INFO  TomcatWebServer:220 - [] Tomcat started on port(s): 8089 (http) with context path ''

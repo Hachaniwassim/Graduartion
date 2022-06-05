@@ -1,4 +1,4 @@
-package it.igesa.utils.constans;
+package it.igesa.constans;
 
 /**
  *
@@ -10,5 +10,5 @@ package it.igesa.utils.constans;
 public class Consts {
     private Consts() {}
     public static final String GROUP_ID = "groupe-id";
-    public static final String ENTERPRISE_ID = "enterprise-id";
+    public static final String ENTERPRISE_ID = "entreprise_id";
 }

@@ -1,4 +1,4 @@
-package it.igesa.controller;
+package it.igesa.resources;
 import it.igesa.domaine.FileInfo;
 import it.igesa.enumerations.ImageTypes;
 import it.igesa.upload.FilesStorageService;

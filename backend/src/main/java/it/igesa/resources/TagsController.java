@@ -1,4 +1,4 @@
-package it.igesa.controller;
+package it.igesa.resources;
 import it.igesa.dto.TagsDTO;
 import it.igesa.services.Itags;
 import it.igesa.payload.response.MessageResponse;

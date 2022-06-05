@@ -1,4 +1,4 @@
-package it.igesa.controller;
+package it.igesa.resources;
 import it.igesa.dto.LanguageDTO;
 import it.igesa.services.Ilanguage;
 import io.swagger.annotations.Api;

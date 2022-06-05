@@ -1,4 +1,4 @@
-package it.igesa.controller.pages;
+package it.igesa.resources.pages;
 import it.igesa.dto.Page3DTO;
 import it.igesa.services.Ipage3;
 import io.swagger.annotations.ApiOperation;
