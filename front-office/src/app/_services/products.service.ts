@@ -12,7 +12,7 @@ import { productsDTO } from '../models/dto/productsDTO';
 export class ProductService {
 
   //api backend
-  private base_url= environment.publicApi +"/product-public";
+  private base_url= environment.publicApi + "/product-public";
   
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
@@ -36,5 +36,7 @@ getTagsByproduct(id:number):Observable<productsDTO>{
   return this.http.get<productsDTO>(this.base_url + '/get-tags-by-product' + '/' +id);
 
 }
+
+
 }
  

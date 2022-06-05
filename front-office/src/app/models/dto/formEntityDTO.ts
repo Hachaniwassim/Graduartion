@@ -2,15 +2,16 @@ import { environment } from "src/environments/environment";
 
 export class FormEntityDTO {
      id !: number;
-	 name !: string;
-	 companyname! : string
+	companyname! : string
      mobile!: string ;
-	 fax!: string ;
+	fax!: string ;
      email!: string
      adresse !: string;
      nationality!: string;
-     refrente!: string;
+     referent!: string;
      contactstatus!: string;
+     productId!:string;
+     message !: string;
      entrepriseId = environment.enterpriseId
      lastModifiedDate!: string;
      createdDate!: string;
