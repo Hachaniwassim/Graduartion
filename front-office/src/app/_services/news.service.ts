@@ -1,12 +1,10 @@
-import { DatePipe } from '@angular/common';
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
 import * as _ from 'lodash';
-import { Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { newsDTO } from '../models/dto/newsDTO';
+import { NwesDTO } from '../models/dto/nwesDTO';
 
 @Injectable({
   providedIn: 'root'
@@ -14,26 +12,23 @@ import { newsDTO } from '../models/dto/newsDTO';
 export class Newsservice {
 
   //api backend
-  private base_url= environment.publicApi +"/nwes";
+  private base_url= environment.publicApi + "/nwes-public";
   
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
- LinkDTO ={
-    title:'', 
-    htmlContent: '',
-  }
+
   constructor(private http :HttpClient) { }
 
   
-//get all by entreprise
-getAllnewsByEntreprise():Observable<newsDTO>{
- return this.http.get<newsDTO>(this.base_url);
+//get all by entreprise id
+getAllnewsByEntreprise():any{
+ return this.http.get<NwesDTO>(this.base_url + '/list-nwes/' + environment.enterpriseId);
 }
 
 
 // get by id
-getByidnew(id:number):Observable<newsDTO>{
-  return this.http.get<newsDTO>(this.base_url + '/' +id);
+getByidnew(id:number):Observable<NwesDTO>{
+  return this.http.get<NwesDTO>(this.base_url + '/' +id);
 
 }
 

@@ -12,69 +12,51 @@
             </div>
         </div>
     </div>
-</div>	
-	<!-- Start Slider Area -->
-    <section id="slider_area">
-        <div >
-
-            
-
-            <div class="slider_item3 single_slide text-right">
-                <div class="container">
-                    <div class="single-slide-item-table">
-                        <div class="single-slide-item-tablecell">
-                            <div class="slider_content slider-animated-3">
-                                <span class="sl_heading animated">Our Dealers</span>
-                                <h2 class="animated"> <span>Discover</span> Them</h2>
-                            </div>
+</div>
+<!-- Start Slider Area -->
+<section id="slider_area"><div> 
+    <div class="slider_item3 single_slide text-right">
+            <div class="container">
+                <div class="single-slide-item-table">
+                    <div class="single-slide-item-tablecell">
+                        <div class="slider_content slider-animated-3">
+                            <span class="sl_heading animated">Our Dealers</span>
+                            <h2 class="animated"> <span>Discover</span> Them</h2>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- End Slider Area -->
-    
-    
-    <!-- Start About Area -->
-    <section id="about_area" class="section_padding bg_white">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12 col-xs-12 text-center wow fadeIn" data-wow-delay=".1s">
-                    <div class="section_title">
-                        <h2>Certified    <span>Dealers</span>     List</h2>
-                        <div class="sec_divider"></div>
+    </div>
+</section>
+<section id="about_area" class="section_padding bg_white">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-xs-12 text-center wow fadeIn" data-wow-delay=".1s">
+                <div class="section_title">
+                    <h2>Our <span>{{pageInfos.title}}</span></h2>
+                    <div class="sec_divider"></div>
+                </div>
+            </div>
+        </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="container p-3">
+                            <div class="row">
+                                <div class="col-12" [innerHTML]="pageInfos.description"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <br><br><br><br>
+                    <div class="col-8 col-md-3">
+                        <div >{{pageInfos.question}}</div>
+                        <button class="animated btn main_bg_btn" >{{pageInfos.textbutton}} </button><br><br>
+                        </div>
+                        <div class="container p-12"><br><br>
+                        <div style="width: 1100px;height: 550px;" class="container" id="map"></div>
                     </div>
                 </div>
             </div>
-                
-            <div class="row">
-						
-                
-				
-                <div class="container">
-                    <!-- Stack the columns on mobile by making one full-width and the other half-width -->
-                    <div class="row">
-                      <div class="col-md-8">
-                      <p> With a view to expanding the distribution structure, Igesa is looking for resellers to improve coverage on the territory.</p> 
-
-                       <p> Is required:</p>
-                       <p> - A structure capable of carrying out adequate technical and commercial assistance on the customer base; </p>
-                       <p>- In-depth technical knowledge of Windows, Mac OS X and Linux operating systems.</p>
-                        
-                       <p> They offer:</p>
-                       <p> - Technologically competitive IT solutions; </p>
-                       <p>- Technical-commercial and consultancy support</p>
-                    </div>
-                      <div class="col-6 col-md-4">
-
-                        <div style="width: 400px;height: 400px;" class="container" id="map" ></div>
-
-                    
-                      </div>
-                    </div>
-                </div>
-    
-            </div>				
-        </div>
-    </section>
+    </div>
+</section>

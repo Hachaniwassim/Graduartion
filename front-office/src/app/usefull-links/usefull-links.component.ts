@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Linksservice } from 'src/app/_services/links.service';
+
+import { LinksDTO } from '../models/dto/linksDTO';
+import { LinksService } from '../_services/links.service';
 
 @Component({
   selector: 'app-usefull-links',
@@ -7,14 +9,25 @@ import { Linksservice } from 'src/app/_services/links.service';
   styleUrls: ['./usefull-links.component.css']
 })
 export class UsefullLinksComponent implements OnInit {
+  
+  pageInfos !: LinksDTO;
 
-  public linkslist: any = [];
-  constructor( private linkservice : Linksservice) { }
- 
- ngOnInit(): void {
-    this.linkservice.getAlllinksByEntreprise().subscribe(
-      res => this.linkslist = res
-    );
+  constructor( private linkService : LinksService) { }
+
+  ngOnInit(): void {
+    this.getLinks();
+   
   }
+
+
+  async getLinks() {
+    await this.linkService.getAlllinksByEntreprise()
+      .subscribe((res: any) => {
+        this.pageInfos=res[0];
+        console.log("==========================> test",this.pageInfos)     
+        
+    });
+  }
+
  
 }

@@ -1,10 +1,8 @@
-import { DatePipe } from '@angular/common';
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
 import * as _ from 'lodash';
-import { Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { productsDTO } from '../models/dto/productsDTO';
 
@@ -14,26 +12,16 @@ import { productsDTO } from '../models/dto/productsDTO';
 export class ProductService {
 
   //api backend
-  private base_url= environment.publicApi +"/product";
+  private base_url= environment.publicApi +"/product-public";
   
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
- ProductDTO ={
-  title:'', 
-  detailimage: '',
-  note: '',
-  name: '',
-  image: '',
-  consultationNumber: '',
-
-
-  }
   constructor(private http :HttpClient) { }
 
   
 //get all by entreprise
-getAllproductsByEntreprise():Observable<productsDTO>{
- return this.http.get<productsDTO>(this.base_url);
+getAllproductsByEntreprise():any{
+ return this.http.get<productsDTO[]>(this.base_url  + '/list-products/' +  environment.enterpriseId);
 }
 
 
@@ -44,5 +32,9 @@ getByidproduct(id:number):Observable<productsDTO>{
 }
 
 
- 
+getTagsByproduct(id:number):Observable<productsDTO>{
+  return this.http.get<productsDTO>(this.base_url + '/get-tags-by-product' + '/' +id);
+
 }
+}
+ 

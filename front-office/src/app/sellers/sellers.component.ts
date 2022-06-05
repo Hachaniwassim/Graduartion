@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { pagesDTO } from '../models/dto/pagesDTO';
+import { RevendeurService } from '../_services/page.service';
 declare const L : any ;
 
 @Component({
@@ -7,7 +9,29 @@ declare const L : any ;
   styleUrls: ['./sellers.component.css']
 })
 export class SellersComponent implements OnInit {
+  pageInfos : any=[];
+
+  constructor( private revendeursService: RevendeurService){ }
+
+
+ 
+
+  async getPageInfo() {
+    
+    await this.revendeursService.getAllPagesByEntreprise()
+      .subscribe((res: any) => {
+        this.pageInfos=res[0];
+        console.log("==========================> test",this.pageInfos)     
+        
+    });
+  }
+
+
   ngOnInit() {
+
+   this.getPageInfo();
+
+
     if (!navigator.geolocation) {
       console.log('location is not supported');
     }

@@ -6,34 +6,37 @@ import * as _ from 'lodash';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { assistanceDTO } from '../models/dto/assistanceDTO';
+import { Page2DTO } from '../models/dto/page2DTO';
+import { Page3DTO } from '../models/dto/page3DTO';
 
 @Injectable({
   providedIn: 'root'
 })
+/***********
+ * 
+ * @author Tarchoun Abir
+ * 
+ */
 export class Assistanceservice {
 
   //api backend
-  private base_url= environment.publicApi +"/links";
+  private base_url= environment.publicApi +"/page-assistance-public";
   
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
- LinkDTO ={
-    title:'', 
-    htmlContent: '',
-  }
+
   constructor(private http :HttpClient) { }
 
   
 //get all by entreprise
-getassistanceByEntreprise():Observable<assistanceDTO>{
- return this.http.get<assistanceDTO>(this.base_url);
+getassistanceByEntreprise():any{
+ return this.http.get<Page2DTO[]>(this.base_url + '/list-assistance/' + environment.enterpriseId);
 }
 
 
 // get by id
-getByidassistance(id:number):Observable<assistanceDTO>{
-  return this.http.get<assistanceDTO>(this.base_url + '/' +id);
+getByidassistance(id:number):Observable<Page2DTO>{
+  return this.http.get<Page2DTO>(this.base_url + '/' +id);
 
 }
 

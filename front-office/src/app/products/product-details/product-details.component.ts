@@ -18,12 +18,17 @@ export class ProductDetailsComponent implements OnInit {
     note: '',
     name: '',
     image: '',
-    consultationNumber: '',
+    caracteristique:'',
+    requirements :'',
+    createdDate :'',
+    lastModifiedDate:'',
+    description : '',
+    slug : ''
 }
 list : any ;
 _id=this.route.snapshot.params['id'];
 
-constructor(private route: ActivatedRoute ,  private notificationService :NotificationService , private productservice: ProductService) { }
+constructor(private route: ActivatedRoute , private productservice: ProductService) { }
 
 ngOnInit(): void {
   this.getone();

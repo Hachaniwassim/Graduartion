@@ -10,14 +10,14 @@ import { environment } from "src/environments/environment";
 export class CookiesService {
 
 
-  private base_url= environment.publicApi +'/cookies';
+  private base_url= environment.publicApi +'/cookies-public';
 
   constructor(private http: HttpClient) {
   }
 
 
-  getCurrentEnterpriseCookies() {
-    return this.http.get<CookieDTO[]>(`${this.base_url}`);
+  getCurrentEnterpriseCookies():any {
+    return this.http.get<CookieDTO[]>(`${this.base_url + '/list-cookies/' + environment.enterpriseId}`);
   }
 
 }

@@ -10,10 +10,10 @@ import { categoryDTO } from '../models/dto/categoryDTO';
 @Injectable({
   providedIn: 'root'
 })
-export class Gategoryservice {
+export class CategoryService {
 
   //api backend
-  private base_url= environment.publicApi+ '/category';
+  private base_url= environment.publicApi+ '/category-public';
   
 
   constructor(private http :HttpClient) { }
@@ -22,7 +22,7 @@ export class Gategoryservice {
 
 //get all
 getallCategorieByEntreprise():Observable<categoryDTO[]>{
-   return this.http.get<categoryDTO[]>(this.base_url);
+   return this.http.get<categoryDTO[]>(this.base_url + '/list-category/' + environment.enterpriseId);
  }
 
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Page3DTO } from '../models/dto/page3DTO';
 import { Assistanceservice } from '../_services/assistance.service';
 
 @Component({
@@ -8,12 +9,26 @@ import { Assistanceservice } from '../_services/assistance.service';
 })
 export class AssitanceComponent implements OnInit {
 
-  public cookieslist: any = [];
+
   constructor( private assistanceservice : Assistanceservice) { }
 
-  ngOnInit(): void {
-    this.assistanceservice.getassistanceByEntreprise().subscribe(
-      res => this.cookieslist = res
-    );
-  }
+  
+ pageInfos !: Page3DTO;
+
+
+
+ ngOnInit(): void {
+   this.getPagesInfo();
+   }
+
+
+ async getPagesInfo() {
+   
+   await this.assistanceservice.getassistanceByEntreprise()
+     .subscribe((res: any) => {
+       this.pageInfos=res[0];
+       console.log("==========================> test",this.pageInfos)     
+       
+   });
+ }
 }
