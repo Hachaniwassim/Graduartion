@@ -26,7 +26,7 @@ export class ProductDetailsComponent implements OnInit {
     slug : ''
 }
 list : any ;
-_id=this.route.snapshot.params['id'];
+id=this.route.snapshot.params['id'];
 
 constructor(private route: ActivatedRoute , private productservice: ProductService) { }
 
@@ -39,7 +39,7 @@ ngOnInit(): void {
 }
 getone(){
   // status 304 ok  
-   this.productservice.getByidproduct(this._id).subscribe((data)=>
+   this.productservice.getByidproduct(this.id).subscribe((data)=>
    { this.list=data;
     this.product=this.list;
     console.log(this.product);

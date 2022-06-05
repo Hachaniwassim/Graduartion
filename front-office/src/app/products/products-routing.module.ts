@@ -5,7 +5,9 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { MaterialModule } from '../material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-const routes: Routes = [{ path: '', component: ProductsComponent }];
+const routes: Routes = [{ path: '', component: ProductsComponent },
+{ path: ':id', component: ProductDetailsComponent }
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes) , 
