@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './material/material.module';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -25,6 +25,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthGuard } from './guard/auth.guard';
 import { SimpleNotificationsModule } from 'angular2-notifications';
 import { PostulsellerComponent } from './postulseller/postulseller.component';
+import { SetGroupInterceptor } from './_helpers/set-group.interceptor';
+import { NwesListComponent } from './nwes-list/nwes-list.component';
+import { CategoryComponent } from './category/category.component';
+import { TapToTopComponent } from './tap-to-top/tap-to-top.component';
 
 
 @NgModule({
@@ -44,6 +48,9 @@ import { PostulsellerComponent } from './postulseller/postulseller.component';
     AssitanceComponent,
     ProfileComponent,
     PostulsellerComponent,
+    NwesListComponent,
+    CategoryComponent,
+    TapToTopComponent,
   ],
   imports: [
     ReactiveFormsModule,
@@ -60,7 +67,12 @@ import { PostulsellerComponent } from './postulseller/postulseller.component';
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   exports: [MaterialModule],
-  providers: [],
+  providers: [  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: SetGroupInterceptor,
+    multi: true,
+
+},],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -79,231 +79,25 @@
             
         </section>
     
-   
-  <!-- Start About Area -->
-  <section id="about_area" class="section_padding bg_white">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12 col-xs-12 text-center wow fadeIn" data-wow-delay=".1s">
-                <div class="section_title">
-                    <h2>Usefull <span>Links</span></h2>
-                    <div class="sec_divider"></div>
+        <section id="about_area" class="section_padding bg_white">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-xs-12 text-center wow fadeIn" data-wow-delay=".1s">
+                        <div class="section_title">
+                            <h2> <span> {{pageInfos.title}} </span></h2>
+                            <div class="sec_divider"></div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                <div class="container">
+                        <p class="small text-muted"></p>
+                        <div class="container p-3">
+                            <div class="row">
+                                <div class="col-12" [innerHTML]="pageInfos.htmlContent"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-            
-       <!-- <div class="col-md-3 col-sm-6">
-            <a href="https://www.finanze.it/opencms/it/">
-
-            <div class="single_about" *ngFor="let link of linkslist">
-                <div class="about_icon">
-                    {{link.htmlContent}}  
-                </div>
-                <br> <br>
-                <div class="about_content">
-                    <h3>
-                        {{link.title}}                        
-                    </h3>
-                </div>  
-            </div>		
-        </a>	
-
-        </div>	 -->
-
-        <div class="row">
-            <div class="col-md-3 col-sm-6">
-                <a href="https://www.agenziaentrate.gov.it/portale/home">
-                <div class="single_about">
-                    <div class="about_icon">
-                        <img style="width: 300px; height: 70px; ;" src="../../assets/img/usefulllinks/1.png" alt="" srcset="">
-                    </div>
-                    <br> <br>
-                    <div class="about_content">
-                        <h3>
-                            Internal Revenue Service
-                        </h3>
-                    </div>  
-                </div>		
-            </a>	
-            </div><!--End Col -->				
-            <div class="col-md-3 col-sm-6">
-                <a href="https://www.finanze.it/opencms/it/">
-
-                <div class="single_about">
-                    <div class="about_icon">
-                        <img style="width: 300px; height: 70px; ;" src="../../assets/img/usefulllinks/3.png" alt="" srcset="">
-                    </div>
-                    <br> <br>
-                    <div class="about_content">
-                        <h3>
-                            MEF
-                        </h3>
-                    </div>  
-                </div>		
-            </a>	
-	
-            </div><!--End Col -->	
-            <div class="col-md-3 col-sm-6">
-                <a href="http://pti.regione.sicilia.it/portal/page/portal/PIR_PORTALE">
-
-                <div class="single_about">
-                    <div class="about_icon">
-                        <img style="width: 300px; height: 70px; ;" src="../../assets/img/usefulllinks/4.jpg.crdownload" alt="" srcset="">
-                    </div>
-                    <br> <br>
-                    <div class="about_content">
-                        <h3>
-                            Sicilian region
-                        </h3>
-                    </div>  
-                </div>			
-            </a>	
-            </div><!--End Col -->	
-
-            <div class="col-md-3 col-sm-6">
-                <a href="https://www.ilsole24ore.com/">
-                <div class="single_about">
-                    <div class="about_icon">
-                        <img style="width: 300px; height: 70px; ;" src="../../assets/img/usefulllinks/5.svg" alt="" srcset="">
-                    </div>
-                    <br> <br>
-                    <div class="about_content">
-                        <h3>
-                            The sun 24 hours
-                        </h3>
-                    </div>  
-                </div>		
-            </a>	
-	
-            </div><!--End Col -->	
-            <div class="col-md-3 col-sm-6">
-                <a href="https://www.infocamere.it/">
-
-                <div class="single_about">
-                    <div class="about_icon">
-                        <img style="width: 300px; height: 70px; ;" src="../../assets/img/usefulllinks/6.jpg" alt="" srcset="">
-                    </div>
-                    <br> <br>
-                    <div class="about_content">
-                        <h3>
-                            InfoCamere
-
-                        </h3>
-                    </div>  
-                </div>		
-            </a>		
-            </div><!--End Col -->	
-            <div class="col-md-3 col-sm-6">
-                <a href="https://gds.it/">
-
-                <div class="single_about">
-                    <div class="about_icon">
-                        <img style="width: 300px; height: 70px; ;" src="../../assets/img/usefulllinks/7.svg" alt="" srcset="">
-                    </div>
-                    <br> <br>
-                    <div class="about_content">
-                        <h3>
-                            Journal of Sicily
-                        </h3>
-                    </div>  
-                </div>		
-            </a>	
-	
-            </div><!--End Col -->	
-            <div class="col-md-3 col-sm-6">
-                <a href="https://www.assosoftware.it/">
-
-                <div class="single_about">
-                    <div class="about_icon">
-                        <img style="width: 300px; height: 70px; ;" src="../../assets/img/usefulllinks/8.png" alt="" srcset="">
-                    </div>
-                    <br> <br>
-                    <div class="about_content">
-                        <h3>
-                            AssoSoftware
-                        </h3>
-                    </div>  
-                </div>		
-            </a>	
-	
-            </div><!--End Col -->	
-            <div class="col-md-3 col-sm-6">
-                <a href="https://www.italiaoggi.it/">
-
-                <div class="single_about">
-                    <div class="about_icon">
-                        <img style="width: 300px; height: 70px; ;" src="../../assets/img/usefulllinks/9.png" alt="" srcset="">
-                    </div>
-                    <br> <br>
-                    <div class="about_content">
-                        <h3>
-                            Italy Today
-                        </h3>
-                    </div>  
-                </div>		
-            </a>	
-	
-            </div><!--End Col -->	
-            <div class="col-md-3 col-sm-6">
-                <a href="https://www.corriere.it/">
-
-                <div class="single_about">
-                    <div class="about_icon">
-                        <img style="width: 300px; height: 70px; ;" src="../../assets/img/usefulllinks/10.png" alt="" srcset="">
-                    </div>
-                    <br> <br>
-                    <div class="about_content">
-                        <h3>
-                            Corriere della Sera
-                        </h3>
-                    </div>  
-                </div>		
-            </a>	
-	
-            </div><!--End Col -->	
-            <div class="col-md-3 col-sm-6">
-                <a href="https://www.repubblica.it/">
-
-                <div class="single_about">
-                    <div class="about_icon">
-                        <img style="width: 300px; height: 70px; ;" src="../../assets/img/usefulllinks/11.png" alt="" srcset="">
-                    </div>
-                    <br> <br>
-                    <div class="about_content">
-                        <h3>
-                            The Republic
-                        </h3>
-                    </div>  
-                </div>		
-            </a>	
-	
-            </div><!--End Col -->	
-
-            
-            <div class="col-md-3 col-sm-6">
-                <a href="https://www.mise.gov.it/index.php/it/">
-
-                <a href="">
-                <div class="single_about">
-                    <div class="about_icon">
-                        <img style="width: 300px; height: 70px; ;" src="../../assets/img/usefulllinks/13.jpg" alt="" srcset="">
-                    </div>
-                    <br> <br>
-                    <div class="about_content">
-                        <h3>
-                            Ministry of Economic Development
-                        </h3>
-                    </div>  
-                </div>	
-            </a>	
-
-            </a>		
-            </div><!--End Col -->	
-			
-
-
-
-        </div>				
-    </div>
-</section>
-<!-- End About Area -->
+        </section>			

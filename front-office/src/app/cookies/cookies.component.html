@@ -12,46 +12,60 @@
             </div>
         </div>
     </div>
-</div>	
-	<!-- Start Slider Area -->
-    <section id="slider_area">
-        <div class="slider_active owl-carousel">
-            <div class="slider_item1 single_slide">
-                <div class="container">	
-                    <div class="single-slide-item-table">
-                        <div class="single-slide-item-tablecell">
+</div>
+<!-- Start Slider Area -->
+<section id="slider_area">
+    <div class="slider_active owl-carousel">
+        <div class="slider_item1 single_slide">
+            <div class="container">
+                <div class="single-slide-item-table">
+                    <div class="single-slide-item-tablecell">
                         <div class="slider_content slider-animated-1">
-                                <h2 class="animated"> <span>Advanced</span> Software <span>Solutions</span> </h2>
-                                <br>
-                                <a href="#" class="animated btn main_bg_btn">learn more</a>
-                            </div>	
+                            <h2 class="animated"> <span>Advanced</span> Software <span>Solutions</span> </h2>
+                            <br>
+                            <a href="#" class="animated btn main_bg_btn">learn more</a>
                         </div>
-                    </div>						
+                    </div>
                 </div>
             </div>
-            
-            <div class="slider_item2 single_slide">
-                <div class="container">		
-                    <div class="single-slide-item-table">
-                        <div class="single-slide-item-tablecell">
-                            <div class="slider_content text-center slider-animated-2">
-                                <h2 class="animated"> <span>E-Commerce </span> Click&Collect</h2>
-                                <span class="sl_heading animated">The online showcase for your business</span>
-                                <br>
-                                <a href="#" class="animated btn main_bg_btn">learn more</a>
-                            </div>	
+        </div>
+  <div class="slider_item2 single_slide">
+            <div class="container">
+                <div class="single-slide-item-table">
+                    <div class="single-slide-item-tablecell">
+                        <div class="slider_content text-center slider-animated-2">
+                            <h2 class="animated"> <span>E-Commerce </span> Click&Collect</h2>
+                            <span class="sl_heading animated">The online showcase for your business</span>
+                            <br>
+                            <a href="#" class="animated btn main_bg_btn">learn more</a>
                         </div>
-                    </div>	
+                    </div>
                 </div>
             </div>
-
-            <div class="slider_item3 single_slide text-right">
+        </div>
+         <div class="slider_item3 single_slide text-right">
+            <div class="container">
+                <div class="single-slide-item-table">
+                    <div class="single-slide-item-tablecell">
+                        <div class="slider_content slider-animated-3">
+                            <h2 class="animated"> <span>Foodmanager the </span>Software software </h2>
+                            <span class="sl_heading animated">for your Food outlets</span>
+                            <br>
+                            <a href="#" class="animated btn main_bg_btn">learn more</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slider_active owl-carousel">
+            <div class="slider_item4 single_slide">
                 <div class="container">
                     <div class="single-slide-item-table">
                         <div class="single-slide-item-tablecell">
-                            <div class="slider_content slider-animated-3">
-                                <h2 class="animated"> <span>Foodmanager the </span>Software software </h2>
-                                <span class="sl_heading animated">for your Food outlets</span>
+                            <div class="slider_content slider-animated-1">
+                                <h2 class="animated"> The software<span> solution </span> for your <span>business</span>
+                                </h2>
+                                <span class="sl_heading animated">Magazine, Accounting, Invoicing</span>
                                 <br>
                                 <a href="#" class="animated btn main_bg_btn">learn more</a>
                             </div>
@@ -59,77 +73,28 @@
                     </div>
                 </div>
             </div>
-            <div class="slider_active owl-carousel">
-                <div class="slider_item4 single_slide">
-                    <div class="container">	
-                        <div class="single-slide-item-table">
-                            <div class="single-slide-item-tablecell">
-                                <div class="slider_content slider-animated-1">
-                                    <h2 class="animated"> The software<span> solution </span> for your <span>business</span>  </h2>
-                                    <span class="sl_heading animated">Magazine, Accounting, Invoicing</span>
-                                    <br>
-                                    <a href="#" class="animated btn main_bg_btn">learn more</a>
-                                </div>	
-                            </div>
-                        </div>						
-                    </div>
-                </div>
-                </div>
         </div>
-        
-    </section>
-    
-    
-    <!-- Start About Area -->
-    <section id="about_area" class="section_padding bg_white">
+    </div>
+</section>
+<section id="about_area" class="section_padding bg_white">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-xs-12 text-center wow fadeIn" data-wow-delay=".1s">
+                <div class="section_title">
+                    <h2>What <span> is a {{pageInfos.title}} </span>?</h2>
+                    <div class="sec_divider"></div>
+                </div>
+            </div>
+        </div>
+        <div>
         <div class="container">
-            <div class="row">
-                <div class="col-sm-12 col-xs-12 text-center wow fadeIn" data-wow-delay=".1s">
-                    <div class="section_title">
-                        <h2>Che cosa è    <span>un cookie ?</span></h2>
-                        <div class="sec_divider"></div>
+                <p class="small text-muted"></p>
+                <div class="container p-3">
+                    <div class="row">
+                        <div class="col-12" [innerHTML]="pageInfos.htmlContent"></div>
                     </div>
                 </div>
             </div>
-                
-			<div *ngFor="let cookie of cookieslist">
-                <div class="container">
-                    <p class="small text-muted">{{cookie.htmlContent}}</p>
-                    <!-- Stack the columns on mobile by making one full-width and the other half-width -->
-                    <!-- <p>Un cookie è una piccola stringa di testo che un sito invia al browser e salva sul tuo computer quando visiti dei siti internet. Alcuni di questi cookies sono necessari al corretto funzionamento del sito, altri sono invece utili al visitatore perché in grado di memorizzare in modo sicuro ad esempio il nome utente o le impostazioni di lingua. Il vantaggio di avere dei cookies installati nel proprio pc è quello di non aver più bisogno di compilare le stesse informazioni ogni qualvolta si voglia accedere ad un sito visitato in precedenza.</p>
-                
-                    <h3>Che tipo di cookies utilizza <a href=" www.igesa.it"> www.igesa.it</a> e a quale scopo ?</h3>
-
-                    <p>Il nostro sito utilizza diversi tipi di cookies ognuno dei quali ha una funzione specifica, come indicato di seguito:</p>
-
-                    <h4>TIPI DI COOKIES:</h4>
-
-                    <h3>Cookies di navigazione:</h3>
-
-                    <p>Questi cookies permettono al sito di funzionare correttamente e sono usati per raccogliere informazioni su come i visitatori usano il sito. Questa informazione viene usata per compilare report e aiutarci a migliorare il sito. I cookies raccolgono informazioni in maniera anonima, incluso il numero di visitatori del sito, da dove i visitatori sono arrivati e le pagine che hanno visitato.</p>
-
-                    <h3>Cookies analitici:</h3>
-
-                    <p>Questi cookies sono utilizzati ad esempio da Google Analytics per elaborare analisi statistiche sulle modalità di navigazione degli utenti sul sito attraverso i computer o le applicazioni mobile, sul numero di pagine visitate o il numero di click effettuati su una pagina durante la navigazione di un sito.</p>
-                
-                    <h3>Cookies di terze parti:</h3>
-
-                    <p>Questi cookies sono utilizzati da società terze. L’uso di questi cookies normalmente non implica il trattamento di dati personali. I cookies di terze parti derivano da annunci di altri siti, ad esempio messaggi pubblicitari, presenti nel sito Web visualizzato. Possono essere utilizzati per registrare l’utilizzo del sito a scopo di marketing.</p>
-                
-                    <h3>Come posso disabilitare i cookies?</h3>
-
-                    <p>La maggior parte dei browser (Internet Explorer, Firefox, Safari, Google Chrome etc.) sono configurati per accettare i cookies. Tuttavia, la maggior parte dei browser permette di controllare e anche disabilitare i cookies attraverso le impostazioni del browser. Ti ricordiamo però che disabilitare i cookies di navigazione o quelli funzionali può causare il malfunzionamento del sito e/o limitare il servizio offerto.</p>
-                
-                    <br>
-                    
-                    <p>Per modificare le impostazioni, segui il procedimento indicato dai vari browser che trovi alle voci "Opzioni", "Preferenze" o "Privacy".</p>
-                
-                    <p>Per saperne di più riguardo ai cookies leggi la normativa.</p> -->
-                    
-                </div>
-            </div>
-    
         </div>
-    </section>
-    <!-- End About Area -->
-       
+    </div>
+</section>

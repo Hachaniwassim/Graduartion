@@ -86,7 +86,7 @@
         <div class="row">
             <div class="col-sm-12 col-xs-12 text-center wow fadeIn" data-wow-delay=".1s">
                 <div class="section_title">
-                    <h2> <span>Welcome</span></h2>
+                    <h2> <span>{{pageInfos.title}} </span></h2>
                     <div class="sec_divider"></div>
                 </div>
             </div>
@@ -94,31 +94,23 @@
     
         <div class="row">
             <div class="col-md-8">
-            <p>Igesa offers management software and consulting services, training and assistance for small and medium-sized enterprises, accountants, wholesalers, food & beverage distributors, large-scale retail distribution (ce.di) and organized distribution DO, supermarkets, hypermarkets, discount stores and clothing stores. and footwear (size and color management).</p>
-            <p>The suite of our management software consists of accounting , analytical accounting, VAT accounting , depreciable assets, schedule , vertical warehouses (food, nofood, do, large-scale distribution, sizes and colors), ecommerce , attempted sales, sales agents , business analytics , logistics and warehouse traceability . They are plug & play, they integrate natively with each other, they are highly parameterizable and easy to use thanks to the team of expert consultants that Igesa makes available to its customers. Warehouse softwareand accounting deal with all the critical and crucial processes of the Food and No Food companies, guaranteeing efficiency, speed and safety during operations.</p>
-            <p>Our management software are Cloud Ready multi-platform and operate in Linux, Windows, Mac OS X, Android, Windows Mobile and via a browser. The web version of the software is also distributed in SaaS mode (Software as a service) usable via the internet through a common html5 browser.</p>
-            </div>
-            <div class="col-6 col-md-4">
-
-                <br>
-                <img src="../../assets/img/30173-welcome-screen.gif" alt="ss" srcset="">
-
-              </div>      
+                <div class="container p-3">
+                    <div class="row">
+                        <div class="col-12" [innerHTML]="pageInfos.htmlContent"></div>
+                    </div>
+                </div>   
         </div>				
     </div>
+    </div>
 </section>
-<!-- End team Area -->
-    
-    
- 
-    <section id="work_area" class="our_works_area section_padding section_gray">
+
+<section id="work_area" class="our_works_area section_padding section_gray">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-xs-12 text-center wow fadeIn" data-wow-delay=".1s">
                     <div class="section_title">
-                        <h2>Our <span>Products</span></h2>
+                        <h2>Warehouse, <span> accounting software </span> solutions</h2>
                         <div class="sec_divider"></div>
-                        <p>It is a long established fact that a reader will be distracted by the readable <br>content of a page when looking at its layout</p>
                     </div>
                 </div>
             </div>
@@ -126,645 +118,116 @@
             <div class="row text-center">
                 <div class="portfolio_filter">
                     <ul>
-                        <li class="active filter" data-filter="all">All</li>
-                        <li class="filter" data-filter=".web_design">WEB DESIGN</li>
-                        <li class="filter" data-filter=".illustrator">ILLUSTRATOR</li>
-                        <li class="filter" data-filter=".ux_design">UL/UX DESIGN</li>
-                        <li class="filter" data-filter=".print">PRINT</li>
-                        <li class="filter" data-filter=".video">VIDEO</li>
+                        <li class=" active filter" data-filter="all">All</li>
+                        <li class=" filter" data-filter=".web_design"> DISTRUBITION CENTERS</li>
+                        <li class="filter" data-filter=".illustrator">FASHION</li>
+                        <li class="filter" data-filter=".ux_design">ENTREPRISE</li>
+                        <li class="filter" data-filter=".print">CONSULTANTS</li>
+                        <li class=" active filter" data-filter=".video">SUPERMARKETS & DISCOUNT</li>
+                            
                     </ul>
                 </div>
                 
                 <div class="portfolio_item text-center">
 
-                    <div class="col-md-4 col-sm-6 mix web_design ux_design">
+                    <div class="row">
+                    <div class="col-md-4 col-sm-6 mix web_design illustrator "  *ngFor="let product of productslist" >
                         <div class="single_portfolio">
-                            <img src="../../assets/img/portfolio/1.jpg" alt="">
+                            <img src="{{product.image}}"  alt="">
                             <div class="box-content">
-                                <h3 class="title">Portfolio Title</h3>
-                                <span class="post">Web Design</span>
+                                <h3 class="title">{{product.title}}</h3>
+                                <span class="post">{{product.slug}}</span>
                                 <ul class="icon">
-                                    <li><a href="../../assets/img/portfolio/1.jpg" class="venobox" data-gall="gall-work"><i class="fa fa-eye" ></i></a></li>
+                                    <li><a class="venobox" data-gall="gall-work"><i class="fa fa-eye" ></i></a></li>
+                                </ul>
+                            </div>
+                        </div>	
+                    </div>
+                    </div> 
+                  <div class="col-md-4 col-sm-6 mix illustrator">
+                        <div class="single_portfolio">
+                            <img  src="https://www.igesa.it/assets/common/images/prodotto/meduim/1548774001.png"   alt="">
+                            <div class="box-content">
+                                <h3 class="title">Sellpoint</h3>
+                                <span class="post">Bounty web Software</span>
+                                <ul class="icon">
+                                    <li><a href="https://www.igesa.it/assets/common/images/prodotto/meduim/1548774001.png" class="venobox" data-gall="gall-work"><i class="fa fa-eye" ></i></a></li>
+                                </ul>
+                            </div>
+                        </div>	
+                        </div>
+                    <div class="col-md-4 col-sm-6 mix video">
+                        <div class="single_portfolio">
+                            <img  src="https://www.igesa.it/assets/common/images/prodotto/meduim/1548952814.png" alt="">
+                            <div class="box-content">
+                                <h3 class="title">Mega Tawer</h3>
+                                <span class="post">Mega Tawer</span>
+                                <ul class="icon">
+                                    <li><a href="https://www.igesa.it/assets/common/images/prodotto/meduim/1548952814.png" class="venobox" data-gall="gall-work"><i class="fa fa-eye" ></i></a></li>
                                 </ul>
                             </div>
                         </div>	
                     </div> 
-                    
-                    <div class="col-md-4 col-sm-6 mix illustrator print video">
+                    <div class="col-md-4 col-sm-6 mix video">
                         <div class="single_portfolio">
-                            <img src="../../assets/img/portfolio/2.jpg" alt="">
+                            <img  src="https://www.igesa.it/assets/common/images/prodotto/meduim/1548774207.png" alt="">
                             <div class="box-content">
-                                <h3 class="title">Portfolio Title</h3>
-                                <span class="post">Illustrator</span>
+                                <h3 class="title">Digital Signagee</h3>
+                                <span class="post">Digital Signage</span>
                                 <ul class="icon">
-                                    <li><a href="../../assets/img/portfolio/2.jpg" class="venobox" data-gall="gall-work"><i class="fa fa-eye" ></i></a></li>
+                                    <li><a href="https://www.igesa.it/assets/common/images/prodotto/meduim/1548774207.png" class="venobox" data-gall="gall-work"><i class="fa fa-eye" ></i></a></li>
                                 </ul>
                             </div>
                         </div>	
                     </div> 
-                    
-                    <div class="col-md-4 col-sm-6 mix web_design video">
+                    <div class="col-md-4 col-sm-6 mix  ux_design">
                         <div class="single_portfolio">
-                            <img src="../../assets/img/portfolio/3.jpg" alt="">
+                            <img  src="https://www.igesa.it/assets/common/images/prodotto/meduim/1548773970.png" alt="">
                             <div class="box-content">
-                                <h3 class="title">Portfolio Title</h3>
-                                <span class="post">Web Desing</span>
+                                <h3 class="title">Invoice b2b</h3>
+                                <span class="post">Billing Software</span>
                                 <ul class="icon">
-                                    <li><a href="../../assets/img/portfolio/3.jpg" class="venobox" data-gall="gall-work"><i class="fa fa-eye" ></i></a></li>
-                                </ul>
-                            </div>
-                        </div>	
-                    </div> 						
-
-                    <div class="col-md-4 col-sm-6 mix web_design video">
-                        <div class="single_portfolio">
-                            <img src="../../assets/img/portfolio/4.jpg" alt="">
-                            <div class="box-content">
-                                <h3 class="title">Portfolio Title</h3>
-                                <span class="post">Web Design</span>
-                                <ul class="icon">
-                                    <li><a href="../../assets/img/portfolio/4.jpg" class="venobox" data-gall="gall-work"><i class="fa fa-eye" ></i></a></li>
-                                </ul>
-                            </div>
-                        </div>	
-                    </div> 					
-
-                    <div class="col-md-4 col-sm-6 mix web_design video">
-                        <div class="single_portfolio">
-                            <img src="../../assets/img/portfolio/5.jpg" alt="">
-                            <div class="box-content">
-                                <h3 class="title">Portfolio Title</h3>
-                                <span class="post">Web Design</span>
-                                <ul class="icon">
-                                    <li><a href="../../assets/img/portfolio/5.jpg" class="venobox" data-gall="gall-work"><i class="fa fa-eye" ></i></a></li>
-                                </ul>
-                            </div>
-                        </div>	
-                    </div> 						
-                    
-                    <div class="col-md-4 col-sm-6 mix web_design video">
-                        <div class="single_portfolio">
-                            <img src="../../assets/img/portfolio/6.jpg" alt="">
-                            <div class="box-content">
-                                <h3 class="title">Portfolio Title</h3>
-                                <span class="post">Video</span>
-                                <ul class="icon">
-                                    <li><a href="../../assets/img/portfolio/6.jpg" class="venobox" data-gall="gall-work"><i class="fa fa-eye" ></i></a></li>
+                                    <li><a href="https://www.igesa.it/assets/common/images/prodotto/meduim/1548773970.png" class="venobox" data-gall="gall-work"><i class="fa fa-eye" ></i></a></li>
                                 </ul>
                             </div>
                         </div>	
                     </div> 
-                        
+                    <div class="col-md-4 col-sm-6 mix  ux_design">
+                        <div class="single_portfolio">
+                            <img  src=" https://www.igesa.it/assets/common/images/prodotto/meduim/1548950562.png" alt="">
+                            <div class="box-content">
+                                <h3 class="title">Business Intelligence</h3>
+                                <span class="post">Business Intelligence</span>
+                                <ul class="icon">
+                                    <li><a href="
+                                        https://www.igesa.it/assets/common/images/prodotto/meduim/1548950562.png" class="venobox" data-gall="gall-work"><i class="fa fa-eye" ></i></a></li>
+                                </ul>
+                            </div>
+                        </div>	
+                    </div> 
+                    <div class="col-md-4 col-sm-6 mix print">
+                        <div class="single_portfolio">
+                            <img  src="https://www.igesa.it/assets/common/images/prodotto/meduim/1554219472.png" alt="">
+                            <div class="box-content">
+                                <h3 class="title">Espando</h3>
+                                <span class="post">Studio Espando</span>
+                                <ul class="icon">
+                                    <li><a href="https://www.igesa.it/assets/common/images/prodotto/meduim/1554219472.png" class="venobox" data-gall="gall-work"><i class="fa fa-eye" ></i></a></li>
+                                </ul>
+                            </div>
+                        </div>	
+                    </div>
+                    
                 </div>
             </div>
         </div>
     </section> 
-    <!-- End Work Area -->
-
-    
-    <!-- 
-    <section id="skill_area" class="section_padding bg_white">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 wow fadeInLeft" data-wow-delay=".1s">	
-                    <h3 class="progressbar-title">HTML</h3>
-                    <div class="progress">
-                        <div class="progress-bar" style="width: 65%; ">
-                            <span class="progress-icon fa fa-check"></span>
-                            <div class="progress-value">65%</div>
-                        </div>
-                    </div>
-         
-                    <h3 class="progressbar-title">CSS3</h3>
-                    <div class="progress">
-                        <div class="progress-bar" style="width: 50%;">
-                            <span class="progress-icon fa fa-check"></span>
-                            <div class="progress-value">50%</div>
-                        </div>
-                    </div>
-         
-                    <h3 class="progressbar-title">java script</h3>
-                    <div class="progress">
-                        <div class="progress-bar" style="width: 70%;">
-                            <span class="progress-icon fa fa-check"></span>
-                            <div class="progress-value">70%</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-6 wow fadeInRight" data-wow-delay=".1s">	
-                    <h3 class="progressbar-title">UI/UX</h3>
-                    <div class="progress">
-                        <div class="progress-bar" style="width: 80%">
-                            <span class="progress-icon fa fa-check"></span>
-                            <div class="progress-value">80%</div>
-                        </div>
-                    </div>
-         
-                    <h3 class="progressbar-title">Ideas</h3>
-                    <div class="progress">
-                        <div class="progress-bar" style="width: 75%;">
-                            <span class="progress-icon fa fa-check"></span>
-                            <div class="progress-value">75%</div>
-                        </div>
-                    </div>
-         
-                    <h3 class="progressbar-title">Marketing</h3>
-                    <div class="progress">
-                        <div class="progress-bar" style="width: 90%;">
-                            <span class="progress-icon fa fa-check"></span>
-                            <div class="progress-value">90%</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-    <!-- End Skill Area -->
-    
-    
-    <!-- 
-    <section id="team_area" class="section_padding section_gray">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12 col-xs-12 text-center wow fadeIn" data-wow-delay=".1s">
-                    <div class="section_title">
-                        <h2>Our <span>Team</span></h2>
-                        <div class="sec_divider"></div>
-                        <p>It is a long established fact that a reader will be distracted by the readable <br>content of a page when looking at its layout</p>
-                    </div>
-                </div>
-            </div>
-        
-            <div class="row">
-                <div class="col-md-3 col-sm-6">
-                    <div class="our-team">
-                        <img src="../../assets/img/team/1.jpg" alt="">
-                        <div class="team-content">
-                            <h3 class="title">Williamson</h3>
-                            <span class="post">web developer</span>
-                            <ul class="social-links">
-                                <li><a href="#"><i class="fa fa-facebook"></i> </a></li>
-                                <li><a href="#"><i class="fa fa-google-plus"></i> </a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i> </a></li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i> </a></li>
-    
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-         
-                <div class="col-md-3 col-sm-6">
-                    <div class="our-team">
-                        <img src="../../assets/img/team/2.jpg" alt="">
-                        <div class="team-content">
-                            <h3 class="title">kristina</h3>
-                            <span class="post">Web Designer</span>
-                            <ul class="social-links">
-                                <li><a href="#"><i class="fa fa-facebook"></i> </a></li>
-                                <li><a href="#"><i class="fa fa-google-plus"></i> </a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i> </a></li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i> </a></li>
-
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="our-team">
-                        <img src="../../assets/img/team/3.jpg" alt="">
-                        <div class="team-content">
-                            <h3 class="title">Williamson</h3>
-                            <span class="post">web developer</span>
-                            <ul class="social-links">
-                                <li><a href="#"><i class="fa fa-facebook"></i> </a></li>
-                                <li><a href="#"><i class="fa fa-google-plus"></i> </a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i> </a></li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i> </a></li>
-
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-         
-                <div class="col-md-3 col-sm-6">
-                    <div class="our-team">
-                        <img src="../../assets/img/team/4.jpg" alt="">
-                        <div class="team-content">
-                            <h3 class="title">kristina</h3>
-                            <span class="post">Web Designer</span>
-                            <ul class="social-links">
-                                <li><a href="#"><i class="fa fa-facebook"></i> </a></li>
-                                <li><a href="#"><i class="fa fa-google-plus"></i> </a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i> </a></li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i> </a></li>
-
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>				
-        </div>
-    </section>
-Start team Area -->
-    
-    
-    <!-- 
-    <section id="service_area" class="section_padding bg_white">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12 col-xs-12 text-center wow fadeIn" data-wow-delay=".1s">
-                    <div class="section_title">
-                        <h2>Our <span>Services</span></h2>
-                        <div class="sec_divider"></div>
-                        <p>It is a long established fact that a reader will be distracted by the readable <br>content of a page when looking at its layout</p>
-                    </div>
-                </div>
-            </div>
-        
-            <div class="row text-left">
-                <div class="col-md-4 col-sm-6">
-                    <div class="serviceBox">
-                        <i class="fa fa-globe service-icon"></i>
-                        <div class="service-content">
-                            <h5 class="title">Web Design</h5>
-                            <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing Quisque.</p>
-                        </div>
-                    </div>
-                </div>
-         
-                <div class="col-md-4 col-sm-6">
-                    <div class="serviceBox">
-                        <i class="fa fa-tv service-icon"></i>
-                        <div class="service-content">
-                            <h5 class="title">Web Development</h5>
-                            <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing Quisque.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-4 col-sm-6">
-                    <div class="serviceBox">
-                        <i class="fa fa-bar-chart service-icon"></i>
-                        <div class="service-content">
-                            <h5 class="title">Marketing</h5>
-                            <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing Quisque.</p>
-                        </div>
-                    </div>
-                </div>
-         
-                <div class="col-md-4 col-sm-6">
-                    <div class="serviceBox">
-                        <i class="fa fa-search service-icon"></i>
-                        <div class="service-content">
-                            <h5 class="title">SEO</h5>
-                            <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing Quisque.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-4 col-sm-6">
-                    <div class="serviceBox ">
-                        <i class="fa fa-camera service-icon"></i>
-                        <div class="service-content">
-                            <h5 class="title">Photography</h5>
-                            <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing Quisque.</p>
-                        </div>
-                    </div>
-                </div>
-         
-                <div class="col-md-4 col-sm-6">
-                    <div class="serviceBox">
-                        <i class="fa fa-shopping-cart  service-icon"></i>
-                        <div class="service-content">
-                            <h5 class="title">Woocommerce</h5>
-                            <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing Quisque.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>								
-        </div>
-    </section>
-Start service Area -->
-    
-<!--
-    <section id="pricing_area" class="section_padding section_gray">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12 col-xs-12 text-center wow fadeIn" data-wow-delay=".1s">
-                    <div class="section_title">
-                        <h2>Our <span>Pricing</span></h2>
-                        <div class="sec_divider"></div>
-                        <p>It is a long established fact that a reader will be distracted by the readable <br>content of a page when looking at its layout</p>
-                    </div>
-                </div>
-            </div>
-        
-            <div class="row">
-                <div class="col-md-3 col-sm-6">
-                    <div class="pricingTable">
-                        <div class="pricingTable-header">
-                            <span class="price-value">$10<span class="mo">per month</span></span>
-                            <div class="heading">
-                                <h3>Standard</h3>
-                            </div>
-                        </div>
-                        <div class="pricingContent">
-                            <ul>
-                                <li><b>50GB</b> Disk Space</li>
-                                <li><b>50</b> Email Accounts</li>
-                                <li><b>50GB</b> Monthly Bandwidth</li>
-                                <li><b>50</b> Domains</li>
-                                <li>Unlimited Subdomains</li>
-                            </ul>
-                        </div> / 
-                        <div class="pricingTable-sign-up">
-                            <a href="#" class="btn main_bg_btn">Select Plan</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="pricingTable">
-                        <div class="pricingTable-header">
-                            <span class="price-value">$20<span class="mo">per month</span></span>
-                            <div class="heading">
-                                <h3>Business</h3>
-                            </div>
-                        </div>
-                        <div class="pricingContent">
-                            <ul>
-                                <li><b>50GB</b> Disk Space</li>
-                                <li><b>50</b> Email Accounts</li>
-                                <li><b>50GB</b> Monthly Bandwidth</li>
-                                <li><b>50</b> Domains</li>
-                                <li>Unlimited Subdomains</li>
-                            </ul>
-                        </div>
-                        <div class="pricingTable-sign-up">
-                            <a href="#" class="btn main_bg_btn">Select Plan</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="pricingTable">
-                        <div class="pricingTable-header">
-                            <span class="price-value">$30<span class="mo">per month</span></span>
-                            <div class="heading">
-                                <h3>Premium</h3>
-                            </div>
-                        </div>
-                        <div class="pricingContent">
-                            <ul>
-                                <li><b>50GB</b> Disk Space</li>
-                                <li><b>50</b> Email Accounts</li>
-                                <li><b>50GB</b> Monthly Bandwidth</li>
-                                <li><b>50</b> Domains</li>
-                                <li>Unlimited Subdomains</li>
-                            </ul>
-                        </div>
-                        <div class="pricingTable-sign-up">
-                            <a href="#" class="btn main_bg_btn">Select Plan</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="pricingTable">
-                        <div class="pricingTable-header">
-                            <span class="price-value">$40<span class="mo">per month</span></span>
-                            <div class="heading">
-                                <h3>Extra</h3>
-                            </div>
-                        </div>
-                        <div class="pricingContent">
-                            <ul>
-                                <li><b>50GB</b> Disk Space</li>
-                                <li><b>50</b> Email Accounts</li>
-                                <li><b>50GB</b> Monthly Bandwidth</li>
-                                <li><b>50</b> Domains</li>
-                                <li>Unlimited Subdomains</li>
-                            </ul>
-                        </div>
-                        <div class="pricingTable-sign-up">
-                            <a href="#" class="btn main_bg_btn">Select Plan</a>
-                        </div>
-                    </div>
-                </div>
-            </div>							
-        </div>
-    </section> -->
-    <!-- End pricing Area --> 
-    
-    
-  <!--
-    <section id="testimonial_area" class="section_padding bg_white">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12 col-xs-12 text-center wow fadeIn" data-wow-delay=".1s">
-                    <div class="section_title">
-                        <h2>Our <span>News</span></h2>
-                        <div class="sec_divider"></div>
-                    </div>
-                </div>
-            </div>
-        
-            <div class="row">
-                <div class="col-md-12">
-                    <div id="testimonial-slider" class="owl-carousel">
-                        <div class="testimonial">
-                            <div class="pic">
-                                <img src="../../assets/img/testimonial/1.jpg" alt="">
-                            </div>
-                            <div class="testimonial-content">
-                                <h3 class="testimonial-title">Kristiana
-                                    <small class="post">Web Designer</small>
-                                </h3>
-                                <p class="description">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquam amet animi blanditiis consequatur debitis dicta distinctio, enim error eum iste libero modi nam natus perferendis possimus quasi sint sit tempora voluptatem.
-                                </p>
-                            </div>
-                        </div>
-     
-                        <div class="testimonial">
-                            <div class="pic">
-                                <img src="../../assets/img/testimonial/2.jpg" alt="">
-                            </div>
-                            <div class="testimonial-content">
-                                <h3 class="testimonial-title">Williamson
-                                    <small class="post">Web Developer</small>
-                                </h3>
-                                <p class="description">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquam amet animi blanditiis consequatur debitis dicta distinctio, enim error eum iste libero modi nam natus perferendis possimus quasi sint sit tempora voluptatem.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="testimonial">
-                            <div class="pic">
-                                <img src="../../assets/img/testimonial/3.jpg" alt="">
-                            </div>
-                            <div class="testimonial-content">
-                                <h3 class="testimonial-title">Williamson
-                                    <small class="post">Web Developer</small>
-                                </h3>
-                                <p class="description">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquam amet animi blanditiis consequatur debitis dicta distinctio, enim error eum iste libero modi nam natus perferendis possimus quasi sint sit tempora voluptatem.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="testimonial">
-                            <div class="pic">
-                                <img src="../../assets/img/testimonial/4.jpg" alt="">
-                            </div>
-                            <div class="testimonial-content">
-                                <h3 class="testimonial-title">Kristiana
-                                    <small class="post">Web Developer</small>
-                                </h3>
-                                <p class="description">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquam amet animi blanditiis consequatur debitis dicta distinctio, enim error eum iste libero modi nam natus perferendis possimus quasi sint sit tempora voluptatem.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>										
-        </div>
-    </section>  -->
-    <!-- End testimonial Area -->
-    
-    
-    <!-- Start Blog Area -->
-    <div id="blog_area" class="section_padding section_gray">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12 col-xs-12 text-center wow fadeIn" data-wow-delay=".1s">
-                    <div class="section_title">
-                        <h2>Our  <span>News</span></h2>
-                        <div class="sec_divider"></div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="row">
-                <div id="blog_slider" class="owl-carousel">
-                    <div class="single_blog">
-                        <img src="../../assets/img/news.png" alt="">
-                        <div style="width: 370px;height: 120px;" class="blog_details">
-                            <a href="#"><h1> Contact assistance service </h1></a>
-                            <span><i class="bi bi-calendar-event"></i> 31/05/2022</span>
-                    
-                        </div>
-                    </div>
-
-                    <div class="single_blog">
-                        <img src="../../assets/img/news1.png" alt="">
-                        <div  style="width: 370px;height: 120px;" class="blog_details">
-                            <a href="#"><h1>Offerta di lavoro: <br> Tecnico-Commerciale                            </h1></a>
-                            <span><i class="bi bi-calendar-event"></i> 24-02-2021</span>
-            
-                        </div>
-                    </div>
-                    
-                    <div class="single_blog">
-                        <img src="../../assets/img/news2.png" alt="">
-                        <div style="width: 370px;height: 120px;"  class="blog_details">
-                            <a href="#"><h1>Job Offer: Help-Desk Technician
-                            </h1></a>
-                            <span><i class="bi bi-calendar-event"></i>01-13-2021</span>
-                            
-                        </div>
-                    </div>
-                    
-                    <div class="single_blog">
-                        <img src="../../assets/img/news3.png" alt="">
-                        <div style="width: 370px;height: 120px;" class="blog_details">
-                            <a href="#"><h1>Availability of the Assistance Center 02/01/2021
-                            </h1></a>
-                            <span><i class="bi bi-calendar-event"></i>31-12-2020</span>
-
-            
-                        </div>
-                    </div>
-                    <div class="single_blog">
-                        <img src="../../assets/img/news4.png" alt="">
-                        <div style="width: 370px;height: 120px;" class="blog_details">
-                            <a href="#"><h1>Happy Holidays</h1></a>
-                            <span><i class="bi bi-calendar-event"></i>31-12-2020</span>
-
-            
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>
-        </div>
-    </div>	
-    <!-- End Blog Area -->
-    
-    
-    <!-- Start Counter Area -->
-    <div id="counter_area" class="section_padding" style="background-image: url(../../assets/img/counter-bg.jpg); background-size: cover; background-attachment: fixed;">
-        <div class="container">
-            <div class="text-center">
-                <div class="col-md-3 col-sm-6">
-                    <div class="counter-items">
-                        <div class="counter_icon">
-                            <i class="fa fa-rocket"></i>
-                        </div>
-                        <div class="number-number">
-                            <span class="counter">850</span>
-                        </div>
-                        <p class="number-desc">Projects Delivered</p>
-                    </div>
-                </div><!--End Col -->
-                
-                <div class="col-md-3 col-sm-6">
-                    <div class="counter-items">
-                        <div class="counter_icon">
-                            <i class="fa fa-lightbulb-o"></i>
-                        </div>
-                        <div class="number-number">
-                            <span class="counter">6923 </span>
-                        </div>
-                        <p class="number-desc">Happy Customer</p>
-                    </div>
-                </div><!--End Col -->
-                
-                <div class="col-md-3 col-sm-6">
-                    <div class="counter-items">
-                        <div class="counter_icon">
-                            <i class="fa fa-coffee"></i>
-                        </div>
-                        <div class="number-number">
-                            <span class="counter">520</span>
-                        </div>
-                        <p class="number-desc">Cup Coffee</p>
-                    </div>
-                </div><!--End Col -->
-                
-                <div class="col-md-3 col-sm-6">
-                    <div class="counter-items">
-                        <div class="counter_icon">
-                            <i class="fa fa-clock-o"></i>
-                        </div>
-                        <div class="number-number">
-                            <span class="counter">24</span>
-                        </div>
-                        <p class="number-desc">Timely Delivery</p>
-                    </div>
-                </div><!--End Col -->
-                
-            </div>
-        </div>
-    </div>
-    <!-- End Counter Area -->
-    
-   
     
     <div class="clearfix"></div>
     
     <!-- Start Client Area -->
-    <div style="height: 400px;" id="clients_area" class="client_area section_gray">
-        <div class="container">	 
+    <div id="clients_area" class="client_area section_gray">
+        <div class="container">	
             <div class="row">
                 <div class="col-sm-12 col-xs-12 text-center wow fadeIn" data-wow-delay=".1s">
                     <div class="section_title">
@@ -773,37 +236,63 @@ Start service Area -->
                     </div>
                 </div>
             </div>           
-            <div style="bottom: -20px;" class="row client_slide_area owl-carousel">
-                <div style="width: 200px;height: 200px;" class="single_client">
-                    <a href="https://www.enerj.it/"><img style="width: 170px;height: 100px;" class="img-responsive" src="../../assets/img/client/1.png" alt="" /></a>
+            <div  class="row client_slide_area owl-carousel">
+                <div sclass="single_client">
+                    <a href="https://www.enerj.it/"><img class="img-responsive" src="../../assets/img/client/1.png" alt="" /></a>
                 </div>
-                <div style="width: 200px;height: 200px;" class="single_client">
-                    <a href="https://www.cdisrl.it/"><img style="width: 170px;height: 100px;" class="img-responsive" src="../../assets/img/client/2.png" alt="" /></a>
+                <div  class="single_client">
+                    <a href="https://www.cdisrl.it/"><img class="img-responsive" src="../../assets/img/client/2.png" alt="" /></a>
                 </div>
-                <div style="width: 200px;height: 200px;" class="single_client">
-                    <a href="https://www.bluenext.it/"><img style="width: 170px;height: 100px;" class="img-responsive" src="../../assets/img/client/3.png" alt="" /></a>
+                <div  class="single_client">
+                    <a href="https://www.bluenext.it/"><img class="img-responsive" src="../../assets/img/client/3.png" alt="" /></a>
                 </div>
-                <div style="width: 200px;height: 200px;" class="single_client">
-                    <a href="https://www.bernava.net/"><img style="width: 170px;height: 100px;" class="img-responsive" src="../../assets/img/client/4.png" alt="" /></a>
+                <div  class="single_client">
+                    <a href="https://www.bernava.net/"><img  class="img-responsive" src="../../assets/img/client/4.png" alt="" /></a>
                 </div>
-                <div style="width: 200px;height: 200px;" class="single_client">
-                    <a href="http://ww7.fransal.it/"><img style="width: 170px;height: 100px;"class="img-responsive" src="../../assets/img/client/5.png" alt="" /></a>
+                <div  class="single_client">
+                    <a href="http://ww7.fransal.it/"><img class="img-responsive" src="../../assets/img/client/5.png" alt="" /></a>
                 </div>
                 
-                <div style="width: 200px;height: 200px;" class="single_client">
-                    <a href="https://plasticonfshop.com/"><img style="width: 170px;height: 100px;" class="img-responsive" src="../../assets/img/client/6.png" alt="" /></a>
+                <div  class="single_client">
+                    <a href="https://plasticonfshop.com/"><img  class="img-responsive" src="../../assets/img/client/6.png" alt="" /></a>
                 </div>
-                <div style="width: 200px;height: 200px;" class="single_client">
-                    <a href="https://www.e-coop.it/web/guest?antiCache=1484506565889"><img style="width: 170px;height: 100px;" class="img-responsive" src="../../assets/img/client/Logo_Coop_(Suisse).svg.png" alt="" /></a>
+                <div class="single_client">
+                    <a href="https://www.e-coop.it/web/guest?antiCache=1484506565889"><img  class="img-responsive" src="../../assets/img/client/Logo_Coop_(Suisse).svg.png" alt="" /></a>
                 </div>
-                <div style="width: 200px;height: 200px;" class="single_client">
-                    <a href="http://killin.vendita-on-line.eu:8080/jshop/pages/index.xhtml"><img style="width: 170px;height: 100px;" class="img-responsive" src="../../assets/img/client/8.png" alt="" /></a>
+                <div class="single_client">
+                    <a href="http://killin.vendita-on-line.eu:8080/jshop/pages/index.xhtml"><img class="img-responsive" src="../../assets/img/client/8.png" alt="" /></a>
                 </div>
             </div>	
         </div>
     </div>	
-    <!-- End Client Area -->
 
-    
+<!-- Contact Us -->
+<section id="find_us_section" style="display: none;">
+    <div class="container">
+        <div class="row">
+            <!-- Content Right -->
+            <div class="col-md-12">
+                <a id="find_us" href="http://maps.google.com?q=Via Consolare Antica, 308, Capo d'Orlando, ME, Italia" target="blank" class="btn btn-primary"><i class="fa fa-map"></i></a>
+            </div>
+            <!-- End Content Right -->
+        </div>
+    </div>
+    <!-- End Container-->
+</section>
+<!-- End Contact Us-->
 
-    <!-- End Footer Area -->
+
+<!-- Google Map --> 
+<div id="map" style="margin: 50px 0;"></div>
+
+<!-- End Google Map -->
+<script type="text/javascript">
+    var cookies_message = "Questo sito utilizza i cookies per offrirti un servizio migliore. Continuando la navigazione autorizzi l’uso dei cookies.";
+    var cookies_dismiss = "Accettare";
+    var cookies_link = "Per saperne di più";
+    var cookies_page = "https://www.igesa.it/Cookies";
+    var base_url = 'https://www.igesa.it/';
+    var color = '#237db3';
+    var to_go = 'Vai a ...';
+    var language = 'it';
+</script>

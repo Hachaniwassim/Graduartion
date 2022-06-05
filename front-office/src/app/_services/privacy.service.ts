@@ -11,19 +11,23 @@ import { privacyDTO } from '../models/dto/privacyDTO';
 @Injectable({
   providedIn: 'root'
 })
+/**
+ * @author Tarchoun Abir
+ * 
+ */
 export class Privacyservice {
 
   //api backend
-  private base_url = environment.publicApi +"/privacy";
+  private base_url = environment.publicApi +"/privacy-public";
 
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
   constructor(private http: HttpClient) { }
 
 
-  //get all 
-  getallPrivacy(): Observable<privacyDTO[]> {
-    return this.http.get<privacyDTO[]>(this.base_url);
+  //get all  by enterpriseId
+  getallPrivacy():any {
+    return this.http.get<privacyDTO[]>(this.base_url + '/list-privacy/'+ environment.enterpriseId);
   }
 
 

@@ -1,39 +1,35 @@
-import { DatePipe } from '@angular/common';
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
 import * as _ from 'lodash';
-import { Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { aboutDTO } from '../models/dto/aboutDTO';
+import { Page2DTO } from '../models/dto/page2DTO';
 
 @Injectable({
   providedIn: 'root'
 })
+/****
+ * 
+ * @author Tarchoun Abir
+ * 
+ */
 export class Aboutservice {
 
   //api backend
-  private base_url= environment.publicApi +"/links";
-  
-  headers = new HttpHeaders().set('Content-Type', 'application/json');
+  private base_url= environment.publicApi + "/about-public"
 
- LinkDTO ={
-    title:'', 
-    htmlContent: '',
-  }
   constructor(private http :HttpClient) { }
 
-  
-//get all by entreprise
-getAllaboutByEntreprise():Observable<aboutDTO>{
- return this.http.get<aboutDTO>(this.base_url);
+//get by entreprise
+getByEntreprise():any{
+ return this.http.get<Page2DTO[]>(this.base_url + '/about-page/' + environment.enterpriseId);
 }
 
 
 // get by id
-getByidabout(id:number):Observable<aboutDTO>{
-  return this.http.get<aboutDTO>(this.base_url + '/' +id);
+getById(id:number):Observable<Page2DTO>{
+  return this.http.get<Page2DTO>(this.base_url + '/' +id);
 
 }
 

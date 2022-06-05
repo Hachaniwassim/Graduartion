@@ -17,7 +17,7 @@ export class SetGroupInterceptor implements HttpInterceptor{
       const request = req.clone({
         setHeaders: {
           'group-id': environment.groupId,
-          'enterprise-id': environment.enterpriseId,
+          'entreprise_id': '2',/*environment.enterpriseId*/
         }
       });
       return next.handle(request);
