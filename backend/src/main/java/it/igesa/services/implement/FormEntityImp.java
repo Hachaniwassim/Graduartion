@@ -1,9 +1,13 @@
 package it.igesa.services.implement;
 
+import it.igesa.config.EmailService;
+import it.igesa.domaine.Groupe;
 import it.igesa.dto.FormDTO;
 import it.igesa.domaine.FormEntity;
+import it.igesa.dto.GroupeDTO;
 import it.igesa.enumerations.ContactStatus;
 import it.igesa.enumerations.ErrorCode;
+import it.igesa.enumerations.GroupStatus;
 import it.igesa.exceptions.ResourceNotFoundException;
 import it.igesa.services.Ientreprise;
 import it.igesa.services.IformEntity;
@@ -17,6 +21,8 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import javax.mail.MessagingException;
 
 /**
  *
@@ -32,24 +38,15 @@ public class FormEntityImp implements IformEntity {
     IformEntityRepository iformEntityRepository;
     @Autowired
     Ientreprise ientrepriseService;
+
+    @Autowired
+    EmailService emailService;
+
     private static final Logger log = LoggerFactory.getLogger(FormEntityImp.class);
 
 
     @Override
     public FormDTO save(FormDTO f) {
-            FormEntity formEntity= new FormEntity();
-            if (f.getId()!=null){
-                formEntity = iformEntityRepository.findById(f.getId()).orElseThrow(IllegalAccessError::new);
-            }
-            formEntity.setEntreprise(ientrepriseService.getCurrentEnterprise());
-            formEntity.setContactstatus(ContactStatus.PENDING);
-            formEntity.setCompanyname(f.getCompanyname());
-            formEntity.setName(f.getName());
-            formEntity.setReferent(f.getReferent());
-            formEntity.setAdresse(f.getAdresse());
-            formEntity.setMobile(f.getMobile());
-            formEntity.setFax(f.getFax());
-            formEntity.setNationality(f.getNationality());
             FormEntity saved = iformEntityRepository.save(FormDTO.toEntity((f)));
             return FormDTO.fromEntity(saved);
     }
@@ -82,4 +79,40 @@ public class FormEntityImp implements IformEntity {
         }
         iformEntityRepository.deleteById(id);
     }
+
+
+    /***
+     *
+     * @param id
+     * @param status
+     * @return contact status
+     *
+     */
+    @Override
+    public FormDTO updateSatus(Long id, ContactStatus status) throws MessagingException {
+        log.debug( "<========================= Update account status ================================>");
+            Optional<FormEntity> Data = iformEntityRepository.findById(id);
+                FormEntity saved = null;
+            if (Data.isPresent()) {
+                FormEntity form = Data.get();
+
+                if (ContactStatus.ACTIVE == status) {
+                    form.setContactstatus(ContactStatus.BLOCKED);
+                }
+                if (ContactStatus.BLOCKED== status) {
+                    form.setContactstatus(ContactStatus.PENDING);
+                }
+                if (ContactStatus.PENDING== status) {
+                    form.setContactstatus(ContactStatus.ACTIVE);
+
+                    emailService.sendContactConfirm( form.getEmail(),form.getCompanyname());
+                }
+
+                saved = iformEntityRepository.save(form);
+            }
+            return FormDTO.fromEntity(saved);
+
+
+
     }
+}

@@ -25,7 +25,8 @@ public class FormEntity  extends Auditable{
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private Long id ;
-	private String name ;
+	@Column(columnDefinition="text")
+	private String message ;
 	private String companyname;
 	private String mobile ;
 	private String fax ;

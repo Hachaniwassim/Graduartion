@@ -37,8 +37,8 @@ public class EmailService {
         smtpTransport.close();
     }
 
-    public void sendContactConfirm( String email,String username) throws MessagingException {
-        Message message = StatusContanct(email,username);
+    public void sendContactConfirm( String email,String companyname) throws MessagingException {
+        Message message = StatusContanct(email,companyname);
         SMTPTransport smtpTransport = (SMTPTransport) getEmailSession().getTransport(EmailConstant.SIMPLE_MAIL_TRANSFER_PROTOCOL);
         smtpTransport.connect(EmailConstant.GMAIL_SMTP_SERVER, EmailConstant.USERNAME, EmailConstant.PASSWORD);
         smtpTransport.sendMessage(message, message.getAllRecipients());
@@ -83,13 +83,13 @@ public class EmailService {
         message.saveChanges();
         return message;
     }
-    private Message StatusContanct( String email,String username) throws MessagingException {
+    private Message StatusContanct( String email,String companyname) throws MessagingException {
         Message message = new MimeMessage(getEmailSession());
         message.setFrom(new InternetAddress(EmailConstant.FROM_EMAIL));
         message.setRecipients(TO, InternetAddress.parse(email, false));
         message.setRecipients(CC, InternetAddress.parse(EmailConstant.CC_EMAIL, false));
         message.setSubject(EmailConstant.EMAIL_SUBJECT2);
-        message.setText("Hello "+ username +", \n \n Your Contact message have been accepted , " + "\n \n " +
+        message.setText("Hello "+ companyname +", \n \n Your Contact message have been accepted , " + "\n \n " +
                 " Get in touch with our assistance Form more details " + "\n \n" + "The Support Team");
         message.setSentDate(new Date());
         message.saveChanges();
