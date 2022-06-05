@@ -1,5 +1,4 @@
 package it.igesa.dto;
-import app.igesa.domaine.*;
 import it.igesa.domaine.Category;
 import it.igesa.domaine.Entreprise;
 import it.igesa.domaine.Product;

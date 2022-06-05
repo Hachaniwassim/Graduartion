@@ -1,4 +1,4 @@
-package it.igesa.controller;
+package it.igesa.resources;
 import it.igesa.config.CaptchaService;
 import it.igesa.domaine.Account;
 import it.igesa.domaine.Role;

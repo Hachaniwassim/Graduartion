@@ -1,4 +1,4 @@
-package it.igesa.controller;
+package it.igesa.resources;
 import it.igesa.dto.ProductDTO;
 import it.igesa.services.Iproduct;
 import io.swagger.annotations.Api;
@@ -135,7 +135,7 @@ public class ProductController {
     @RequestMapping(value= PRIVATE_API + "/get-tags-by-product/{product_id}",method =RequestMethod.GET)
     @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
     @ResponseBody
-    @ApiOperation(value="DELETE PRODUCT BY ID ",responseContainer  = "Collection<ProductDTO>")
+    @ApiOperation(value="Get Tag by Product",responseContainer  = "Collection<ProductDTO>")
     @ApiResponses(value= {
             @ApiResponse(code=200,message="Product was Deleted successfully"),
             @ApiResponse(code=401,message="Unauthorized , without authority or permission"),

@@ -1,14 +1,12 @@
-package it.igesa.controller.publicsFO;
+package it.igesa.resources.publicsFO;
 
 /**
+ *
  * @author  Tarchoun Abir
+ *
  */
 
 
 public class FilePubController {
-    /**************************
-     *
-     *@PUBLIC_API : without token
-     *
-     ******/
+    private final String PUBLIC_API = "/api/file-public";
 }

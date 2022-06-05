@@ -1,4 +1,4 @@
-package it.igesa.controller;
+package it.igesa.resources;
 import java.util.Collection;
 import java.util.Optional;
 import it.igesa.dto.PlateformeDTO;

@@ -1,4 +1,4 @@
-package it.igesa.controller;
+package it.igesa.resources;
 import it.igesa.strategy.StrategyPhotoContext;
 import com.flickr4java.flickr.FlickrException;
 import io.swagger.annotations.Api;

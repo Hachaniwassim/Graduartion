@@ -9,8 +9,8 @@
 2022-05-27 00:12:52,780 ERROR AuthEntryPointJwt:25 - [] Unauthorized error: Full authentication is required to access this resource
 2022-05-27 02:35:28,879 ERROR DirectJDKLog:175 - [] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException: Cannot invoke "org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder.encode(java.lang.CharSequence)" because "this.passwordEncoder" is null] with root cause
 java.lang.NullPointerException: Cannot invoke "org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder.encode(java.lang.CharSequence)" because "this.passwordEncoder" is null
-	at app.igesa.controller.AuthController.encodePassword(AuthController.java:252)
-	at app.igesa.controller.AuthController.resetPassword(AuthController.java:243)
+	at AuthController.encodePassword(AuthController.java:252)
+	at AuthController.resetPassword(AuthController.java:243)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
 	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
@@ -53,7 +53,7 @@ java.lang.NullPointerException: Cannot invoke "org.springframework.security.cryp
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
 	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at app.igesa.security.jwt.AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:54)
+	at AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:54)
 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
 	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
@@ -109,8 +109,8 @@ java.lang.NullPointerException: Cannot invoke "org.springframework.security.cryp
 	at java.base/java.lang.Thread.run(Thread.java:833)
 2022-05-27 02:35:41,401 ERROR DirectJDKLog:175 - [] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException: Cannot invoke "org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder.encode(java.lang.CharSequence)" because "this.passwordEncoder" is null] with root cause
 java.lang.NullPointerException: Cannot invoke "org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder.encode(java.lang.CharSequence)" because "this.passwordEncoder" is null
-	at app.igesa.controller.AuthController.encodePassword(AuthController.java:252)
-	at app.igesa.controller.AuthController.resetPassword(AuthController.java:243)
+	at AuthController.encodePassword(AuthController.java:252)
+	at AuthController.resetPassword(AuthController.java:243)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
 	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
@@ -153,7 +153,7 @@ java.lang.NullPointerException: Cannot invoke "org.springframework.security.cryp
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
 	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at app.igesa.security.jwt.AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:54)
+	at AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:54)
 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
 	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
@@ -232,7 +232,7 @@ java.lang.NullPointerException: Cannot invoke "org.springframework.security.cryp
 2022-05-27 02:37:17,425 INFO  Dialect:170 - [] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
 2022-05-27 02:37:18,857 INFO  EndpointLinksResolver:58 - [] Exposing 2 endpoint(s) beneath base path '/actuator'
 2022-05-27 02:37:19,155 INFO  PropertySourcedRequestMappingHandlerMapping:69 - [] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-05-27 02:37:19,519 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7e691624, org.springframework.security.web.context.SecurityContextPersistenceFilter@4de158ca, org.springframework.security.web.header.HeaderWriterFilter@1aee6d14, org.springframework.security.web.authentication.logout.LogoutFilter@355493bf, app.igesa.security.jwt.AuthTokenFilter@98637a2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@d180961, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@86377d5, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@69a76b74, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7ef60c02, org.springframework.security.web.session.SessionManagementFilter@6f65a203, org.springframework.security.web.access.ExceptionTranslationFilter@2168def, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@52eca410]
+2022-05-27 02:37:19,519 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7e691624, org.springframework.security.web.context.SecurityContextPersistenceFilter@4de158ca, org.springframework.security.web.header.HeaderWriterFilter@1aee6d14, org.springframework.security.web.authentication.logout.LogoutFilter@355493bf, AuthTokenFilter@98637a2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@d180961, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@86377d5, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@69a76b74, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7ef60c02, org.springframework.security.web.session.SessionManagementFilter@6f65a203, org.springframework.security.web.access.ExceptionTranslationFilter@2168def, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@52eca410]
 2022-05-27 02:37:21,195 INFO  JtaPlatformInitiator:52 - [] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
 2022-05-27 02:37:21,212 INFO  AbstractEntityManagerFactoryBean:434 - [] Initialized JPA EntityManagerFactory for persistence unit 'default'
 2022-05-27 02:37:21,973 INFO  TomcatWebServer:220 - [] Tomcat started on port(s): 8089 (http) with context path ''
@@ -326,8 +326,8 @@ java.lang.NullPointerException: Cannot invoke "org.springframework.security.cryp
 2022-05-27 02:37:29,940 INFO  DirectJDKLog:173 - [] Initializing Spring DispatcherServlet 'dispatcherServlet'
 2022-05-27 02:37:29,942 INFO  FrameworkServlet:525 - [] Initializing Servlet 'dispatcherServlet'
 2022-05-27 02:37:29,963 INFO  FrameworkServlet:547 - [] Completed initialization in 20 ms
-2022-05-27 03:00:12,860 ERROR DirectJDKLog:175 - [] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.InvalidDataAccessApiUsageException: org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : app.igesa.entity.Tags.entreprise -> app.igesa.entity.Entreprise; nested exception is java.lang.IllegalStateException: org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : app.igesa.entity.Tags.entreprise -> app.igesa.entity.Entreprise] with root cause
-org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : app.igesa.entity.Tags.entreprise -> app.igesa.entity.Entreprise
+2022-05-27 03:00:12,860 ERROR DirectJDKLog:175 - [] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.InvalidDataAccessApiUsageException: org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : Tags.entreprise -> Entreprise; nested exception is java.lang.IllegalStateException: org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : Tags.entreprise -> Entreprise] with root cause
+org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : Tags.entreprise -> Entreprise
 	at org.hibernate.engine.spi.CascadingActions$8.noCascade(CascadingActions.java:379)
 	at org.hibernate.engine.internal.Cascade.cascade(Cascade.java:167)
 	at org.hibernate.event.internal.AbstractFlushingEventListener.cascadeOnFlush(AbstractFlushingEventListener.java:158)
@@ -364,8 +364,8 @@ org.hibernate.TransientPropertyValueException: object references an unsaved tran
 	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344)
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:208)
 	at jdk.proxy2/jdk.proxy2.$Proxy148.save(Unknown Source)
-	at app.igesa.metiers.implement.TagsImp.save(TagsImp.java:45)
-	at app.igesa.controller.TagsController.save(TagsController.java:54)
+	at TagsImp.save(TagsImp.java:45)
+	at TagsController.save(TagsController.java:54)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
 	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344)
@@ -377,7 +377,7 @@ org.hibernate.TransientPropertyValueException: object references an unsaved tran
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:691)
-	at app.igesa.controller.TagsController$$EnhancerBySpringCGLIB$$45c0c534.save(<generated>)
+	at TagsController$$EnhancerBySpringCGLIB$$45c0c534.save(<generated>)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
 	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
@@ -420,7 +420,7 @@ org.hibernate.TransientPropertyValueException: object references an unsaved tran
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
 	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at app.igesa.security.jwt.AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:54)
+	at AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:54)
 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
 	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
@@ -499,7 +499,7 @@ org.hibernate.TransientPropertyValueException: object references an unsaved tran
 2022-05-27 12:32:21,372 INFO  Dialect:170 - [] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
 2022-05-27 12:32:22,723 INFO  EndpointLinksResolver:58 - [] Exposing 2 endpoint(s) beneath base path '/actuator'
 2022-05-27 12:32:22,901 INFO  PropertySourcedRequestMappingHandlerMapping:69 - [] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-05-27 12:32:23,253 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1169fdfd, org.springframework.security.web.context.SecurityContextPersistenceFilter@1aee6d14, org.springframework.security.web.header.HeaderWriterFilter@539ee811, org.springframework.security.web.authentication.logout.LogoutFilter@229cb4d8, app.igesa.security.jwt.AuthTokenFilter@5822ecda, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5c740c5a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5f5a33ed, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@41f40dfa, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@75add13c, org.springframework.security.web.session.SessionManagementFilter@5cb8580, org.springframework.security.web.access.ExceptionTranslationFilter@178dc733, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6c9151c1]
+2022-05-27 12:32:23,253 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1169fdfd, org.springframework.security.web.context.SecurityContextPersistenceFilter@1aee6d14, org.springframework.security.web.header.HeaderWriterFilter@539ee811, org.springframework.security.web.authentication.logout.LogoutFilter@229cb4d8, AuthTokenFilter@5822ecda, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5c740c5a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5f5a33ed, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@41f40dfa, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@75add13c, org.springframework.security.web.session.SessionManagementFilter@5cb8580, org.springframework.security.web.access.ExceptionTranslationFilter@178dc733, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6c9151c1]
 2022-05-27 12:32:24,770 INFO  JtaPlatformInitiator:52 - [] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
 2022-05-27 12:32:24,786 INFO  AbstractEntityManagerFactoryBean:434 - [] Initialized JPA EntityManagerFactory for persistence unit 'default'
 2022-05-27 12:32:25,475 WARN  AbstractApplicationContext:596 - [] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8089 is already in use
@@ -546,7 +546,7 @@ Identify and stop the process that's listening on port 8089 or configure this ap
 2022-05-27 12:34:59,798 INFO  Dialect:170 - [] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
 2022-05-27 12:35:02,065 INFO  EndpointLinksResolver:58 - [] Exposing 2 endpoint(s) beneath base path '/actuator'
 2022-05-27 12:35:02,502 INFO  PropertySourcedRequestMappingHandlerMapping:69 - [] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-05-27 12:35:03,068 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@153c6603, org.springframework.security.web.context.SecurityContextPersistenceFilter@3cf06a01, org.springframework.security.web.header.HeaderWriterFilter@405603b6, org.springframework.security.web.authentication.logout.LogoutFilter@1214c98b, app.igesa.security.jwt.AuthTokenFilter@2aa6bbad, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@68f2363, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2f8f40cc, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@29532e91, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@24e2355c, org.springframework.security.web.session.SessionManagementFilter@4af7ac25, org.springframework.security.web.access.ExceptionTranslationFilter@54a6ef6, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@448892f1]
+2022-05-27 12:35:03,068 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@153c6603, org.springframework.security.web.context.SecurityContextPersistenceFilter@3cf06a01, org.springframework.security.web.header.HeaderWriterFilter@405603b6, org.springframework.security.web.authentication.logout.LogoutFilter@1214c98b, AuthTokenFilter@2aa6bbad, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@68f2363, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2f8f40cc, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@29532e91, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@24e2355c, org.springframework.security.web.session.SessionManagementFilter@4af7ac25, org.springframework.security.web.access.ExceptionTranslationFilter@54a6ef6, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@448892f1]
 2022-05-27 12:35:08,882 INFO  JtaPlatformInitiator:52 - [] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
 2022-05-27 12:35:08,901 INFO  AbstractEntityManagerFactoryBean:434 - [] Initialized JPA EntityManagerFactory for persistence unit 'default'
 2022-05-27 12:35:15,511 WARN  AbstractApplicationContext:596 - [] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8089 is already in use
@@ -593,7 +593,7 @@ Identify and stop the process that's listening on port 8089 or configure this ap
 2022-05-27 12:40:56,234 INFO  Dialect:170 - [] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
 2022-05-27 12:40:57,751 INFO  EndpointLinksResolver:58 - [] Exposing 2 endpoint(s) beneath base path '/actuator'
 2022-05-27 12:40:57,951 INFO  PropertySourcedRequestMappingHandlerMapping:69 - [] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-05-27 12:40:58,349 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5cd71ee2, org.springframework.security.web.context.SecurityContextPersistenceFilter@3639b04, org.springframework.security.web.header.HeaderWriterFilter@4641f66c, org.springframework.security.web.authentication.logout.LogoutFilter@14d81f2c, app.igesa.security.jwt.AuthTokenFilter@547aaa32, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2ca1e49a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3c3cd13a, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@5cd701e4, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3dad535f, org.springframework.security.web.session.SessionManagementFilter@30133a11, org.springframework.security.web.access.ExceptionTranslationFilter@18692e80, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6774f264]
+2022-05-27 12:40:58,349 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5cd71ee2, org.springframework.security.web.context.SecurityContextPersistenceFilter@3639b04, org.springframework.security.web.header.HeaderWriterFilter@4641f66c, org.springframework.security.web.authentication.logout.LogoutFilter@14d81f2c, AuthTokenFilter@547aaa32, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2ca1e49a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3c3cd13a, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@5cd701e4, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3dad535f, org.springframework.security.web.session.SessionManagementFilter@30133a11, org.springframework.security.web.access.ExceptionTranslationFilter@18692e80, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6774f264]
 2022-05-27 12:40:59,962 INFO  JtaPlatformInitiator:52 - [] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
 2022-05-27 12:40:59,974 INFO  AbstractEntityManagerFactoryBean:434 - [] Initialized JPA EntityManagerFactory for persistence unit 'default'
 2022-05-27 12:41:00,778 WARN  AbstractApplicationContext:596 - [] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8089 is already in use
@@ -640,7 +640,7 @@ Identify and stop the process that's listening on port 8089 or configure this ap
 2022-05-27 13:00:44,573 INFO  Dialect:170 - [] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
 2022-05-27 13:00:46,020 INFO  EndpointLinksResolver:58 - [] Exposing 2 endpoint(s) beneath base path '/actuator'
 2022-05-27 13:00:46,245 INFO  PropertySourcedRequestMappingHandlerMapping:69 - [] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-05-27 13:00:46,591 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@13aa54f1, org.springframework.security.web.context.SecurityContextPersistenceFilter@86377d5, org.springframework.security.web.header.HeaderWriterFilter@5f5a33ed, org.springframework.security.web.authentication.logout.LogoutFilter@adc3344, app.igesa.security.jwt.AuthTokenFilter@6b2ef50e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@77998ea7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@229cb4d8, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@6d0a14c2, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@26d7cb0d, org.springframework.security.web.session.SessionManagementFilter@68f2363, org.springframework.security.web.access.ExceptionTranslationFilter@405603b6, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7ef60c02]
+2022-05-27 13:00:46,591 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@13aa54f1, org.springframework.security.web.context.SecurityContextPersistenceFilter@86377d5, org.springframework.security.web.header.HeaderWriterFilter@5f5a33ed, org.springframework.security.web.authentication.logout.LogoutFilter@adc3344, AuthTokenFilter@6b2ef50e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@77998ea7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@229cb4d8, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@6d0a14c2, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@26d7cb0d, org.springframework.security.web.session.SessionManagementFilter@68f2363, org.springframework.security.web.access.ExceptionTranslationFilter@405603b6, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7ef60c02]
 2022-05-27 13:00:48,492 INFO  JtaPlatformInitiator:52 - [] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
 2022-05-27 13:00:48,509 INFO  AbstractEntityManagerFactoryBean:434 - [] Initialized JPA EntityManagerFactory for persistence unit 'default'
 2022-05-27 13:00:49,367 WARN  AbstractApplicationContext:596 - [] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8089 is already in use
@@ -784,7 +784,7 @@ Caused by: java.net.ConnectException: Connection refused: no further information
 2022-05-27 13:08:23,122 INFO  EndpointLinksResolver:58 - [] Exposing 2 endpoint(s) beneath base path '/actuator'
 2022-05-27 13:08:23,685 INFO  Dialect:170 - [] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
 2022-05-27 13:08:23,962 INFO  PropertySourcedRequestMappingHandlerMapping:69 - [] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-05-27 13:08:24,777 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@62b42406, org.springframework.security.web.context.SecurityContextPersistenceFilter@4627dfda, org.springframework.security.web.header.HeaderWriterFilter@30ef32eb, org.springframework.security.web.authentication.logout.LogoutFilter@2299f6d7, app.igesa.security.jwt.AuthTokenFilter@3b39e79b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@eebc0db, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4e647f39, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@628bd77e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@a0e33db, org.springframework.security.web.session.SessionManagementFilter@355493bf, org.springframework.security.web.access.ExceptionTranslationFilter@5dd3727c, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@74e4be21]
+2022-05-27 13:08:24,777 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@62b42406, org.springframework.security.web.context.SecurityContextPersistenceFilter@4627dfda, org.springframework.security.web.header.HeaderWriterFilter@30ef32eb, org.springframework.security.web.authentication.logout.LogoutFilter@2299f6d7, AuthTokenFilter@3b39e79b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@eebc0db, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4e647f39, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@628bd77e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@a0e33db, org.springframework.security.web.session.SessionManagementFilter@355493bf, org.springframework.security.web.access.ExceptionTranslationFilter@5dd3727c, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@74e4be21]
 2022-05-27 13:08:27,265 INFO  HikariDataSource:110 - [] HikariPool-1 - Starting...
 2022-05-27 13:08:28,270 ERROR HikariPool:593 - [] HikariPool-1 - Exception during pool initialization.
 org.postgresql.util.PSQLException: Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
@@ -867,7 +867,7 @@ org.springframework.beans.factory.BeanCreationException: Error creating bean wit
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:326)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1309)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1298)
-	at app.igesa.MultiwebsitesApplication.main(MultiwebsitesApplication.java:51)
+	at MultiwebsitesApplication.main(MultiwebsitesApplication.java:51)
 Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'jpaMappingContext': Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1788)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:609)
@@ -1052,7 +1052,7 @@ Caused by: java.net.ConnectException: Connection refused: no further information
 2022-05-27 13:14:58,190 INFO  Dialect:170 - [] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
 2022-05-27 13:14:58,241 INFO  EndpointLinksResolver:58 - [] Exposing 2 endpoint(s) beneath base path '/actuator'
 2022-05-27 13:14:58,457 INFO  PropertySourcedRequestMappingHandlerMapping:69 - [] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-05-27 13:14:58,944 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1e57b783, org.springframework.security.web.context.SecurityContextPersistenceFilter@2f8f40cc, org.springframework.security.web.header.HeaderWriterFilter@6f65a203, org.springframework.security.web.authentication.logout.LogoutFilter@4c28f97e, app.igesa.security.jwt.AuthTokenFilter@2aa6bbad, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5dd3727c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@391dfe7c, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@65503a26, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@73b8ab2c, org.springframework.security.web.session.SessionManagementFilter@252d8df6, org.springframework.security.web.access.ExceptionTranslationFilter@5b59c3d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@24e2355c]
+2022-05-27 13:14:58,944 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1e57b783, org.springframework.security.web.context.SecurityContextPersistenceFilter@2f8f40cc, org.springframework.security.web.header.HeaderWriterFilter@6f65a203, org.springframework.security.web.authentication.logout.LogoutFilter@4c28f97e, AuthTokenFilter@2aa6bbad, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5dd3727c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@391dfe7c, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@65503a26, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@73b8ab2c, org.springframework.security.web.session.SessionManagementFilter@252d8df6, org.springframework.security.web.access.ExceptionTranslationFilter@5b59c3d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@24e2355c]
 2022-05-27 13:15:00,532 INFO  HikariDataSource:110 - [] HikariPool-1 - Starting...
 2022-05-27 13:15:01,537 ERROR HikariPool:593 - [] HikariPool-1 - Exception during pool initialization.
 org.postgresql.util.PSQLException: Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
@@ -1138,7 +1138,7 @@ org.springframework.beans.factory.BeanCreationException: Error creating bean wit
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:326)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1309)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1298)
-	at app.igesa.MultiwebsitesApplication.main(MultiwebsitesApplication.java:51)
+	at MultiwebsitesApplication.main(MultiwebsitesApplication.java:51)
 Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'jpaMappingContext': Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1788)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:609)
@@ -1326,7 +1326,7 @@ Caused by: java.net.ConnectException: Connection refused: no further information
 2022-05-27 13:53:51,969 INFO  Dialect:170 - [] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
 2022-05-27 13:53:52,235 INFO  EndpointLinksResolver:58 - [] Exposing 2 endpoint(s) beneath base path '/actuator'
 2022-05-27 13:53:52,486 INFO  PropertySourcedRequestMappingHandlerMapping:69 - [] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-05-27 13:53:52,860 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@213ceb4e, org.springframework.security.web.context.SecurityContextPersistenceFilter@391dfe7c, org.springframework.security.web.header.HeaderWriterFilter@68f2363, org.springframework.security.web.authentication.logout.LogoutFilter@1b465fa9, app.igesa.security.jwt.AuthTokenFilter@5f409872, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7d3bcd3, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@112530c3, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@549d14fe, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@23c72128, org.springframework.security.web.session.SessionManagementFilter@474619d9, org.springframework.security.web.access.ExceptionTranslationFilter@4af7ac25, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@73b8ab2c]
+2022-05-27 13:53:52,860 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@213ceb4e, org.springframework.security.web.context.SecurityContextPersistenceFilter@391dfe7c, org.springframework.security.web.header.HeaderWriterFilter@68f2363, org.springframework.security.web.authentication.logout.LogoutFilter@1b465fa9, AuthTokenFilter@5f409872, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7d3bcd3, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@112530c3, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@549d14fe, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@23c72128, org.springframework.security.web.session.SessionManagementFilter@474619d9, org.springframework.security.web.access.ExceptionTranslationFilter@4af7ac25, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@73b8ab2c]
 2022-05-27 13:53:54,674 INFO  HikariDataSource:110 - [] HikariPool-1 - Starting...
 2022-05-27 13:53:55,677 ERROR HikariPool:593 - [] HikariPool-1 - Exception during pool initialization.
 org.postgresql.util.PSQLException: Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
@@ -1412,7 +1412,7 @@ org.springframework.beans.factory.BeanCreationException: Error creating bean wit
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:326)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1309)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1298)
-	at app.igesa.MultiwebsitesApplication.main(MultiwebsitesApplication.java:51)
+	at MultiwebsitesApplication.main(MultiwebsitesApplication.java:51)
 Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'jpaMappingContext': Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1788)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:609)
@@ -1503,7 +1503,7 @@ Caused by: java.net.ConnectException: Connection refused: no further information
 2022-05-27 14:23:18,993 INFO  Dialect:170 - [] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
 2022-05-27 14:23:20,371 INFO  EndpointLinksResolver:58 - [] Exposing 2 endpoint(s) beneath base path '/actuator'
 2022-05-27 14:23:20,592 INFO  PropertySourcedRequestMappingHandlerMapping:69 - [] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-05-27 14:23:20,883 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2bd2430f, org.springframework.security.web.context.SecurityContextPersistenceFilter@7d3bcd3, org.springframework.security.web.header.HeaderWriterFilter@86377d5, org.springframework.security.web.authentication.logout.LogoutFilter@598e5cb8, app.igesa.security.jwt.AuthTokenFilter@d16209e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@b76b7d8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@355493bf, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@41026e5c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2890e479, org.springframework.security.web.session.SessionManagementFilter@391dfe7c, org.springframework.security.web.access.ExceptionTranslationFilter@3cf06a01, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@549d14fe]
+2022-05-27 14:23:20,883 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2bd2430f, org.springframework.security.web.context.SecurityContextPersistenceFilter@7d3bcd3, org.springframework.security.web.header.HeaderWriterFilter@86377d5, org.springframework.security.web.authentication.logout.LogoutFilter@598e5cb8, AuthTokenFilter@d16209e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@b76b7d8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@355493bf, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@41026e5c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2890e479, org.springframework.security.web.session.SessionManagementFilter@391dfe7c, org.springframework.security.web.access.ExceptionTranslationFilter@3cf06a01, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@549d14fe]
 2022-05-27 14:23:21,596 WARN  ExceptionHandlerLoggedImpl:27 - [] GenerationTarget encountered exception accepting command : Error executing DDL "alter table about drop constraint FK8mwypd79h3igu1vyy3q7wku2h" via JDBC Statement
 org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table about drop constraint FK8mwypd79h3igu1vyy3q7wku2h" via JDBC Statement
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
@@ -3183,7 +3183,7 @@ Caused by: java.net.ConnectException: Connection refused: no further information
 2022-05-27 14:26:38,144 INFO  Dialect:170 - [] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
 2022-05-27 14:26:38,326 INFO  EndpointLinksResolver:58 - [] Exposing 2 endpoint(s) beneath base path '/actuator'
 2022-05-27 14:26:38,636 INFO  PropertySourcedRequestMappingHandlerMapping:69 - [] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-05-27 14:26:38,989 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2bd2430f, org.springframework.security.web.context.SecurityContextPersistenceFilter@7d3bcd3, org.springframework.security.web.header.HeaderWriterFilter@86377d5, org.springframework.security.web.authentication.logout.LogoutFilter@598e5cb8, app.igesa.security.jwt.AuthTokenFilter@45e7bb79, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@b76b7d8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@355493bf, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@41026e5c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2890e479, org.springframework.security.web.session.SessionManagementFilter@391dfe7c, org.springframework.security.web.access.ExceptionTranslationFilter@3cf06a01, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@549d14fe]
+2022-05-27 14:26:38,989 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2bd2430f, org.springframework.security.web.context.SecurityContextPersistenceFilter@7d3bcd3, org.springframework.security.web.header.HeaderWriterFilter@86377d5, org.springframework.security.web.authentication.logout.LogoutFilter@598e5cb8, AuthTokenFilter@45e7bb79, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@b76b7d8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@355493bf, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@41026e5c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2890e479, org.springframework.security.web.session.SessionManagementFilter@391dfe7c, org.springframework.security.web.access.ExceptionTranslationFilter@3cf06a01, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@549d14fe]
 2022-05-27 14:26:40,351 INFO  HikariDataSource:110 - [] HikariPool-1 - Starting...
 2022-05-27 14:26:41,356 ERROR HikariPool:593 - [] HikariPool-1 - Exception during pool initialization.
 org.postgresql.util.PSQLException: Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
@@ -3269,7 +3269,7 @@ org.springframework.beans.factory.BeanCreationException: Error creating bean wit
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:326)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1309)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1298)
-	at app.igesa.MultiwebsitesApplication.main(MultiwebsitesApplication.java:51)
+	at MultiwebsitesApplication.main(MultiwebsitesApplication.java:51)
 Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'jpaMappingContext': Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1788)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:609)
@@ -3360,7 +3360,7 @@ Caused by: java.net.ConnectException: Connection refused: no further information
 2022-05-27 20:00:47,897 INFO  Dialect:170 - [] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
 2022-05-27 20:00:49,339 INFO  EndpointLinksResolver:58 - [] Exposing 2 endpoint(s) beneath base path '/actuator'
 2022-05-27 20:00:49,751 INFO  PropertySourcedRequestMappingHandlerMapping:69 - [] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-05-27 20:00:50,220 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2890e479, org.springframework.security.web.context.SecurityContextPersistenceFilter@5dce5c03, org.springframework.security.web.header.HeaderWriterFilter@87220f1, org.springframework.security.web.authentication.logout.LogoutFilter@199806aa, app.igesa.security.jwt.AuthTokenFilter@605c7a9e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1c135f63, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7ebc5be6, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@12421766, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6eb00cbe, org.springframework.security.web.session.SessionManagementFilter@702cfbde, org.springframework.security.web.access.ExceptionTranslationFilter@71ee2fff, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@77d54a41]
+2022-05-27 20:00:50,220 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2890e479, org.springframework.security.web.context.SecurityContextPersistenceFilter@5dce5c03, org.springframework.security.web.header.HeaderWriterFilter@87220f1, org.springframework.security.web.authentication.logout.LogoutFilter@199806aa, AuthTokenFilter@605c7a9e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1c135f63, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7ebc5be6, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@12421766, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6eb00cbe, org.springframework.security.web.session.SessionManagementFilter@702cfbde, org.springframework.security.web.access.ExceptionTranslationFilter@71ee2fff, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@77d54a41]
 2022-05-27 20:00:51,631 WARN  ExceptionHandlerLoggedImpl:27 - [] GenerationTarget encountered exception accepting command : Error executing DDL "alter table entreprise drop constraint FK7oy0t3kmhvrfpc4efd0p6kwhf" via JDBC Statement
 org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table entreprise drop constraint FK7oy0t3kmhvrfpc4efd0p6kwhf" via JDBC Statement
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
@@ -3523,7 +3523,7 @@ Caused by: org.postgresql.util.PSQLException: ERREUR: la contrainte « fkpbk4x79
 2022-05-27 20:00:56,219 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_15
 2022-05-27 20:00:56,247 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_16
 2022-05-27 20:00:56,376 INFO  DeferredRepositoryInitializationListener:51 - [] Triggering deferred initialization of Spring Data repositories…
-2022-05-27 20:00:57,672 WARN  AbstractApplicationContext:596 - [] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'icomapnybusRepository': FactoryBean threw exception on object creation; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.List app.igesa.repository.IcomapnybusRepository.findByEntrepriseId(java.lang.Long)! No property entrepriseId found for type CompanyBusiness! Did you mean 'entreprises'?
+2022-05-27 20:00:57,672 WARN  AbstractApplicationContext:596 - [] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'icomapnybusRepository': FactoryBean threw exception on object creation; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.List IcomapnybusRepository.findByEntrepriseId(java.lang.Long)! No property entrepriseId found for type CompanyBusiness! Did you mean 'entreprises'?
 2022-05-27 20:00:57,695 INFO  AbstractEntityManagerFactoryBean:648 - [] Closing JPA EntityManagerFactory for persistence unit 'default'
 2022-05-27 20:00:57,699 INFO  ExecutorConfigurationSupport:218 - [] Shutting down ExecutorService 'applicationTaskExecutor'
 2022-05-27 20:00:57,700 INFO  HikariDataSource:350 - [] HikariPool-1 - Shutdown initiated...
@@ -3533,7 +3533,7 @@ Caused by: org.postgresql.util.PSQLException: ERREUR: la contrainte « fkpbk4x79
 
 Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
 2022-05-27 20:00:57,831 ERROR SpringApplication:856 - [] Application run failed
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'icomapnybusRepository': FactoryBean threw exception on object creation; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.List app.igesa.repository.IcomapnybusRepository.findByEntrepriseId(java.lang.Long)! No property entrepriseId found for type CompanyBusiness! Did you mean 'entreprises'?
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'icomapnybusRepository': FactoryBean threw exception on object creation; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.List IcomapnybusRepository.findByEntrepriseId(java.lang.Long)! No property entrepriseId found for type CompanyBusiness! Did you mean 'entreprises'?
 	at org.springframework.beans.factory.support.FactoryBeanRegistrySupport.doGetObjectFromFactoryBean(FactoryBeanRegistrySupport.java:176)
 	at org.springframework.beans.factory.support.FactoryBeanRegistrySupport.getObjectFromFactoryBean(FactoryBeanRegistrySupport.java:101)
 	at org.springframework.beans.factory.support.AbstractBeanFactory.getObjectForBeanInstance(AbstractBeanFactory.java:1879)
@@ -3558,8 +3558,8 @@ org.springframework.beans.factory.BeanCreationException: Error creating bean wit
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:326)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1309)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1298)
-	at app.igesa.MultiwebsitesApplication.main(MultiwebsitesApplication.java:51)
-Caused by: java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.List app.igesa.repository.IcomapnybusRepository.findByEntrepriseId(java.lang.Long)! No property entrepriseId found for type CompanyBusiness! Did you mean 'entreprises'?
+	at MultiwebsitesApplication.main(MultiwebsitesApplication.java:51)
+Caused by: java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.List IcomapnybusRepository.findByEntrepriseId(java.lang.Long)! No property entrepriseId found for type CompanyBusiness! Did you mean 'entreprises'?
 	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.<init>(PartTreeJpaQuery.java:96)
 	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:107)
 	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateIfNotFoundQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:218)
@@ -3640,7 +3640,7 @@ Caused by: org.springframework.data.mapping.PropertyReferenceException: No prope
 2022-05-27 20:02:04,967 INFO  Dialect:170 - [] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
 2022-05-27 20:02:06,638 INFO  EndpointLinksResolver:58 - [] Exposing 2 endpoint(s) beneath base path '/actuator'
 2022-05-27 20:02:06,908 INFO  PropertySourcedRequestMappingHandlerMapping:69 - [] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-05-27 20:02:07,282 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5c25daad, org.springframework.security.web.context.SecurityContextPersistenceFilter@3dd750ba, org.springframework.security.web.header.HeaderWriterFilter@2375a976, org.springframework.security.web.authentication.logout.LogoutFilter@4e61a863, app.igesa.security.jwt.AuthTokenFilter@41bb1f09, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7d5ef1c3, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@11309dd4, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@6b64429e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6fdc2db6, org.springframework.security.web.session.SessionManagementFilter@27b490de, org.springframework.security.web.access.ExceptionTranslationFilter@5b88af70, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@398694a6]
+2022-05-27 20:02:07,282 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5c25daad, org.springframework.security.web.context.SecurityContextPersistenceFilter@3dd750ba, org.springframework.security.web.header.HeaderWriterFilter@2375a976, org.springframework.security.web.authentication.logout.LogoutFilter@4e61a863, AuthTokenFilter@41bb1f09, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7d5ef1c3, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@11309dd4, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@6b64429e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6fdc2db6, org.springframework.security.web.session.SessionManagementFilter@27b490de, org.springframework.security.web.access.ExceptionTranslationFilter@5b88af70, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@398694a6]
 2022-05-27 20:02:09,174 INFO  JtaPlatformInitiator:52 - [] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
 2022-05-27 20:02:09,191 INFO  AbstractEntityManagerFactoryBean:434 - [] Initialized JPA EntityManagerFactory for persistence unit 'default'
 2022-05-27 20:02:10,259 INFO  TomcatWebServer:220 - [] Tomcat started on port(s): 8089 (http) with context path ''
@@ -3729,7 +3729,7 @@ Caused by: org.springframework.data.mapping.PropertyReferenceException: No prope
 2022-05-27 20:02:11,804 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: updateUsingPUT_15
 2022-05-27 20:02:11,808 INFO  CachingOperationNameGenerator:40 - [] Generating unique operation named: viewUsingGET_16
 2022-05-27 20:02:12,022 INFO  DeferredRepositoryInitializationListener:51 - [] Triggering deferred initialization of Spring Data repositories…
-2022-05-27 20:02:12,569 WARN  AbstractApplicationContext:596 - [] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'ilanguageRepository': FactoryBean threw exception on object creation; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.List app.igesa.repository.IlanguageRepository.findByEntrepriseId(java.lang.Long)! No property entrepriseId found for type Language!
+2022-05-27 20:02:12,569 WARN  AbstractApplicationContext:596 - [] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'ilanguageRepository': FactoryBean threw exception on object creation; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.List IlanguageRepository.findByEntrepriseId(java.lang.Long)! No property entrepriseId found for type Language!
 2022-05-27 20:02:12,580 INFO  AbstractEntityManagerFactoryBean:648 - [] Closing JPA EntityManagerFactory for persistence unit 'default'
 2022-05-27 20:02:12,583 INFO  ExecutorConfigurationSupport:218 - [] Shutting down ExecutorService 'applicationTaskExecutor'
 2022-05-27 20:02:12,585 INFO  HikariDataSource:350 - [] HikariPool-1 - Shutdown initiated...
@@ -3739,7 +3739,7 @@ Caused by: org.springframework.data.mapping.PropertyReferenceException: No prope
 
 Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
 2022-05-27 20:02:12,839 ERROR SpringApplication:856 - [] Application run failed
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'ilanguageRepository': FactoryBean threw exception on object creation; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.List app.igesa.repository.IlanguageRepository.findByEntrepriseId(java.lang.Long)! No property entrepriseId found for type Language!
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'ilanguageRepository': FactoryBean threw exception on object creation; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.List IlanguageRepository.findByEntrepriseId(java.lang.Long)! No property entrepriseId found for type Language!
 	at org.springframework.beans.factory.support.FactoryBeanRegistrySupport.doGetObjectFromFactoryBean(FactoryBeanRegistrySupport.java:176)
 	at org.springframework.beans.factory.support.FactoryBeanRegistrySupport.getObjectFromFactoryBean(FactoryBeanRegistrySupport.java:101)
 	at org.springframework.beans.factory.support.AbstractBeanFactory.getObjectForBeanInstance(AbstractBeanFactory.java:1879)
@@ -3764,8 +3764,8 @@ org.springframework.beans.factory.BeanCreationException: Error creating bean wit
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:326)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1309)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1298)
-	at app.igesa.MultiwebsitesApplication.main(MultiwebsitesApplication.java:51)
-Caused by: java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.List app.igesa.repository.IlanguageRepository.findByEntrepriseId(java.lang.Long)! No property entrepriseId found for type Language!
+	at MultiwebsitesApplication.main(MultiwebsitesApplication.java:51)
+Caused by: java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.List IlanguageRepository.findByEntrepriseId(java.lang.Long)! No property entrepriseId found for type Language!
 	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.<init>(PartTreeJpaQuery.java:96)
 	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:107)
 	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateIfNotFoundQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:218)
@@ -3846,7 +3846,7 @@ Caused by: org.springframework.data.mapping.PropertyReferenceException: No prope
 2022-05-27 20:03:22,535 INFO  Dialect:170 - [] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
 2022-05-27 20:03:24,203 INFO  EndpointLinksResolver:58 - [] Exposing 2 endpoint(s) beneath base path '/actuator'
 2022-05-27 20:03:24,384 INFO  PropertySourcedRequestMappingHandlerMapping:69 - [] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-05-27 20:03:24,787 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@76220ef1, org.springframework.security.web.context.SecurityContextPersistenceFilter@4bc21e34, org.springframework.security.web.header.HeaderWriterFilter@1592e540, org.springframework.security.web.authentication.logout.LogoutFilter@34bddf43, app.igesa.security.jwt.AuthTokenFilter@9e33a6a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@bb6869a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5178345d, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@3c97f5e9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@65ad2b42, org.springframework.security.web.session.SessionManagementFilter@3d98729a, org.springframework.security.web.access.ExceptionTranslationFilter@1b8ee69d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5fb514c2]
+2022-05-27 20:03:24,787 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@76220ef1, org.springframework.security.web.context.SecurityContextPersistenceFilter@4bc21e34, org.springframework.security.web.header.HeaderWriterFilter@1592e540, org.springframework.security.web.authentication.logout.LogoutFilter@34bddf43, AuthTokenFilter@9e33a6a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@bb6869a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5178345d, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@3c97f5e9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@65ad2b42, org.springframework.security.web.session.SessionManagementFilter@3d98729a, org.springframework.security.web.access.ExceptionTranslationFilter@1b8ee69d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5fb514c2]
 2022-05-27 20:03:26,611 INFO  JtaPlatformInitiator:52 - [] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
 2022-05-27 20:03:26,636 INFO  AbstractEntityManagerFactoryBean:434 - [] Initialized JPA EntityManagerFactory for persistence unit 'default'
 2022-05-27 20:03:27,630 INFO  TomcatWebServer:220 - [] Tomcat started on port(s): 8089 (http) with context path ''
@@ -3958,14 +3958,14 @@ Caused by: org.springframework.data.mapping.PropertyReferenceException: No prope
 2022-05-27 20:27:06,656 ERROR JwtUtils:52 - [] Invalid JWT signature: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
 2022-05-27 20:27:24,775 ERROR JwtUtils:52 - [] Invalid JWT signature: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
 2022-05-27 20:27:29,925 ERROR JwtUtils:52 - [] Invalid JWT signature: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
-2022-05-27 20:28:44,154 ERROR DirectJDKLog:175 - [] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.ClassCastException: class java.util.stream.ReferencePipeline$3 cannot be cast to class app.igesa.dto.CookiesDTO (java.util.stream.ReferencePipeline$3 is in module java.base of loader 'bootstrap'; app.igesa.dto.CookiesDTO is in unnamed module of loader 'app')] with root cause
-java.lang.ClassCastException: class java.util.stream.ReferencePipeline$3 cannot be cast to class app.igesa.dto.CookiesDTO (java.util.stream.ReferencePipeline$3 is in module java.base of loader 'bootstrap'; app.igesa.dto.CookiesDTO is in unnamed module of loader 'app')
-	at app.igesa.metiers.implement.CookiesImp.findByEntrepriseId(CookiesImp.java:54)
-	at app.igesa.controller.CookiesController.findById(CookiesController.java:98)
-	at app.igesa.controller.CookiesController$$FastClassBySpringCGLIB$$62cd443f.invoke(<generated>)
+2022-05-27 20:28:44,154 ERROR DirectJDKLog:175 - [] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.ClassCastException: class java.util.stream.ReferencePipeline$3 cannot be cast to class CookiesDTO (java.util.stream.ReferencePipeline$3 is in module java.base of loader 'bootstrap'; CookiesDTO is in unnamed module of loader 'app')] with root cause
+java.lang.ClassCastException: class java.util.stream.ReferencePipeline$3 cannot be cast to class CookiesDTO (java.util.stream.ReferencePipeline$3 is in module java.base of loader 'bootstrap'; CookiesDTO is in unnamed module of loader 'app')
+	at CookiesImp.findByEntrepriseId(CookiesImp.java:54)
+	at CookiesController.findById(CookiesController.java:98)
+	at CookiesController$$FastClassBySpringCGLIB$$62cd443f.invoke(<generated>)
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:687)
-	at app.igesa.controller.CookiesController$$EnhancerBySpringCGLIB$$5fe920f4.findById(<generated>)
+	at CookiesController$$EnhancerBySpringCGLIB$$5fe920f4.findById(<generated>)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
 	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
@@ -4008,7 +4008,7 @@ java.lang.ClassCastException: class java.util.stream.ReferencePipeline$3 cannot 
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
 	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at app.igesa.security.jwt.AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:54)
+	at AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:54)
 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
 	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
@@ -4062,14 +4062,14 @@ java.lang.ClassCastException: class java.util.stream.ReferencePipeline$3 cannot 
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-2022-05-27 20:28:44,190 ERROR DirectJDKLog:175 - [] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.ClassCastException: class java.util.stream.ReferencePipeline$3 cannot be cast to class app.igesa.dto.CookiesDTO (java.util.stream.ReferencePipeline$3 is in module java.base of loader 'bootstrap'; app.igesa.dto.CookiesDTO is in unnamed module of loader 'app')] with root cause
-java.lang.ClassCastException: class java.util.stream.ReferencePipeline$3 cannot be cast to class app.igesa.dto.CookiesDTO (java.util.stream.ReferencePipeline$3 is in module java.base of loader 'bootstrap'; app.igesa.dto.CookiesDTO is in unnamed module of loader 'app')
-	at app.igesa.metiers.implement.CookiesImp.findByEntrepriseId(CookiesImp.java:54)
-	at app.igesa.controller.CookiesController.findById(CookiesController.java:98)
-	at app.igesa.controller.CookiesController$$FastClassBySpringCGLIB$$62cd443f.invoke(<generated>)
+2022-05-27 20:28:44,190 ERROR DirectJDKLog:175 - [] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.ClassCastException: class java.util.stream.ReferencePipeline$3 cannot be cast to class CookiesDTO (java.util.stream.ReferencePipeline$3 is in module java.base of loader 'bootstrap'; CookiesDTO is in unnamed module of loader 'app')] with root cause
+java.lang.ClassCastException: class java.util.stream.ReferencePipeline$3 cannot be cast to class CookiesDTO (java.util.stream.ReferencePipeline$3 is in module java.base of loader 'bootstrap'; CookiesDTO is in unnamed module of loader 'app')
+	at CookiesImp.findByEntrepriseId(CookiesImp.java:54)
+	at CookiesController.findById(CookiesController.java:98)
+	at CookiesController$$FastClassBySpringCGLIB$$62cd443f.invoke(<generated>)
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:687)
-	at app.igesa.controller.CookiesController$$EnhancerBySpringCGLIB$$5fe920f4.findById(<generated>)
+	at CookiesController$$EnhancerBySpringCGLIB$$5fe920f4.findById(<generated>)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
 	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
@@ -4112,7 +4112,7 @@ java.lang.ClassCastException: class java.util.stream.ReferencePipeline$3 cannot 
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
 	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at app.igesa.security.jwt.AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:54)
+	at AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:54)
 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
 	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
@@ -4166,14 +4166,14 @@ java.lang.ClassCastException: class java.util.stream.ReferencePipeline$3 cannot 
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-2022-05-27 20:28:44,225 ERROR DirectJDKLog:175 - [] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.ClassCastException: class java.util.stream.ReferencePipeline$3 cannot be cast to class app.igesa.dto.CookiesDTO (java.util.stream.ReferencePipeline$3 is in module java.base of loader 'bootstrap'; app.igesa.dto.CookiesDTO is in unnamed module of loader 'app')] with root cause
-java.lang.ClassCastException: class java.util.stream.ReferencePipeline$3 cannot be cast to class app.igesa.dto.CookiesDTO (java.util.stream.ReferencePipeline$3 is in module java.base of loader 'bootstrap'; app.igesa.dto.CookiesDTO is in unnamed module of loader 'app')
-	at app.igesa.metiers.implement.CookiesImp.findByEntrepriseId(CookiesImp.java:54)
-	at app.igesa.controller.CookiesController.findById(CookiesController.java:98)
-	at app.igesa.controller.CookiesController$$FastClassBySpringCGLIB$$62cd443f.invoke(<generated>)
+2022-05-27 20:28:44,225 ERROR DirectJDKLog:175 - [] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.ClassCastException: class java.util.stream.ReferencePipeline$3 cannot be cast to class CookiesDTO (java.util.stream.ReferencePipeline$3 is in module java.base of loader 'bootstrap'; CookiesDTO is in unnamed module of loader 'app')] with root cause
+java.lang.ClassCastException: class java.util.stream.ReferencePipeline$3 cannot be cast to class CookiesDTO (java.util.stream.ReferencePipeline$3 is in module java.base of loader 'bootstrap'; CookiesDTO is in unnamed module of loader 'app')
+	at CookiesImp.findByEntrepriseId(CookiesImp.java:54)
+	at CookiesController.findById(CookiesController.java:98)
+	at CookiesController$$FastClassBySpringCGLIB$$62cd443f.invoke(<generated>)
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:687)
-	at app.igesa.controller.CookiesController$$EnhancerBySpringCGLIB$$5fe920f4.findById(<generated>)
+	at CookiesController$$EnhancerBySpringCGLIB$$5fe920f4.findById(<generated>)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
 	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
@@ -4216,7 +4216,7 @@ java.lang.ClassCastException: class java.util.stream.ReferencePipeline$3 cannot 
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
 	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at app.igesa.security.jwt.AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:54)
+	at AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:54)
 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
 	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
@@ -4270,14 +4270,14 @@ java.lang.ClassCastException: class java.util.stream.ReferencePipeline$3 cannot 
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-2022-05-27 20:29:22,078 ERROR DirectJDKLog:175 - [] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.ClassCastException: class java.util.stream.ReferencePipeline$3 cannot be cast to class app.igesa.dto.CookiesDTO (java.util.stream.ReferencePipeline$3 is in module java.base of loader 'bootstrap'; app.igesa.dto.CookiesDTO is in unnamed module of loader 'app')] with root cause
-java.lang.ClassCastException: class java.util.stream.ReferencePipeline$3 cannot be cast to class app.igesa.dto.CookiesDTO (java.util.stream.ReferencePipeline$3 is in module java.base of loader 'bootstrap'; app.igesa.dto.CookiesDTO is in unnamed module of loader 'app')
-	at app.igesa.metiers.implement.CookiesImp.findByEntrepriseId(CookiesImp.java:54)
-	at app.igesa.controller.CookiesController.findById(CookiesController.java:98)
-	at app.igesa.controller.CookiesController$$FastClassBySpringCGLIB$$62cd443f.invoke(<generated>)
+2022-05-27 20:29:22,078 ERROR DirectJDKLog:175 - [] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.ClassCastException: class java.util.stream.ReferencePipeline$3 cannot be cast to class CookiesDTO (java.util.stream.ReferencePipeline$3 is in module java.base of loader 'bootstrap'; CookiesDTO is in unnamed module of loader 'app')] with root cause
+java.lang.ClassCastException: class java.util.stream.ReferencePipeline$3 cannot be cast to class CookiesDTO (java.util.stream.ReferencePipeline$3 is in module java.base of loader 'bootstrap'; CookiesDTO is in unnamed module of loader 'app')
+	at CookiesImp.findByEntrepriseId(CookiesImp.java:54)
+	at CookiesController.findById(CookiesController.java:98)
+	at CookiesController$$FastClassBySpringCGLIB$$62cd443f.invoke(<generated>)
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:687)
-	at app.igesa.controller.CookiesController$$EnhancerBySpringCGLIB$$5fe920f4.findById(<generated>)
+	at CookiesController$$EnhancerBySpringCGLIB$$5fe920f4.findById(<generated>)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
 	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
@@ -4320,7 +4320,7 @@ java.lang.ClassCastException: class java.util.stream.ReferencePipeline$3 cannot 
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
 	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at app.igesa.security.jwt.AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:54)
+	at AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:54)
 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
 	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
@@ -4374,14 +4374,14 @@ java.lang.ClassCastException: class java.util.stream.ReferencePipeline$3 cannot 
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-2022-05-27 20:29:22,577 ERROR DirectJDKLog:175 - [] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.ClassCastException: class java.util.stream.ReferencePipeline$3 cannot be cast to class app.igesa.dto.CookiesDTO (java.util.stream.ReferencePipeline$3 is in module java.base of loader 'bootstrap'; app.igesa.dto.CookiesDTO is in unnamed module of loader 'app')] with root cause
-java.lang.ClassCastException: class java.util.stream.ReferencePipeline$3 cannot be cast to class app.igesa.dto.CookiesDTO (java.util.stream.ReferencePipeline$3 is in module java.base of loader 'bootstrap'; app.igesa.dto.CookiesDTO is in unnamed module of loader 'app')
-	at app.igesa.metiers.implement.CookiesImp.findByEntrepriseId(CookiesImp.java:54)
-	at app.igesa.controller.CookiesController.findById(CookiesController.java:98)
-	at app.igesa.controller.CookiesController$$FastClassBySpringCGLIB$$62cd443f.invoke(<generated>)
+2022-05-27 20:29:22,577 ERROR DirectJDKLog:175 - [] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.ClassCastException: class java.util.stream.ReferencePipeline$3 cannot be cast to class CookiesDTO (java.util.stream.ReferencePipeline$3 is in module java.base of loader 'bootstrap'; CookiesDTO is in unnamed module of loader 'app')] with root cause
+java.lang.ClassCastException: class java.util.stream.ReferencePipeline$3 cannot be cast to class CookiesDTO (java.util.stream.ReferencePipeline$3 is in module java.base of loader 'bootstrap'; CookiesDTO is in unnamed module of loader 'app')
+	at CookiesImp.findByEntrepriseId(CookiesImp.java:54)
+	at CookiesController.findById(CookiesController.java:98)
+	at CookiesController$$FastClassBySpringCGLIB$$62cd443f.invoke(<generated>)
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:687)
-	at app.igesa.controller.CookiesController$$EnhancerBySpringCGLIB$$5fe920f4.findById(<generated>)
+	at CookiesController$$EnhancerBySpringCGLIB$$5fe920f4.findById(<generated>)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
 	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
@@ -4424,7 +4424,7 @@ java.lang.ClassCastException: class java.util.stream.ReferencePipeline$3 cannot 
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
 	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at app.igesa.security.jwt.AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:54)
+	at AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:54)
 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
 	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
@@ -4478,14 +4478,14 @@ java.lang.ClassCastException: class java.util.stream.ReferencePipeline$3 cannot 
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-2022-05-27 20:29:23,304 ERROR DirectJDKLog:175 - [] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.ClassCastException: class java.util.stream.ReferencePipeline$3 cannot be cast to class app.igesa.dto.CookiesDTO (java.util.stream.ReferencePipeline$3 is in module java.base of loader 'bootstrap'; app.igesa.dto.CookiesDTO is in unnamed module of loader 'app')] with root cause
-java.lang.ClassCastException: class java.util.stream.ReferencePipeline$3 cannot be cast to class app.igesa.dto.CookiesDTO (java.util.stream.ReferencePipeline$3 is in module java.base of loader 'bootstrap'; app.igesa.dto.CookiesDTO is in unnamed module of loader 'app')
-	at app.igesa.metiers.implement.CookiesImp.findByEntrepriseId(CookiesImp.java:54)
-	at app.igesa.controller.CookiesController.findById(CookiesController.java:98)
-	at app.igesa.controller.CookiesController$$FastClassBySpringCGLIB$$62cd443f.invoke(<generated>)
+2022-05-27 20:29:23,304 ERROR DirectJDKLog:175 - [] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.ClassCastException: class java.util.stream.ReferencePipeline$3 cannot be cast to class CookiesDTO (java.util.stream.ReferencePipeline$3 is in module java.base of loader 'bootstrap'; CookiesDTO is in unnamed module of loader 'app')] with root cause
+java.lang.ClassCastException: class java.util.stream.ReferencePipeline$3 cannot be cast to class CookiesDTO (java.util.stream.ReferencePipeline$3 is in module java.base of loader 'bootstrap'; CookiesDTO is in unnamed module of loader 'app')
+	at CookiesImp.findByEntrepriseId(CookiesImp.java:54)
+	at CookiesController.findById(CookiesController.java:98)
+	at CookiesController$$FastClassBySpringCGLIB$$62cd443f.invoke(<generated>)
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:687)
-	at app.igesa.controller.CookiesController$$EnhancerBySpringCGLIB$$5fe920f4.findById(<generated>)
+	at CookiesController$$EnhancerBySpringCGLIB$$5fe920f4.findById(<generated>)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
 	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
@@ -4528,7 +4528,7 @@ java.lang.ClassCastException: class java.util.stream.ReferencePipeline$3 cannot 
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
 	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at app.igesa.security.jwt.AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:54)
+	at AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:54)
 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
 	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
@@ -4607,7 +4607,7 @@ java.lang.ClassCastException: class java.util.stream.ReferencePipeline$3 cannot 
 2022-05-27 20:36:38,107 INFO  Dialect:170 - [] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
 2022-05-27 20:36:39,663 INFO  EndpointLinksResolver:58 - [] Exposing 2 endpoint(s) beneath base path '/actuator'
 2022-05-27 20:36:39,845 INFO  PropertySourcedRequestMappingHandlerMapping:69 - [] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-05-27 20:36:40,149 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4cc89246, org.springframework.security.web.context.SecurityContextPersistenceFilter@4ad8d36f, org.springframework.security.web.header.HeaderWriterFilter@174e1b99, org.springframework.security.web.authentication.logout.LogoutFilter@4bc21e34, app.igesa.security.jwt.AuthTokenFilter@559d19c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@68c4a860, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1d06801f, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@e993715, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@413eaf5d, org.springframework.security.web.session.SessionManagementFilter@2f166d61, org.springframework.security.web.access.ExceptionTranslationFilter@5960f17, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5cbe72b9]
+2022-05-27 20:36:40,149 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4cc89246, org.springframework.security.web.context.SecurityContextPersistenceFilter@4ad8d36f, org.springframework.security.web.header.HeaderWriterFilter@174e1b99, org.springframework.security.web.authentication.logout.LogoutFilter@4bc21e34, AuthTokenFilter@559d19c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@68c4a860, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1d06801f, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@e993715, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@413eaf5d, org.springframework.security.web.session.SessionManagementFilter@2f166d61, org.springframework.security.web.access.ExceptionTranslationFilter@5960f17, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5cbe72b9]
 2022-05-27 20:36:42,011 INFO  JtaPlatformInitiator:52 - [] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
 2022-05-27 20:36:42,023 INFO  AbstractEntityManagerFactoryBean:434 - [] Initialized JPA EntityManagerFactory for persistence unit 'default'
 2022-05-27 20:36:42,791 INFO  TomcatWebServer:220 - [] Tomcat started on port(s): 8089 (http) with context path ''
@@ -4711,11 +4711,11 @@ java.lang.ClassCastException: class java.util.stream.ReferencePipeline$3 cannot 
 2022-05-27 21:15:20,792 ERROR AuthEntryPointJwt:25 - [] Unauthorized error: Full authentication is required to access this resource
 2022-05-27 21:16:30,194 ERROR JwtUtils:52 - [] Invalid JWT signature: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
 2022-05-27 21:16:55,381 ERROR AuthEntryPointJwt:25 - [] Unauthorized error: Bad credentials
-2022-05-27 21:17:16,276 ERROR DirectJDKLog:175 - [] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.ClassCastException: class java.util.stream.ReferencePipeline$3 cannot be cast to class app.igesa.dto.CookiesDTO (java.util.stream.ReferencePipeline$3 is in module java.base of loader 'bootstrap'; app.igesa.dto.CookiesDTO is in unnamed module of loader 'app')] with root cause
-java.lang.ClassCastException: class java.util.stream.ReferencePipeline$3 cannot be cast to class app.igesa.dto.CookiesDTO (java.util.stream.ReferencePipeline$3 is in module java.base of loader 'bootstrap'; app.igesa.dto.CookiesDTO is in unnamed module of loader 'app')
-	at app.igesa.metiers.implement.CookiesImp.findByEntrepriseId(CookiesImp.java:50)
-	at app.igesa.controller.CookiesController.findById(CookiesController.java:102)
-	at app.igesa.controller.CookiesController$$FastClassBySpringCGLIB$$62cd443f.invoke(<generated>)
+2022-05-27 21:17:16,276 ERROR DirectJDKLog:175 - [] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.ClassCastException: class java.util.stream.ReferencePipeline$3 cannot be cast to class CookiesDTO (java.util.stream.ReferencePipeline$3 is in module java.base of loader 'bootstrap'; CookiesDTO is in unnamed module of loader 'app')] with root cause
+java.lang.ClassCastException: class java.util.stream.ReferencePipeline$3 cannot be cast to class CookiesDTO (java.util.stream.ReferencePipeline$3 is in module java.base of loader 'bootstrap'; CookiesDTO is in unnamed module of loader 'app')
+	at CookiesImp.findByEntrepriseId(CookiesImp.java:50)
+	at CookiesController.findById(CookiesController.java:102)
+	at CookiesController$$FastClassBySpringCGLIB$$62cd443f.invoke(<generated>)
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
@@ -4724,7 +4724,7 @@ java.lang.ClassCastException: class java.util.stream.ReferencePipeline$3 cannot 
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:691)
-	at app.igesa.controller.CookiesController$$EnhancerBySpringCGLIB$$89df0541.findById(<generated>)
+	at CookiesController$$EnhancerBySpringCGLIB$$89df0541.findById(<generated>)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
 	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
@@ -4767,7 +4767,7 @@ java.lang.ClassCastException: class java.util.stream.ReferencePipeline$3 cannot 
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
 	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at app.igesa.security.jwt.AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:54)
+	at AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:54)
 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
 	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
@@ -4846,7 +4846,7 @@ java.lang.ClassCastException: class java.util.stream.ReferencePipeline$3 cannot 
 2022-05-27 21:17:47,980 INFO  Dialect:170 - [] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
 2022-05-27 21:17:49,545 INFO  EndpointLinksResolver:58 - [] Exposing 2 endpoint(s) beneath base path '/actuator'
 2022-05-27 21:17:49,836 INFO  PropertySourcedRequestMappingHandlerMapping:69 - [] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-05-27 21:17:50,111 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@86377d5, org.springframework.security.web.context.SecurityContextPersistenceFilter@5cfa2ac5, org.springframework.security.web.header.HeaderWriterFilter@25df2014, org.springframework.security.web.authentication.logout.LogoutFilter@2ec92631, app.igesa.security.jwt.AuthTokenFilter@64fdcf99, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@413eaf5d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6b3b4f37, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@4af7ac25, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@87220f1, org.springframework.security.web.session.SessionManagementFilter@c1a74d, org.springframework.security.web.access.ExceptionTranslationFilter@2cff5aa3, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4f2fdf3d]
+2022-05-27 21:17:50,111 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@86377d5, org.springframework.security.web.context.SecurityContextPersistenceFilter@5cfa2ac5, org.springframework.security.web.header.HeaderWriterFilter@25df2014, org.springframework.security.web.authentication.logout.LogoutFilter@2ec92631, AuthTokenFilter@64fdcf99, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@413eaf5d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6b3b4f37, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@4af7ac25, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@87220f1, org.springframework.security.web.session.SessionManagementFilter@c1a74d, org.springframework.security.web.access.ExceptionTranslationFilter@2cff5aa3, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4f2fdf3d]
 2022-05-27 21:17:51,476 INFO  JtaPlatformInitiator:52 - [] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
 2022-05-27 21:17:51,494 INFO  AbstractEntityManagerFactoryBean:434 - [] Initialized JPA EntityManagerFactory for persistence unit 'default'
 2022-05-27 21:17:52,219 INFO  TomcatWebServer:220 - [] Tomcat started on port(s): 8089 (http) with context path ''
@@ -4940,11 +4940,11 @@ java.lang.ClassCastException: class java.util.stream.ReferencePipeline$3 cannot 
 2022-05-27 21:18:04,423 INFO  DirectJDKLog:173 - [] Initializing Spring DispatcherServlet 'dispatcherServlet'
 2022-05-27 21:18:04,424 INFO  FrameworkServlet:525 - [] Initializing Servlet 'dispatcherServlet'
 2022-05-27 21:18:04,429 INFO  FrameworkServlet:547 - [] Completed initialization in 4 ms
-2022-05-27 21:18:04,794 ERROR DirectJDKLog:175 - [] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.ClassCastException: class java.util.stream.ReferencePipeline$3 cannot be cast to class app.igesa.dto.CookiesDTO (java.util.stream.ReferencePipeline$3 is in module java.base of loader 'bootstrap'; app.igesa.dto.CookiesDTO is in unnamed module of loader 'app')] with root cause
-java.lang.ClassCastException: class java.util.stream.ReferencePipeline$3 cannot be cast to class app.igesa.dto.CookiesDTO (java.util.stream.ReferencePipeline$3 is in module java.base of loader 'bootstrap'; app.igesa.dto.CookiesDTO is in unnamed module of loader 'app')
-	at app.igesa.metiers.implement.CookiesImp.findByEntrepriseId(CookiesImp.java:50)
-	at app.igesa.controller.CookiesController.findById(CookiesController.java:102)
-	at app.igesa.controller.CookiesController$$FastClassBySpringCGLIB$$62cd443f.invoke(<generated>)
+2022-05-27 21:18:04,794 ERROR DirectJDKLog:175 - [] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.ClassCastException: class java.util.stream.ReferencePipeline$3 cannot be cast to class CookiesDTO (java.util.stream.ReferencePipeline$3 is in module java.base of loader 'bootstrap'; CookiesDTO is in unnamed module of loader 'app')] with root cause
+java.lang.ClassCastException: class java.util.stream.ReferencePipeline$3 cannot be cast to class CookiesDTO (java.util.stream.ReferencePipeline$3 is in module java.base of loader 'bootstrap'; CookiesDTO is in unnamed module of loader 'app')
+	at CookiesImp.findByEntrepriseId(CookiesImp.java:50)
+	at CookiesController.findById(CookiesController.java:102)
+	at CookiesController$$FastClassBySpringCGLIB$$62cd443f.invoke(<generated>)
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
@@ -4953,7 +4953,7 @@ java.lang.ClassCastException: class java.util.stream.ReferencePipeline$3 cannot 
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:691)
-	at app.igesa.controller.CookiesController$$EnhancerBySpringCGLIB$$ed44cb21.findById(<generated>)
+	at CookiesController$$EnhancerBySpringCGLIB$$ed44cb21.findById(<generated>)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
 	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
@@ -4996,7 +4996,7 @@ java.lang.ClassCastException: class java.util.stream.ReferencePipeline$3 cannot 
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
 	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at app.igesa.security.jwt.AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:54)
+	at AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:54)
 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
 	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
@@ -5075,7 +5075,7 @@ java.lang.ClassCastException: class java.util.stream.ReferencePipeline$3 cannot 
 2022-05-27 21:20:03,464 INFO  Dialect:170 - [] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
 2022-05-27 21:20:04,883 INFO  EndpointLinksResolver:58 - [] Exposing 2 endpoint(s) beneath base path '/actuator'
 2022-05-27 21:20:05,058 INFO  PropertySourcedRequestMappingHandlerMapping:69 - [] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-05-27 21:20:05,365 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@294ebe11, org.springframework.security.web.context.SecurityContextPersistenceFilter@bb6869a, org.springframework.security.web.header.HeaderWriterFilter@4449b273, org.springframework.security.web.authentication.logout.LogoutFilter@3355b8ff, app.igesa.security.jwt.AuthTokenFilter@5dc7841c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5eee3da9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@708f7386, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@4583b617, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4e51eda7, org.springframework.security.web.session.SessionManagementFilter@4bc21e34, org.springframework.security.web.access.ExceptionTranslationFilter@fceab5d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3c97f5e9]
+2022-05-27 21:20:05,365 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@294ebe11, org.springframework.security.web.context.SecurityContextPersistenceFilter@bb6869a, org.springframework.security.web.header.HeaderWriterFilter@4449b273, org.springframework.security.web.authentication.logout.LogoutFilter@3355b8ff, AuthTokenFilter@5dc7841c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5eee3da9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@708f7386, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@4583b617, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4e51eda7, org.springframework.security.web.session.SessionManagementFilter@4bc21e34, org.springframework.security.web.access.ExceptionTranslationFilter@fceab5d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3c97f5e9]
 2022-05-27 21:20:06,705 INFO  JtaPlatformInitiator:52 - [] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
 2022-05-27 21:20:06,718 INFO  AbstractEntityManagerFactoryBean:434 - [] Initialized JPA EntityManagerFactory for persistence unit 'default'
 2022-05-27 21:20:07,341 INFO  TomcatWebServer:220 - [] Tomcat started on port(s): 8089 (http) with context path ''
@@ -5169,8 +5169,8 @@ java.lang.ClassCastException: class java.util.stream.ReferencePipeline$3 cannot 
 2022-05-27 21:20:24,710 INFO  DirectJDKLog:173 - [] Initializing Spring DispatcherServlet 'dispatcherServlet'
 2022-05-27 21:20:24,711 INFO  FrameworkServlet:525 - [] Initializing Servlet 'dispatcherServlet'
 2022-05-27 21:20:24,715 INFO  FrameworkServlet:547 - [] Completed initialization in 4 ms
-2022-05-27 21:27:24,099 ERROR DirectJDKLog:175 - [] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.InvalidDataAccessApiUsageException: org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : app.igesa.entity.Cookies.entreprise -> app.igesa.entity.Entreprise; nested exception is java.lang.IllegalStateException: org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : app.igesa.entity.Cookies.entreprise -> app.igesa.entity.Entreprise] with root cause
-org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : app.igesa.entity.Cookies.entreprise -> app.igesa.entity.Entreprise
+2022-05-27 21:27:24,099 ERROR DirectJDKLog:175 - [] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.InvalidDataAccessApiUsageException: org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : Cookies.entreprise -> Entreprise; nested exception is java.lang.IllegalStateException: org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : Cookies.entreprise -> Entreprise] with root cause
+org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : Cookies.entreprise -> Entreprise
 	at org.hibernate.engine.spi.CascadingActions$8.noCascade(CascadingActions.java:379)
 	at org.hibernate.engine.internal.Cascade.cascade(Cascade.java:167)
 	at org.hibernate.event.internal.AbstractFlushingEventListener.cascadeOnFlush(AbstractFlushingEventListener.java:158)
@@ -5207,9 +5207,9 @@ org.hibernate.TransientPropertyValueException: object references an unsaved tran
 	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344)
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:208)
 	at jdk.proxy2/jdk.proxy2.$Proxy141.save(Unknown Source)
-	at app.igesa.metiers.implement.CookiesImp.updateCookies(CookiesImp.java:37)
-	at app.igesa.controller.CookiesController.updateCookiesByEntreprise(CookiesController.java:65)
-	at app.igesa.controller.CookiesController$$FastClassBySpringCGLIB$$62cd443f.invoke(<generated>)
+	at CookiesImp.updateCookies(CookiesImp.java:37)
+	at CookiesController.updateCookiesByEntreprise(CookiesController.java:65)
+	at CookiesController$$FastClassBySpringCGLIB$$62cd443f.invoke(<generated>)
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
@@ -5218,7 +5218,7 @@ org.hibernate.TransientPropertyValueException: object references an unsaved tran
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:691)
-	at app.igesa.controller.CookiesController$$EnhancerBySpringCGLIB$$d2dce4fc.updateCookiesByEntreprise(<generated>)
+	at CookiesController$$EnhancerBySpringCGLIB$$d2dce4fc.updateCookiesByEntreprise(<generated>)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
 	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
@@ -5261,7 +5261,7 @@ org.hibernate.TransientPropertyValueException: object references an unsaved tran
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
 	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at app.igesa.security.jwt.AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:54)
+	at AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:54)
 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
 	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
@@ -5315,8 +5315,8 @@ org.hibernate.TransientPropertyValueException: object references an unsaved tran
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-2022-05-27 21:28:02,725 ERROR DirectJDKLog:175 - [] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.InvalidDataAccessApiUsageException: org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : app.igesa.entity.Cookies.entreprise -> app.igesa.entity.Entreprise; nested exception is java.lang.IllegalStateException: org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : app.igesa.entity.Cookies.entreprise -> app.igesa.entity.Entreprise] with root cause
-org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : app.igesa.entity.Cookies.entreprise -> app.igesa.entity.Entreprise
+2022-05-27 21:28:02,725 ERROR DirectJDKLog:175 - [] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.InvalidDataAccessApiUsageException: org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : Cookies.entreprise -> Entreprise; nested exception is java.lang.IllegalStateException: org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : Cookies.entreprise -> Entreprise] with root cause
+org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : Cookies.entreprise -> Entreprise
 	at org.hibernate.engine.spi.CascadingActions$8.noCascade(CascadingActions.java:379)
 	at org.hibernate.engine.internal.Cascade.cascade(Cascade.java:167)
 	at org.hibernate.event.internal.AbstractFlushingEventListener.cascadeOnFlush(AbstractFlushingEventListener.java:158)
@@ -5353,9 +5353,9 @@ org.hibernate.TransientPropertyValueException: object references an unsaved tran
 	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344)
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:208)
 	at jdk.proxy2/jdk.proxy2.$Proxy141.save(Unknown Source)
-	at app.igesa.metiers.implement.CookiesImp.updateCookies(CookiesImp.java:37)
-	at app.igesa.controller.CookiesController.updateCookiesByEntreprise(CookiesController.java:65)
-	at app.igesa.controller.CookiesController$$FastClassBySpringCGLIB$$62cd443f.invoke(<generated>)
+	at CookiesImp.updateCookies(CookiesImp.java:37)
+	at CookiesController.updateCookiesByEntreprise(CookiesController.java:65)
+	at CookiesController$$FastClassBySpringCGLIB$$62cd443f.invoke(<generated>)
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
@@ -5364,7 +5364,7 @@ org.hibernate.TransientPropertyValueException: object references an unsaved tran
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:691)
-	at app.igesa.controller.CookiesController$$EnhancerBySpringCGLIB$$d2dce4fc.updateCookiesByEntreprise(<generated>)
+	at CookiesController$$EnhancerBySpringCGLIB$$d2dce4fc.updateCookiesByEntreprise(<generated>)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
 	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
@@ -5407,7 +5407,7 @@ org.hibernate.TransientPropertyValueException: object references an unsaved tran
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
 	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at app.igesa.security.jwt.AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:54)
+	at AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:54)
 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
 	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
@@ -5486,7 +5486,7 @@ org.hibernate.TransientPropertyValueException: object references an unsaved tran
 2022-05-27 21:35:02,894 INFO  Dialect:170 - [] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
 2022-05-27 21:35:04,137 INFO  EndpointLinksResolver:58 - [] Exposing 2 endpoint(s) beneath base path '/actuator'
 2022-05-27 21:35:04,308 INFO  PropertySourcedRequestMappingHandlerMapping:69 - [] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-05-27 21:35:04,597 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3c3cd13a, org.springframework.security.web.context.SecurityContextPersistenceFilter@4e61a863, org.springframework.security.web.header.HeaderWriterFilter@8b1202a, org.springframework.security.web.authentication.logout.LogoutFilter@69bca406, app.igesa.security.jwt.AuthTokenFilter@44384b4a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2fea9a7b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@47eae91d, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@1aee6d14, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@56b751b1, org.springframework.security.web.session.SessionManagementFilter@7b9c2387, org.springframework.security.web.access.ExceptionTranslationFilter@1e194966, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5cb8580]
+2022-05-27 21:35:04,597 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3c3cd13a, org.springframework.security.web.context.SecurityContextPersistenceFilter@4e61a863, org.springframework.security.web.header.HeaderWriterFilter@8b1202a, org.springframework.security.web.authentication.logout.LogoutFilter@69bca406, AuthTokenFilter@44384b4a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2fea9a7b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@47eae91d, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@1aee6d14, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@56b751b1, org.springframework.security.web.session.SessionManagementFilter@7b9c2387, org.springframework.security.web.access.ExceptionTranslationFilter@1e194966, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5cb8580]
 2022-05-27 21:35:05,773 INFO  JtaPlatformInitiator:52 - [] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
 2022-05-27 21:35:05,784 INFO  AbstractEntityManagerFactoryBean:434 - [] Initialized JPA EntityManagerFactory for persistence unit 'default'
 2022-05-27 21:35:06,300 INFO  TomcatWebServer:220 - [] Tomcat started on port(s): 8089 (http) with context path ''
@@ -5580,8 +5580,8 @@ org.hibernate.TransientPropertyValueException: object references an unsaved tran
 2022-05-27 21:37:14,467 INFO  DirectJDKLog:173 - [] Initializing Spring DispatcherServlet 'dispatcherServlet'
 2022-05-27 21:37:14,468 INFO  FrameworkServlet:525 - [] Initializing Servlet 'dispatcherServlet'
 2022-05-27 21:37:14,480 INFO  FrameworkServlet:547 - [] Completed initialization in 11 ms
-2022-05-27 21:37:14,872 ERROR DirectJDKLog:175 - [] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.InvalidDataAccessApiUsageException: org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : app.igesa.entity.Cookies.entreprise -> app.igesa.entity.Entreprise; nested exception is java.lang.IllegalStateException: org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : app.igesa.entity.Cookies.entreprise -> app.igesa.entity.Entreprise] with root cause
-org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : app.igesa.entity.Cookies.entreprise -> app.igesa.entity.Entreprise
+2022-05-27 21:37:14,872 ERROR DirectJDKLog:175 - [] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.InvalidDataAccessApiUsageException: org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : Cookies.entreprise -> Entreprise; nested exception is java.lang.IllegalStateException: org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : Cookies.entreprise -> Entreprise] with root cause
+org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : Cookies.entreprise -> Entreprise
 	at org.hibernate.engine.spi.CascadingActions$8.noCascade(CascadingActions.java:379)
 	at org.hibernate.engine.internal.Cascade.cascade(Cascade.java:167)
 	at org.hibernate.event.internal.AbstractFlushingEventListener.cascadeOnFlush(AbstractFlushingEventListener.java:158)
@@ -5618,9 +5618,9 @@ org.hibernate.TransientPropertyValueException: object references an unsaved tran
 	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344)
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:208)
 	at jdk.proxy2/jdk.proxy2.$Proxy141.save(Unknown Source)
-	at app.igesa.metiers.implement.CookiesImp.updateCookies(CookiesImp.java:37)
-	at app.igesa.controller.CookiesController.updateCookiesByEntreprise(CookiesController.java:65)
-	at app.igesa.controller.CookiesController$$FastClassBySpringCGLIB$$62cd443f.invoke(<generated>)
+	at CookiesImp.updateCookies(CookiesImp.java:37)
+	at CookiesController.updateCookiesByEntreprise(CookiesController.java:65)
+	at CookiesController$$FastClassBySpringCGLIB$$62cd443f.invoke(<generated>)
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
@@ -5629,7 +5629,7 @@ org.hibernate.TransientPropertyValueException: object references an unsaved tran
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:691)
-	at app.igesa.controller.CookiesController$$EnhancerBySpringCGLIB$$53c6867b.updateCookiesByEntreprise(<generated>)
+	at CookiesController$$EnhancerBySpringCGLIB$$53c6867b.updateCookiesByEntreprise(<generated>)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
 	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
@@ -5672,7 +5672,7 @@ org.hibernate.TransientPropertyValueException: object references an unsaved tran
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
 	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at app.igesa.security.jwt.AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:54)
+	at AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:54)
 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
 	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
@@ -5751,7 +5751,7 @@ org.hibernate.TransientPropertyValueException: object references an unsaved tran
 2022-05-27 21:54:02,483 INFO  Dialect:170 - [] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
 2022-05-27 21:54:03,592 INFO  EndpointLinksResolver:58 - [] Exposing 2 endpoint(s) beneath base path '/actuator'
 2022-05-27 21:54:03,746 INFO  PropertySourcedRequestMappingHandlerMapping:69 - [] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-05-27 21:54:03,971 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@779b4f9c, org.springframework.security.web.context.SecurityContextPersistenceFilter@3dec79f8, org.springframework.security.web.header.HeaderWriterFilter@ace2408, org.springframework.security.web.authentication.logout.LogoutFilter@27fc0217, app.igesa.security.jwt.AuthTokenFilter@668a32a4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@14b26e90, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@160546b1, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@5c25daad, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@31fe0ce5, org.springframework.security.web.session.SessionManagementFilter@34bf66af, org.springframework.security.web.access.ExceptionTranslationFilter@7544260a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@25823192]
+2022-05-27 21:54:03,971 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@779b4f9c, org.springframework.security.web.context.SecurityContextPersistenceFilter@3dec79f8, org.springframework.security.web.header.HeaderWriterFilter@ace2408, org.springframework.security.web.authentication.logout.LogoutFilter@27fc0217, AuthTokenFilter@668a32a4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@14b26e90, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@160546b1, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@5c25daad, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@31fe0ce5, org.springframework.security.web.session.SessionManagementFilter@34bf66af, org.springframework.security.web.access.ExceptionTranslationFilter@7544260a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@25823192]
 2022-05-27 21:54:05,205 INFO  JtaPlatformInitiator:52 - [] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
 2022-05-27 21:54:05,219 INFO  AbstractEntityManagerFactoryBean:434 - [] Initialized JPA EntityManagerFactory for persistence unit 'default'
 2022-05-27 21:54:05,756 INFO  TomcatWebServer:220 - [] Tomcat started on port(s): 8089 (http) with context path ''
@@ -5845,11 +5845,11 @@ org.hibernate.TransientPropertyValueException: object references an unsaved tran
 2022-05-27 21:57:43,883 INFO  DirectJDKLog:173 - [] Initializing Spring DispatcherServlet 'dispatcherServlet'
 2022-05-27 21:57:43,885 INFO  FrameworkServlet:525 - [] Initializing Servlet 'dispatcherServlet'
 2022-05-27 21:57:43,896 INFO  FrameworkServlet:547 - [] Completed initialization in 11 ms
-2022-05-27 21:57:44,292 ERROR DirectJDKLog:175 - [] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.ClassCastException: class java.util.ArrayList cannot be cast to class app.igesa.entity.Entreprise (java.util.ArrayList is in module java.base of loader 'bootstrap'; app.igesa.entity.Entreprise is in unnamed module of loader 'app')] with root cause
-java.lang.ClassCastException: class java.util.ArrayList cannot be cast to class app.igesa.entity.Entreprise (java.util.ArrayList is in module java.base of loader 'bootstrap'; app.igesa.entity.Entreprise is in unnamed module of loader 'app')
-	at app.igesa.metiers.implement.CookiesImp.updateCookies(CookiesImp.java:41)
-	at app.igesa.controller.CookiesController.SaveCookiesByEntreprise(CookiesController.java:50)
-	at app.igesa.controller.CookiesController$$FastClassBySpringCGLIB$$62cd443f.invoke(<generated>)
+2022-05-27 21:57:44,292 ERROR DirectJDKLog:175 - [] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.ClassCastException: class java.util.ArrayList cannot be cast to class Entreprise (java.util.ArrayList is in module java.base of loader 'bootstrap'; Entreprise is in unnamed module of loader 'app')] with root cause
+java.lang.ClassCastException: class java.util.ArrayList cannot be cast to class Entreprise (java.util.ArrayList is in module java.base of loader 'bootstrap'; Entreprise is in unnamed module of loader 'app')
+	at CookiesImp.updateCookies(CookiesImp.java:41)
+	at CookiesController.SaveCookiesByEntreprise(CookiesController.java:50)
+	at CookiesController$$FastClassBySpringCGLIB$$62cd443f.invoke(<generated>)
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
@@ -5858,7 +5858,7 @@ java.lang.ClassCastException: class java.util.ArrayList cannot be cast to class 
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:691)
-	at app.igesa.controller.CookiesController$$EnhancerBySpringCGLIB$$6267fad9.SaveCookiesByEntreprise(<generated>)
+	at CookiesController$$EnhancerBySpringCGLIB$$6267fad9.SaveCookiesByEntreprise(<generated>)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
 	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
@@ -5901,7 +5901,7 @@ java.lang.ClassCastException: class java.util.ArrayList cannot be cast to class 
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
 	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at app.igesa.security.jwt.AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:54)
+	at AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:54)
 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
 	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
@@ -5955,8 +5955,8 @@ java.lang.ClassCastException: class java.util.ArrayList cannot be cast to class 
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-2022-05-27 21:58:00,749 ERROR DirectJDKLog:175 - [] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.InvalidDataAccessApiUsageException: org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : app.igesa.entity.Privacy.entreprise -> app.igesa.entity.Entreprise; nested exception is java.lang.IllegalStateException: org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : app.igesa.entity.Privacy.entreprise -> app.igesa.entity.Entreprise] with root cause
-org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : app.igesa.entity.Privacy.entreprise -> app.igesa.entity.Entreprise
+2022-05-27 21:58:00,749 ERROR DirectJDKLog:175 - [] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.InvalidDataAccessApiUsageException: org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : Privacy.entreprise -> Entreprise; nested exception is java.lang.IllegalStateException: org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : Privacy.entreprise -> Entreprise] with root cause
+org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : Privacy.entreprise -> Entreprise
 	at org.hibernate.engine.spi.CascadingActions$8.noCascade(CascadingActions.java:379)
 	at org.hibernate.engine.internal.Cascade.cascade(Cascade.java:167)
 	at org.hibernate.event.internal.AbstractFlushingEventListener.cascadeOnFlush(AbstractFlushingEventListener.java:158)
@@ -5993,8 +5993,8 @@ org.hibernate.TransientPropertyValueException: object references an unsaved tran
 	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344)
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:208)
 	at jdk.proxy2/jdk.proxy2.$Proxy149.save(Unknown Source)
-	at app.igesa.metiers.implement.PrivacyImp.updateByEntreprise(PrivacyImp.java:41)
-	at app.igesa.controller.PrivacyController.save(PrivacyController.java:42)
+	at PrivacyImp.updateByEntreprise(PrivacyImp.java:41)
+	at PrivacyController.save(PrivacyController.java:42)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
 	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344)
@@ -6006,7 +6006,7 @@ org.hibernate.TransientPropertyValueException: object references an unsaved tran
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:691)
-	at app.igesa.controller.PrivacyController$$EnhancerBySpringCGLIB$$fb190fa4.save(<generated>)
+	at PrivacyController$$EnhancerBySpringCGLIB$$fb190fa4.save(<generated>)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
 	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
@@ -6049,7 +6049,7 @@ org.hibernate.TransientPropertyValueException: object references an unsaved tran
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
 	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at app.igesa.security.jwt.AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:54)
+	at AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:54)
 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
 	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
@@ -6103,8 +6103,8 @@ org.hibernate.TransientPropertyValueException: object references an unsaved tran
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-2022-05-27 22:00:01,323 ERROR DirectJDKLog:175 - [] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.InvalidDataAccessApiUsageException: org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : app.igesa.entity.Privacy.entreprise -> app.igesa.entity.Entreprise; nested exception is java.lang.IllegalStateException: org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : app.igesa.entity.Privacy.entreprise -> app.igesa.entity.Entreprise] with root cause
-org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : app.igesa.entity.Privacy.entreprise -> app.igesa.entity.Entreprise
+2022-05-27 22:00:01,323 ERROR DirectJDKLog:175 - [] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.InvalidDataAccessApiUsageException: org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : Privacy.entreprise -> Entreprise; nested exception is java.lang.IllegalStateException: org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : Privacy.entreprise -> Entreprise] with root cause
+org.hibernate.TransientPropertyValueException: object references an unsaved transient instance - save the transient instance before flushing : Privacy.entreprise -> Entreprise
 	at org.hibernate.engine.spi.CascadingActions$8.noCascade(CascadingActions.java:379)
 	at org.hibernate.engine.internal.Cascade.cascade(Cascade.java:167)
 	at org.hibernate.event.internal.AbstractFlushingEventListener.cascadeOnFlush(AbstractFlushingEventListener.java:158)
@@ -6141,8 +6141,8 @@ org.hibernate.TransientPropertyValueException: object references an unsaved tran
 	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344)
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:208)
 	at jdk.proxy2/jdk.proxy2.$Proxy149.save(Unknown Source)
-	at app.igesa.metiers.implement.PrivacyImp.updateByEntreprise(PrivacyImp.java:41)
-	at app.igesa.controller.PrivacyController.save(PrivacyController.java:42)
+	at PrivacyImp.updateByEntreprise(PrivacyImp.java:41)
+	at PrivacyController.save(PrivacyController.java:42)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
 	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344)
@@ -6154,7 +6154,7 @@ org.hibernate.TransientPropertyValueException: object references an unsaved tran
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:691)
-	at app.igesa.controller.PrivacyController$$EnhancerBySpringCGLIB$$fb190fa4.save(<generated>)
+	at PrivacyController$$EnhancerBySpringCGLIB$$fb190fa4.save(<generated>)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
 	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
@@ -6197,7 +6197,7 @@ org.hibernate.TransientPropertyValueException: object references an unsaved tran
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
 	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
-	at app.igesa.security.jwt.AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:54)
+	at AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:54)
 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
 	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
@@ -6278,7 +6278,7 @@ org.hibernate.TransientPropertyValueException: object references an unsaved tran
 2022-05-27 22:11:09,101 INFO  Dialect:170 - [] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
 2022-05-27 22:11:10,377 INFO  EndpointLinksResolver:58 - [] Exposing 2 endpoint(s) beneath base path '/actuator'
 2022-05-27 22:11:10,583 INFO  PropertySourcedRequestMappingHandlerMapping:69 - [] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-05-27 22:11:11,045 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@199806aa, org.springframework.security.web.context.SecurityContextPersistenceFilter@178dc733, org.springframework.security.web.header.HeaderWriterFilter@398694a6, org.springframework.security.web.authentication.logout.LogoutFilter@6f65a203, app.igesa.security.jwt.AuthTokenFilter@46b6701e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6b0ba697, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@ca10069, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@7538cfe6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@300aa927, org.springframework.security.web.session.SessionManagementFilter@779b4f9c, org.springframework.security.web.access.ExceptionTranslationFilter@4e51eda7, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2b41b8bb]
+2022-05-27 22:11:11,045 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@199806aa, org.springframework.security.web.context.SecurityContextPersistenceFilter@178dc733, org.springframework.security.web.header.HeaderWriterFilter@398694a6, org.springframework.security.web.authentication.logout.LogoutFilter@6f65a203, AuthTokenFilter@46b6701e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6b0ba697, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@ca10069, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@7538cfe6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@300aa927, org.springframework.security.web.session.SessionManagementFilter@779b4f9c, org.springframework.security.web.access.ExceptionTranslationFilter@4e51eda7, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2b41b8bb]
 2022-05-27 22:11:12,426 INFO  JtaPlatformInitiator:52 - [] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
 2022-05-27 22:11:12,436 INFO  AbstractEntityManagerFactoryBean:434 - [] Initialized JPA EntityManagerFactory for persistence unit 'default'
 2022-05-27 22:11:12,997 INFO  TomcatWebServer:220 - [] Tomcat started on port(s): 8089 (http) with context path ''
@@ -6397,7 +6397,7 @@ org.hibernate.TransientPropertyValueException: object references an unsaved tran
 2022-05-27 22:12:45,487 INFO  Dialect:170 - [] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
 2022-05-27 22:12:46,711 INFO  EndpointLinksResolver:58 - [] Exposing 2 endpoint(s) beneath base path '/actuator'
 2022-05-27 22:12:46,854 INFO  PropertySourcedRequestMappingHandlerMapping:69 - [] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-05-27 22:12:47,119 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3c97f5e9, org.springframework.security.web.context.SecurityContextPersistenceFilter@573870cb, org.springframework.security.web.header.HeaderWriterFilter@ad5cffa, org.springframework.security.web.authentication.logout.LogoutFilter@395eb363, app.igesa.security.jwt.AuthTokenFilter@507049f2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2739ecc0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@506b083, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@79c1ccf7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@32e7b78d, org.springframework.security.web.session.SessionManagementFilter@41e7a544, org.springframework.security.web.access.ExceptionTranslationFilter@6e017950, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7672960e]
+2022-05-27 22:12:47,119 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3c97f5e9, org.springframework.security.web.context.SecurityContextPersistenceFilter@573870cb, org.springframework.security.web.header.HeaderWriterFilter@ad5cffa, org.springframework.security.web.authentication.logout.LogoutFilter@395eb363, AuthTokenFilter@507049f2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2739ecc0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@506b083, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@79c1ccf7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@32e7b78d, org.springframework.security.web.session.SessionManagementFilter@41e7a544, org.springframework.security.web.access.ExceptionTranslationFilter@6e017950, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7672960e]
 2022-05-27 22:12:48,692 INFO  JtaPlatformInitiator:52 - [] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
 2022-05-27 22:12:48,707 INFO  AbstractEntityManagerFactoryBean:434 - [] Initialized JPA EntityManagerFactory for persistence unit 'default'
 2022-05-27 22:12:49,222 INFO  TomcatWebServer:220 - [] Tomcat started on port(s): 8089 (http) with context path ''
@@ -6516,7 +6516,7 @@ org.hibernate.TransientPropertyValueException: object references an unsaved tran
 2022-05-27 22:14:11,715 INFO  Dialect:170 - [] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
 2022-05-27 22:14:13,164 INFO  EndpointLinksResolver:58 - [] Exposing 2 endpoint(s) beneath base path '/actuator'
 2022-05-27 22:14:13,343 INFO  PropertySourcedRequestMappingHandlerMapping:69 - [] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-05-27 22:14:13,711 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7482309c, org.springframework.security.web.context.SecurityContextPersistenceFilter@1dfe5dd1, org.springframework.security.web.header.HeaderWriterFilter@32513dea, org.springframework.security.web.authentication.logout.LogoutFilter@3573e19d, app.igesa.security.jwt.AuthTokenFilter@451816fd, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6e017950, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2b400bd0, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@4cc89246, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@f42336c, org.springframework.security.web.session.SessionManagementFilter@93f15f6, org.springframework.security.web.access.ExceptionTranslationFilter@1c815814, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@472719df]
+2022-05-27 22:14:13,711 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7482309c, org.springframework.security.web.context.SecurityContextPersistenceFilter@1dfe5dd1, org.springframework.security.web.header.HeaderWriterFilter@32513dea, org.springframework.security.web.authentication.logout.LogoutFilter@3573e19d, AuthTokenFilter@451816fd, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6e017950, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2b400bd0, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@4cc89246, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@f42336c, org.springframework.security.web.session.SessionManagementFilter@93f15f6, org.springframework.security.web.access.ExceptionTranslationFilter@1c815814, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@472719df]
 2022-05-27 22:14:15,098 INFO  JtaPlatformInitiator:52 - [] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
 2022-05-27 22:14:15,113 INFO  AbstractEntityManagerFactoryBean:434 - [] Initialized JPA EntityManagerFactory for persistence unit 'default'
 2022-05-27 22:14:15,681 INFO  TomcatWebServer:220 - [] Tomcat started on port(s): 8089 (http) with context path ''
@@ -6636,7 +6636,7 @@ org.hibernate.TransientPropertyValueException: object references an unsaved tran
 2022-05-27 22:36:14,697 INFO  Dialect:170 - [] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
 2022-05-27 22:36:16,145 INFO  EndpointLinksResolver:58 - [] Exposing 2 endpoint(s) beneath base path '/actuator'
 2022-05-27 22:36:16,308 INFO  PropertySourcedRequestMappingHandlerMapping:69 - [] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-05-27 22:36:16,646 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@48aa0813, org.springframework.security.web.context.SecurityContextPersistenceFilter@7b2d58e6, org.springframework.security.web.header.HeaderWriterFilter@573870cb, org.springframework.security.web.authentication.logout.LogoutFilter@73234691, app.igesa.security.jwt.AuthTokenFilter@15586843, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@377e90b0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@34bf66af, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@2862271a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@45849604, org.springframework.security.web.session.SessionManagementFilter@2a6dbb7c, org.springframework.security.web.access.ExceptionTranslationFilter@117fb9ba, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@294ebe11]
+2022-05-27 22:36:16,646 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@48aa0813, org.springframework.security.web.context.SecurityContextPersistenceFilter@7b2d58e6, org.springframework.security.web.header.HeaderWriterFilter@573870cb, org.springframework.security.web.authentication.logout.LogoutFilter@73234691, AuthTokenFilter@15586843, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@377e90b0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@34bf66af, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@2862271a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@45849604, org.springframework.security.web.session.SessionManagementFilter@2a6dbb7c, org.springframework.security.web.access.ExceptionTranslationFilter@117fb9ba, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@294ebe11]
 2022-05-27 22:36:18,307 INFO  JtaPlatformInitiator:52 - [] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
 2022-05-27 22:36:18,324 INFO  AbstractEntityManagerFactoryBean:434 - [] Initialized JPA EntityManagerFactory for persistence unit 'default'
 2022-05-27 22:36:19,314 INFO  TomcatWebServer:220 - [] Tomcat started on port(s): 8089 (http) with context path ''
@@ -6760,7 +6760,7 @@ org.hibernate.TransientPropertyValueException: object references an unsaved tran
 2022-05-27 22:46:10,738 INFO  Dialect:170 - [] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
 2022-05-27 22:46:12,346 INFO  EndpointLinksResolver:58 - [] Exposing 2 endpoint(s) beneath base path '/actuator'
 2022-05-27 22:46:12,530 INFO  PropertySourcedRequestMappingHandlerMapping:69 - [] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-05-27 22:46:12,871 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5fb514c2, org.springframework.security.web.context.SecurityContextPersistenceFilter@41e7a544, org.springframework.security.web.header.HeaderWriterFilter@727956bb, org.springframework.security.web.authentication.logout.LogoutFilter@2bd4780c, app.igesa.security.jwt.AuthTokenFilter@c497a55, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@573870cb, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7544260a, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@7672960e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3e9b3b3c, org.springframework.security.web.session.SessionManagementFilter@117fb9ba, org.springframework.security.web.access.ExceptionTranslationFilter@1dfe5dd1, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4bab78ce]
+2022-05-27 22:46:12,871 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5fb514c2, org.springframework.security.web.context.SecurityContextPersistenceFilter@41e7a544, org.springframework.security.web.header.HeaderWriterFilter@727956bb, org.springframework.security.web.authentication.logout.LogoutFilter@2bd4780c, AuthTokenFilter@c497a55, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@573870cb, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7544260a, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@7672960e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3e9b3b3c, org.springframework.security.web.session.SessionManagementFilter@117fb9ba, org.springframework.security.web.access.ExceptionTranslationFilter@1dfe5dd1, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4bab78ce]
 2022-05-27 22:46:14,470 INFO  JtaPlatformInitiator:52 - [] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
 2022-05-27 22:46:14,487 INFO  AbstractEntityManagerFactoryBean:434 - [] Initialized JPA EntityManagerFactory for persistence unit 'default'
 2022-05-27 22:46:15,121 INFO  TomcatWebServer:220 - [] Tomcat started on port(s): 8089 (http) with context path ''
@@ -6879,7 +6879,7 @@ org.hibernate.TransientPropertyValueException: object references an unsaved tran
 2022-05-27 22:55:23,069 INFO  Dialect:170 - [] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
 2022-05-27 22:55:24,983 INFO  EndpointLinksResolver:58 - [] Exposing 2 endpoint(s) beneath base path '/actuator'
 2022-05-27 22:55:25,262 INFO  PropertySourcedRequestMappingHandlerMapping:69 - [] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-05-27 22:55:25,631 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2299f6d7, org.springframework.security.web.context.SecurityContextPersistenceFilter@45e69324, org.springframework.security.web.header.HeaderWriterFilter@5be69f7e, org.springframework.security.web.authentication.logout.LogoutFilter@37fca349, app.igesa.security.jwt.AuthTokenFilter@7534785a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3400d6fa, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2ca1e49a, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@7d95166a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5cd701e4, org.springframework.security.web.session.SessionManagementFilter@3a8640f7, org.springframework.security.web.access.ExceptionTranslationFilter@25823192, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@fa11fda]
+2022-05-27 22:55:25,631 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2299f6d7, org.springframework.security.web.context.SecurityContextPersistenceFilter@45e69324, org.springframework.security.web.header.HeaderWriterFilter@5be69f7e, org.springframework.security.web.authentication.logout.LogoutFilter@37fca349, AuthTokenFilter@7534785a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3400d6fa, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2ca1e49a, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@7d95166a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5cd701e4, org.springframework.security.web.session.SessionManagementFilter@3a8640f7, org.springframework.security.web.access.ExceptionTranslationFilter@25823192, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@fa11fda]
 2022-05-27 22:55:27,489 INFO  JtaPlatformInitiator:52 - [] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
 2022-05-27 22:55:27,507 INFO  AbstractEntityManagerFactoryBean:434 - [] Initialized JPA EntityManagerFactory for persistence unit 'default'
 2022-05-27 22:55:28,145 INFO  TomcatWebServer:220 - [] Tomcat started on port(s): 8089 (http) with context path ''
@@ -6999,7 +6999,7 @@ org.hibernate.TransientPropertyValueException: object references an unsaved tran
 2022-05-27 23:17:22,655 INFO  Dialect:170 - [] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
 2022-05-27 23:17:24,018 INFO  EndpointLinksResolver:58 - [] Exposing 2 endpoint(s) beneath base path '/actuator'
 2022-05-27 23:17:24,166 INFO  PropertySourcedRequestMappingHandlerMapping:69 - [] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-05-27 23:17:24,446 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@30133a11, org.springframework.security.web.context.SecurityContextPersistenceFilter@68f9e807, org.springframework.security.web.header.HeaderWriterFilter@5bf7f15f, org.springframework.security.web.authentication.logout.LogoutFilter@5ec6a1b6, app.igesa.security.jwt.AuthTokenFilter@22fb9a2c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3dfc59c5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7b9c2387, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@ca10069, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2168def, org.springframework.security.web.session.SessionManagementFilter@3355b8ff, org.springframework.security.web.access.ExceptionTranslationFilter@33eab2e8, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1e7cfd49]
+2022-05-27 23:17:24,446 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@30133a11, org.springframework.security.web.context.SecurityContextPersistenceFilter@68f9e807, org.springframework.security.web.header.HeaderWriterFilter@5bf7f15f, org.springframework.security.web.authentication.logout.LogoutFilter@5ec6a1b6, AuthTokenFilter@22fb9a2c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3dfc59c5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7b9c2387, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@ca10069, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2168def, org.springframework.security.web.session.SessionManagementFilter@3355b8ff, org.springframework.security.web.access.ExceptionTranslationFilter@33eab2e8, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1e7cfd49]
 2022-05-27 23:17:25,950 INFO  JtaPlatformInitiator:52 - [] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
 2022-05-27 23:17:25,960 INFO  AbstractEntityManagerFactoryBean:434 - [] Initialized JPA EntityManagerFactory for persistence unit 'default'
 2022-05-27 23:17:26,564 INFO  TomcatWebServer:220 - [] Tomcat started on port(s): 8089 (http) with context path ''
@@ -7120,7 +7120,7 @@ org.hibernate.TransientPropertyValueException: object references an unsaved tran
 2022-05-27 23:46:07,908 INFO  Dialect:170 - [] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
 2022-05-27 23:46:09,276 INFO  EndpointLinksResolver:58 - [] Exposing 2 endpoint(s) beneath base path '/actuator'
 2022-05-27 23:46:09,464 INFO  PropertySourcedRequestMappingHandlerMapping:69 - [] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2022-05-27 23:46:09,833 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@163df259, org.springframework.security.web.context.SecurityContextPersistenceFilter@7b9c2387, org.springframework.security.web.header.HeaderWriterFilter@103e7c7c, org.springframework.security.web.authentication.logout.LogoutFilter@42ffbab6, app.igesa.security.jwt.AuthTokenFilter@5f883d90, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4e61a863, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@e993715, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@5cb8580, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@405603b6, org.springframework.security.web.session.SessionManagementFilter@25df2014, org.springframework.security.web.access.ExceptionTranslationFilter@2c154508, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2168def]
+2022-05-27 23:46:09,833 INFO  DefaultSecurityFilterChain:51 - [] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@163df259, org.springframework.security.web.context.SecurityContextPersistenceFilter@7b9c2387, org.springframework.security.web.header.HeaderWriterFilter@103e7c7c, org.springframework.security.web.authentication.logout.LogoutFilter@42ffbab6, AuthTokenFilter@5f883d90, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4e61a863, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@e993715, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@5cb8580, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@405603b6, org.springframework.security.web.session.SessionManagementFilter@25df2014, org.springframework.security.web.access.ExceptionTranslationFilter@2c154508, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2168def]
 2022-05-27 23:46:11,336 INFO  JtaPlatformInitiator:52 - [] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
 2022-05-27 23:46:11,354 INFO  AbstractEntityManagerFactoryBean:434 - [] Initialized JPA EntityManagerFactory for persistence unit 'default'
 2022-05-27 23:46:12,421 INFO  TomcatWebServer:220 - [] Tomcat started on port(s): 8089 (http) with context path ''

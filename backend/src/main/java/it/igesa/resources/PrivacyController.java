@@ -1,4 +1,4 @@
-package it.igesa.controller;
+package it.igesa.resources;
 import it.igesa.dto.PrivacyDTO;
 import it.igesa.services.Iprivacy;
 import io.swagger.annotations.ApiOperation;

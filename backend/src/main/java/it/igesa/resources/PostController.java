@@ -1,4 +1,4 @@
-package it.igesa.controller;
+package it.igesa.resources;
 import it.igesa.dto.PostDTO;
 import it.igesa.services.Ipost;
 import io.swagger.annotations.Api;

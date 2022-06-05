@@ -1,4 +1,4 @@
-package it.igesa.controller;
+package it.igesa.resources;
 import it.igesa.dto.RoleDTO;
 import it.igesa.domaine.Role;
 import it.igesa.services.Irole;

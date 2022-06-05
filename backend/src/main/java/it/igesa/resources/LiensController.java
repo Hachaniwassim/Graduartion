@@ -1,4 +1,4 @@
-package it.igesa.controller;
+package it.igesa.resources;
 import it.igesa.dto.LiensDTO;
 import it.igesa.services.implement.LiensImp;
 import io.swagger.annotations.Api;
