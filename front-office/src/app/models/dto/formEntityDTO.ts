@@ -2,8 +2,8 @@ import { environment } from "src/environments/environment";
 
 export class FormEntityDTO {
      id !: number;
-	 name !: string;
-	 companyname! : string
+	name !: string;
+	companyname! : string
      mobile!: string ;
 	 fax!: string ;
      email!: string
