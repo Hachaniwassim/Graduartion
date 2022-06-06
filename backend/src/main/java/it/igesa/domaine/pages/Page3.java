@@ -1,4 +1,6 @@
-package it.igesa.domaine;
+package it.igesa.domaine.pages;
+import it.igesa.domaine.Auditable;
+import it.igesa.domaine.Entreprise;
 import lombok.*;
 import javax.persistence.*;
 
@@ -13,7 +15,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Entity(name = "Content")
 @Table(name = "Content")
-public class Page3  extends Auditable{
+public class Page3  extends Auditable {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id ;

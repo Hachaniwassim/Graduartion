@@ -1,7 +1,7 @@
-package it.igesa.dto;
+package it.igesa.dto.pages;
 
 import it.igesa.domaine.Entreprise;
-import it.igesa.domaine.Page2;
+import it.igesa.domaine.pages.Page2;
 import lombok.Builder;
 import lombok.Data;
 

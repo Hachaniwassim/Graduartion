@@ -1,6 +1,6 @@
 package it.igesa.services.pages;
-import it.igesa.dto.Page3DTO;
-import it.igesa.domaine.Page3;
+import it.igesa.dto.pages.Page3DTO;
+import it.igesa.domaine.pages.Page3;
 import it.igesa.services.Ientreprise;
 import it.igesa.services.Ipage3;
 import it.igesa.repository.pages.Page3Repository;

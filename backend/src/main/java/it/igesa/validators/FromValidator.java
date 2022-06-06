@@ -44,9 +44,7 @@ public class FromValidator {
         if(!StringUtils.hasLength(formDTO.getReferent())) {
             errors.add("Veuillez renseigner le champ  referent!");
         }
-        if(!StringUtils.hasLength(formDTO.getName())) {
-            errors.add("Veuillez renseigner le champ  Name!");
-        }
+
         return errors;
     }
 }

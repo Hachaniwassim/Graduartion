@@ -4,6 +4,9 @@ import java.util.List;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 
+import it.igesa.domaine.pages.Page1;
+import it.igesa.domaine.pages.Page2;
+import it.igesa.domaine.pages.Page3;
 import it.igesa.domaine.pages.Pages;
 import it.igesa.domaine.seo.Seo;
 import it.igesa.domaine.siteinfo.Plateforme;
@@ -127,9 +130,13 @@ public class Entreprise  extends Auditable{
 	@OneToMany(mappedBy="entreprise",cascade = CascadeType.ALL)
 	private List< Seo> seos= new ArrayList<>();
 
+
+
+
+
 	@JsonIgnore
 	@OneToMany(mappedBy="entreprise",cascade = CascadeType.ALL)
-	private List<Logo> logos = new ArrayList<>();
+	private List<PostRevendeur> postRevendeurs= new ArrayList<>();
 
 
 

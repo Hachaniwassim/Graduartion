@@ -1,6 +1,6 @@
 package it.igesa.resources;
 
-import it.igesa.dto.PageDTO;
+import it.igesa.dto.pages.PageDTO;
 import it.igesa.services.Ipages;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

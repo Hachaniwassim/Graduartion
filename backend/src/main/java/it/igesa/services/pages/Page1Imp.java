@@ -1,6 +1,6 @@
 package it.igesa.services.pages;
-import it.igesa.dto.Page1DTO;
-import it.igesa.domaine.Page1;
+import it.igesa.dto.pages.Page1DTO;
+import it.igesa.domaine.pages.Page1;
 import it.igesa.exceptions.ResourceNotFoundException;
 import it.igesa.services.Ientreprise;
 import it.igesa.services.Ipage1;

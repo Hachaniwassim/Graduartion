@@ -47,6 +47,7 @@ public class FormEntityImp implements IformEntity {
 
     @Override
     public FormDTO save(FormDTO f) {
+           f.setContactStatus(ContactStatus.PENDING);
             FormEntity saved = iformEntityRepository.save(FormDTO.toEntity((f)));
             return FormDTO.fromEntity(saved);
     }
@@ -89,21 +90,21 @@ public class FormEntityImp implements IformEntity {
      *
      */
     @Override
-    public FormDTO updateSatus(Long id, ContactStatus status) throws MessagingException {
+    public FormDTO updateStatusContact(Long id, ContactStatus status) throws MessagingException {
         log.debug( "<========================= Update account status ================================>");
             Optional<FormEntity> Data = iformEntityRepository.findById(id);
                 FormEntity saved = null;
             if (Data.isPresent()) {
                 FormEntity form = Data.get();
 
-                if (ContactStatus.ACTIVE == status) {
-                    form.setContactstatus(ContactStatus.BLOCKED);
+                if (ContactStatus.ACCEPTED == status) {
+                    form.setContactstatus(ContactStatus.REJECTED);
                 }
-                if (ContactStatus.BLOCKED== status) {
+                if (ContactStatus.REJECTED== status) {
                     form.setContactstatus(ContactStatus.PENDING);
                 }
                 if (ContactStatus.PENDING== status) {
-                    form.setContactstatus(ContactStatus.ACTIVE);
+                    form.setContactstatus(ContactStatus.ACCEPTED);
 
                     emailService.sendContactConfirm( form.getEmail(),form.getCompanyname());
                 }

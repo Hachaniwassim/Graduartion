@@ -1,6 +1,6 @@
 package it.igesa.services;
 
-import it.igesa.dto.CookiesDTO;
+import it.igesa.dto.legale.CookiesDTO;
 
 import java.util.Collection;
 

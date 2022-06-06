@@ -1,4 +1,4 @@
-package it.igesa.dto;
+package it.igesa.dto.pages;
 
 import it.igesa.domaine.Entreprise;
 import it.igesa.domaine.pages.Pages;

@@ -1,2 +1,14 @@
-package it.igesa.enumerations;public enum RevendeursStatus {
+package it.igesa.enumerations;
+/**
+ *
+ * @author Tarchoun Abir
+ *
+ */
+public enum RevendeursStatus {
+
+    ACCEPTED,
+    PENDING,
+    REJECTED
 }
+
+

@@ -1,5 +1,5 @@
 package it.igesa.resources;
-import it.igesa.dto.CookiesDTO;
+import it.igesa.dto.legale.CookiesDTO;
 import it.igesa.services.Icookies;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;

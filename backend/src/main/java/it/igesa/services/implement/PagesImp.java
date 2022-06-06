@@ -1,5 +1,5 @@
 package it.igesa.services.implement;
-import it.igesa.dto.PageDTO;
+import it.igesa.dto.pages.PageDTO;
 import it.igesa.domaine.pages.Pages;
 import it.igesa.enumerations.ErrorCode;
 import it.igesa.exceptions.ResourceNotFoundException;
@@ -69,5 +69,6 @@ public class PagesImp  implements Ipages {
         }
         ipagesRepository.deleteById(id);
     }
+
 
 }

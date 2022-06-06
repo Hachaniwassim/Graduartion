@@ -1,18 +1,13 @@
 package it.igesa.resources;
-
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import it.igesa.dto.DelearsDTO;
-import it.igesa.dto.EntrepriseDTO;
 import it.igesa.dto.FormDTO;
 import it.igesa.dto.GroupeDTO;
-import it.igesa.enumerations.ContactStatus;
 import it.igesa.enumerations.RevendeursStatus;
 import it.igesa.services.IPostRvendeurs;
-import it.igesa.services.IformEntity;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,7 +23,10 @@ import java.util.Optional;
  *
  */
 
-public class PostRevendeurs {
+@CrossOrigin(origins = "*", allowedHeaders = "*")
+@RestController
+@Api(tags = "POST-REVENDEURS")
+public class PostRevendeurController {
 
 
     private final String PRIVATE_API = "api/private/form-revendeurs";

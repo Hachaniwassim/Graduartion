@@ -53,7 +53,7 @@ public class FormDTO {
 				.mobile(contact.getMobile())
 				.entrepriseId(contact.getEntreprise().getId())
 				.contactStatus(contact.getContactstatus())
-				.productId(contact.getSoftwareused().getId())
+				.productId(contact.getProduct().getId())
 				.message(contact.getMessage())
 				.build();
 	}
@@ -84,7 +84,7 @@ public class FormDTO {
 		//=======================> contact
 		Product product = new Product();
 		product.setId(dto.getProductId());
-		contact.setSoftwareused(product);
+		contact.setProduct(product);
 		return contact;
 	}
 

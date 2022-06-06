@@ -3,7 +3,6 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import it.igesa.translation.ConfigurationTranslation;
 import lombok.*;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.util.List;
 
@@ -20,8 +19,6 @@ import java.util.List;
 @Setter
 @Getter
 @Table(name =" Configurations")
-@EqualsAndHashCode(callSuper= true)
-@EntityListeners(AuditingEntityListener.class)
 public class ConfigGenerale extends Auditable{
 
 	@Id

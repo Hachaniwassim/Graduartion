@@ -1,6 +1,6 @@
 package it.igesa.services;
 
-import it.igesa.dto.PageDTO;
+import it.igesa.dto.pages.PageDTO;
 import java.util.Collection;
 import java.util.Optional;
 

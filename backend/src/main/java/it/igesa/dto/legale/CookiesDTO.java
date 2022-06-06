@@ -1,4 +1,4 @@
-package it.igesa.dto;
+package it.igesa.dto.legale;
 
 import it.igesa.domaine.Cookies;
 import it.igesa.domaine.Entreprise;

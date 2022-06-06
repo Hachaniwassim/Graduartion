@@ -11,5 +11,5 @@ public interface IformEntity {
     public Collection<FormDTO> view(Long id_entreprise);
     public Optional<FormDTO> findById(Long id);
     public void delete(Long id);
-    public FormDTO updateSatus(Long id, ContactStatus status) throws MessagingException;
+    public FormDTO updateStatusContact(Long id, ContactStatus status) throws MessagingException;
 }
