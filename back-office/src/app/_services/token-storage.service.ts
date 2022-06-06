@@ -8,18 +8,20 @@ const USER_KEY = 'auth-user';
   providedIn: 'root'
 })
 export class TokenStorageService {
-  constructor() { }
+  constructor(private router :Router) { }
 
   //session clear
   signOut(): void {
+   // window.location.reload();
     window.sessionStorage.clear();
     window.localStorage.clear();
-    
+   window.location.href='/login'
+  //this.router.navigate(['/login']);
   }
 
   //saveToken information
   public saveToken(token: string): void {
-    window.sessionStorage.removeItem(TOKEN_KEY);
+   // window.sessionStorage.removeItem(TOKEN_KEY);
     window.sessionStorage.setItem(TOKEN_KEY, token);
   }
 

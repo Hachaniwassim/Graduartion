@@ -109,7 +109,7 @@ export class Accountservice {
    * @param id_entreprise 
    * @returns  Assign entreprise to account
    * 
-   */
+   *
 
   assignEntreprise(id_account: Number, id_entreprise: Number) {
     id_entreprise = Number(id_entreprise);
@@ -125,7 +125,7 @@ export class Accountservice {
       'Request result ====>' + environment.privateApi + '/assign-entreprise'
     );
     return result;
-  }
+  }*/
 
 /***
  * delete account
@@ -148,7 +148,7 @@ export class Accountservice {
     id_groupe = Number(id_groupe);
     let result = this.http.post<any>(
       environment.privateApi + '/user/assign-group',
-          {
+      {
         id_groupe,
         id_account,
       }

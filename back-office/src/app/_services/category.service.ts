@@ -94,7 +94,7 @@ uploadCategoryImage(nameImage:any,file:any):any{
 
 //validation formulaire
     form : FormGroup= new FormGroup({
-   id: new FormControl(),
+    id: new FormControl(),
     title : new FormControl('',[ Validators.required]),
     description : new FormControl(''),
     menuimage : new FormControl(''),
@@ -103,6 +103,7 @@ uploadCategoryImage(nameImage:any,file:any):any{
     subtitle : new FormControl(''),
     createdDate : new FormControl(''),
     lastModifiedDate : new FormControl(''),
+    image : new FormControl(''),
     
 });
 
@@ -117,11 +118,13 @@ initializeFormGroup() {
     bannerimage: '',
     createdDate: '',
     enterpriseId :localStorage.getItem('idEntreprise'),
-    lastModifiedDate:new Date()
+    lastModifiedDate:new Date(),
+    image:''
    
   });
 }
 populateForm(category: any) {
+  console.log('populateForm==============>',JSON.stringify(category));
 
   this.form.patchValue(category);
  

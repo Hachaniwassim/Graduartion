@@ -109,6 +109,7 @@ export class AccountListComponent implements OnInit {
   onEdit(row: any) {
     this.Accountservice.populateForm(row);
     console.log('the row ===>', JSON.stringify(row));
+    console.log("row.groupeId  =>",row.groupeId)
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
@@ -116,7 +117,7 @@ export class AccountListComponent implements OnInit {
     dialogConfig.width = '60%';
     dialogConfig.data = {
       id: row.id,
-      groupId: row.groupId,
+      groupeId: row.groupeId,
       roles: JSON.stringify(row.roles),
     };
     

@@ -20,7 +20,7 @@ export class AddLanguageComponent implements OnInit {
   @ViewChild('groupeForm', { static: false })
   languageForm !: FormGroup;
   languageData !: languageDTO;
-  language!: languageDTO[];
+  language: languageDTO[]= [];
   searchKey!: string;
   showspinner = false;
   datasource = new MatTableDataSource(this.language)
@@ -44,11 +44,11 @@ export class AddLanguageComponent implements OnInit {
     // sorting sorting and pagination data 
     this.datasource.sort = this.sort;
     this.datasource.paginator = this.paginator;
-    this.getAllGroupe();
+    this.getAll();
    
   }
 
-   getAllGroupe() {
+   getAll() {
     this.languageservice.getalllanguage().subscribe((response: any) => {
       this.datasource.data = response;
     })
@@ -75,19 +75,20 @@ export class AddLanguageComponent implements OnInit {
           lastModifiedDate:new Date(),
           entrepriseId:localStorage.getItem('idEntreprise'),
           }).subscribe((res) => {
-          this.language.push(res);
-          console.log('the result of add language ====>',res)
+           this.datasource.data.push(res)
           this.notificationService.success(':: Submitted successfully');
-          this.refresh();
+         
         })
     else(
         this.languageservice.updatelanguage(this.languageservice.form.value).subscribe((res) => {
-          console.log('the result of update  language ==============>',res)  
+          console.log('the result of update  language ==============>',res) 
+          
+          this.datasource.data.push(res) 
         })) 
         this.onClose();
-     
+        this.refresh();
+      
       }
-      this.refresh();
   }
 
 
@@ -95,10 +96,11 @@ export class AddLanguageComponent implements OnInit {
 
   refresh(): void {
     this.router.navigateByUrl("/refresh", { skipLocationChange: true }).then(() => {
-      console.log(decodeURI(this._location.path()));
-      this.router.navigate([decodeURI(this._location.path())]);
+
+      this.router.navigate(['/language']);
     });
   }
+
 
   // dialogue close 
   onClose() {

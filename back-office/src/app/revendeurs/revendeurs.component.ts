@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
@@ -6,6 +6,11 @@ import Swal from 'sweetalert2';
 import { Location } from '@angular/common';
 import { RevendeurDTO } from '../models/dto/revendeursDTO';
 import { RevendeurService } from '../_services/revendeurs.services';
+import { PostRevendeurService } from '../_services/post-revendeurs.service';
+import { PostRevendeurDTO } from '../models/dto/post-revebdeurDTO';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-revendeurs',
@@ -25,11 +30,45 @@ export class RevendeursComponent implements OnInit {
 
   data !: RevendeurDTO;
   revendeur !: FormGroup;
+  contact: PostRevendeurDTO[]= [];
+  searchKey!: string;
+  datasource = new MatTableDataSource(this.contact)
+  displayedColumns: string[] = ['companyname', 'email','revendeursStatus', 'mobile','createdDate', 'lastModifiedDate', 'actions'];
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort, {}) sort!: MatSort;
   constructor(private fb: FormBuilder, private revendeurService:RevendeurService ,
-    public router: Router, public _location: Location, public _snackBar: MatSnackBar,) {
+    public router: Router, public _location: Location, public _snackBar: MatSnackBar,public revendeurPostService: PostRevendeurService) {
  
   }
  
+   /**
+  * Data Sorting
+  */
+    ngAfterViewInit() {
+      this.datasource.paginator = this.paginator;
+      this.datasource.sort = this.sort;
+    }
+
+
+    
+
+  /********************
+   *   search Clear 
+   */
+  onSearchClear() {
+    this.searchKey = "";
+    this.applyFilter();
+  }
+
+
+ /**********************
+  *  Filter Data
+  */
+  applyFilter() {
+    this.datasource.filter = this.searchKey.trim().toLowerCase();
+
+  }
+  
 
   ngOnInit() {
  
@@ -58,7 +97,11 @@ export class RevendeursComponent implements OnInit {
       this.revendeur.patchValue(this.data);
  
     });
-  }
+    
+    this.revendeurPostService.getByEntreprise().subscribe((response: any) => {
+      this.datasource.data = response;
+  })
+}
  
   /***********************
   * ***********
@@ -105,6 +148,110 @@ export class RevendeursComponent implements OnInit {
       this.refresh();
     });
   }
+
+
+
+
+
+
+
+/**********************
+  *  Delete Groupe By Id
+  */
+ onDeleteRevendeur(id: number) {
+
+  Swal.fire({
+    title: 'Are you sure to delete this contact !?',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Yes',
+    cancelButtonText: 'No',
+  }).then((result) => {
+    if (result.value) {
+      this.revendeurPostService.deleteRevendeur(id)
+        .subscribe(
+          response => {
+            console.log(response);
+            this.contact.push(response)
+               Swal.fire('deleted!', ' deletd successfully.', 'success');
+               if (result.dismiss === Swal.DismissReason.cancel) {}
+              })
+
+            }
+             // snackBar success 
+             this._snackBar.open(" deleted successfully", "OK" + '⚡', {
+              duration: 5000,
+              horizontalPosition: "right",
+              verticalPosition: "top",
+              panelClass: ["mat-toolbar", "mat-succes"],
+            });
+         })
+    
+  }
+                
+    
+      
+
+
+
+updateRevendeurStatus(element: PostRevendeurDTO) {
+  Swal.fire({
+    title: 'Are you sure to Update status  !?',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Yes.',
+    cancelButtonText: 'No.',
+  }).then((result) => {
+    if (result.value) {
+      this.revendeurPostService.updateRevendeurByStatus(element.id, element.revendeursStatus).subscribe(res => {
+
+        console.log(res);
+
+        const index = this.datasource.data.indexOf(element);
+        if (index > -1) {
+          this.datasource.data[index].revendeursStatus = res.revendeursStatus;
+        }
+         // snackBar success 
+       this._snackBar.open("status updated Successfully",+ ' '+  "OK"+ ' '+'⚡', {
+        duration: 5000,
+        horizontalPosition: "right",
+        verticalPosition: "top",
+        panelClass: ["mat-toolbar", "mat-succes"],
+      });
+
+      })
+      Swal.fire('updated!', ' status updated successfully.', 'success');
+    } else if (result.dismiss === Swal.DismissReason.cancel) {
+    }
+      
+  });
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  
  
 
@@ -192,6 +339,8 @@ export class RevendeursComponent implements OnInit {
       this.router.navigate([decodeURI(this._location.path())]);
     });
   }
+
+  /***************************************** list-revendeurs  *********************************************/
  
  
 }

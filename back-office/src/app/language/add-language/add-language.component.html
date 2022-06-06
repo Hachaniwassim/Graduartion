@@ -1,5 +1,5 @@
 <mat-toolbar>
-    <span>{{languageservice.form.controls['id'].value?"Modify Groupe ":"New Groupe"}}</span>
+    <span>{{languageservice.form.controls['id'].value?"Modify language " : "New language"}}</span>
     <span class="fill-remaining-space"></span>
     <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
   </mat-toolbar><br><br>
@@ -21,8 +21,7 @@
       </mat-grid-list>
       <div class="button-row" align="center">
         <button mat-raised-button color="primary" type="submit"
-          [disabled]="languageservice.form.invalid" (click)="refresh()">Save</button>
+          [disabled]="languageservice.form.invalid" (click)="reloadPage()">Save</button>
           <button mat-raised-button  mat-dialog-close> <mat-icon>close</mat-icon>Cancel</button>
-        <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
     </div>
     </form>

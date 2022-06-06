@@ -105,8 +105,8 @@ export class EntrepriseService {
     street: new FormControl(''),
     adresse: new FormControl('',Validators.required),
     websiteUrl: new FormControl(''),
-    siretNumber:new FormControl('',[ Validators.required,Validators.maxLength(14),Validators.minLength(14)]),
-    CodeBank:new FormControl('',[ Validators.required,Validators.minLength(14),Validators.maxLength(14)])
+    siretNumber:new FormControl('',[ Validators.required,Validators.maxLength(14)]),
+    codeBank:new FormControl('',[ Validators.required,Validators.minLength(14),Validators.maxLength(14)])
 
 
 

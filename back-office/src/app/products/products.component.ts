@@ -180,14 +180,18 @@ await this.productService.addProduct(productBody).subscribe((res:any)=>{
   }
 
 
-  onUpdate(){
+   onUpdate(){
       this.isEditeMode != this.isEditeMode
-      this.productService.update(this.productService.form.value).subscribe((res) => {
+      let request =this.productService.form.value;
+      request.image=this.productService.form.value.image;
+       this.productService.update(request).subscribe((res) => {
         console.log("====================> updateeeeee test ", res)
 
-        //this.notificationService.success('  ::  ' + ' ' + ' updated successfully ' + '⚡')
-      }
-      )
+      this.notificationService.success('  ::  ' + ' ' + ' updated successfully ' + '⚡')
+      this.refresh();
+    })
+      
+
   }
 
 

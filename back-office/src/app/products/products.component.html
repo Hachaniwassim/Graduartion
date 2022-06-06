@@ -2,8 +2,32 @@
 <div id="wrapper">
   <div class="content-page">
     <div class="content">
-      <h4> Add Product Form </h4><mat-divider></mat-divider><br>
-      <div class="card"><br><br>
+      <h4>Products List</h4><mat-divider></mat-divider><br>
+      <div class="card">
+        <br><br>  
+        <div class="container">
+        <div class="row">
+          <div class="col-xs-6 col-md-3" *ngFor="let product of listPrducts">
+            <div class="card">
+              <div class="wrapper">
+                <img class="card-img-top img-fluid" class="card-img-top" src="{{product.image}}" alt="Card image cap">
+                </div><br>
+                <div class="card-body">
+                <mat-icon>schedule</mat-icon> {{product.createdDate | date:'short'}} <div class="float-right">
+                  <button  (click)="onEdite(product)"  mat-icon-button ><mat-icon>edit_outline</mat-icon></button>&nbsp;&nbsp;
+                  <button mat-icon-button (click)="onDeleteProduct(product.id)"><mat-icon color="warn">close</mat-icon>
+               </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+  </div>
+</div>
+<div class="content">
+  <h4> Add Product</h4><mat-divider></mat-divider><br>
+  <div class="card">
         <div class="container"> 
           <form [formGroup]="productService.form" class="normal-form" class="normal-form">
             <mat-form-field appearance="outline">
@@ -33,11 +57,11 @@
               <ckeditor formControlName="requirements" class="w-10 col-12" [config]='config'></ckeditor>
             </div>
             <div class="form-group">
-              <label> Description * </label>
+              <label > Description * </label>
               <ckeditor formControlName="description" class="w-10 col-12" [config]='config'></ckeditor>
             </div>
-            <label class="form-label"> Tags *</label>
-            <ng-select [multiple]="true" bindValue="id" bindLabel="description" (change)="onChangeTag($event)"
+            <label class="form-label" [style]="isEditeMode ?'display:none':'display:null'"> Tags *</label>
+            <ng-select [style]="isEditeMode ?'display:none':'display:null'" [multiple]="true" bindValue="id" bindLabel="description" (change)="onChangeTag($event)"
               placeholder="select a Tags">
               <ng-option *ngFor="let tag of tagsByEntreprise" [value]="tag.id">{{tag.description}}</ng-option>
             </ng-select>
@@ -54,42 +78,18 @@
               </select>
             </div>
             <div class="form-group">
-              <input color="primary" type="file" (change)="onSelectFile($event)">
+              <input color="primary" type="file" (change)="onSelectFile($event)" [style]="isEditeMode ?'display:none':'display:null'">
             </div><br>
-            <button mat-raised-button color="primary" [disabled]="productService.form.invalid" (click)="onAddProduct()" class="float-right">
+            <button mat-raised-button color="primary" *ngIf="!isEditeMode" [disabled]="productService.form.invalid" (click)="onAddProduct()" class="float-right">
               <mat-icon>save</mat-icon> Save
             </button> 
-           <button  *ngIf="isEditeMode"   (click)="onUpdate()" mat-raised-button  ><mat-icon>edit_outline</mat-icon> update </button>&nbsp;&nbsp;
+           <button  *ngIf="isEditeMode"   (click)="onUpdate()" mat-raised-button class="float-right" ><mat-icon>edit_outline</mat-icon> update </button>&nbsp;&nbsp;
             <br><br>
           </form>
         </div>
       </div>
       <br>
-      <h4>Products List</h4><mat-divider></mat-divider><br>
-      <div class="card">
-        <br><br>  
-        <div class="container">
-        <div class="row">
-          <div class="col-xs-6 col-md-3" *ngFor="let product of listPrducts">
-            <div class="card">
-              <div class="wrapper">
-                <img class="card-img-top img-fluid" class="card-img-top" src="{{product.image}}" alt="Card image cap">
-                </div><br>
-                <div class="card-body">
-                <mat-icon>schedule</mat-icon> {{product.createdDate | date:'short'}} <div class="float-right">
-                  <button  (click)="onEdite(product)"  mat-icon-button ><mat-icon>edit_outline</mat-icon></button>&nbsp;&nbsp;
-                  <button mat-icon-button (click)="onDeleteProduct(product.id)"><mat-icon color="warn">close</mat-icon>
-               </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      </div>
-  </div>
-</div>
-
-
+      
 
 
 

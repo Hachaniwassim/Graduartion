@@ -75,9 +75,7 @@ const routes: Routes = [
       { path: 'liens-utiles', loadChildren: () => import('./liens-utiles/liens-utiles.module').then(m => m.LiensUtilesModule), canActivate: [AuthGuard] },
       //cookies
       { path: 'biscuits', loadChildren: () => import('./biscuits/biscuits.module').then(m => m.BiscuitsModule) },
-      //politique de confidentialité
-      { path: 'confidentialite', loadChildren: () => import('./confidentialite/confidentialite.module').then(m => m.ConfidentialiteModule), canActivate: [AuthGuard] },
-    
+     
       //Positioning Web
       { path: "posactuality", component: PosactualityComponent, canActivate: [AuthGuard] },
       { path: "Poscontacts", component: PoscontactsComponent, canActivate: [AuthGuard] },

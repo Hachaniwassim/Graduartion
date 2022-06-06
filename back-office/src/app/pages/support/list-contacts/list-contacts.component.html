@@ -1,0 +1,83 @@
+<br><br><br>
+<div class="container">
+  <div class="search-div">
+  </div>
+</div>
+<br><br>
+<div class="card" style="width:100%;"><br>
+  <div class="container">
+    <div class="search-div">
+      <mat-form-field class="search-form-field" floatLabel="never">
+        <input matInput [(ngModel)]="searchKey" placeholder="Search" autocomplete="off" (keyup)="applyFilter()">
+        <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey" (click)="onSearchClear()">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>&nbsp;&nbsp;&nbsp;
+    </div>
+  </div><br>
+  <div class="table-responsive">
+    <table mat-table #table [dataSource]="datasource" matSort>
+      <ng-container matColumnDef="companyname">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Name/Companyname</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.companyname}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Email</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.email}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="contactStatus">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Status</mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <button mat-icon-button [ngStyle]="{'font-size.px':13}" class="badge badge-warning mr-2"
+            (click)="updateContactStatus(element)">
+            <span class="badge"
+              [ngClass]="{'badge-success' : element.contactStatus === 'ACCEPTED' , 'badge-warning' : element.contactStatus === 'PENDING' , 'badge-danger' : element.contactStatus === 'REJECTED'}">
+              {{element.contactStatus}}
+            </span>
+          </button>
+        </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="mobile">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Mobile</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.mobile}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="createdDate">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Created At</mat-header-cell>
+        <mat-cell *matCellDef="let element"><mat-icon>query_builder</mat-icon>&nbsp;&nbsp;{{element.createdDate | date:'short'}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="lastModifiedDate">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Last Modified At</mat-header-cell>
+        <mat-cell *matCellDef="let element"><mat-icon>query_builder</mat-icon>&nbsp;&nbsp;{{element.lastModifiedDate | date:'short'}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          <div></div>
+          <div></div>
+          <button mat-icon-button>
+            <mat-icon color="warn" (click)="onDeleteContact(row.id)">close</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="loading">
+        <mat-footer-cell *matFooterCellDef colspan="12">
+          Loading data....
+        </mat-footer-cell>
+      </ng-container>
+      <ng-container matColumnDef="nodata">
+        <mat-footer-cell *matFooterCellDef colspan="12">
+          NO data....
+        </mat-footer-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      <mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hide':datasource!=null }"></mat-footer-row>
+      <mat-footer-row *matFooterRowDef="['nodata']"
+        [ngClass]="{'hide': !(datasource!=null && datasource.data.length===0)}"></mat-footer-row>
+    </table>
+    <br>
+    <mat-paginator [pageSizeOptions]="[ 5, 10, 25, 100]" [pageSize]="5" showFirstLastButtons></mat-paginator>
+  </div>
+</div>
+<br>
+

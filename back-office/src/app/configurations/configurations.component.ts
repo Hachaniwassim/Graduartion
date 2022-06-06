@@ -20,6 +20,7 @@ export class ConfigurationsComponent implements OnInit {
  */
  data !: configgeneraleDTO;
  confiG !: FormGroup;
+ configuration !: any ;
  constructor(private fb: FormBuilder, private ConfigGeneraleService: ConfigGeneraleService,
    public router: Router, public _location: Location, public _snackBar: MatSnackBar,) {
 
@@ -32,7 +33,6 @@ export class ConfigurationsComponent implements OnInit {
     */
    this.confiG = this.fb.group({
      id: new FormControl(),
-     title: new FormControl(''),
      createdDate: new FormControl(''),
      lastModifiedDate: new FormControl(''),
      phone: new FormControl(''),
@@ -52,7 +52,7 @@ export class ConfigurationsComponent implements OnInit {
    /***********************************
     * Get privacy policy By Entreprise 
     */
-   this.ConfigGeneraleService.getConfigByEntreprise().subscribe((res:configgeneraleDTO[]) => {
+   this.ConfigGeneraleService.getConfigByEntreprise().subscribe((res:any) => {
      this.data = res[0];
      this.confiG.patchValue(this.data);
 
@@ -77,6 +77,7 @@ export class ConfigurationsComponent implements OnInit {
         this.ConfigGeneraleService.update(this.confiG.value).subscribe((r:any)=> {
          //test
          console.log(r);
+         this.configuration= r;
          // snackBar success 
          this._snackBar.open("Updated Successfully", "OK" + '⚡', {
            duration: 5000,
