@@ -52,9 +52,6 @@
     <div class="row align-items-center justify-content-center">
       <div class="col-lg-6 text-center">
       
-        <h1>Our For Rent Cars</h1>
-       
-        <h3 align="center"  style="color:rgb(223, 223, 223)">Find Your Own Raod A Car For Everyone</h3>
 
       </div>
     </div>
@@ -70,7 +67,7 @@
         <img [src]="product?.image" width="200" class="rounded-circle">
       </div>
       <div class="col-lg-4 mr-auto">
-        <h3><a href="#"> product?.title</a></h3>
+        <h3><a href="#"> {{product.title}}</a></h3>
         <div class="rating">
           <span class="icon-star text-warning"></span>
           <span class="icon-star text-warning"></span>
@@ -79,13 +76,13 @@
           <span class="icon-star text-warning"></span>
         </div>
         <br>
-        <span> {{ product?.detailimage}}</span>
+        <span> {{ product.detailimage}}</span>
      <br>
           <span>note : </span>
-          <span class="spec">$   {{ product?.note}} </span>
+          <span class="spec">$   {{ product.note}} </span>
         <br>
           <span> name : </span>
-          <span class="spec">      {{ product?.name }}   </span>
+          <span class="spec">      {{ product.name }}   </span>
        <br>
        <br>
        <br>

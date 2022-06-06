@@ -1,10 +1,10 @@
 import { environment } from "src/environments/environment";
 
-export class FormEntityDTO {
+export class PostRevendeurDTO {
      id !: number;
 	companyname! : string
      mobile!: string ;
-	fax!: string ;
+	cap!: string ;
      email!: string
      adresse !: string;
      nationality!: string;
