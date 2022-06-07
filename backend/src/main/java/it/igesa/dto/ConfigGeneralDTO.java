@@ -1,10 +1,8 @@
 package it.igesa.dto;
-
 import it.igesa.domaine.ConfigGenerale;
 import it.igesa.domaine.Entreprise;
 import lombok.Builder;
 import lombok.Data;
-
 import java.util.Date;
 
 /**
@@ -16,7 +14,6 @@ import java.util.Date;
 public class ConfigGeneralDTO {
 	
 	private Long id ;
-	//private String title ;
 	private String facebook ;
 	private String twitter ;
 	private String youtube ;

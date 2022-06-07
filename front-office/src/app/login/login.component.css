@@ -154,14 +154,7 @@ label {
   border-color: #446DCA;
 }
 
-:host {
-  background-color: #eef1f7;
-  flex: 1 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
-}
 
 .form-group.form-control::placeholder {
   color: #222;

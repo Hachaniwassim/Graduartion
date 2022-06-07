@@ -2,6 +2,9 @@ package it.igesa.resources;
 
 import it.igesa.dto.EntrepriseDTO;
 import it.igesa.dto.FormDTO;
+import it.igesa.dto.GroupeDTO;
+import it.igesa.enumerations.ContactStatus;
+import it.igesa.enumerations.GroupStatus;
 import it.igesa.services.IformEntity;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -15,6 +18,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Collection;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import javax.mail.MessagingException;
 import java.util.Optional;
 
 /**
@@ -119,5 +124,18 @@ public class FormController {
         iformEntityService.delete(id);
         return new ResponseEntity<>("{code :200 ,msg : deleted successfully}",HttpStatus.OK);
     }
+
+    @RequestMapping(value = PRIVATE_API + "/toggle-status/{id}", method = RequestMethod.PUT)
+    @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
+    @ApiOperation(value = "UPDATE GROUPE BY Status ", response = GroupeDTO.class)
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Groupe was updated successfully"),
+            @ApiResponse(code = 401, message = "Unauthorized , without authority or permission"),
+            @ApiResponse(code = 403, message = "not permitted or allowed"),
+    })
+    public ResponseEntity<FormDTO> updateStatus(@PathVariable("id") long id, @RequestBody ContactStatus status) throws MessagingException {
+        return new ResponseEntity<>(iformEntityService.updateStatusContact(id, status), HttpStatus.CREATED);
+    }
+
 
 }

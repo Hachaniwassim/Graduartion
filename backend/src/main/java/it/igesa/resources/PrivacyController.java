@@ -1,5 +1,5 @@
 package it.igesa.resources;
-import it.igesa.dto.PrivacyDTO;
+import it.igesa.dto.legale.PrivacyDTO;
 import it.igesa.services.Iprivacy;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;

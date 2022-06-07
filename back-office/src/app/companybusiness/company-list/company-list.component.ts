@@ -88,6 +88,7 @@ export class CompanyListComponent implements OnInit {
           })
           this.notificationService.success(' :: Deleted Successfully')
         }
+        this.refresh();
       });
    
   }

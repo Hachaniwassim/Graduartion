@@ -9,7 +9,7 @@ export class FormEntityDTO {
      adresse !: string;
      nationality!: string;
      referent!: string;
-     contactstatus!: string;
+     contactStatus!: string;
      productId!:string;
      message !: string;
      entrepriseId = environment.enterpriseId

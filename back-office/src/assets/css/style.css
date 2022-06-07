@@ -1194,6 +1194,15 @@ dt {
   display: none;
   opacity: 0;
 }
+.logo_area {
+	float: left;
+	margin-left: 50;
+  position: absolute;
+}
+
+.logo_area img{
+	margin-left: 0;
+}
 
 .enlarged #wrapper .topbar .topbar-left .logo .logo-sm {
   display: block;

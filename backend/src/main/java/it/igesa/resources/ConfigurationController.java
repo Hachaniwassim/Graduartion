@@ -6,6 +6,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import it.igesa.strategy.impl.ConfigServiceImp;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,17 +26,11 @@ import java.util.Collection;
 @Api(tags = "CONFIGURATION")
 public class ConfigurationController {
 
-    /************************
-     *
-     *@PRIVATE_API : with token
-     *
-     ******/
     private final String PRIVATE_API = "/api/private/config";
 
-   /** logger for : debug , warning , success **/
     private static final Logger log = LoggerFactory.getLogger(ConfigurationController.class);
     @Autowired
-    private Iconfiguration iconfigurationService ;
+    private Iconfiguration iconfigurationService;
 
 
     @RequestMapping(value=PRIVATE_API + "/post-config",method = RequestMethod.POST)
@@ -87,7 +82,7 @@ public class ConfigurationController {
         return new ResponseEntity<>( iconfigurationService.findById(id),HttpStatus.OK);
     }
 
-    @RequestMapping(value=PRIVATE_API + "/put-config",method =RequestMethod.PUT)
+  @PutMapping(PRIVATE_API + "/put-request")
     @PreAuthorize( "hasRole('MODERATOR') or hasRole('ADMIN')")
     @ApiOperation(value="UPDATE CONFIG  ",response = ConfigGeneralDTO.class)
     @ApiResponses(value= {

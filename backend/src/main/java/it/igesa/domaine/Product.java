@@ -11,6 +11,7 @@ import lombok.*;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -37,6 +38,22 @@ public class Product extends Auditable{
 	@Column(columnDefinition="text")
 	private String requirements;
 	private String image ;
+
+
+	/**
+	 *
+	 *
+	 * list contacts
+	 *
+	 *
+	 */
+
+
+	@OneToMany(mappedBy="product",cascade = CascadeType.ALL)
+	private List<FormEntity> formEntity ;
+
+	@OneToMany(mappedBy="product",cascade = CascadeType.ALL)
+	private List<PostRevendeur> postRevendeurs ;
 
 	/**
 	 * ENTERPRISE

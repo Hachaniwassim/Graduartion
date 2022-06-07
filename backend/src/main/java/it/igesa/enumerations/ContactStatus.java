@@ -5,7 +5,7 @@ package it.igesa.enumerations;
  *
  */
 public enum ContactStatus {
-    ACTIVE,
+    ACCEPTED,
     PENDING,
-    BLOCKED
+    REJECTED
 }

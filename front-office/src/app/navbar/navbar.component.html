@@ -6,11 +6,11 @@
 		<header id="header">
 			<div class="container">	
 				<div class="row">			
-					<div class="col-md-4 col-sm-3">
-						<!-- Logo Area 
+					<div class="col-md-4 col-sm-1">
+						<!-- Logo Area --->
 						<div class="logo_area">
-							 <a href="index.html"><img src="../../assets/img/igesa.png" alt="Logo" style="width: 41%;" /></a>
-						</div>-->
+							 <a><img src="../../assets/img/mss2.png" alt="Logo" style="width: 37%;" /></a>
+						</div>
 						
 						<div class="navbar-header">
 							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -31,14 +31,15 @@
 									<li><a (click)="reloadPage()"   routerLink="/sellers">Our Sellers</a></li>
 									<li><a (click)="reloadPage()"  routerLink="/products">Products</a></li>
 									<li><a (click)="reloadPage()"  routerLink="/category" >Category</a></li>
-									<li><a (click)="reloadPage()"  routerLink="/usefulllinks" >Usefull Links</a></li>	
-									<li><a (click)="reloadPage()"  routerLink="/assistance" >Assistance</a></li>	
-									<li><a (click)="reloadPage()"  routerLink="/nwes" >Nwes</a></li>
+									<li><a (click)="reloadPage()"  routerLink="/usefulllinks" >Links</a></li>	
+									<li><a (click)="reloadPage()"  routerLink="/assistance" >Assistance</a></li>
+									<li><a (click)="reloadPage()"  routerLink="/refrence" >Reference</a></li>
+								    <li><a (click)="reloadPage()"  routerLink="/nwes" >Nwes</a></li>
 									<li><a (click)="reloadPage()"  routerLink="/contact">Contact</a></li>
 									
 									<li>        
 										<a routerLink="/login" *ngIf="!isLoggedIn"> 
-											<i class="fa fa-lock"></i> Login / Register</a> 
+											<i class="fa fa-lock"></i>Login/Register</a> 
 										<a  *ngIf="isLoggedIn"> 
 											<i class="fa fa-lock"></i> {{username}}
 										</a> 

@@ -1,5 +1,5 @@
 package it.igesa.services.implement;
-import it.igesa.dto.CookiesDTO;
+import it.igesa.dto.legale.CookiesDTO;
 import it.igesa.domaine.Cookies;
 import it.igesa.exceptions.ResourceNotFoundException;
 import it.igesa.services.Icookies;

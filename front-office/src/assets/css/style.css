@@ -546,6 +546,8 @@ ul, ol{
 	display: inline-block;
 }
 .section_title p {
+
+
 	margin-top: 10px;
 }
 .section_title span {
@@ -603,7 +605,10 @@ ul, ol{
 }
 .logo_area {
 	float: left;
+	margin-left: 60;
+  position: absolute;
 }
+
 .logo_area img{
 	margin-left: 0;
 }
@@ -613,11 +618,11 @@ ul, ol{
     width: 100%;
 }
 #main_menu{
-	margin-top: 10px;
+	margin-top: 20px;
 }
 
 .nav > li {
-	padding: 7px 12px;
+	padding: 6px 12px;
 	border: 1px solid transparent;
 	transition: .5s;
 }
@@ -652,7 +657,7 @@ ul, ol{
 	float: right;
 	margin-right: 15px;
 	padding: 9px 10px;
-	margin-top: 19px;
+	margin-top: 25px;
 	margin-bottom: 0;
 }
 .navbar-toggle .icon-bar{

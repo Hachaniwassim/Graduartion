@@ -96,20 +96,18 @@ export class EntrepriseAddComponent implements OnInit {
    onSubmit() {
     if (this.entrepriseService.form.valid) {
       if (!this.entrepriseService.form.get('id')?.value)
-        this.entrepriseService.createEntreprise(this.entrepriseService.form.value).subscribe((res) => {
-          this.entreprise.push(res);
-          this.refresh();
+       this.entrepriseService.createEntreprise(this.entrepriseService.form.value).subscribe((res) => {
           this.notificationService.success('  ::  '  + ' ' +  ' add successfully ' + ' ' + '⚡');
         })
 
       else(
-        this.entrepriseService.updateEntreprise(this.entrepriseService.form.value).subscribe((res) => {
+         this.entrepriseService.updateEntreprise(this.entrepriseService.form.value).subscribe((res) => {
           this.entreprise.push(res);
            this.notificationService.success('  ::  '  + ' ' + ' updated successfully ' + ' ' + '⚡');
-        })) 
-        this.onClose();
-        this.refresh();
+        }
+        )) 
       }
+      this.onClose();
       this.refresh();
   }
 
@@ -122,9 +120,9 @@ export class EntrepriseAddComponent implements OnInit {
     });
   }
 
+
   // dialogue close 
   onClose() {
-    this.entrepriseService.form.reset();
     this.entrepriseService.initializeFormGroup();
     this.dialogRef.close();
   }

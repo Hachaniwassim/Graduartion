@@ -1,5 +1,5 @@
 package it.igesa.validators;
-import it.igesa.dto.PageDTO;
+import it.igesa.dto.pages.PageDTO;
 import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;

@@ -20,7 +20,7 @@ export class EntrepriseDTO{
         street !:string ;
         refrente!: string;
         siretNumber!: string;
-        CodeBank!: string;
+        codeBank!: string;
        // Vatnumber!: string;
         websiteUrl!: string;
        

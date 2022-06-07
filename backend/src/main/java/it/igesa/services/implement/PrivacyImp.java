@@ -1,5 +1,5 @@
 package it.igesa.services.implement;
-import it.igesa.dto.PrivacyDTO;
+import it.igesa.dto.legale.PrivacyDTO;
 import it.igesa.domaine.Privacy;
 import it.igesa.exceptions.ResourceNotFoundException;
 import it.igesa.services.Ientreprise;

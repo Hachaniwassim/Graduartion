@@ -5,6 +5,8 @@ import it.igesa.domaine.Product;
 import it.igesa.enumerations.ContactStatus;
 import lombok.Builder;
 import lombok.Data;
+
+import javax.persistence.Column;
 import java.util.Date;
 
 
@@ -17,7 +19,6 @@ import java.util.Date;
 @Builder
 public class FormDTO {
 	private Long id ;
-	private String name ;
 	private String companyname;
 	private String mobile ;
 	private String fax ;
@@ -27,9 +28,10 @@ public class FormDTO {
 	private String referent ;
 	protected Date createdDate;
 	protected Date lastModifiedDate;
-	protected String createdBy;
 	private Long entrepriseId;
 	private Long productId;
+	@Column(columnDefinition="text")
+	private String message ;
 	private ContactStatus contactStatus;
 
 
@@ -46,13 +48,13 @@ public class FormDTO {
 				.adresse(contact.getAdresse())
 				.companyname(contact.getCompanyname())
 				.nationality(contact.getNationality())
-				.name(contact.getName())
 				.createdDate(contact.getCreatedDate())
 				.lastModifiedDate(contact.getLastModifiedDate())
 				.mobile(contact.getMobile())
 				.entrepriseId(contact.getEntreprise().getId())
 				.contactStatus(contact.getContactstatus())
-				.productId(contact.getSoftwareused().getId())
+				.productId(contact.getProduct().getId())
+				.message(contact.getMessage())
 				.build();
 	}
 
@@ -74,7 +76,7 @@ public class FormDTO {
 		contact.setLastModifiedDate(dto.getLastModifiedDate());
 		contact.setCreatedDate(dto.getCreatedDate());
 		contact.setContactstatus(dto.getContactStatus());
-		contact.setName(dto.getName());
+		contact.setMessage(dto.getMessage());
 		//=======================> entreprise
 		Entreprise entreprise = new Entreprise();
 		entreprise.setId(dto.getEntrepriseId());
@@ -82,7 +84,7 @@ public class FormDTO {
 		//=======================> contact
 		Product product = new Product();
 		product.setId(dto.getProductId());
-		contact.setSoftwareused(product);
+		contact.setProduct(product);
 		return contact;
 	}
 

@@ -29,6 +29,7 @@ import { SetGroupInterceptor } from './_helpers/set-group.interceptor';
 import { NwesListComponent } from './nwes-list/nwes-list.component';
 import { CategoryComponent } from './category/category.component';
 import { TapToTopComponent } from './tap-to-top/tap-to-top.component';
+import { RefrenceComponent } from './refrence/refrence.component';
 
 
 @NgModule({
@@ -51,6 +52,7 @@ import { TapToTopComponent } from './tap-to-top/tap-to-top.component';
     NwesListComponent,
     CategoryComponent,
     TapToTopComponent,
+    RefrenceComponent,
   ],
   imports: [
     ReactiveFormsModule,

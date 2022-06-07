@@ -24,19 +24,10 @@ export class LeftSlideBarComponent implements OnInit {
     if (this.isLoggedIn) {
       const user = this.tokenStorageService.getUser();
       this.roles = user.roles;
-
       this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
       this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR');
-
       this.username = user.username;
     }
-  if ( !(this.isLoggedIn)){
-    this.tokenStorageService.signOut();
-    this.router.navigate(['/']);
-    this.refresh();
-    
-  }
-
   }
   refresh(): void {
 		this.router.navigateByUrl("/refresh", { skipLocationChange: true }).then(() => {

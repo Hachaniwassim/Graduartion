@@ -26,7 +26,7 @@ export class PostService {
 
 //get all   refrence by entreprise
 getAllByEntreprise():any{
-   return this.http.get<postDTO[]>(this.base_url+ '/list-rference/'+ environment.enterpriseId)
+   return this.http.get<postDTO[]>(this.base_url+ '/list-refrence/'+ environment.enterpriseId)
  }
 
 

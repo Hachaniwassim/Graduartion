@@ -89,12 +89,13 @@ export class LanguageListComponent implements OnInit {
     this.dialogService.openConfirmDialog('Are you sure to delete this record ?')
       .afterClosed().subscribe((res: any) => {
         if (res) {
-          this.languageservice.deletelanguage(id).subscribe(() => {
+          this.languageservice.deletelanguage(id).subscribe((res) => { 
+
+            this.datasource.data.push(res)
+            
+         this.refresh();
           })
-          
-          this.ngOnInit();
-          this.refresh();
-          this._snackBar.open(" :: Groupe have been deleted Successfully ", "", {
+           this._snackBar.open(" :: deleted Successfully ", "", {
             duration: 3000,
             horizontalPosition: "right",
             verticalPosition: "top",
@@ -109,8 +110,9 @@ export class LanguageListComponent implements OnInit {
             verticalPosition: "top",
             panelClass: ["mat-toolbar", "mat-warn"],
           });
+        
         });
-
+                    
   }
 
 
@@ -130,6 +132,18 @@ export class LanguageListComponent implements OnInit {
     ), dialogConfig
 
   }
+
+  reloadPage() {
+    window.location.reload();
+  }
+
+  refresh(): void {
+    this.router.navigateByUrl("/refresh", { skipLocationChange: true }).then(() => {
+
+      this.router.navigate(['/language']);
+    });
+  }
+
 
   // create dialog config
   onCreatelanguage() {
@@ -157,14 +171,6 @@ export class LanguageListComponent implements OnInit {
   onClear() {
     this.languageservice.form.reset();
     this.languageservice.initializeFormGroup();
-  }
-
-  //refrech 
-  refresh(): void {
-    this.router.navigateByUrl("/refresh", { skipLocationChange: true }).then(() => {
-      console.log(decodeURI(this._location.path()));
-      this.router.navigate([decodeURI(this._location.path())]);
-    });
   }
 
 

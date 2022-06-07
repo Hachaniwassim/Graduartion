@@ -136,13 +136,13 @@ export class PrivacypolicyComponent implements OnInit {
           //test
           console.log(r);
           // snackBar success 
-          this._snackBar.open("Updated Successfully", "OK" + '⚡', {
+          this._snackBar.open("updated successfully", "OK" + '⚡', {
             duration: 5000,
             horizontalPosition: "right",
             verticalPosition: "top",
             panelClass: ["mat-toolbar", "mat-succes"],
           });
-          Swal.fire('Updated!', ' Updated successfully.', 'success');
+          Swal.fire('updated!', ' updated successfully.', 'success');
           if (result.dismiss === Swal.DismissReason.cancel) {
            
           }

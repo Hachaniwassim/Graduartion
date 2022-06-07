@@ -38,13 +38,6 @@ import static org.springframework.http.HttpStatus.OK;
 public class AccountController {
 
     public static final String EMAIL_SENT = "An email with a new password was sent to: ";
-
-
-    /**************************
-     *
-     *@PRIVATE_API : with token
-     *
-     ******/
     private final String PRIVATE_API = "/api/private/user";
 
     private static final Logger log = LoggerFactory.getLogger(AccountController.class);
