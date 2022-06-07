@@ -30,7 +30,6 @@ import java.util.Set;
         protected Date lastModifiedDate;
         protected Date createdDate;
         private Long groupeId;
-       // private Long entrepriseId;
         private Set<Role> roles = new HashSet<>();
 
         public static AccountDTO fromEntity(Account account) {
@@ -43,15 +42,8 @@ import java.util.Set;
                     .matchingPassword(account.getMatchingPassword())
                     .password(account.getPassword())
                     .lastModifiedDate(account.getLastModifiedDate())
-                   // .groupId(account.getGroupe().getId())
-                   // //.entrepriseId(account.getEntreprise().getId())
                     .roles(account.getRoles())
                     .createdDate(account.getCreatedDate());
-            // .build();
-           /* if(account.getEntreprise()!=null){
-                adto.entrepriseId(account.getEntreprise().getId());
-            }
-            */
             if(account.getGroupe()!=null){
 
                 adto.groupeId(account.getGroupe().getId());

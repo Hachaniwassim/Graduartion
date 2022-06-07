@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
@@ -6,7 +6,11 @@ import Swal from 'sweetalert2';
 import { Location } from '@angular/common';
 import { RevendeurDTO } from '../models/dto/revendeursDTO';
 import { RevendeurService } from '../_services/revendeurs.services';
-declare const L : any ;
+import { PostRevendeurService } from '../_services/post-revendeurs.service';
+import { PostRevendeurDTO } from '../models/dto/post-revebdeurDTO';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-revendeurs',
@@ -26,11 +30,45 @@ export class RevendeursComponent implements OnInit {
 
   data !: RevendeurDTO;
   revendeur !: FormGroup;
+  contact: PostRevendeurDTO[]= [];
+  searchKey!: string;
+  datasource = new MatTableDataSource(this.contact)
+  displayedColumns: string[] = ['companyname', 'email','revendeursStatus', 'mobile','createdDate', 'lastModifiedDate', 'actions'];
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort, {}) sort!: MatSort;
   constructor(private fb: FormBuilder, private revendeurService:RevendeurService ,
-    public router: Router, public _location: Location, public _snackBar: MatSnackBar,) {
+    public router: Router, public _location: Location, public _snackBar: MatSnackBar,public revendeurPostService: PostRevendeurService) {
  
   }
  
+   /**
+  * Data Sorting
+  */
+    ngAfterViewInit() {
+      this.datasource.paginator = this.paginator;
+      this.datasource.sort = this.sort;
+    }
+
+
+    
+
+  /********************
+   *   search Clear 
+   */
+  onSearchClear() {
+    this.searchKey = "";
+    this.applyFilter();
+  }
+
+
+ /**********************
+  *  Filter Data
+  */
+  applyFilter() {
+    this.datasource.filter = this.searchKey.trim().toLowerCase();
+
+  }
+  
 
   ngOnInit() {
  
@@ -59,78 +97,11 @@ export class RevendeursComponent implements OnInit {
       this.revendeur.patchValue(this.data);
  
     });
-    /** Strret Map */
-    if (!navigator.geolocation) {
-      console.log('location is not supported');
-    }
-    navigator.geolocation.getCurrentPosition((position) => {
-      const coords = position.coords;
-      const latLong = [coords.latitude, coords.longitude];
-      console.log(
-        `lat: ${position.coords.latitude}, lon: ${position.coords.longitude}`
-      );
-     let mymap = L.map('map').setView(latLong, 4.2);
-     L.tileLayer(
-      'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic3VicmF0MDA3IiwiYSI6ImNrYjNyMjJxYjBibnIyem55d2NhcTdzM2IifQ.-NnMzrAAlykYciP4RP9zYQ',
-      {
-        attribution:
-          'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-        maxZoom: 22,
-        id: 'mapbox/streets-v11',
-        tileSize: 512,
-        zoomOffset: -1,
-        accessToken: 'your.mapbox.access.token',
-      }
-    ).addTo(mymap);
-    L.marker([40.733235, 8.5467447]).addTo(mymap);
-    L.marker([45.4842277, 9.2012376]).addTo(mymap);
-    L.marker([44.7115622, 10.6027584]).addTo(mymap);
-    L.marker([44.6517905, 10.8603544]).addTo(mymap);
-    L.marker([41.8933203, 12.4829321]).addTo(mymap);
-    L.marker([39.6205476, 16.5174167]).addTo(mymap);
-    L.marker([39.3019161, 16.253962]).addTo(mymap);
-    L.marker([38.690483, 16.1096073]).addTo(mymap);
-    L.marker([37.775408, -122.413682]).addTo(mymap);
-    L.marker([37.775408, -122.413682]).addTo(mymap);
-    L.marker([37.775408, -122.413682]).addTo(mymap);
-    L.marker([37.775408, -122.413682]).addTo(mymap);
-    L.marker([37.775408, -122.413682]).addTo(mymap);
-    L.marker([37.775408, -122.413682]).addTo(mymap);
-    L.marker([37.775408, -122.413682]).addTo(mymap);
-    L.marker([37.775408, -122.413682]).addTo(mymap);
-    L.marker([37.775408, -122.413682]).addTo(mymap);
-    L.marker([37.775408, -122.413682]).addTo(mymap);
-    L.marker([37.775408, -122.413682]).addTo(mymap);
-    L.marker([37.775408, -122.413682]).addTo(mymap);
-    L.marker([37.775408, -122.413682]).addTo(mymap);
-    L.marker([37.775408, -122.413682]).addTo(mymap);
-
-
-  });
-  this.watchPosition();}
-  watchPosition() {
-    let desLat = 0;
-    let desLon = 0;
-    let id = navigator.geolocation.watchPosition(
-      (position) => {
-        console.log(
-          `lat: ${position.coords.latitude}, lon: ${position.coords.longitude}`
-        );
-        if (position.coords.latitude === desLat) {
-          navigator.geolocation.clearWatch(id);
-        }
-      },
-      (err) => {
-        console.log(err);
-      },
-      {
-        enableHighAccuracy: true,
-        timeout: 5000,
-        maximumAge: 0,
-      }
-    );
-  
-  }
+    
+    this.revendeurPostService.getByEntreprise().subscribe((response: any) => {
+      this.datasource.data = response;
+  })
+}
  
   /***********************
   * ***********
@@ -177,6 +148,110 @@ export class RevendeursComponent implements OnInit {
       this.refresh();
     });
   }
+
+
+
+
+
+
+
+/**********************
+  *  Delete Groupe By Id
+  */
+ onDeleteRevendeur(id: number) {
+
+  Swal.fire({
+    title: 'Are you sure to delete this contact !?',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Yes',
+    cancelButtonText: 'No',
+  }).then((result) => {
+    if (result.value) {
+      this.revendeurPostService.deleteRevendeur(id)
+        .subscribe(
+          response => {
+            console.log(response);
+            this.contact.push(response)
+               Swal.fire('deleted!', ' deletd successfully.', 'success');
+               if (result.dismiss === Swal.DismissReason.cancel) {}
+              })
+
+            }
+             // snackBar success 
+             this._snackBar.open(" deleted successfully", "OK" + '⚡', {
+              duration: 5000,
+              horizontalPosition: "right",
+              verticalPosition: "top",
+              panelClass: ["mat-toolbar", "mat-succes"],
+            });
+         })
+    
+  }
+                
+    
+      
+
+
+
+updateRevendeurStatus(element: PostRevendeurDTO) {
+  Swal.fire({
+    title: 'Are you sure to Update status  !?',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Yes.',
+    cancelButtonText: 'No.',
+  }).then((result) => {
+    if (result.value) {
+      this.revendeurPostService.updateRevendeurByStatus(element.id, element.revendeursStatus).subscribe(res => {
+
+        console.log(res);
+
+        const index = this.datasource.data.indexOf(element);
+        if (index > -1) {
+          this.datasource.data[index].revendeursStatus = res.revendeursStatus;
+        }
+         // snackBar success 
+       this._snackBar.open("status updated Successfully",+ ' '+  "OK"+ ' '+'⚡', {
+        duration: 5000,
+        horizontalPosition: "right",
+        verticalPosition: "top",
+        panelClass: ["mat-toolbar", "mat-succes"],
+      });
+
+      })
+      Swal.fire('updated!', ' status updated successfully.', 'success');
+    } else if (result.dismiss === Swal.DismissReason.cancel) {
+    }
+      
+  });
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  
  
 
@@ -264,6 +339,8 @@ export class RevendeursComponent implements OnInit {
       this.router.navigate([decodeURI(this._location.path())]);
     });
   }
+
+  /***************************************** list-revendeurs  *********************************************/
  
  
 }

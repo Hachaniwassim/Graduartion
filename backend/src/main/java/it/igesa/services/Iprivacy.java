@@ -1,5 +1,5 @@
 package it.igesa.services;
-import it.igesa.dto.PrivacyDTO;
+import it.igesa.dto.legale.PrivacyDTO;
 import java.util.Collection;
 
 public interface Iprivacy {

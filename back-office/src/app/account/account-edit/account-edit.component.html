@@ -23,11 +23,13 @@
         </div><br><br>
         <mat-divider></mat-divider><br>
         <label for=""> Assign Group</label><br>
-        <select class="form-control" name="groups" id="groups-select">
+        <select class="form-control" name="groups" id="groups-select"(change)="onChangeGroup($event)" >
+          <option>select the group</option>
           <option *ngFor="let group of groups" [value]="group.id"
-            [attr.selected]="data.groupId == group.id ? true : null">
+            [attr.selected]="data.groupeId == group.id ? true : null">
             {{ group.name }}
           </option>
+          
         </select>
       </div>
       <div class="container">

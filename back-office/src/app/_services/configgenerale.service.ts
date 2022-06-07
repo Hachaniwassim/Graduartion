@@ -45,7 +45,7 @@ export class ConfigGeneraleService {
 
 
 //get by entreprise
-getConfigByEntreprise():Observable<configgeneraleDTO[]>{
+getConfigByEntreprise(){
    return this.http.get<configgeneraleDTO[]>(this.base_url + '/config-entreprise/' + localStorage.getItem('idEntreprise'));
  }
 
@@ -53,7 +53,7 @@ getConfigByEntreprise():Observable<configgeneraleDTO[]>{
 
    // update by entreprise
    update( request : any){
-    return this.http.post<configgeneraleDTO>(this.base_url + '/post-config',request)
+    return this.http.put<configgeneraleDTO>(this.base_url + '/put-config',request)
    }
 
 

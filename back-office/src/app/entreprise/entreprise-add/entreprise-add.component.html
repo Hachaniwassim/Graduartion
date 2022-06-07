@@ -67,7 +67,7 @@
     <td>
       <mat-form-field class="example-full-width">
         <mat-label>CodeBank</mat-label>
-        <input matInput formControlName="CodeBank">
+        <input matInput formControlName="codeBank">
       </mat-form-field>
     </td>
   <td>
@@ -137,7 +137,7 @@
       <td>
         <label>Type of activity</label>
         <mat-divider></mat-divider><br>
-        <mat-form-field class="example-full-width" appearance="fill">
+        <mat-form-field class="example-full-width" >
           <mat-select placeholder="Type Activity" formControlName="companyBusinessId" required>
             <mat-option *ngFor="let company of companyServices" [value]="company.id">
               {{company.description}}
@@ -152,7 +152,7 @@
   </table>
   <div class="button-row" align="center" style="margin-left: 30px;">
     <button mat-raised-button color="primary" type="submit" [disabled]="entrepriseService.form.invalid"
-      (click)="refresh()">&nbsp;&nbsp;
+      (click)="reloadPage()">&nbsp;&nbsp;
       <mat-icon>save</mat-icon> Save
     </button>&nbsp;&nbsp;
     <button mat-raised-button mat-dialog-close>

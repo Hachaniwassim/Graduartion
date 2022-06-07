@@ -19,6 +19,7 @@ import { AuthGuard } from './guard/auth.guard';
 import { PostulsellerComponent } from "./postulseller/postulseller.component";
 import { NwesListComponent } from './nwes-list/nwes-list.component';
 import { CategoryComponent } from './category/category.component';
+import { RefrenceComponent } from './refrence/refrence.component';
 
 
 const routes: Routes = [
@@ -55,7 +56,10 @@ const routes: Routes = [
   { path: 'assistance', component: AssitanceComponent },
 
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+
   {path : 'category', component : CategoryComponent},
+
+  {path : 'refrence', component : RefrenceComponent},
 
   { path: 'postulseller', component: PostulsellerComponent, canActivate: [AuthGuard] },
 

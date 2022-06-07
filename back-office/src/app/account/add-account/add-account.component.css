@@ -1,0 +1,120 @@
+
+.form-group .has-error {
+    color: rgb(183, 5, 5);
+  }
+  
+  .form-group .btn {
+    color: white;
+    background-color: #446DCA;
+    font-size: 19px;
+    font-weight: 600;
+    text-align: left;
+    width: 180px;
+    padding: 10px 30px;
+    margin: 0 25px 0 0;
+    border-radius: 30px;
+    border: none;
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease 0s;
+  }
+  
+  .form-group .btn:hover,
+  .form-group .btn:focus {
+    color: white;
+    background-color: #222;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    outline: none;
+  }
+  
+  .form-group .btn:after {
+    content: '';
+    height: 70%;
+    width: 110%;
+    border-top: 5px solid #fff;
+    border-bottom: 5px solid #fff;
+    transform: rotate(-50deg);
+    position: absolute;
+    right: -105px;
+    top: -65px;
+    transition: all 0.5s ease 0s;
+  }
+  
+  .form-group .btn:hover:after {
+    right: -70px;
+    top: -30px;
+  }
+  
+  .form-group .form-control:focus {
+    box-shadow: none;
+    border-color: #446DCA;
+  }
+  
+  .version {
+    font-size: 1rem;
+    font-weight: 610;
+    letter-spacing: 2px;
+  }
+  
+  .footer {
+    bottom: 10px;
+    width: 100%;
+  }
+  
+  .languages a {
+    margin-right: 10px;
+  
+    letter-spacing: 1px;
+  }
+  
+  .form-group.form-control:focus {
+    box-shadow: none;
+    border-color: #446DCA;
+  }
+  
+
+  .form-group.form-control::placeholder {
+    color: #222;
+    font-size: 15px;
+  }
+  
+  .form-group .input-icon {
+    color: #7b7b7b;
+    font-size: 23px;
+    position: absolute;
+    left: 310px;
+    top: 210px;
+  }
+  
+  /* validate form  */
+  .form-control.ng-touched.ng-invalid {
+    border: 1px solid rgb(183, 5, 5);
+    border-left: 5px solid rgb(183, 5, 5);
+  }
+  
+  /* validate form  */
+  .form-control.ng-touched.ng-valid {
+    border: 1px solid #446DCA;
+    border-left: 5px solid #446DCA;
+  }
+  
+  /*.form-control .textarea.ng-invalid   {
+    border: 1px solid red;
+    border-left: 5px solid red;
+  }*/
+  
+  /* alert msg d erreur */
+  
+  div.msg {
+    margin-top: 15px;
+    color: rgb(183, 5, 5);
+  }
+  
+  
+  /* validate form  */
+  input.ng-invalid {
+    border-left: 5px solid rgb(183, 5, 5);
+  }
+  

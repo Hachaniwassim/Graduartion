@@ -1,7 +1,6 @@
 package it.igesa.services;
 
 import it.igesa.dto.ConfigGeneralDTO;
-
 import java.util.Collection;
 
 public interface Iconfiguration {

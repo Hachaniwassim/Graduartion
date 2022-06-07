@@ -20,25 +20,26 @@ import java.util.Objects;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="Contact")
-public class FormEntity  extends Auditable{
+@Table(name="FormEntity")
+public class FormEntity  extends Auditable {
 	@Id
-	@GeneratedValue(strategy= GenerationType.IDENTITY)
-	private Long id ;
-	private String name ;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	@Column(columnDefinition = "text")
+	private String message;
 	private String companyname;
-	private String mobile ;
-	private String fax ;
+	private String mobile;
+	private String fax;
 	@Email
-	private String email ;
-	private String adresse ;
-	private String nationality ;
-	private String referent ;
+	private String email;
+	private String adresse;
+	private String nationality;
+	private String referent;
 
 	/**
-	 *  status Contact
+	 * status Contact
 	 */
-	private ContactStatus contactstatus ;
+	private ContactStatus contactstatus;
 
 	/**
 	 * Product used
@@ -46,27 +47,14 @@ public class FormEntity  extends Auditable{
 	@Setter
 	@Getter
 	@ManyToOne
-	private Product softwareused ;
+	private Product product;
 
 	/**
 	 * ENTERPRISE
-	 *
 	 */
 	@Setter
 	@Getter
 	@ManyToOne
 	private Entreprise entreprise;
 
-	@Override
-	public boolean equals(Object o) {
-		if (this == o) return true;
-		if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-		FormEntity that = (FormEntity) o;
-		return id != null && Objects.equals(id, that.id);
-	}
-
-	@Override
-	public int hashCode() {
-		return getClass().hashCode();
-	}
 }

@@ -107,7 +107,7 @@ export class LoginComponent implements OnInit {
         //======
         if (data.roles[0] === 'ROLE_MODERATOR') {
           //this.schooseGroup= true;
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(['/account']);
           return;
         } else if (data.roles[0] === 'ROLE_USER') {
           this.router.navigate(['/']);

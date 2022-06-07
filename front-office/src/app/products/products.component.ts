@@ -23,4 +23,7 @@ ngOnInit(): void {
     ( res : any) => this.productslist = res
   );
  }
+ reloadPage() {
+   window.location.href='/'
+ }
 }

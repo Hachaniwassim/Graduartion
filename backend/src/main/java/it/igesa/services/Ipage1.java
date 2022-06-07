@@ -1,5 +1,5 @@
 package it.igesa.services;
-import it.igesa.dto.Page1DTO;
+import it.igesa.dto.pages.Page1DTO;
 import java.util.Collection;
 
 /**

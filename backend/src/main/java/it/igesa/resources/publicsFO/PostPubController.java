@@ -28,10 +28,10 @@ public class PostPubController {
     private final String PUBLIC_API = "/api/Reference-public";
 
 
-    @RequestMapping(value=PUBLIC_API+ "/list-refrence/{id_entreprise}",method = RequestMethod.GET)
+    @RequestMapping(value=PUBLIC_API+ "//{id_entreprise}",method = RequestMethod.GET)
     @ApiOperation(value="GET A LIST OF Post", responseContainer  = "Collection<PostDTO>")
     @ApiResponses(value= {
-            @ApiResponse(code=200,message="Post was found successfully"),
+            @ApiResponse(code=200,message="Plist-refrenceost was found successfully"),
             @ApiResponse( code=404, message="Post Not found "),
             @ApiResponse(code=401,message="Unauthorized , without authority or permission"),
             @ApiResponse( code=403, message="not permitted or allowed"),

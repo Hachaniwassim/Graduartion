@@ -1,14 +1,10 @@
 package it.igesa.services.implement;
-
 import it.igesa.dto.ConfigGeneralDTO;
 import it.igesa.domaine.ConfigGenerale;
 import it.igesa.enumerations.ErrorCode;
 import it.igesa.exceptions.ResourceNotFoundException;
 import it.igesa.services.Iconfiguration;
 import it.igesa.repository.IconfigRepository;
-import it.igesa.repository.IentrepriseRepository;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.Collection;
@@ -21,12 +17,9 @@ import org.slf4j.LoggerFactory;
  *
  */
 
-@AllArgsConstructor
-@NoArgsConstructor
 @Service
 public class ConfigurationImp implements Iconfiguration {
-    @Autowired
-    IentrepriseRepository ientrepriseRepository;
+
     @Autowired
     IconfigRepository iconfigRepository;
     private static final Logger log = LoggerFactory.getLogger(ConfigurationImp.class);

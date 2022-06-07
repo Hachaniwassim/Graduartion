@@ -38,7 +38,7 @@ export class AddCategoryComponent implements OnInit {
     public dialogService: DialogService, public dialogRef: MatDialogRef<AddCategoryComponent>) { }
 
   ngOnInit(): void {
-   // sortingthis.getCategoryByEntreprise();
+    this.getCategoryByEntreprise();
   }
 
 
@@ -73,9 +73,10 @@ export class AddCategoryComponent implements OnInit {
    
     if (this.categoryService.form.valid) {
       console.log('validation')
-      //if (!this.categoryService.form.value.id) {
-        if (!this.categoryService.form.get('id')?.value)
-          console.log('i am in ts file ============> if ',this.categoryService.idIfEdit);
+      if (!this.categoryService.form.value.id) {
+      
+    
+        
         let categoryBody = {
           image: this.baseCategoryPath + imageName + "." + this.typeImage,
           title: this.categoryService.form.value.title,
@@ -87,37 +88,42 @@ export class AddCategoryComponent implements OnInit {
           lastModifiedDate: new Date(),
           enterpriseId: localStorage.getItem('idEntreprise'),
 
-        }
+        };
 
         // upload categorie file
         await this.categoryService.uploadCategoryImage(imageName, this.imageFile).subscribe((res: any) => {
-          console.log('the result of upload image ', res);
+          
         });
 
         // create category file
-        await this.categoryService.createCategory(categoryBody).subscribe((res: any) => {
-          console.log('the result of add category===>', res)
+         this.categoryService.createCategory(categoryBody).subscribe((res: any) => {
+       
         },
           (err: any) => { console.log(' errr :: ===============>', err) });
         this.notificationService.success('  ::  ' + ' ' + 'add successfully ' + '⚡');
-        //this.refresh();
+        this.refresh();
       }
 
 
       // update category file 
-      if(
-         this.categoryService.updateCategory(this.categoryService.form.value).subscribe((res) => {
-          console.log("====================> updateeeeee test ", res)
+      else {
+
+      
+         let request=this.categoryService.form.value;
+         request.image=this.categoryService.form.value.image;
+         this.categoryService.updateCategory(request).subscribe((res) => {
 
           //this.notificationService.success('  ::  ' + ' ' + ' updated successfully ' + '⚡')
-         }
-        )
-      )
+        },
+
+          (err: any) => { console.log(' errr :: ===============>', err) });
+      }
+        
       this.onClose();
     }
 
 
-  
+  }
 
 
 

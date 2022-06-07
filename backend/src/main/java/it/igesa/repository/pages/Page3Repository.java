@@ -1,5 +1,5 @@
 package it.igesa.repository.pages;
-import it.igesa.domaine.Page3;
+import it.igesa.domaine.pages.Page3;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import java.util.List;
