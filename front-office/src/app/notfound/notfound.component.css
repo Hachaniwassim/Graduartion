@@ -1,0 +1,81 @@
+/* Page Error ------------------------------------------------------------*/
+.page-error{
+	max-width: 100%;
+	margin: 0 auto;
+	text-align: center;
+}
+.page-error h1{
+	font-size: 160px;
+	line-height: 160px;
+}
+.page-error h1 i{
+	font-size: 200px;
+	line-height: 200ppx;
+}
+.page-error hr.tall{
+	margin: 50px 0 50px 0;
+}
+
+.no-pad-left{
+	padding-left: 0 !important;
+}
+.paddings{
+	padding: 90px 0 !important;
+}
+.paddings-large{
+	padding: 300px 0;
+}
+.padding-top{
+	padding-top: 90px;
+}
+.padding-bottom{
+	padding-bottom: 90px;
+}
+.padding-top-mini{
+	padding-top: 50px;
+}
+.btn{
+    color: white;
+    background-color: #446DCA;
+    font-size: 13px;
+    font-weight: 1500px;
+    text-align: center;
+    align-content: space-between;
+    width: 180px;
+    padding: 10px 30px;
+    margin: 0 25px 0 0;
+    border-radius: 30px;
+    border: none;
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease 0s;
+}
+.btn:hover,
+ .btn:focus{
+    color: white;
+    background-color: #222;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    outline: none;
+}
+.btn:after{
+    content: '';
+    height: 60%;
+    width: 100%;
+    border-top: 5px solid #fff;
+    border-bottom: 5px solid #fff;
+    transform: rotate(-50deg);
+    position: absolute;
+    right: -105px;
+    top: -65px;
+    transition: all 0.5s ease 0s;
+}
+a.btn{
+	margin-right: 10px;
+}
+ .btn:hover:after{
+    right: -70px;
+    top: -30px;
+}
+

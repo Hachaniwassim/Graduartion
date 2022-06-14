@@ -198,7 +198,7 @@ await this.productService.addProduct(productBody).subscribe((res:any)=>{
   //CKeditor
    
   config = {
-    height: 200, 
+    height: 250, 
     
     image: {
       styles: [

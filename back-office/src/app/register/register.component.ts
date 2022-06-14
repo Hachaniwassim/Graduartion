@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthService } from '../_services/auth.service';
 
@@ -39,7 +38,7 @@ export class RegisterComponent implements OnInit {
       matchingPassword,
       fiscaleCode } = this.form;
 
-    this.authService.register(username, email, password, matchingPassword, fiscaleCode).subscribe(
+    this.authService.create(username, email, password, matchingPassword, fiscaleCode).subscribe(
       data => {
         console.log(data);
         this.isSuccessful = true;

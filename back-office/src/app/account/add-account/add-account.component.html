@@ -1,0 +1,99 @@
+<mat-toolbar>
+    <span>
+        Add Account</span>
+    <span class="fill-remaining-space"></span>
+    <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1">
+        <mat-icon>clear</mat-icon>
+    </button>
+</mat-toolbar><br><br>
+<div class="container ">
+    <div class="col-md-12">
+        <form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+            <div class="form-group">
+                <input type="text" class="form-control" name="username" [(ngModel)]="form.username" required
+                    placeholder="username" minlength="3" maxlength="20" #username="ngModel" />
+                <div class="msg" *ngIf="  (!f.submitted) && username.errors && username.invalid  && username.touched ">
+                    <div *ngIf="username.errors.required">Username is required</div>
+                    <div *ngIf="username.errors.minlength">
+                        Username must be at least 3 characters
+                    </div>
+                    <div *ngIf="username.errors.maxlength">
+                        Username must be at most 20 characters
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="email" class="form-control" name="email" [(ngModel)]="form.email" required email
+                    placeholder="email" #email="ngModel" />
+                <div class="msg" *ngIf="email.errors && (!f.submitted)  && email.invalid  && email.touched">
+                    <div *ngIf="email.errors.required">Email is required</div>
+                    <div *ngIf="email.errors.email">
+                        Email must be a valid email address
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="fiscaleCode" class="form-control" name="fiscaleCode" [(ngModel)]="form.fiscaleCode"
+                    placeholder=" fiscale code" required fiscaleCode #fiscaleCode="ngModel" />
+                <div class="msg"
+                    *ngIf="fiscaleCode.errors && (!f.submitted)  && fiscaleCode.invalid  && fiscaleCode.touched">
+                    <div *ngIf="fiscaleCode.errors.required">FiscaleCode is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <input type="password" class="form-control" [type]="fieldTextType ? 'text' : 'password'"
+                        name="password" [(ngModel)]="form.password" required minlength="6" placeholder="password"
+                        #password="ngModel" />
+                    <span class="input-group-text">
+                        <i class="fa" [ngClass]="{
+                      'fa-eye-slash': !fieldTextType,
+                      'fa-eye': fieldTextType }" (click)="toggleFieldTextType()"></i>
+                    </span>
+
+                </div>
+                <div class="msg" *ngIf="password.errors && (!f.submitted) && password.invalid  && password.touched">
+                    <div *ngIf="password.errors.required">Password is required</div>
+                    <div *ngIf="password.errors.minlength">
+                        Password must be at least 6 characters
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <input type="password" [type]="fieldTextType2 ? 'text' : 'password'" class="form-control"
+                        placeholder="confirm password" name="matchingPassword" placeholder=" confirm password"
+                        [(ngModel)]="form.matchingPassword" required #matchingPassword="ngModel" />
+                    <span class="input-group-text">
+                        <i class="fa" [ngClass]="{
+                      'fa-eye-slash': !fieldTextType2,
+                      'fa-eye': fieldTextType2 }" (click)="toggleFieldTextType2()"></i>
+                    </span>
+                </div>
+                <div class="msg"
+                    *ngIf="(!f.submitted) &&  matchingPassword.errors && matchingPassword.invalid  &&  matchingPassword.touched">
+                    <div>Confirm Password is required</div>
+                </div>
+            </div>  
+           <!--<div class="form-group">
+               <select class="form-control" name="groups" id="groups-select"(change)="onChangeGroup($event)" >
+                <option>select the group</option>
+                <option *ngFor="let group of groups" [value]="group.id"
+                  [attr.selected]="data.groupId == group.id ? true : null">
+                  {{ group.name }}
+                </option>
+              </select>
+              </div>-->
+            <div class="container">
+                <div class="button-row">
+                    <button mat-raised-button color="primary" type="submit" (click)="onrelod()">
+                        <mat-icon>save</mat-icon> Save
+                    </button>
+                    <button mat-raised-button mat-dialog-close>
+                        <mat-icon>close</mat-icon>Cancel
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

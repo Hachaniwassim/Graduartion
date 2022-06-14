@@ -38,16 +38,14 @@ export class GroupeListComponent implements OnInit {
   searchKey!: string;
   showspinner = false;
   currentGroupe: any;
-  groupes: any;
-  result: any;
   company: List<CompanyBusinessDTO> = [];
   datasource = new MatTableDataSource(this.groupe)
   displayedColumns: string[] = ['name', 'maxOperateur','groupStatus', 'createdDate', 'lastModifiedDate', 'actions'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort, {}) sort!: MatSort;
   message!: string;
-  constructor(private _snackBar: MatSnackBar, private dialog: MatDialog, private groupeService: GroupeService, private dialogService: DialogService, private companyService: CompanybusinessService,
-   private route: ActivatedRoute, public router: Router, public _location: Location) {
+  constructor(private _snackBar: MatSnackBar, private dialog: MatDialog, private groupeService: GroupeService, private companyService: CompanybusinessService,
+  public router: Router, public _location: Location) {
     this.groupeData = {} as GroupeDTO;
   }
 
@@ -109,7 +107,7 @@ export class GroupeListComponent implements OnInit {
   onDeleteGroupe(id: number) {
 
     Swal.fire({
-      title: 'Are you sure to delete this groupe !?',
+      title: 'Are you sure to delete this group !?',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonText: 'Yes',
@@ -120,7 +118,7 @@ export class GroupeListComponent implements OnInit {
           .subscribe(
             response => {
               console.log(response);
-              Swal.fire('Deleted!','All Groupe  was Deleted successfully.','success');
+              Swal.fire('Deleted!','All Group  was Deleted successfully.','success');
               if (result.dismiss === Swal.DismissReason.cancel) {
               }
               // snackBar success 

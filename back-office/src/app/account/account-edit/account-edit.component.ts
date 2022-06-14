@@ -18,11 +18,8 @@ import { RoleDTO } from 'src/app/models/dto/roleDTO';
   styleUrls: ['./account-edit.component.css'],
 })
 export class AccountEditComponent implements OnInit {
-
   roleSelected = null;
-
   account: AccountDTO[] = [];
-  acc!: AccountDTO;
   public roleservices: RoleDTO[] = [];
   private subscriptions: Subscription[] = [];
   datasource = new MatTableDataSource(this.account);
@@ -33,7 +30,6 @@ export class AccountEditComponent implements OnInit {
     public Accountservice: Accountservice,
     private roleService: RoleService,
     private notificationService: NotificationService,
-    private route: ActivatedRoute,
     public router: Router,
     public _location: Location,
     public dialogRef: MatDialogRef<AccountEditComponent>,
@@ -113,11 +109,6 @@ export class AccountEditComponent implements OnInit {
               };
           });
         }
-        // this.Accountservice.update(this.Accountservice.form.value).subscribe(
-        //   () => {
-        //     this.notificationService.success(':: Submitted successfully');
-        //   }
-        // );
 
       }
       if (
@@ -194,9 +185,6 @@ export class AccountEditComponent implements OnInit {
         this.router.navigate([decodeURI(this._location.path())]);
       });
   }
-
-  //close matdialog
-
 
 
 }

@@ -1,34 +1,10 @@
-<br><br>
+
 <div id="wrapper">
-  <div class="content-page">
-    <div class="content">
-      <h4>Products List</h4><mat-divider></mat-divider><br>
-      <div class="card">
-        <br><br>  
-        <div class="container">
-        <div class="row">
-          <div class="col-xs-6 col-md-3" *ngFor="let product of listPrducts">
-            <div class="card">
-              <div class="wrapper">
-                <img class="card-img-top img-fluid" class="card-img-top" src="{{product.image}}" alt="Card image cap">
-                </div><br>
-                <div class="card-body">
-                <mat-icon>schedule</mat-icon> {{product.createdDate | date:'short'}} <div class="float-right">
-                  <button  (click)="onEdite(product)"  mat-icon-button ><mat-icon>edit_outline</mat-icon></button>&nbsp;&nbsp;
-                  <button mat-icon-button (click)="onDeleteProduct(product.id)"><mat-icon color="warn">close</mat-icon>
-               </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      </div>
-  </div>
-</div>
-<div class="content">
-  <h4> Add Product</h4><mat-divider></mat-divider><br>
+<div class="content-page">
+<div class="content"><br><br>
+  <h4> Add Product</h4><br>
   <div class="card">
-        <div class="container"> 
+        <div class="container"> <br>
           <form [formGroup]="productService.form" class="normal-form" class="normal-form">
             <mat-form-field appearance="outline">
               <mat-label> Title *</mat-label>
@@ -83,73 +59,35 @@
             <button mat-raised-button color="primary" *ngIf="!isEditeMode" [disabled]="productService.form.invalid" (click)="onAddProduct()" class="float-right">
               <mat-icon>save</mat-icon> Save
             </button> 
-           <button  *ngIf="isEditeMode"   (click)="onUpdate()" mat-raised-button class="float-right" ><mat-icon>edit_outline</mat-icon> update </button>&nbsp;&nbsp;
+           <button  *ngIf="isEditeMode"   mat-raised-button color="primary" (click)="onUpdate()" mat-raised-button class="float-right"  ><mat-icon>edit_outline</mat-icon> update </button>&nbsp;&nbsp;
             <br><br>
           </form>
         </div>
       </div>
-      <br>
-      
+      </div>
+          <div class="content"><br>
+            <h4>Products List</h4><br>
+            <div class="card">
+              <br><br>  
+              <div class="container">
+              <div class="row">
+                <div class="col-xs-6 col-md-3" *ngFor="let product of listPrducts">
+                  <div class="card">
+                    <div class="wrapper">
+                      <img class="card-img-top img-fluid" class="card-img-top" src="{{product.image}}" alt="Card image cap">
+                      </div><br>
+                      <div class="card-body">
+                      <mat-icon>schedule</mat-icon> {{product.createdDate | date:'short'}} <div class="float-right">
+                        <button  (click)="onEdite(product)"  mat-icon-button ><mat-icon>edit_outline</mat-icon></button>&nbsp;&nbsp;
+                        <button mat-icon-button (click)="onDeleteProduct(product.id)"><mat-icon color="warn">close</mat-icon>
+                     </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
 
 
 
-
-
-
-
-
-
-
-
-
-  <!--- <div class="col-md-12 col-sm-12 "><br><br>
-                <button mat-flat-button color="primary" data-bs-toggle="modal" data-bs-target="#exampleModal" id="pills-description-tab" data-toggle="pill" href="#pills-description" role="tab" aria-controls="pills-description" aria-expanded="true"> <mat-icon>add</mat-icon> Add Product
-                </button>&nbsp;
-            </div> 
-<div class="modal fade bd-example-modal-xl"  id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-aria-hidden="true">
-<div class="modal-dialog" >
-<div class="modal-content" style="background-color: white;width: 800px;">
-<div class="modal-header">
-<h5  class="modal-title" id="exampleModalLabel">Add Product</h5><mat-divider></mat-divider><br>
-<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-</div>
-<div class="modal-body">
-<form  enctype="multipart/form-data" >
-<div class="form-group">
-<label class="form-label">Product Name</label>
-<input type="text"  class="form-control" formControlName="name" required/>
-</div>
-<div class="form-group">
-<label class="form-label">category</label>
-<ng-select
-[items]="category"
-bindLabel="name"
-[multiple]="true"
-[(ngModel)]="selected">
-</ng-select>
-</div>
-<div class="form-group">
-<label  class="form-label">Image</label><mat-divider></mat-divider><br>
-<input type="file" class="form-control"  formControlName="image"/>
-</div>
-<div class="mb-3">
-<label  class="form-label"> Caracteristiques *</label><mat-divider></mat-divider><br>
-<ckeditor   formControlName="caracteristique" class="w-10 col-12"  [config]='config'></ckeditor>
-</div>
-<div class="mb-3">
-<label lass="form-label"> Requirements *</label><mat-divider></mat-divider><br>
-<ckeditor   formControlName="requirments" class="w-10 col-12"  [config]='config'></ckeditor>
-</div>
-<div class="mb-3">
-<label>Description *  </label><br>
-<mat-divider></mat-divider><br>
-<ckeditor  formControlName="description" class="w-10 col-12"  [config]='config' ></ckeditor>
-</div>
-<div class="container" align="center">
-<button mat-flat-button color="primary">Save
-</button>&nbsp;
-<button mat-raised-button  data-bs-dismiss="modal" aria-label="Close"color="gray">canncel</button>
-</div>
-
-</form>-->

@@ -69,6 +69,7 @@ import { ChoiseEntrepriseComponent } from './choise-entreprise/choise-entreprise
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LogoComponent } from './logo/logo.component';
 import { CompanyAddComponent } from './companybusiness/company-add/company-add.component';
+import { AddAccountComponent } from './account/add-account/add-account.component';
 
 
 @NgModule({
@@ -125,6 +126,7 @@ import { CompanyAddComponent } from './companybusiness/company-add/company-add.c
     ChoiseEntrepriseComponent,
     DashboardComponent,
     LogoComponent,
+    AddAccountComponent,
     
   ],
   imports: [

@@ -1,10 +1,13 @@
 <div id="wrapper" [hidden]="!isLoggedIn">
 
     <!-- Top Bar Start -->
-    <div class="topbar" *ngIf="(isLoggedIn && entrepriseSelected && showAdminBoard) || (isLoggedIn && showModeratorBoard)">
+    <div class="topbar" *ngIf="(isLoggedIn && entrepriseSelected && showAdminBoard) || (isLoggedIn && ! entrepriseSelected && showModeratorBoard)">
         <!-- LOGO -->
         <div class="topbar-left">
                 <span class="logo-light">
+                        <a><img src="../../assets/images/igesa.png" alt="Logo" style="width: 61%;" /></a>
+                   
+                    
                      </span>
         </div>
         <nav class="navbar-custom">

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { privacyDTO } from '../models/dto/privacyDTO';
 import { Privacyservice } from '../_services/privacy.service';
 
 @Component({
@@ -7,13 +8,19 @@ import { Privacyservice } from '../_services/privacy.service';
   styleUrls: ['./privacy-policy.component.css']
 })
 export class PrivacyPolicyComponent implements OnInit {
-  public privacylist: any = [];
+  public pageInfos !: privacyDTO;
   constructor( private privacyservice : Privacyservice) { }
 
   ngOnInit(): void {
-    this.privacyservice. getallPrivacy().subscribe(
-      res => this.privacylist = res
-    );
+    this.getPageInfo();
   }
-
+  
+  async getPageInfo() {
+    await this.privacyservice.getallPrivacy()
+      .subscribe((res: any) => {
+        this.pageInfos=res[0]
+        console.log("==========================> test",this.pageInfos)     
+        
+    });
+  }
 }

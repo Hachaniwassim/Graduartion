@@ -40,7 +40,7 @@ export class AuthService {
      
     }
   
-    register(username: string, email: string, password: string, matchingPassword:string ,
+    create(username: string, email: string, password: string, matchingPassword:string ,
       fiscaleCode:string): Observable<any> {
       return this.http.post(AUTH_API + '/signup', {
         username,

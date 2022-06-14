@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -10,8 +10,8 @@ import { DialogService } from 'src/app/shared/dialog.service';
 import { Accountservice } from 'src/app/_services/account.service';
 import { Location } from '@angular/common';
 import { AccountEditComponent } from '../account-edit/account-edit.component';
-import { AccountViewComponent } from '../account-view/account-view.component';
 import Swal from 'sweetalert2';
+import { AddAccountComponent } from '../add-account/add-account.component';
 
 @Component({
   selector: 'app-account-list',
@@ -50,7 +50,8 @@ export class AccountListComponent implements OnInit {
     private Accountservice: Accountservice,
     private route: ActivatedRoute,
     public router: Router,
-    public _location: Location
+    public _location: Location,
+    public dialogRef: MatDialogRef<AddAccountComponent>
   ) {
     this.accountData = {} as AccountDTO;
   }
@@ -154,4 +155,19 @@ export class AccountListComponent implements OnInit {
       }
     });
   }
+
+
+   /***************************
+  *  Dialog Config For create 
+  */
+    onCreate() {
+      const dialogConfig = new MatDialogConfig();
+      dialogConfig.disableClose = true;
+      dialogConfig.autoFocus = true;
+      dialogConfig.width = "60%";
+      this.dialog.open(AddAccountComponent, dialogConfig);
+      // this.datasource.data.push(result)
+  
+    }
+    
 }

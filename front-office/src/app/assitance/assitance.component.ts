@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Page3DTO } from '../models/dto/page3DTO';
+import { Assistanceservice } from '../_services/assistance.service';
 
 @Component({
   selector: 'app-assitance',
@@ -7,9 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AssitanceComponent implements OnInit {
 
-  constructor() { }
 
-  ngOnInit(): void {
-  }
+  constructor( private assistanceservice : Assistanceservice) { }
 
+  
+ pageInfos !: Page3DTO;
+
+
+
+ ngOnInit(): void {
+   this.getPagesInfo();
+   }
+
+
+ async getPagesInfo() {
+   
+   await this.assistanceservice.getassistanceByEntreprise()
+     .subscribe((res: any) => {
+       this.pageInfos=res[0];
+       console.log("==========================> test",this.pageInfos)     
+       
+   });
+ }
 }

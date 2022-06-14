@@ -118,7 +118,7 @@ export class HomenewslistComponent implements OnInit {
   ***********************************************************/
 
   config = {
-    height: 700,
+    height: 850,
 
     image: {
       // Configure the available styles.

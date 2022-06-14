@@ -2,6 +2,7 @@ package it.igesa.services.implement;
 import it.igesa.config.EmailService;
 import it.igesa.dto.AccountDTO;
 import it.igesa.domaine.Account;
+import it.igesa.enumerations.ERole;
 import it.igesa.payload.request.ChangePasswordRequest;
 import it.igesa.enumerations.AccountStatus;
 import it.igesa.enumerations.ErrorCode;
@@ -20,6 +21,8 @@ import javax.mail.MessagingException;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+
+import static it.igesa.enumerations.ERole.ROLE_ADMIN;
 
 /**
  *
@@ -41,7 +44,7 @@ public class AccountImp implements IauthService {
 
     //====================== Add Account ===============================//
     public AccountDTO save(AccountDTO account) {
-        //account.setAccountStatus(AccountStatus.PENDING);
+        account.setAccountStatus(AccountStatus.PENDING);
         Account saved = userRepository.save(AccountDTO.toEntity(account));
         return AccountDTO.fromEntity(saved);
     }

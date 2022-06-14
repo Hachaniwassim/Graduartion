@@ -61,7 +61,10 @@ const routes: Routes = [
   //home
 
     { path: 'choiseentreprise',component: ChoiseEntrepriseComponent, canActivate: [AuthGuard] ,},
-     {path:'dashboard', component:DashboardComponent,canActivate: [AuthGuard]},{ path: 'products', loadChildren: () => import('./products/products.module').then(m => m.ProductsModule) , canActivate: [AuthGuard]},
+    
+     {path:'dashboard', component:DashboardComponent,canActivate: [AuthGuard]},
+     
+     { path: 'products', loadChildren: () => import('./products/products.module').then(m => m.ProductsModule) , canActivate: [AuthGuard]},
     
       { path: 'category', loadChildren: () => import('./category/category.module').then(m => m.CategoryModule), canActivate: [AuthGuard] },
     
@@ -70,11 +73,11 @@ const routes: Routes = [
       //configurations
       { path: 'configurations', loadChildren: () => import('./configurations/configurations.module').then(m => m.ConfigurationsModule), canActivate: [AuthGuard] },
       //contact
-      { path: 'support', loadChildren: () => import('./pages/support/support.module').then(m => m.SupportModule) },
+      { path: 'support', loadChildren: () => import('./pages/support/support.module').then(m => m.SupportModule),canActivate: [AuthGuard]  },
       //lien utiles
       { path: 'liens-utiles', loadChildren: () => import('./liens-utiles/liens-utiles.module').then(m => m.LiensUtilesModule), canActivate: [AuthGuard] },
       //cookies
-      { path: 'biscuits', loadChildren: () => import('./biscuits/biscuits.module').then(m => m.BiscuitsModule) },
+      { path: 'biscuits', loadChildren: () => import('./biscuits/biscuits.module').then(m => m.BiscuitsModule), },
      
       //Positioning Web
       { path: "posactuality", component: PosactualityComponent, canActivate: [AuthGuard] },
@@ -130,7 +133,7 @@ const routes: Routes = [
       { path: 'groupe', loadChildren: () => import('./groupe/groupe.module').then(m => m.GroupeModule), canActivate: [AuthGuard] },
     
     
-      { path: 'entreprise', loadChildren: () => import('./entreprise/entreprise.module').then(m => m.EntrepriseModule), canActivate: [AuthGuard] },
+      { path: 'enterprise', loadChildren: () => import('./entreprise/entreprise.module').then(m => m.EntrepriseModule), canActivate: [AuthGuard] },
     
     
       { path: 'tags', loadChildren: () => import('./tags/tags.module').then(m => m.TagsModule), canActivate: [AuthGuard] },

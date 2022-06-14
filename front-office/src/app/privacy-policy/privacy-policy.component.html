@@ -13,115 +13,91 @@
         </div>
     </div>
 </div>	
-	<!-- Start Slider Area -->
-    <section id="slider_area">
-        <div >
-
+		<!-- Start Slider Area -->
+        <section id="slider_area">
+            <div class="slider_active owl-carousel">
+                <div class="slider_item1 single_slide">
+                    <div class="container">	
+                        <div class="single-slide-item-table">
+                            <div class="single-slide-item-tablecell">
+                            <div class="slider_content slider-animated-1">
+                                    <h2 class="animated"> <span>Advanced</span> Software <span>Solutions</span> </h2>
+                                    <br>
+                                    <a href="#" class="animated btn main_bg_btn">learn more</a>
+                                </div>	
+                            </div>
+                        </div>						
+                    </div>
+                </div>
+                
+                <div class="slider_item2 single_slide">
+                    <div class="container">		
+                        <div class="single-slide-item-table">
+                            <div class="single-slide-item-tablecell">
+                                <div class="slider_content text-center slider-animated-2">
+                                    <h2 class="animated"> <span>E-Commerce </span> Click&Collect</h2>
+                                    <span class="sl_heading animated">The online showcase for your business</span>
+                                    <br>
+                                    <a href="#" class="animated btn main_bg_btn">learn more</a>
+                                </div>	
+                            </div>
+                        </div>	
+                    </div>
+                </div>
+    
+                <div class="slider_item3 single_slide text-right">
+                    <div class="container">
+                        <div class="single-slide-item-table">
+                            <div class="single-slide-item-tablecell">
+                                <div class="slider_content slider-animated-3">
+                                    <h2 class="animated"> <span>Foodmanager the </span>Software software </h2>
+                                    <span class="sl_heading animated">for your Food outlets</span>
+                                    <br>
+                                    <a href="#" class="animated btn main_bg_btn">learn more</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider_active owl-carousel">
+                    <div class="slider_item4 single_slide">
+                        <div class="container">	
+                            <div class="single-slide-item-table">
+                                <div class="single-slide-item-tablecell">
+                                    <div class="slider_content slider-animated-1">
+                                        <h2 class="animated"> The software<span> solution </span> for your <span>business</span>  </h2>
+                                        <span class="sl_heading animated">Magazine, Accounting, Invoicing</span>
+                                        <br>
+                                        <a href="#" class="animated btn main_bg_btn">learn more</a>
+                                    </div>	
+                                </div>
+                            </div>						
+                        </div>
+                    </div>
+                    </div>
+            </div>
             
-
-            <div class="slider_item3 single_slide text-right">
+        </section>
+    
+        <section id="about_area" class="section_padding bg_white">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-xs-12 text-center wow fadeIn" data-wow-delay=".1s">
+                        <div class="section_title">
+                            <h2><span>  {{pageInfos.title}} </span></h2>
+                            <div class="sec_divider"></div>
+                        </div>
+                    </div>
+                </div>
+                <div>
                 <div class="container">
-                    <div class="single-slide-item-table">
-                        <div class="single-slide-item-tablecell">
-                            <div class="slider_content slider-animated-3">
-                                <span class="sl_heading animated">About</span>
-                                <h2 class="animated"> <span>Discover</span> Them</h2>
-                                <p class="animated">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mattis congue ipsum eu ultricies  Vivamus <br />  viverra tortor tincidunt placerat eleifend  Nulla</p>
+                        <p class="small text-muted"></p>
+                        <div class="container p-3">
+                            <div class="row">
+                                <div class="col-12" [innerHTML]="pageInfos.htmlContent"></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- End Slider Area -->
-    
-    
-    <!-- Start About Area -->
-    <section id="about_area" class="section_padding bg_white">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12 col-xs-12 text-center wow fadeIn" data-wow-delay=".1s">
-                    <div class="section_title">
-                        <h2>Privacy     <span>Policy</span></h2>
-                        <div class="sec_divider"></div>
-                    </div>
-                </div>
-            </div>
-                
-				<div  *ngFor="let privacy of privacylist">		
-                <div class="container">
-                    <!-- Stack the columns on mobile by making one full-width and the other half-width -->
-                    <p class="small text-muted">{{privacy.htmlContent}}</p>
-
-                    <!-- <p>Igesa s.r.l con sede in Capo d’Orlando (ME), Via Consolare Antica n.308 in qualità di titolare del trattamento dei dati personali ai sensi del d. lgs. 196/2003 e successive modifiche e del Regolamento UE 679/2016 intende informala delle modalità di gestione del sito www.igesa.it in riferimento al trattamento dei dati personali degli utenti che lo consultano.</p>
-                
-                    <p>La presente Privacy Policy, si intende resa solo per il sito www.igesa.it mentre non si applica ad altri siti web eventualmente consultati tramite link esterni, ed è da intendersi quale Informativa resa ai sensi dell’art. 13 della Normativa Applicabile a coloro che interagiscono con il Sito; si conforma alla Raccomandazione n. 2/2001 relativa ai requisiti minimi per la raccolta di dati on-line nell’Unione Europea, adottata il 17 maggio 2001 dal Gruppo di Lavoro Articolo 29.
-                        Il trattamento dei suoi i dati personali sarà improntato ai principi di liceità, correttezza, trasparenza, limitazione delle finalità e della conservazione, minimizzazione dei dati, esattezza, integrità e riservatezza. I suoi dati personali verranno pertanto trattati in accordo alle disposizioni legislative della Normativa Applicabile e degli obblighi di riservatezza ivi previsti.</p>
-
-                    <p>
-                        1.    TITOLARE
-                        Titolare del trattamento del Sito è Igesa s.r.l. con sede in Capo d’Orlando (ME), Via Consolare Antica n.308.</p>
-
-                    <p>2.    DATI PERSONALI OGGETTO DI TRATTAMENTO
-                        Per “Dati Personali” si intende qualsiasi informazione riguardante una persona fisica identificata o identificabile con particolare riferimento a un identificativo come il nome, un numero di identificazione, dati relativi all’ubicazione, un identificativo online o a uno o più elementi caratteristici della sua identità fisica, fisiologica, psichica, economica, culturale o sociale.</p>
-
-                    <p>I Dati Personali raccolti dal Sito sono i seguenti:
-                        a.    I sistemi informatici del Sito raccolgono alcuni Dati Personali la cui trasmissione è implicita nell’uso dei protocolli di comunicazione di Internet. Si tratta di informazioni che non sono raccolte per essere associate a te, ma che per loro stessa natura potrebbero, attraverso elaborazioni ed associazioni con dati detenuti da terzi, permettere di identificarti. Tra questi ci sono gli indirizzi IP o i nomi a dominio dei dispositivi utilizzati per connettersi al Sito, gli indirizzi in notazione URI (Uniform Resource Identifier) delle risorse richieste, l’orario della richiesta, il metodo utilizzato nel sottoporre la richiesta al server, la dimensione del file ottenuto in risposta, il codice numerico indicante lo stato della risposta data dal server (buon fine, errore, ecc.) ed altri parametri relativi al tuo sistema operativo e ambiente informatico.
-                        Questi dati vengono utilizzati al fine di ricavare informazioni statistiche anonime sull’uso del Sito e per controllarne il corretto funzionamento; per permettere – vista l’architettura dei sistemi utilizzati – la corretta erogazione delle varie funzionalità da te richieste, per ragioni di sicurezza e di accertamento di responsabilità in caso di ipotetici reati informatici ai danni del Sito o di terzi e vengono cancellati dopo 7 giorni.</p>
-
-                    <p>b.    Dati forniti volontariamente
-                        Attraverso il Sito ha la possibilità di fornire volontariamente Dati Personali come il nome e l’indirizzo e-mail per l’iscrizione all’area clienti. Nell’ area relativa sono disponibili specifiche informative in merito al trattamento dei suoi dati.</p>
-
-                    <p>c.    Cookie e tecnologie affini
-                        Igesa s.r.l raccoglie Dati Personali attraverso cookies. Maggiori informazioni sull’uso dei cookie e tecnologie affini sono disponibili qui Cookie Policy (mettere link).</p>
-
-                    <p>3.     FINALITA’, BASE GIURIDICA E NATURA OBBLIGATORIA O FACOLTATIVA DEL TRATTAMENTO
-                        I Dati Personali che fornisce attraverso il Sito saranno trattati da Igesa s.r.l. per le seguenti finalità:</p>
-                
-                    <p>a)    finalità inerenti l’esecuzione di un contratto di cui sei parte o all’esecuzione di misure precontrattuali adottate su tua richiesta (es: richiesta di contatto tramite il modulo Contatti);</p>
-
-                    <p>b)    finalità di ricerche/analisi statistiche su dati aggregati o anonimi, senza dunque possibilità di identificare l’utente, volti a misurare il funzionamento del Sito, misurare il traffico e valutare usabilità e interesse;</p>
-                
-                    <p>c)    finalità relative all’adempimento di un obbligo legale;
-
-                    </p>
-
-                    <p>d)    finalità necessarie ad accertare, esercitare o difendere un diritto in sede giudiziaria o ogniqualvolta le autorità giurisdizionali esercitino le loro funzioni giurisdizionali;
-                        La base legale del trattamento di Dati Personali per le finalità di cui al punto a) è l’erogazione di un servizio o il riscontro ad una richiesta che non richiedono il consenso ai sensi della Normativa Applicabile. Il conferimento dei suoi Dati Personali per la finalità sopra elencate è facoltativo, ma il loro eventuale mancato conferimento potrebbe rendere impossibile riscontrare una sua richiesta o adempiere ad un obbligo legale a cui il titolare è soggetto.</p>
-                
-                    <br>
-                    
-                    <p>4.    DESTINATARI
-                        I suoi Dati Personali potranno essere comunicati a soggetti autorizzati da Igesa s.r.l. per l’erogazione di servizi offerti dal sito all’uopo nominate responsabili del trattamento.</p>
-                
-                    <p>5.    CONSERVAZIONE DEI DATI 
-                        Igesa s.r.l. tratterà i suoi Dati Personali per il tempo strettamente necessario a raggiungere gli scopi indicati al punto 3. </p>
-
-                        <p>6.    TRASFERIMENTO ALL’ESTERO DEI TUOI DATI
-                            Potremmo avere bisogno di trasferire i tuoi dati a fornitori di servizi di Paesi non appartenenti allo Spazio economico europeo (SEE).
-                            In tal caso ci assicureremo che i tuoi dati siano correttamente e adeguatamente protetti.
-                            Facciamo sempre in modo che ci sia un contratto che disciplini il trasferimento dei dati tra le parti, nel rispetto di quanto previsto dalle vigenti decisioni della Commissione Europea. Se lo Stato non ha leggi equivalenti in materia di protezione dati e privacy, richiediamo alle terze parti di sottoscrivere un contratto secondo gli standard del SEE, conforme alla Decisione della Commissione Europea del 5 febbraio 2010. 
-                            Il Paese terzo cui Igesa può trasferire i dati personali è la Tunisia.</p>
-                
-                            <p>7.    I SUOI DIRITTI
-                                Nella sua qualità d’interessato, ha i diritti di cui all’art. 7 Codice Privacy e artt. 15 e ss. GDPR, e precisamente i diritti di:
-                                a)    ottenere dal titolare del trattamento la conferma che sia o meno in corso un trattamento di dati personali che lo riguardano e in tal caso, di ottenere l’accesso ai dati personali e alle seguenti informazioni: le finalità del trattamento; le categorie di dati personali in questione; i destinatari o le categorie di destinatari a cui i dati personali sono stati o saranno comunicati, in particolare se destinatari di paesi terzi o organizzazioni internazionali; quando possibile, il periodo di conservazione dei dati personali previsto oppure, se non è possibile, i criteri utilizzati per determinare tale periodo; qualora i dati non siano raccolti presso l’interessato, tutte le informazioni disponibili sulla loro origine; l’esistenza di un processo decisionale automatizzato, compresa la profilazione, e, almeno in tali casi, informazioni significative sulla logica utilizzata, nonché l’importanza e le conseguenze previste di tale trattamento per l’interessato;
-                                b)    Ottenere dal titolare del trattamento la rettifica dei dati personali inesatti che lo riguardano senza ingiustificato ritardo. Tenuto conto delle finalità del trattamento, l’interessato ha il diritto di ottenere l’integrazione dei dati personali incompleti, anche fornendo una dichiarazione integrativa;
-                                c)    Ottenere dal titolare del trattamento la cancellazione dei dati personali che lo riguardano senza ingiustificato ritardo, se sussiste uno dei motivi seguenti: a) i dati personali non sono più necessari rispetto alle finalità per le quali sono stati raccolti o altrimenti trattati; b) l’interessato revoca il consenso su cui si basa il trattamento conformemente all’articolo 6, paragrafo 1, lettera a), o all’articolo 9, paragrafo 2, lettera a), e se non sussiste altro fondamento giuridico per il trattamento;
-                                c) l’interessato si oppone al trattamento ai sensi dell’articolo 21, paragrafo 1, e non sussiste alcun motivo legittimo prevalente per procedere al trattamento, oppure si oppone al trattamento ai sensi dell’articolo 21, paragrafo 2; d) i dati personali sono stati trattati illecitamente; e) i dati personali devono essere cancellati per adempiere un obbligo legale previsto dal diritto dell’Unione o dello Stato membro cui è soggetto il titolare del trattamento; f) i dati personali sono stati raccolti relativamente all’offerta di servizi della società dell’informazione di cui all’articolo 8, paragrafo 1;
-                                d)    Ottenere dal titolare del trattamento la limitazione del trattamento quando ricorre una delle seguenti ipotesi: a) l’interessato contesta l’esattezza dei dati personali, per il periodo necessario al titolare del trattamento per verificare l’esattezza di tali dati personali; b) il trattamento è illecito e l’interessato si oppone alla cancellazione dei dati personali e chiede invece che ne sia limitato l’utilizzo; c) benché il titolare del trattamento non ne abbia più bisogno ai fini del trattamento, i dati personali sono necessari all’interessato per l’accertamento, l’esercizio o la difesa di un diritto in sede giudiziaria; d) l’interessato si è opposto al trattamento ai sensi dell’articolo 21, paragrafo 1, in attesa della verifica in merito all’eventuale prevalenza dei motivi legittimi del titolare del trattamento rispetto a quelli dell’interessato;
-                                e)    Ricevere in un formato strutturato, di uso comune e leggibile da dispositivo automatico i dati personali che lo riguardano forniti a un titolare del trattamento e trasmettere tali dati a un altro titolare del trattamento senza impedimenti da parte del titolare del trattamento cui li ha forniti qualora: a) il trattamento si basi sul o su un contratto b) il trattamento sia effettuato con mezzi automatizzati. Nell’esercitare i propri diritti relativamente alla portabilità dei dati l’interessato ha il diritto di ottenere la trasmissione diretta dei dati personali da un titolare del trattamento all’altro, se tecnicamente fattibile;
-                                f)    Opporsi in qualsiasi momento, per motivi connessi alla sua situazione particolare, al trattamento dei dati personali che lo riguardano ai sensi dell’articolo 6, paragrafo 1, lettere e) o f), compresa la profilazione sulla base di tali disposizioni. Qualora i dati personali siano trattati per finalità di marketing diretto, l’interessato ha il diritto di opporsi in qualsiasi momento al trattamento dei dati personali che lo riguardano effettuato per tali finalità, compresa la profilazione nella misura in cui sia connessa a tale marketing diretto;
-                                g)    Diritto di non essere sottoposto a una decisione basata unicamente sul trattamento automatizzato, compresa la profilazione, che produca effetti giuridici che lo riguardano o che incida in modo analogo significativamente sulla sua persona;
-                                h)    Diritto di proporre reclamo a un’autorità di controllo;</p>
-                                <p>Le richieste vanno rivolte via e-mail all’indirizzo: <a href="privacy@igesa.it">privacy@igesa.it</a> 
-                                </p>
-                                -->
-                        </div>
-                    </div>
-    
-        </div>
-    </section>
-    <!-- End About Area -->
-       
+        </section>

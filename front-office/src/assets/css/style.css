@@ -111,7 +111,7 @@ ul, ol{
 
 .loader {
   position: relative;
-  width: 75px;
+  width: 100px;
   height: 100px;
 }
 .loader__bar {
@@ -546,6 +546,8 @@ ul, ol{
 	display: inline-block;
 }
 .section_title p {
+
+
 	margin-top: 10px;
 }
 .section_title span {
@@ -603,7 +605,10 @@ ul, ol{
 }
 .logo_area {
 	float: left;
+	margin-left: 60;
+  position: absolute;
 }
+
 .logo_area img{
 	margin-left: 0;
 }
@@ -613,11 +618,11 @@ ul, ol{
     width: 100%;
 }
 #main_menu{
-	margin-top: 10px;
+	margin-top: 20px;
 }
 
 .nav > li {
-	padding: 7px 12px;
+	padding: 6px 12px;
 	border: 1px solid transparent;
 	transition: .5s;
 }
@@ -652,7 +657,7 @@ ul, ol{
 	float: right;
 	margin-right: 15px;
 	padding: 9px 10px;
-	margin-top: 19px;
+	margin-top: 25px;
 	margin-bottom: 0;
 }
 .navbar-toggle .icon-bar{
@@ -1133,7 +1138,7 @@ ul, ol{
     text-align: center;
     overflow: hidden;
     position: relative;
-	box-shadow: 0 0 3px #ddd;
+	box-shadow: 0 0 1px #ddd;
 }
 .our-team img{
     width: 100%;
@@ -1142,7 +1147,7 @@ ul, ol{
 .our-team .team-content {
 	width: 100%;
 	background: #16A2E8;
-	padding: 15px 0 10px 0;
+	padding: 15px 0 12px 0;
 	position: absolute;
 	bottom: 0;
 	left: 0;
@@ -1702,7 +1707,7 @@ ul, ol{
 /*----- Footer css -----*/
 
 #footer_area{
-	background-image: linear-gradient(to right, #16A2E8 0%, #12D8FA 100%);
+	background-image: linear-gradient(to right, #e3ecf0 0%, #06364d 100%);
 	padding: 30px 0;
 	width: 100%;
 	color: #fff;

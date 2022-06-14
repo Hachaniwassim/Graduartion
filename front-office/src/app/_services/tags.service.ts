@@ -14,14 +14,14 @@ import { TagsDTO } from '../models/dto/TagsDTO';
 export class TagsSerice {
 
   //api backend
-  private base_url= environment.publicApi +"/tags";
+  private base_url= environment.publicApi +"/tags-public";
   
   constructor(private http :HttpClient) { }
 
 
 //get all data 
 getAlltags():Observable<TagsDTO>{
-   return this.http.get<TagsDTO>(this.base_url);
+   return this.http.get<TagsDTO>(this.base_url + '/list-tags/' + environment.enterpriseId);
 }
 
   // get tags by id

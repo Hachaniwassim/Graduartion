@@ -39,7 +39,7 @@ export class WhoareweComponent implements OnInit {
    ***********************************************************/
 
   config = {
-    height: 700,
+    height: 600,
     language: 'en'
   };
 

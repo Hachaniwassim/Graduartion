@@ -1,13 +1,10 @@
-export interface postDTO{
-    id?:number ;
-	image? : string;
-    tagline? : string;
-    postTranslations? : string;
-    title? : string;
-    description ? : string;
-    content ? : string;
-    slug ? : string;
-    createdDate :   Date;
-    lastModifiedDate: Date; 
-    subtitle ? : string;
+import { environment } from "src/environments/environment";
+
+export class postDTO{
+    id!:number ;
+	title! : string;
+    htmlContent!:string;
+    createdDate !:   Date;
+    lastModifiedDate!: Date; 
+    entrepriseId=environment.enterpriseId;
 }

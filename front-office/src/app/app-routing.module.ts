@@ -17,13 +17,16 @@ import { AssitanceComponent } from "./assitance/assitance.component";
 import { ProfileComponent } from "./profile/profile.component";
 import { AuthGuard } from './guard/auth.guard';
 import { PostulsellerComponent } from "./postulseller/postulseller.component";
+import { NwesListComponent } from './nwes-list/nwes-list.component';
+import { CategoryComponent } from './category/category.component';
+import { RefrenceComponent } from './refrence/refrence.component';
 
 
-const routes : Routes =[
+const routes: Routes = [
 
- 
-  
-  { path : "home", component : HomeComponent},
+
+
+  { path: "home", component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'resetpassword', component: ResetpasswordComponent },
   { path: 'register', component: RegisterComponent },
@@ -48,18 +51,26 @@ const routes : Routes =[
 
   { path: 'privacypolicy', component: PrivacyPolicyComponent },
 
+  { path: 'nwes', component: NwesListComponent },
+
   { path: 'assistance', component: AssitanceComponent },
 
-  { path: 'profile', component: ProfileComponent , canActivate: [AuthGuard] },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
 
-  { path: 'postulseller', component: PostulsellerComponent , canActivate: [AuthGuard] },
+  {path : 'category', component : CategoryComponent},
+
+  {path : 'refrence', component : RefrenceComponent},
+
+  { path: 'postulseller', component: PostulsellerComponent, canActivate: [AuthGuard] },
+
+
 
 
   // 404 not found
   { path: '**', component: NotfoundComponent },
 
 ]
-  
+
 
 @NgModule({
   declarations: [
@@ -71,6 +82,6 @@ const routes : Routes =[
     FormsModule,
     CommonModule
   ],
-  exports :[RouterModule,MaterialModule]
+  exports: [RouterModule, MaterialModule]
 })
 export class AppRoutingModule { }

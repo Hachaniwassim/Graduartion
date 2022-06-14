@@ -1,9 +1,18 @@
-export interface categoryDTO{
-    id?:number ;
-	image? : string;
-    title? : string;
-    description? : string;
-    menuimage? : string;
+
+
+/**
+ * @author Wassim Haachani
+ */
+
+export class categoryDTO{
+    id!:number ;
+	image !: string;
+    title !: string;
+    description!: string;
+    menuimage!: string;
     bannerimage ? : string;
-    status ? : string;
+    subtitle !: string;
+    createdDate !: string;
+    lastModifiedDate ? : string;
+    enterpriseId !:number;
 }

@@ -1,102 +1,55 @@
-	  
-    <!-- START PRELOADER -->
-<div class="preloader">
-  <div class="status">
-      <div class="status-mes">
-          <div class="loader">
-              <div class="loader__bar"></div>
-              <div class="loader__bar"></div>
-              <div class="loader__bar"></div>
-              <div class="loader__bar"></div>
-              <div class="loader__bar"></div>
-              <div class="loader__ball"></div>
-          </div>
-      </div>
-  </div>
-</div>	
 <!-- Start Slider Area -->
-  <section id="slider_area">
-      <div >
+<section id="slider_area">
+  <div>
+    <div class="slider_item3 single_slide text-right">
+      <div class="container">
+        <div class="single-slide-item-table">
+          <div class="single-slide-item-tablecell">
+            <div class="slider_content slider-animated-3">
+              <span class="sl_heading animated">Product details</span>
+              <h2 class="animated"> <span>Discover</span> Them</h2>
 
-          
-
-          <div class="slider_item3 single_slide text-right">
-              <div class="container">
-                  <div class="single-slide-item-table">
-                      <div class="single-slide-item-tablecell">
-                          <div class="slider_content slider-animated-3">
-                              <span class="sl_heading animated">Product details</span>
-                              <h2 class="animated"> <span>Discover</span> Them</h2>
-                              <p class="animated">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mattis congue ipsum eu ultricies  Vivamus <br />  viverra tortor tincidunt placerat eleifend  Nulla</p>
-                          </div>
-                      </div>
-                  </div>
-              </div>
+            </div>
           </div>
-      </div>
-  </section>
-  <!-- End Slider Area -->
-  
-    <!-- backtotop - start -->
-      <div id="thetop"></div>
-      <div class="backtotop">
-          <a routerLink="/products" (click)="reloadPage()" class="scroll">
-              <i class="fa fa-arrow-up"></i>
-          </a>
-      </div>
-      <!-- backtotop - end -->   
-
-<div class="ftco-blocks-cover-1" >
-<div class="ftco-cover-1 overlay innerpage" style="background-image: url('assets/images/plan17.jpg')">
-  <div class="container">
-    <div class="row align-items-center justify-content-center">
-      <div class="col-lg-6 text-center">
-      
-        <h1>Our For Rent Cars</h1>
-       
-        <h3 align="center"  style="color:rgb(223, 223, 223)">Find Your Own Raod A Car For Everyone</h3>
-
+        </div>
       </div>
     </div>
   </div>
-</div>
-</div>
-
-<main>
-<div class="site-section">
+</section>
+<section id="work_area" class="our_works_area section_padding section_gray">
   <div class="container">
     <div class="row">
-      <div class="col-lg-6 mb-5 mb-lg-0 order-lg-2">
-        <img [src]="product?.image" width="200" class="rounded-circle">
-      </div>
-      <div class="col-lg-4 mr-auto">
-        <h3><a href="#"> product?.title</a></h3>
-        <div class="rating">
-          <span class="icon-star text-warning"></span>
-          <span class="icon-star text-warning"></span>
-          <span class="icon-star text-warning"></span>
-          <span class="icon-star text-warning"></span>
-          <span class="icon-star text-warning"></span>
+      <div class="col-sm-12 col-xs-12 text-center wow fadeIn" data-wow-delay=".1s">
+        <div class="section_title">
+          <h2> Product <span> Details</span></h2>
+          <div class="sec_divider"></div>
         </div>
-        <br>
-        <span> {{ product?.detailimage}}</span>
-     <br>
-          <span>note : </span>
-          <span class="spec">$   {{ product?.note}} </span>
-        <br>
-          <span> name : </span>
-          <span class="spec">      {{ product?.name }}   </span>
-       <br>
-       <br>
-       <span> consultationNumber : </span>
-       <span class="spec">       {{ product?.consultationNumber }}   </span>
-       <br>
-       <br>
+      </div>
+    </div>
+    <div class="row"><br>
+      <div class="about_icon" align="center">
+        <img [src]="product.image" style="width: 370px;">
+      </div>
+      <div class="about_content"><br>
+        <h3 align="center">
+          {{product.title}}
+        </h3>
+        <p align="center">
+          {{product.name}}
+
+        </p>
+        <br><br>
+      </div>
+    </div>
+    <div class="container p-3">
+      <div class="row">
+        <div class="col-12" [innerHTML]="product.caracteristique"></div>
+      </div>
+    </div><br><br>
+    <div class="container p-3">
+      <div class="row">
+        <div class="col-12" [innerHTML]="product.requirements"></div>
       </div>
     </div>
   </div>
-</div>
-
-
-</main>
-<br><br><br>
+</section>

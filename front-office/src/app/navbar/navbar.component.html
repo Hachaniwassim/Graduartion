@@ -6,13 +6,13 @@
 		<header id="header">
 			<div class="container">	
 				<div class="row">			
-					<div class="col-md-4 col-sm-3">
-						<!-- Logo Area -->
+					<div class="col-md-4 col-sm-1">
+						<!-- Logo Area --->
 						<div class="logo_area">
-							 <a href="index.html"><img src="../../assets/img/igesa.png" alt="Logo" style="width: 41%;" /></a>
+							 <a><img src="../../assets/img/mss2.png" alt="Logo" style="width: 37%;" /></a>
 						</div>
 						
-						 <div class="navbar-header">
+						<div class="navbar-header">
 							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 								<span class="sr-only">Toggle navigation</span>
 								<span class="icon-bar"></span>
@@ -22,8 +22,6 @@
 						</div> 
 						
 					</div>
-				
-					<!-- Main Menu Area -->
 					<div class="col-md-13 col-sm-13">
 						<nav id="main_menu" class="navbar-right">
 							<div id="navbar" class="navbar-collapse collapse">
@@ -32,14 +30,38 @@
 									<li><a (click)="reloadPage()"  routerLink="/about">About</a></li>
 									<li><a (click)="reloadPage()"   routerLink="/sellers">Our Sellers</a></li>
 									<li><a (click)="reloadPage()"  routerLink="/products">Products</a></li>
-									<li><a (click)="reloadPage()"  routerLink="/usefulllinks" >Usefull Links</a></li>	
+									<li><a (click)="reloadPage()"  routerLink="/category" >Category</a></li>
+									<li><a (click)="reloadPage()"  routerLink="/usefulllinks" >Links</a></li>	
+									<li><a (click)="reloadPage()"  routerLink="/assistance" >Assistance</a></li>
+									<li><a (click)="reloadPage()"  routerLink="/refrence" >Reference</a></li>
+								    <li><a (click)="reloadPage()"  routerLink="/nwes" >Nwes</a></li>
 									<li><a (click)="reloadPage()"  routerLink="/contact">Contact</a></li>
+									
 									<li>        
 										<a routerLink="/login" *ngIf="!isLoggedIn"> 
-											<i class="fa fa-lock"></i> Login / Register</a> 
+											<i class="fa fa-lock"></i>Login/Register</a> 
 										<a  *ngIf="isLoggedIn"> 
-											<i class="fa fa-lock"></i> {{username}}</a> 
-									</li>
+											<i class="fa fa-lock"></i> {{username}}
+										</a> 
+										<li *ngIf="isLoggedIn" class="dropdown notification-list list-inline-item">
+											<a class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="#"
+												role="button" aria-haspopup="false" aria-expanded="false"> {{username}} <span
+													class="mdi mdi-chevron-down"></span>
+											</a>
+											<div class="dropdown-menu dropdown-menu-right profile-dropdown ">
+												<!-- item-->
+												<a class="dropdown-item" routerLink="/profile"><i class="mdi mdi-account-circle"></i> Profile</a>
+												<a class="dropdown-item d-block" routerLink="/postulseller"><span
+														class="badge badge-success float-right">11</span><i class="mdi mdi-settings"></i>
+													Apply to be seller</a>
+												<a class="dropdown-item text-danger" (click)="logout()"><i class="mdi mdi-power text-danger"></i>
+													Logout</a>
+											</div>
+						
+										</li>
+
+									
+									
 								</ul>
 							</div>
 						</nav>
